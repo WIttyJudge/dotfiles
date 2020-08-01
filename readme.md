@@ -9,7 +9,7 @@ Install stow and git with the PM your linux uses.
 e.g. apt in Ubuntu linux.
 
 ```
-$ sudo apt install stow git -y
+$ sudo apt install -y stow git
 ```
 
 ## Usage
