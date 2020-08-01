@@ -1,5 +1,4 @@
-wittyjudge's configuration files
--------------------------
+# Dotfiles
 
 ## Requirement
 
