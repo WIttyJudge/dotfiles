@@ -3,7 +3,7 @@ wittyjudge's configuration files
 
 ## Requirement
 
-I used (GNU Stow)[https://www.gnu.org/software/stow/] for creating
+I used [GNU Stow](https://www.gnu.org/software/stow) for creating
 a symlinks to files.
 
 Install stow and git with the PM your linux uses.
