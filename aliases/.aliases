@@ -1,5 +1,8 @@
 alias s="sudo "
 
+# git
+alias g="git "
+
 # directory
 alias cdd="cd ~/Desktop "
 alias ll.='ls -dl .* --color=auto'
