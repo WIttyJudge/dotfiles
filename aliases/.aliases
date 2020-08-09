@@ -1,0 +1,13 @@
+alias s="sudo "
+
+# directory
+alias cdd="cd ~/Desktop "
+alias ll.='ls -dl .* --color=auto'
+
+# zsh
+alias zshconfig="sudo vim ~/.zshrc"
+alias ohmyzsh="sudo vim ~/.oh-my-zsh"
+
+# docker
+alias d="docker "
+alias dc="docker-compose "

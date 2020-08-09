@@ -1,0 +1,10 @@
+function test() {
+    echo "test1"
+    echo "test2"
+}
+
+function acp() {
+    git add . 
+    git commit -m "commit"
+    git push
+}
