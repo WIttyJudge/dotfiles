@@ -17,7 +17,15 @@ $ sudo apt install -y stow git
 ```
 $ git clone https://github.com/WIttyJudge/dotfiles
 $ cd dotfiles
-$ stow *
+$ sudo bash setup.sh
 ```
+
+```
+$ git clone https://github.com/WIttyJudge/dotfiles
+$ cd dotfiles
+$ stow -v -R zsh
+```
+
+-v just means verbose so we can see what it is doing. -R tells stow to purge old links first making sure to clean up old references. -t ~ is the target, or where this stow should be installed to. finally, we specify the directory git for what directory we are installing.
 
 After this, restart session.
