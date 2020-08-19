@@ -1,9 +1,7 @@
 #!/usr/bin/env bash
 
-if [ "$(whoami)" != "root" ]; then
-	echo "You have to run this script as the root user"
-	exit 1
-fi
+# Am I root?
+[ "$EUID" -ne 0 ] && echo "You have to run this script as the root user" && exit 1
 
 List=( 
 	git
