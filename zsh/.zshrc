@@ -23,5 +23,6 @@ plugins=(
 
 source $ZSH/oh-my-zsh.sh
 
-source $HOME/dotfiles/aliases/.aliases
-source $HOME/dotfiles/aliases/.functions
+apwd=$(pwd)
+source $apwd/aliases/.aliases
+source $apwd/aliases/.functions
