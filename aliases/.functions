@@ -5,6 +5,6 @@ function test() {
 
 function acp() {
     git add . 
-    git commit -m "commit"
+    git commit -m "Auto Commit"
     git push origin master
 }
