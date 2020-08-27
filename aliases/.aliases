@@ -2,14 +2,20 @@ alias s="sudo "
 
 # git
 alias g="git "
+alias gs="git status"
+alias ga="git add"
+alias gc="git commit"
+alias gp="git push"
 
 # directory
 alias cdd="cd ~/Desktop "
+alias ll="ls -la"
 alias ll.='ls -dl .* --color=auto'
 
 # zsh
 alias zshconfig="sudo vim ~/.zshrc"
 alias ohmyzsh="sudo vim ~/.oh-my-zsh"
+alias reload-zsh="source ~/.zshrc"
 
 # docker
 alias d="docker "
