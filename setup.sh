@@ -12,7 +12,8 @@ echo "//////////////////////////////////////////////////////////////////////////
 read -n 1 -r -s -p $'/////////////////////// Press any key to continue ///////////////////////////\n\n'
 
 # List of directory names with dotfiles we need to setup
-List=( 
+List=(
+	bash
 	git
 	neofetch
 	profile
