@@ -15,7 +15,9 @@ alias ll.='ls -dl .* --color=auto'
 # zsh
 alias zshconfig="sudo vim ~/.zshrc"
 alias ohmyzsh="sudo vim ~/.oh-my-zsh"
-alias reload-zsh="source ~/.zshrc"
+
+# reload
+alias reload-zshrc="source ~/.zshrc && echo 'zshrc reloaded'"
 
 # docker
 alias d="docker "
