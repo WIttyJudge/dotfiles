@@ -149,6 +149,21 @@ bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
+# #---Function Buttons---# #
+bindsym $mod+F1		exec --no-startup-id amixer -q sset Master toggle
+bindsym $mod+F2		exec --no-startup-id amixer -q sset Master 3%-
+bindsym $mod+F3		exec --no-startup-id amixer -q sset Master 3%+
+#bindsym $mod+F4	exec --no-startup-id 
+#bindsym $mod+F5	exec --no-startup-id 
+#bindsym $mod+F6	exec --no-startup-id 
+#bindsym $mod+F7	exec --no-startup-id 
+#bindsym $mod+F8	exec --no-startup-id 
+#bindsym $mod+F9	exec --no-startup-id 
+#bindsym $mod+F10	exec --no-startup-id 
+#bindsym $mod+F11	exec --no-startup-id
+#bindsym $mod+F12	exec --no-startup-id
+#bindsym $mod+Shift+F1	exec --no-startup-id 
+
 # resize window (you can also use the mouse for that)
 mode "resize" {
         # These bindings trigger as soon as you enter the resize mode
