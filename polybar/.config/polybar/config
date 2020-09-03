@@ -72,8 +72,8 @@ font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
 font-2 = siji:pixelsize=10;1
 
 modules-left = bspwm i3
-; modules-center = 
-modules-right = volume memory cpu wlan eth battery date
+modules-center = memory cpu
+modules-right = volume wlan eth battery date
 
 tray-position = right
 tray-padding = 2
@@ -236,8 +236,8 @@ card = intel_backlight
 [module/cpu]
 type = internal/cpu
 interval = 2
-format-prefix = " "
-format-prefix-foreground = ${colors.foreground-alt}
+format-prefix = "CPU: "
+format-prefix-foreground = ${colors.white}
 format-underline = #f90000
 label = %percentage:2%%
 
@@ -246,8 +246,8 @@ label = %percentage:2%%
 [module/memory]
 type = internal/memory
 interval = 2
-format-prefix = " "
-format-prefix-foreground = ${colors.foreground-alt}
+format-prefix = "Mem: "
+format-prefix-foreground = ${colors.white}
 format-underline = #4bffdc
 label = %percentage_used%%
 
