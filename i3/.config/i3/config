@@ -195,7 +195,7 @@ bindsym $mod+r mode "resize"
 # }
 
 # Start desktop wallpaper
-exec_always --no-startup-id feh --bg-fill ~/Picture/wallpaper.jpg
+exec_always --no-startup-id feh --randomize --bg-fill ~/Picture/wallpapers/*
 
 # Polybar Launch Script
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
