@@ -47,6 +47,8 @@ primary = #ffb52a
 secondary = #e60053
 alert = #bd2c40
 
+==========================================================
+
 [bar/default]
 ;monitor = ${env:MONITOR:HDMI-1}
 width = 100%
@@ -99,12 +101,14 @@ cursor-scroll = ns-resize
 ==========================================================
 
 [module/xwindow]
+;https://github.com/polybar/polybar/wiki/Module:-xwindow
 type = internal/xwindow
 label = %title:0:30:...%
 
 ==========================================================
 
 [module/pacman-updates]
+;https://github.com/polybar/polybar/wiki/Module:-script
 type = custom/script
 interval = 1000
 exec = pacman -Qu | wc -l
@@ -114,6 +118,7 @@ format-prefix = " "
 ==========================================================
 
 [module/xkeyboard]
+;https://github.com/polybar/polybar/wiki/Module:-xkeyboard
 type = internal/xkeyboard		
 
 ; List of indicators to ignore
@@ -135,6 +140,7 @@ label-indicator-underline = ${colors.secondary}
 ==========================================================
 
 [module/filesystem]
+;https://github.com/polybar/polybar/wiki/Module:-filesystem
 type = internal/fs
 
 mount-0 = /
@@ -163,6 +169,7 @@ label-unmounted = %mountpoint% not mounted
 ==========================================================
 
 [module/bspwm]
+;https://github.com/polybar/polybar/wiki/Module:-bspwm
 type = internal/bspwm
 
 label-focused = %index%
@@ -187,6 +194,7 @@ label-empty-padding = 2
 ==========================================================
 
 [module/i3]
+;https://github.com/polybar/polybar/wiki/Module:-i3
 type = internal/i3
 format = <label-state> <label-mode>
 index-sort = true
@@ -226,6 +234,7 @@ label-urgent-padding = 2
 ==========================================================
 
 [module/mpd]
+;https://github.com/polybar/polybar/wiki/Module:-mpd
 type = internal/mpd
 format-online = <label-song>  <icon-prev> <icon-stop> <toggle> <icon-next>
 
@@ -258,6 +267,7 @@ bar-empty-foreground = ${colors.foreground-alt}
 ==========================================================
 
 [module/backlight-acpi]
+;https://github.com/polybar/polybar/wiki/Module:-xbacklight
 inherit = module/xbacklight
 type = internal/backlight
 card = intel_backlight
@@ -265,6 +275,7 @@ card = intel_backlight
 ==========================================================
 
 [module/cpu]
+;https://github.com/polybar/polybar/wiki/Module:-cpu
 type = internal/cpu
 
 ; Available tags:
@@ -286,6 +297,7 @@ ramp-load-4 = 
 ==========================================================
 
 [module/memory]
+;https://github.com/polybar/polybar/wiki/Module:-memory
 type = internal/memory
 
 interval = 3
@@ -297,6 +309,7 @@ label = %percentage_used%%
 ==========================================================
 
 [module/wlan]
+;https://github.com/polybar/polybar/wiki/Module:-network
 type = internal/network
 interface = wlp3s0
 interval = 3.0
@@ -321,6 +334,7 @@ ramp-signal-foreground = ${colors.foreground-alt}
 ==========================================================
 
 [module/eth]
+;https://github.com/polybar/polybar/wiki/Module:-network
 type = internal/network
 interface = enp2s0
 interval = 3.0
@@ -339,6 +353,7 @@ format-disconnected =
 ==========================================================
 
 [module/date]
+;https://github.com/polybar/polybar/wiki/Module:-date
 type = internal/date
 
 interval = 1.0
@@ -362,6 +377,7 @@ format-prefix-foreground = ${colors.foreground-alt}
 ==========================================================
 
 [module/alsa]
+;https://github.com/polybar/polybar/wiki/Module:-alsa
 type = internal/alsa
 
 format-volume = <ramp-volume> <label-volume>
@@ -385,6 +401,7 @@ ramp-headphones-1 = 
 ==========================================================
 
 [module/battery]
+;https://github.com/polybar/polybar/wiki/Module:-battery
 type = internal/battery
 full-at = 99
 
@@ -421,6 +438,7 @@ animation-charging-framerate = 750
 ==========================================================
 
 [module/temperature]
+;https://github.com/polybar/polybar/wiki/Module:-temperature
 type = internal/temperature
 thermal-zone = 0
 warn-temperature = 60
@@ -442,6 +460,7 @@ ramp-foreground = ${colors.foreground-alt}
 ==========================================================
 
 [module/powermenu]
+;https://github.com/polybar/polybar/wiki/Module:-menu
 type = custom/menu
 
 expand-right = true
