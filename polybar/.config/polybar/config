@@ -15,7 +15,7 @@
 ;==========================================================
 
 [global/wm]
-;https://github.com/polybar/polybar/wiki/Configuration
+;https://github.com/jaagr/polybar/wiki/Configuration#global-wm-settings
 margin-top = 5
 margin-bottom = 5
 
@@ -24,12 +24,16 @@ include-file = ~/.config/polybar/colors
 ==========================================================
 
 [settings]
+;https://github.com/jaagr/polybar/wiki/Configuration#application-settings
+throttle-output = 5
+throttle-output-for = 10
+throttle-input-for = 30
 screenchange-reload = true
-;compositing-background = xor
-;compositing-background = screen
-;compositing-foreground = source
-;compositing-border = over
-;pseudo-transparency = false
+compositing-background = over
+compositing-foreground = over
+compositing-overline = over
+compositing-underline = over
+compositing-border = over
 
 ==========================================================
 
@@ -37,8 +41,6 @@ screenchange-reload = true
 ;monitor = ${env:MONITOR:HDMI-1}
 width = 100%
 height = 27
-;offset-x = 1%
-;offset-y = 1%
 fixed-center = false
 
 background = ${colors.background}
@@ -60,7 +62,7 @@ font-0 = "Misc Termsyn:size=16;1"
 font-1 = "Wuncon Siji:size=16;1"
 font-2 = "xos4 Terminus:size=16;2"
 
-modules-left = bspwm i3
+modules-left = i3 bspwm
 modules-center = memory cpu filesystem
 modules-right = pacman-updates xkeyboard alsa wlan eth battery date
 
