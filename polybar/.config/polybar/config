@@ -38,13 +38,20 @@ compositing-border = over
 ==========================================================
 
 [bar/top-bar]
+;https://github.com/jaagr/polybar/wiki/Configuration
 ;monitor = ${env:MONITOR:HDMI-1}
+
 width = 100%
-height = 27
-fixed-center = false
+height = 25
+
+bottom = false
+
+fixed-center = true
 
 background = ${colors.background}
 foreground = ${colors.foreground}
+
+border-bottom-size = 2
 
 line-size = 2
 line-color = #f00
@@ -52,34 +59,22 @@ line-color = #f00
 border-size = 2
 border-color = #00000000
 
-padding-left = 2
-padding-right = 2
+padding = 1
 
-module-margin-left = 1
-module-margin-right = 2
+module-margin = 1
 
 font-0 = "Misc Termsyn:size=16;1"
 font-1 = "Wuncon Siji:size=16;1"
 font-2 = "xos4 Terminus:size=16;2"
 
 modules-left = i3 bspwm
-modules-center = memory cpu filesystem
-modules-right = pacman-updates xkeyboard alsa wlan eth battery date
+modules-center = memory cpu filesystem pacman-updates
+modules-right = xkeyboard alsa wireless-network eth battery date
+
+;separator =  |
 
 tray-position = right
 tray-padding = 2
-;tray-background = #0063ff
-
-;wm-restack = bspwm
-;wm-restack = i3
-
-;override-redirect = true
-
-;scroll-up = bspwm-desknext
-;scroll-down = bspwm-deskprev
-
-;scroll-up = i3wm-wsnext
-;scroll-down = i3wm-wsprev
 
 cursor-click = pointer
 cursor-scroll = ns-resize
@@ -148,7 +143,7 @@ format-mounted-prefix = 
 ;   %free%
 ;   %used%
 ; Default: %mountpoint% %percentage_free%%
-label-mounted = " %used%"
+label-mounted = " %used% (%percentage_used%%)"
 
 label-unmounted = %mountpoint% not mounted
 
@@ -294,7 +289,7 @@ label = %percentage_used%%
 
 ==========================================================
 
-[module/wlan]
+[module/wireless-network]
 ;https://github.com/polybar/polybar/wiki/Module:-network
 type = internal/network
 interface = wlp3s0
@@ -322,19 +317,11 @@ ramp-signal-foreground = ${colors.foreground-alt}
 [module/eth]
 ;https://github.com/polybar/polybar/wiki/Module:-network
 type = internal/network
-interface = enp2s0
+interface = enp3s0
 interval = 3.0
 
-format-connected-underline = #55aa55
-format-connected-prefix = " "
-format-connected-prefix-foreground = ${colors.foreground-alt}
-label-connected = %local_ip%
-
-format-disconnected =
-;format-disconnected = <label-disconnected>
-;format-disconnected-underline = ${self.format-connected-underline}
-;label-disconnected = %ifname% disconnected
-;label-disconnected-foreground = ${colors.foreground-alt}
+format-connected = <label-connected>
+label-connected = %signal%
 
 ==========================================================
 
