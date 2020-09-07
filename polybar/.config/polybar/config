@@ -126,7 +126,7 @@ type = internal/fs
 
 mount-0 = /
 
-interval = 30
+interval = 20
 
 fixed-values = true
 
