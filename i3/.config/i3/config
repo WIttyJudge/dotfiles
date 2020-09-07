@@ -60,8 +60,9 @@ bindsym $mod+Shift+j move down
 bindsym $mod+Shift+k move up
 bindsym $mod+Shift+l move right
 
-bindsym $mod+apostrophe split horizontal
-bindsym $mod+slash; split vertical
+# Split orientation
+bindsym $mod+apostrophe split horizontal; exec notify-send 'tile horizontally' 
+bindsym $mod+slash; split vertical; exec notify-send 'tile vertical'
 
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
@@ -182,9 +183,9 @@ mode "resize" {
 # }
 
 # Set language keyboard
-exec "setxkbmap -layout us,ru"
+exec_always --no-startup-id setxkbmap -layout us,ru
 # Set hotkey changing the language keyboard
-exec "setxkbmap -option 'grp:alt_shift_toggle'"
+exec_always --no-startup-id setxkbmap -option 'grp:alt_shift_toggle'
 
 # Set desktop wallpaper
 exec_always --no-startup-id feh --randomize --bg-fill ~/Picture/wallpapers/*
