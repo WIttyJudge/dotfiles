@@ -94,7 +94,6 @@ type = custom/script
 interval = 1000
 exec = pacman -Qu | wc -l
 label =  %output% Updates
-format-prefix = " "
 
 ==========================================================
 
@@ -387,37 +386,23 @@ ramp-headphones-1 = 
 [module/battery]
 ;https://github.com/polybar/polybar/wiki/Module:-battery
 type = internal/battery
-full-at = 99
 
-; Use the following command to list batteries and adapters:
-; $ ls -1 /sys/class/power_supply/
-battery = BAT1
-adapter = ACAD
+battery = BAT0
+adapter = AC
+
+full-at = 99
 
 time-format = %H:%M
 
-label-charging = %percentage%%
-format-charging = <bar-capacity>
-format-charging-prefix = " "
+label-full = %percentage%%
+format-full =  <label-full>
+
+label-charging = %percentage%% (%time%)
+format-charging = <label-charging>
+format-charging-prefix = 
 
 label-discharging = %percentage%% (%time%)
-format-discharging = <ramp-capacity> <label-discharging>
-
-format-full-prefix = " "
-format-full-underline = ${self.format-charging-underline}
-
-ramp-capacity-0 = 
-ramp-capacity-1 = 
-ramp-capacity-2 = 
-ramp-capacity-3 = 
-ramp-capacity-4 = 
-
-animation-charging-0 = 
-animation-charging-1 = 
-animation-charging-2 = 
-animation-charging-3 = 
-animation-charging-4 = 
-animation-charging-framerate = 750
+format-discharging = <label-discharging>
 
 ==========================================================
 
