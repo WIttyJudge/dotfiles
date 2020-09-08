@@ -94,7 +94,6 @@ type = custom/script
 interval = 1000
 exec = pacman -Qu | wc -l
 label =  %output% Updates
-format-prefix = " "
 
 ==========================================================
 
@@ -402,8 +401,7 @@ label-charging = %percentage%% (%time%)
 format-charging = <label-charging>
 format-charging-prefix = 
 
-
-label-discharging = %percentage%% %time%
+label-discharging = %percentage%% (%time%)
 format-discharging = <label-discharging>
 
 ==========================================================
