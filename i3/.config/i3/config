@@ -139,9 +139,9 @@ bindsym Shift+Print exec gnome-screenshot -i
 # Specific Workspace Settings
 # exec --no-startup-id i3-msg 'workspace number $ws2; exec /usr/bin/code; exec $terminal'
 
-bindsym $mod+Pause mode "$mode_system"
+# Set shut down, restart and locking features
+bindsym $mod+Delete mode "$mode_system"
 set $mode_system System (l) lock, (e) logout, (s) suspend, (r) reboot, (Shift+s) shutdown
-
 mode "$mode_system" {
         bindsym l exec --no-startup-id i3exit lock, mode "default"
         bindsym e exec --no-startup-id i3exit logout, mode "default"
