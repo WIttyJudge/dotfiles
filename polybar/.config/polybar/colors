@@ -9,6 +9,16 @@
 ;==========================================================
 
 [colors]
+primary = #ffb52a
+secondary = #e60053
+
+background = #231F20
+background-alt = #444
+
+foreground = #dfdfdf
+foreground-alt = #555
+
+
 black = ${xrdb:color0:#1d2021}
 darkred = ${xrdb:color1:#cc241d}
 darkgreen = ${xrdb:color2:#98971a}
@@ -25,10 +35,3 @@ blue = ${xrdb:color12:#83a598}
 magenta = ${xrdb:color13:#d3869b}
 cyan = ${xrdb:color14:#8ec07c}
 white = ${xrdb:color15:#ebdbb2}
-background = #231F20
-background-alt = #444
-foreground = #dfdfdf
-foreground-alt = #555
-primary = #ffb52a
-secondary = #e60053
-alert = #bd2c40

@@ -1,7 +1,9 @@
 # i3 config file (v4)
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 
+# Set mod key (Mod1=<Alt>, Mod4=<Super>)
 set $mod Mod4
+
 set $terminal terminator
 
 # Font for window titles. Will also be used by the bar unless a different font
@@ -139,9 +141,9 @@ bindsym Shift+Print exec gnome-screenshot -i
 # Specific Workspace Settings
 # exec --no-startup-id i3-msg 'workspace number $ws2; exec /usr/bin/code; exec $terminal'
 
-bindsym $mod+Pause mode "$mode_system"
+# Set shut down, restart and locking features
+bindsym $mod+Delete mode "$mode_system"
 set $mode_system System (l) lock, (e) logout, (s) suspend, (r) reboot, (Shift+s) shutdown
-
 mode "$mode_system" {
         bindsym l exec --no-startup-id i3exit lock, mode "default"
         bindsym e exec --no-startup-id i3exit logout, mode "default"
