@@ -69,7 +69,7 @@ modules-left = i3 bspwm
 modules-center = memory cpu filesystem pacman-updates
 modules-right = xkeyboard alsa wireless-network eth battery date
 
-;separator =  |
+separator =  |
 
 tray-position = right
 tray-padding = 2
