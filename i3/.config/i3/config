@@ -189,9 +189,9 @@ mode "resize" {
 # }
 
 # Set language keyboard
-exec_always --no-startup-id setxkbmap -layout us,ru
+exec --no-startup-id setxkbmap -layout us,ru
 # Set hotkey changing the language keyboard
-exec_always --no-startup-id setxkbmap -option 'grp:alt_shift_toggle'
+exec --no-startup-id setxkbmap -option 'grp:alt_shift_toggle'
 
 # Set desktop wallpaper
 exec_always --no-startup-id feh --randomize --bg-fill ~/Picture/wallpapers/*
