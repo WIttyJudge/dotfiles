@@ -67,7 +67,7 @@ font-2 = "xos4 Terminus:size=16;2"
 
 modules-left = i3 bspwm
 modules-center = memory cpu filesystem pacman-updates
-modules-right = xkeyboard alsa wireless-network eth battery date
+modules-right = xkeyboard pulseaudio wireless-network eth battery date
 
 separator =  |
 
@@ -357,9 +357,9 @@ format-prefix-foreground = ${colors.foreground-alt}
 
 ==========================================================
 
-[module/alsa]
+[module/pulseaudio]
 ;https://github.com/polybar/polybar/wiki/Module:-alsa
-type = internal/alsa
+type = internal/pulseaudio
 
 format-volume = <ramp-volume> <label-volume>
 
