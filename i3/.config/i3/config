@@ -143,6 +143,7 @@ bindsym Shift+Print exec gnome-screenshot -i
 for_window [class="Chromium"] move to workspace $ws1
 for_window [class="code"] move to workspace $ws2
 for_window [class="TelegramDesktop|discord"] move to workspace $ws3
+for_window [class="Steam"] move to workspace $ws5
 
 # Set shut down, restart and locking features
 bindsym $mod+Delete mode "$mode_system"
