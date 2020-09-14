@@ -1,0 +1,7 @@
+#!/bin/zsh
+
+# This file should set commands and variables which should be set once or which don't need to be updated frequently:
+# 1. environment variables to configure tools (flags for compilation, data folder location, etc.)
+# 2. configuration which execute commands (like SCONSFLAGS="--jobs=$(( $(nproc) - 1 ))") as it may take some time to execute.
+
+export DOTFILES="$HOME/dotfiles"
