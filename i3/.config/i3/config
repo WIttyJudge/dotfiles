@@ -1,9 +1,9 @@
 # i3 config file (v4)
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 
+# #---Basic Definitions---# #
 # Set mod key (Mod1=<Alt>, Mod4=<Super>)
 set $mod Mod4
-
 set $terminal terminator
 
 # Font for window titles. Will also be used by the bar unless a different font
@@ -186,7 +186,6 @@ mode "resize" {
 }
 
 # #--Autostart--# #
-
 # Set language keyboard and hotkey to change it.
 exec --no-startup-id setxkbmap -layout us,ru -option 'grp:alt_shift_toggle'
 
