@@ -4,4 +4,6 @@
 # 1. environment variables to configure tools (flags for compilation, data folder location, etc.)
 # 2. configuration which execute commands (like SCONSFLAGS="--jobs=$(( $(nproc) - 1 ))") as it may take some time to execute.
 
+export EDITOR='vim'
+
 export DOTFILES="$HOME/dotfiles"
