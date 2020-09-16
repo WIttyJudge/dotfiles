@@ -17,7 +17,7 @@ $ sudo apt install -y stow git
 ```
 $ git clone https://github.com/WIttyJudge/dotfiles ~/
 $ cd dotfiles
-$ sudo bash setup.sh
+$ bash setup.sh
 ```
 
 After this, restart session.
