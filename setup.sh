@@ -17,7 +17,6 @@ folders=(
 	polybar
 	profile
 	terminator
-	zsh 
 )
 
 # GNU Stow is a symlink farm manager. https://www.gnu.org/software/stow
