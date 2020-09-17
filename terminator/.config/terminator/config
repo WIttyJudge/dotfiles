@@ -1,6 +1,15 @@
 [global_config]
   window_state = maximise
 [keybindings]
+[profiles]
+  [[default]]
+    background_color = "#231F20"
+    font = Consolas 10
+    foreground_color = "#b7b7b7"
+    show_titlebar = False
+    scrollback_infinite = True
+    palette = "#2e3436:#e04949:#4e9a06:#c4a000:#3465a4:#75507b:#06989a:#d3d7cf:#555753:#ef2929:#8ae234:#fce94f:#729fcf:#ad7fa8:#34e2e2:#eeeeec"
+    use_system_font = False
 [layouts]
   [[default]]
     [[[child1]]]
@@ -11,13 +20,3 @@
       parent = ""
       type = Window
 [plugins]
-[profiles]
-  [[default]]
-    background_color = "#231F20"
-    background_image = None
-    font = Consolas 10
-    foreground_color = "#b7b7b7"
-    palette = "#2e3436:#e04949:#4e9a06:#c4a000:#3465a4:#75507b:#06989a:#d3d7cf:#555753:#ef2929:#8ae234:#fce94f:#729fcf:#ad7fa8:#34e2e2:#eeeeec"
-    scrollback_infinite = True
-    use_system_font = False
-    show_titlebar = False
