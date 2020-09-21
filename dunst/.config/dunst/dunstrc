@@ -24,7 +24,7 @@
     sort = yes
 
     idle_threshold = 120
-    font = Monospace 14
+    font = Monospace 12
     line_height = 0
     markup = full
 
@@ -77,20 +77,20 @@
     # Otherwise the "#" and following would be interpreted as a comment.
     background = "#282828"
     foreground = "#928374"
-    timeout = 5
+    timeout = 2
     # Icon for notifications with low urgency, uncomment to enable
     #icon = /path/to/icon
 
 [urgency_normal]
     background = "#458588"
     foreground = "#ebdbb2"
-    timeout = 5
+    timeout = 3
 
 [urgency_critical]
     background = "#cc2421"
     foreground = "#ebdbb2"
     frame_color = "#fabd2f"
-    timeout = 0
+    timeout = 10
 
 # Every section that isn't one of the above is interpreted as a rules to
 # override settings for certain messages.
