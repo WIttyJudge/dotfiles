@@ -16,6 +16,8 @@ folders=(
 	neofetch
 	polybar
 	profile
+	ranger
+	sxiv
 	terminator
 )
 
