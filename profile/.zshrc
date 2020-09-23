@@ -30,5 +30,5 @@ plugins=(
 source $ZSH/oh-my-zsh.sh
 
 # Load the aliases and functions 
-source $HOME/dotfiles/aliases/.aliases
-source $HOME/dotfiles/aliases/.functions
+[ -f "${DOTFILES}/aliases/.aliases" ] && source "${DOTFILES}/aliases/.aliases"
+[ -f "${DOTFILES}/aliases/.aliases" ] && source "${DOTFILES}/aliases/.functions"

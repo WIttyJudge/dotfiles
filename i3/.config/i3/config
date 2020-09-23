@@ -10,7 +10,7 @@ set $inner_gaps 10
 set $outer_gaps 5
 
 # #---Gaps---# #
-for_window [class="^.*"] border pixel 2
+for_window [class="^.*"] border pixel 3
 gaps inner $inner_gaps
 gaps outer $outer_gaps
 
@@ -55,10 +55,8 @@ bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
 
 # toggle tiling / floating
-bindsym $mod+Shift+space floating toggle
-
-# change focus between tiling / floating windows
 bindsym $mod+space focus mode_toggle
+bindsym $mod+Shift+space floating toggle
 
 # focus the parent container
 bindsym $mod+a focus parent
@@ -126,7 +124,7 @@ bindsym $mod+F3		exec --no-startup-id amixer -q -D pulse set Master 5%+
 #bindsym $mod+Shift+F1	exec --no-startup-id 
 
 # #---Right side buttons---# #
-bindsym Print exec scrot ~/Picture/scheenshots/`date +%d-%m-%Y_%H:%M:%S`.png
+bindsym Print exec scrot ~/Picture/screenshots/`date +%d-%m-%Y_%H:%M:%S`.png
 bindsym Shift+Print exec gnome-screenshot -i
 
 # #--Assign--# #
