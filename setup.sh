@@ -11,6 +11,7 @@ read -n 1 -r -s -p $'/////////////////////// Press any key to continue /////////
 # List of directory names with dotfiles we need to setup
 folders=(
 	bash
+	dunst
 	git
 	i3
 	neofetch
