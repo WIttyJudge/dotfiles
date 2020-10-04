@@ -35,11 +35,12 @@ fi
 
 # root
 export GOROOT=/usr/local/go
-export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
+export PATH=$PATH:$GOROOT/bin
 
 # libs from golang
 export GOPATH=$HOME/golib
 export PATH=$PATH:$GOPATH/bin
 
 # my folder
-export GOPATH=$GOPATH:/home/witty/code
+export GOPATH=$HOME/code
+export PATH=$PATH:$GOPATH/bin

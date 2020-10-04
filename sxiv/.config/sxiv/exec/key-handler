@@ -1,22 +1,22 @@
 #!/bin/sh
 while read file
 do
-    case "$1" in
-		"w")
-			cp "$file" ~/Picture/wallpapers/wp.png &&
-			feh --bg-scale ~/Picture/wallpapers/wp.png &&
-			notify-send "$file moved to wallpapers" ;;
-		"r")
-			convert -rotate 90 "$file" "$file" ;;
-		"R")
-			convert -rotate -90 "$file" "$file" ;;
-		"y")
-			echo -n "$file" | xclip -selection clipboard &&
-			notify-send "$file copied to clipboard" ;;
-		"Y")
-			readlink -f "$file" | xclip -selection clipboard &&
-			notify-send "$(readlink -f "$file") copied to clipboard" ;;
-		"d")
-			[ "$(printf "Yes\\nNo" | dmenu -i -p "Delete $file?")" == "Yes" ] && rm "$file" && notify-send "$file deleted";;
-    esac
+  case "$1" in
+	"w")
+		cp "$file" ~/Picture/wallpapers/wp.png &&
+		feh --bg-scale ~/Picture/wallpapers/wp.png &&
+		notify-send "$file moved to wallpapers" ;;
+	"r")
+		convert -rotate 90 "$file" "$file" ;;
+	"R")
+		convert -rotate -90 "$file" "$file" ;;
+	"y")
+		echo -n "$file" | xclip -selection clipboard &&
+		notify-send "$file copied to clipboard" ;;
+	"Y")
+		readlink -f "$file" | xclip -selection clipboard &&
+		notify-send "$(readlink -f "$file") copied to clipboard" ;;
+	"d")
+		[ "$(printf "Yes\\nNo" | dmenu -i -p "Delete $file?")" == "Yes" ] && rm "$file" && notify-send "$file deleted";;
+  esac
 done

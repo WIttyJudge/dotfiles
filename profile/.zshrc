@@ -32,3 +32,6 @@ source $ZSH/oh-my-zsh.sh
 # Load the aliases and functions 
 [ -f "${DOTFILES}/aliases/.aliases" ] && source "${DOTFILES}/aliases/.aliases"
 [ -f "${DOTFILES}/aliases/.aliases" ] && source "${DOTFILES}/aliases/.functions"
+
+# Load RVM into a shell session as a function.
+[ -s "$HOME/.rvm/scripts/rvm" ] && source "$HOME/.rvm/scripts/rvm"
