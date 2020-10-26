@@ -134,20 +134,7 @@ for_window [class="code"] move to workspace $ws2
 for_window [class="TelegramDesktop|discord"] move to workspace $ws3
 for_window [class="Steam"] move to workspace $ws5
 
-# Set shut down, restart and locking features
-bindsym $mod+Delete mode "$mode_system"
-set $mode_system System (l) lock, (e) logout, (s) suspend, (r) reboot, (Shift+s) shutdown
-mode "$mode_system" {
-        bindsym l exec --no-startup-id i3exit lock, mode "default"
-        bindsym e exec --no-startup-id i3exit logout, mode "default"
-        bindsym s exec --no-startup-id i3exit suspend, mode "default"
-        bindsym r exec --no-startup-id i3exit reboot, mode "default"
-        bindsym Shift+s exec --no-startup-id i3exit shutdown, mode "default"
-
-        # back to normal: Enter or Escape
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
-}
+bindsym $mod+Delete exec "$(bash $DOTFILES/dmenu/dmenu-system.sh)"
 
 # resize window (you can also use the mouse for that)
 bindsym $mod+r mode "resize"

@@ -65,7 +65,7 @@ font-0 = "Misc Termsyn:size=16;1"
 font-1 = "Wuncon Siji:size=16;1"
 font-2 = "xos4 Terminus:size=16;2"
 
-modules-left = i3 bspwm
+modules-left = i3
 modules-center = memory cpu filesystem pacman-updates
 modules-right = xkeyboard pulseaudio wireless-network eth battery date
 
