@@ -3,30 +3,24 @@
 # |_  / __| '_ \| '__/ __|
 #  / /\__ \ | | | | | (__ 
 # /___|___/_| |_|_|  \___|
-                        
-# Path to your oh-my-zsh installation.
-export ZSH=$HOME/.oh-my-zsh
-ZSH_THEME="spaceship"
+#                       
 
-# Uncomment the following line to change how often to auto-update (in days).
-export UPDATE_ZSH_DAYS=10
+# load spaceship-prompt theme
+# https://github.com/denysdovhan/spaceship-prompt
+autoload -U promptinit; promptinit
+prompt spaceship
 
-# Which plugins would you like to load?
-# Standard plugins can be found in ~/.oh-my-zsh/plugins/*
-# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-# Add wisely, as too many plugins slow down shell startup.
-plugins=(
-	git
-	docker
-	docker-compose
-	# golang
-	# httpie
+# Automatically cd into typed directory
+setopt autocd
 
-	zsh-autosuggestions
-	zsh-syntax-highlighting
-)
+# A colon-separated list of values controlling how commands are saved on the history list.
+# If the list of values includes ignorespace, lines which begin with a space character are not saved in the history list. A value of ignoredups causes lines matching the previous history entry to not be saved. A value of ignoreboth is shorthand for ignorespace and ignoredups. 
+# A value of erasedups causes all previous lines matching the current line to be removed from the history list before that line is saved. 
+HISTCONTROL=ignoreboth:erasedups
 
-source $ZSH/oh-my-zsh.sh
+# Infinite history.
+HISTSIZE=
+HISTFILESIZE=
 
 # Load the aliases and functions 
 [ -f "${DOTFILES}/aliases/.aliases" ] && source "${DOTFILES}/aliases/.aliases"
@@ -34,3 +28,8 @@ source $ZSH/oh-my-zsh.sh
 
 # Load RVM into a shell session as a function.
 [ -s "$HOME/.rvm/scripts/rvm" ] && source "$HOME/.rvm/scripts/rvm"
+
+source ~/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+# export PATH="$PATH:$HOME/.rvm/bin"

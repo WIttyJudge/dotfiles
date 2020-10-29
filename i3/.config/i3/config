@@ -5,7 +5,7 @@
 
 # #---Basic Definitions---# #
 set $mod Mod4
-set $term $TERMINAL
+set $term terminator 
 set $inner_gaps 10
 set $outer_gaps 5
 
@@ -169,4 +169,4 @@ exec --no-startup-id setxkbmap -layout us,ru -option 'grp:alt_shift_toggle'
 exec_always --no-startup-id feh --randomize --bg-scale ~/Picture/wallpapers/*
 
 # Polybar Launch Script
-exec_always --no-startup-id $HOME/.config/polybar/launch.sh     
+exec_always --no-startup-id $HOME/.config/polybar/launch.sh
