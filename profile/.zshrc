@@ -13,14 +13,20 @@ prompt spaceship
 # Automatically cd into typed directory
 setopt autocd
 
-# A colon-separated list of values controlling how commands are saved on the history list.
-# If the list of values includes ignorespace, lines which begin with a space character are not saved in the history list. A value of ignoredups causes lines matching the previous history entry to not be saved. A value of ignoreboth is shorthand for ignorespace and ignoredups. 
-# A value of erasedups causes all previous lines matching the current line to be removed from the history list before that line is saved. 
-HISTCONTROL=ignoreboth:erasedups
+# history settings
+setopt extended_history
+setopt hist_expire_dups_first
+setopt hist_ignore_dups
+setopt hist_ignore_all_dups
+setopt hist_ignore_space
+setopt hist_find_no_dups
+setopt hist_save_no_dups
+setopt hist_beep
 
-# Infinite history.
-HISTSIZE=
-HISTFILESIZE=
+# History in cache directory:
+HISTSIZE=10000000
+SAVEHIST=10000000
+HISTFILE=~/.cache/zsh/history
 
 # Load the aliases and functions 
 [ -f "${DOTFILES}/aliases/.aliases" ] && source "${DOTFILES}/aliases/.aliases"
