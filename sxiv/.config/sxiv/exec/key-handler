@@ -1,4 +1,6 @@
 #!/bin/sh
+
+# To execute this file you need to press ctrl + x and then press key you can see below.
 while read file
 do
   case "$1" in
@@ -17,6 +19,8 @@ do
 		readlink -f "$file" | xclip -selection clipboard &&
 		notify-send "$(readlink -f "$file") copied to clipboard" ;;
 	"d")
-		[ "$(printf "Yes\\nNo" | dmenu -i -p "Delete $file?")" == "Yes" ] && rm "$file" && notify-send "$file deleted";;
+		[ "$(printf "Yes\\nNo" | dmenu -i -p "Delete $file?")" == "Yes" ] && rm "$file" && notify-send "$file deleted" ;;
+	"i")
+		notify-send "File information" "$(mediainfo $file)" ;;
   esac
 done
