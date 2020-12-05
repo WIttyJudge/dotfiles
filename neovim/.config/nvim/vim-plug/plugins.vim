@@ -7,7 +7,10 @@ call plug#begin('~/.vim/plugged')
   Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
   Plug 'junegunn/fzf.vim'
 
-  " The NERDTree is a file system explorer f"
+  " The NERDTree is a file system explorer"
   Plug 'preservim/nerdtree'
+
+  " Lint engine"
+ Plug 'dense-analysis/ale'
 call plug#end()
 
