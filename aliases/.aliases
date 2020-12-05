@@ -17,7 +17,7 @@ alias zshconfig="sudo vim ~/.zshrc"
 alias ohmyzsh="sudo vim ~/.oh-my-zsh"
 
 # reload
-alias reload-zshrc="source ~/.zshrc && echo 'zshrc reloaded'"
+alias reload-zshrc="source ~/.zshrc && notify-send 'zshrc reloaded'"
 
 # docker
 alias d="docker "
@@ -25,3 +25,6 @@ alias dc="docker-compose "
 
 # pacman 
 alias p="sudo pacman "
+
+# vim
+alias vim="nvim"
