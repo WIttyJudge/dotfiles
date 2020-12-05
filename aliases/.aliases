@@ -25,6 +25,3 @@ alias dc="docker-compose "
 
 # pacman 
 alias p="sudo pacman "
-
-# vim
-alias vim="nvim"

@@ -20,3 +20,5 @@ HISTCONTROL=ignoreboth:erasedups
 # Infinite history.
 HISTSIZE=
 HISTFILESIZE=
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
