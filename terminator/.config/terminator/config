@@ -4,7 +4,6 @@
 [profiles]
   [[default]]
     background_color = "#231F20"
-    font = Consolas 10
     foreground_color = "#b7b7b7"
     show_titlebar = False
     scrollback_infinite = True

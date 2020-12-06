@@ -10,4 +10,3 @@ source $HOME/.config/nvim/plug-config/plug-config.vim
 source $HOME/.config/nvim/keymaps.vim
 
 colorscheme darcula
-
