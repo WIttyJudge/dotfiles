@@ -14,7 +14,7 @@ AUR,polybar,A fast and easy-to-use status bar.
 ,httpie,user-friendly command-line HTTP client for the API era.
 ,ripgrep,A search tool that combines the usability of ag with the raw speed of grep.
 ,neovim,Fork of Vim aiming to improve user experience with plugins.
-,nodejs,Evented I/O for V8 javascript.,
+,nodejs,Evented I/O for V8 javascript.
 ,npm,A package manager for javascript.
 ,yarn,Fast, reliable, and secure dependency management.
 ,docker,Pack, ship and run any application as a lightweight container.
