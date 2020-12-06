@@ -16,10 +16,10 @@ AUR,polybar,A fast and easy-to-use status bar.
 ,neovim,Fork of Vim aiming to improve user experience with plugins.
 ,nodejs,Evented I/O for V8 javascript.
 ,npm,A package manager for javascript.
-,yarn,Fast, reliable, and secure dependency management.
-,docker,Pack, ship and run any application as a lightweight container.
-,docker-compose,Fast, isolated development environments using Docker.
-,neofetch,A fast, highly customizable system info script that supports displaying images with w3m.
+,yarn,Fast,reliable, and secure dependency management.
+,docker,Pack,ship and run any application as a lightweight container.
+,docker-compose,Fast and isolated development environments using Docker.
+,neofetch,A fast and highly customizable system info script that supports displaying images with w3m.
 ,htop,Simple, ncurses interactive process viewer.
 ,dunst,Customizable and lightweight notification-daemon.
 ,sxiv,Simple X Image Viewer.
