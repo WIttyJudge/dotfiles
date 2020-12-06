@@ -3,3 +3,29 @@ AUR,polybar,A fast and easy-to-use status bar.
 ,chromium,Web browser developed by Google, the open source project behind Google Chrome.
 ,telegram-desktop,Official Telegram Desktop client.
 ,discord,All-in-one voice and text chat for gamers that's free and secure.
+,feh,Fast and light imlib2-based image viewer.
+,gnome-screenshot,Take pictures of your screen.
+,scrot,Simple command-line screenshot utility for X.
+,pulseaudio-alsa,ALSA Configuration for PulseAudio.
+,alsa-utils,Advanced Linux Sound Architecture - Utilities.
+,ttf-dejavu,Font family based on the Bitstream Vera Fonts with a wider range of characters.
+,ttf-fira-code,Monospaced font with programming ligatures.
+,noto-fonts,Google Noto TTF fonts.
+,httpie,user-friendly command-line HTTP client for the API era.
+,ripgrep,A search tool that combines the usability of ag with the raw speed of grep.
+,neovim,Fork of Vim aiming to improve user experience, plugins, and GUIs.
+,nodejs,Evented I/O for V8 javascript.,
+,npm,A package manager for javascript.
+,yarn,Fast, reliable, and secure dependency management.
+,docker,Pack, ship and run any application as a lightweight container.
+,docker-compose,Fast, isolated development environments using Docker.
+,neofetch,A fast, highly customizable system info script that supports displaying images with w3m.
+,htop,Simple, ncurses interactive process viewer.
+,dunst,Customizable and lightweight notification-daemon.
+,sxiv,Simple X Image Viewer.
+,ncdu,Disk usage analyzer with an ncurses interface.
+,hardinfo,A small application that displays information about your hardware and operating system.
+,dmenu,Generic menu for X.
+,libreoffice-still,The office productivity suite compatible to the open and standardized ODF document format. Fork of OpenOffice, supported by The Document Foundation.
+,pass,Simple console-based password manager featuring flat text file organization and GnuPG encryption.
+,openssh,Premier connectivity tool for remote login with the SSH protocol.
