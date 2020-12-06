@@ -1,4 +1,4 @@
-" NERDTree strings"
+" NERDTree settings"
 nnoremap <C-b> :NERDTreeToggle<CR>
 
 " junegunn/fzf.vim"
