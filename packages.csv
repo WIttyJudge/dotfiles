@@ -26,6 +26,6 @@ AUR,polybar,A fast and easy-to-use status bar.
 ,ncdu,Disk usage analyzer with an ncurses interface.
 ,hardinfo,A small application that displays information about your hardware and operating system.
 ,dmenu,Generic menu for X.
-,libreoffice-still,The office productivity suite compatible to the open and standardized ODF document format. Fork of OpenOffice, supported by The Document Foundation.
+,libreoffice-still,The office productivity suite compatible to the open and standardized ODF document format.
 ,pass,Simple console-based password manager featuring flat text file organization and GnuPG encryption.
 ,openssh,Premier connectivity tool for remote login with the SSH protocol.
