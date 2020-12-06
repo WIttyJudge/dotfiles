@@ -1,6 +1,7 @@
 " Include all plugins"
 source $HOME/.config/nvim/vim-plug/plugins.vim
 
+" Settings for neovim"
 source $HOME/.config/nvim/general/settings.vim
 
 " Include all settings for plugins"

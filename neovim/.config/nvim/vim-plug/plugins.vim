@@ -9,18 +9,19 @@ autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
   \| PlugInstall --sync | source $MYVIMRC
 \| endif
 
-" Include all plugins"
 call plug#begin('~/.vim/plugged')
-
   " Color scheme"
   Plug 'doums/darcula'
 
+  " Looking for files"
   Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
   Plug 'junegunn/fzf.vim'
 
   " The NERDTree is a file system explorer"
   Plug 'preservim/nerdtree'
-  Plug 'preservim/nerdcommenter'
+
+  " Writes comments"
+  Plug 'tpope/vim-commentary'
 
   " Lint engine"
   Plug 'dense-analysis/ale'
@@ -33,5 +34,8 @@ call plug#begin('~/.vim/plugged')
 
   " To work with git"
   Plug 'airblade/vim-gitgutter'
+
+  " Auto pairs for '(' '[' '{'"
+  Plug 'jiangmiao/auto-pairs'
 call plug#end()
 
