@@ -28,7 +28,10 @@ call plug#begin('~/.vim/plugged')
   " Multiple select of text"
   Plug 'terryma/vim-multiple-cursors'
 
-  " indentline
+  " indentline"
   Plug 'Yggdroot/indentLine'
+
+  " To work with git"
+  Plug 'airblade/vim-gitgutter'
 call plug#end()
 
