@@ -1,8 +1,4 @@
-" set leader key
-let mapleader = "\<Space>"
-" let mapleader = ";""
-
-" Basic settings"
+" Basic settings
 syntax enable                           " Enables syntax highlighing
 set encoding=utf-8                      " The encoding displayed
 set expandtab                           " Converts tabs to spaces

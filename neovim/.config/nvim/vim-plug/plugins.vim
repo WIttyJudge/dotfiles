@@ -10,32 +10,32 @@ autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
 \| endif
 
 call plug#begin('~/.vim/plugged')
-  " Color scheme"
+  " Color scheme
   Plug 'doums/darcula'
 
-  " Looking for files"
+  " Looking for files
   Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
   Plug 'junegunn/fzf.vim'
 
-  " The NERDTree is a file system explorer"
+  " The NERDTree is a file system explorer
   Plug 'preservim/nerdtree'
 
-  " Writes comments"
+  " Writes comments
   Plug 'tpope/vim-commentary'
 
-  " Lint engine"
+  " Lint engine
   Plug 'dense-analysis/ale'
 
-  " Multiple select of text"
+  " Multiple select of text
   Plug 'terryma/vim-multiple-cursors'
 
-  " indentline"
+  " indentline
   Plug 'Yggdroot/indentLine'
 
-  " To work with git"
+  " To work with git
   Plug 'airblade/vim-gitgutter'
 
-  " Auto pairs for '(' '[' '{'"
+  " Auto pairs for '(' '[' '{'
   Plug 'jiangmiao/auto-pairs'
 call plug#end()
 

@@ -1,19 +1,23 @@
-" Basic"
-" Easier split navigation"
-nnoremap <C-J> <C-W><C-J>
+" set leader key
+let mapleader = "\<Space>"
+" let mapleader = ";"
+
+" Basic
+" Easier split navigation
+noremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
-" nerdtree"
+" nerdtree
 nnoremap <C-b> :NERDTreeToggle<CR>
 
-" fzf.vim"
+" fzf.vim
 map <C-f> :Files<CR>
 map <leader>b :Buffers<CR>
 nnoremap <leader>rg :Rg<CR>
 
-" vim-gitgutter"
+" vim-gitgutter
 nmap <Leader>gn <Plug>(GitGutterNextHunk)
 nmap <Leader>gp <Plug>(GitGutterPrevHunk)
 nmap <Leader>gu <Plug>(GitGutterUndoHunk)
