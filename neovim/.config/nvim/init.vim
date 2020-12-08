@@ -8,6 +8,6 @@ source $HOME/.config/nvim/general/settings.vim
 source $HOME/.config/nvim/plug-config/plug-config.vim
 
 " Includes all available shortcuts
-source $HOME/.config/nvim/keymaps.vim
+source $HOME/.config/nvim/mappings.vim
 
 colorscheme darcula

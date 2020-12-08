@@ -37,5 +37,10 @@ call plug#begin('~/.vim/plugged')
 
   " Auto pairs for '(' '[' '{'
   Plug 'jiangmiao/auto-pairs'
+
+  " This is a lightweight RSpec runner for Vim
+  Plug 'thoughtbot/vim-rspec'
+
+  Plug 'tpope/vim-surround'
 call plug#end()
 

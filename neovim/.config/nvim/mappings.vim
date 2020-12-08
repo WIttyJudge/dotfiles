@@ -1,3 +1,5 @@
+" Custom Mappings
+
 " set leader key
 let mapleader = "\<Space>"
 " let mapleader = ";"
@@ -22,4 +24,7 @@ nmap <Leader>gn <Plug>(GitGutterNextHunk)
 nmap <Leader>gp <Plug>(GitGutterPrevHunk)
 nmap <Leader>gu <Plug>(GitGutterUndoHunk)
 
+" vim-rspec
+map <Leader>rf :call RunCurrentSpecFile()<CR>
+map <Leader>ra :call RunAllSpecs()<CR>
 
