@@ -45,5 +45,7 @@ call plug#begin('~/.vim/plugged')
 
   " html emmet
   Plug 'mattn/emmet-vim'
+
+  Plug 'itchyny/lightline.vim'
 call plug#end()
 
