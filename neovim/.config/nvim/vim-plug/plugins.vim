@@ -17,7 +17,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
   Plug 'junegunn/fzf.vim'
 
-  " The NERDTree is a file system explorer
+  " Tree explorer plugin
   Plug 'preservim/nerdtree'
 
   " Writes comments
@@ -29,7 +29,7 @@ call plug#begin('~/.vim/plugged')
   " Multiple select of text
   Plug 'terryma/vim-multiple-cursors'
 
-  " indentline
+  " To display the indention levels with thin vertical lines 
   Plug 'Yggdroot/indentLine'
 
   " To work with git
@@ -42,5 +42,8 @@ call plug#begin('~/.vim/plugged')
   Plug 'thoughtbot/vim-rspec'
 
   Plug 'tpope/vim-surround'
+
+  " html emmet
+  Plug 'mattn/emmet-vim'
 call plug#end()
 
