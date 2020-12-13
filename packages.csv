@@ -30,3 +30,7 @@ AUR,siji-git,Iconic bitmap font based on stlarch with additional glyphs.
 ,libreoffice-still,The office productivity suite compatible to the open and standardized ODF document format.
 ,pass,Simple console-based password manager featuring flat text file organization and GnuPG encryption.
 ,openssh,Premier connectivity tool for remote login with the SSH protocol.
+,xorg-server,Xorg (commonly referred as simply X) is the most popular display server among Linux users.
+,xorg-xinit,The xinit program allows a user to manually start an Xorg display server.
+,terminator,Terminator is a terminal emulator.
+,base-devel,It a package group that includes tools needed for building.
