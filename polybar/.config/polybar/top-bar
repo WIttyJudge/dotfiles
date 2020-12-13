@@ -21,7 +21,7 @@ margin-bottom = 5
 
 include-file = ~/.config/polybar/colors
 
-==========================================================
+;==========================================================
 
 [settings]
 ;https://github.com/jaagr/polybar/wiki/Configuration#application-settings
@@ -35,7 +35,8 @@ compositing-overline = over
 compositing-underline = over
 compositing-border = over
 
-==========================================================
+
+;==========================================================
 
 [bar/top-bar]
 ;https://github.com/jaagr/polybar/wiki/Configuration
@@ -77,14 +78,14 @@ tray-padding = 2
 cursor-click = pointer
 cursor-scroll = ns-resize
 
-==========================================================
+;==========================================================
 
 [module/xwindow]
 ;https://github.com/polybar/polybar/wiki/Module:-xwindow
 type = internal/xwindow
 label = %title:0:30:...%
 
-==========================================================
+;==========================================================
 
 [module/pacman-updates]
 ;https://github.com/polybar/polybar/wiki/Module:-script
@@ -93,7 +94,7 @@ interval = 1000
 exec = pacman -Qu | wc -l
 label =  %output% Updates
 
-==========================================================
+;==========================================================
 
 [module/xkeyboard]
 ;https://github.com/polybar/polybar/wiki/Module:-xkeyboard
@@ -115,7 +116,7 @@ label-indicator-margin = 1
 label-indicator-background = ${colors.secondary}
 label-indicator-underline = ${colors.secondary}
 
-==========================================================
+;==========================================================
 
 [module/filesystem]
 ;https://github.com/polybar/polybar/wiki/Module:-filesystem
@@ -144,7 +145,7 @@ label-mounted = " %used% (%percentage_used%%)"
 
 label-unmounted = %mountpoint% not mounted
 
-==========================================================
+;==========================================================
 
 [module/bspwm]
 ;https://github.com/polybar/polybar/wiki/Module:-bspwm
@@ -169,7 +170,7 @@ label-empty-padding = 2
 ; Separator in between workspaces
 ; label-separator = |
 
-==========================================================
+;==========================================================
 
 [module/i3]
 ;https://github.com/polybar/polybar/wiki/Module:-i3
@@ -209,7 +210,7 @@ label-urgent-padding = 2
 ; Separator in between workspaces
 ; label-separator = |
 
-==========================================================
+;==========================================================
 
 [module/mpd]
 ;https://github.com/polybar/polybar/wiki/Module:-mpd
@@ -242,7 +243,7 @@ bar-empty = ─
 bar-empty-font = 2
 bar-empty-foreground = ${colors.foreground-alt}
 
-==========================================================
+;==========================================================
 
 [module/backlight-acpi]
 ;https://github.com/polybar/polybar/wiki/Module:-xbacklight
@@ -250,7 +251,7 @@ inherit = module/xbacklight
 type = internal/backlight
 card = intel_backlight
 
-==========================================================
+;==========================================================
 
 [module/cpu]
 ;https://github.com/polybar/polybar/wiki/Module:-cpu
@@ -272,7 +273,7 @@ ramp-load-2 = 
 ramp-load-3 = 
 ramp-load-4 = 
 
-==========================================================
+;==========================================================
 
 [module/memory]
 ;https://github.com/polybar/polybar/wiki/Module:-memory
@@ -284,7 +285,7 @@ format =  MEM <label>
 
 label = %percentage_used%%
 
-==========================================================
+;==========================================================
 
 [module/wireless-network]
 ;https://github.com/polybar/polybar/wiki/Module:-network
@@ -320,7 +321,7 @@ ramp-signal-2 = 
 ramp-signal-3 = 
 ramp-signal-4 = 
 
-==========================================================
+;==========================================================
 
 [module/eth]
 ;https://github.com/polybar/polybar/wiki/Module:-network
@@ -331,7 +332,7 @@ interval = 3.0
 format-connected = <label-connected>
 label-connected = %signal%
 
-==========================================================
+;==========================================================
 
 [module/date]
 ;https://github.com/polybar/polybar/wiki/Module:-date
@@ -355,7 +356,7 @@ format-prefix-foreground = ${colors.foreground-alt}
 ;format-background = #55ff3399
 ;format-foreground = #fff
 
-==========================================================
+;==========================================================
 
 [module/pulseaudio]
 ;https://github.com/polybar/polybar/wiki/Module:-alsa
@@ -379,7 +380,7 @@ ramp-volume-4 = 
 ramp-headphones-0 = 
 ramp-headphones-1 = 
 
-==========================================================
+;==========================================================
 
 [module/battery]
 ;https://github.com/polybar/polybar/wiki/Module:-battery
@@ -402,7 +403,7 @@ format-charging-prefix = 
 label-discharging = %percentage%% (%time%)
 format-discharging = <label-discharging>
 
-==========================================================
+;==========================================================
 
 [module/temperature]
 ;https://github.com/polybar/polybar/wiki/Module:-temperature
@@ -424,7 +425,7 @@ ramp-1 = 
 ramp-2 = 
 ramp-foreground = ${colors.foreground-alt}
 
-==========================================================
+;==========================================================
 
 [module/powermenu]
 ;https://github.com/polybar/polybar/wiki/Module:-menu
@@ -456,4 +457,4 @@ menu-2-0-exec = sudo poweroff
 menu-2-1 = cancel
 menu-2-1-exec = menu-open-0
 
-==========================================================
+;==========================================================
