@@ -34,3 +34,5 @@ AUR,siji-git,Iconic bitmap font based on stlarch with additional glyphs.
 ,xorg-xinit,The xinit program allows a user to manually start an Xorg display server.
 ,terminator,Terminator is a terminal emulator.
 ,base-devel,It a package group that includes tools needed for building.
+,i3-gaps,Adding a few additional features such as gaps between windows
+,i3lock,Improved screen locker.
