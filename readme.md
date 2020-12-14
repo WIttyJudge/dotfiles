@@ -1,5 +1,17 @@
 # Dotfiles
 
+## Info
+
+* Settings for: 
+  * zsh (shell)
+  * neovim (text editor)
+  * i3 (tilling window manager)
+  * polybar (status bar)
+  * terminator (terminal)
+
+* All configs will be symlinked to ``~/.config/`` folder.
+* Environment variables have been set in ``.zprofile`` file.
+
 ## Requirement
 
 I used [GNU Stow](https://www.gnu.org/software/stow) for creating
