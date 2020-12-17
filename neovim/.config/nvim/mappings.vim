@@ -24,6 +24,9 @@ nmap <Leader>gn <Plug>(GitGutterNextHunk)
 nmap <Leader>gp <Plug>(GitGutterPrevHunk)
 nmap <Leader>gu <Plug>(GitGutterUndoHunk)
 
+" vim-fugitive
+nmap <Leader>gd :Gdiff<CR>
+
 " vim-rspec
 map <Leader>rf :call RunCurrentSpecFile()<CR>
 map <Leader>ra :call RunAllSpecs()<CR>
