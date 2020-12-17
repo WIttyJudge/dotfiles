@@ -4,11 +4,6 @@ if empty(glob('~/.vim/autoload/plug.vim'))
     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 endif
 
-" Run PlugInstall if there are missing plugins
-autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
-  \| PlugInstall --sync | source $MYVIMRC
-\| endif
-
 call plug#begin('~/.vim/plugged')
   " Color scheme
   Plug 'doums/darcula'
@@ -34,6 +29,7 @@ call plug#begin('~/.vim/plugged')
 
   " To work with git
   Plug 'airblade/vim-gitgutter'
+  Plug 'tpope/vim-fugitive'
 
   " Auto pairs for '(' '[' '{'
   Plug 'jiangmiao/auto-pairs'
@@ -46,7 +42,13 @@ call plug#begin('~/.vim/plugged')
   " html emmet
   Plug 'mattn/emmet-vim'
 
-  Plug 'godlygeek/tabular' 
+  Plug 'tpope/vim-endwise' 
+
+  " Add the end keyword for ruby programm.
   Plug 'itchyny/lightline.vim'
 call plug#end()
 
+" Run PlugInstall if there are missing plugins
+autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
+  \| PlugInstall --sync | source $MYVIMRC
+\| endif

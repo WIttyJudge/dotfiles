@@ -16,11 +16,11 @@ folders=(
 	i3
 	neofetch
 	polybar
+	neovim
 	profile
 	ranger
 	sxiv
 	terminator
-	neovim
 )
 
 # GNU Stow is a symlink farm manager. https://www.gnu.org/software/stow

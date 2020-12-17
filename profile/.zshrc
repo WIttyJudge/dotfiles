@@ -22,6 +22,7 @@ setopt hist_ignore_space
 setopt hist_find_no_dups
 setopt hist_save_no_dups
 setopt hist_beep
+# setopt interactive_comments
 
 # History in cache directory:
 HISTSIZE=10000000
@@ -38,6 +39,6 @@ HISTFILE=~/.cache/zsh/history
 source ~/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-# export PATH="$PATH:$HOME/.rvm/bin"
+export PATH="$PATH:$HOME/.rvm/bin"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
