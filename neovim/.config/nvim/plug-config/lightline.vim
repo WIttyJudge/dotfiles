@@ -2,7 +2,7 @@ let g:lightline = {
       \ 'colorscheme': 'darcula',
       \ 'active': {
       \   'left': [[ 'mode', 'paste' ],
-      \             [ 'gitbranch', 'readonly', 'filename', 'modified', 'ale' ]]
+      \             [ 'gitbranch', 'readonly', 'filename', 'ale', 'modified' ]]
       \ },
       \ 'component_function': {
       \   'gitbranch': 'FugitiveHead',
