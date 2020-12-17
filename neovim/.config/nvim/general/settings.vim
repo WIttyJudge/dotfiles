@@ -1,6 +1,6 @@
 " Basic settings
 syntax enable                           " Enables syntax highlighing
-set encoding=utf-8                      " The encoding displayed
+set encoding=UTF-8                      " The encoding displayed
 set expandtab                           " Converts tabs to spaces
 set shiftwidth=2                        " Change the number of space characters inserted for indentation
 set tabstop=2                           " Insert 2 spaces for a tab
