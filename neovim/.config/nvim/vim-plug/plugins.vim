@@ -40,11 +40,11 @@ call plug#begin('~/.vim/plugged')
   Plug 'tpope/vim-surround'
 
   " html emmet
-  Plug 'mattn/emmet-vim'
+  " Plug 'mattn/emmet-vim'
 
+  " Add "end" in ruby
   Plug 'tpope/vim-endwise' 
 
-  " Add the end keyword for ruby programm.
   Plug 'itchyny/lightline.vim'
 call plug#end()
 
