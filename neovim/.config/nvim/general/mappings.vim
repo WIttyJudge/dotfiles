@@ -1,10 +1,15 @@
-" Custom Mappings
+" CUSTOM MAPPINGS
+
+function! AddEmptyLineBelow()
+  call append(line("."), "")
+endfunction
 
 " set leader key
 let mapleader = "\<Space>"
 " let mapleader = ";"
 
-" BASIC
+" ********* BASIC *********
+
 " Easier split navigation, CTRL + hjlk
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
@@ -19,7 +24,8 @@ inoremap kj <Esc>
 vnoremap < <gv
 vnoremap > >gv
 
-" PLUGINS
+" ********* PLUGINS *********
+
 " nerdtree
 nnoremap <C-b> :NERDTreeToggle<CR>
 
@@ -38,6 +44,8 @@ nmap <Leader>gd :Gdiff<CR>
 nmap <leader>gs :Gstatus<CR><C-w>10-
 
 " vim-rspec
-map <Leader>rf :call RunCurrentSpecFile()<CR>
-map <Leader>ra :call RunAllSpecs()<CR>
+" You can run RSpec only if ruby filetype is defined.
+" Look and ftplugin/ruby.vim
+
+noremap <silent> <A-j> :call AddEmptyLineBelow()<CR>
 
