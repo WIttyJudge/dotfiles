@@ -6,7 +6,8 @@ endif
 
 call plug#begin('~/.config/nvim/plugged')
   " Color scheme
-  Plug 'doums/darcula'
+  " Plug 'doums/darcula'
+  Plug 'morhetz/gruvbox'
 
   " Looking for files
   Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }

@@ -1,5 +1,7 @@
+" Set colorscheme to darcula if you want to use darcula theme
+
 let g:lightline = {
-      \ 'colorscheme': 'darcula',
+      \ 'colorscheme': 'gruvbox',
       \ 'active': {
       \   'left': [[ 'mode', 'paste' ],
       \             [ 'gitbranch', 'readonly', 'filename', 'ale', 'modified' ]]

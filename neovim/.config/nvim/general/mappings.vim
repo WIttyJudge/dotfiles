@@ -24,6 +24,10 @@ inoremap kj <Esc>
 vnoremap < <gv
 vnoremap > >gv
 
+" ********* FUNCTIONS *********
+
+noremap <silent> <A-j> :call AddEmptyLineBelow()<CR>
+
 " ********* PLUGINS *********
 
 " nerdtree
@@ -46,6 +50,3 @@ nmap <leader>gs :Gstatus<CR><C-w>10-
 " vim-rspec
 " You can run RSpec only if ruby filetype is defined.
 " Look and ftplugin/ruby.vim
-
-noremap <silent> <A-j> :call AddEmptyLineBelow()<CR>
-

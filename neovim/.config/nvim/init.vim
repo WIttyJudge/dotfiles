@@ -10,5 +10,9 @@ source $HOME/.config/nvim/plug-config/plug-config.vim
 " Includes all available shortcuts
 source $HOME/.config/nvim/general/mappings.vim
 
-colorscheme darcula
+" Theme
+set termguicolors
+set background=dark
 
+" colorscheme darcula
+colorscheme gruvbox

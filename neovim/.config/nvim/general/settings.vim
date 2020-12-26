@@ -6,6 +6,8 @@ set shiftwidth=2                        " Change the number of space characters 
 set tabstop=2                           " Insert 2 spaces for a tab
 set number relativenumber               " Line numbers
 
+set history=1000                        " Change history to 1000
+
 set hidden                              " Required to keep multiple buffers open multiple buffers
 set pumheight=10                        " Makes popup menu smaller
 set fileencoding=utf-8                  " The encoding written to file
@@ -31,12 +33,19 @@ set updatetime=250                      " Faster completion
 set timeoutlen=500                      " By default timeoutlen is 1000 ms
 set formatoptions-=cro                  " Stop newline continution of comments
 set clipboard=unnamedplus               " Copy paste between vim and everything else
-"set autochdir                          " Your working directory will always be the same as your working directory
 
 " Searching
 set ignorecase                          " Case insensitive searching
 set smartcase                           " Case-sensitive if expresson contains a capital letter
 set hlsearch                            " Highlight search results
+
+" Set automatic wrapping to new line if characters more then 80
+set textwidth=80                        " Maximum width of text that is being inserted.
+set wrapmargin=0 
+set wrap
+set linebreak
+set formatoptions+=t                    " Rules how to automatically formatting letters
+set formatoptions-=l
 
 au! BufWritePost $MYVIMRC source %      " auto source when writing to init.vm alternatively you can run :source $MYVIMRC
 
