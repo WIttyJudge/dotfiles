@@ -3,7 +3,9 @@
 [keybindings]
 [profiles]
   [[default]]
-    background_color = "#231F20"
+    background_color = "#231f20"
+    cursor_color = "#b7b7b7"
+    font = Fira Code 10
     foreground_color = "#b7b7b7"
     show_titlebar = False
     scrollback_infinite = True

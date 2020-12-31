@@ -46,7 +46,10 @@ call plug#begin('~/.config/nvim/plugged')
   " Add "end" in ruby
   Plug 'tpope/vim-endwise' 
 
+  " statusline/tabline plugin for Vim
   Plug 'itchyny/lightline.vim'
+
+  Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 call plug#end()
 
 " Run PlugInstall if there are missing plugins

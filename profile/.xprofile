@@ -2,3 +2,4 @@
 # Read more: https://wiki.archlinux.org/index.php/Xprofile
 
 dunst &
+xrdb -merge ~/.Xresources &

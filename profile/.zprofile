@@ -7,6 +7,6 @@
 # 2. configuration which execute commands (like SCONSFLAGS="--jobs=$(( $(nproc) - 1 ))") as it may take some time to execute.
 
 export EDITOR="nvim"
-export TERMINAL="terminator"
+export TERMINAL="urxvt"
 
 export DOTFILES="$HOME/dotfiles"

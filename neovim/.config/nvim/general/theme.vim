@@ -1,6 +1,6 @@
 " Theme
 
-set termguicolors
+" set termguicolors
 set background=dark
 
 " If you want to configure gruvbox theme, read it:

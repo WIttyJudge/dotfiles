@@ -1,4 +1,6 @@
 " CUSTOM MAPPINGS
+" <C-f> = CTRL + f
+" <A-j> = ALT + j
 
 function! AddEmptyLineBelow()
   call append(line("."), "")
