@@ -42,3 +42,6 @@ AUR,spaceship-prompt-git,Theme for zsh.
 ,libyaml,C library for parsing and emitting YAML.
 ,zip,Compressor/archiver for creating and modifying zipfiles.
 ,unzip,For extracting and viewing files in .zip archives.
+,rxvt-unicode,Unicode enabled rxvt-clone terminal emulator (urxvt).
+AUR,rxvt-unicode-256xresources,urxvt with patches to support 256 Xresource colors and fixes for line/font spacing.
+,xorg-xrdb,X server resource database utility.
