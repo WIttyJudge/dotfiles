@@ -14,6 +14,9 @@ autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTr
 " Automatically delete the buffer of the file you just deleted with NerdTree:
 let NERDTreeAutoDeleteBuffer = 1
 
+" Open top-folder without cd into it
+au VimEnter NERD_tree_1 enew | execute 'NERDTree '.argv()[0]
+
 " IF you want to remove array symbols
 " let g:NERDTreeDirArrowExpandable = ''
 " let g:NERDTreeDirArrowCollapsible = ''

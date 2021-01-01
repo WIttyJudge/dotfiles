@@ -1,5 +1,10 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhistcnt =3
+let g:netrw_dirhistcnt =8
+let g:netrw_dirhist_8='/home/wittyjudge/dotfiles/neovim/.config/nvim/plugin'
+let g:netrw_dirhist_7='/home/wittyjudge/dotfiles/neovim/.config/nvim'
+let g:netrw_dirhist_6='/home/wittyjudge/dotfiles/neovim/.config'
+let g:netrw_dirhist_5='/home/wittyjudge/dotfiles/neovim'
+let g:netrw_dirhist_4='/home/wittyjudge/dotfiles'
 let g:netrw_dirhist_3='/home/wittyjudge/dotfiles/neovim/.config/nvim'
 let g:netrw_dirhist_2='/home/wittyjudge/dotfiles/neovim/.config/nvim/vim-plug'
 let g:netrw_dirhist_1='/home/wittyjudge/dotfiles/neovim/.config/nvim/general'

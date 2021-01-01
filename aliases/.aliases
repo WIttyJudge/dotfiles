@@ -1,5 +1,8 @@
 alias s="sudo "
 
+# commands
+alias dotfiles="$EDITOR $DOTFILES"
+
 # git
 alias g="git "
 alias gs="git status"
