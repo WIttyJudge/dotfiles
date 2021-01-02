@@ -130,8 +130,8 @@ bindsym Shift+Print exec gnome-screenshot -i
 # #--ASSIGN--# #
 # Assign application to start on a specific workspace
 for_window [class="Chromium"] move to workspace $ws1
-for_window [class="code"] move to workspace $ws2
-for_window [class="TelegramDesktop|discord"] move to workspace $ws3
+# for_window [class="code"] move to workspace $ws2
+for_window [class="TelegramDesktop|discord"] move to workspace $ws4
 for_window [class="Steam"] move to workspace $ws5
 
 bindsym $mod+Delete exec "$(bash $DOTFILES/dmenu/dmenu-system.sh)"

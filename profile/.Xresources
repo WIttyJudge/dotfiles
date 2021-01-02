@@ -47,7 +47,7 @@ URxvt.scrollBar:	false
 URxvt.cursorColor:	white
 
 !! URxvt Extensions
-URxvt.perl-ext-common: default,matcher,resize-font,url-select
+URxvt.perl-ext-common: default,matcher,resize-font,url-select,clipboard
 
 ! matcher
 URxvt.url-launcher: /usr/bin/xdg-open
@@ -62,3 +62,8 @@ URxvt.url-select.underline: true
 URxvt.resize-font.smaller: C-minus
 URxvt.resize-font.bigger: C-plus
 URxvt.resize-font:reset: c-equel
+
+! clipboard
+URxvt.clipboard.autocopy: true
+URxvt.keysym.M-c: perl:clipboard:copy
+URxvt.keysym.M-v: perl:clipboard:paste
