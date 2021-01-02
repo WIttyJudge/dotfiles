@@ -1,5 +1,6 @@
 # An xprofile file, ~/.xprofile and /etc/xprofile, allows you to execute commands at the beginning of the X user session - before the window manager is started.
 # Read more: https://wiki.archlinux.org/index.php/Xprofile
 
-dunst &
-xrdb -merge ~/.Xresources &
+dunst & # notification-daemon
+xrdb -merge ~/.Xresources & # theme configuration file
+setxkbmap -layout us,ru -option 'grp:alt_shift_toggle' & # set language keyboard
