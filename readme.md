@@ -14,7 +14,7 @@
 If you want to use settings for, uncomments it in ``setup.sh``:
   * terminator (terminal)  
 
-All configs will be symlinked to ``~/.config/`` folder.
+All configs will be symlinked to ``~/.config/`` folder.  
 Environment variables have been set in ``.zprofile`` file.
 
 ## Requirement
