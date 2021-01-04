@@ -7,10 +7,15 @@
   * neovim (text editor)
   * i3 (tilling window manager)
   * polybar (status bar)
-  * terminator (terminal)
+  * urxvt (terminal)
+  * sxiv (image viewer)
+  * neofetch (system information tool)
 
-* All configs will be symlinked to ``~/.config/`` folder.
-* Environment variables have been set in ``.zprofile`` file.
+If you want to use settings for, uncomments it in ``setup.sh``:
+  * terminator (terminal)  
+
+All configs will be symlinked to ``~/.config/`` folder.  
+Environment variables have been set in ``.zprofile`` file.
 
 ## Requirement
 
@@ -36,8 +41,7 @@ etc..
 ## Usage
 
 ```
-$ git clone https://github.com/WIttyJudge/dotfiles ~/
-$ cd ~/dotfiles
+$ git clone https://github.com/WIttyJudge/dotfiles ~/ && cd ~/dotfiles
 $ bash setup.sh
 ```
 
