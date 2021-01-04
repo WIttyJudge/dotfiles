@@ -9,6 +9,7 @@
   * polybar (status bar)
   * urxvt (terminal)
   * sxiv (image viewer)
+  * neofetch (system information tool)
 
 If you want to use settings for, uncomments it in ``setup.sh``:
   * terminator (terminal)  
