@@ -8,6 +8,7 @@
   * i3 (tilling window manager)
   * polybar (status bar)
   * urxvt (terminal)
+  * sxiv (image viewer)
 
 If you want to use settings for, uncomments it in ``setup.sh``:
   * terminator (terminal)  
