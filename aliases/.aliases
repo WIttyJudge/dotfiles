@@ -1,7 +1,7 @@
 alias s="sudo "
 
 # commands
-alias dotfiles="$EDITOR $DOTFILES"
+alias dotfiles="cd ~/dotfiles && $EDITOR"
 
 # git
 alias g="git "

@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+scripts_folder="$DOTFILES/dmenu"
+
+choice=$(ls $scripts_folder | rofi -dmenu)
+
+[ $choice ] && bash $choice

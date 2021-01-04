@@ -17,11 +17,12 @@ folders=(
 	neofetch
 	polybar
 	neovim
+  rofi
+  scripts
 	profile
 	ranger
 	sxiv
 	# terminator
-
 )
 
 # GNU Stow is a symlink farm manager. https://www.gnu.org/software/stow

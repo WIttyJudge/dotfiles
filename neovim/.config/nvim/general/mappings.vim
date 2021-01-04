@@ -47,7 +47,7 @@ nmap <Leader>gu <Plug>(GitGutterUndoHunk)
 
 " vim-fugitive
 nmap <Leader>gd :Gdiff<CR>
-nmap <leader>gs :Gstatus<CR><C-w>10-
+nmap <leader>gs :Gstatus<CR><C-w>
 
 " vim-rspec
 " You can run RSpec only if ruby filetype is defined.

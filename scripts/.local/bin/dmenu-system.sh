@@ -9,7 +9,8 @@ commands=(
 	hibernate
 )
 
-choice="$(printf '%s\n' "${commands[@]}" | dmenu -p "System:" )"
+# choice="$(printf '%s\n' "${commands[@]}" | dmenu -p "System:" )"
+choice="$(printf '%s\n' "${commands[@]}" | rofi -dmenu )"
 
 case "$choice" in
     shutdown)
