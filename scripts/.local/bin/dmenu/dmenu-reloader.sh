@@ -1,0 +1,24 @@
+#!/bin/sh
+
+files=(
+  i3wm
+  .Xresources
+  .zshrc
+)
+
+choice="$(printf '%s\n' "${files[@]}" | rofi -dmenu bmenu -p "What do you want to reload?")"
+
+notifier() {
+  notify-send "$1 successfully reloaded."
+}
+
+case "$choice" in
+  i3wm)
+    i3-msg restart && notifier "i3wm" ;;
+  .Xresources)
+    xrdb ~/.Xresources && notifier ".Xresources" ;;
+  .zshrc)
+    source ~/.zshrc && notifier ".zshrc" ;;
+  *)
+    exit 2
+esac
