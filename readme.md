@@ -7,6 +7,9 @@
   * neovim (text editor)
   * i3 (tilling window manager)
   * polybar (status bar)
+  * urxvt (terminal)
+
+If you want to use settings for, uncomments it in ``setup.sh``:
   * terminator (terminal)
 
 * All configs will be symlinked to ``~/.config/`` folder.
