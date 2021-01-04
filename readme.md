@@ -41,8 +41,7 @@ etc..
 ## Usage
 
 ```
-$ git clone https://github.com/WIttyJudge/dotfiles ~/
-$ cd ~/dotfiles
+$ git clone https://github.com/WIttyJudge/dotfiles ~/ && cd ~/dotfiles
 $ bash setup.sh
 ```
 
