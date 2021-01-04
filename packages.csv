@@ -27,13 +27,13 @@ AUR,termsyn-font,Monospaced font based on terminus and tamsyn.
 ,sxiv,Simple X Image Viewer.
 ,ncdu,Disk usage analyzer with an ncurses interface.
 ,hardinfo,A small application that displays information about your hardware and operating system.
-,dmenu,Generic menu for X.
+SKIP,dmenu,Generic menu for X.
 ,libreoffice-still,The office productivity suite compatible to the open and standardized ODF document format.
 ,pass,Simple console-based password manager featuring flat text file organization and GnuPG encryption.
 ,openssh,Premier connectivity tool for remote login with the SSH protocol.
 ,xorg-server,Xorg (commonly referred as simply X) is the most popular display server among Linux users.
 ,xorg-xinit,The xinit program allows a user to manually start an Xorg display server.
-,terminator,Terminator is a terminal emulator.
+SKIP,terminator,Terminator is a terminal emulator.
 ,base-devel,It a package group that includes tools needed for building.
 ,i3-gaps,Adding a few additional features such as gaps between windows
 ,i3lock,Improved screen locker.
@@ -47,4 +47,5 @@ AUR,spaceship-prompt-git,Theme for zsh.
 AUR,rxvt-unicode-256xresources,urxvt with patches to support 256 Xresource colors and fixes for line/font spacing.
 ,urxvt-perls,URL and Mouseless text selection for rxvt-unicode.
 AUR,urxvt-resize-font-git,An urxvt plugin to adjust the font size on the fly.
+,rofi,A window application launcher and dmenu replacement.
 
