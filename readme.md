@@ -14,9 +14,9 @@ Repository dedicated to my configuration files of my Desktop environment, with t
 | Image Viewer            	| sxiv               	|
 | System Information Tool 	| neofetch           	|  
 
-All configs will be symlinked to ``~/.config/`` folder.
-Useful scripts stored in ``scripts`` folder and symlinked to ``~/.local/bin`` folder.
-Environment variables have been set in ``.zprofile`` file.
+All configs will be symlinked to ``~/.config/`` folder.  
+Useful scripts stored in ``scripts`` folder and symlinked to ``~/.local/bin`` folder.  
+Environment variables have been set in ``.zprofile`` file.  
 
 ## Requirement
 
