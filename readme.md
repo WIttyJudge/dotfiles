@@ -1,15 +1,20 @@
 # Dotfiles
 
+Repository dedicated to my configuration files of my Desktop environment, with the purpose of backup and sharing.
+
 ## Info
 
 * Settings for: 
-  * zsh (shell)
-  * neovim (text editor)
-  * i3 (tilling window manager)
-  * polybar (status bar)
-  * urxvt (terminal)
-  * sxiv (image viewer)
-  * neofetch (system information tool)
+
+| Type                    	| Program            	|
+|:------------------------	|:-------------------	|
+| Shell                   	| zsh                	|
+| Text Editor             	| neovim             	|
+| Status Bar              	| polybar            	|
+| Terminal                	| urxvt / terminator 	|
+| Image Viewer            	| sxiv               	|
+| System Information Tool 	| neofetch           	|
+|                         	|                    	|
 
 If you want to use settings for, uncomments it in ``setup.sh``:
   * terminator (terminal)  
