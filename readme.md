@@ -7,13 +7,13 @@ Repository dedicated to my configuration files of my Desktop environment, with t
 | Type                    	| Program            	                                            |
 |:------------------------	|:--------------------------------------------------------------  |
 | App Launcher              | [rofi](https://github.com/davatorium/rofi)                    	|
-| Shell                   	| [zsh](https://wiki.archlinux.org/index.php/zsh)                	|
-| Window Manager            | [i3](https://wiki.archlinux.org/index.php/i3)                   |
-| Text Editor             	| [neovim](https://github.com/neovim/neovim)             	        |
-| Status Bar              	| [polybar](https://github.com/polybar/polybar)                   |
-| Terminal                	| [urxvt](https://wiki.archlinux.org/index.php/rxvt-unicode) / [terminator](https://wiki.archlinux.org/index.php/Terminator)|
 | Image Viewer            	| [sxiv](https://wiki.archlinux.org/index.php/sxiv)               |
+| Shell                   	| [zsh](https://wiki.archlinux.org/index.php/zsh)                	|
+| Status Bar              	| [polybar](https://github.com/polybar/polybar)                   |
 | System Information Tool 	| [neofetch](https://github.com/dylanaraps/neofetch)           	  |  
+| Terminal                	| [urxvt](https://wiki.archlinux.org/index.php/rxvt-unicode) / [terminator](https://wiki.archlinux.org/index.php/Terminator)|
+| Text Editor             	| [neovim](https://github.com/neovim/neovim)             	        |
+| Window Manager            | [i3](https://wiki.archlinux.org/index.php/i3)                   |
 
 All configs will be symlinked to ``~/.config/`` folder.  
 Useful scripts stored in ``scripts`` folder and symlinked to ``~/.local/bin`` folder.  
