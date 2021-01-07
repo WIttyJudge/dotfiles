@@ -50,8 +50,6 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'itchyny/lightline.vim'
 
   Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
-
-  Plug 'gko/vim-coloresque'
 call plug#end()
 
 " Run PlugInstall if there are missing plugins

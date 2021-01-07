@@ -97,7 +97,7 @@ label =  %output% Updates
 
 [module/weather]
 type = custom/script
-exec = curl -s wttr.in/Moscow?format="%C+%f"
+exec = curl -s wttr.in/Moscow?format="%t+%h"
 interval = 600
 
 ;==========================================================

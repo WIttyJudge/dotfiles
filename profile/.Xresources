@@ -40,7 +40,8 @@
 
 !! URxvt Appearance
 URxvt.intensityStyles:	false
-URxvt.background:       [90]#231F20
+/* URxvt.background:       [90]#231F20 */
+URxvt.background:       [90]#1d2021
 URxvt.depth:		32
 URxvt.font: 		xft:monospace:size=11
 URxvt.scrollBar:	false
