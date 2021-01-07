@@ -2,7 +2,7 @@
 
 Repository dedicated to my configuration files of my Desktop environment, with the purpose of backup and sharing.
 
-## Setup Description
+## Description
 
 | Type                    	| Program            	                                            |
 |:------------------------	|:--------------------------------------------------------------  |
@@ -40,7 +40,7 @@ $ sudo pacman -S stow git
 
 etc..
 
-## Usage
+## Install
 
 ```
 $ git clone https://github.com/WIttyJudge/dotfiles ~/ && cd ~/dotfiles
