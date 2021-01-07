@@ -2,24 +2,20 @@
 
 Repository dedicated to my configuration files of my Desktop environment, with the purpose of backup and sharing.
 
-## Info
-
-* Settings for: 
+## Setup Description
 
 | Type                    	| Program            	|
 |:------------------------	|:-------------------	|
 | Shell                   	| zsh                	|
+| Window Manager           | i3                  |
 | Text Editor             	| neovim             	|
 | Status Bar              	| polybar            	|
 | Terminal                	| urxvt / terminator 	|
 | Image Viewer            	| sxiv               	|
-| System Information Tool 	| neofetch           	|
-|                         	|                    	|
+| System Information Tool 	| neofetch           	|  
 
-If you want to use settings for, uncomments it in ``setup.sh``:
-  * terminator (terminal)  
-
-All configs will be symlinked to ``~/.config/`` folder.  
+All configs will be symlinked to ``~/.config/`` folder.
+Useful scripts stored in ``scripts`` folder and symlinked to ``~/.local/bin`` folder.
 Environment variables have been set in ``.zprofile`` file.
 
 ## Requirement
