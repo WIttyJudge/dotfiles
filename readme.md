@@ -1,4 +1,4 @@
-# Dotfiles
+![Dotfiles](github-assets/dotfiles-logo.png)
 
 Repository dedicated to my configuration files of my Desktop environment, with the purpose of backup and sharing.
 
