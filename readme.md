@@ -4,15 +4,16 @@ Repository dedicated to my configuration files of my Desktop environment, with t
 
 ## Setup Description
 
-| Type                    	| Program            	|
-|:------------------------	|:-------------------	|
-| Shell                   	| zsh                	|
-| Window Manager           | i3                  |
-| Text Editor             	| neovim             	|
-| Status Bar              	| polybar            	|
-| Terminal                	| urxvt / terminator 	|
-| Image Viewer            	| sxiv               	|
-| System Information Tool 	| neofetch           	|  
+| Type                    	| Program            	                                            |
+|:------------------------	|:--------------------------------------------------------------  |
+| App Launcher              | [rofi](https://github.com/davatorium/rofi)                    	|
+| Shell                   	| [zsh](https://wiki.archlinux.org/index.php/zsh)                	|
+| Window Manager            | [i3](https://wiki.archlinux.org/index.php/i3)                   |
+| Text Editor             	| [neovim](https://github.com/neovim/neovim)             	        |
+| Status Bar              	| [polybar](https://github.com/polybar/polybar)                   |
+| Terminal                	| [urxvt](https://wiki.archlinux.org/index.php/rxvt-unicode) / [terminator](https://wiki.archlinux.org/index.php/Terminator)|
+| Image Viewer            	| [sxiv](https://wiki.archlinux.org/index.php/sxiv)               |
+| System Information Tool 	| [neofetch](https://github.com/dylanaraps/neofetch)           	  |  
 
 All configs will be symlinked to ``~/.config/`` folder.  
 Useful scripts stored in ``scripts`` folder and symlinked to ``~/.local/bin`` folder.  
