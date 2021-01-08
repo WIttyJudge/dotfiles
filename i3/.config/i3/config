@@ -125,8 +125,8 @@ bindsym $mod+F3		exec --no-startup-id amixer -q -D pulse set Master 5%+
 #bindsym $mod+Shift+F1	exec --no-startup-id 
 
 # #---Right side buttons---# #
-bindsym Print exec scrot ~/Picture/screenshots/`date +%d-%m-%Y_%H:%M:%S`.png
-bindsym Shift+Print exec gnome-screenshot -i
+# bindsym Print exec scrot ~/Picture/screenshots/`date +%d-%m-%Y_%H:%M:%S`.png
+bindsym Print exec flameshot gui 
 
 # #--ASSIGN--# #
 # Assign application to start on a specific workspace

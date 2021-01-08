@@ -2,5 +2,6 @@
 # Read more: https://wiki.archlinux.org/index.php/Xprofile
 
 dunst & # notification-daemon
+flameshot & # program for taking screenshots
 xrdb -merge ~/.Xresources & # theme configuration file
 setxkbmap -layout us,ru -option 'grp:alt_shift_toggle' & # set language keyboard

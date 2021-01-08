@@ -12,6 +12,7 @@ read -n 1 -r -s -p $'/////////////////////// Press any key to continue /////////
 folders=(
 	bash
 	dunst
+  flameshot
 	git
 	i3
 	neofetch
