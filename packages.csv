@@ -7,8 +7,9 @@ SKIP,chromium,Web browser developed by Google the open source project behind Goo
 ,telegram-desktop,Official Telegram Desktop client.
 ,discord,All-in-one voice and text chat for gamers that's free and secure.
 ,feh,Fast and light imlib2-based image viewer.
-,gnome-screenshot,Take pictures of your screen.
-,scrot,Simple command-line screenshot utility for X.
+SKIP,gnome-screenshot,Take pictures of your screen.
+SKIP,scrot,Simple command-line screenshot utility for X.
+,flameshot,Powerful yet simple to use screenshot software.
 ,pulseaudio-alsa,ALSA Configuration for PulseAudio.
 ,alsa-utils,Advanced Linux Sound Architecture - Utilities.
 ,ttf-dejavu,Font family based on the Bitstream Vera Fonts with a wider range of characters.
