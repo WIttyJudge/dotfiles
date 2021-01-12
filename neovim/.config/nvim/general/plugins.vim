@@ -43,7 +43,7 @@ call plug#begin('~/.config/nvim/plugged')
   " html emmet
   " Plug 'mattn/emmet-vim'
 
-  " Add "end" in ruby
+  " Add end work in ruby
   Plug 'tpope/vim-endwise' 
 
   " statusline/tabline plugin for Vim
