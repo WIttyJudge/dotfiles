@@ -10,20 +10,20 @@ read -n 1 -r -s -p $'/////////////////////// Press any key to continue /////////
 
 # List of directory names with dotfiles we need to setup
 folders=(
-	bash
-	dunst
+  bash
+  dunst
   flameshot
-	git
-	i3
-	neofetch
-	polybar
-	neovim
+  git
+  i3
+  neofetch
+  polybar
+  neovim
   rofi
   scripts
-	profile
-	ranger
-	sxiv
-	# terminator
+  profile
+  ranger
+  sxiv
+  # terminator
 )
 
 # GNU Stow is a symlink farm manager. https://www.gnu.org/software/stow
