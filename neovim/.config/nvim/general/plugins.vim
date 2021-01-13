@@ -36,7 +36,9 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'jiangmiao/auto-pairs'
 
   " This is a lightweight RSpec runner for Vim
-  Plug 'thoughtbot/vim-rspec'
+  Plug 'thoughtbot/vim-rspec', { 'for': 'ruby' }
+
+  Plug 'tpope/vim-rails'
 
   Plug 'tpope/vim-surround'
 

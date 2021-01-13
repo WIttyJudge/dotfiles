@@ -38,7 +38,9 @@ nnoremap <C-b> :NERDTreeToggle<CR>
 " fzf.vim
 map <C-f> :Files<CR>
 map <leader>b :Buffers<CR>
-nnoremap <leader>rg :Rg<CR>
+nnoremap <leader>rg :Rg<CR> 
+nmap <Leader>gc :Commits<CR>
+nmap <Leader>gfc :BCommits<CR>
 
 " vim-gitgutter
 nmap <Leader>gn <Plug>(GitGutterNextHunk)

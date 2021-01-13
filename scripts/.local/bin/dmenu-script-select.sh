@@ -1,8 +1,25 @@
 #!/bin/sh
 
+commands=(
+  '< Exit'
+  '---'
+  '1 [ Reloader ]'
+  '2 [ System ]'
+  '---'
+  '3 [ rofi-pass ]'
+)
+
 scripts_folder="$HOME/.local/bin/dmenu"
 
-choice=$(ls $scripts_folder | rofi -dmenu bmenu -selected-row 1 -p 'select script')
+choice="$(printf '%b\n' "${commands[@]}" | rofi -dmenu -i bmenu -p "What to reload > ")"
 
-[ -f "$scripts_folder/$choice" ] && $(sh $scripts_folder/$choice) || exit
-
+case "$choice" in
+  "1 [ Reloader ]")
+    sh "$scripts_folder/dmenu-reloader.sh" ;;
+  "2 [ System ]")
+    sh "$scripts_folder/dmenu-system.sh" ;;
+  "3 [ rofi-pass ]")
+    rofi-pass ;;
+  '< Exit') exit ;;
+  *) exit ;;
+esac
