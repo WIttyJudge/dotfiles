@@ -7,6 +7,7 @@ Repository dedicated to my configuration files of my Desktop environment, with t
 | Type                    	| Program            	                                            |
 |:------------------------	|:--------------------------------------------------------------  |
 | App Launcher              | [rofi](https://github.com/davatorium/rofi)                    	|
+| Screenshot Tool           | [flameshot](https://github.com/flameshot-org/flameshot#features)|
 | Image Viewer            	| [sxiv](https://wiki.archlinux.org/index.php/sxiv)               |
 | Shell                   	| [zsh](https://wiki.archlinux.org/index.php/zsh)                	|
 | Status Bar              	| [polybar](https://github.com/polybar/polybar)                   |
