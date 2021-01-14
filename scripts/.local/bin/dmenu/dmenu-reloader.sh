@@ -13,9 +13,9 @@ notifier() {
 }
 
 case "$choice" in
-  1 i3wm)
+  i3wm)
     i3-msg restart && notifier "i3wm" ;;
-  2 .Xresources)
+  .Xresources)
     xrdb ~/.Xresources && notifier ".Xresources" ;;
   .zshrc)
     source ~/.zshrc && notifier ".zshrc" ;;

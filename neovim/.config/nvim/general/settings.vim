@@ -5,6 +5,7 @@ set expandtab                           " Converts tabs to spaces
 set shiftwidth=2                        " Change the number of space characters inserted for indentation
 set tabstop=2                           " Insert 2 spaces for a tab
 set number relativenumber               " Line numbers
+set scrolloff=5                       " Keep 3 lines below and above the cursor
 
 set history=1000                        " Change history to 1000
 
@@ -14,7 +15,7 @@ set fileencoding=utf-8                  " The encoding written to file
 set ruler              			            " Show the cursor position all the time
 set cmdheight=2                         " More space for displaying messages
 set iskeyword+=-                      	" treat dash separated words as a word text object"
-set mouse=a                             " Enable your mouse
+set mouse-=a                             " Enable your mouse
 set splitbelow                          " Horizontal splits will automatically be below
 set splitright                          " Vertical splits will automatically be to the right
 set t_Co=256                            " Support 256 colors

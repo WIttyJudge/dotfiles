@@ -7,6 +7,8 @@ commands=(
   '2 [ System ]'
   '---'
   '3 [ rofi-pass ]'
+  
+  'dotfiles'
 )
 
 scripts_folder="$HOME/.local/bin/dmenu"
@@ -20,6 +22,8 @@ case "$choice" in
     sh "$scripts_folder/dmenu-system.sh" ;;
   "3 [ rofi-pass ]")
     rofi-pass ;;
+  "dotfiles")
+    $TERMINAL -e sh -c 'cd ~/dotfiles && nvim' ;;
   '< Exit') exit ;;
   *) exit ;;
 esac
