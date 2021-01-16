@@ -4,4 +4,5 @@
 dunst & # notification-daemon
 flameshot & # program for taking screenshots
 xrdb -merge ~/.Xresources & # theme configuration file
+xcompmgr -c & 
 setxkbmap -layout us,ru -option 'grp:alt_shift_toggle' & # set language keyboard

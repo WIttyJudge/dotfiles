@@ -42,7 +42,7 @@ compositing-border = over
 ;monitor = ${env:MONITOR:HDMI-1}
 
 width = 100%
-height = 22
+height = 24
 
 bottom = false
 
@@ -54,7 +54,7 @@ foreground = ${colors.foreground}
 line-size = 2
 line-color = #f00
 
-border-size = 2
+border-size = 0
 border-color = #00000000
 
 padding = 1
@@ -67,9 +67,9 @@ font-2 = "xos4 Terminus:size=16;2"
 
 modules-left = i3
 modules-center = memory cpu filesystem pacman-updates weather
-modules-right = xkeyboard pulseaudio wireless-network eth battery date
+modules-right = xkeyboard pulseaudio wireless-network eth battery date 
 
-separator =  |
+separator = |
 
 tray-position = right
 tray-padding = 2
@@ -90,7 +90,7 @@ label = %title:0:30:...%
 ;https://github.com/polybar/polybar/wiki/Module:-script
 type = custom/script
 interval = 1000
-exec = pacman -Qu | wc -l
+exec = checkupdates 2> /dev/null | wc -l
 label =  %output% Updates
 
 ;==========================================================
