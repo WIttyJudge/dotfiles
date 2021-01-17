@@ -52,4 +52,6 @@ AUR,urxvt-resize-font-git,An urxvt plugin to adjust the font size on the fly.
 ,rofi,A window application launcher and dmenu replacement.
 ,rofi-pass,Bash script to handle pass storages in a convenient way.
 ,pacman-contrib,Contributed scripts and tools for pacman systems.
+,xcompmgr,Composite Window-effects manager for Xorg.
+
 
