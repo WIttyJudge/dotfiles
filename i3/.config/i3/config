@@ -154,8 +154,6 @@ mode "resize" {
 }
 
 # #--AUTOSTART--# #
-# Set desktop wallpaper
-exec_always --no-startup-id feh --randomize --bg-scale ~/Picture/wallpapers/*
 
 # Polybar Launch Script
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh

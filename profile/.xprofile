@@ -4,5 +4,6 @@
 dunst & # notification-daemon
 flameshot & # program for taking screenshots
 xrdb -merge ~/.Xresources & # theme configuration file
-xcompmgr -c & 
+xcompmgr -c & # window transparency
+feh --randomize --bg-scale ~/Picture/wallpapers/* & # set desktop wallpaper
 setxkbmap -layout us,ru -option 'grp:alt_shift_toggle' & # set language keyboard
