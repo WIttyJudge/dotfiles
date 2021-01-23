@@ -9,14 +9,9 @@ super + d
         rofi -show drun
 
 /* Function Button */
-super + F1
-        amixer -q -D pulse set Master toggle
 
-super + F2 
-        amixer -q -D pulse set Master 5%-
-
-super + F3
-        amixer -q -D pulse set Master 5%+
+super + {F1, F2, F3} 
+        amixer -q -D pulse set Master {toggle, 5%-, 5%+}
 
 /* Ride side buttons */
 
