@@ -53,5 +53,7 @@ AUR,urxvt-resize-font-git,An urxvt plugin to adjust the font size on the fly.
 ,rofi-pass,Bash script to handle pass storages in a convenient way.
 ,pacman-contrib,Contributed scripts and tools for pacman systems.
 ,xcompmgr,Composite Window-effects manager for Xorg.
-
+,sxhkd,Simple X hotkey daemon.
+,zathura, Minimalistic document viewer with vim-like bindings.
+,zathura-pdf-mupdf, PDF support for Zathura.
 
