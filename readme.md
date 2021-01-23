@@ -10,6 +10,7 @@ Repository dedicated to my configuration files of my Desktop environment, with t
 | Image Viewer            	| [sxiv](https://wiki.archlinux.org/index.php/sxiv)               |
 | Notification Daemon       | [dunst](https://github.com/dunst-project/dunst)                 |
 | Shell                   	| [zsh](https://wiki.archlinux.org/index.php/zsh)                	|
+| Hotkey Daemon             | [sxhkd](https://github.com/baskerville/sxhkd)                   |
 | Status Bar              	| [polybar](https://github.com/polybar/polybar)                   |
 | Screenshot Tool           | [flameshot](https://github.com/flameshot-org/flameshot#features)|
 | System Information Tool 	| [neofetch](https://github.com/dylanaraps/neofetch)           	  |  
