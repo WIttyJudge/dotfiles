@@ -1,10 +1,9 @@
 [global]
     monitor = 0
     follow = keyboard
-    geometry = "350x5-0+24"
-    indicate_hidden = yes
+    geometry = "350x5-10+30"
     shrink = yes
-    transparency = 20
+    transparency = 0
     notification_height = 0
     separator_height = 2
     padding = 0
@@ -71,6 +70,27 @@
     close_all = ctrl+shift+space
     history = ctrl+grave
     context = ctrl+shift+period
+
+
+## [urgency_low]
+##   # IMPORTANT: colors have to be defined in quotation marks.
+##   # Otherwise the "#" and following would be interpreted as a comment.
+##   frame_color = "#1D918B"
+##   foreground = "#FFEE79"
+##   background = "#18191E"
+##   timeout = 3
+
+## [urgency_normal]
+##   frame_color = "#b16286"
+##   foreground = "#FFEE79"
+##   background = "#18191E"
+##   timeout = 5
+
+## [urgency_critical]
+##   frame_color = "#FC2929"
+##   foreground = "#FFFF00"
+##   background = "#cc241d"
+##   timeout = 10
 
 [urgency_low]
     # IMPORTANT: colors have to be defined in quotation marks.

@@ -22,6 +22,7 @@ folders=(
   scripts
   profile
   ranger
+  sxhkd
   sxiv
   # terminator
 )

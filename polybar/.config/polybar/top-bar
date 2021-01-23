@@ -281,6 +281,15 @@ ramp-load-4 = 
 
 ;==========================================================
 
+[module/mem]
+;https://github.com/polybar/polybar/wiki/Module:-script
+type = custom/script
+interval = 3
+exec = free -h | awk '/^Mem:/ {print $3 "/" $2}'
+click-left = notify-send "Biggest MEM hogs:" "$(ps axch -o cmd,%mem --sort=-%mem | head)"
+format =  MEM <label>
+
+
 [module/memory]
 ;https://github.com/polybar/polybar/wiki/Module:-memory
 type = internal/memory

@@ -1,0 +1,28 @@
+/* Some environment variable are located in the .zpofile file. E.g. $TERMINAL */
+
+/* start terminal */
+super + Return
+        $TERMINAL
+
+/* start dmenu (a program launcher) */
+super + d
+        rofi -show drun
+
+/* Function Button */
+super + F1
+        amixer -q -D pulse set Master toggle
+
+super + F2 
+        amixer -q -D pulse set Master 5%-
+
+super + F3
+        amixer -q -D pulse set Master 5%+
+
+/* Ride side buttons */
+
+/* scrinshoter */
+Print
+    flameshot gui
+
+super + Delete 
+        sh .local/bin/dmenu-script-select.sh
