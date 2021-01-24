@@ -15,6 +15,7 @@ folders=(
   flameshot
   git
   i3
+  mpv
   neofetch
   polybar
   neovim
