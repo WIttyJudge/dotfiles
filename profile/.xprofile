@@ -1,11 +1,12 @@
 # An xprofile file, ~/.xprofile and /etc/xprofile, allows you to execute commands at the beginning of the X user session - before the window manager is started.
 # Read more: https://wiki.archlinux.org/index.php/Xprofile
 
-dunst &     # notification-daemon
-flameshot &  # program for taking screenshots
+dunst &      # notification-daemon
+flameshot &  # screenshots utils
 xcompmgr &   # window transparency
 sxhkd &      # hotkey damon
 unclutter &	 # Remove mouse when idle
+xset r rate 200 35 & # Speed xrate up
 xrdb -merge ~/.Xresources &                              # theme configuration file
 feh --randomize --bg-scale ~/Picture/wallpapers/* &      # set desktop wallpaper
 setxkbmap -layout us,ru -option 'grp:alt_shift_toggle' & # set language keyboard

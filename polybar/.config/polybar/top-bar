@@ -34,7 +34,6 @@ compositing-overline = over
 compositing-underline = over
 compositing-border = over
 
-
 ;==========================================================
 
 [bar/top-bar]
@@ -66,7 +65,7 @@ font-1 = "Wuncon Siji:size=16;1"
 font-2 = "xos4 Terminus:size=16;2"
 
 modules-left = i3
-modules-center = memory cpu filesystem pacman-updates weather
+modules-center = mem cpu filesystem pacman-updates weather
 modules-right = xkeyboard pulseaudio wireless-network eth battery date 
 
 separator = |
@@ -285,10 +284,14 @@ ramp-load-4 = 
 ;https://github.com/polybar/polybar/wiki/Module:-script
 type = custom/script
 interval = 3
-exec = free -h | awk '/^Mem:/ {print $3 "/" $2}'
-click-left = notify-send "Biggest MEM hogs:" "$(ps axch -o cmd,%mem --sort=-%mem | head)"
+
+exec = free | grep Mem | awk '{printf "%.0f%", ($3/($2-$6) * 100.0) }'
+click-left = notify-send "Sort application by mem usage:" "$(ps axch -o cmd,%mem --sort=-%mem | head)"
+click-middle = $TERMINAL -e htop -s PERCENT_MEM
+
 format =  MEM <label>
 
+;==========================================================
 
 [module/memory]
 ;https://github.com/polybar/polybar/wiki/Module:-memory
