@@ -12,8 +12,9 @@ alias gp="git push"
 
 # directory
 alias cdd="cd ~/Desktop "
-alias ll="ls -la"
-alias ll.='ls -dl .* --color=auto'
+alias ls="exa"
+alias ll="exa -la"
+alias ll.='exa -dl .* --color=auto'
 
 # zsh
 alias zshconfig="sudo vim ~/.zshrc"
