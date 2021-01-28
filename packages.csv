@@ -56,5 +56,6 @@ AUR,urxvt-resize-font-git,An urxvt plugin to adjust the font size on the fly.
 ,sxhkd,Simple X hotkey daemon.
 ,zathura, Minimalistic document viewer with vim-like bindings.
 ,zathura-pdf-mupdf, PDF support for Zathura.
-,unclutter,Unclutter hides your X mouse cursor when you do not use it.
+,unclutter,It hides your X mouse cursor when you do not use it.
+,exa,Cool replacement for ls.
 
