@@ -4,27 +4,27 @@ alias s="sudo "
 alias dotfiles="cd ~/dotfiles && $EDITOR"
 
 # git
-alias g="git "
-alias gs="git status"
-alias ga="git add"
-alias gc="git commit"
-alias gp="git push"
+alias \
+  g="git " \
+  gs="git status" \
+  ga="git add" \
+  gc="git commit" \
+  gp="git push" \
 
 # directory
-alias cdd="cd ~/Desktop "
-alias ls="exa"
-alias ll="exa -la"
-alias ll.='exa -dl .* --color=auto'
+alias \
+  cdd="cd ~/Desktop " \
+  ls="exa" \
+  ll="exa -la" \
+  ll.='exa -dl .* --color=auto' \
 
-# zsh
-alias zshconfig="sudo vim ~/.zshrc"
-
-# reload
-alias reload-zshrc="source ~/.zshrc && notify-send 'zshrc reloaded'"
+alias \
+  cat="bat"
 
 # docker
-alias d="docker "
-alias dc="docker-compose "
+alias \
+  d="docker " \
+  dc="docker-compose " \
 
 # pacman 
 alias p="sudo pacman "

@@ -2,3 +2,5 @@
 
 neovim/.config/nvim/plugged
 neovim/.config/nvim/autoload/plug.vim
+neovim/.config/nvim/.netrwhist
+
