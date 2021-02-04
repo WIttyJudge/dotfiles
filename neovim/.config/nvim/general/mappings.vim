@@ -39,17 +39,17 @@ nnoremap <C-b> :NERDTreeToggle<CR>
 map <C-f> :Files<CR>
 map <leader>b :Buffers<CR>
 nnoremap <leader>rg :Rg<CR> 
-nmap <Leader>gc :Commits<CR>
-nmap <Leader>gfc :BCommits<CR>
+" nmap <Leader>gc :Commits<CR>
+" nmap <Leader>gfc :BCommits<CR>
 
 " vim-gitgutter
-nmap <Leader>gn <Plug>(GitGutterNextHunk)
-nmap <Leader>gp <Plug>(GitGutterPrevHunk)
-nmap <Leader>gu <Plug>(GitGutterUndoHunk)
+" nmap <Leader>gn <Plug>(GitGutterNextHunk)
+" nmap <Leader>gp <Plug>(GitGutterPrevHunk)
+" nmap <Leader>gu <Plug>(GitGutterUndoHunk)
 
 " vim-fugitive
-nmap <Leader>gd :Gdiff<CR>
-nmap <leader>gs :Gstatus<CR><C-w>
+" nmap <Leader>gd :Gdiff<CR>
+" nmap <leader>gs :Gstatus<CR><C-w>
 
 " vim-rspec
 " You can run RSpec only if ruby filetype is defined.

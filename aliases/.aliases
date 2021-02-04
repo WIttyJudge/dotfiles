@@ -1,4 +1,7 @@
-alias s="sudo "
+# useful
+alias \
+  s="sudo " \
+  untar="tar -xzvf " \
 
 # commands
 alias dotfiles="cd ~/dotfiles && $EDITOR"
@@ -18,6 +21,7 @@ alias \
   ll="exa -la" \
   ll.='exa -dl .* --color=auto' \
 
+# output information
 alias \
   cat="bat"
 

@@ -1,3 +1,9 @@
+/* *font: xft:monospace:size=11 */
+*font: xft:Hack-Regular:pixelsize=14
+
+!! Transparency (0-1):
+*.alpha: 0.85
+
 !! Colorscheme (Gruvbox)
 
 ! hard contrast: *background: #1d2021
@@ -40,10 +46,9 @@
 
 !! URxvt Appearance
 URxvt.intensityStyles:	false
-/* URxvt.background:       [90]#231F20 */
 URxvt.background:       [85]#1d2021
 URxvt.depth:		32
-URxvt.font: 		xft:monospace:size=11
+/* URxvt.font: 		xft:monospace:size=11 */
 URxvt.scrollBar:	false
 URxvt.cursorColor:	white
 

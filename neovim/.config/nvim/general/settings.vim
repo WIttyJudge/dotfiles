@@ -6,7 +6,7 @@ set shiftwidth=2                        " Change the number of space characters 
 set tabstop=2                           " Insert 2 spaces for a tab
 set number relativenumber               " Line numbers
 set scrolloff=5                         " Keep 5 lines below and above the cursor
-
+set noswapfile
 set history=1000                        " Change history to 1000
 
 set hidden                              " Required to keep multiple buffers open multiple buffers

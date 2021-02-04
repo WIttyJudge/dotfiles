@@ -65,7 +65,7 @@ font-1 = "Wuncon Siji:size=16;1"
 font-2 = "xos4 Terminus:size=16;2"
 
 modules-left = i3
-modules-center = mem cpu filesystem pacman-updates weather
+modules-center = mem memory cpu filesystem pacman-updates weather
 modules-right = xkeyboard pulseaudio wireless-network eth battery date 
 
 separator = |
@@ -285,7 +285,7 @@ ramp-load-4 = 
 type = custom/script
 interval = 3
 
-exec = free | grep Mem | awk '{printf "%.0f%", ($3/($2-$6) * 100.0) }'
+exec = free | grep Mem | awk '{printf "%.0f%", $3/$2 * 100.0 }'
 click-left = notify-send "Sort application by mem usage:" "$(ps axch -o cmd,%mem --sort=-%mem | head)"
 click-middle = $TERMINAL -e htop -s PERCENT_MEM
 
