@@ -52,6 +52,10 @@ URxvt.depth:		32
 URxvt.scrollBar:	false
 URxvt.cursorColor:	white
 
+/* Disable iso mode while pressing CTRL + SHIFT */
+URxvt.iso14755: false
+URxvt.iso14755_52: false
+
 !! URxvt Extensions
 URxvt.perl-ext-common: default,matcher,resize-font,url-select,clipboard
 

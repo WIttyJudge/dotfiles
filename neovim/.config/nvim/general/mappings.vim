@@ -22,6 +22,12 @@ nnoremap <C-H> <C-W><C-H>
 inoremap jk <Esc>
 inoremap kj <Esc>
 
+" Tags
+" nnoremap tk  :tabnext<CR>
+" nnoremap tj  :tabprev<CR>
+nmap <Leader>tl :tabnext<CR>
+nmap <Leader>th :tabprev<CR>
+
 " Better tabbing
 vnoremap < <gv
 vnoremap > >gv

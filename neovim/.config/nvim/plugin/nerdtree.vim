@@ -17,6 +17,9 @@ let NERDTreeAutoDeleteBuffer = 1
 " Open top-folder without cd into it
 au VimEnter NERD_tree_1 enew | execute 'NERDTree '.argv()[0]
 
+" Open the existing NERDTree on each new tab.
+autocmd BufWinEnter * silent NERDTreeMirror
+
 " IF you want to remove array symbols
 " let g:NERDTreeDirArrowExpandable = ''
 " let g:NERDTreeDirArrowCollapsible = ''
