@@ -6,7 +6,7 @@ do
   case "$1" in
 	"w")
 		cp "$file" ~/Picture/wallpapers/wp.png &&
-		xwallpaper --zoom ~/Picture/wallpapers/wp.png &&
+		feh --bg-scale ~/Picture/wallpapers/wp.png &&
 		notify-send "$file moved to wallpapers" ;;
 	"r")
 		convert -rotate 90 "$file" "$file" ;;
