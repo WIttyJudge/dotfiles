@@ -13,7 +13,8 @@ commands=(
 
 scripts_folder="$HOME/.local/bin/dmenu"
 
-choice="$(printf '%b\n' "${commands[@]}" | rofi -dmenu -i bmenu -p "Select command > ")"
+# choice="$(printf '%b\n' "${commands[@]}" | rofi -dmenu -i bmenu -p "Select command > ")"
+choice="$(printf '%b\n' "${commands[@]}" | dmenu -c -l 10 -h 30 )"
 
 case "$choice" in
   "1 [ System ]")

@@ -6,7 +6,7 @@ files=(
   .zshrc
 )
 
-choice="$(printf '%s\n' "${files[@]}" | rofi -dmenu -i bmenu -p "What to reload > ")"
+choice="$(printf '%s\n' "${files[@]}" | dmenu -p "What to reload > ")"
 
 notifier() {
   notify-send "$1 successfully reloaded."

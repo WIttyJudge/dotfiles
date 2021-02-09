@@ -6,7 +6,7 @@ super + Return
 
 /* start dmenu (a program launcher) */
 super + d
-        rofi -show drun
+        dmenu_run -c -l 10
 
 /* Function Button */
 

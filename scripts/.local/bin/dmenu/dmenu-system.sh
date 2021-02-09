@@ -10,7 +10,7 @@ commands=(
 )
 
 # choice="$(printf '%s\n' "${commands[@]}" | dmenu -p "System:" )"
-choice="$(printf '%s\n' "${commands[@]}" | rofi -dmenu )"
+choice="$(printf '%s\n' "${commands[@]}" | dmenu )"
 
 case "$choice" in
   shutdown)
