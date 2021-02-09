@@ -6,7 +6,8 @@ SKIP,chromium,Web browser developed by Google the open source project behind Goo
 AUR,brave-bin,Web browser that blocks ads and trackers by default (binary release).
 ,telegram-desktop,Official Telegram Desktop client.
 ,discord,All-in-one voice and text chat for gamers that's free and secure.
-SKIP,feh,Fast and light imlib2-based image viewer.
+,feh,Fast and light imlib2-based image viewer.
+SKIP,xwallpaper,Wallpaper setting utility for X.
 SKIP,gnome-screenshot,Take pictures of your screen.
 SKIP,scrot,Simple command-line screenshot utility for X.
 ,flameshot,Powerful yet simple to use screenshot software.
@@ -60,4 +61,4 @@ SKIP,rofi-pass,Bash script to handle pass storages in a convenient way.
 ,unclutter,It hides your X mouse cursor when you do not use it.
 ,exa,Replacement for ls.
 ,bat,Replacement for cat.
-,xwallpaper,Wallpaper setting utility for X.
+
