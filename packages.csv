@@ -34,6 +34,7 @@ SKIP,dmenu,Generic menu for X.
 ,libreoffice-still,The office productivity suite compatible to the open and standardized ODF document format.
 ,pass,Simple console-based password manager featuring flat text file organization and GnuPG encryption.
 ,openssh,Premier connectivity tool for remote login with the SSH protocol.
+,openssl-1.0,The Open Source toolkit for Secure Sockets Layer and Transport Layer Security.
 ,xorg-server,Xorg (commonly referred as simply X) is the most popular display server among Linux users.
 ,xorg-xinit,The xinit program allows a user to manually start an Xorg display server.
 SKIP,terminator,Terminator is a terminal emulator.
