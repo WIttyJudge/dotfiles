@@ -30,7 +30,6 @@ SKIP,ttf-fira-code,Monospaced font with programming ligatures.
 ,sxiv,Simple X Image Viewer.
 ,ncdu,Disk usage analyzer with an ncurses interface.
 ,hardinfo,A small application that displays information about your hardware and operating system.
-SKIP,dmenu,Generic menu for X.
 ,libreoffice-still,The office productivity suite compatible to the open and standardized ODF document format.
 ,pass,Simple console-based password manager featuring flat text file organization and GnuPG encryption.
 ,openssh,Premier connectivity tool for remote login with the SSH protocol.
@@ -51,8 +50,8 @@ AUR,spaceship-prompt-git,Theme for zsh.
 AUR,rxvt-unicode-256xresources,urxvt with patches to support 256 Xresource colors and fixes for line/font spacing.
 ,urxvt-perls,URL and Mouseless text selection for rxvt-unicode.
 AUR,urxvt-resize-font-git,An urxvt plugin to adjust the font size on the fly.
-,rofi,A window application launcher and dmenu replacement.
-,rofi-pass,Bash script to handle pass storages in a convenient way.
+SKIP,rofi,A window application launcher and dmenu replacement.
+SKIP,rofi-pass,Bash script to handle pass storages in a convenient way.
 ,pacman-contrib,Contributed scripts and tools for pacman systems.
 ,xcompmgr,Composite Window-effects manager for Xorg.
 ,sxhkd,Simple X hotkey daemon.
