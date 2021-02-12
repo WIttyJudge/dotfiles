@@ -1,12 +1,8 @@
 " Basic settings
 syntax enable                           " Enables syntax highlighing
 set encoding=UTF-8                      " The encoding displayed
-set expandtab                           " Converts tabs to spaces
-set shiftwidth=2                        " Change the number of space characters inserted for indentation
-set tabstop=2                           " Insert 2 spaces for a tab
 set number relativenumber               " Line numbers
 set scrolloff=5                         " Keep 5 lines below and above the cursor
-set noswapfile
 set history=1000                        " Change history to 1000
 
 set hidden                              " Required to keep multiple buffers open multiple buffers
@@ -28,6 +24,7 @@ set cursorline                          " Enable highlighting of the current lin
 set background=dark                     " tell vim what the background color looks like
 set showtabline=2                       " Always show tabs
 set noshowmode                          " We don't need to see things like -- INSERT -- anymore
+set noswapfile                          " I dont need swap file
 set nobackup                            " This is recommended by coc
 set nowritebackup                       " This is recommended by coc
 set updatetime=250                      " Faster completion

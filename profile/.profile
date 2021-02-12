@@ -33,7 +33,6 @@ export PATH=$PATH:$GOROOT/bin
 
 # libs from golang
 export GOPATH=$HOME/golib
-export PATH=$PATH:$GOPATH/bin
 
 # my folder
 export GOPATH=$HOME/code

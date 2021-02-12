@@ -9,22 +9,31 @@ commands=(
 	hibernate
 )
 
+case "$(readlink -f /sbin/init)" in
+	*runit*) 
+    suspend="slock sudo -A zzz";
+    reboot="sudo reboot";
+    shutown="sudo poweroff";
+    lock="slock";
+    ;;
+esac
+
 # choice="$(printf '%s\n' "${commands[@]}" | dmenu -p "System:" )"
 choice="$(printf '%s\n' "${commands[@]}" | dmenu )"
 
 case "$choice" in
   shutdown)
-    systemctl poweroff ;;
+    $shutdown ;;
   suspend)
-    systemctl suspend ;;
+    $suspend ;;
   reboot)
-    systemctl reboot ;;
+    $reboot ;;
   lock)
-    lock ;;
-  logout)
-    i3-msg exit ;;
-  hibernate)
-    systemctl hibernate ;;
+    $lock ;;
+  # logout)
+  #   i3-msg exit ;;
+  # hibernate)
+  #   systemctl hibernate ;;
   *)
     exit 2
 esac
