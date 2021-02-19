@@ -53,6 +53,8 @@ call plug#begin('~/.config/nvim/plugged')
 
   Plug 'liuchengxu/vim-which-key'
   Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+
+  Plug 'airblade/vim-rooter'
 call plug#end()
 
 " Run PlugInstall if there are missing plugins

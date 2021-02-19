@@ -1,0 +1,41 @@
+#!/bin/sh
+
+commands=(
+	poweroff
+	suspend
+	reboot
+	lock
+	logout
+	hibernate
+)
+
+case "$(readlink -f /sbin/init)" in
+	*runit*) 
+    poweroff="sudo poweroff";
+    suspend="slock sudo -A zzz";
+    reboot="sudo reboot";
+    lock="slock";
+    ;;
+esac
+
+# choice="$(printf '%s\n' "${commands[@]}" | dmenu -p "System:" )"
+choice="$(printf '%s\n' "${commands[@]}" | dmenu )"
+
+case "$choice" in
+  poweroff)
+    $poweroff ;;
+  suspend)
+    $suspend ;;
+  reboot)
+    $reboot ;;
+  lock)
+    $lock ;;
+  # logout)
+  #   i3-msg exit ;;
+  # hibernate)
+  #   systemctl hibernate ;;
+  *)
+    exit 2
+esac
+
+exit 0

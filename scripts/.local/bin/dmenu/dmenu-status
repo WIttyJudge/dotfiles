@@ -1,14 +1,5 @@
 #!/bin/sh
 
-commands=(
-	shutdown
-	suspend
-	reboot
-	lock
-	logout
-	hibernate
-)
-
 case "$(readlink -f /sbin/init)" in
 	*runit*) 
     suspend="slock sudo -A zzz";

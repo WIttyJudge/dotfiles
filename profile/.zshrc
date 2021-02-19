@@ -47,3 +47,15 @@ source ~/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
 export PATH="$PATH:$HOME/.rvm/bin"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# root
+export GOROOT=/usr/local/go
+export PATH=$PATH:$GOROOT/bin
+
+# libs from golang
+export GOPATH=$HOME/golib
+
+# my folder
+export GOPATH=$HOME/code
+export PATH=$PATH:$GOPATH/bin
+

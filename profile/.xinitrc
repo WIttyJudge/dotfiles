@@ -6,4 +6,5 @@
 [ -f ~/.xprofile ] && source ~/.xprofile
 
 # Run i3 DM.
-exec i3
+# exec i3
+ssh-agent dwm
