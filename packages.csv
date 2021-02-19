@@ -61,4 +61,5 @@ SKIP,rofi-pass,Bash script to handle pass storages in a convenient way.
 ,unclutter,It hides your X mouse cursor when you do not use it.
 ,exa,Replacement for ls.
 ,bat,Replacement for cat.
+,speedtest-cli,Command line interface for testing internet bandwidth using speedtest.net.
 
