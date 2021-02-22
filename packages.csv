@@ -12,6 +12,7 @@ SKIP,gnome-screenshot,Take pictures of your screen.
 SKIP,scrot,Simple command-line screenshot utility for X.
 ,flameshot,Powerful yet simple to use screenshot software.
 ,pulseaudio-alsa,ALSA Configuration for PulseAudio.
+,pavucontrol,PulseAudio Volume Control.
 ,alsa-utils,Advanced Linux Sound Architecture - Utilities.
 ,ttf-dejavu,Font family based on the Bitstream Vera Fonts with a wider range of characters.
 SKIP,ttf-fira-code,Monospaced font with programming ligatures.
