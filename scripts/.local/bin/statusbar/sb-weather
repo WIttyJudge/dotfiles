@@ -1,0 +1,7 @@
+#!/bin/bash
+
+weather=$(curl -s wttr.in/Moscow?format="%t+%h")
+icon="⛅"
+
+printf " %s%s \\n" "$icon " "$weather"
+

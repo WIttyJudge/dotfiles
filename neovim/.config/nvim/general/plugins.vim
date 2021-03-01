@@ -52,7 +52,9 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'itchyny/lightline.vim'
 
   Plug 'liuchengxu/vim-which-key'
-  Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+
+  " For working with Golang programming language
+  " Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
   Plug 'airblade/vim-rooter'
 call plug#end()

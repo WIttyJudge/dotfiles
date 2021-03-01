@@ -1,0 +1,6 @@
+#!/bin/sh
+
+keyboard_layout="$(xkblayout-state print "%s")"
+icon="👻"
+
+printf " %s %s \\n" "$icon" "$keyboard_layout"

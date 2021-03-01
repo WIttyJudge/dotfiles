@@ -9,6 +9,7 @@ commands=(
   '3 [ rofi-pass ]'
   '---'
   'dotfiles'
+  'suckess-tools'
 )
 
 scripts_folder="$HOME/.local/bin/dmenu"
@@ -18,13 +19,15 @@ choice="$(printf '%b\n' "${commands[@]}" | dmenu -c -l 10 -h 30 )"
 
 case "$choice" in
   "1 [ System ]")
-    sh "$scripts_folder/dmenu-system.sh" ;;
+    dmenu-system ;;
   "2 [ Reloader ]")
-    sh "$scripts_folder/dmenu-reloader.sh" ;;
+    dmenu-reloader ;;
   "3 [ rofi-pass ]")
     rofi-pass ;;
   "dotfiles")
     $TERMINAL -e sh -c 'cd ~/dotfiles && nvim' ;;
+  "suckess-tools")
+    $TERMINAL -e sh -c 'cd ~/suckless-tools && nvim' ;;
   '< Exit') exit ;;
   *) exit ;;
 esac

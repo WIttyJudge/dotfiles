@@ -2,10 +2,11 @@
 # Read more: https://wiki.archlinux.org/index.php/Xprofile
 
 dunst &      # notification-daemon
-dwmblocks &
+dwmblocks &  # bar for dwm
+# pulseaudio --start & # start audio
 flameshot &  # screenshots utils
 xcompmgr &   # window transparency
-sxhkd &      # hotkey damon
+sxhkd &      # hotkey daemon
 unclutter --idle 3 &	 # Remove mouse when idle
 xset r rate 200 35 & # Speed xrate up
 xrdb -merge ~/.Xresources &                              # theme configuration file

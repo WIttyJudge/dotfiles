@@ -5,7 +5,7 @@ super + Return
         $TERMINAL
 
 /* start dmenu (a program launcher) */
-super + d
+super + p
         dmenu_run -c -l 10
 
 /* Function Button */
@@ -20,4 +20,4 @@ Print
     flameshot gui
 
 super + Delete 
-        sh .local/bin/dmenu-script-select.sh
+        dmenu-script-select

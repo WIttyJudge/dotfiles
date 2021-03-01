@@ -11,10 +11,10 @@ folders=(
   dunst
   flameshot
   git
-  i3
+  # i3
   mpv
   neofetch
-  polybar
+  # polybar
   neovim
   rofi
   scripts
