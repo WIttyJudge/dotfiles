@@ -11,7 +11,7 @@ super + p
 /* Function Button */
 
 super + {F1, F2, F3} 
-        amixer -q -D pulse set Master {toggle, 5%-, 5%+}
+        amixer -q -D pulse set Master {toggle, 10%-, 10%+}; pkill -RTMIN+10 dwmblocks
 
 /* Ride side buttons */
 
