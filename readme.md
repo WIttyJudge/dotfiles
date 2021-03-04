@@ -3,6 +3,7 @@
 Repository dedicated to my configuration files of my Desktop environment, with the purpose of backup and sharing.
 
 ## Description
+* - program I currently use.
 
 | Type                    	| Program            	                                            |
 |:------------------------	|:--------------------------------------------------------------  |
@@ -14,7 +15,7 @@ Repository dedicated to my configuration files of my Desktop environment, with t
 | Status Bar              	| [polybar](https://github.com/polybar/polybar)                   |
 | Screenshot Tool           | [flameshot](https://github.com/flameshot-org/flameshot#features)|
 | System Information Tool 	| [neofetch](https://github.com/dylanaraps/neofetch)           	  |  
-| Terminal                	| [urxvt](https://wiki.archlinux.org/index.php/rxvt-unicode) / [terminator](https://wiki.archlinux.org/index.php/Terminator)|
+| Terminal                	| [urxvt](https://wiki.archlinux.org/index.php/rxvt-unicode)(*) / [terminator](https://wiki.archlinux.org/index.php/Terminator)|
 | Text Editor             	| [neovim](https://github.com/neovim/neovim)             	        |
 | Window Manager            | [i3](https://wiki.archlinux.org/index.php/i3)                   |
 
