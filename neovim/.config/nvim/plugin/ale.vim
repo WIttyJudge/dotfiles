@@ -14,7 +14,7 @@ let g:ale_fixers = {
       \ 'ruby': ['rubocop'],
       \ 'c': ['clang-format'],
       \ 'rust': ['rustfmt'],
-      \}
+      \ }
 let g:ale_fix_on_save = 0
 
 " Signs

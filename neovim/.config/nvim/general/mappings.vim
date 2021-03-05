@@ -18,6 +18,12 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
+" Copy whole text in file
+nnoremap va :%y+<CR>
+
+" Copy whole text in file
+nnoremap <Leader>; :nohlsearch<CR>
+
 " Use this instead of touching Esc key
 inoremap jk <Esc>
 inoremap kj <Esc>
@@ -41,8 +47,8 @@ nnoremap <C-b> :NERDTreeToggle<CR>
 
 " fzf.vim
 map <C-f> :Files<CR>
-map <leader>b :Buffers<CR>
-nnoremap <leader>rg :Rg<CR> 
+map <Leader>b :Buffers<CR>
+nnoremap <Leader>rg :Rg<CR> 
 " nmap <Leader>gc :Commits<CR>
 " nmap <Leader>gfc :BCommits<CR>
 
@@ -53,7 +59,7 @@ nnoremap <leader>rg :Rg<CR>
 
 " vim-fugitive
 " nmap <Leader>gd :Gdiff<CR>
-" nmap <leader>gs :Gstatus<CR><C-w>
+" nmap <Leader>gs :Gstatus<CR><C-w>
 
 " vim-rspec
 " You can run RSpec only if ruby filetype is defined.
