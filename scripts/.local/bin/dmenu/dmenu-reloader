@@ -1,8 +1,9 @@
 #!/bin/sh
 
 files=(
-  i3wm
+  # i3wm
   .Xresources
+  sxhkd
   .zshrc
 )
 
@@ -13,11 +14,14 @@ notifier() {
 }
 
 case "$choice" in
-  i3wm)
-    i3-msg restart && notifier "i3wm" ;;
+  # i3wm)
+  #   i3-msg restart && notifier "i3wm" ;;
   .Xresources)
     xrdb ~/.Xresources && notifier ".Xresources" ;;
   .zshrc)
     source ~/.zshrc && notifier ".zshrc" ;;
+  sxhkd)
+    pkill sxhkd; sxhkd &&
+    notifier "sxhkd" ;;
   *) exit ;;
 esac

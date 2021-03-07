@@ -1,8 +1,8 @@
 #!/bin/sh
 
 commands=(
-	poweroff
 	suspend
+	poweroff
 	reboot
 	lock
 	logout
@@ -22,10 +22,10 @@ esac
 choice="$(printf '%s\n' "${commands[@]}" | dmenu )"
 
 case "$choice" in
-  poweroff)
-    $poweroff ;;
   suspend)
     $suspend ;;
+  poweroff)
+    $poweroff ;;
   reboot)
     $reboot ;;
   lock)
