@@ -21,8 +21,12 @@ nnoremap <C-H> <C-W><C-H>
 " Copy whole text in file
 nnoremap va :%y+<CR>
 
-" Copy whole text in file
+" Clean hightliting after search
 nnoremap <Leader>; :nohlsearch<CR>
+
+" Disable copy while deleting
+nnoremap d "_d
+vnoremap d "_d
 
 " Use this instead of touching Esc key
 inoremap jk <Esc>

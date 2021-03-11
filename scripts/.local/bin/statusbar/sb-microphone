@@ -1,0 +1,34 @@
+#!/bin/sh
+
+if ! command -v pamixer > /dev/null; then
+  exit_code="$?"
+
+  notify-send \
+      "Error" \
+      "'pamixer' is not available."
+
+  exit $exit_code
+fi
+
+pamixer --list-sources \
+  | grep input \
+  | awk '{print $1}' \
+  | while read -r index; do
+
+    mic_muted="$(pamixer --source "$index" --get-mute)"
+
+    if [ "$mic_muted" = "true" ]; then
+      pamixer --source "$index" -u
+      # notify-send "Microphone unmuted"
+      icon="🎤"
+
+      printf " %s \\n" "$icon"
+    else
+      pamixer --source "$index" -m
+      # notify-send "Microphone muted"
+      icon="🔇"
+
+      printf " %s \\n" "$icon"
+    fi
+done
+

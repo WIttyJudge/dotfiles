@@ -8,3 +8,7 @@ function acp() {
     git commit -m "Auto Commit"
     git push origin master
 }
+
+test-microphone() {
+  arecord -vv -f dat /dev/null
+}
