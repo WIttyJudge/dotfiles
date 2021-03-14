@@ -1,6 +1,18 @@
 #!/bin/bash
 
-weather=$(curl -s wttr.in/Moscow?format="%t+%h")
+command="curl"
+
+if ! command -v $command > /dev/null 2>&1; then
+  exit_code="$?"
+  msg="$command error"
+
+  notify-send "'$command' is not available."
+  printf " %s \\n" "$msg"
+
+  exit $exit_code
+fi
+
+weather=$($command -s wttr.in/Moscow?format="%t+%h")
 icon="⛅"
 
 printf " %s%s \\n" "$icon " "$weather"

@@ -14,8 +14,8 @@ super + {F1, F2, F3}
         amixer -q -D pulse set Master {toggle, 10%-, 10%+}; pkill -RTMIN+10 dwmblocks
 
 /* Ride side buttons */
-super + KP_Add 
-       pkill -RTMIN+20 dwmblocks
+KP_Add 
+        pkill -RTMIN+20 dwmblocks
 
 /* screenshoter */
 Print

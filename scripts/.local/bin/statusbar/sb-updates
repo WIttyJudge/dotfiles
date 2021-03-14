@@ -1,6 +1,20 @@
 #!/bin/sh
 
-updatesarch="$(checkupdates 2> /dev/null | wc -l)"
+# sudo pacman -S pacman-contrib
+# pacman-contrib package includes checkupdates script.
+command="checkupdates"
+
+if ! command -v $command > /dev/null 2>&1; then
+  exit_code="$?"
+  msg="$command error"
+
+  notify-send "'$command' is not available."
+  printf " %s \\n" "$msg"
+
+  exit $exit_code
+fi
+
+updatesarch="$($checupdates 2> /dev/null | wc -l)"
 updatesaur="$(yay -Qum 2> /dev/null | wc -l)"
 updates=$(("$updatesarch" + "$updatesaur"))
 icon="📦"

@@ -1,8 +1,20 @@
 #!/bin/bash
 
-volume="$(pamixer --get-volume)"
+command="pamixer"
 
-[ $(pamixer --get-mute) = true ] && echo " 🔇 " && exit
+if ! command -v $command > /dev/null; then
+  exit_code="$?"
+  msg="$command error"
+
+  notify-send "'$command' is not available."
+  printf " %s \\n" "$msg"
+
+  exit $exit_code
+fi
+
+volume="$($command --get-volume)"
+
+[ $($command --get-mute) = true ] && echo " 🔇 " && exit
 
 if [ "$volume" -gt "69" ]; then
 	icon="🔊"

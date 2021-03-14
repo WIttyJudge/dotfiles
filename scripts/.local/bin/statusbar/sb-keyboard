@@ -1,6 +1,19 @@
 #!/bin/sh
 
-keyboard_layout="$(xkblayout-state print "%s")"
+# yay -S xkblayout-state-git
+command="xkblayout-state"
+
+if ! command -v $command > /dev/null 2>&1; then
+  exit_code="$?"
+  msg="$command error"
+
+  notify-send "'$command' is not available."
+  printf " %s \\n" "$msg"
+
+  exit $exit_code
+fi
+
+keyboard_layout="$($command print "%s")"
 icon="👻"
 
 printf " %s %s \\n" "$icon" "$keyboard_layout"

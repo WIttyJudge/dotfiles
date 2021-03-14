@@ -10,5 +10,8 @@ sxhkd &      # hotkey daemon
 unclutter --idle 3 &	 # Remove mouse when idle
 xset r rate 200 35 & # Speed xrate up
 xrdb -merge ~/.Xresources &                              # theme configuration file
-feh --bg-scale ~/Picture/wallpapers/* &                  # set desktop wallpaper
+
+# feh --bg-scale ~/Picture/wallpapers/* &
+xwallpaper --zoom ~/Picture/wallpaper/* & # set desktop wallpaper
+
 setxkbmap -layout us,ru -option 'grp:alt_shift_toggle' & # set language keyboard
