@@ -7,7 +7,7 @@ AUR,brave-bin,Web browser that blocks ads and trackers by default (binary releas
 ,telegram-desktop,Official Telegram Desktop client.
 ,discord,All-in-one voice and text chat for gamers that's free and secure.
 ,feh,Fast and light imlib2-based image viewer.
-SKIP,xwallpaper,Wallpaper setting utility for X.
+AUR,xwallpaper-git,Wallpaper setting utility for X.
 SKIP,gnome-screenshot,Take pictures of your screen.
 SKIP,scrot,Simple command-line screenshot utility for X.
 ,flameshot,Powerful yet simple to use screenshot software.
