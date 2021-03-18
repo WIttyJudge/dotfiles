@@ -12,6 +12,6 @@ xset r rate 200 35 & # Speed xrate up
 xrdb -merge ~/.Xresources &                              # theme configuration file
 
 # feh --bg-scale ~/Picture/wallpapers/* &
-xwallpaper --zoom ~/Picture/wallpaper/* & # set desktop wallpaper
+xwallpaper --zoom ~/Picture/wallpapers/* & # set desktop wallpaper
 
 setxkbmap -layout us,ru -option 'grp:alt_shift_toggle' & # set language keyboard
