@@ -22,7 +22,7 @@ $command --list-sources \
     if [ "$mic_muted" = "true" ]; then
       $command --source "$index" -u
       # notify-send "Microphone unmuted"
-      icon="🎤"
+      icon="🎙️"
 
       printf " %s \\n" "$icon"
     else

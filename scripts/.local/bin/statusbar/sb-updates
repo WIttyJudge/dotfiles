@@ -14,7 +14,7 @@ if ! command -v $command > /dev/null 2>&1; then
   exit $exit_code
 fi
 
-updatesarch="$($checupdates 2> /dev/null | wc -l)"
+updatesarch="$($command 2> /dev/null | wc -l)"
 updatesaur="$(yay -Qum 2> /dev/null | wc -l)"
 updates=$(("$updatesarch" + "$updatesaur"))
 icon="📦"
