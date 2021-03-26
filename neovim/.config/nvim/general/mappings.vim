@@ -50,7 +50,7 @@ noremap <silent> <A-j> :call AddEmptyLineBelow()<CR>
 nnoremap <C-b> :NERDTreeToggle<CR>
 
 " fzf.vim
-map <C-f> :Files<CR>
+map <Leader>f :Files<CR>
 map <Leader>b :Buffers<CR>
 nnoremap <Leader>rg :Rg<CR> 
 " nmap <Leader>gc :Commits<CR>
@@ -68,3 +68,7 @@ nnoremap <Leader>rg :Rg<CR>
 " vim-rspec
 " You can run RSpec only if ruby filetype is defined.
 " Look and ftplugin/ruby.vim
+
+" vim-unimpaired
+" nmap <A-k> [egv
+" nmap <A-j> ]egv

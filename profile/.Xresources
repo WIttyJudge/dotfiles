@@ -56,24 +56,30 @@ URxvt.cursorColor:	white
 URxvt.iso14755: false
 URxvt.iso14755_52: false
 
-!! URxvt Extensions
+/* URxvt Extensions */
 URxvt.perl-ext-common: default,matcher,resize-font,url-select,clipboard
 
-! matcher
+/* matcher */
 URxvt.url-launcher: /usr/bin/xdg-open
 URxvt.matcher.button: 1
 
-! url-select
+/* url-select */
 URxvt.keysym.M-u: perl:url-select:select_next
 URxvt.url-select.launcher: /usr/bin/xdg-open
 URxvt.url-select.underline: true
 
-! resize-font
+/* resize-font */
 URxvt.resize-font.smaller: C-minus
 URxvt.resize-font.bigger: C-plus
 URxvt.resize-font:reset: c-equel
 
-! clipboard
+/* clipboard */
 URxvt.clipboard.autocopy: true
 URxvt.keysym.C-c: perl:clipboard:copy
 URxvt.keysym.C-v: perl:clipboard:paste
+
+/* scrolling */
+URxvt*scrollBar:false
+URxvt*scrollBar_right: false
+URxvt.keysym.M-d: command:\033]721;3\007
+URxvt.keysym.M-u: command:\033]720;3\007

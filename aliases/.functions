@@ -9,6 +9,10 @@ function acp() {
     git push origin master
 }
 
-test-microphone() {
+tmicro() {
   arecord -vv -f dat /dev/null
+}
+
+tinternet() {
+  ping -c 3 8.8.8.8
 }

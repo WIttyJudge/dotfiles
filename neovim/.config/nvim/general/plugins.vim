@@ -5,58 +5,59 @@ if empty(glob('~/.config/nvim/autoload/plug.vim'))
 endif
 
 call plug#begin('~/.config/nvim/plugged')
-  " Color scheme
+  " [1] Theme
   " Plug 'doums/darcula'
   Plug 'morhetz/gruvbox'
 
-  " Looking for files
+  " [2] Looking for files
   Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
   Plug 'junegunn/fzf.vim'
 
-  " Tree explorer plugin
+  " [3] Tree explorer
   Plug 'preservim/nerdtree'
 
-  " Commenting
+  " [4] Comment out code
   Plug 'tpope/vim-commentary'
 
-  " Lint engine
+  " [5] Linter
   Plug 'dense-analysis/ale'
 
-  " Multiple select of text
+  " [6] Multiple select of text
   Plug 'terryma/vim-multiple-cursors'
 
-  " To display the indention levels with thin vertical lines 
+  " [7] Display vertical lines in code
   Plug 'Yggdroot/indentLine'
 
-  " To work with git
+  " [8] Auto pairs for '(' '[' '{'
+  Plug 'jiangmiao/auto-pairs'
+
+  " [9] Simple quoting, parenthesizing 
+  Plug 'tpope/vim-surround'
+
+  " [10] Statusline, tabline
+  Plug 'itchyny/lightline.vim'
+
+  " [11] Shows keybindings in popup
+  Plug 'liuchengxu/vim-which-key'
+
+  " [12] Changes working directory
+  Plug 'airblade/vim-rooter'
+
+  " [13] Changes working directory
+  " Plug 'tpope/vim-unimpaired'
+
+  " [14] For Git
   Plug 'airblade/vim-gitgutter'
   Plug 'tpope/vim-fugitive'
 
-  " Auto pairs for '(' '[' '{'
-  Plug 'jiangmiao/auto-pairs'
-
-  " This is a lightweight RSpec runner for Vim
+  " [15] For Ruby programming language
   Plug 'thoughtbot/vim-rspec', { 'for': 'ruby' }
-
+  Plug 'tpope/vim-endwise' 
   Plug 'tpope/vim-rails'
 
-  Plug 'tpope/vim-surround'
-
-  " html emmet
-  " Plug 'mattn/emmet-vim'
-
-  " Add end work in ruby
-  Plug 'tpope/vim-endwise' 
-
-  " statusline/tabline plugin for Vim
-  Plug 'itchyny/lightline.vim'
-
-  Plug 'liuchengxu/vim-which-key'
-
-  " For working with Golang programming language
+  " [16] For Golang programming language
   " Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
-  Plug 'airblade/vim-rooter'
 call plug#end()
 
 " Run PlugInstall if there are missing plugins
