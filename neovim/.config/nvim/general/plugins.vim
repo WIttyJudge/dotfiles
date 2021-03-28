@@ -40,22 +40,25 @@ call plug#begin('~/.config/nvim/plugged')
   " [11] Shows keybindings in popup
   Plug 'liuchengxu/vim-which-key'
 
-  " [12] Changes working directory
-  Plug 'airblade/vim-rooter'
+  " [12] Fancy startup screen for vim
+  Plug 'mhinz/vim-startify'
 
   " [13] Changes working directory
+  Plug 'airblade/vim-rooter'
+
+  " [14] Changes working directory
   " Plug 'tpope/vim-unimpaired'
 
-  " [14] For Git
+  " [15] For Git
   Plug 'airblade/vim-gitgutter'
   Plug 'tpope/vim-fugitive'
 
-  " [15] For Ruby programming language
+  " [16] For Ruby programming language
   Plug 'thoughtbot/vim-rspec', { 'for': 'ruby' }
   Plug 'tpope/vim-endwise' 
   Plug 'tpope/vim-rails'
 
-  " [16] For Golang programming language
+  " [17] For Golang programming language
   " Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
 call plug#end()
