@@ -7,7 +7,7 @@ if ! command -v $command > /dev/null 2>&1; then
   exit_code="$?"
   msg="$command error"
 
-  notify-send "'$command' is not available."
+  notify-send -u critical 'Error' "Please, install $command-git"
   printf " %s \\n" "$msg"
 
   exit $exit_code

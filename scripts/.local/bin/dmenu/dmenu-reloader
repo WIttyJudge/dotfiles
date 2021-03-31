@@ -10,7 +10,7 @@ files=(
 choice="$(printf '%s\n' "${files[@]}" | dmenu -p "What to reload > ")"
 
 notifier() {
-  notify-send "$1 successfully reloaded."
+  notify-send 'Reloader' "$1 successfully reloaded."
 }
 
 case "$choice" in

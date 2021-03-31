@@ -9,10 +9,10 @@ function acp() {
     git push origin master
 }
 
-tmicro() {
+t-micro() {
   arecord -vv -f dat /dev/null
 }
 
-tinternet() {
+t-internet() {
   ping -c 3 8.8.8.8
 }

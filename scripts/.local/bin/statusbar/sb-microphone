@@ -6,7 +6,7 @@ if ! command -v pamixer > /dev/null; then
   exit_code="$?"
   msg="$command error"
 
-  notify-send "'$command' is not available."
+  notify-send -u critical "'$command' is not available."
   printf " %s \\n" "$msg"
 
   exit $exit_code

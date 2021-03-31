@@ -1,7 +1,16 @@
+# sudo not required for some system commands
+for x in mount umount sv pacman su ; do
+	alias $x="sudo $x"
+done
+
 # useful
 alias \
   s="sudo " \
+	cp="cp -iv" \
+	mv="mv -iv" \
+	rm="rm -vI" \
   untar="tar -xzvf " \
+  e="$EDITOR"
 
 # commands
 alias dotfiles="cd ~/dotfiles && $EDITOR"
@@ -27,8 +36,8 @@ alias \
 
 # docker
 alias \
-  d="docker " \
-  dc="docker-compose " \
+  d="sudo docker " \
+  dc="sudo docker-compose " \
 
 # pacman 
 alias p="sudo pacman "
