@@ -24,6 +24,11 @@ setopt hist_save_no_dups
 setopt hist_beep
 # setopt interactive_comments
 
+# load custom scripts
+if [ -d "$HOME/.local/bin" ] ; then
+  PATH=$PATH$(find $HOME/dotfiles/scripts/.local/bin -type d -printf ":%p")
+fi
+
 # History in cache directory:
 HISTSIZE=10000000
 SAVEHIST=10000000
@@ -45,8 +50,6 @@ source ~/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # root
 export GOROOT=/usr/local/go

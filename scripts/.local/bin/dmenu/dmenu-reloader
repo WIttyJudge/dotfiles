@@ -5,6 +5,7 @@ files=(
   .Xresources
   sxhkd
   .zshrc
+  dwm
 )
 
 choice="$(printf '%s\n' "${files[@]}" | dmenu -p "What to reload > ")"
@@ -23,5 +24,8 @@ case "$choice" in
   sxhkd)
     pkill sxhkd; sxhkd &&
     notifier "sxhkd" ;;
+  dwm)
+    kill -HUP $(pgrep -u $USER "\bdwm$") &&
+    notifier "dwm" ;;
   *) exit ;;
 esac

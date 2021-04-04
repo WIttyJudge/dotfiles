@@ -5,8 +5,7 @@ commands=(
 	poweroff
 	reboot
 	lock
-	logout
-	hibernate
+  leave-dwm
 )
 
 case "$(readlink -f /sbin/init)" in
@@ -15,6 +14,7 @@ case "$(readlink -f /sbin/init)" in
     suspend="slock sudo -A zzz";
     reboot="sudo reboot";
     lock="slock";
+    leave_dwm="kill -TERM $(pgrep -u $USER "\bdwm$")";
     ;;
 esac
 
@@ -30,6 +30,8 @@ case "$choice" in
     $reboot ;;
   lock)
     $lock ;;
+  leave-dwm)
+    $leave_dwm ;;
   # logout)
   #   i3-msg exit ;;
   # hibernate)

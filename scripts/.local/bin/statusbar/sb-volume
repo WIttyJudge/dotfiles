@@ -12,6 +12,16 @@ if ! command -v $command > /dev/null; then
   exit $exit_code
 fi
 
+case $BLOCK_BUTTON in
+	1) pavucontrol ;;
+	2) pamixer -t ;;
+	4) amixer -q -D pulse set Master 10%+ ;;
+	5) amixer -q -D pulse set Master 10%- ;;
+	3) notify-send "📢 Volume module" "\- Shows volume 🔊, 🔇 if muted.
+- Middle click to mute.
+- Scroll to change." ;;
+esac
+
 volume="$($command --get-volume)"
 
 [ $($command --get-mute) = true ] && echo " 🔇 " && exit

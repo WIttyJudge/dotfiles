@@ -12,8 +12,16 @@ if ! command -v $command > /dev/null 2>&1; then
   exit $exit_code
 fi
 
-weather=$($command -s wttr.in/Moscow?format="%t+%h")
 icon="⛅"
 
-printf " %s%s \\n" "$icon " "$weather"
+case $BLOCK_BUTTON in
+  1) 
+    weather=$($command -s wttr.in/Moscow?format="%t+%h") 
+    notify-send 'Weather'  "$weather" 
+    ;;
+
+esac
+
+
+printf " %s\\n" "$icon "
 

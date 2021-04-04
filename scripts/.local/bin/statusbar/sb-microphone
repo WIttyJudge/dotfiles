@@ -1,8 +1,9 @@
 #!/bin/sh
 
-command="pamixer"
+# my custom script
+command="toggle-microphone"
 
-if ! command -v pamixer > /dev/null; then
+if ! command -v $command > /dev/null; then
   exit_code="$?"
   msg="$command error"
 
@@ -12,25 +13,16 @@ if ! command -v pamixer > /dev/null; then
   exit $exit_code
 fi
 
-$command --list-sources \
-  | grep input \
-  | awk '{print $1}' \
-  | while read -r index; do
+case $BLOCK_BUTTON in
+	1) toggle-microphone --toggle ;;
+esac
 
-    mic_muted="$($command --source "$index" --get-mute)"
+mic_muted="$($command --get-status)"
 
-    if [ "$mic_muted" = "true" ]; then
-      $command --source "$index" -u
-      # notify-send "Microphone unmuted"
-      icon="🎙️"
+if [ "$mic_muted" = "muted" ]; then
+  icon="🔇"
+else
+  icon="🎙️"
+fi
 
-      printf " %s \\n" "$icon"
-    else
-      $command --source "$index" -m
-      # notify-send "Microphone muted"
-      icon="🔇"
-
-      printf " %s \\n" "$icon"
-    fi
-done
-
+printf " %s \\n" "$icon"

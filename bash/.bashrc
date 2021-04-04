@@ -12,6 +12,11 @@
 # Allow you cd into directory by typing the directory name.
 shopt -s autocd
 
+# load custom scripts
+if [ -d "$HOME/.local/bin" ] ; then
+  PATH=$PATH$(find $HOME/dotfiles/scripts/.local/bin -type d -printf ":%p")
+fi
+
 # A colon-separated list of values controlling how commands are saved on the history list.
 # If the list of values includes ignorespace, lines which begin with a space character are not saved in the history list. A value of ignoredups causes lines matching the previous history entry to not be saved. A value of ignoreboth is shorthand for ignorespace and ignoredups. 
 # A value of erasedups causes all previous lines matching the current line to be removed from the history list before that line is saved. 

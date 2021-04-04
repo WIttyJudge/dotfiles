@@ -1,0 +1,107 @@
+#!/usr/bin/env bash
+
+# Simple CPI application for working with microphone
+# You can turn off and turn on 
+# your inputs devices (micropones) on the whole system.
+
+# VARIABLES
+cli_name=${0##*/}
+version=1.0
+
+set -e
+
+cli_help() {
+  echo "$cli_name
+Simple CLI to help you toggle your inputs devices in the whole system.
+
+Version: $version
+
+Usage: $cli_name [options...]
+
+options:
+ -m, --mute      Mute the microphone
+ -um, --ummute   Unmute the microphone
+ -t, --toggle    Toggle microphone, switch between muted and unmuted
+ --get-status    Show status of the microphone, muted or unmuted
+ -h, --help      Get help message
+ -v, --version   Show version number and quit"
+}
+
+command="pamixer"
+
+if ! command -v $command > /dev/null; then
+  msg="Please, install '$command'"
+  printf " %s \\n" "$msg"
+  exit 1
+fi
+
+mute() {
+  $command --list-sources \
+    | grep input \
+    | awk '{print $1}' \
+    | while read -r index; do
+
+      mic_muted="$($command --source "$index" --get-mute)"
+
+      $command --source "$index" -m && 
+      echo 'muted'
+  done
+}
+
+unmute() {
+  $command --list-sources \
+    | grep input \
+    | awk '{print $1}' \
+    | while read -r index; do
+
+      mic_muted="$($command --source "$index" --get-mute)"
+
+      $command --source "$index" -u && 
+      echo 'umuted'
+  done
+}
+
+toggle() {
+  $command --list-sources \
+    | grep input \
+    | awk '{print $1}' \
+    | while read -r index; do
+
+      mic_muted="$($command --source "$index" --get-mute)"
+
+      if [ "$mic_muted" = "true" ]; then
+        $command --source "$index" -u && echo 'unmuted'
+      else
+        $command --source "$index" -m && echo 'muted'
+      fi
+  done
+}
+
+show_status() {
+  $command --list-sources \
+    | grep input \
+    | awk '{print $1}' \
+    | while read -r index; do
+
+      mic_muted="$($command --source "$index" --get-mute)"
+
+      [ "$mic_muted" = "true" ] && echo 'muted' || echo 'unmuted'
+  done
+}
+
+case "$1" in
+  -m|--mute)
+    mute && exit 0 ;;
+  -um|--unmute)
+    unmute && exit 0 ;;
+  -t|--toggle)
+    toggle && exit 0 ;;
+  --get-status)
+    show_status && exit 0 ;;
+  -h|--help)
+    cli_help && exit 0 ;;
+  -v|--version)
+    echo $version && exit 0 ;;
+  *)
+    cli_help && exit 0 ;;
+esac

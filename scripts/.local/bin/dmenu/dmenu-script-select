@@ -10,7 +10,6 @@ commands=(
   '---'
   'dotfiles'
   'suckess-tools'
-  'weather'
 )
 
 scripts_folder="$HOME/.local/bin/dmenu"
@@ -29,8 +28,6 @@ case "$choice" in
     $TERMINAL -e sh -c 'cd ~/dotfiles && nvim' ;;
   "suckess-tools")
     $TERMINAL -e sh -c 'cd ~/suckless-tools && nvim' ;;
-  "weather")
-    notify-send "$(sb-weather)" ;;
   '< Exit') exit ;;
   *) exit ;;
 esac

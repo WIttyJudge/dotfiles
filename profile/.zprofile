@@ -6,9 +6,6 @@
 # 1. environment variables to configure tools (flags for compilation, data folder location, etc.)
 # 2. configuration which execute commands (like SCONSFLAGS="--jobs=$(( $(nproc) - 1 ))") as it may take some time to execute.
 
-PATH="$PATH:/$HOME/.local/bin/dmenu"
-PATH="$PATH:/$HOME/.local/bin/statusbar"
-
 export EDITOR="nvim"
 export TERMINAL="urxvt"
 

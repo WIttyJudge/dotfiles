@@ -16,13 +16,13 @@
 /* cyan		  6	   14 */
 /* white	  7	   15 */
 
+
+/* gruvbox */
 ! hard contrast: *background: #1d2021
 ! soft contrast: *background: #32302f
 *background: #282828
-
 *foreground: #ebdbb2
 
-/* gruvbox */
 *color0:  #282828
 *color8:  #928374
 *color1:  #cc241d
