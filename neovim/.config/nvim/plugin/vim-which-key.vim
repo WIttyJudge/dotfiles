@@ -16,7 +16,6 @@ noremap <silent> <A-j> :call AddEmptyLineBelow()<CR>
 
 " set leader key
 let mapleader = "\<Space>"
-
 " Map leader to which_key
 nnoremap <silent> <leader> :silent WhichKey '<Space>'<CR>
 vnoremap <silent> <leader> :silent <c-u> :silent WhichKeyVisual '<Space>'<CR>
@@ -63,9 +62,11 @@ xnoremap p "_dP
 inoremap jk <Esc>
 inoremap kj <Esc>
 
+" nmap <Capslock> <Esc>
+
 " Tabs
-nmap <Leader>tl :tabnext<CR>
-nmap <Leader>th :tabprev<CR>
+nmap <Tab> :tabnext<CR>
+nmap <S-Tab> :tabprev<CR>
 
 " Better tabbing
 vnoremap < <gv

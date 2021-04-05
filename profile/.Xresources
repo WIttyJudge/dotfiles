@@ -77,5 +77,5 @@ URxvt.keysym.C-v: perl:clipboard:paste
 /* scrolling */
 URxvt*scrollBar:false
 URxvt*scrollBar_right: false
-URxvt.keysym.M-d: command:\033]721;3\007
-URxvt.keysym.M-u: command:\033]720;3\007
+URxvt.keysym.M-d: command:\033]721;5\007
+URxvt.keysym.M-u: command:\033]720;5\007
