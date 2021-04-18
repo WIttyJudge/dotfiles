@@ -4,15 +4,7 @@
 # pacman-contrib package includes checkupdates script.
 command="checkupdates"
 
-if ! command -v $command > /dev/null 2>&1; then
-  exit_code="$?"
-  msg="$command error"
-
-  notify-send -u critical "'$command' is not available."
-  printf " %s \\n" "$msg"
-
-  exit $exit_code
-fi
+ifcommand $command || exit
 
 updatesarch="$($command 2> /dev/null | wc -l)"
 updatesaur="$(yay -Qum 2> /dev/null | wc -l)"

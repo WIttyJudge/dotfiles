@@ -2,7 +2,6 @@
 " <C-f> = CTRL + f
 " <A-j> = ALT + j
 
-
 " ********* FUNCTIONS *********
 
 function! AddEmptyLineBelow()
@@ -10,7 +9,6 @@ function! AddEmptyLineBelow()
 endfunction
 
 noremap <silent> <A-j> :call AddEmptyLineBelow()<CR>
-
 
 " ********* DEFINITION *********
 
@@ -37,7 +35,6 @@ highlight default link WhichKeyDesc      Function
 autocmd! FileType which_key
 autocmd  FileType which_key set laststatus=0 noshowmode noruler
   \| autocmd BufLeave <buffer> set laststatus=2 noshowmode ruler
-
 
 " ********* SINGLE MAPPING *********
 
@@ -82,7 +79,6 @@ nnoremap <C-b> :NERDTreeToggle<CR>
 
 " vim-startify
 nmap <Leader>st :Startify<CR>
-
 
 " ********* GROUP MAPPING *********
 

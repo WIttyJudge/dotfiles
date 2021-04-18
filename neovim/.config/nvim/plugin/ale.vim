@@ -6,7 +6,11 @@ let g:ale_linters = {
       \ 'c': ['clang-format'],
       \ 'rust': ['rustfmt'],
       \ }
+
+" run linter when I open a file
 let g:ale_lint_on_enter = 0
+
+" run linter only when I save a file
 let g:ale_lint_on_save = 1
 
 " Define automaticaly run ALEFix command on save.

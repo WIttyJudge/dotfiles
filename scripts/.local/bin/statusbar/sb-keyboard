@@ -3,15 +3,7 @@
 # yay -S xkblayout-state-git
 command="xkblayout-state"
 
-if ! command -v $command > /dev/null 2>&1; then
-  exit_code="$?"
-  msg="$command error"
-
-  notify-send -u critical 'Error' "Please, install $command-git"
-  printf " %s \\n" "$msg"
-
-  exit $exit_code
-fi
+ifcommand $command || exit
 
 keyboard_layout="$($command print "%s")"
 icon="👻"

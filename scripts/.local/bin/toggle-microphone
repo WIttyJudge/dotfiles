@@ -29,11 +29,11 @@ options:
 
 command="pamixer"
 
-if ! command -v $command > /dev/null; then
-  msg="Please, install '$command'"
-  printf " %s \\n" "$msg"
-  exit 1
-fi
+command -v $command > /dev/null || 
+  { notify-send -u critical "'$command' is not available." && 
+    echo "Please, install '$command' " && 
+    exit 1 ;
+  }
 
 mute() {
   $command --list-sources \

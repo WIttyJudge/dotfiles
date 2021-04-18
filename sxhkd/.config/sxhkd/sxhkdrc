@@ -11,6 +11,9 @@ super + p
 super + shift + r 
       $TERMINAL -e htop
 
+super + shift + w 
+      $TERMINAL -n calcurse -e calcurse
+
 /* Function Button */
 
 super + {F1, F2, F3} 

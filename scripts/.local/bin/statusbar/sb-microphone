@@ -3,15 +3,7 @@
 # my custom script
 command="toggle-microphone"
 
-if ! command -v $command > /dev/null; then
-  exit_code="$?"
-  msg="$command error"
-
-  notify-send -u critical "'$command' is not available."
-  printf " %s \\n" "$msg"
-
-  exit $exit_code
-fi
+ifcommand $command || exit
 
 case $BLOCK_BUTTON in
 	1) toggle-microphone --toggle ;;
@@ -21,6 +13,7 @@ mic_muted="$($command --get-status)"
 
 if [ "$mic_muted" = "muted" ]; then
   icon="🔇"
+  paplay ~/discordmute.vaw
 else
   icon="🎙️"
 fi

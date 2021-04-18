@@ -2,15 +2,7 @@
 
 command="curl"
 
-if ! command -v $command > /dev/null 2>&1; then
-  exit_code="$?"
-  msg="$command error"
-
-  notify-send -u critical "'$command' is not available."
-  printf " %s \\n" "$msg"
-
-  exit $exit_code
-fi
+ifcommand $command || exit
 
 icon="⛅"
 
@@ -19,9 +11,7 @@ case $BLOCK_BUTTON in
     weather=$($command -s wttr.in/Moscow?format="%t+%h") 
     notify-send 'Weather'  "$weather" 
     ;;
-
 esac
-
 
 printf " %s\\n" "$icon "
 
