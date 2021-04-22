@@ -72,10 +72,18 @@ vnoremap > >gv
 " fzf.vim
 let g:which_key_map['f']  = [ ':Files'   , 'files' ]
 let g:which_key_map['b']  = [ ':Buffers' , 'buffered files' ]
-nnoremap <Leader>rg :Rg<CR> 
+nnoremap <Leader>rg :Rg<CR>
 
 " nerdtree
-nnoremap <C-b> :NERDTreeToggle<CR>
+nnoremap <C-b> :NERDTreeTabsToggle<CR>
+
+" function for running code file in terminal
+function RunWith (command)
+  execute "w"
+  execute "!clear;" . a:command . " " . expand("%")
+endfunction
+
+autocmd FileType ruby nmap <Leader>e :call RunWith("ruby")<cr>
 
 " vim-startify
 nmap <Leader>st :Startify<CR>

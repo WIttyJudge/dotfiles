@@ -15,9 +15,9 @@ endfunction
 
 let g:lightline = {
       \ 'colorscheme': 'gruvbox',
-      \ 'active': { 
+      \ 'active': {
       \   'left': [[ 'mode', 'paste' ],
-      \            [ 'gitbranch'], 
+      \            [ 'gitbranch'],
       \            [ 'filename', 'readonly'],
       \            ['ale', 'modified']]
       \ },

@@ -16,6 +16,8 @@ call plug#begin('~/.config/nvim/plugged')
   " [3] Tree explorer
   Plug 'preservim/nerdtree'
 
+  Plug 'jistr/vim-nerdtree-tabs'
+
   " [4] Comment out code
   Plug 'tpope/vim-commentary'
 
@@ -31,7 +33,7 @@ call plug#begin('~/.config/nvim/plugged')
   " [8] Auto pairs for '(' '[' '{'
   Plug 'jiangmiao/auto-pairs'
 
-  " [9] Simple quoting, parenthesizing 
+  " [9] Simple quoting, parenthesizing
   Plug 'tpope/vim-surround'
 
   " [10] Statusline, tabline
@@ -55,13 +57,24 @@ call plug#begin('~/.config/nvim/plugged')
 
   " [16] For Ruby programming language
   Plug 'thoughtbot/vim-rspec', { 'for': 'ruby' }
-  Plug 'tpope/vim-endwise' 
+  Plug 'tpope/vim-endwise'
   Plug 'tpope/vim-rails'
 
   " [17] For Golang programming language
   " Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
 call plug#end()
+
+function TrimWhiteSpace()
+  %s/\s*$//
+  ''
+:endfunction
+
+set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<
+autocmd FileWritePre * :call TrimWhiteSpace()
+autocmd FileAppendPre * :call TrimWhiteSpace()
+autocmd FilterWritePre * :call TrimWhiteSpace()
+autocmd BufWritePre * :call TrimWhiteSpace()
 
 " Run PlugInstall if there are missing plugins
 autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
