@@ -65,4 +65,6 @@ SKIP,rofi-pass,Bash script to handle pass storages in a convenient way.
 ,bat,Replacement for cat.
 AUR,xkblayout-state-git,A small command-line program to get/set the current keyboard layout.
 AUR,downgrade,Bash script for downgrading packages.
+AUR,slack-desktop,Slack Desktop.
+,openvpn,Configurable VPN (Virtual Private Network).
 
