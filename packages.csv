@@ -4,9 +4,9 @@ TRUE,AUR,polybar,A fast and easy-to-use status bar.
 ,AUR,termsyn-font,Monospaced font based on terminus and tamsyn.
 ,,chromium,Web browser developed by Google the open source project behind Google Chrome.
 ,AUR,brave-bin,Web browser that blocks ads and trackers by default (binary release).
-,telegram-desktop,Official Telegram Desktop client.
-,discord,All-in-one voice and text chat for gamers that's free and secure.
-SKIP,feh,Fast and light imlib2-based image viewer.
+,,telegram-desktop,Official Telegram Desktop client.
+,,discord,All-in-one voice and text chat for gamers that's free and secure.
+SKIP,,feh,Fast and light imlib2-based image viewer.
 AUR,xwallpaper-git,Wallpaper setting utility for X.
 SKIP,gnome-screenshot,Take pictures of your screen.
 SKIP,scrot,Simple command-line screenshot utility for X.
