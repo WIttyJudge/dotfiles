@@ -6,16 +6,16 @@ TRUE,AUR,polybar,A fast and easy-to-use status bar.
 ,AUR,brave-bin,Web browser that blocks ads and trackers by default (binary release).
 ,,telegram-desktop,Official Telegram Desktop client.
 ,,discord,All-in-one voice and text chat for gamers that's free and secure.
-SKIP,,feh,Fast and light imlib2-based image viewer.
+TRUE,,feh,Fast and light imlib2-based image viewer.
 ,AUR,xwallpaper-git,Wallpaper setting utility for X.
-SKIP,,gnome-screenshot,Take pictures of your screen.
-SKIP,,scrot,Simple command-line screenshot utility for X.
+TRUE,,gnome-screenshot,Take pictures of your screen.
+TRUE,,scrot,Simple command-line screenshot utility for X.
 ,,flameshot,Powerful yet simple to use screenshot software.
 ,,pulseaudio-alsa,ALSA Configuration for PulseAudio.
 ,,pavucontrol,PulseAudio Volume Control.
 ,,alsa-utils,Advanced Linux Sound Architecture - Utilities.
 ,,ttf-dejavu,Font family based on the Bitstream Vera Fonts with a wider range of characters.
-SKIP,,ttf-fira-code,Monospaced font with programming ligatures.
+TRUE,,ttf-fira-code,Monospaced font with programming ligatures.
 ,,ttf-hack,Cool font for terminal and coding.
 ,,ttf-joypixels, Pack with some cool emodjis.
 ,,noto-fonts,Google Noto TTF fonts.
@@ -39,10 +39,10 @@ SKIP,,ttf-fira-code,Monospaced font with programming ligatures.
 ,,openssl-1.0,The Open Source toolkit for Secure Sockets Layer and Transport Layer Security.
 ,,xorg-server,Xorg (commonly referred as simply X) is the most popular display server among Linux users.
 ,,xorg-xinit,The xinit program allows a user to manually start an Xorg display server.
-SKIP,,terminator,Terminator is a terminal emulator.
+TRUE,,terminator,Terminator is a terminal emulator.
 ,,base-devel,It a package group that includes tools needed for building.
-SKIP,,i3-gaps,Adding a few additional features such as gaps between windows
-SKIP,,i3lock,Improved screen locker.
+TRUE,,i3-gaps,Adding a few additional features such as gaps between windows
+TRUE,,i3lock,Improved screen locker.
 ,,zsh,It is a powerful shell that operates as both an interactive shell and as a scripting language interpreter.
 ,AUR,spaceship-prompt-git,Theme for zsh.
 ,,libyaml,C library for parsing and emitting YAML.
@@ -53,8 +53,8 @@ SKIP,,i3lock,Improved screen locker.
 ,AUR,rxvt-unicode-256xresources,urxvt with patches to support 256 Xresource colors and fixes for line/font spacing.
 ,,urxvt-perls,URL and Mouseless text selection for rxvt-unicode.
 ,AUR,urxvt-resize-font-git,An urxvt plugin to adjust the font size on the fly.
-,SKIP,rofi,A window application launcher and dmenu replacement.
-,SKIP,rofi-pass,Bash script to handle pass storages in a convenient way.
+TRUE,,rofi,A window application launcher and dmenu replacement.
+TRUE,,rofi-pass,Bash script to handle pass storages in a convenient way.
 ,,pacman-contrib,Contributed scripts and tools for pacman systems.
 ,,xcompmgr,Composite Window-effects manager for Xorg.
 ,,sxhkd,Simple X hotkey daemon.
