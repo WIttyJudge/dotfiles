@@ -63,8 +63,8 @@ SKIP,,i3lock,Improved screen locker.
 ,,unclutter,It hides your X mouse cursor when you do not use it.
 ,,exa,Replacement for ls.
 ,,bat,Replacement for cat.
-,,AUR,xkblayout-state-git,A small command-line program to get/set the current keyboard layout.
-,,AUR,downgrade,Bash script for downgrading packages.
-,,AUR,slack-desktop,Slack Desktop.
+,AUR,xkblayout-state-git,A small command-line program to get/set the current keyboard layout.
+,AUR,downgrade,Bash script for downgrading packages.
+,AUR,slack-desktop,Slack Desktop.
 ,,openvpn,Configurable VPN (Virtual Private Network).
 
