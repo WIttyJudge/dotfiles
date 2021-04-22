@@ -1,9 +1,9 @@
-TAG,NAME,DESCRIPTION
-AUR,polybar,A fast and easy-to-use status bar.
-AUR,siji-git,Iconic bitmap font based on stlarch with additional glyphs.
-AUR,termsyn-font,Monospaced font based on terminus and tamsyn.
-SKIP,chromium,Web browser developed by Google the open source project behind Google Chrome.
-AUR,brave-bin,Web browser that blocks ads and trackers by default (binary release).
+SKIP,TAG,NAME,DESCRIPTION
+TRUE,AUR,polybar,A fast and easy-to-use status bar.
+,AUR,siji-git,Iconic bitmap font based on stlarch with additional glyphs.
+,AUR,termsyn-font,Monospaced font based on terminus and tamsyn.
+,,chromium,Web browser developed by Google the open source project behind Google Chrome.
+,AUR,brave-bin,Web browser that blocks ads and trackers by default (binary release).
 ,telegram-desktop,Official Telegram Desktop client.
 ,discord,All-in-one voice and text chat for gamers that's free and secure.
 SKIP,feh,Fast and light imlib2-based image viewer.
