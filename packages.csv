@@ -67,4 +67,5 @@ TRUE,,rofi-pass,Bash script to handle pass storages in a convenient way.
 ,AUR,downgrade,Bash script for downgrading packages.
 ,AUR,slack-desktop,Slack Desktop.
 ,,openvpn,Configurable VPN (Virtual Private Network).
+,,python-pip,The PyPA recommended tool for installing Python packages.
 
