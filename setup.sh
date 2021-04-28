@@ -7,7 +7,6 @@ NORMAL=$(tput sgr0)
 
 # List of directory names with dotfiles we need to setup
 folders=(
-  bash
   dunst
   flameshot
   git

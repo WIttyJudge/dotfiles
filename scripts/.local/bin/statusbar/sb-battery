@@ -3,17 +3,22 @@
 for battery in /sys/class/power_supply/BAT?*; do
 	# If non-first battery, print a space separator.
 	[ -n "${capacity+x}" ] && printf " "
+
 	# Sets up the status and capacity
 	case "$(cat "$battery/status")" in
-		"Full") status="⚡" ;;
-		"Discharging") status="🔋" ;;
-		"Charging") status="🔌" ;;
-		"Not charging") status="🛑" ;;
-		"Unknown") status="♻️" ;;
+		"Full") icon="⚡" ;;
+		"Discharging") icon="🔋" ;;
+		"Charging") icon="🔌" ;;
+		"Not charging") icon="🛑" ;;
+		"Unknown") icon="♻️" ;;
 	esac
+
 	capacity=$(cat "$battery/capacity")
+
 	# Will make a warn variable if discharging and low
-	[ "$status" = "🔋" ] && [ "$capacity" -le 25 ] && warn="❗"
+	[ "$icon" = "🔋" ] && [ "$capacity" -le 7 ] &&
+    notify-send 'Low battery'
+
 	# Prints the info
-	printf " %s%s%d%% " "$status" "$warn" "$capacity"; unset warn
+	printf " %s %d%% " "$icon" "$capacity"; unset warn
 done && exit 0
