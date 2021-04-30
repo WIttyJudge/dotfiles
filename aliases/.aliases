@@ -6,14 +6,24 @@ done
 # useful
 alias \
   s="sudo " \
+  p="sudo pacman " \
 	cp="cp -iv" \
 	mv="mv -iv" \
-	rm="rm -vI" \
   untar="tar -xzvf " \
-  e="$EDITOR"
+  e="$EDITOR" \ 
 
 # commands
 alias dotfiles="cd ~/dotfiles && $EDITOR"
+
+# rewrite standard commands
+alias \
+	rm="trash-put" \
+  cat="bat" \ 
+
+alias \
+  ls="exa" \
+  ll="exa -la" \
+  ll.='exa -dl .* --color=auto' \
 
 # git
 alias \
@@ -23,21 +33,8 @@ alias \
   gc="git commit" \
   gp="git push" \
 
-# directory
-alias \
-  cdd="cd ~/Desktop " \
-  ls="exa" \
-  ll="exa -la" \
-  ll.='exa -dl .* --color=auto' \
-
-# output information
-alias \
-  cat="bat"
-
 # docker
 alias \
   d="sudo docker " \
   dc="sudo docker-compose " \
 
-# pacman 
-alias p="sudo pacman "

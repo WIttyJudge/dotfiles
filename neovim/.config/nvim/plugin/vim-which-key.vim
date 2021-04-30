@@ -59,11 +59,9 @@ xnoremap p "_dP
 inoremap jk <Esc>
 inoremap kj <Esc>
 
-" nmap <Capslock> <Esc>
-
 " Tabs
-nmap <Tab> :tabnext<CR>
-nmap <S-Tab> :tabprev<CR>
+nmap <Leader>tl :tabnext<CR>
+nmap <Leader>th :tabprev<CR>
 
 " Better tabbing
 vnoremap < <gv
@@ -80,13 +78,25 @@ nnoremap <C-b> :NERDTreeTabsToggle<CR>
 " function for running code file in terminal
 function RunWith (command)
   execute "w"
-  execute "!clear;" . a:command . " " . expand("%")
+  execute "!" . a:command . " " . expand("%")
 endfunction
 
 autocmd FileType ruby nmap <Leader>e :call RunWith("ruby")<cr>
 
 " vim-startify
 nmap <Leader>st :Startify<CR>
+
+" coc-snippets
+" " Use <C-l> for trigger snippet expand.
+" imap <C-l> <Plug>(coc-snippets-expand)
+" " Use <C-j> for select text for visual placeholder of snippet.
+" vmap <C-j> <Plug>(coc-snippets-select)
+" Use <C-j> for jump to next placeholder, it's default of coc.nvim
+" let g:coc_snippet_next = 'TAB>'
+" Use <C-k> for jump to previous placeholder, it's default of coc.nvim
+" let g:coc_snippet_prev = '<S-Tab>'
+" Use <C-j> for both expand and jump (make expand higher priority.)
+" imap <C-j> <Plug>(coc-snippets-expand-jump)
 
 " ********* GROUP MAPPING *********
 

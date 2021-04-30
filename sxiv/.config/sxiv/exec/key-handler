@@ -5,8 +5,8 @@ while read file
 do
   case "$1" in
 	"w")
-		cp "$file" ~/Picture/wallpapers/wp.png &&
-		xwallpaper --zoom ~/Picture/wallpapers/wp.png &&
+		cp "$file" ~/Pictures/wallpapers/wp.png &&
+		xwallpaper --zoom ~/Pictures/wallpapers/wp.png &&
 		notify-send "$file moved to wallpapers" ;;
 	"r")
 		convert -rotate 90 "$file" "$file" ;;

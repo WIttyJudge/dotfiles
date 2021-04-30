@@ -15,7 +15,6 @@ call plug#begin('~/.config/nvim/plugged')
 
   " [3] Tree explorer
   Plug 'preservim/nerdtree'
-
   Plug 'jistr/vim-nerdtree-tabs'
 
   " [4] Comment out code
@@ -25,7 +24,8 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'dense-analysis/ale'
 
   " [6] Multiple select of text
-  Plug 'terryma/vim-multiple-cursors'
+  " Plug 'terryma/vim-multiple-cursors'
+  Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 
   " [7] Display vertical lines in code
   Plug 'Yggdroot/indentLine'
@@ -61,20 +61,12 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'tpope/vim-rails'
 
   " [17] For Golang programming language
-  " Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+  Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
+  " Stable version of coc
+  " Plug 'neoclide/coc.nvim', { 'branch': 'release', 'do': 'yarn install --frozen-lockfile' }
+  " Plug 'honza/vim-snippets'
 call plug#end()
-
-function TrimWhiteSpace()
-  %s/\s*$//
-  ''
-:endfunction
-
-set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<
-autocmd FileWritePre * :call TrimWhiteSpace()
-autocmd FileAppendPre * :call TrimWhiteSpace()
-autocmd FilterWritePre * :call TrimWhiteSpace()
-autocmd BufWritePre * :call TrimWhiteSpace()
 
 " Run PlugInstall if there are missing plugins
 autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
