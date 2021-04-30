@@ -14,10 +14,13 @@ super + shift + r
 super + shift + w 
       $TERMINAL -n calcurse -e calcurse
 
-/* Function Button */
-
-super + {F1, F2, F3} 
+/* Audio volumes */
+super + {XF86AudioMute, XF86AudioLowerVolume, XF86AudioRaiseVolume} 
     amixer -q -D pulse set Master {toggle, 10%-, 10%+}; pkill -RTMIN+10 dwmblocks
+
+/* Brightness volumes */
+super + {XF86MonBrightnessDown, XF86MonBrightnessUp} 
+    sudo light {-U 10, -A 10}
 
 /* Ride side buttons */
 KP_Add 
