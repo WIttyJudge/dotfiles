@@ -68,4 +68,5 @@ TRUE,,rofi-pass,Bash script to handle pass storages in a convenient way.
 ,AUR,slack-desktop,Slack Desktop.
 ,,openvpn,Configurable VPN (Virtual Private Network).
 ,,python-pip,The PyPA recommended tool for installing Python packages.
+,,light,Program to easily change brightness on backlight-controllers.
 
