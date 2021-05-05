@@ -1,22 +1,20 @@
 function test() {
-    echo "test1"
-    echo "test2"
+  echo "test1"
+  echo "test2"
 }
-    
+
 function acp() {
-    git add . 
-    git commit -m "Auto Commit"
-    git push origin master
+  git add . 
+  git commit -m "$1"
+  git push origin master
 }
 
-t-micro() {
-  arecord -vv -f dat /dev/null
+# example: repeat 3 ping google.com
+function repeat() {
+  local i max
+  max=$1; shift;
+  for ((i=1; i <= max ; i++)); do
+    eval "$@";
+  done
 }
 
-t-sound() {
-  speaker-test -c2 -t wav
-}
-
-t-internet() {
-  ping -c 3 8.8.8.8
-}

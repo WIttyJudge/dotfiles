@@ -12,6 +12,16 @@ alias \
   untar="tar -xzvf " \
   e="$EDITOR" \ 
 
+# for testing 
+alias \
+  t-micro="arecord -vv -f dat /dev/null" \
+  t-sound="speaker-test -c2 -t wav" \
+	t-internet="ping -c 3 8.8.8.8" \
+
+# fast cd
+alias \
+  ..="cd .." \
+
 # commands
 alias dotfiles="cd ~/dotfiles && $EDITOR"
 
