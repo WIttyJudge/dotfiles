@@ -10,3 +10,17 @@ export EDITOR="nvim"
 export TERMINAL="urxvt"
 
 export DOTFILES="$HOME/dotfiles"
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"
+
+# root
+export GOROOT=/usr/local/go
+export PATH=$PATH:$GOROOT/bin
+
+# libs from golang
+export GOPATH=$HOME/golib
+
+# my folder
+export GOPATH=$HOME/code
+export PATH=$PATH:$GOPATH/bin
