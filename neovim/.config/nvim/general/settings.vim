@@ -42,7 +42,7 @@ set hlsearch                            " Highlight search results
 
 " Set automatic wrapping to new line if characters more then 80
 set textwidth=80                        " Maximum width of text that is being inserted.
-set wrapmargin=0 
+set wrapmargin=0
 set wrap
 set linebreak
 set formatoptions+=t                    " Rules how to automatically formatting letters
@@ -52,4 +52,7 @@ au! BufWritePost $MYVIMRC source %      " auto source when writing to init.vm al
 
 " You can't stop me
 cmap w!! w !sudo tee %
+
+" remove  trailing whitespace on save
+autocmd BufWritePre * %s/\s\+$//e
 

@@ -21,6 +21,7 @@ folders=(
   sxhkd
   sxiv
   # terminator
+  zsh
 )
 
 ### FUNCTIONS ###

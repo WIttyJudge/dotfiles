@@ -50,6 +50,10 @@ nnoremap va :%y+<CR>
 " Clean hightliting after search
 nnoremap <Leader>; :nohlsearch<CR>
 
+" Use simple ; instead of shift + :
+nnoremap ; :
+vnoremap ; :
+
 " Disable copy while deleting
 nnoremap d "_d
 xnoremap d "_d
@@ -58,6 +62,18 @@ xnoremap p "_dP
 " Use this instead of touching Esc key
 inoremap jk <Esc>
 inoremap kj <Esc>
+
+" Use Delete button instead of Esc
+nnoremap <Del> <Esc>
+vnoremap <Del> <Esc>gV
+onoremap <Del> <Esc>
+cnoremap <Del> <C-C><Esc>
+inoremap <Del> <Esc>`^
+inoremap <Leader><Tab> <Tab>
+
+" Scroll the viewport faster
+nnoremap <C-e> 3<C-e>
+nnoremap <C-y> 3<C-y>
 
 " Tabs
 nmap <Leader>tl :tabnext<CR>
