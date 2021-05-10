@@ -7,20 +7,26 @@ bindkey -M menuselect 'h' vi-backward-char
 bindkey -M menuselect 'k' vi-up-line-or-history
 bindkey -M menuselect 'l' vi-forward-char
 bindkey -M menuselect 'j' vi-down-line-or-history
+# Fix backspace bug when switching modes.
 bindkey -v '^?' backward-delete-char
+
+function set_beam_cursor() {
+  echo -ne '\e[5 q'
+}
+
+function set_block_cursor() {
+  echo -ne '\e[1 q'
+}
 
 # Change cursor shape for different vi modes.
 function zle-keymap-select () {
   case $KEYMAP in
-    vicmd) echo -ne '\e[1 q';;      # block
-    viins|main) echo -ne '\e[5 q';; # beam
+    vicmd) set_block_cursor ;;     # block
+    viins|main) set_beam_cursor ;; # beam
   esac
 }
 zle -N zle-keymap-select
 
 # Use beam shape cursor on startup.
-_fix_cursor() {
-  echo -ne '\e[5 q'
-}
-precmd_functions+=(_fix_cursor)
+precmd_functions+=(set_beam_cursor)
 
