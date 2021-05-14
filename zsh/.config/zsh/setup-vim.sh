@@ -11,11 +11,11 @@ bindkey -M menuselect 'j' vi-down-line-or-history
 bindkey -v '^?' backward-delete-char
 
 function set_beam_cursor() {
-  echo -ne '\e[5 q'
+  echo -ne '\e[6 q'
 }
 
 function set_block_cursor() {
-  echo -ne '\e[1 q'
+  echo -ne '\e[2 q'
 }
 
 # Change cursor shape for different vi modes.
