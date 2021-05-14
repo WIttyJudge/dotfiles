@@ -55,7 +55,7 @@
 " fzf.vim
 " map <Leader>f :Files<CR>
 " map <Leader>b :Buffers<CR>
-" nnoremap <Leader>rg :Rg<CR> 
+" nnoremap <Leader>rg :Rg<CR>
 " nmap <Leader>gc :Commits<CR>
 " nmap <Leader>gfc :BCommits<CR>
 

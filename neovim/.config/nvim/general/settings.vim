@@ -56,3 +56,8 @@ cmap w!! w !sudo tee %
 " remove  trailing whitespace on save
 autocmd BufWritePre * %s/\s\+$//e
 
+" Autocompile suckless tools
+autocmd BufWritePost ~/suckless-tools/dwmblocks/config.h !cd ~/suckless-tools/dwmblocks/; sudo make install && { killall -q dwmblocks;setsid -f dwmblocks }
+autocmd BufWritePost ~/suckless-tools/dwm/config.h !cd ~/suckless-tools/dwm/; sudo make install
+autocmd BufWritePost ~/suckless-tools/dmenu/config.h !cd ~/suckless-tools/dmenu/; sudo make install
+

@@ -1,5 +1,5 @@
 " settings
-" Tabs and a tab width of 4 
+" Tabs and a tab width of 4
 setlocal noexpandtab shiftwidth=4 tabstop=4 softtabstop=4
 
 " Read more about flags

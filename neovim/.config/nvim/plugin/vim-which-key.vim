@@ -2,14 +2,6 @@
 " <C-f> = CTRL + f
 " <A-j> = ALT + j
 
-" ********* FUNCTIONS *********
-
-function! AddEmptyLineBelow()
-  call append(line("."), "")
-endfunction
-
-noremap <silent> <A-j> :call AddEmptyLineBelow()<CR>
-
 " ********* DEFINITION *********
 
 " set leader key
@@ -90,14 +82,6 @@ nnoremap <Leader>rg :Rg<CR>
 
 " nerdtree
 nnoremap <C-b> :NERDTreeTabsToggle<CR>
-
-" function for running code file in terminal
-function RunWith (command)
-  execute "w"
-  execute "!" . a:command . " " . expand("%")
-endfunction
-
-autocmd FileType ruby nmap <Leader>e :call RunWith("ruby")<cr>
 
 " vim-startify
 nmap <Leader>st :Startify<CR>

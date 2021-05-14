@@ -15,16 +15,16 @@ super + shift + w
       $TERMINAL -n calcurse -e calcurse
 
 /* Audio volumes */
-super + {XF86AudioMute, XF86AudioLowerVolume, XF86AudioRaiseVolume} 
+{XF86AudioMute, XF86AudioLowerVolume, XF86AudioRaiseVolume} 
     amixer -q -D pulse set Master {toggle, 10%-, 10%+}; pkill -RTMIN+10 dwmblocks
 
 /* Brightness volumes */
-super + {XF86MonBrightnessDown, XF86MonBrightnessUp} 
-    sudo light {-U 10, -A 10}
+{XF86MonBrightnessDown, XF86MonBrightnessUp} 
+    sudo light {-U 10, -A 10}; pkill -RTMIN+6 dwmblocks
 
 /* Ride side buttons */
 KP_Add 
-    toggle-microphone --toggle; pkill -RTMIN+20 dwmblocks
+    pactl set-source-mute @DEFAULT_SOURCE@ toggle; pkill -RTMIN+20 dwmblocks
 
 /* screenshoter */
 Print

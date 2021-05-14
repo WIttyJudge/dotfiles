@@ -66,6 +66,9 @@ call plug#begin('~/.config/nvim/plugged')
   " Stable version of coc
   " Plug 'neoclide/coc.nvim', { 'branch': 'release', 'do': 'yarn install --frozen-lockfile' }
   " Plug 'honza/vim-snippets'
+
+  " [18] Useful mappings
+  Plug 'tpope/vim-unimpaired'
 call plug#end()
 
 " Run PlugInstall if there are missing plugins

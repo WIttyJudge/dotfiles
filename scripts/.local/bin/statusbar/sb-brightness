@@ -1,0 +1,15 @@
+#!/bin/sh 
+
+command="light"
+
+case $BLOCK_BUTTON in
+	1) notify-send "This Month" "$(cal --color=always | sed "s/..7m/<b><span color=\"red\">/;s/..27m/<\/span><\/b>/")"
+esac
+
+ifcommand $command || exit
+
+brightness="$($command)"
+
+# printf " %s \n" "$brightness"
+
+printf " %.0f%s \n" "$brightness" "%"
