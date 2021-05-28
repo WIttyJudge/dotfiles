@@ -14,8 +14,9 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'junegunn/fzf.vim'
 
   " [3] Tree explorer
-  Plug 'preservim/nerdtree'
-  Plug 'jistr/vim-nerdtree-tabs'
+  Plug 'preservim/nerdtree' |
+        \ Plug 'jistr/vim-nerdtree-tabs' |
+        \ Plug 'Xuyuanp/nerdtree-git-plugin'
 
   " [4] Comment out code
   Plug 'tpope/vim-commentary'
@@ -64,11 +65,14 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
   " Stable version of coc
-  " Plug 'neoclide/coc.nvim', { 'branch': 'release', 'do': 'yarn install --frozen-lockfile' }
-  " Plug 'honza/vim-snippets'
+  " Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
+  " Plug 'honza/vim-snippets'
   " [18] Useful mappings
   Plug 'tpope/vim-unimpaired'
+
+  " Helpers for UNIX
+  " Plug 'tpope/vim-eunuch'
 call plug#end()
 
 " Run PlugInstall if there are missing plugins

@@ -31,4 +31,5 @@ let g:startify_commands = [
 
 let g:startify_bookmarks = [
     \ { 'i': '~/.config/nvim/init.vim' },
+    \ { 'p': '~/.config/nvim/general/plugins.vim' },
 \ ]

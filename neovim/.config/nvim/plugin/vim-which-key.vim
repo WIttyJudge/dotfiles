@@ -30,6 +30,13 @@ autocmd  FileType which_key set laststatus=0 noshowmode noruler
 
 " ********* SINGLE MAPPING *********
 
+fun! DeleteFileAndCloseBuffer()
+  let choice = confirm("Delete file and close buffer?", "&Do it!\n&Nonono", 1)
+  if choice == 1 | call delete(expand('%:p')) | q! | endif
+endfun
+
+nnoremap <F2> :call DeleteFileAndCloseBuffer()<CR>
+
 " Easier split navigation, CTRL + hjlk
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
@@ -82,11 +89,13 @@ nnoremap <Leader>rg :Rg<CR>
 
 " nerdtree
 nnoremap <C-b> :NERDTreeTabsToggle<CR>
+nnoremap <F2> :NERDTreeFind<CR>
 
 " vim-startify
 nmap <Leader>st :Startify<CR>
 
-" coc-snippets
+" coc.nvim
+nmap <leader>F2 <Plug>(coc-rename)
 " " Use <C-l> for trigger snippet expand.
 " imap <C-l> <Plug>(coc-snippets-expand)
 " " Use <C-j> for select text for visual placeholder of snippet.
@@ -112,6 +121,21 @@ let g:which_key_map.g = {
      \ 'k' : ['<Plug>(GitGutterPrevHunk)', 'Jump to the previous hunk'],
      \ 'u' : ['<Plug>(GitGutterUndoHunk)', 'Undo the hunk the cursor is in'],
      \ }
+
+" Use <C-l> for trigger snippet expand.
+imap <A-l> <Plug>(coc-snippets-expand)
+
+" Use <C-j> for select text for visual placeholder of snippet.
+vmap <A-j> <Plug>(coc-snippets-select)
+
+" Use <C-j> for jump to next placeholder, it's default of coc.nvim
+let g:coc_snippet_next = '<c-j>'
+
+" Use <C-k> for jump to previous placeholder, it's default of coc.nvim
+let g:coc_snippet_prev = '<c-k>'
+
+" Use <C-j> for both expand and jump (make expand higher priority.)
+imap <CR> <Plug>(coc-snippets-expand-jump)
 
 " Register which key map
 call which_key#register('<Space>', "g:which_key_map")

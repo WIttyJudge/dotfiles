@@ -3,9 +3,9 @@ let g:lightline = {
       \ 'colorscheme': 'gruvbox',
       \ 'active': {
       \   'left': [[ 'mode', 'paste' ],
-      \            [ 'gitbranch'],
-      \            [ 'filename', 'readonly'],
-      \            ['ale', 'modified', 'git-information']]
+      \            [ 'gitbranch' ],
+      \            [ 'filename', 'readonly' ],
+      \            [ 'git-information', 'ale', 'modified' ]]
       \ },
       \ 'component_function': {
       \   'gitbranch': 'FugitiveHead',
