@@ -1,5 +1,5 @@
 # sudo not required for some system commands
-for x in mount umount sv pacman su ; do
+for x in mount umount sv pacman ; do
 	alias $x="sudo $x"
 done
 
@@ -10,9 +10,9 @@ alias \
 	cp="cp -iv" \
 	mv="mv -iv" \
   untar="tar -xzvf " \
-  e="$EDITOR" \ 
+  e="$EDITOR" \
 
-# for testing 
+# for testing
 alias \
   t-micro="arecord -vv -f dat /dev/null" \
   t-sound="speaker-test -c2 -t wav" \
@@ -27,13 +27,11 @@ alias dotfiles="cd ~/dotfiles && $EDITOR"
 
 # rewrite standard commands
 alias \
-	rm="trash-put" \
-  cat="bat" \ 
+  cat="bat" \
 
-alias \
-  ls="exa" \
-  ll="exa -la" \
-  ll.='exa -dl .* --color=auto' \
+alias ls="exa -l --group-directories-first" # doesn't show hidden files
+alias ls.="exa -dl .* --color=auto" # shows only hidden files
+alias la="exa -la --group-directories-first"  # all files and dirs
 
 # git
 alias \
@@ -47,4 +45,5 @@ alias \
 alias \
   d="sudo docker " \
   dc="sudo docker-compose " \
+  drmc="sudo docker rm $(sudo docker ps -aq)" \
 

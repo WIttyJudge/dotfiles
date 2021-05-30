@@ -95,7 +95,7 @@ nnoremap <F2> :NERDTreeFind<CR>
 nmap <Leader>st :Startify<CR>
 
 " coc.nvim
-nmap <leader>F2 <Plug>(coc-rename)
+" nmap <leader>F2 <Plug>(coc-rename)
 " " Use <C-l> for trigger snippet expand.
 " imap <C-l> <Plug>(coc-snippets-expand)
 " " Use <C-j> for select text for visual placeholder of snippet.

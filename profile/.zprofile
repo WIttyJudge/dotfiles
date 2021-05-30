@@ -6,10 +6,16 @@
 # 1. environment variables to configure tools (flags for compilation, data folder location, etc.)
 # 2. configuration which execute commands (like SCONSFLAGS="--jobs=$(( $(nproc) - 1 ))") as it may take some time to execute.
 
+# Default apps
 export EDITOR="nvim"
 export TERMINAL="urxvt"
-
 export DOTFILES="$HOME/dotfiles"
+
+# Use 'bat' as manpager
+export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+
+# nvim as manpager
+# export MANPAGER="nvim -c 'set ft=man' -"
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"

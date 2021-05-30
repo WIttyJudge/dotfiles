@@ -26,5 +26,5 @@ else
 	icon="🔉"
 fi
 
-printf " %s %s \\n" "$icon" "$volume%" 
+printf " %s %s \\n" "$icon" "$volume%"
 

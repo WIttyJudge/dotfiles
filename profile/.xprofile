@@ -3,7 +3,6 @@
 
 dunst &      # notification-daemon
 dwmblocks &  # bar for dwm
-# pulseaudio --start & # start audio
 flameshot &  # screenshots utils
 xcompmgr &   # window transparency
 sxhkd &      # hotkey daemon

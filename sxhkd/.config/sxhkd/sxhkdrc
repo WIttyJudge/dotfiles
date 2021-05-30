@@ -8,22 +8,22 @@ super + Return
 super + p
     dmenu_run -c -l 10
 
-super + shift + r 
+super + shift + r
       $TERMINAL -e htop
 
-super + shift + w 
+super + shift + w
       $TERMINAL -n calcurse -e calcurse
 
 /* Audio volumes */
-{XF86AudioMute, XF86AudioLowerVolume, XF86AudioRaiseVolume} 
+{F9, F10, F11}
     amixer -q -D pulse set Master {toggle, 10%-, 10%+}; pkill -RTMIN+10 dwmblocks
 
 /* Brightness volumes */
-{XF86MonBrightnessDown, XF86MonBrightnessUp} 
+{XF86MonBrightnessDown, XF86MonBrightnessUp}
     sudo light {-U 10, -A 10}; pkill -RTMIN+6 dwmblocks
 
 /* Ride side buttons */
-KP_Add 
+KP_Add
     pactl set-source-mute @DEFAULT_SOURCE@ toggle; pkill -RTMIN+20 dwmblocks
 
 /* screenshoter */
@@ -31,6 +31,6 @@ Print
     flameshot gui
 
 /* Custom commands */
-super + Delete 
+super + Delete
     dmenu-script-select
 

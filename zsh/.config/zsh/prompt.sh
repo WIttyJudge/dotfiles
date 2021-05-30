@@ -16,16 +16,10 @@ ZSH_THEME_GIT_PROMPT_AHEAD="%{▾%G%}"
 ZSH_THEME_GIT_PROMPT_UNTRACKED="%{$fg[red]%}%{!%G%}"
 ZSH_THEME_GIT_PROMPT_CLEAN="%{$fg_bold[white]%}%{✔%G%}"
 
-#source $ZPLUG_HOME/repos/woefe/git-prompt.zsh/git-prompt.zsh
-
 setopt PROMPT_SUBST
 
 set_prompt() {
-    # PS1 is a special variable that controls what a shell's prompt will look like.
-	# [
 	PS1="%{$fg[white]%}[%{$reset_color%}"
-  # PS1="%{$fg[red]%}%n%{$reset_color%}@%{$fg[blue]%}%m %{$fg[yellow]%}%~ %{$reset_color%}%% "
-	# Path: http://stevelosh.com/blog/2010/02/my-extravagant-zsh-prompt/
 	PS1+="%{$fg_bold[cyan]%}${PWD/#$HOME/~}%{$reset_color%}"
 
 	# Status Code
@@ -41,9 +35,6 @@ set_prompt() {
 	#fi
 
     # Informative git prompt for zsh
-    # PS1+=', '
-    # PS1+='$(git_super_status)'# for zplug "olivierverdier/zsh-git-prompt"
-	  # PS1+='%B%40<..<%~%b$(gitprompt)'
 	  PS1+='$(gitprompt)' # woefe/git-prompt.zsh
 
     if [ ${#VIRTUAL_ENV} -gt 3 ]
@@ -59,6 +50,7 @@ set_prompt() {
     else
         venv=$''
     fi
+
 	# Timer: http://stackoverflow.com/questions/2704635/is-there-a-way-to-find-the-running-time-of-the-last-executed-command-in-the-shel
 	#if [[ $_elapsed[-1] -ne 0 ]]; then
 		#PS1+=', '
@@ -72,15 +64,15 @@ set_prompt() {
 	#fi
 
 	# Sudo: https://superuser.com/questions/195781/sudo-is-there-a-command-to-check-if-i-have-sudo-and-or-how-much-time-is-left
-   # CAN_I_RUN_SUDO=$(sudo -n uptime 2>&1|grep "load"|wc -l)
-	#if [ ${CAN_I_RUN_SUDO} -gt 0 ]
-	#then
-		#PS1+=', '
-		#PS1+="%{$fg_bold[red]%}SUDO%{$reset_color%}"
-	#fi
+  # CAN_I_RUN_SUDO=$(sudo -n uptime 2>&1|grep "load"|wc -l)
+	# if [ ${CAN_I_RUN_SUDO} -gt 0 ]
+	# then
+		# PS1+=', '
+		# PS1+="%{$fg_bold[red]%}SUDO%{$reset_color%}"
+	# fi
 
     # end with white ]
-	PS1+="%{$fg[white]%}]: %{$reset_color%}% "
+	PS1+="%{$fg[white]%}] ➜ %{$reset_color%}% "
 }
 
 precmd_functions+=set_prompt
