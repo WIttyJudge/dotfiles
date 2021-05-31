@@ -69,4 +69,5 @@ TRUE,,rofi-pass,Bash script to handle pass storages in a convenient way.
 ,,openvpn,Configurable VPN (Virtual Private Network).
 ,,python-pip,The PyPA recommended tool for installing Python packages.
 ,,light,Program to easily change brightness on backlight-controllers.
-
+,,calcurse,A text-based personal organizer.
+,,shell-color-scripts,Terminal color scripts.
