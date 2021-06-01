@@ -1,15 +1,17 @@
-#!/bin/sh 
+#!/bin/sh
 
 command="light"
 
 case $BLOCK_BUTTON in
-	1) notify-send "This Month" "$(cal --color=always | sed "s/..7m/<b><span color=\"red\">/;s/..27m/<\/span><\/b>/")"
+	4) light -A 10 ;;
+	5) light -U 10 ;;
 esac
 
 ifcommand $command || exit
 
-brightness="$($command)"
+brightness="$(printf '%.0f' $($command))"
+icon="🔆"
 
-# printf " %s \n" "$brightness"
+[ $brightness -le 71 ] && icon="🔅"
 
-printf " %.0f%s \n" "$brightness" "%"
+printf " %s %s \n" "$icon" "$brightness%"
