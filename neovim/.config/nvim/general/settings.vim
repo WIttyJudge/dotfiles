@@ -6,14 +6,15 @@ set shiftwidth=2                        " Change the number of space characters 
 set tabstop=2                           " Insert 2 spaces for a tab
 set number relativenumber               " Line numbers
 set scrolloff=5                         " Keep 5 lines below and above the cursor
-set history=1000                        " Change history to 1000
+" set colorcolumn=80
+set signcolumn=yes
 
 set hidden                              " Required to keep multiple buffers open multiple buffers
 set pumheight=10                        " Makes popup menu smaller
 set fileencoding=utf-8                  " The encoding written to file
 set ruler              			            " Show the cursor position all the time
 set cmdheight=2                         " More space for displaying messages
-set iskeyword+=-                      	" treat dash separated words as a word text object"
+set iskeyword+=-                      	" treat dash separated words as a word text object
 set mouse=a                             " Enable your mouse
 set splitbelow                          " Horizontal splits will automatically be below
 set splitright                          " Vertical splits will automatically be to the right
@@ -24,16 +25,20 @@ set smartindent                         " Makes indenting smart
 set autoindent                          " Good auto indent
 set laststatus=2                        " Always display the status line
 set cursorline                          " Enable highlighting of the current line
-set background=dark                     " tell vim what the background color looks like
 set showtabline=2                       " Always show tabs
-set noshowmode                          " We don't need to see things like -- INSERT -- anymore
+" set noshowmode                          " We don't need to see things like -- INSERT -- anymore
 set noswapfile                          " I dont need swap file
 set nobackup                            " This is recommended by coc
 set nowritebackup                       " This is recommended by coc
-set updatetime=250                      " Faster completion
+set updatetime=50                       " Faster completion
 set timeoutlen=500                      " By default timeoutlen is 1000 ms
 set formatoptions-=cro                  " Stop newline continution of comments
 set clipboard=unnamedplus               " Copy paste between vim and everything else
+
+" Save undo history to the file.
+set undofile
+set undolevels=100
+set undodir=~/.vim/undo
 
 " Searching
 set ignorecase                          " Case insensitive searching
@@ -48,16 +53,26 @@ set linebreak
 set formatoptions+=t                    " Rules how to automatically formatting letters
 set formatoptions-=l
 
-au! BufWritePost $MYVIMRC source %      " auto source when writing to init.vm alternatively you can run :source $MYVIMRC
+" hightline like an error if more then 80 lines of code in one line.
+" match ErrorMsg '\%>80v.\+'
 
 " You can't stop me
 cmap w!! w !sudo tee %
 
-" remove  trailing whitespace on save
-autocmd BufWritePre * %s/\s\+$//e
+autocmd FileType nerdtree setlocal signcolumn=no
+
+autocmd BufWritePre * %s/\s\+$//e       " remove  trailing whitespace on save
 
 " Autocompile suckless tools
-autocmd BufWritePost ~/suckless-tools/dwmblocks/config.h !cd ~/suckless-tools/dwmblocks/; sudo make install && { killall -q dwmblocks;setsid -f dwmblocks }
-autocmd BufWritePost ~/suckless-tools/dwm/config.h !cd ~/suckless-tools/dwm/; sudo make install
-autocmd BufWritePost ~/suckless-tools/dmenu/config.h !cd ~/suckless-tools/dmenu/; sudo make install
+autocmd BufWritePost ~/suckless-tools/dwmblocks/config.h
+      \ !cd ~/suckless-tools/dwmblocks/;
+      \ sudo make install && { killall -q dwmblocks;setsid -f dwmblocks }
+
+autocmd BufWritePost ~/suckless-tools/dwm/config.h
+      \ !cd ~/suckless-tools/dwm/;
+      \ sudo make install
+
+autocmd BufWritePost ~/suckless-tools/dmenu/config.h
+      \ !cd ~/suckless-tools/dmenu/;
+      \ sudo make install
 

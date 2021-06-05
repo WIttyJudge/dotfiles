@@ -4,6 +4,8 @@ source $HOME/.config/nvim/general/plugins.vim
 " Settings for neovim
 source $HOME/.config/nvim/general/settings.vim
 
-" You can find my mapping in plugin/vim-which-key.vim
+" shortcuts
+source $HOME/.config/nvim/general/mappings.vim
 
+" neovim theme (colorschema)
 source $HOME/.config/nvim/general/theme.vim

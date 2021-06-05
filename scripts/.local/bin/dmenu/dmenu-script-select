@@ -7,6 +7,7 @@ commands=(
   '2 [ Reloader ]'
   '---'
   '3 [ rofi-pass ]'
+  '4 [ bookmarks ]'
   '---'
   'dotfiles'
   'suckess-tools'
@@ -24,6 +25,8 @@ case "$choice" in
     dmenu-reloader ;;
   "3 [ rofi-pass ]")
     rofi-pass ;;
+  "4 [ bookmarks ]")
+    open-bookmarks ;;
   "dotfiles")
     $TERMINAL -e sh -c 'cd ~/dotfiles && nvim' ;;
   "suckess-tools")

@@ -5,8 +5,6 @@ let g:startify_custom_header = [
     \ '      (:)      (:)      \ / \    |:| ',
   \]
 
-
-
 let g:startify_files_number = 5
 
 " Don't change to directory when selecting a file

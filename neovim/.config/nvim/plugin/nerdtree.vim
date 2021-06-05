@@ -14,7 +14,7 @@ autocmd VimEnter * NERDTree | if argc() > 0 || exists("s:std_in") | wincmd p | e
 let NERDTreeAutoDeleteBuffer = 1
 
 " Size of the window
-let g:NERDTreeWinSize = 33
+let g:NERDTreeWinSize = 29
 
 " Open top-folder without cd into it
 au VimEnter NERD_tree_1 enew | execute 'NERDTree '.argv()[0]

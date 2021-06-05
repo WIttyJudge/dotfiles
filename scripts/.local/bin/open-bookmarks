@@ -1,0 +1,23 @@
+#!/usr/bin/env sh
+
+isdefault=${1:-true}
+
+browser=$MAIN_BROWSER
+# workspace=$DEFAULTBROWSERWORKSPACE
+
+if [[ $isdefault == false ]]; then
+  browser=$SECONDARYBROWSER
+  # workspace=$SECONDARYBROWSERWORKSPACE
+fi
+
+# Import the colors
+# . "${HOME}/.cache/wal/colors.sh"
+
+url=$(cat ~/bookmarks | dmenu -i -l 20 | awk -F'|' '{gsub(/ /, "", $2); print $2}')
+
+if [[ -n "$url" ]]; then
+  # xdotool sleep 0.200 key --clearmodifiers super+$workspace
+  $browser $url
+fi
+
+exit 0

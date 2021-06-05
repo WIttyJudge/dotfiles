@@ -6,6 +6,10 @@
 #
 
 # Automatically cd into typed directory
+
+colorscript -e monster
+# colorscript -e pacman
+
 setopt autocd
 
 # history settings
@@ -71,9 +75,9 @@ source "$HOME/.zinit/bin/zinit.zsh"
 autoload -Uz _zinit
 (( ${+_comps} )) && _comps[zinit]=_zinit
 
-zinit wait lucid for \
+zinit wait lucid light-mode for \
   atinit"zicompinit; zicdreplay" \
-  zdharma/fast-syntax-highlighting \
+      zdharma/fast-syntax-highlighting \
 
 # Git prompt for Zsh
 zinit light woefe/git-prompt.zsh

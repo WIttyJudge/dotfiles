@@ -10,6 +10,8 @@
 export EDITOR="nvim"
 export TERMINAL="urxvt"
 export DOTFILES="$HOME/dotfiles"
+export MAIN_BROWSER="brave"
+export FIRST_ALTERNATIVE_BORWSER="chromium"
 
 # Use 'bat' as manpager
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
