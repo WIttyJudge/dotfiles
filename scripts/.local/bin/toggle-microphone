@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # Simple CPI application for working with microphone
-# You can turn off and turn on 
+# You can turn off and turn on
 # your inputs devices (micropones) on the whole system.
 
 # VARIABLES
@@ -29,9 +29,9 @@ options:
 
 command="pamixer"
 
-command -v $command > /dev/null || 
-  { notify-send -u critical "'$command' is not available." && 
-    echo "Please, install '$command' " && 
+command -v $command > /dev/null ||
+  { notify-send -u critical "'$command' is not available." &&
+    echo "Please, install '$command' " &&
     exit 1 ;
   }
 
@@ -43,7 +43,7 @@ mute() {
 
       mic_muted="$($command --source "$index" --get-mute)"
 
-      $command --source "$index" -m && 
+      $command --source "$index" -m &&
       echo 'muted'
   done
 }
@@ -56,7 +56,7 @@ unmute() {
 
       mic_muted="$($command --source "$index" --get-mute)"
 
-      $command --source "$index" -u && 
+      $command --source "$index" -u &&
       echo 'umuted'
   done
 }

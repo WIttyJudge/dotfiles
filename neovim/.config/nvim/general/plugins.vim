@@ -73,6 +73,8 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'tpope/vim-eunuch'
 
   Plug 'dbeniamine/cheat.sh-vim'
+
+  Plug 'mbbill/undotree'
 call plug#end()
 
 " Run PlugInstall if there are missing plugins

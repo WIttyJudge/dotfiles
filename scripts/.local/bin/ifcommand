@@ -3,9 +3,9 @@
 # I use this script to check command exists
 
 for x in "$@"; do
-  command -v $x > /dev/null || 
-    { notify-send -u critical "'$x' is not available." && 
-      echo " $x error " && 
+  command -v $x > /dev/null ||
+    { notify-send -u critical "'$x' is not available." &&
+      echo " $x error " &&
       exit 1 ;
     }
 done

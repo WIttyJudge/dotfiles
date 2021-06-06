@@ -17,7 +17,7 @@ nnoremap <C-H> <C-W><C-H>
 nnoremap va :%y+<CR>
 
 " Clean highliting after search
-nnoremap <Leader>; :nohlsearch<CR>
+nnoremap <Leader>; :set nohlsearch!<CR>
 
 " Use simple ; instead of shift + :
 nnoremap ; :
@@ -29,8 +29,8 @@ xnoremap d "_d
 xnoremap p "_dP
 
 " Use this instead of touching Esc key
-inoremap jk <Esc>
-" inoremap kj <Esc>
+" inoremap jk <Esc>
+inoremap kj <Esc>
 
 " Use Delete button instead of Esc
 nnoremap <Del> <Esc>
@@ -76,6 +76,9 @@ nmap <Leader>gd :Gdiff<CR>
 nmap <Leader>gs :Gstatus<CR>
 nmap <Leader>gc :Commits<CR>
 nmap <Leader>gC :BCommits<CR>
+
+" undotree
+nmap <Leader>ut :UndotreeToggle<CR>
 
 " coc.nvim
 " nmap <leader>F2 <Plug>(coc-rename)
