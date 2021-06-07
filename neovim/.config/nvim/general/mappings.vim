@@ -17,7 +17,7 @@ nnoremap <C-H> <C-W><C-H>
 nnoremap va :%y+<CR>
 
 " Clean highliting after search
-nnoremap <Leader>; :set nohlsearch!<CR>
+nnoremap <Leader>; :nohlsearch<CR>
 
 " Use simple ; instead of shift + :
 nnoremap ; :
@@ -74,8 +74,13 @@ nmap <Leader>gu <Plug>(GitGutterUndoHunk)
 " vim-fugitive
 nmap <Leader>gd :Gdiff<CR>
 nmap <Leader>gs :Gstatus<CR>
-nmap <Leader>gc :Commits<CR>
-nmap <Leader>gC :BCommits<CR>
+" nmap <Leader>gc :Commits<CR>
+" nmap <Leader>gC :BCommits<CR>
+
+" gv.vim
+nmap <Leader>gc :GV<CR>
+vnoremap <Leader>gc :GV<CR>
+nmap <Leader>gC :GV!<CR>
 
 " undotree
 nmap <Leader>ut :UndotreeToggle<CR>

@@ -61,7 +61,7 @@ cmap w!! w !sudo tee %
 
 autocmd FileType nerdtree setlocal signcolumn=no
 
-autocmd BufWritePre * %s/\s\+$//e       " remove  trailing whitespace on save
+" autocmd BufWritePre * %s/\s\+$//e       " remove  trailing whitespace on save
 
 " Autocompile suckless tools
 autocmd BufWritePost ~/suckless-tools/dwmblocks/config.h

@@ -52,6 +52,7 @@ call plug#begin('~/.config/nvim/plugged')
   " For Git
   Plug 'airblade/vim-gitgutter'
   Plug 'tpope/vim-fugitive'
+  Plug 'junegunn/gv.vim'
 
   " For Ruby programming language
   Plug 'thoughtbot/vim-rspec', { 'for': 'ruby' }
@@ -66,15 +67,14 @@ call plug#begin('~/.config/nvim/plugged')
 
   " Plug 'honza/vim-snippets'
 
-  " Useful mappings
   Plug 'tpope/vim-unimpaired'
 
-  " Helpers for UNIX
-  Plug 'tpope/vim-eunuch'
-
-  Plug 'dbeniamine/cheat.sh-vim'
+  " Plug 'dbeniamine/cheat.sh-vim'
 
   Plug 'mbbill/undotree'
+
+  " Plug 'neovim/nvim-lspconfig'
+  " Plug 'hrsh7th/nvim-compe'
 call plug#end()
 
 " Run PlugInstall if there are missing plugins
