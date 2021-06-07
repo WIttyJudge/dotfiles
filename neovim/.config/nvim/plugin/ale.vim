@@ -2,7 +2,6 @@
 let g:ale_linters = {
       \ 'ruby': ['rubocop', 'rails_best_practices'],
       \ 'go': ['gofmt'],
-      \ 'bash': ['shellcheck'],
       \ 'c': ['clang-format'],
       \ 'rust': ['rustfmt'],
       \ }

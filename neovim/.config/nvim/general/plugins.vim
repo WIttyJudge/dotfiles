@@ -46,9 +46,6 @@ call plug#begin('~/.config/nvim/plugged')
   " Changes working directory
   Plug 'airblade/vim-rooter'
 
-  " anges working directory
-  " Plug 'tpope/vim-unimpaired'
-
   " For Git
   Plug 'airblade/vim-gitgutter'
   Plug 'tpope/vim-fugitive'
@@ -62,14 +59,8 @@ call plug#begin('~/.config/nvim/plugged')
   " For Golang programming language
   Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
-  " Stable version of coc
-  " Plug 'neoclide/coc.nvim', {'branch': 'release'}
-
-  " Plug 'honza/vim-snippets'
-
+  " Useful mappings
   Plug 'tpope/vim-unimpaired'
-
-  " Plug 'dbeniamine/cheat.sh-vim'
 
   Plug 'mbbill/undotree'
 
