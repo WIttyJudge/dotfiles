@@ -21,13 +21,16 @@ let g:startify_lists = [
   \  { 'type': 'commands',  'header': [ 'Commands' ] },
 \ ]
 
+let g:startify_bookmarks = [
+    \ { 'i': '~/.config/nvim/init.vim' },
+    \ { 'p': '~/.config/nvim/general/plugins.vim' },
+    \ { 'm': '~/.config/nvim/general/mappings.vim' },
+\ ]
+
 let g:startify_commands = [
   \   { 'up': [ 'Update Plugins', ':PlugUpdate' ] },
   \   { 'ug': [ 'Upgrade Plugin Manager', ':PlugUpgrade' ] },
   \   { 'uc': [ 'Clean Plugin Manager', ':PlugClean' ] },
+  \   { 'ch': [ 'Check Health', ':checkhealth' ] },
 \ ]
 
-let g:startify_bookmarks = [
-    \ { 'i': '~/.config/nvim/init.vim' },
-    \ { 'p': '~/.config/nvim/general/plugins.vim' },
-\ ]

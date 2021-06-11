@@ -10,5 +10,9 @@ source $HOME/.config/nvim/general/mappings.vim
 " neovim theme (colorschema)
 source $HOME/.config/nvim/general/theme.vim
 
-" luafile ~/.config/nvim/lua/compe-config.lua
-" luafile ~/.config/nvim/lua/lsp/on_attach.lua
+" Load lua config files
+lua <<EOF
+require('compe-config')
+require('lsp')
+EOF
+

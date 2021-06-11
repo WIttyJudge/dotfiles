@@ -1,0 +1,20 @@
+{
+  "class": {
+    "prefix": ["class"],
+    "body": [
+      "class ${1:MyClass}",
+      "\t$0",
+      "end"
+    ],
+    "description": "Define class"
+  },
+  "class with inheritance": {
+    "prefix": ["class<"],
+    "body": [
+      "class ${1:SubClass} < ${2:SuperClass}",
+      "\t$0",
+      "end"
+    ],
+    "description": "Define class with superclass"
+  }
+}

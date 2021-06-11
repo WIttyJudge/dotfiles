@@ -5,6 +5,10 @@
 " set leader key
 let mapleader = "\<Space>"
 
+" Expand or jump
+imap <expr> <C-l>   vsnip#available(1)  ? '<Plug>(vsnip-expand-or-jump)' : '<C-l>'
+smap <expr> <C-l>   vsnip#available(1)  ? '<Plug>(vsnip-expand-or-jump)' : '<C-l>'
+
 " ********* CUSTOM MAPPING *********
 
 " Easier split navigation, CTRL + hjlk
@@ -29,7 +33,7 @@ xnoremap d "_d
 xnoremap p "_dP
 
 " Use this instead of touching Esc key
-" inoremap jk <Esc>
+inoremap jk <Esc>
 inoremap kj <Esc>
 
 " Use Delete button instead of Esc
@@ -61,7 +65,7 @@ nnoremap <Leader>ps :Rg<CR>
 
 " nerdtree
 nnoremap <C-b> :NERDTreeTabsToggle<CR>
-nnoremap <F2> :NERDTreeFind<CR>
+" nnoremap <F2> :NERDTreeFind<CR>
 
 " vim-startify
 nmap <Leader>st :Startify<CR>
@@ -73,7 +77,7 @@ nmap <Leader>gu <Plug>(GitGutterUndoHunk)
 
 " vim-fugitive
 nmap <Leader>gd :Gdiff<CR>
-nmap <Leader>gs :Gstatus<CR>
+nmap <Leader>gs :Git<CR>
 " nmap <Leader>gc :Commits<CR>
 " nmap <Leader>gC :BCommits<CR>
 

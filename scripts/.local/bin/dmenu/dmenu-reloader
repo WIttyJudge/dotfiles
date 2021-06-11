@@ -29,3 +29,4 @@ case "$choice" in
     notifier "dwm" ;;
   *) exit ;;
 esac
+

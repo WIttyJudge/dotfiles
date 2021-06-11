@@ -1,0 +1,2 @@
+require('lspconfig').solargraph.setup {}
+

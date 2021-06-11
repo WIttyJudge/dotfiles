@@ -9,6 +9,8 @@ call plug#begin('~/.config/nvim/plugged')
   " Plug 'doums/darcula'
   Plug 'morhetz/gruvbox'
 
+  Plug 'ditorconfig/editorconfig-vim'
+
   " Looking for files
   Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
   Plug 'junegunn/fzf.vim'
@@ -40,7 +42,7 @@ call plug#begin('~/.config/nvim/plugged')
   " Statusline, tabline
   Plug 'itchyny/lightline.vim'
 
-  " Fancy startup screen for vim
+  " Fancy startup screen
   Plug 'mhinz/vim-startify'
 
   " Changes working directory
@@ -64,8 +66,12 @@ call plug#begin('~/.config/nvim/plugged')
 
   Plug 'mbbill/undotree'
 
-  " Plug 'neovim/nvim-lspconfig'
-  " Plug 'hrsh7th/nvim-compe'
+  " LSP plugins
+  Plug 'neovim/nvim-lspconfig' 
+  Plug 'hrsh7th/nvim-compe'
+  Plug 'kabouzeid/nvim-lspinstall'
+  " Snippets
+  Plug 'hrsh7th/vim-vsnip'
 call plug#end()
 
 " Run PlugInstall if there are missing plugins
