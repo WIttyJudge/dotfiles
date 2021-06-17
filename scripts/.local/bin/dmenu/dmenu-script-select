@@ -20,7 +20,7 @@ choice="$(printf '%b\n' "${commands[@]}" | dmenu -c -l 10 -h 30 )"
 
 case "$choice" in
   "1 [ System ]")
-    dmenu-system ;;
+    system ;;
   "2 [ Reloader ]")
     dmenu-reloader ;;
   "3 [ rofi-pass ]")
