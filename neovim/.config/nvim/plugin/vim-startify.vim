@@ -15,8 +15,6 @@ let g:startify_use_env = 1
 
 " Custom startup list, only show MRU from current directory/project
 let g:startify_lists = [
-  \  { 'type': 'dir', 'header': [ 'Files '. getcwd() ] },
-  \  { 'type': 'sessions',  'header': [ 'Sessions' ] },
   \  { 'type': 'bookmarks', 'header': [ 'Bookmarks' ] },
   \  { 'type': 'commands',  'header': [ 'Commands' ] },
 \ ]
@@ -32,5 +30,6 @@ let g:startify_commands = [
   \   { 'ug': [ 'Upgrade Plugin Manager', ':PlugUpgrade' ] },
   \   { 'uc': [ 'Clean Plugin Manager', ':PlugClean' ] },
   \   { 'ch': [ 'Check Health', ':checkhealth' ] },
+  \   { 'st': [ 'Startify Profiling', 'StartupTime ~/.config/nvim/init.vim' ] },
 \ ]
 

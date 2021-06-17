@@ -34,6 +34,7 @@ set updatetime=50                       " Faster completion
 set timeoutlen=500                      " By default timeoutlen is 1000 ms
 set formatoptions-=cro                  " Stop newline continution of comments
 set clipboard=unnamedplus               " Copy paste between vim and everything else
+set completeopt=menuone,longest
 
 " Save undo history to the file.
 set undofile

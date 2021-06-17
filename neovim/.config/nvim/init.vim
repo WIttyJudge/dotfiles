@@ -8,11 +8,13 @@ source $HOME/.config/nvim/general/settings.vim
 source $HOME/.config/nvim/general/mappings.vim
 
 " neovim theme (colorschema)
-source $HOME/.config/nvim/general/theme.vim
+source $HOME/.config/nvim/general/appearance.vim
 
 " Load lua config files
 lua <<EOF
-require('compe-config')
 require('lsp')
+require('plugins')
+
+require('nvim-compe')
 EOF
 

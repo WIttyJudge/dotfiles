@@ -10,8 +10,6 @@ let g:lightline = {
       \ },
       \ 'component_function': {
       \   'gitbranch': 'FugitiveHead',
-      \   'ale': 'plugin#lightline#AleLinterStatus',
-      \   'git-information': 'plugin#lightline#GitInformation',
       \   'filename': 'LightlineFilename'
       \ },
       \ 'mode_map': {
@@ -29,6 +27,10 @@ let g:lightline = {
       \ },
     \ }
 
+" available component_function
+" \   'git-information': 'plugin#lightline#GitInformation',
+" \   'ale': 'plugin#lightline#AleLinterStatus',
+
 function! LightlineFilename()
   let root = fnamemodify(get(b:, 'git_dir'), ':h')
   let path = expand('%:p')
@@ -37,3 +39,5 @@ function! LightlineFilename()
   endif
   return expand('%')
 endfunction
+
+

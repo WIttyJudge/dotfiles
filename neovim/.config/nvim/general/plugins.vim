@@ -1,15 +1,11 @@
-" Install vim-plug if not found
+ " Install vim-plug if not found
 if empty(glob('~/.config/nvim/autoload/plug.vim'))
   silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs
     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 endif
 
 call plug#begin('~/.config/nvim/plugged')
-  " Theme
-  " Plug 'doums/darcula'
   Plug 'morhetz/gruvbox'
-
-  Plug 'ditorconfig/editorconfig-vim'
 
   " Looking for files
   Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
@@ -49,27 +45,41 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'airblade/vim-rooter'
 
   " For Git
-  Plug 'airblade/vim-gitgutter'
+  Plug 'mhinz/vim-signify'
+  " Plug 'airblade/vim-gitgutter'
   Plug 'tpope/vim-fugitive'
   Plug 'junegunn/gv.vim'
 
-  " For Ruby programming language
+  " Ruby
   Plug 'thoughtbot/vim-rspec', { 'for': 'ruby' }
   Plug 'tpope/vim-endwise'
-  Plug 'tpope/vim-rails'
+  " Plug 'tpope/vim-rails'
 
-  " For Golang programming language
-  Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+  " Golang
+  " Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+
+  " Svetle
+  Plug 'evanleck/vim-svelte'
+
+  " Color highlighter
+  " Plug 'norcalli/nvim-colorizer.lua'
 
   " Useful mappings
   Plug 'tpope/vim-unimpaired'
-
+ 
+  " Undo history visualizer
   Plug 'mbbill/undotree'
+
+  " Profiling
+  Plug 'tweekmonster/startuptime.vim'
 
   " LSP plugins
   Plug 'neovim/nvim-lspconfig' 
   Plug 'hrsh7th/nvim-compe'
   Plug 'kabouzeid/nvim-lspinstall'
+  Plug 'folke/trouble.nvim'
+  Plug 'folke/lsp-colors.nvim'
+  Plug 'nathunsmitty/nvim-ale-diagnostic'
   " Snippets
   Plug 'hrsh7th/vim-vsnip'
 call plug#end()
@@ -78,3 +88,4 @@ call plug#end()
 autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
   \| PlugInstall --sync | source $MYVIMRC
 \| endif
+
