@@ -49,10 +49,11 @@ TRUE,,i3lock,Improved screen locker.
 ,,zip,Compressor/archiver for creating and modifying zipfiles.
 ,,unzip,For extracting and viewing files in .zip archives.
 ,,xorg-xrdb,X server resource database utility.
-,,rxvt-unicode,Unicode enabled rxvt-clone terminal emulator (urxvt).
-,AUR,rxvt-unicode-256xresources,urxvt with patches to support 256 Xresource colors and fixes for line/font spacing.
-,,urxvt-perls,URL and Mouseless text selection for rxvt-unicode.
-,AUR,urxvt-resize-font-git,An urxvt plugin to adjust the font size on the fly.
+TRUE,,rxvt-unicode,Unicode enabled rxvt-clone terminal emulator (urxvt).
+TRUE,AUR,rxvt-unicode-256xresources,urxvt with patches to support 256 Xresource colors and fixes for line/font spacing.
+TRUE,,urxvt-perls,URL and Mouseless text selection for rxvt-unicode.
+TRUE,AUR,urxvt-resize-font-git,An urxvt plugin to adjust the font size on the fly.
+,,alacritty,GPU-accelerated terminal emulator.
 TRUE,,rofi,A window application launcher and dmenu replacement.
 TRUE,,rofi-pass,Bash script to handle pass storages in a convenient way.
 ,,pacman-contrib,Contributed scripts and tools for pacman systems.

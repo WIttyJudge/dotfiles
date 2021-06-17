@@ -8,7 +8,7 @@
 
 # Default apps
 export EDITOR="nvim"
-export TERMINAL="urxvt"
+export TERMINAL="alacritty"
 export DOTFILES="$HOME/dotfiles"
 export MAIN_BROWSER="brave"
 export FIRST_ALTERNATIVE_BORWSER="chromium"

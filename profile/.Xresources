@@ -46,7 +46,7 @@ URxvt.background:       [85]#1d2021
 URxvt.depth:		32
 /* URxvt.font: 		xft:monospace:size=11 */
 URxvt.scrollBar:	false
-URxvt.cursorColor:	white
+URxvt.cursorColor: #d8dee9	
 
 /* Disable iso mode while pressing CTRL + SHIFT */
 URxvt.iso14755: false

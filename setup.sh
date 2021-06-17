@@ -7,6 +7,7 @@ NORMAL=$(tput sgr0)
 
 # List of directory names with dotfiles we need to setup
 folders=(
+  alacritty
   calcurse
   custom
   dunst
