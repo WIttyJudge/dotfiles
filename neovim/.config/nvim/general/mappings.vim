@@ -60,6 +60,9 @@ nmap <Leader>th :tabprev<CR>
 vnoremap < <gv
 vnoremap > >gv
 
+" Don't jump when highlighting
+nnoremap * *``
+
 " ********* PLUGINS MAPPING *********
 
 " fzf.vim
@@ -67,9 +70,8 @@ map <Leader>f :Files<CR>
 map <Leader>b :Buffers<CR>
 nnoremap <Leader>ps :Rg<CR>
 
-" nerdtree
-nnoremap <C-b> :NERDTreeTabsToggle<CR>
-" nnoremap <F2> :NERDTreeFind<CR>
+" fern.vim
+nnoremap <C-b> :Fern . -drawer -toggle<CR><C-w>=
 
 " vim-startify
 nmap <Leader>st :Startify<CR>
@@ -119,6 +121,6 @@ nnoremap <silent> gD <cmd>lua vim.lsp.buf.declaration()<CR>
 nnoremap <silent> gr <cmd>lua vim.lsp.buf.references()<CR>
 nnoremap <silent> gi <cmd>lua vim.lsp.buf.implementation()<CR>
 nnoremap <silent> K <cmd>lua vim.lsp.buf.hover()<CR>
-nnoremap <silent> <C-k> <cmd>lua vim.lsp.buf.signature_help()<CR>
+" nnoremap <silent> <C-k> <cmd>lua vim.lsp.buf.signature_help()<CR>
 nnoremap <silent> <C-n> <cmd>lua vim.lsp.diagnostic.goto_prev()<CR>
 nnoremap <silent> <C-p> <cmd>lua vim.lsp.diagnostic.goto_next()<CR>

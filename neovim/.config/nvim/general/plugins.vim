@@ -12,9 +12,19 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'junegunn/fzf.vim'
 
   " Tree explorer
-  Plug 'preservim/nerdtree' |
-        \ Plug 'jistr/vim-nerdtree-tabs' |
-        \ Plug 'Xuyuanp/nerdtree-git-plugin'
+  " Plug 'preservim/nerdtree' |
+  "       \ Plug 'jistr/vim-nerdtree-tabs' |
+  "       \ Plug 'Xuyuanp/nerdtree-git-plugin'
+
+  Plug 'lambdalisue/fern.vim' |
+        \ Plug 'lambdalisue/fern-git-status.vim' |
+        \ Plug 'lambdalisue/nerdfont.vim' |
+        \ Plug 'lambdalisue/fern-renderer-nerdfont.vim'
+
+  Plug 'lambdalisue/glyph-palette.vim'
+
+  " provides additional text objets
+  Plug 'wellle/targets.vim'
 
   " Comment out code
   Plug 'tpope/vim-commentary'

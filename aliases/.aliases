@@ -31,7 +31,8 @@ alias \
   rm="rip --graveyard ~/.local/share/Trash" \
 
 alias ls="exa -l --group-directories-first" # doesn't show hidden files
-alias ls.="exa -dl .* --color=auto" # shows only hidden files
+alias ls.="exa -dl .* " # shows only hidden files
+alias lst="exa -l --sort newest" # sort output by newest file
 alias la="exa -la --group-directories-first"  # all files and dirs
 
 # git

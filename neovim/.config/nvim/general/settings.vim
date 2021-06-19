@@ -34,7 +34,7 @@ set updatetime=50                       " Faster completion
 set timeoutlen=500                      " By default timeoutlen is 1000 ms
 set formatoptions-=cro                  " Stop newline continution of comments
 set clipboard=unnamedplus               " Copy paste between vim and everything else
-set completeopt=menuone,longest
+set completeopt=menuone,noselect
 
 " Save undo history to the file.
 set undofile
@@ -60,7 +60,7 @@ set formatoptions-=l
 " You can't stop me
 cmap w!! w !sudo tee %
 
-autocmd FileType nerdtree setlocal signcolumn=no
+autocmd FileType fern setlocal signcolumn=no
 
 " autocmd BufWritePre * %s/\s\+$//e       " remove  trailing whitespace on save
 
