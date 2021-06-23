@@ -28,7 +28,7 @@ alias dotfiles="cd ~/dotfiles && $EDITOR"
 # rewrite standard commands
 alias \
   cat="bat" \
-  rm="rip --graveyard ~/.local/share/Trash" \
+  rip="rip --graveyard ~/.local/share/Trash " \
 
 alias ls="exa -l --group-directories-first" # doesn't show hidden files
 alias ls.="exa -dl .* " # shows only hidden files

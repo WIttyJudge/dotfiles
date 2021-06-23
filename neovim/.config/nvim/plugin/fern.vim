@@ -19,10 +19,8 @@ function! s:init_fern() abort
         \   "\<Plug>(fern-action-leave)",
         \ )
 
-  nmap <buffer> cd <Plug>(fern-my-enter-to-the-folder)
-
   " open
-  nmap <buffer><nowait> o <Plug>(fern-my-open-expand-collapse)
+  nmap <buffer><nowait> l <Plug>(fern-my-open-expand-collapse)
   nmap <buffer> <2-LeftMouse> <Plug>(fern-my-open-expand-collapse)
   nmap <buffer><nowait> h <Plug>(fern-my-collapse-or-leave)
   nmap <buffer> s <Plug>(fern-action-open:vsplit)
@@ -30,18 +28,33 @@ function! s:init_fern() abort
   nmap <buffer> b <Plug>(fern-action-open:split)
   nmap <buffer> t <Plug>(fern-action-open:tabedit)
   nmap <buffer> T <Plug>(fern-action-open:tabedit)gT
+  nmap <buffer><nowait> > <Plug>(fern-action-enter)
+  nmap <buffer><nowait> < <Plug>(fern-action-leave)
+
+  " create
+  nmap <buffer> n <Plug>(fern-action-new-file)
+  nmap <buffer> N <Plug>(fern-action-new-path)
 
   nmap <buffer> r <Plug>(fern-action-rename)
   nmap <buffer> R <Plug>(fern-action-reload)
 
   nmap <buffer> dd <Plug>(fern-action-remove)
 
-  nmap <buffer> n <Plug>(fern-action-new-path)
+  nmap <buffer> m <Plug>(fern-action-move)
+
+  nmap <buffer> c <Plug>(fern-action-copy)
+
+  " nmap <buffer> l <Plug>(fern-action-mark:toggle)j
 endfunction
 
 augroup fern-custom
   autocmd! *
   autocmd FileType fern call s:init_fern()
+
+  " start fern when vim started
+  autocmd VimEnter * ++nested Fern . -drawer
+
+  " glyph-palette.vim
   autocmd FileType fern call glyph_palette#apply()
 augroup END
 

@@ -90,6 +90,7 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'folke/trouble.nvim'
   Plug 'folke/lsp-colors.nvim'
   Plug 'nathunsmitty/nvim-ale-diagnostic'
+  Plug 'norcalli/nvim-colorizer.lua'
   " Snippets
   Plug 'hrsh7th/vim-vsnip'
 call plug#end()

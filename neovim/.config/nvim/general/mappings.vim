@@ -16,6 +16,9 @@ nnoremap <C-H> <C-W><C-H>
 " Copy whole text in file
 nnoremap va :%y+<CR>
 
+" Save on buttons
+nnoremap <Leader>w :w<CR>
+
 " Clean highliting after search
 nnoremap <Leader>; :nohlsearch<CR>
 

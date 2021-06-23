@@ -8,6 +8,7 @@ set number relativenumber               " Line numbers
 set scrolloff=5                         " Keep 5 lines below and above the cursor
 " set colorcolumn=80
 set signcolumn=yes
+set termguicolors
 
 set hidden                              " Required to keep multiple buffers open multiple buffers
 set pumheight=10                        " Makes popup menu smaller
@@ -30,7 +31,7 @@ set showtabline=2                       " Always show tabs
 set noswapfile                          " I dont need swap file
 set nobackup                            " This is recommended by coc
 set nowritebackup                       " This is recommended by coc
-set updatetime=50                       " Faster completion
+set updatetime=100                      " Faster completion
 set timeoutlen=500                      " By default timeoutlen is 1000 ms
 set formatoptions-=cro                  " Stop newline continution of comments
 set clipboard=unnamedplus               " Copy paste between vim and everything else
