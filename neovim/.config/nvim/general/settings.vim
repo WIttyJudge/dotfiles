@@ -58,9 +58,6 @@ set formatoptions-=l
 " hightline like an error if more then 80 lines of code in one line.
 " match ErrorMsg '\%>80v.\+'
 
-" You can't stop me
-cmap w!! w !sudo tee %
-
 autocmd FileType fern setlocal signcolumn=no
 
 " autocmd BufWritePre * %s/\s\+$//e       " remove  trailing whitespace on save

@@ -11,6 +11,12 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
   Plug 'junegunn/fzf.vim'
 
+  " telescope requirements...
+  " Plug 'nvim-lua/popup.nvim'
+  " Plug 'nvim-lua/plenary.nvim'
+  " Plug 'nvim-telescope/telescope.nvim'
+  " Plug 'nvim-telescope/telescope-fzy-native.nvim'
+
   " Tree explorer
   " Plug 'preservim/nerdtree' |
   "       \ Plug 'jistr/vim-nerdtree-tabs' |
@@ -71,14 +77,17 @@ call plug#begin('~/.config/nvim/plugged')
   " Svetle
   Plug 'evanleck/vim-svelte'
 
-  " Color highlighter
-  " Plug 'norcalli/nvim-colorizer.lua'
-
   " Useful mappings
   Plug 'tpope/vim-unimpaired'
+
+  " sudo
+  Plug 'lambdalisue/suda.vim'
  
   " Undo history visualizer
   Plug 'mbbill/undotree'
+
+  " Change an HTML opening tag and take the closing one along as well
+  Plug 'AndrewRadev/tagalong.vim'
 
   " Profiling
   Plug 'tweekmonster/startuptime.vim'

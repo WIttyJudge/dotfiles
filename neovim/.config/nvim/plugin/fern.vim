@@ -32,7 +32,8 @@ function! s:init_fern() abort
   nmap <buffer><nowait> < <Plug>(fern-action-leave)
 
   " create
-  nmap <buffer> n <Plug>(fern-action-new-file)
+  nmap <buffer> nf <Plug>(fern-action-new-file)
+  nmap <buffer> nd <Plug>(fern-action-new-dir)
   nmap <buffer> N <Plug>(fern-action-new-path)
 
   nmap <buffer> r <Plug>(fern-action-rename)

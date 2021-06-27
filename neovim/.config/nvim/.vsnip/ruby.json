@@ -16,5 +16,12 @@
       "end"
     ],
     "description": "Define class with superclass"
+  },
+  "env": {
+    "prefix": ["rails-env"],
+    "body": [
+      "<%= ENV['$1'] %>"
+    ],
+    "description": "Define class with superclass"
   }
 }

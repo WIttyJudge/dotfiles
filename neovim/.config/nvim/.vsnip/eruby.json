@@ -89,5 +89,21 @@
 			"<%= $1 %>"
 		],
 		"description": "erb exec block with ="
-	}
+	},
+	"content_for": {
+		"prefix": "content_for",
+		"body": [
+			"<% content_for :${1:name}, '${0:data}' %>"
+		],
+		"description": "content for method"
+	},
+	"content_for_block": {
+		"prefix": "content_for_block",
+		"body": [
+			"<% content_for :${1:name} do %>",
+      "\t${0:content}",
+      "<% end %>"
+		],
+		"description": "content for method with block"
+  }
 }
