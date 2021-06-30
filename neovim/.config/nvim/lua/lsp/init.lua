@@ -6,7 +6,7 @@ require('lsp/cssls')
 require('lsp/docker-ls')
 require('lsp/html')
 require('lsp/jsonls')
--- require('lsp/ruby-ls')
+require('lsp/ruby-ls')
 require('lsp/svelte-ls')
 require('lsp/vimls-ls')
 

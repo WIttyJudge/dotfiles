@@ -5,11 +5,47 @@ if empty(glob('~/.config/nvim/autoload/plug.vim'))
 endif
 
 call plug#begin('~/.config/nvim/plugged')
-  Plug 'morhetz/gruvbox'
+
+  " LSP
+  Plug 'neovim/nvim-lspconfig' 
+  Plug 'onsails/lspkind-nvim'
+  Plug 'kabouzeid/nvim-lspinstall'
+
+  " Aucomplete
+  Plug 'hrsh7th/nvim-compe'
+  Plug 'hrsh7th/vim-vsnip'
+  Plug 'jiangmiao/auto-pairs'
+  Plug 'tpope/vim-endwise'
+  " html
+  Plug 'gregsexton/MatchTag'
+  Plug 'AndrewRadev/tagalong.vim'
+
+  " Treesitter
+  Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+  Plug 'p00f/nvim-ts-rainbow'
+
+  " Linter
+  Plug 'dense-analysis/ale'
+  Plug 'nathunsmitty/nvim-ale-diagnostic'
+
+  " Colors
+  Plug 'norcalli/nvim-colorizer.lua'
+
+  " Colorscheme
+  " Plug 'morhetz/gruvbox'
+  Plug 'sainnhe/gruvbox-material'
+
+  " Syntax
+  Plug 'evanleck/vim-svelte'
+  Plug 'Yggdroot/indentLine'
 
   " Looking for files
   Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
   Plug 'junegunn/fzf.vim'
+
+  " Icons
+  Plug 'kyazdani42/nvim-web-devicons'
+  Plug 'lambdalisue/glyph-palette.vim'
 
   " telescope requirements...
   " Plug 'nvim-lua/popup.nvim'
@@ -17,42 +53,30 @@ call plug#begin('~/.config/nvim/plugged')
   " Plug 'nvim-telescope/telescope.nvim'
   " Plug 'nvim-telescope/telescope-fzy-native.nvim'
 
-  " Tree explorer
-  " Plug 'preservim/nerdtree' |
-  "       \ Plug 'jistr/vim-nerdtree-tabs' |
-  "       \ Plug 'Xuyuanp/nerdtree-git-plugin'
+  " Explorer
+  " Plug 'lambdalisue/fern.vim' |
+  "       \ Plug 'lambdalisue/fern-git-status.vim' |
+  "       \ Plug 'lambdalisue/nerdfont.vim' |
+  "       \ Plug 'lambdalisue/fern-renderer-nerdfont.vim'
 
-  Plug 'lambdalisue/fern.vim' |
-        \ Plug 'lambdalisue/fern-git-status.vim' |
-        \ Plug 'lambdalisue/nerdfont.vim' |
-        \ Plug 'lambdalisue/fern-renderer-nerdfont.vim'
+  Plug 'kyazdani42/nvim-tree.lua'
 
-  Plug 'lambdalisue/glyph-palette.vim'
-
-  " provides additional text objets
+  " Move && Scroll && Replace
   Plug 'wellle/targets.vim'
+  Plug 'mg979/vim-visual-multi', {'branch': 'master'}
+  Plug 'tpope/vim-surround'
+  Plug 'tpope/vim-unimpaired'
+  Plug 'kevinhwang91/nvim-hlslens'
+  Plug 'karb94/neoscroll.nvim'
 
   " Comment out code
   Plug 'tpope/vim-commentary'
 
-  " Linter
-  Plug 'dense-analysis/ale'
-
-  " Multiple select of text
-  " Plug 'terryma/vim-multiple-cursors'
-  Plug 'mg979/vim-visual-multi', {'branch': 'master'}
-
-  " Display vertical lines in code
-  Plug 'Yggdroot/indentLine'
-
-  " Auto pairs for '(' '[' '{'
-  Plug 'jiangmiao/auto-pairs'
-
-  " Simple quoting, parenthesizing
-  Plug 'tpope/vim-surround'
-
-  " Statusline, tabline
-  Plug 'itchyny/lightline.vim'
+  " Statusline and bufferline
+  " Plug 'itchyny/lightline.vim'
+  Plug 'famiu/feline.nvim'
+  " Plug 'romgrk/barbar.nvim'
+  " Plug 'akinsho/nvim-bufferline.lua'
 
   " Fancy startup screen
   Plug 'mhinz/vim-startify'
@@ -60,7 +84,7 @@ call plug#begin('~/.config/nvim/plugged')
   " Changes working directory
   Plug 'airblade/vim-rooter'
 
-  " For Git
+  " Git
   Plug 'mhinz/vim-signify'
   " Plug 'airblade/vim-gitgutter'
   Plug 'tpope/vim-fugitive'
@@ -68,40 +92,18 @@ call plug#begin('~/.config/nvim/plugged')
 
   " Ruby
   Plug 'thoughtbot/vim-rspec', { 'for': 'ruby' }
-  Plug 'tpope/vim-endwise'
   " Plug 'tpope/vim-rails'
 
-  " Golang
-  " Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-
-  " Svetle
-  Plug 'evanleck/vim-svelte'
-
-  " Useful mappings
-  Plug 'tpope/vim-unimpaired'
-
-  " sudo
+  " Useful functions
   Plug 'lambdalisue/suda.vim'
  
   " Undo history visualizer
   Plug 'mbbill/undotree'
 
-  " Change an HTML opening tag and take the closing one along as well
-  Plug 'AndrewRadev/tagalong.vim'
-
   " Profiling
   Plug 'tweekmonster/startuptime.vim'
 
-  " LSP plugins
-  Plug 'neovim/nvim-lspconfig' 
-  Plug 'hrsh7th/nvim-compe'
-  Plug 'kabouzeid/nvim-lspinstall'
-  Plug 'folke/trouble.nvim'
-  Plug 'folke/lsp-colors.nvim'
-  Plug 'nathunsmitty/nvim-ale-diagnostic'
-  Plug 'norcalli/nvim-colorizer.lua'
-  " Snippets
-  Plug 'hrsh7th/vim-vsnip'
+  Plug 'tpope/vim-dispatch'
 call plug#end()
 
 " Run PlugInstall if there are missing plugins

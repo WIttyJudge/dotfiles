@@ -5,10 +5,11 @@ set expandtab                           " Converts tabs to spaces
 set shiftwidth=2                        " Change the number of space characters inserted for indentation
 set tabstop=2                           " Insert 2 spaces for a tab
 set number relativenumber               " Line numbers
-set scrolloff=5                         " Keep 5 lines below and above the cursor
+set scrolloff=7                         " Keep 5 lines below and above the cursor
 " set colorcolumn=80
 set signcolumn=yes
 set termguicolors
+set noshowmode
 
 set hidden                              " Required to keep multiple buffers open multiple buffers
 set pumheight=10                        " Makes popup menu smaller

@@ -21,7 +21,7 @@ nnoremap <Leader>w :w<CR>
 nnoremap <Leader>q :q<CR>
 
 " Clean highliting after search
-nnoremap <Leader>; :nohlsearch<CR>
+" nnoremap <Leader>; :nohlsearch<CR>
 
 " Use simple ; instead of shift + :
 nnoremap ; :
@@ -56,16 +56,21 @@ inoremap <Leader><Tab> <Tab>
 nnoremap <C-e> 3<C-e>
 nnoremap <C-y> 3<C-y>
 
-" Tabs
-nmap <Leader>tl :tabnext<CR>
-nmap <Leader>th :tabprev<CR>
-
 " Better tabbing
 vnoremap < <gv
 vnoremap > >gv
 
 " Don't jump when highlighting
 nnoremap * *``
+
+noremap <silent> n <Cmd>execute('normal! ' . v:count1 . 'n')<CR>
+            \<Cmd>lua require('hlslens').start()<CR>
+noremap <silent> N <Cmd>execute('normal! ' . v:count1 . 'N')<CR>
+            \<Cmd>lua require('hlslens').start()<CR>
+noremap * *<Cmd>lua require('hlslens').start()<CR>
+noremap # #<Cmd>lua require('hlslens').start()<CR>
+noremap g* g*<Cmd>lua require('hlslens').start()<CR>
+noremap g# g#<Cmd>lua require('hlslens').start()<CR>
 
 " ********* PLUGINS MAPPING *********
 
@@ -82,7 +87,7 @@ nnoremap <Leader>ps :Rg<CR>
 " nnoremap <Leader>f :lua require('telescope.builtin').find_files()<CR>
 
 " nnoremap <leader>ps :lua require('telescope.builtin').grep_string({ search = vim.fn.input("Grep For > ")})<CR>
-" nnoremap <leader>pw :lua require('telescope.builtin').grep_string { search = vim.fn.expand("<cword>") }<CR>
+" nnoremap <leader>pw :lua require('telescope.builtin').grep_string {}<CR>
 
 " nnoremap <leader>b :lua require('telescope.builtin').buffers()<CR>
 
@@ -91,7 +96,8 @@ nnoremap <Leader>ps :Rg<CR>
 " nnoremap <leader>vrc :lua require('telescope.builtin').search_dotfiles()<CR>
 
 " fern.vim
-nnoremap <C-b> :Fern . -drawer -toggle<CR><C-w>=
+" nnoremap <C-b> :Fern . -drawer -toggle<CR><C-w>=
+nnoremap <C-b> :NvimTreeToggle<CR>
 
 " vim-startify
 nmap <Leader>st :Startify<CR>
@@ -114,6 +120,19 @@ nmap <Leader>gC :GV!<CR>
 
 " undotree
 nmap <Leader>ut :UndotreeToggle<CR>
+
+nmap <Leader>tl :tabnext<CR>
+nmap <Leader>th :tabprev<CR>
+nmap <Leader>tq :tabclose<CR>
+
+" barbar.vim
+" nmap <Leader>tl :BufferNext<CR>
+" nmap <Leader>th :BufferPrevious<CR>
+" nmap <Leader>tq :BufferClose<CR>
+
+" nmap <Leader>tl :BufferLineCycleNext<CR>
+" nmap <Leader>th :BufferLineCyclePrev<CR>
+" nmap <Leader>tq :BufferClose<CR>
 
 " LSP
 " Expand or jump

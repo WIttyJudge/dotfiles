@@ -15,7 +15,7 @@ require'compe'.setup {
   documentation = true;
 
   source = {
-    path = false,
+    path = true,
     buffer = false,
     calc = false,
     tags = true,
@@ -23,7 +23,7 @@ require'compe'.setup {
     nvim_lua = true,
     vsnip = true,
     snippets_nvim = false,
-    treesitter = false
+    treesitter = true
   }
 }
 
