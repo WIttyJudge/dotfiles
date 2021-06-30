@@ -7,6 +7,7 @@ require('plugins/neovim-ale-diagnostic')
 require('plugins/nvim-colorizer')
 require('plugins/nvim-hlslens')
 require('plugins/nvim-tree')
+require('plugins/nvim-tabline')
 require('plugins/nvim-treesitter')
 -- require('plugins/telescope')
 

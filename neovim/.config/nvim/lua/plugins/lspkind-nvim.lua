@@ -1,4 +1,3 @@
--- commented options are defaults
 options = {
   with_text = true,
   symbol_map = {

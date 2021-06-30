@@ -87,7 +87,8 @@ properties.force_inactive.filetypes = {
   'packer',
   'startify',
   'fugitive',
-  'fugitiveblame'
+  'fugitiveblame',
+  'gitcommit'
 }
 
 properties.force_inactive.buftypes = {
@@ -251,6 +252,7 @@ components.right.active[1] = {
   end,
   right_sep = ' '
 }
+
 -- fileType
 components.right.active[2] = {
   provider = 'file_type',
@@ -270,6 +272,7 @@ components.right.active[2] = {
   end,
   right_sep = ' '
 }
+
 -- fileSize
 components.right.active[3] = {
   provider = 'file_size',
@@ -281,42 +284,49 @@ components.right.active[3] = {
   },
   right_sep = ' '
 }
--- fileFormat
-components.right.active[4] = {
-  provider = function() return '' .. vim.bo.fileformat:upper() .. '' end,
-  hl = {
-    fg = 'white',
-    bg = 'bg',
-    style = 'bold'
-  },
-  right_sep = ' '
-}
--- fileEncode
-components.right.active[5] = {
-  provider = 'file_encoding',
-  hl = {
-    fg = 'white',
-    bg = 'bg',
-    style = 'bold'
-  },
-  right_sep = ' '
-}
 
--- rubyVersion
--- components.right.active[6] = {
---   provider = function()
---     return ' '..vim.fn['rvm#string']()
---   end,
+-- fileFormat
+-- components.right.active[4] = {
+--   provider = function() return '' .. vim.bo.fileformat:upper() .. '' end,
 --   hl = {
---     fg = 'red',
+--     fg = 'white',
 --     bg = 'bg',
 --     style = 'bold'
 --   },
 --   right_sep = ' '
 -- }
 
+-- fileEncode
+-- components.right.active[5] = {
+--   provider = 'file_encoding',
+--   hl = {
+--     fg = 'white',
+--     bg = 'bg',
+--     style = 'bold'
+--   },
+--   right_sep = ' '
+-- }
+
+-- rubyVersion
+components.right.active[4] = {
+  provider = function()
+    local extension = vim.fn.expand('%:e')
+    if extension == 'rb' then
+      return ' '..vim.fn['rvm#string']()
+    else
+      return ''
+    end
+  end,
+  hl = {
+    fg = 'red',
+    bg = 'bg',
+    style = 'bold'
+  },
+  right_sep = ''
+}
+
 -- lineInfo
-components.right.active[6] = {
+components.right.active[5] = {
   provider = 'position',
   hl = {
     fg = 'white',
@@ -325,8 +335,9 @@ components.right.active[6] = {
   },
   right_sep = ' '
 }
+
 -- linePercent
-components.right.active[7] = {
+components.right.active[6] = {
   provider = 'line_percentage',
   hl = {
     fg = 'white',
@@ -335,8 +346,9 @@ components.right.active[7] = {
   },
   right_sep = ' '
 }
+
 -- scrollBar
-components.right.active[8] = {
+components.right.active[7] = {
   provider = 'scroll_bar',
   hl = {
     fg = 'yellow',
