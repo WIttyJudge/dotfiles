@@ -15,6 +15,7 @@ local components = {
   right = {active = {}, inactive = {}}
 }
 
+-- gruvbox-material
 local colors = {
   bg = '#32302F',
   black = '#282828',
@@ -88,7 +89,9 @@ properties.force_inactive.filetypes = {
   'startify',
   'fugitive',
   'fugitiveblame',
-  'gitcommit'
+  'gitcommit',
+  'qf',
+  'help'
 }
 
 properties.force_inactive.buftypes = {
@@ -274,16 +277,16 @@ components.right.active[2] = {
 }
 
 -- fileSize
-components.right.active[3] = {
-  provider = 'file_size',
-  enabled = function() return vim.fn.getfsize(vim.fn.expand('%:t')) > 0 end,
-  hl = {
-    fg = 'skyblue',
-    bg = 'bg',
-    style = 'bold'
-  },
-  right_sep = ' '
-}
+-- components.right.active[3] = {
+--   provider = 'file_size',
+--   enabled = function() return vim.fn.getfsize(vim.fn.expand('%:t')) > 0 end,
+--   hl = {
+--     fg = 'skyblue',
+--     bg = 'bg',
+--     style = 'bold'
+--   },
+--   right_sep = ' '
+-- }
 
 -- fileFormat
 -- components.right.active[4] = {
@@ -308,7 +311,7 @@ components.right.active[3] = {
 -- }
 
 -- rubyVersion
-components.right.active[4] = {
+components.right.active[3] = {
   provider = function()
     local extension = vim.fn.expand('%:e')
     if extension == 'rb' then
@@ -326,7 +329,7 @@ components.right.active[4] = {
 }
 
 -- lineInfo
-components.right.active[5] = {
+components.right.active[4] = {
   provider = 'position',
   hl = {
     fg = 'white',
@@ -337,7 +340,7 @@ components.right.active[5] = {
 }
 
 -- linePercent
-components.right.active[6] = {
+components.right.active[5] = {
   provider = 'line_percentage',
   hl = {
     fg = 'white',
@@ -348,7 +351,7 @@ components.right.active[6] = {
 }
 
 -- scrollBar
-components.right.active[7] = {
+components.right.active[6] = {
   provider = 'scroll_bar',
   hl = {
     fg = 'yellow',

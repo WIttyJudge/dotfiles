@@ -83,15 +83,12 @@ map <Leader>f :Files<CR>
 map <Leader>b :Buffers<CR>
 nnoremap <Leader>ps :Rg<CR>
 
-" nnoremap <C-p> :lua require('telescope.builtin').git_files()<CR>
-" nnoremap <Leader>f :lua require('telescope.builtin').find_files()<CR>
+" telescope
+" nnoremap <Leader>b <cmd>Telescope buffers<cr>
+" nnoremap <leader>f :lua require('telescope.builtin').find_files({ hidden = true })<CR>
+" nnoremap <leader>ps :lua require('telescope.builtin').grep_string {}<CR>
+" nnoremap <leader>pw :lua require('telescope.builtin').grep_string({ search = vim.fn.input("Grep For > ")})<CR>
 
-" nnoremap <leader>ps :lua require('telescope.builtin').grep_string({ search = vim.fn.input("Grep For > ")})<CR>
-" nnoremap <leader>pw :lua require('telescope.builtin').grep_string {}<CR>
-
-" nnoremap <leader>b :lua require('telescope.builtin').buffers()<CR>
-
-" nnoremap <leader>vrc :lua require('plugins.telescope').search_dotfiles()<CR>
 " nnoremap <leader>vh :lua require('telescope.builtin').help_tags()<CR>
 " nnoremap <leader>vrc :lua require('telescope.builtin').search_dotfiles()<CR>
 

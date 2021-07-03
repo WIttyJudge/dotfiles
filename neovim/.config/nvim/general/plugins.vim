@@ -74,7 +74,9 @@ call plug#begin('~/.config/nvim/plugged')
 
   " Statusline and bufferline
   " Plug 'itchyny/lightline.vim'
-  Plug 'famiu/feline.nvim'
+  " Plug 'famiu/feline.nvim'
+  Plug 'glepnir/galaxyline.nvim'
+
   Plug 'crispgm/nvim-tabline'
   " Plug 'romgrk/barbar.nvim'
   " Plug 'akinsho/nvim-bufferline.lua'
@@ -107,6 +109,10 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'tpope/vim-dispatch'
 
   Plug 'tpope/vim-rvm'
+
+  Plug 'AndrewRadev/splitjoin.vim'
+
+  Plug 'folke/todo-comments.nvim'
 call plug#end()
 
 " Run PlugInstall if there are missing plugins
