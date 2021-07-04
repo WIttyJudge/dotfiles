@@ -7,8 +7,11 @@ source $HOME/.config/nvim/general/settings.vim
 " shortcuts
 source $HOME/.config/nvim/general/mappings.vim
 
-" neovim theme (colorschema)
-source $HOME/.config/nvim/general/appearance.vim
+" theme (colorschema)
+source $HOME/.config/nvim/general/colors.vim
+
+" autocmd
+source $HOME/.config/nvim/general/autocmds.vim
 
 " Load lua config files
 lua <<EOF

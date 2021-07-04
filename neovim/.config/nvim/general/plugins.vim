@@ -10,6 +10,7 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'neovim/nvim-lspconfig' 
   Plug 'onsails/lspkind-nvim'
   Plug 'kabouzeid/nvim-lspinstall'
+  Plug 'seblj/nvim-echo-diagnostics'
 
   " Aucomplete
   Plug 'hrsh7th/nvim-compe'
@@ -25,8 +26,8 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'p00f/nvim-ts-rainbow'
 
   " Linter
-  Plug 'dense-analysis/ale'
-  Plug 'nathunsmitty/nvim-ale-diagnostic'
+  " Plug 'dense-analysis/ale'
+  " Plug 'nathunsmitty/nvim-ale-diagnostic'
 
   " Colors
   Plug 'norcalli/nvim-colorizer.lua'

@@ -1,9 +1,10 @@
-let g:startify_custom_header = [
-    \ '      ___                         _  ',
-    \ '     /\:/\    |:+:|    \`~`/     (:) ',
-    \ '    /(o:o)\   (o:o)    (o o)     |:| ',
-    \ '      (:)      (:)      \ / \    |:| ',
-  \]
+" print current directory as a banner startify header
+lua <<EOF
+  local cwd = vim.fn.split(vim.fn.getcwd(), '/')
+  local banner = vim.fn.system("figlet "..cwd[#cwd])
+  local header = vim.fn['startify#pad'](vim.fn.split(banner, '\n'))
+  vim.g.startify_custom_header = header
+EOF
 
 let g:startify_files_number = 5
 
@@ -30,6 +31,6 @@ let g:startify_commands = [
   \   { 'ug': [ 'Upgrade Plugin Manager', ':PlugUpgrade' ] },
   \   { 'uc': [ 'Clean Plugin Manager', ':PlugClean' ] },
   \   { 'ch': [ 'Check Health', ':checkhealth' ] },
-  \   { 'st': [ 'Startify Profiling', 'StartupTime ~/.config/nvim/init.vim' ] },
+  \   { 'st': [ 'Start Profiling', 'StartupTime ~/.config/nvim/init.vim' ] },
 \ ]
 

@@ -1,6 +1,9 @@
 local gl = require('galaxyline')
 local gls = gl.section
+
 local condition = require('galaxyline.condition')
+
+local custom_functions = require('custom.functions')
 
 -- helper functions
 
@@ -100,15 +103,15 @@ gls.left[1] = {
       vim.api.nvim_command('hi GalaxyViMode guibg='..vi_mode_color[vim.fn.mode()])
 
       return '  ' .. vi_mode_text[vim.fn.mode()] .. ' '
-  end,
-  separator = ' ',
-  separator_highlight = {colors.yellow,function()
-    if not condition.buffer_not_empty() then
+    end,
+    separator = ' ',
+    separator_highlight = {colors.yellow,function()
+      if not condition.buffer_not_empty() then
+        return colors.bg
+      end
       return colors.bg
-    end
-    return colors.bg
-  end},
-  highlight = { colors.bg, colors.bg, 'bold' },
+    end},
+    highlight = { colors.bg, colors.bg, 'bold' },
   }
 }
 
@@ -116,7 +119,12 @@ gls.left[2] = {
   FileName = {
     -- provider = 'FileName',
     provider = function()
-      return vim.fn.expand("%:F")
+      if condition.hide_in_width() then
+        return vim.fn.expand("%:F")
+      end
+
+      -- eg. galaxyline.lua
+      return vim.fn.expand("%:t")
     end,
     condition = condition.buffer_not_empty,
     separator = ' ',
@@ -131,7 +139,7 @@ gls.left[3] = {
   GitIcon = {
     provider = function() return '  ' end,
     condition = condition.check_git_workspace,
-    highlight = {colors.orange,colors.bg},
+    highlight = { colors.orange, colors.bg },
   }
 }
 gls.left[4] = {
@@ -147,7 +155,7 @@ gls.left[4] = {
 gls.left[5] = {
   DiffAdd = {
     provider = 'DiffAdd',
-    condition = condition.check_width,
+    condition = condition.hide_in_width,
     -- separator = ' ',
     -- separator_highlight = {colors.purple,colors.bg},
     icon = '  ',
@@ -158,7 +166,7 @@ gls.left[5] = {
 gls.left[6] = {
   DiffModified = {
     provider = 'DiffModified',
-    condition = condition.check_width,
+    condition = condition.hide_in_width,
     -- separator = ' ',
     -- separator_highlight = {colors.purple,colors.bg},
     icon = '  ',
@@ -169,7 +177,7 @@ gls.left[6] = {
 gls.left[7] = {
   DiffRemove = {
     provider = 'DiffRemove',
-    condition = condition.check_width,
+    condition = condition.hide_in_width,
     -- separator = ' ',
     -- separator_highlight = {colors.purple,colors.bg},
     icon = '  ',
@@ -208,15 +216,24 @@ gls.left[11] = {
 gls.left[12] = {
   DiagnosticInfo = {
     provider = 'DiagnosticInfo',
-    icon = '   ',
-    highlight = {colors.orange,colors.bg, 'bold'},
+    icon = '   ',
+    highlight = {colors.blue, colors.bg, 'bold'},
     separator = ' '
   }
 }
 
--- MID
-
 -- RIGHT
+
+-- gls.right[1] = {
+--   LspClient = {
+--     provider = custom_functions.get_lsp_client_name,
+--     condition = condition.check_active_lsp,
+--     separator = ' ',
+--     separator_highlight = { colors.purple, colors.bg },
+--     condition = condition.check_git_workspace,
+--     highlight = { colors.yellow, colors.bg, 'bold' },
+--   }
+-- }
 
 gls.right[1] = {
   FileIcon = {
@@ -253,6 +270,7 @@ gls.right[3] = {
     separator = ' ',
     condition = function() 
       local extension = vim.fn.expand('%:e')
+
       if extension == 'rb' then
         return true
       else
@@ -326,12 +344,12 @@ gls.short_line_left[1] = {
   }
 }
 
-gls.short_line_right[2] = {
-  BufferIcon = {
-    provider = 'BufferIcon',
-    highlight = {colors.fg, colors.bg}
-  }
-}
+-- gls.short_line_right[2] = {
+--   BufferIcon = {
+--     provider = 'BufferIcon',
+--     highlight = {colors.fg, colors.bg}
+--   }
+-- }
 
 -- gls.short_line_right[1] = {
 --   BufferIcon = {

@@ -9,8 +9,8 @@ capabilities.textDocument.completion.completionItem.snippetSupport = true
 
 vim.cmd('sign define LspDiagnosticsSignError text=')
 vim.cmd('sign define LspDiagnosticsSignWarning text=')
+vim.cmd('sign define LspDiagnosticsSignHint text=')
 vim.cmd('sign define LspDiagnosticsSignInformation text=')
-vim.cmd('sign define LspDiagnosticsSignHint text=')
 vim.cmd('setlocal omnifunc=v:lua.vim.lsp.omnifunc')
 
 -- css
@@ -49,7 +49,18 @@ nvim_lsp.jsonls.setup {
 }
 
 -- ruby
-nvim_lsp.solargraph.setup {}
+nvim_lsp.solargraph.setup {
+  cmd = { "solargraph", "stdio" },
+  filetypes = { "ruby" },
+  on_attach = function(_, _)
+    print("Attached to Solargraph")
+  end,
+  settings = {
+    solargraph = {
+      formatting = true
+    }
+  }
+}
 
 -- svelte
 nvim_lsp.svelte.setup{}
@@ -60,12 +71,20 @@ nvim_lsp.vimls.setup{}
 -- yaml
 nvim_lsp.yamlls.setup{}
 
--- require("nvim-ale-diagnostic")
--- vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
---   vim.lsp.diagnostic.on_publish_diagnostics, {
---     underline = true,
---     virtual_text = false,
---     signs = true,
---     update_in_insert = true,
---   }
--- )
+vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
+  vim.lsp.diagnostic.on_publish_diagnostics, {
+    underline = true,
+
+    -- Disable virtual_text on file load
+    -- Show with vim.lsp.diagnostic.show_line_diagnostics()
+    -- I'm using nvim-echo-diagnostic plugin
+    virtual_text = false,
+    -- virtual_text = {
+    --   prefix = "",
+    --   spacing = 0,
+    -- },
+
+    signs = false,
+    update_in_insert = true,
+  }
+)

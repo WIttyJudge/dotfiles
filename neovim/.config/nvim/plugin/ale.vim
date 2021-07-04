@@ -1,21 +1,16 @@
 " Since we use Neovim's builtin LSP
 let g:ale_disable_lsp = 1
 
-let g:ale_lint_on_text_changed = 'never'
-
-let g:ale_fixers = {
-\   '*': ['remove_trailing_lines', 'trim_whitespace'],
-\}
-
-let g:ale_javascript_eslint_suppress_missing_config = 1
+" Only run linters named in ale_linters settings.
+let g:ale_linters_explicit = 1
 
 " If you want to select certain linters.
-let g:ale_linters = {
-      \ 'ruby': ['rubocop'],
-      \ 'go': ['gofmt'],
-      \ 'html': ['prettier'],
-      \ 'svelte': ['prettier'],
-      \ }
+" let g:ale_linters = {
+"       \ 'ruby': ['rubocop'],
+"       \ 'go': ['gofmt'],
+"       \ 'html': ['prettier'],
+"       \ 'svelte': ['prettier'],
+"       \ }
 
 " Run linter when I open a file
 let g:ale_lint_on_enter = 1

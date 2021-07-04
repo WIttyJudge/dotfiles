@@ -18,6 +18,9 @@ nnoremap va :%y+<CR>
 
 " Save on buttons
 nnoremap <Leader>w :w<CR>
+" Save and exit
+nnoremap <Leader>W :x<CR>
+" Exit
 nnoremap <Leader>q :q<CR>
 
 " Clean highliting after search
@@ -44,14 +47,6 @@ xnoremap p "_dP
 inoremap jk <Esc>
 inoremap kj <Esc>
 
-" Use Delete button instead of Esc
-nnoremap <Del> <Esc>
-vnoremap <Del> <Esc>gV
-onoremap <Del> <Esc>
-cnoremap <Del> <C-C><Esc>
-inoremap <Del> <Esc>`^
-inoremap <Leader><Tab> <Tab>
-
 " Scroll the viewport faster
 nnoremap <C-e> 3<C-e>
 nnoremap <C-y> 3<C-y>
@@ -61,22 +56,23 @@ vnoremap < <gv
 vnoremap > >gv
 
 " Don't jump when highlighting
-nnoremap * *``
+" nnoremap * *``
 
+" ********* PLUGINS MAPPING *********
+
+" nvim-hlslens
 noremap <silent> n <Cmd>execute('normal! ' . v:count1 . 'n')<CR>
             \<Cmd>lua require('hlslens').start()<CR>
 noremap <silent> N <Cmd>execute('normal! ' . v:count1 . 'N')<CR>
             \<Cmd>lua require('hlslens').start()<CR>
-noremap * *<Cmd>lua require('hlslens').start()<CR>
+noremap * *``<Cmd>lua require('hlslens').start()<CR>
 noremap # #<Cmd>lua require('hlslens').start()<CR>
 noremap g* g*<Cmd>lua require('hlslens').start()<CR>
 noremap g# g#<Cmd>lua require('hlslens').start()<CR>
 
-" ********* PLUGINS MAPPING *********
-
 " suda.vim
-cnoreabbrev e!! e suda://%
-cnoreabbrev w!! w suda://%
+cmap e!! e suda://%
+cmap w!! w suda://%
 
 " fzf.vim
 map <Leader>f :Files<CR>
@@ -94,6 +90,8 @@ nnoremap <Leader>ps :Rg<CR>
 
 " fern.vim
 " nnoremap <C-b> :Fern . -drawer -toggle<CR><C-w>=
+
+" nvim-tree.lua
 nnoremap <C-b> :NvimTreeToggle<CR>
 
 " vim-startify
@@ -107,8 +105,6 @@ nmap <Leader>gu :SignifyHunkUndo<CR>
 " vim-fugitive
 nmap <Leader>gd :Gdiff<CR>
 nmap <Leader>gs :Git<CR>
-" nmap <Leader>gc :Commits<CR>
-" nmap <Leader>gC :BCommits<CR>
 
 " gv.vim
 nmap <Leader>gc :GV<CR>
@@ -122,19 +118,12 @@ nmap <Leader>tl :tabnext<CR>
 nmap <Leader>th :tabprev<CR>
 nmap <Leader>tq :tabclose<CR>
 
-" barbar.vim
-" nmap <Leader>tl :BufferNext<CR>
-" nmap <Leader>th :BufferPrevious<CR>
-" nmap <Leader>tq :BufferClose<CR>
-
-" nmap <Leader>tl :BufferLineCycleNext<CR>
-" nmap <Leader>th :BufferLineCyclePrev<CR>
-" nmap <Leader>tq :BufferClose<CR>
-
 " LSP
 " Expand or jump
-imap <expr> <C-l>   vsnip#available(1)  ? '<Plug>(vsnip-expand-or-jump)' : '<C-l>'
-smap <expr> <C-l>   vsnip#available(1)  ? '<Plug>(vsnip-expand-or-jump)' : '<C-l>'
+imap <expr> <C-l> vsnip#available(1) ? '<Plug>(vsnip-expand-or-jump)' : '<C-l>'
+smap <expr> <C-l> vsnip#available(1) ? '<Plug>(vsnip-expand-or-jump)' : '<C-l>'
+
+command! LspFormat execute 'lua vim.lsp.buf.formatting()'
 
 " lspsaga
 " nnoremap <silent><leader>clf :Lspsaga lsp_finder<CR>
@@ -152,11 +141,3 @@ smap <expr> <C-l>   vsnip#available(1)  ? '<Plug>(vsnip-expand-or-jump)' : '<C-l
 " nnoremap <silent> <leader>cot :Lspsaga open_floaterm<CR>
 " tnoremap <silent> <leader>cct <C-\><C-n>:Lspsaga close_floaterm<CR>
 
-nnoremap <silent> gd <cmd>lua vim.lsp.buf.definition()<CR>
-nnoremap <silent> gD <cmd>lua vim.lsp.buf.declaration()<CR>
-nnoremap <silent> gr <cmd>lua vim.lsp.buf.references()<CR>
-nnoremap <silent> gi <cmd>lua vim.lsp.buf.implementation()<CR>
-nnoremap <silent> K <cmd>lua vim.lsp.buf.hover()<CR>
-" nnoremap <silent> <C-k> <cmd>lua vim.lsp.buf.signature_help()<CR>
-nnoremap <silent> <C-n> <cmd>lua vim.lsp.diagnostic.goto_prev()<CR>
-nnoremap <silent> <C-p> <cmd>lua vim.lsp.diagnostic.goto_next()<CR>
