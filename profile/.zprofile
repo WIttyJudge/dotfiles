@@ -26,9 +26,10 @@ export PATH="$PATH:$HOME/.rvm/bin"
 export GOROOT=/usr/local/go
 export PATH=$PATH:$GOROOT/bin
 
-# libs from golang
-export GOPATH=$HOME/golib
-
 # my folder
-export GOPATH=$HOME/code
+export GOPATH=$HOME/projects/golang
 export PATH=$PATH:$GOPATH/bin
+
+# libs from golang
+# export GOPATH=$HOME/golib
+

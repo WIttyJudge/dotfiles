@@ -1,8 +1,9 @@
 -- require all lua plugins here
 
 -- require('plugins/feline-nvim')
-require('plugins/galaxyline')
+-- require('plugins/galaxyline')
 require('plugins/lspkind-nvim')
+require('plugins/lualine')
 require('plugins/neoscroll-nvim')
 require('plugins/nvim-colorizer')
 require('plugins/nvim-echo-diagnostics')

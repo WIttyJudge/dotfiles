@@ -23,7 +23,7 @@ require'compe'.setup {
     nvim_lua = true,
     vsnip = true,
     snippets_nvim = false,
-    treesitter = true
+    treesitter = false
   }
 }
 

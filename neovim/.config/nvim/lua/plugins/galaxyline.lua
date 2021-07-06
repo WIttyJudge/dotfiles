@@ -4,25 +4,33 @@ local gls = gl.section
 local condition = require('galaxyline.condition')
 
 local custom_functions = require('custom.functions')
+local custom_condition = require('custom.conditions')
+local utils = require('custom.utils')
 
 -- helper functions
 
-local cursor_position = function()
-  local current_line = vim.fn.line('.')
-  local current_col = vim.fn.virtcol('.')
-  return current_line .. ':' .. current_col
+local function add_space(number)
+  gls.right[number] = {
+    Space = {
+      provider = function () return ' ' end
+    }
+  }
 end
 
 gl.short_line_list = {
   'NvimTree',
   'fern',
-  'vista',
   'packer',
   'startify',
   'fugitive',
   'fugitiveblame',
   'gitcommit',
   'help'
+}
+
+local icons = {
+  unsaved = utils.u 'f693',
+  locker = utils.u 'f023',
 }
 
 -- gruvbox-material
@@ -119,12 +127,22 @@ gls.left[2] = {
   FileName = {
     -- provider = 'FileName',
     provider = function()
-      if condition.hide_in_width() then
-        return vim.fn.expand("%:F")
-      end
+      -- if condition.hide_in_width() then
+      --   return vim.fn.expand("%:F")
+      -- end
 
       -- eg. galaxyline.lua
-      return vim.fn.expand("%:t")
+      local f_name = vim.fn.expand("%:t")
+
+      if vim.bo.readonly then
+        f_name = f_name .. ' ' .. icons.locker
+      end
+
+      if vim.bo.modified then
+        f_name = f_name .. ' ' .. icons.unsaved
+      end
+
+      return f_name
     end,
     condition = condition.buffer_not_empty,
     separator = ' ',
@@ -135,85 +153,35 @@ gls.left[2] = {
 
 -- Git Status
 
-gls.left[3] = {
-  GitIcon = {
-    provider = function() return '  ' end,
-    condition = condition.check_git_workspace,
-    highlight = { colors.orange, colors.bg },
-  }
-}
-gls.left[4] = {
-  GitBranch = {
-    provider = 'GitBranch',
-    separator = ' ',
-    separator_highlight = { colors.purple, colors.bg },
-    condition = condition.check_git_workspace,
-    highlight = { colors.yellow, colors.bg, 'bold' },
-  }
-}
-
-gls.left[5] = {
-  DiffAdd = {
-    provider = 'DiffAdd',
-    condition = condition.hide_in_width,
-    -- separator = ' ',
-    -- separator_highlight = {colors.purple,colors.bg},
-    icon = '  ',
-    highlight = {colors.green, colors.bg, 'bold'},
-  }
-}
-
-gls.left[6] = {
-  DiffModified = {
-    provider = 'DiffModified',
-    condition = condition.hide_in_width,
-    -- separator = ' ',
-    -- separator_highlight = {colors.purple,colors.bg},
-    icon = '  ',
-    highlight = {colors.blue,colors.bg, 'bold'},
-  }
-}
-
-gls.left[7] = {
-  DiffRemove = {
-    provider = 'DiffRemove',
-    condition = condition.hide_in_width,
-    -- separator = ' ',
-    -- separator_highlight = {colors.purple,colors.bg},
-    icon = '  ',
-    highlight = {colors.red,colors.bg, 'bold'},
-  }
-}
-
 -- LSP 
 
-gls.left[8] = {
+gls.left[3] = {
   DiagnosticError = {
     provider = 'DiagnosticError',
     icon = '  ',
     highlight = {colors.red,colors.bg, 'bold'}
   }
 }
-gls.left[9] = {
+gls.left[4] = {
   Space = {
     provider = function () return '' end
   }
 }
-gls.left[10] = {
+gls.left[5] = {
   DiagnosticWarn = {
     provider = 'DiagnosticWarn',
     icon = '  ',
     highlight = {colors.yellow,colors.bg, 'bold'},
   }
 }
-gls.left[11] = {
+gls.left[5] = {
   DiagnosticHint = {
     provider = 'DiagnosticHint',
     icon = '   ',
     highlight = {colors.blue,colors.bg, 'bold'},
   }
 }
-gls.left[12] = {
+gls.left[6] = {
   DiagnosticInfo = {
     provider = 'DiagnosticInfo',
     icon = '   ',
@@ -224,18 +192,62 @@ gls.left[12] = {
 
 -- RIGHT
 
--- gls.right[1] = {
---   LspClient = {
---     provider = custom_functions.get_lsp_client_name,
---     condition = condition.check_active_lsp,
---     separator = ' ',
---     separator_highlight = { colors.purple, colors.bg },
---     condition = condition.check_git_workspace,
---     highlight = { colors.yellow, colors.bg, 'bold' },
---   }
--- }
-
 gls.right[1] = {
+  DiffAdd = {
+    provider = 'DiffAdd',
+    condition = condition.hide_in_width,
+    -- separator = ' ',
+    -- separator_highlight = {colors.purple,colors.bg},
+    icon = '+',
+    highlight = {colors.green, colors.bg, 'bold'},
+  }
+}
+
+gls.right[2] = {
+  DiffModified = {
+    provider = 'DiffModified',
+    condition = condition.hide_in_width,
+    -- separator = ' ',
+    -- separator_highlight = {colors.purple,colors.bg},
+    icon = ' ~',
+    highlight = {colors.blue,colors.bg, 'bold'},
+  }
+}
+
+gls.right[3] = {
+  DiffRemove = {
+    provider = 'DiffRemove',
+    condition = condition.hide_in_width,
+    -- separator = ' ',
+    -- separator_highlight = {colors.purple,colors.bg},
+    icon = ' -',
+    highlight = {colors.red,colors.bg, 'bold'},
+  }
+}
+
+add_space(4)
+
+gls.right[5] = {
+  GitIcon = {
+    provider = function() return ' ' end,
+    condition = condition.check_git_workspace,
+    highlight = { colors.orange, colors.bg },
+  }
+}
+
+gls.right[6] = {
+  GitBranch = {
+    provider = 'GitBranch',
+    separator = ' ',
+    separator_highlight = { colors.purple, colors.bg },
+    condition = condition.check_git_workspace,
+    highlight = { colors.yellow, colors.bg, 'bold' },
+  }
+}
+
+add_space(7)
+
+gls.right[8] = {
   FileIcon = {
     separator = ' ',
     provider = 'FileIcon',
@@ -245,7 +257,7 @@ gls.right[1] = {
   },
 }
 
-gls.right[2] = {
+gls.right[9] = {
   FileTypeName = {
     separator = '',
     provider = 'FileTypeName',
@@ -254,6 +266,8 @@ gls.right[2] = {
     separator_highlight = { colors.yellow, colors.bg, 'bold' },
   },
 }
+
+add_space(10)
 
 -- gls.right[3] = {
 --   FileSize = {
@@ -265,70 +279,43 @@ gls.right[2] = {
 --   }
 -- }
 
-gls.right[3] = {
+gls.right[11] = {
   Ruby = {
     separator = ' ',
     condition = function() 
       local extension = vim.fn.expand('%:e')
 
-      if extension == 'rb' then
-        return true
-      else
+      if extension ~= 'rb' then
         return false
       end
+
+      return true
     end,
     provider = function()
       local extension = vim.fn.expand('%:e')
-      return '  '..vim.fn['rvm#string']()
+      return ' ' .. vim.fn['rvm#string']() .. ' '
     end,
     separator_highlight = {colors.yellow, colors.bg, 'bold'},
     highlight = {colors.red, colors.bg, 'bold'}
   },
 }
 
-gls.right[4] = {
+gls.right[12] = {
   CursorPosition = {
-    provider = {
-      cursor_position
-    },
+    provider = function()
+      return string.format('%s:%s', vim.fn.line('.'), vim.fn.virtcol('.'))
+    end,
     separator = ' ',
-    highlight = {colors.fg, colors.bg},
+    highlight = { colors.fg, colors.bg },
   }
 }
 
--- gls.right[4]= {
---   FileEncode = {
---     separator = ' ',
---     provider = 'FileEncode',
---     separator_highlight = {colors.yellow,colors.bg, 'bold'},
---     highlight = {colors.grey,colors.bg, 'bold'},
---   }
--- }
-
--- gls.right[5]= {
---   FileFormat = {
---     separator = ' ',
---     provider = 'FileFormat',
---     separator_highlight = {colors.yellow,colors.bg, 'bold'},
---     highlight = {colors.grey,colors.bg, 'bold'},
---   }
--- }
-
--- gls.right[4] = {
---   LineInfo = {
---     separator = ' ',
---     provider = 'LineColumn',
---     separator_highlight = {colors.yellow,colors.bg, 'bold'},
---     highlight = {colors.grey,colors.bg, 'bold'},
---   },
--- }
-
-gls.right[5] = {
+gls.right[13] = {
   PerCent = {
     provider = 'LinePercent',
     separator = ' ',
     separator_highlight = {colors.yellow,colors.bg, 'bold'},
-    highlight = {colors.grey,colors.bg, 'bold'},
+    highlight = {colors.grey,colors.bg},
   }
 }
 

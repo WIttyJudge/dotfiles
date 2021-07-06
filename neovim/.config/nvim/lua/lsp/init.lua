@@ -4,8 +4,8 @@
 require('lsp/on_attach')
 
 local nvim_lsp = require('lspconfig')
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities.textDocument.completion.completionItem.snippetSupport = true
+-- local capabilities = vim.lsp.protocol.make_client_capabilities()
+-- capabilities.textDocument.completion.completionItem.snippetSupport = true
 
 vim.cmd('sign define LspDiagnosticsSignError text=')
 vim.cmd('sign define LspDiagnosticsSignWarning text=')
@@ -52,9 +52,6 @@ nvim_lsp.jsonls.setup {
 nvim_lsp.solargraph.setup {
   cmd = { "solargraph", "stdio" },
   filetypes = { "ruby" },
-  on_attach = function(_, _)
-    print("Attached to Solargraph")
-  end,
   settings = {
     solargraph = {
       formatting = true
@@ -67,6 +64,19 @@ nvim_lsp.svelte.setup{}
 
 -- vim
 nvim_lsp.vimls.setup{}
+
+-- golang
+nvim_lsp.gopls.setup {
+  cmd = {"gopls", "serve"},
+  settings = {
+    gopls = {
+      analyses = {
+        unusedparams = true,
+      },
+      staticcheck = true,
+    },
+  },
+}
 
 -- yaml
 nvim_lsp.yamlls.setup{}

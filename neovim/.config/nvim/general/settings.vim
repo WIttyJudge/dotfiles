@@ -9,12 +9,10 @@ set scrolloff=7                         " Keep 5 lines below and above the curso
 " set colorcolumn=80
 set signcolumn=yes
 set termguicolors
-set noshowmode
 
 set hidden                              " Required to keep multiple buffers open multiple buffers
 set pumheight=10                        " Makes popup menu smaller
 set fileencoding=utf-8                  " The encoding written to file
-set ruler              			            " Show the cursor position all the time
 set cmdheight=2                         " More space for displaying messages
 set iskeyword+=-                      	" treat dash separated words as a word text object
 set mouse=a                             " Enable your mouse
@@ -28,15 +26,16 @@ set autoindent                          " Good auto indent
 set laststatus=2                        " Always display the status line
 set cursorline                          " Enable highlighting of the current line
 set showtabline=2                       " Always show tabs
-" set noshowmode                          " We don't need to see things like -- INSERT -- anymore
+set noshowmode                          " We don't need to see things like -- INSERT -- anymore
 set noswapfile                          " I dont need swap file
-set nobackup                            " This is recommended by coc
-set nowritebackup                       " This is recommended by coc
+set nobackup                            
+set nowritebackup                      
 set updatetime=100                      " Faster completion
 set timeoutlen=500                      " By default timeoutlen is 1000 ms
 set formatoptions-=cro                  " Stop newline continution of comments
 set clipboard=unnamedplus               " Copy paste between vim and everything else
 set completeopt=menuone,noselect
+set shortmess+=c                        " Remove `Pattern not found` nvim-compe
 
 " Save undo history to the file.
 set undofile

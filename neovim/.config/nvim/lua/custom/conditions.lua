@@ -1,5 +1,9 @@
 local M = {}
 
+function M.buffer_not_empty() 
+  return vim.fn.empty(vim.fn.expand('%:t')) ~= 1
+end
+
 function M.hide_in_width()
   local width = vim.fn.winwidth(0) / 2
 
@@ -8,6 +12,12 @@ function M.hide_in_width()
   end
 
   return true
+end
+
+function M.check_git_workspace() 
+  local filepath = vim.fn.expand('%:p:h')
+  local gitdir = vim.fn.finddir('.git', filepath .. ';')
+  return gitdir and #gitdir > 0 and #gitdir < #filepath
 end
 
 function M.check_active_lsp() 
@@ -19,6 +29,10 @@ function M.check_active_lsp()
   end
 
   return true
+end
+
+function M.is_file()
+    return vim.bo.buftype ~= 'nofile'
 end
 
 return M

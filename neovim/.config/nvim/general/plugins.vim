@@ -9,6 +9,7 @@ call plug#begin('~/.config/nvim/plugged')
   " LSP
   Plug 'neovim/nvim-lspconfig' 
   Plug 'onsails/lspkind-nvim'
+  Plug 'glepnir/lspsaga.nvim'
   Plug 'kabouzeid/nvim-lspinstall'
   Plug 'seblj/nvim-echo-diagnostics'
 
@@ -20,6 +21,7 @@ call plug#begin('~/.config/nvim/plugged')
   " html
   Plug 'gregsexton/MatchTag'
   Plug 'AndrewRadev/tagalong.vim'
+  " Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
   " Treesitter
   Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
@@ -74,9 +76,9 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'tpope/vim-commentary'
 
   " Statusline and bufferline
-  " Plug 'itchyny/lightline.vim'
   " Plug 'famiu/feline.nvim'
-  Plug 'glepnir/galaxyline.nvim'
+  " Plug 'glepnir/galaxyline.nvim'
+  Plug 'hoob3rt/lualine.nvim'
 
   Plug 'crispgm/nvim-tabline'
   " Plug 'romgrk/barbar.nvim'
@@ -90,7 +92,6 @@ call plug#begin('~/.config/nvim/plugged')
 
   " Git
   Plug 'mhinz/vim-signify'
-  " Plug 'airblade/vim-gitgutter'
   Plug 'tpope/vim-fugitive'
   Plug 'junegunn/gv.vim'
 

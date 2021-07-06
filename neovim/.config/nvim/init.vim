@@ -13,6 +13,9 @@ source $HOME/.config/nvim/general/colors.vim
 " autocmd
 source $HOME/.config/nvim/general/autocmds.vim
 
+" Custom command-line command
+source $HOME/.config/nvim/general/commands.vim
+
 " Load lua config files
 lua <<EOF
 require('lsp')
