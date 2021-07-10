@@ -1,6 +1,3 @@
--- Eviline config for lualine
--- Author: shadmansaleh
--- Credit: glepnir
 local lualine = require('lualine')
 local lualine_highlight = require('lualine.highlight')
 
@@ -196,8 +193,7 @@ ins_left {
 
 ins_right {
   'diff',
-  -- Is it me or the symbol for modified us really weird
-  symbols = {added = '+ ', modified = '~ ', removed = '- '},
+  symbols = {added = '+', modified = '~', removed = '-'},
   color_added = colors.green,
   color_modified = colors.blue,
   color_removed = colors.red,

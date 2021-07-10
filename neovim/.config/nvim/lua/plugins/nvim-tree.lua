@@ -20,7 +20,7 @@ vim.g.nvim_tree_bindings = {
   { key = "s",                            cb = tree_cb("vsplit") },
   { key = "b",                            cb = tree_cb("split") },
   { key = "t",                            cb = tree_cb("tabnew") },
-  { key = "dd",                            cb = tree_cb("remove") },
+  { key = "dd",                           cb = tree_cb("remove") },
 
   -- default mappings
   { key = {"<2-RightMouse>", "<C-}>"},    cb = tree_cb("cd") },

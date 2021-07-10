@@ -11,10 +11,11 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'onsails/lspkind-nvim'
   Plug 'glepnir/lspsaga.nvim'
   Plug 'kabouzeid/nvim-lspinstall'
-  Plug 'seblj/nvim-echo-diagnostics'
+  " Plug 'seblj/nvim-echo-diagnostics'
 
   " Aucomplete
   Plug 'hrsh7th/nvim-compe'
+  Plug 'ray-x/lsp_signature.nvim'
   Plug 'hrsh7th/vim-vsnip'
   Plug 'jiangmiao/auto-pairs'
   Plug 'tpope/vim-endwise'
@@ -35,7 +36,6 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'norcalli/nvim-colorizer.lua'
 
   " Colorscheme
-  " Plug 'morhetz/gruvbox'
   Plug 'sainnhe/gruvbox-material'
 
   " Syntax
@@ -52,7 +52,7 @@ call plug#begin('~/.config/nvim/plugged')
 
   " telescope requirements...
   " Plug 'nvim-lua/popup.nvim'
-  " Plug 'nvim-lua/plenary.nvim'
+  Plug 'nvim-lua/plenary.nvim'
   " Plug 'nvim-telescope/telescope.nvim'
   " Plug 'nvim-telescope/telescope-fzy-native.nvim'
 
@@ -76,13 +76,8 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'tpope/vim-commentary'
 
   " Statusline and bufferline
-  " Plug 'famiu/feline.nvim'
-  " Plug 'glepnir/galaxyline.nvim'
   Plug 'hoob3rt/lualine.nvim'
-
   Plug 'crispgm/nvim-tabline'
-  " Plug 'romgrk/barbar.nvim'
-  " Plug 'akinsho/nvim-bufferline.lua'
 
   " Fancy startup screen
   Plug 'mhinz/vim-startify'
@@ -91,9 +86,10 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'airblade/vim-rooter'
 
   " Git
-  Plug 'mhinz/vim-signify'
   Plug 'tpope/vim-fugitive'
+  Plug 'lewis6991/gitsigns.nvim',
   Plug 'junegunn/gv.vim'
+  " Plug 'sindrets/diffview.nvim'
 
   " Ruby
   Plug 'thoughtbot/vim-rspec', { 'for': 'ruby' }
@@ -115,6 +111,9 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'AndrewRadev/splitjoin.vim'
 
   Plug 'folke/todo-comments.nvim'
+
+  " Database
+  Plug 'tpope/vim-dadbod'
 call plug#end()
 
 " Run PlugInstall if there are missing plugins

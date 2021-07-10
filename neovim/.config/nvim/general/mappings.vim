@@ -58,6 +58,11 @@ vnoremap > >gv
 " Don't jump when highlighting
 " nnoremap * *``
 
+" Tabs control
+nmap <Leader>tl :tabnext<CR>
+nmap <Leader>th :tabprev<CR>
+nmap <Leader>tq :tabclose<CR>
+
 " ********* PLUGINS MAPPING *********
 
 " nvim-hlslens
@@ -97,11 +102,6 @@ nnoremap <C-b> :NvimTreeToggle<CR>
 " vim-startify
 nmap <Leader>st :Startify<CR>
 
-" vim-gitgutter
-nmap <Leader>gj <Plug>(signify-next-hunk)
-nmap <Leader>gk <Plug>(signify-prev-hunk)
-nmap <Leader>gu :SignifyHunkUndo<CR>
-
 " vim-fugitive
 nmap <Leader>gd :Gdiff<CR>
 nmap <Leader>gs :Git<CR>
@@ -114,20 +114,17 @@ nmap <Leader>gC :GV!<CR>
 " undotree
 nmap <Leader>ut :UndotreeToggle<CR>
 
-nmap <Leader>tl :tabnext<CR>
-nmap <Leader>th :tabprev<CR>
-nmap <Leader>tq :tabclose<CR>
-
 " LSP
 " Expand or jump
-imap <expr> <C-l> vsnip#available(1) ? '<Plug>(vsnip-expand-or-jump)' : '<C-l>'
+imap <expr> <C-l> vsnip#available(1)? '<Plug>(vsnip-expand-or-jump)' : '<C-l>'
 smap <expr> <C-l> vsnip#available(1) ? '<Plug>(vsnip-expand-or-jump)' : '<C-l>'
 
-nnoremap <silent>gd :lua vim.lsp.buf.definition()<CR>
-
 " lspsaga
-nnoremap <silent>K :Lspsaga hover_doc<CR>
-nnoremap <silent><leader>ar :Lspsaga rename<CR>
+" nnoremap <silent>K :Lspsaga hover_doc<CR>
+" nnoremap <silent><leader>ar :Lspsaga rename<CR>
+
+" nnoremap <silent>]e :Lspsaga diagnostic_jump_next<CR>
+" nnoremap <silent>[e :Lspsaga diagnostic_jump_prev<CR>
 " nnoremap <silent><leader>clf :Lspsaga lsp_finder<CR>
 " nnoremap <silent><leader>cca :Lspsaga code_action<CR>
 " vnoremap <silent><leader>cca :<C-U>Lspsaga range_code_action<CR>

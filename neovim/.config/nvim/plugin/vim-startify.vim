@@ -10,6 +10,7 @@ let g:startify_files_number = 5
 
 " Don't change to directory when selecting a file
 let g:startify_change_to_dir = 0
+let g:startify_change_to_vcs_root = 1
 
 let g:startify_relative_path = 1
 let g:startify_use_env = 1
