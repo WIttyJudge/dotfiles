@@ -1,4 +1,7 @@
 SKIP,TAG,NAME,DESCRIPTION
+,,xorg-server,Xorg (commonly referred as simply X) is the most popular display server among Linux users.
+,,xorg-xinit,The xinit program allows a user to manually start an Xorg display server.
+,,xorg-xrdb,X server resource database utility.
 TRUE,AUR,polybar,A fast and easy-to-use status bar.
 TRUE,AUR,siji-git,Iconic bitmap font based on stlarch with additional glyphs.
 TRUE,AUR,termsyn-font,Monospaced font based on terminus and tamsyn.
@@ -37,8 +40,6 @@ TRUE,,ttf-fira-code,Monospaced font with programming ligatures.
 ,,pass,Simple console-based password manager featuring flat text file organization and GnuPG encryption.
 ,,openssh,Premier connectivity tool for remote login with the SSH protocol.
 ,,openssl-1.0,The Open Source toolkit for Secure Sockets Layer and Transport Layer Security.
-,,xorg-server,Xorg (commonly referred as simply X) is the most popular display server among Linux users.
-,,xorg-xinit,The xinit program allows a user to manually start an Xorg display server.
 TRUE,,terminator,Terminator is a terminal emulator.
 ,,base-devel,It a package group that includes tools needed for building.
 TRUE,,i3-gaps,Adding a few additional features such as gaps between windows
@@ -47,7 +48,6 @@ TRUE,,i3lock,Improved screen locker.
 ,,libyaml,C library for parsing and emitting YAML.
 ,,zip,Compressor/archiver for creating and modifying zipfiles.
 ,,unzip,For extracting and viewing files in .zip archives.
-,,xorg-xrdb,X server resource database utility.
 TRUE,,rxvt-unicode,Unicode enabled rxvt-clone terminal emulator (urxvt).
 TRUE,AUR,rxvt-unicode-256xresources,urxvt with patches to support 256 Xresource colors and fixes for line/font spacing.
 TRUE,,urxvt-perls,URL and Mouseless text selection for rxvt-unicode.
