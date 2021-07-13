@@ -1,3 +1,5 @@
+-- https://github.com/hoob3rt/lualine.nvim
+
 local lualine = require('lualine')
 local lualine_highlight = require('lualine.highlight')
 
@@ -5,12 +7,7 @@ local devicons = require('nvim-web-devicons')
 
 local custom_condition = require('custom.conditions')
 local custom_function = require('custom.functions')
-local utils = require('custom.utils')
-
-local icons = {
-  unsaved = utils.u 'f693',
-  locker = utils.u 'f023',
-}
+local icons = require('custom.icons')
 
 -- gruvbox-material
 local colors = {
@@ -113,6 +110,10 @@ local config = {
   }
 }
 
+-- set color for disabled_filetypes statusline
+vim.api.nvim_command("hi StatusLine guibg=" .. colors.bg)
+vim.api.nvim_command("hi StatusLineNC guibg=" .. colors.bg)
+
 -- Inserts a component in lualine_c at left section
 local function ins_left(component)
   table.insert(config.sections.lualine_c, component)
@@ -174,7 +175,11 @@ ins_left {
 ins_left {
   'diagnostics',
   sources = {'nvim_lsp'},
-  symbols = {error = ' ', warn = ' ', info = ' '},
+  symbols = {
+    error = icons.diagnostic.error .. ' ',
+    warn = icons.diagnostic.warn .. ' ',
+    info = icons.diagnostic.info .. ' ',
+  },
   color_error = colors.red,
   color_warn = colors.yellow,
   color_info = colors.cyan
@@ -202,7 +207,7 @@ ins_right {
 
 ins_right {
   'branch',
-  icon = '',
+  icon = icons.git_branch,
   condition = custom_condition.check_git_workspace,
   color = {fg = colors.yellow, gui = 'bold'}
 }
@@ -211,6 +216,7 @@ ins_right {
   'filetype'
 }
 
+-- ruby version
 ins_right {
   function()
     return vim.fn['rvm#string']()

@@ -1,4 +1,6 @@
-require'nvim-treesitter.configs'.setup {
+-- https://github.com/nvim-treesitter/nvim-treesitter
+
+local options = {
   -- ensure_installed = "all",  -- one of "all", "maintained" (parsers with maintainers), or a list of languages
   ensure_installed = {
     "query",
@@ -41,4 +43,6 @@ require'nvim-treesitter.configs'.setup {
     max_file_lines = 1000, -- Do not enable for files with more than 1000 lines, int
   }
 }
+
+require'nvim-treesitter.configs'.setup(options)
 

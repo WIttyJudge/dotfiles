@@ -1,3 +1,5 @@
+-- https://github.com/onsails/lspkind-nvim
+
 options = {
   with_text = true,
   symbol_map = {

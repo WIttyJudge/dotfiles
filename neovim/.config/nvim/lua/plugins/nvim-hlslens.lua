@@ -1,3 +1,5 @@
+-- https://github.com/kevinhwang91/nvim-hlslens
+
 options = {
   calm_down = true,
   override_lens = function(render, plist, nearest, idx, r_idx)

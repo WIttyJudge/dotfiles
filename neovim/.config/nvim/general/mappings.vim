@@ -114,27 +114,12 @@ nmap <Leader>gC :GV!<CR>
 " undotree
 nmap <Leader>ut :UndotreeToggle<CR>
 
+" termwrapper
+nmap <Leader>ot :Ttoggle<CR>
+tmap <Leader>ot <C-\><C-n>:Ttoggle<CR>
+
 " LSP
 " Expand or jump
 imap <expr> <C-l> vsnip#available(1)? '<Plug>(vsnip-expand-or-jump)' : '<C-l>'
 smap <expr> <C-l> vsnip#available(1) ? '<Plug>(vsnip-expand-or-jump)' : '<C-l>'
-
-" lspsaga
-" nnoremap <silent>K :Lspsaga hover_doc<CR>
-" nnoremap <silent><leader>ar :Lspsaga rename<CR>
-
-" nnoremap <silent>]e :Lspsaga diagnostic_jump_next<CR>
-" nnoremap <silent>[e :Lspsaga diagnostic_jump_prev<CR>
-" nnoremap <silent><leader>clf :Lspsaga lsp_finder<CR>
-" nnoremap <silent><leader>cca :Lspsaga code_action<CR>
-" vnoremap <silent><leader>cca :<C-U>Lspsaga range_code_action<CR>
-" nnoremap <silent><C-f> <cmd>lua require('lspsaga.action').smart_scroll_with_saga(1)<CR>
-" nnoremap <silent><C-b> <cmd>lua require('lspsaga.action').smart_scroll_with_saga(-1)<CR>
-" nnoremap <silent><leader>csh :Lspsaga signature_help<CR>
-" nnoremap <silent><leader>cpd :Lspsaga preview_definition<CR>
-" nnoremap <silent> <leader>cld :Lspsaga show_line_diagnostics<CR>
-" nnoremap <silent> [e :Lspsaga diagnostic_jump_next<CR>
-" nnoremap <silent> ]e :Lspsaga diagnostic_jump_prev<CR>
-" nnoremap <silent> <leader>cot :Lspsaga open_floaterm<CR>
-" tnoremap <silent> <leader>cct <C-\><C-n>:Lspsaga close_floaterm<CR>
 

@@ -1,4 +1,4 @@
-require("gitsigns").setup {
+config = {
   signs = {
     add          = {hl = 'GitSignsAdd'   , text = '+', numhl='GitSignsAddNr'   , linehl='GitSignsAddLn'},
     change       = {hl = 'GitSignsChange', text = '~', numhl='GitSignsChangeNr', linehl='GitSignsChangeLn'},
@@ -41,3 +41,5 @@ require("gitsigns").setup {
   status_formatter = nil, -- Use default
   use_decoration_api = false
 }
+
+require("gitsigns").setup(config)

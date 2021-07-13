@@ -1,4 +1,7 @@
 " Include all plugins
+
+"lua require('plugins')
+
 source $HOME/.config/nvim/general/plugins.vim
 
 " Settings for neovim

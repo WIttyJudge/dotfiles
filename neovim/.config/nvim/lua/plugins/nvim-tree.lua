@@ -1,3 +1,5 @@
+-- https://github.com/kyazdani42/nvim-tree.lua
+
 vim.g.nvim_tree_width = 35
 vim.g.nvim_tree_ignore = {'.git', 'node_modules', '.cache'}
 vim.g.nvim_tree_indent_markers = 1

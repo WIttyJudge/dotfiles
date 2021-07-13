@@ -11,6 +11,7 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'onsails/lspkind-nvim'
   Plug 'glepnir/lspsaga.nvim'
   Plug 'kabouzeid/nvim-lspinstall'
+
   " Plug 'seblj/nvim-echo-diagnostics'
 
   " Aucomplete
@@ -22,7 +23,9 @@ call plug#begin('~/.config/nvim/plugged')
   " html
   Plug 'gregsexton/MatchTag'
   Plug 'AndrewRadev/tagalong.vim'
+
   " Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+  Plug 'ray-x/go.nvim'
 
   " Treesitter
   Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
@@ -77,7 +80,7 @@ call plug#begin('~/.config/nvim/plugged')
 
   " Statusline and bufferline
   Plug 'hoob3rt/lualine.nvim'
-  Plug 'crispgm/nvim-tabline'
+  " Plug 'crispgm/nvim-tabline'
 
   " Fancy startup screen
   Plug 'mhinz/vim-startify'
@@ -87,13 +90,13 @@ call plug#begin('~/.config/nvim/plugged')
 
   " Git
   Plug 'tpope/vim-fugitive'
-  Plug 'lewis6991/gitsigns.nvim',
+  Plug 'lewis6991/gitsigns.nvim'
   Plug 'junegunn/gv.vim'
   " Plug 'sindrets/diffview.nvim'
 
   " Ruby
   Plug 'thoughtbot/vim-rspec', { 'for': 'ruby' }
-  " Plug 'tpope/vim-rails'
+  Plug 'tpope/vim-rails'
 
   " Useful functions
   Plug 'lambdalisue/suda.vim'
@@ -104,13 +107,13 @@ call plug#begin('~/.config/nvim/plugged')
   " Profiling
   Plug 'tweekmonster/startuptime.vim'
 
-  Plug 'tpope/vim-dispatch'
-
   Plug 'tpope/vim-rvm'
 
   Plug 'AndrewRadev/splitjoin.vim'
 
   Plug 'folke/todo-comments.nvim'
+
+  Plug 'oberblastmeister/termwrapper.nvim'
 
   " Database
   Plug 'tpope/vim-dadbod'

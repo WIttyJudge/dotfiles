@@ -1,0 +1,19 @@
+{
+  "local fucntion": {
+    "prefix": "func_local",
+    "body": [
+      "local function ${1:name}()",
+      "\t$0",
+      "end"
+    ],
+    "description": "create local function"
+  },
+  "local variable": {
+    "prefix": "var_local",
+    "body": [
+      "local ${1:variable} = $0"
+    ],
+    "description": "create local variable"
+  }
+}
+
