@@ -7,11 +7,6 @@ local nvim_lsp = require('lspconfig')
 -- local capabilities = vim.lsp.protocol.make_client_capabilities()
 -- capabilities.textDocument.completion.completionItem.snippetSupport = true
 
-local function client_attached(client_name)
-  client_name = client_name or 'no_client'
-  return print("LSP client '" + client_name + "' was loaded")
-end
-
 vim.cmd('sign define LspDiagnosticsSignError text=')
 vim.cmd('sign define LspDiagnosticsSignWarning text=')
 vim.cmd('sign define LspDiagnosticsSignHint text=')
@@ -87,18 +82,18 @@ nvim_lsp.yamlls.setup{
 
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
   vim.lsp.diagnostic.on_publish_diagnostics, {
-    underline = true,
+    underline = false,
 
     -- Disable virtual_text on file load
     -- Show with vim.lsp.diagnostic.show_line_diagnostics()
     -- I'm using nvim-echo-diagnostic plugin
-    virtual_text = false,
+    virtual_text = true,
     -- virtual_text = {
     --   prefix = "",
     --   spacing = 0,
     -- },
 
-    signs = false,
+    signs = true,
     update_in_insert = true,
   }
 )
