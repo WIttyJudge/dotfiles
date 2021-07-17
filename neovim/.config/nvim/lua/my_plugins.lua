@@ -16,20 +16,19 @@ return require('packer').startup(function(use)
   -- Packer can manage itself as an optional plugin
   use 'wbthomason/packer.nvim'
 
-   -- LSP
+  -- LSP
   use 'neovim/nvim-lspconfig' 
   use 'onsails/lspkind-nvim'
   use 'glepnir/lspsaga.nvim'
-  use 'kabouzeid/nvim-lspinstall'
+  -- use 'kabouzeid/nvim-lspinstall'
   -- use 'seblj/nvim-echo-diagnostics'
-
 
   -- Aucomplete
   use 'hrsh7th/nvim-compe'
   use 'ray-x/lsp_signature.nvim'
   use 'hrsh7th/vim-vsnip'
-  use 'jiangmiao/auto-pairs'
   use 'tpope/vim-endwise'
+  -- use 'jiangmiao/auto-pairs'
   -- html
   use 'gregsexton/MatchTag'
   use 'AndrewRadev/tagalong.vim'
@@ -52,11 +51,12 @@ return require('packer').startup(function(use)
   use 'sainnhe/gruvbox-material'
 
   -- Syntax
-  use 'evanleck/vim-svelte'
+  -- use 'evanleck/vim-svelte'
   use 'Yggdroot/indentLine'
+  -- use 'lukas-reineke/indent-blankline.nvim'
 
   -- Looking for files
-  use { 'junegunn/fzf', run =  'fzf#install()' }
+  use { 'junegunn/fzf', run = 'fzf#install()' }
   use 'junegunn/fzf.vim'
 
   -- Icons
@@ -81,12 +81,14 @@ return require('packer').startup(function(use)
   use 'wellle/targets.vim'
   use { 'mg979/vim-visual-multi', branch = 'master' }
   use 'tpope/vim-surround'
+  use 'blackcauldron7/surround.nvim'
   use 'tpope/vim-unimpaired'
   use 'kevinhwang91/nvim-hlslens'
   use 'karb94/neoscroll.nvim'
 
   -- Comment out code
-  use 'tpope/vim-commentary'
+  -- use 'tpope/vim-commentary'
+  use 'terrortylor/nvim-comment'
 
   -- Statusline and bufferline
   use 'hoob3rt/lualine.nvim'
@@ -123,8 +125,8 @@ return require('packer').startup(function(use)
 
   use 'folke/todo-comments.nvim'
 
-  use 'oberblastmeister/termwrapper.nvim'
+  use 'mhartington/formatter.nvim'
 
   -- Database
-  use 'tpope/vim-dadbod'
+  -- use 'tpope/vim-dadbod'
 end)

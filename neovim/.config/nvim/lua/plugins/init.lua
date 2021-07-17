@@ -1,20 +1,30 @@
 -- require all lua plugins here
 
--- require('plugins/feline-nvim')
--- require('plugins/galaxyline')
-require('plugins/gitsigns')
-require('plugins/go')
-require('plugins/lspsaga')
-require('plugins/lspkind-nvim')
-require('plugins/lualine')
-require('plugins/neoscroll-nvim')
-require('plugins/nvim-colorizer')
--- require('plugins/nvim-echo-diagnostics')
-require('plugins/nvim-hlslens')
-require('plugins/nvim-tree')
-require('plugins/nvim-tabline')
-require('plugins/nvim-treesitter')
--- require('plugins/telescope')
-require('plugins/termwrapper')
-require('plugins/todo-comments')
+local plugins = {
+  "formatter",
+  "gitsigns",
+  "go",
+  "indentLine",
+  "lspsaga",
+  "lspkind-nvim",
+  "lualine",
+  "neoscroll-nvim",
+  "nvim-colorizer",
+  "nvim-comment",
+  -- "nvim-echo-diagnostics",
+  "nvim-hlslens",
+  "nvim-tree",
+  "nvim-tabline",
+  "nvim-treesitter",
+  "surround",
+  "tagalong",
+  -- "telescope",
+  "todo-comments",
+  "vim-rooter",
+  "vim-startify",
+}
+
+for _, plugin in ipairs(plugins) do
+  require('plugins/' .. plugin)
+end
 

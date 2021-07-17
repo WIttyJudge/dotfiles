@@ -1,23 +1,24 @@
 " Include all plugins
 
-"lua require('plugins')
+" lua require('my_plugins')
 
-source $HOME/.config/nvim/general/plugins.vim
+source $HOME/.config/nvim/settings/plugins.vim
 
 " Settings for neovim
-source $HOME/.config/nvim/general/settings.vim
+source $HOME/.config/nvim/settings/options.vim
 
 " shortcuts
-source $HOME/.config/nvim/general/mappings.vim
+source $HOME/.config/nvim/settings/mappings.vim
 
 " theme (colorschema)
-source $HOME/.config/nvim/general/colors.vim
+" source $HOME/.config/nvim/settings/colors.vim
+lua require('settings/colors')
 
 " autocmd
-source $HOME/.config/nvim/general/autocmds.vim
+source $HOME/.config/nvim/settings/autocmds.vim
 
 " Custom command-line command
-source $HOME/.config/nvim/general/commands.vim
+source $HOME/.config/nvim/settings/commands.vim
 
 " Load lua config files
 lua <<EOF

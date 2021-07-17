@@ -8,7 +8,7 @@ set number relativenumber               " Line numbers
 set scrolloff=7                         " Keep 5 lines below and above the cursor
 " set colorcolumn=80
 set signcolumn=yes
-set termguicolors
+set nofixeol
 
 set hidden                              " Required to keep multiple buffers open multiple buffers
 set pumheight=10                        " Makes popup menu smaller

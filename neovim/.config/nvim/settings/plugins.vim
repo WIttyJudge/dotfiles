@@ -10,16 +10,16 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'neovim/nvim-lspconfig' 
   Plug 'onsails/lspkind-nvim'
   Plug 'glepnir/lspsaga.nvim'
-  Plug 'kabouzeid/nvim-lspinstall'
-
+  " Plug 'kabouzeid/nvim-lspinstall'
   " Plug 'seblj/nvim-echo-diagnostics'
 
   " Aucomplete
   Plug 'hrsh7th/nvim-compe'
   Plug 'ray-x/lsp_signature.nvim'
   Plug 'hrsh7th/vim-vsnip'
-  Plug 'jiangmiao/auto-pairs'
   Plug 'tpope/vim-endwise'
+  " Plug 'jiangmiao/auto-pairs'
+  Plug 'rstacruz/vim-closer'
   " html
   Plug 'gregsexton/MatchTag'
   Plug 'AndrewRadev/tagalong.vim'
@@ -42,8 +42,9 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'sainnhe/gruvbox-material'
 
   " Syntax
-  Plug 'evanleck/vim-svelte'
+  " Plug 'evanleck/vim-svelte'
   Plug 'Yggdroot/indentLine'
+  " Plug 'lukas-reineke/indent-blankline.nvim'
 
   " Looking for files
   Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
@@ -70,13 +71,15 @@ call plug#begin('~/.config/nvim/plugged')
   " Move && Scroll && Replace
   Plug 'wellle/targets.vim'
   Plug 'mg979/vim-visual-multi', {'branch': 'master'}
-  Plug 'tpope/vim-surround'
+  " Plug 'tpope/vim-surround'
+  Plug 'blackcauldron7/surround.nvim'
   Plug 'tpope/vim-unimpaired'
   Plug 'kevinhwang91/nvim-hlslens'
   Plug 'karb94/neoscroll.nvim'
 
   " Comment out code
-  Plug 'tpope/vim-commentary'
+  " Plug 'tpope/vim-commentary'
+  Plug 'terrortylor/nvim-comment'
 
   " Statusline and bufferline
   Plug 'hoob3rt/lualine.nvim'
@@ -96,7 +99,7 @@ call plug#begin('~/.config/nvim/plugged')
 
   " Ruby
   Plug 'thoughtbot/vim-rspec', { 'for': 'ruby' }
-  Plug 'tpope/vim-rails'
+  " Plug 'tpope/vim-rails'
 
   " Useful functions
   Plug 'lambdalisue/suda.vim'
@@ -113,10 +116,10 @@ call plug#begin('~/.config/nvim/plugged')
 
   Plug 'folke/todo-comments.nvim'
 
-  Plug 'oberblastmeister/termwrapper.nvim'
-
   " Database
   Plug 'tpope/vim-dadbod'
+
+  Plug 'mhartington/formatter.nvim'
 call plug#end()
 
 " Run PlugInstall if there are missing plugins

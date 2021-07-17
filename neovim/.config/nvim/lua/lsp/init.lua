@@ -3,14 +3,16 @@
 -- Global configs
 local on_attach = require('lsp/on_attach')
 
+local icons = require('custom.icons')
+
 local nvim_lsp = require('lspconfig')
 -- local capabilities = vim.lsp.protocol.make_client_capabilities()
 -- capabilities.textDocument.completion.completionItem.snippetSupport = true
 
-vim.cmd('sign define LspDiagnosticsSignError text=')
-vim.cmd('sign define LspDiagnosticsSignWarning text=')
-vim.cmd('sign define LspDiagnosticsSignHint text=')
-vim.cmd('sign define LspDiagnosticsSignInformation text=')
+vim.cmd('sign define LspDiagnosticsSignError text=' .. icons.diagnostic.error)
+vim.cmd('sign define LspDiagnosticsSignWarning text=' .. icons.diagnostic.warn)
+vim.cmd('sign define LspDiagnosticsSignHint text=' .. icons.diagnostic.hint)
+vim.cmd('sign define LspDiagnosticsSignInformation text=' .. icons.diagnostic.info)
 vim.cmd('setlocal omnifunc=v:lua.vim.lsp.omnifunc')
 
 -- css

@@ -7,3 +7,6 @@ command! JsRun :call mappings#RunWith("node")
 
 " Linting
 command! Goimports :lua require('custom.go.format').goimports(1000)
+
+" Git
+command! GitBlameByLineToggle :Gitsigns toggle_current_line_blame

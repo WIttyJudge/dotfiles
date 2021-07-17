@@ -114,9 +114,13 @@ nmap <Leader>gC :GV!<CR>
 " undotree
 nmap <Leader>ut :UndotreeToggle<CR>
 
-" termwrapper
-nmap <Leader>ot :Ttoggle<CR>
-tmap <Leader>ot <C-\><C-n>:Ttoggle<CR>
+" nvim-comment
+nmap <Leader>/ :CommentToggle<CR>
+vmap <Leader>/ :CommentToggle<CR>
+
+" nmap <Leader>tt :vnew term://zsh <CR>
+nmap <Leader>tt :split term://zsh \| resize 25 <CR>
+" tmap <Leader>ot <C-\><C-n>:Ttoggle<CR>
 
 " LSP
 " Expand or jump
