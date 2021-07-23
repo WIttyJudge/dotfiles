@@ -1,15 +1,10 @@
 local M = {}
 
--- Convet UTF-8 code to character
 -- eg. f023 is a locker
-function M.u(code)
-  if type(code) == 'string' then
-    code = tonumber('0x' .. code)
-  end
+function M.convert_utf8_to_character(code)
+  if type(code) == 'string' then code = tonumber('0x' .. code) end
   local c = string.char
-  if code <= 0x7f then
-    return c(code)
-  end
+  if code <= 0x7f then return c(code) end
   local t = {}
   if code <= 0x07ff then
     t[1] = c(bit.bor(0xc0, bit.rshift(code, 6)))
@@ -27,11 +22,8 @@ function M.u(code)
   return table.concat(t)
 end
 
-function M.get_icon(filename, extension)
-  local icon  = require'nvim-web-devicons'.get_icon(filename, extension)
-  if icon == nil then icon = '' end
-
-  return icon
+function _G.dump(...)
+  print(unpack(vim.tbl_map(vim.inspect, { ... })))
 end
 
 return M

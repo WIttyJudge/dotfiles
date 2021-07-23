@@ -21,8 +21,8 @@ call plug#begin('~/.config/nvim/plugged')
   " Plug 'jiangmiao/auto-pairs'
   Plug 'rstacruz/vim-closer'
   " html
-  Plug 'gregsexton/MatchTag'
-  Plug 'AndrewRadev/tagalong.vim'
+  " Plug 'gregsexton/MatchTag'
+  " Plug 'AndrewRadev/tagalong.vim'
 
   " Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
   Plug 'ray-x/go.nvim'
@@ -30,10 +30,11 @@ call plug#begin('~/.config/nvim/plugged')
   " Treesitter
   Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
   Plug 'p00f/nvim-ts-rainbow'
+  Plug 'nvim-treesitter/nvim-treesitter-refactor'
+  Plug 'windwp/nvim-ts-autotag'
 
   " Linter
-  " Plug 'dense-analysis/ale'
-  " Plug 'nathunsmitty/nvim-ale-diagnostic'
+  Plug 'mhartington/formatter.nvim'
 
   " Colors
   Plug 'norcalli/nvim-colorizer.lua'
@@ -43,6 +44,7 @@ call plug#begin('~/.config/nvim/plugged')
 
   " Syntax
   " Plug 'evanleck/vim-svelte'
+  Plug 'folke/todo-comments.nvim'
   Plug 'Yggdroot/indentLine'
   " Plug 'lukas-reineke/indent-blankline.nvim'
 
@@ -61,11 +63,6 @@ call plug#begin('~/.config/nvim/plugged')
   " Plug 'nvim-telescope/telescope-fzy-native.nvim'
 
   " Explorer
-  " Plug 'lambdalisue/fern.vim' |
-  "       \ Plug 'lambdalisue/fern-git-status.vim' |
-  "       \ Plug 'lambdalisue/nerdfont.vim' |
-  "       \ Plug 'lambdalisue/fern-renderer-nerdfont.vim'
-
   Plug 'kyazdani42/nvim-tree.lua'
 
   " Move && Scroll && Replace
@@ -76,6 +73,12 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'tpope/vim-unimpaired'
   Plug 'kevinhwang91/nvim-hlslens'
   Plug 'karb94/neoscroll.nvim'
+
+  " Git
+  Plug 'tpope/vim-fugitive'
+  Plug 'lewis6991/gitsigns.nvim'
+  Plug 'junegunn/gv.vim'
+  " Plug 'sindrets/diffview.nvim'
 
   " Comment out code
   " Plug 'tpope/vim-commentary'
@@ -90,12 +93,6 @@ call plug#begin('~/.config/nvim/plugged')
 
   " Changes working directory
   Plug 'airblade/vim-rooter'
-
-  " Git
-  Plug 'tpope/vim-fugitive'
-  Plug 'lewis6991/gitsigns.nvim'
-  Plug 'junegunn/gv.vim'
-  " Plug 'sindrets/diffview.nvim'
 
   " Ruby
   Plug 'thoughtbot/vim-rspec', { 'for': 'ruby' }
@@ -113,13 +110,6 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'tpope/vim-rvm'
 
   Plug 'AndrewRadev/splitjoin.vim'
-
-  Plug 'folke/todo-comments.nvim'
-
-  " Database
-  Plug 'tpope/vim-dadbod'
-
-  Plug 'mhartington/formatter.nvim'
 call plug#end()
 
 " Run PlugInstall if there are missing plugins

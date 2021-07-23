@@ -5,6 +5,13 @@ local conf = require('telescope.config')
 
 require('telescope').setup{
   defaults = {
+    layout_config = {
+      width = 0.75,
+      prompt_position = "top",
+      preview_cutoff = 120,
+      horizontal = {mirror = false},
+      vertical = {mirror = false},
+    },
     vimgrep_arguments = {
       'rg',
       '--hidden',
@@ -20,18 +27,27 @@ require('telescope').setup{
     sorting_strategy = "ascending",
     layout_strategy = "horizontal",
 
-    layout_config = {
-      prompt_position = 'top',
-    },
+    -- layout_config = {
+    --   prompt_position = 'top',
+    -- },
 
     prompt_prefix = "λ -> ",
     selection_caret = "|> ",
     -- Don't pass to normal mode with ESC, problem with telescope-project
-    -- mappings = {
-    --   i = {
-    --     ["<esc>"] = actions.close,
-    --   },
-    -- },
+    mappings = {
+      i = {
+          ["<C-j>"] = actions.move_selection_next,
+          ["<C-k>"] = actions.move_selection_previous,
+          ["<C-q>"] = actions.smart_send_to_qflist + actions.open_qflist,
+          ["<esc>"] = actions.close,
+          ["<CR>"] = actions.select_default + actions.center
+      },
+      n = {
+        ["<C-j>"] = actions.move_selection_next,
+        ["<C-k>"] = actions.move_selection_previous,
+        ["<C-q>"] = actions.smart_send_to_qflist + actions.open_qflist,
+      }
+    },
   },
   extensions = {
     fzy_native = {

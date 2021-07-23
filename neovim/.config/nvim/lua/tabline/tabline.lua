@@ -25,7 +25,6 @@ local function tabline(options)
     else
       s = s .. '%#TabLine#'
     end
-    
 
     -- tab index
     s = s .. ' '

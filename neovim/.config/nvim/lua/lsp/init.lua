@@ -15,6 +15,8 @@ vim.cmd('sign define LspDiagnosticsSignHint text=' .. icons.diagnostic.hint)
 vim.cmd('sign define LspDiagnosticsSignInformation text=' .. icons.diagnostic.info)
 vim.cmd('setlocal omnifunc=v:lua.vim.lsp.omnifunc')
 
+-- https://github.com/neovim/nvim-lspconfig/blob/master/CONFIG.md
+
 -- css
 nvim_lsp.cssls.setup { 
   settings = {

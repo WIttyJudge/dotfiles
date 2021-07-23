@@ -1,8 +1,10 @@
 -- https://github.com/Yggdroot/indentLine
 
 vim.g.indentLine_char = '¦'
-vim.g.indentLine_bufTypeExclude = {'terminal'}
-vim.g.indentLine_fileTypeExclude = {'help', 'man', 'startify', 'packer', 'NvimTree'}
+vim.g.indentLine_bufTypeExclude = { 'terminal' }
+vim.g.indentLine_fileTypeExclude = {
+  'help', 'man', 'startify', 'packer', 'NvimTree'
+}
 
 -- vim.g.indent_blankline_show_current_context = true
 -- vim.g.indent_blankline_buftype_exclude = {'terminal'}

@@ -17,14 +17,18 @@ local plugins = {
   "nvim-tabline",
   "nvim-treesitter",
   "surround",
-  "tagalong",
   -- "telescope",
   "todo-comments",
+  -- "toggle-formatting",
+  "undotree",
   "vim-rooter",
   "vim-startify",
+  "vsnip",
 }
 
 for _, plugin in ipairs(plugins) do
-  require('plugins/' .. plugin)
+   -- if plugin_is_enabled(plugin) then
+    require('plugins/' .. plugin)
+  -- end
 end
 

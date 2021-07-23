@@ -31,18 +31,18 @@ local vi_mode_text = {
   c = 'COMMAND',
   V = 'VISUAL',
   [''] = 'VISUAL',
-  v ='VISUAL',
-  c  = 'COMMAND',
+  v = 'VISUAL',
+  c = 'COMMAND',
   ['r?'] = ':CONFIRM',
   rm = '--MORE',
-  R  = 'REPLACE',
+  R = 'REPLACE',
   Rv = 'VIRTUAL',
-  s  = 'SELECT',
-  S  = 'SELECT',
-  ['r']  = 'HIT-ENTER',
+  s = 'SELECT',
+  S = 'SELECT',
+  ['r'] = 'HIT-ENTER',
   [''] = 'SELECT',
-  t  = 'TERMINAL',
-  ['!']  = 'SHELL'
+  t = 'TERMINAL',
+  ['!'] = 'SHELL'
 }
 
 local vi_mode_color = {
@@ -60,11 +60,11 @@ local vi_mode_color = {
   R = colors.red,
   Rv = colors.red,
   cv = colors.red,
-  ce=colors.red,
+  ce = colors.red,
   r = colors.cyan,
   rm = colors.cyan,
   ['r?'] = colors.cyan,
-  ['!']  = colors.red,
+  ['!'] = colors.red,
   t = colors.red
 }
 
@@ -75,8 +75,8 @@ local config = {
     component_separators = "",
     section_separators = "",
     theme = {
-      normal = {c = {fg = colors.fg, bg = colors.bg}},
-      inactive = {c = {fg = colors.fg, bg = colors.bg}}
+      normal = { c = { fg = colors.fg, bg = colors.bg } },
+      inactive = { c = { fg = colors.fg, bg = colors.bg } }
     },
     disabled_filetypes = {
       'NvimTree',
@@ -126,15 +126,14 @@ end
 
 ins_left {
   function()
-    vim.api.nvim_command(
-      'hi! LualineMode gui=bold guibg=' .. vi_mode_color[vim.fn.mode()] .. " guifg=" ..
-            colors.bg)
+    vim.api.nvim_command('hi! LualineMode gui=bold guibg='
+                             .. vi_mode_color[vim.fn.mode()] .. " guifg="
+                             .. colors.bg)
 
     return vi_mode_text[vim.fn.mode()]
   end,
   color = "LualineMode"
 }
-
 
 -- ins_left {
 --   -- File icon
@@ -158,27 +157,23 @@ ins_left {
   function()
     local f_name = vim.fn.expand("%:t")
 
-    if vim.bo.readonly then
-      f_name = f_name .. ' ' .. icons.locker
-    end
+    if vim.bo.readonly then f_name = f_name .. ' ' .. icons.locker end
 
-    if vim.bo.modified then
-      f_name = f_name .. ' ' .. icons.unsaved
-    end
+    if vim.bo.modified then f_name = f_name .. ' ' .. icons.unsaved end
 
     return f_name
   end,
   condition = custom_condition.buffer_not_empty,
-  color = {fg = colors.fg, gui = 'bold'}
+  color = { fg = colors.fg, gui = 'bold' }
 }
 
 ins_left {
   'diagnostics',
-  sources = {'nvim_lsp'},
+  sources = { 'nvim_lsp' },
   symbols = {
     error = icons.diagnostic.error .. ' ',
     warn = icons.diagnostic.warn .. ' ',
-    info = icons.diagnostic.info .. ' ',
+    info = icons.diagnostic.info .. ' '
   },
   color_error = colors.red,
   color_warn = colors.yellow,
@@ -198,7 +193,7 @@ ins_left {
 
 ins_right {
   'diff',
-  symbols = {added = '+', modified = '~', removed = '-'},
+  symbols = { added = '+', modified = '~', removed = '-' },
   color_added = colors.green,
   color_modified = colors.blue,
   color_removed = colors.red,
@@ -209,12 +204,10 @@ ins_right {
   'branch',
   icon = icons.git_branch,
   condition = custom_condition.check_git_workspace,
-  color = {fg = colors.yellow, gui = 'bold'}
+  color = { fg = colors.yellow, gui = 'bold' }
 }
 
-ins_right {
-  'filetype'
-}
+ins_right { 'filetype' }
 
 -- ruby version
 ins_right {
@@ -225,18 +218,16 @@ ins_right {
   condition = function()
     local extension = vim.fn.expand('%:e')
 
-    if extension ~= 'rb' then
-      return false
-    end
+    if extension ~= 'rb' then return false end
 
     return true
   end,
   color = { fg = colors.red }
 }
 
-ins_right {'location'}
+ins_right { 'location' }
 
-ins_right {'progress', color = {fg = colors.fg, gui = 'bold'}}
+ins_right { 'progress', color = { fg = colors.fg, gui = 'bold' } }
 
 -- Now don't forget to initialize lualine
 lualine.setup(config)

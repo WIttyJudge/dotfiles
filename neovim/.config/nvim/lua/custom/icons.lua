@@ -2,15 +2,15 @@ local utils = require('custom.utils')
 
 local icons = {
   git_branch = '',
-  unsaved = utils.u 'f693',
-  locker = utils.u 'f023',
+  unsaved = utils.convert_utf8_to_character 'f693',
+  locker = utils.convert_utf8_to_character 'f023',
 
   diagnostic = {
     error = '',
     warn = '',
     hint = '',
     info = '',
-    dianostic_header_icon = '  ',
+    header_icon = '  ',
   }
 }
 

@@ -20,6 +20,7 @@ local custom_function = require('custom.functions')
 local mappings = {
   ['gd'] = ":lua vim.lsp.buf.definition()<CR>",
   ['K'] = ":Lspsaga hover_doc<CR>",
+  ['<C-k>'] = ":Lspsaga signature_help<CR>",
   ['<Leader>ar'] = ":Lspsaga rename<CR>",
 
   ['<Leader>ee'] = ":Lspsaga show_line_diagnostics<CR>",

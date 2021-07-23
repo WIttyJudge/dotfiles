@@ -4,6 +4,24 @@ local banner = vim.fn.system("figlet "..cwd[#cwd])
 local header = vim.fn['startify#pad'](vim.fn.split(banner, '\n'))
 vim.g.startify_custom_header = header
 
+-- vim.api.nvim_command([[ hi StartifyFooter ctermfg=123 ]])
+-- vim.g.startify_custom_footer = {
+--   '          ▄▄▄',
+--   '       ▄█████▄▄',
+--   '      ███▀▀▀▀▀▀▀▀',
+--   '      ███▄   ▀ ▀▀',
+--   '       ▄  █████▄ █▄',
+--   '      ▀▀▄▄   ▄▄▄▀██▀',
+--   '       ██▀▀▀██▀  ▀',
+--   '       ▀▀▀▀ ▀▀▀▀',
+-- }
+
+
+-- If you want numbers to start at 1 instead of 0, you could use this:
+vim.cmd([[
+  let g:startify_custom_indices = map(range(1,100), 'string(v:val)')
+]])
+
 vim.g.startify_files_number = 5
 
 -- Don't change to directory when selecting a file
@@ -26,8 +44,8 @@ vim.g.startify_lists = {
 
 vim.g.startify_bookmarks = {
     { i = '~/.config/nvim/init.vim' },
-    { p = '~/.config/nvim/general/plugins.vim' },
-    { m = '~/.config/nvim/general/mappings.vim' },
+    { p = '~/.config/nvim/settings/plugins.vim' },
+    { m = '~/.config/nvim/lua/settings/mappings.lua' },
 }
 
 vim.g.startify_commands = {
