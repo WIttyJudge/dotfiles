@@ -31,7 +31,7 @@ KP_Add
 
 /* screenshoter */
 Print
-    flameshot gui
+    make-screenshot
 
 /* Custom commands */
 super + Delete

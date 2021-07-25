@@ -7,4 +7,4 @@ local config = {
   no_buffer = 'No name' -- no name buffer name
 }
 
-require'tabline.tabline'.setp(config)
+require'tabline.tabline'.setup(config)

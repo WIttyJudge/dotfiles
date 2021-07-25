@@ -27,7 +27,7 @@ local plugins = {
 
 for _, plugin in ipairs(plugins) do
    -- if plugin_is_enabled(plugin) then
-    require('plugins-settings/' .. plugin)
+    require('plugins-config/' .. plugin)
   -- end
 end
 
