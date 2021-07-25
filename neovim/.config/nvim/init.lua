@@ -1,8 +1,12 @@
 -- Vim-plug
-vim.cmd([[
-source $HOME/.config/nvim/settings/plugins.vim
-]])
+-- vim.cmd([[
+-- source $HOME/.config/nvim/settings/plugins.vim
+-- ]])
 
+-- Paq package manager
+require('plugins')
+
+-- Configs
 require('settings/options')
 require('settings/commands')
 require('settings/mappings')
@@ -12,8 +16,9 @@ require('settings/autocmds')
 -- nvim-compe
 require('settings/completion')
 
--- Lsp Config
+-- Lsp config
 require('lsp')
 
 -- Plugins Config
-require('plugins')
+require('plugins-config')
+

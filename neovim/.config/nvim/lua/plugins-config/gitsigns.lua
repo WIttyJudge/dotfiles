@@ -1,6 +1,6 @@
 -- https://github.com/lewis6991/gitsigns.nvim
 
-config = {
+local config = {
   signs = {
     add          = {hl = 'GitSignsAdd'   , text = '+', numhl='GitSignsAddNr'   , linehl='GitSignsAddLn'},
     change       = {hl = 'GitSignsChange', text = '~', numhl='GitSignsChangeNr', linehl='GitSignsChangeLn'},

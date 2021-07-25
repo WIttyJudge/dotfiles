@@ -22,7 +22,7 @@ function M.convert_utf8_to_character(code)
   return table.concat(t)
 end
 
-function _G.dump(...)
+function M.dump(...)
   print(unpack(vim.tbl_map(vim.inspect, { ... })))
 end
 

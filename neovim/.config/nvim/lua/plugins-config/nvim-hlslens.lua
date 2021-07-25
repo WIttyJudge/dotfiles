@@ -1,6 +1,6 @@
 -- https://github.com/kevinhwang91/nvim-hlslens
 
-options = {
+local config = {
   calm_down = true,
   override_lens = function(render, plist, nearest, idx, r_idx)
     local sfw = vim.v.searchforward == 1
@@ -31,4 +31,4 @@ options = {
   end
 }
 
-require('hlslens').setup(options)
+require('hlslens').setup(config)

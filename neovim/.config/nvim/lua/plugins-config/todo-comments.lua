@@ -1,6 +1,6 @@
 -- https://github.com/folke/todo-comments.nvim
 
-local options = {
+local config = {
   signs = true, -- show icons in the signs column
   sign_priority = 8, -- sign priority
   -- keywords recognized as todo comments
@@ -56,4 +56,4 @@ local options = {
   },
 }
 
-require("todo-comments").setup(options)
+require("todo-comments").setup(config)

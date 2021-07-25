@@ -1,6 +1,6 @@
 -- https://github.com/onsails/lspkind-nvim
 
-options = {
+local config = {
   with_text = true,
   symbol_map = {
     Text = '',
@@ -26,4 +26,4 @@ options = {
   },
 }
 
-require('lspkind').init(options)
+require('lspkind').init(config)

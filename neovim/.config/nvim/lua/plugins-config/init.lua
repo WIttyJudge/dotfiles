@@ -19,7 +19,6 @@ local plugins = {
   "surround",
   -- "telescope",
   "todo-comments",
-  -- "toggle-formatting",
   "undotree",
   "vim-rooter",
   "vim-startify",
@@ -28,7 +27,7 @@ local plugins = {
 
 for _, plugin in ipairs(plugins) do
    -- if plugin_is_enabled(plugin) then
-    require('plugins/' .. plugin)
+    require('plugins-settings/' .. plugin)
   -- end
 end
 

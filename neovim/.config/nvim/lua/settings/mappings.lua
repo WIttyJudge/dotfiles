@@ -44,7 +44,6 @@ set_keymap('n', '<Leader>q', ':q<CR>')
 -- nnoremap <Leader>; :nohlsearch<CR>
 
 -- Use simple ; instead of shift + :
-
 set_keymap('n', ';', ':', { silent = false })
 set_keymap('v', ';', ':', { silent = false })
 

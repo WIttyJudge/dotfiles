@@ -1,6 +1,6 @@
 -- https://github.com/karb94/neoscroll.nvim
 
-options = {
+local config = {
   -- All these keys will be mapped to their corresponding default scrolling animation
   -- mappings = {'<C-u>', '<C-d>', '<C-b>', '<C-f>',
   --             '<C-y>', '<C-e>', 'zt', 'zz', 'zb'},
@@ -13,4 +13,4 @@ options = {
   easing_function = nil        -- Default easing function
 }
 
-require('neoscroll').setup(options)
+require('neoscroll').setup(config)

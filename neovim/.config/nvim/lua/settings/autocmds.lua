@@ -38,8 +38,6 @@ autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "norm
 -- augroup END
 -- ]])
 
--- autocmd CursorHold * lua require('echo-diagnostics').echo_line_diagnostic()
-
 -- autocmd BufWritePre *.go :silent! lua require('go.format').gofmt()
 -- autocmd BufWritePre *.go :silent! lua require('custom.go.format').goimports(1000)
 

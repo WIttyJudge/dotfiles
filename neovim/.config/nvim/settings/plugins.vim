@@ -46,7 +46,6 @@ call plug#begin('~/.config/nvim/plugged')
   " Plug 'evanleck/vim-svelte'
   Plug 'folke/todo-comments.nvim'
   Plug 'Yggdroot/indentLine'
-  " Plug 'lukas-reineke/indent-blankline.nvim'
 
   " Looking for files
   Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }

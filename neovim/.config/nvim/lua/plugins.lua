@@ -1,0 +1,110 @@
+-- https://github.com/savq/paq-nvim
+
+local fn = vim.fn
+
+local install_path = fn.stdpath('data') .. '/site/pack/paqs/start/paq-nvim'
+
+if fn.empty(fn.glob(install_path)) > 0 then
+  fn.system({'git', 'clone', '--depth=1', 'https://github.com/savq/paq-nvim.git', install_path})
+end
+
+require('paq') {
+  "savq/paq-nvim";
+
+  -- LSP
+  "neovim/nvim-lspconfig";
+  "onsails/lspkind-nvim";
+  "glepnir/lspsaga.nvim";
+  -- "kabouzeid/nvim-lspinstall";
+  -- "seblj/nvim-echo-diagnostics";
+
+  -- Aucomplete
+  "hrsh7th/nvim-compe";
+  "ray-x/lsp_signature.nvim";
+  "hrsh7th/vim-vsnip";
+  "tpope/vim-endwise";
+  -- "jiangmiao/auto-pairs";
+  "rstacruz/vim-closer";
+  -- html
+  -- "gregsexton/MatchTag";
+  -- "AndrewRadev/tagalong.vim";
+
+  -- Treesitter
+  { "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" };
+  "p00f/nvim-ts-rainbow";
+  "nvim-treesitter/nvim-treesitter-refactor";
+  "windwp/nvim-ts-autotag";
+
+  -- Move && Scroll && Replace
+  "wellle/targets.vim";
+  { "mg979/vim-visual-multi", branch = "master"};
+  "blackcauldron7/surround.nvim";
+  "AndrewRadev/splitjoin.vim";
+  "tpope/vim-unimpaired";
+  "kevinhwang91/nvim-hlslens";
+  "karb94/neoscroll.nvim";
+
+  -- Syntax
+  "folke/todo-comments.nvim";
+  "norcalli/nvim-colorizer.lua";
+  "Yggdroot/indentLine";
+
+  -- Git
+  "tpope/vim-fugitive";
+  "lewis6991/gitsigns.nvim";
+  "junegunn/gv.vim";
+  -- "sindrets/diffview.nvim";
+
+  -- Icons
+  "kyazdani42/nvim-web-devicons";
+  "lambdalisue/glyph-palette.vim";
+
+  -- Linter
+  "mhartington/formatter.nvim";
+
+  -- Colorscheme
+  "sainnhe/gruvbox-material";
+
+  -- Looking for files
+  { "junegunn/fzf", run = 'fzf#install()' };
+  "junegunn/fzf.vim";
+
+  -- telescope requirements...
+  -- "nvim-lua/popup.nvim";
+  "nvim-lua/plenary.nvim";
+  -- "nvim-telescope/telescope.nvim";
+  -- "nvim-telescope/telescope-fzy-native.nvim";
+
+  -- Explorer
+  "kyazdani42/nvim-tree.lua";
+
+  -- Comment out code
+  "terrortylor/nvim-comment";
+
+  -- Statusline and bufferline
+  "hoob3rt/lualine.nvim";
+
+  -- Fancy startup screen
+  "mhinz/vim-startify";
+
+  -- Changes working directory
+  "airblade/vim-rooter";
+
+  -- Ruby
+  "thoughtbot/vim-rspec";
+  "tpope/vim-rvm";
+  -- "tpope/vim-rails";
+
+  -- Golang
+  -- "fatih/vim-go", { "do": ":GoUpdateBinaries" };
+  "ray-x/go.nvim";
+
+  -- Useful functions
+  "lambdalisue/suda.vim";
+ 
+  -- Undo history visualizer
+  "mbbill/undotree";
+
+  -- Profiling
+  "tweekmonster/startuptime.vim";
+}
