@@ -27,6 +27,12 @@ set_keymap('n', '<C-K>', '<C-W><C-K>')
 set_keymap('n', '<C-L>', '<C-W><C-L>')
 set_keymap('n', '<C-H>', '<C-W><C-H>')
 
+-- Add space bellow or above without leaving normat mode
+vim.cmd([[
+nnoremap <silent> [<space>  :<c-u>put!=repeat([''],v:count)<bar>']+1<cr>
+nnoremap <silent> ]<space>  :<c-u>put =repeat([''],v:count)<bar>'[-1<cr>
+]])
+
 -- Easy copy whole text in file
 -- set_keymap('n', 'va', ':%y+<CR>')
 
@@ -86,6 +92,15 @@ set_keymap('v', '<', '<gv')
 set_keymap('n', '<Leader>tl', ':tabnext<CR>')
 set_keymap('n', '<Leader>th', ':tabprev<CR>')
 set_keymap('n', '<Leader>tq', ':tabclose<CR>')
+set_keymap('n', '<Leader>t1', '1gt<CR>')
+set_keymap('n', '<Leader>t2', '2gt<CR>')
+set_keymap('n', '<Leader>t3', '3gt<CR>')
+set_keymap('n', '<Leader>t4', '4gt<CR>')
+set_keymap('n', '<Leader>t5', '5gt<CR>')
+set_keymap('n', '<Leader>t6', '6gt<CR>')
+set_keymap('n', '<Leader>t7', '7gt<CR>')
+set_keymap('n', '<Leader>t8', '8gt<CR>')
+set_keymap('n', '<Leader>t9', '9gt<CR>')
 
 -- ********* PLUGINS MAPPING *********
 

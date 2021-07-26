@@ -40,7 +40,7 @@ require('paq') {
   { "mg979/vim-visual-multi", branch = "master"};
   "blackcauldron7/surround.nvim";
   "AndrewRadev/splitjoin.vim";
-  "tpope/vim-unimpaired";
+  -- "tpope/vim-unimpaired";
   "kevinhwang91/nvim-hlslens";
   "karb94/neoscroll.nvim";
 

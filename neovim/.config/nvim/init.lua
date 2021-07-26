@@ -14,6 +14,6 @@ require('settings/completion')
 -- Lsp configuration
 require('lsp')
 
--- Includes all configuration for installed plugins
+-- Includes all configurations for installed plugins
 require('plugins-config')
 
