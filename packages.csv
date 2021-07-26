@@ -15,7 +15,7 @@ TRUE,,feh,Fast and light imlib2-based image viewer.
 TRUE,,scrot,Simple command-line screenshot utility for X.
 ,,flameshot,Powerful yet simple to use screenshot software.
 ,,pulseaudio-alsa,ALSA Configuration for PulseAudio.
-,,pumixer,PulseAudio command-line mixer like amixer.
+,,pamixer,PulseAudio command-line mixer like amixer.
 ,,pavucontrol,PulseAudio Volume Control.
 ,,alsa-utils,Advanced Linux Sound Architecture - Utilities.
 ,,ttf-dejavu,Font family based on the Bitstream Vera Fonts with a wider range of characters.
