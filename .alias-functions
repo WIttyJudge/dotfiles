@@ -18,7 +18,3 @@ function repeat() {
   done
 }
 
-function uuid() {
-  python -c 'import uuid, sys;sys.stdout.write(str(uuid.uuid4()))'
-}
-

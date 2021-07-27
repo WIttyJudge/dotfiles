@@ -25,7 +25,7 @@ setopt hist_beep
 
 # load custom scripts
 if [ -d "$HOME/.local/bin" ] ; then
-  PATH=$PATH$(find $HOME/dotfiles/scripts/.local/bin -type d -printf ":%p")
+  PATH=$PATH$(find $HOME/.local/bin -type d -printf ":%p")
 fi
 
 # History in cache directory:
@@ -39,8 +39,8 @@ HISTFILE=~/.cache/zsh/history
 HISTCONTROL=ignoreboth:erasedups
 
 # Load the aliases and functions
-[ -f "${DOTFILES}/aliases/.aliases" ] && source "${DOTFILES}/aliases/.aliases"
-[ -f "${DOTFILES}/aliases/.aliases" ] && source "${DOTFILES}/aliases/.functions"
+[ -f "$HOME/.alias-functions" ] && source "$HOME/.alias-functions"
+[ -f "$HOME/.aliases" ] && source "$HOME/.aliases"
 
 # Load RVM into a shell session as a function.
 [ -s "$HOME/.rvm/scripts/rvm" ] && source "$HOME/.rvm/scripts/rvm"

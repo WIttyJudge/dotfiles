@@ -1,0 +1,98 @@
+#!/usr/bin/env bash
+
+### OPTIONS AND VARIABLES ###
+
+dotfiles_path=$(pwd)
+config_path=$HOME/.config
+
+GREEN=$(tput setaf 2)
+NORMAL=$(tput sgr0)
+
+# List that should be inside ~/ directory
+home_directory=(
+ .alias-functions
+ .aliases
+ .gitconfig
+ .bashrc
+ .profile
+ .xinitrc
+ .xprofile
+ .Xresources
+ .zprofile
+ .zshrc
+)
+
+# List for ~/.config folder
+config_directory=(
+  alacritty
+  calcurse
+  custom
+  dunst
+  flameshot
+  git
+  # i3
+  mpv
+  neofetch
+  # polybar
+  nvim
+  rofi
+  scripts
+  sxhkd
+  sxiv
+  # terminator
+  zsh
+)
+
+### FUNCTIONS ###
+
+logger_setup_for() {
+	name=$1
+
+  printf "\nSetup for: ${GREEN}%s${NORMAL}\n" "$name"
+}
+
+logger_link_to() {
+  from=$1
+  to=$2
+
+  printf "LINK: %s -> %s\n" "$from" "$to"
+}
+
+setup_link() {
+	name=$1
+
+  logger_setup_for $name
+
+  [ -d $config_path/$name ] && rm -rf $config_path/$name
+
+  logger_link_to $dotfiles_path/.config/$name $config_path/$name
+
+  ln -sf $dotfiles_path/.config/$name $config_path/$name
+}
+
+
+### SCRIPT EXECUTION ###
+
+# Output brief information before running the script
+echo "///////////////////////////////////////////////////////////////////////"
+echo -e "///////////////////// ${GREEN}Created by Witty Judge${NORMAL} //////////////////////////"
+echo -e "//////////// https://github.com/WIttyJudge/dotfiles ///////////////"
+echo "///////////////////// Dotfile Setup /////////////////////////"
+echo "///////////////////////////////////////////////////////////////////////"
+read -n 1 -r -s -p $'//////////////////// Press any key to continue ////////////////////////\n\n'
+
+for i in ${home_directory[@]}; do
+  logger_setup_for $i
+  ln -sf $dotfiles_path/$i $HOME/$i
+done
+
+for i in ${config_directory[@]}; do
+	setup_link $i
+done
+
+# Local directory
+# logger_setup_for $dotfiles_path/.local
+# [ ! -d $HOME/.local ] && mkdir -p $HOME/.local/bin
+# [ -d $HOME/.local/bin ] && rm -rf $HOME/.local/bin
+# 
+# ln -sf $dotfiles_path/.local/bin $HOME/.local/bin

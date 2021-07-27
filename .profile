@@ -26,7 +26,7 @@ export SHELL=`which zsh`
 
 # load custom scripts
 if [ -d "$HOME/.local/bin" ] ; then
-  PATH=$PATH$(find $HOME/dotfiles/scripts/.local/bin -type d -printf ":%p")
+  PATH=$PATH$(find $HOME/.local/bin -type d -printf ":%p")
 fi
 
 [ -f ~/.bashrc ] && source ~/.bashrc
