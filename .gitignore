@@ -1,8 +1,8 @@
 /* Neovim */
 
-neovim/.config/nvim/plugged
-neovim/.config/nvim/autoload/plug.vim
-neovim/.config/nvim/autoload/plug.vim.old
-neovim/.config/nvim/.netrwhist
+.config/nvim/plugged
+.config/nvim/autoload/plug.vim
+.config/nvim/autoload/plug.vim.old
+.config/nvim/.netrwhist
 
 scripts/.local/share/

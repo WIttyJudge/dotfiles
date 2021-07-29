@@ -13,20 +13,26 @@ colorscript -e monster
 setopt autocd
 
 # history settings
+setopt INC_APPEND_HISTORY    # Immediately append commands to history file.
+setopt HIST_IGNORE_ALL_DUPS  # Never add duplicate entries.
+setopt HIST_IGNORE_SPACE     # Ignore commands that start with a space.
+setopt HIST_REDUCE_BLANKS    # Remove unnecessary blank lines.
+
 setopt extended_history
 setopt hist_expire_dups_first
-setopt hist_ignore_dups
-setopt hist_ignore_all_dups
-setopt hist_ignore_space
 setopt hist_find_no_dups
 setopt hist_save_no_dups
 setopt hist_beep
+setopt share_history
 # setopt interactive_comments
 
 # load custom scripts
 if [ -d "$HOME/.local/bin" ] ; then
   PATH=$PATH$(find $HOME/.local/bin -type d -printf ":%p")
 fi
+
+export PATH=$PATH:$HOME/.local/bin/statusbar
+export PATH=$PATH:$HOME/.local/bin/dmenu
 
 # History in cache directory:
 HISTSIZE=10000000
@@ -58,6 +64,9 @@ _comp_options+=(globdots)		# Include hidden files.
 
 source "$HOME/.config/zsh/setup-vim.sh"
 
+# zsh-autosuggestions settings.
+ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=20
+
 ###########################################################
 ## zinit (package manager)
 ###########################################################
@@ -77,6 +86,7 @@ autoload -Uz _zinit
 
 zinit wait lucid light-mode for \
   atinit"zicompinit; zicdreplay" \
+      zsh-users/zsh-autosuggestions \
       zdharma/fast-syntax-highlighting \
 
 # Git prompt for Zsh
@@ -87,3 +97,5 @@ zinit light woefe/git-prompt.zsh
 ###########################################################
 
 source ~/.config/zsh/prompt.sh
+
+bindkey '^ ' autosuggest-accept
