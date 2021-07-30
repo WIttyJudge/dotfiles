@@ -3,8 +3,7 @@
 # Extract archives - use: extract <file>
 
 help() {
-echo "
-Usage: extract [file]
+echo "Usage: extract [file]
 
 Available file formats:
   .tar

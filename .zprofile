@@ -6,6 +6,10 @@
 # 1. environment variables to configure tools (flags for compilation, data folder location, etc.)
 # 2. configuration which execute commands (like SCONSFLAGS="--jobs=$(( $(nproc) - 1 ))") as it may take some time to execute.
 
+# Adds `~/.local/bin` to $PATH
+export PATH="$HOME/.local/bin:$PATH"
+export PATH="$PATH:${$(find ~/.local/bin -type d -printf %p:)%%:}"
+
 # Default apps
 export EDITOR="nvim"
 export TERMINAL="alacritty"

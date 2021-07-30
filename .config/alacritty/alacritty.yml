@@ -69,19 +69,19 @@ scrolling:
 # Font configuration
 font:
   normal:
-    family: Hack
+    family: "Fira Code"
+    # family: Hack
     style: Medium
-  #bold:
-    #family: JetBrains Mono
-    #style:
+  bold:
+    family: "Fira Code"
 
   # Italic font face
-  #italic:
+  italic:
     # Font family
     #
     # If the italic family is not specified, it will fall back to the
     # value specified for the normal font.
-    #family: monospace
+    family: "Fira Code"
 
     # The `style` can be specified to pick a specific face.
     #style: Italic
@@ -98,7 +98,7 @@ font:
     #style: Bold Italic
 
   # Point size
-  size: 8
+  size: 7
 
   # Offset is the extra space around each character. `offset.y` can be thought of
   # as modifying the line spacing, and `offset.x` as modifying the letter spacing.

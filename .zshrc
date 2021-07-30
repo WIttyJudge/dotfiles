@@ -31,9 +31,6 @@ if [ -d "$HOME/.local/bin" ] ; then
   PATH=$PATH$(find $HOME/.local/bin -type d -printf ":%p")
 fi
 
-export PATH=$PATH:$HOME/.local/bin/statusbar
-export PATH=$PATH:$HOME/.local/bin/dmenu
-
 # History in cache directory:
 HISTSIZE=10000000
 SAVEHIST=10000000
@@ -99,3 +96,5 @@ zinit light woefe/git-prompt.zsh
 source ~/.config/zsh/prompt.sh
 
 bindkey '^ ' autosuggest-accept
+
+alias luamake=/home/wittyjudge/lua-language-server/3rd/luamake/luamake
