@@ -4,9 +4,11 @@ command! LspFormat execute 'lua vim.lsp.buf.formatting_sync(nil, 1000)'
 
 -- Code execution
 vim.cmd([[
-command! RubyRun :call mappings#RunWith("ruby")
 command! GoRun :call mappings#RunWith("go run")
 command! JsRun :call mappings#RunWith("node")
+
+command! TsRun :call mappings#RunWith("npx ts-node")
+command! TsBuidl :call mappings#RunWith("npx ts-node")
 ]])
 
 -- Linting

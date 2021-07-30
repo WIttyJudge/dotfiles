@@ -2,11 +2,36 @@
 
 local config = {
   signs = {
-    add          = {hl = 'GitSignsAdd'   , text = '+', numhl='GitSignsAddNr'   , linehl='GitSignsAddLn'},
-    change       = {hl = 'GitSignsChange', text = '~', numhl='GitSignsChangeNr', linehl='GitSignsChangeLn'},
-    delete       = {hl = 'GitSignsDelete', text = '-', numhl='GitSignsDeleteNr', linehl='GitSignsDeleteLn'},
-    topdelete    = {hl = 'GitSignsDelete', text = '_', numhl='GitSignsDeleteNr', linehl='GitSignsDeleteLn'},
-    changedelete = {hl = 'GitSignsChangeDelete', text = '~', numhl='GitSignsChangeNr', linehl='GitSignsChangeLn'},
+    add = {
+      hl = 'GitSignsAdd',
+      text = '│',
+      numhl = 'GitSignsAddNr',
+      linehl = 'GitSignsAddLn'
+    },
+    change = {
+      hl = 'GitSignsChange',
+      text = '│',
+      numhl = 'GitSignsChangeNr',
+      linehl = 'GitSignsChangeLn'
+    },
+    delete = {
+      hl = 'GitSignsDelete',
+      text = '-',
+      numhl = 'GitSignsDeleteNr',
+      linehl = 'GitSignsDeleteLn'
+    },
+    topdelete = {
+      hl = 'GitSignsDelete',
+      text = '_',
+      numhl = 'GitSignsDeleteNr',
+      linehl = 'GitSignsDeleteLn'
+    },
+    changedelete = {
+      hl = 'GitSignsChangeDelete',
+      text = '~',
+      numhl = 'GitSignsChangeNr',
+      linehl = 'GitSignsChangeLn'
+    }
   },
   -- hightlight numbers
   numhl = false,
@@ -16,8 +41,14 @@ local config = {
     noremap = true,
     buffer = true,
 
-    ['n <Leader>gj'] = { expr = true, "&diff ? ']c' : '<cmd>lua require\"gitsigns\".next_hunk()<CR>'"},
-    ['n <Leader>gk'] = { expr = true, "&diff ? '[c' : '<cmd>lua require\"gitsigns\".prev_hunk()<CR>'"},
+    ['n <Leader>gj'] = {
+      expr = true,
+      "&diff ? ']c' : '<cmd>lua require\"gitsigns\".next_hunk()<CR>'"
+    },
+    ['n <Leader>gk'] = {
+      expr = true,
+      "&diff ? '[c' : '<cmd>lua require\"gitsigns\".prev_hunk()<CR>'"
+    },
     ['n <leader>gu'] = '<cmd>lua require"gitsigns".reset_hunk()<CR>',
 
     ['v <leader>ga'] = '<cmd>lua require"gitsigns".stage_hunk({vim.fn.line("."), vim.fn.line("v")})<CR>',
@@ -32,9 +63,7 @@ local config = {
     ['o ih'] = ':<C-U>lua require"gitsigns".text_object()<CR>',
     ['x ih'] = ':<C-U>lua require"gitsigns".text_object()<CR>'
   },
-  watch_index = {
-    interval = 1000
-  },
+  watch_index = { interval = 1000 },
   current_line_blame = false,
   current_line_blame_delay = 300,
   current_line_blame_position = 'eol',

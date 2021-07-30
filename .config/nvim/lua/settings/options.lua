@@ -9,6 +9,7 @@ local opt = vim.opt
 
 -- Enables syntax highlighing
 vim.cmd([[ syntax enable ]])
+vim.cmd([[ filetype plugin on ]])
 
 -- Set default encoding
 opt.encoding = 'UTF-8'
@@ -24,7 +25,7 @@ opt.tabstop = 2
 opt.number = true
 opt.relativenumber = true
 -- Keep 7 lines below and above the cursor
-opt.scrolloff = 7
+opt.scrolloff = 10
 -- opt.colorcolumn = 80
 opt.signcolumn = 'yes'
 opt.fixeol = true

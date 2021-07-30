@@ -33,7 +33,7 @@ local lsp_signature_cfg = {
   use_lspsaga = true   -- set to true if you want to use lspsaga popup
 }
 
-local function nnoremap(lhs, rhs)
+local function nnoremap(key, action)
   vim.api.nvim_buf_set_keymap(0, 'n', lhs, rhs, {noremap = true, silent = true})
 end
 

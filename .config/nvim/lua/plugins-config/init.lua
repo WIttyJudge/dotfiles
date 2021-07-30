@@ -19,6 +19,7 @@ local plugins = {
   "surround",
   -- "telescope",
   "todo-comments",
+  "TruZen",
   "undotree",
   "vim-rooter",
   "vim-startify",
@@ -31,14 +32,28 @@ for _, plugin in ipairs(plugins) do
   -- end
 end
 
+local builtin_plugins = {
+  "netrw",
+  "netrwPlugin",
+  "netrwSettings",
+  "netrwFileHandlers",
+  "gzip",
+  "zip",
+  "zipPlugin",
+  "tar",
+  "tarPlugin",
+  "getscript",
+  "getscriptPlugin",
+  "vimball",
+  "vimballPlugin",
+  "2html_plugin",
+  "logipat",
+  "rrhelper",
+  "spellfile_plugin",
+  "matchit"
+}
+
 -- Disabling the builtin vim plugin
-vim.g.loaded_gzip         = 1
-vim.g.loaded_tar          = 1
-vim.g.loaded_tarPlugin    = 1
-vim.g.loaded_zipPlugin    = 1
-vim.g.loaded_2html_plugin = 1
-vim.g.loaded_netrw        = 1
-vim.g.loaded_netrwPlugin  = 1
-vim.g.loaded_matchit      = 1
-vim.g.loaded_matchparen   = 1
-vim.g.loaded_spec         = 1
+for _, plugin in ipairs(builtin_plugins) do
+  vim.g["loaded_" .. plugin] = 1
+end

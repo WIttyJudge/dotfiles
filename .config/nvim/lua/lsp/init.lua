@@ -13,9 +13,65 @@ vim.cmd('sign define LspDiagnosticsSignError text=' .. icons.diagnostic.error)
 vim.cmd('sign define LspDiagnosticsSignWarning text=' .. icons.diagnostic.warn)
 vim.cmd('sign define LspDiagnosticsSignHint text=' .. icons.diagnostic.hint)
 vim.cmd('sign define LspDiagnosticsSignInformation text=' .. icons.diagnostic.info)
+
+--Enable completion triggered by <c-x><c-o>
 vim.cmd('setlocal omnifunc=v:lua.vim.lsp.omnifunc')
 
 -- https://github.com/neovim/nvim-lspconfig/blob/master/CONFIG.md
+
+-- typescript
+nvim_lsp.tsserver.setup {
+  filetypes = { 
+    "javascript", "javascriptreact", "javascript.jsx", "typescript", 
+    "typescriptreact", "typescript.tsx" 
+  },
+  on_attach = function(client, bufnr)
+    on_attach.on_attach()
+  end,
+  capabilities = capabilities
+}
+
+-- ruby
+nvim_lsp.solargraph.setup {
+  cmd = { "solargraph", "stdio" },
+  filetypes = { "ruby" },
+  on_attach = function(client, bufnr)
+    on_attach.on_attach()
+  end,
+  settings = {
+    solargraph = {
+      formatting = true
+    }
+  }
+}
+
+-- golang
+nvim_lsp.gopls.setup {
+  cmd = {"gopls", "serve"},
+  on_attach = function(client, bufnr)
+    on_attach.on_attach()
+  end,
+  settings = {
+    gopls = {
+      analyses = {
+        unusedparams = true,
+      },
+      staticcheck = true,
+    },
+  },
+}
+
+-- bash
+nvim_lsp.bashls.setup {
+  cmd = { "bash-language-server", "start" },
+  on_attach = function(client, bufnr)
+    on_attach.on_attach()
+  end,
+  filetypes = { "sh" }
+}
+
+-- vim
+nvim_lsp.vimls.setup{}
 
 -- css
 nvim_lsp.cssls.setup { 
@@ -44,39 +100,6 @@ nvim_lsp.html.setup {
   capabilities = capabilities
 }
 
--- ruby
-nvim_lsp.solargraph.setup {
-  cmd = { "solargraph", "stdio" },
-  filetypes = { "ruby" },
-  on_attach = function(client, bufnr)
-    on_attach.on_attach()
-  end,
-  settings = {
-    solargraph = {
-      formatting = true
-    }
-  }
-}
-
--- vim
-nvim_lsp.vimls.setup{}
-
--- golang
-nvim_lsp.gopls.setup {
-  cmd = {"gopls", "serve"},
-  on_attach = function(client, bufnr)
-    on_attach.on_attach()
-  end,
-  settings = {
-    gopls = {
-      analyses = {
-        unusedparams = true,
-      },
-      staticcheck = true,
-    },
-  },
-}
-
 -- yaml
 nvim_lsp.yamlls.setup{
   on_attach = function(client, bufnr)
@@ -86,12 +109,12 @@ nvim_lsp.yamlls.setup{
 
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
   vim.lsp.diagnostic.on_publish_diagnostics, {
-    underline = false,
+    underline = true,
 
     -- Disable virtual_text on file load
     -- Show with vim.lsp.diagnostic.show_line_diagnostics()
     -- I'm using nvim-echo-diagnostic plugin
-    virtual_text = true,
+    virtual_text = false,
     -- virtual_text = {
     --   prefix = "",
     --   spacing = 0,

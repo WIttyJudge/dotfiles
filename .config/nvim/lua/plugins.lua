@@ -107,4 +107,9 @@ require('paq') {
 
   -- Profiling
   "tweekmonster/startuptime.vim";
+
+  -- Full concentration
+  "Pocco81/TrueZen.nvim";
+
+  "caenrique/nvim-maximize-window-toggle";
 }

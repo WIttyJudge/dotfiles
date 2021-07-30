@@ -39,7 +39,8 @@ vim.g.startify_use_env = 1
 vim.g.startify_lists = { 
   { type = 'dir', header = {  "    Recently edited files in "..vim.fn.getcwd()..":" } },
   { type = 'bookmarks', header = { "    Bookmarks" } },
-  { type = 'commands', header = { "    Commands" } }
+  { type = 'commands', header = { "    Commands" } },
+  { type = 'sessions', header = { "   Sessions" } }
 }
 
 vim.g.startify_bookmarks = {

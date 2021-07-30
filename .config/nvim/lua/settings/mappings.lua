@@ -27,7 +27,7 @@ set_keymap('n', '<C-K>', '<C-W><C-K>')
 set_keymap('n', '<C-L>', '<C-W><C-L>')
 set_keymap('n', '<C-H>', '<C-W><C-H>')
 
--- Add space bellow or above without leaving normat mode
+-- Add space bellow or above without leaving normal mode
 vim.cmd([[
 nnoremap <silent> [<space>  :<c-u>put!=repeat([''],v:count)<bar>']+1<cr>
 nnoremap <silent> ]<space>  :<c-u>put =repeat([''],v:count)<bar>'[-1<cr>
@@ -105,8 +105,8 @@ set_keymap('n', '<Leader>t9', '9gt<CR>')
 -- ********* PLUGINS MAPPING *********
 
 -- nvim-hlslens
-set_keymap('n', 'n', "<Cmd>execute('normal! ' . v:count1 . 'n')<CR><Cmd>lua require('hlslens').start()<CR>")
-set_keymap('n', 'N', "<Cmd>execute('normal! ' . v:count1 . 'N')<CR><Cmd>lua require('hlslens').start()<CR>")
+set_keymap('n', 'n', "<Cmd>execute('normal! ' . v:count1 . 'nzzzv')<CR><Cmd>lua require('hlslens').start()<CR>")
+set_keymap('n', 'N', "<Cmd>execute('normal! ' . v:count1 . 'Nzzzv')<CR><Cmd>lua require('hlslens').start()<CR>")
 set_keymap('n', '*', "*``<Cmd>lua require('hlslens').start()<CR>", { silent = false })
 set_keymap('n', '#', "#<Cmd>lua require('hlslens').start()<CR>", { silent = false })
 set_keymap('n', 'g*', "g*<Cmd>lua require('hlslens').start()<CR>", { silent = false })
@@ -155,7 +155,7 @@ set_keymap('n', '<Leader>/', ':CommentToggle<CR>')
 set_keymap('v', '<Leader>/', ':CommentToggle<CR>')
 
 -- nmap <Leader>tt :vnew term://zsh <CR>
-set_keymap('n', '<Leader>tt', ':split term://zsh | resize 25<CR>')
+set_keymap('n', '<Leader>tt', ':split term://zsh | resize 20<CR> | a<CR>')
 -- tmap <Leader>ot <C-\><C-n>:Ttoggle<CR>
 
 -- LSP
