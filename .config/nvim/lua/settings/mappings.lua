@@ -5,15 +5,15 @@
 -- Read more about mappings
 -- https://github.com/nanotee/nvim-lua-guide#defining-mappings
 
-local function set_keymap(mode, lhs, rhs, opts)
+local function set_keymap(mode, key, action, opts)
   local default_opts = { noremap = true, silent = true}
 
   local opts = opts or {}
-
+  
   -- rewrite default_opts if opts defined
   default_opts = vim.tbl_extend("force", default_opts, opts)
 
-  vim.api.nvim_set_keymap(mode, lhs, rhs, default_opts)
+  vim.api.nvim_set_keymap(mode, key, action, default_opts)
 end
 
 -- Set leader key
@@ -102,6 +102,11 @@ set_keymap('n', '<Leader>t7', '7gt<CR>')
 set_keymap('n', '<Leader>t8', '8gt<CR>')
 set_keymap('n', '<Leader>t9', '9gt<CR>')
 
+-- Open terminal
+-- nmap <Leader>tt :vnew term://zsh <CR>
+set_keymap('n', '<Leader>tt', ':split term://zsh | resize 20<CR> | a<CR>')
+-- tmap <Leader>ot <C-\><C-n>:Ttoggle<CR>
+
 -- ********* PLUGINS MAPPING *********
 
 -- nvim-hlslens
@@ -153,10 +158,6 @@ set_keymap('n', '<Leader>ut', ':UndotreeToggle<CR>')
 -- nvim-comment
 set_keymap('n', '<Leader>/', ':CommentToggle<CR>')
 set_keymap('v', '<Leader>/', ':CommentToggle<CR>')
-
--- nmap <Leader>tt :vnew term://zsh <CR>
-set_keymap('n', '<Leader>tt', ':split term://zsh | resize 20<CR> | a<CR>')
--- tmap <Leader>ot <C-\><C-n>:Ttoggle<CR>
 
 -- LSP
 -- Expand or jump

@@ -6,8 +6,9 @@ local on_attach = require('lsp/on_attach')
 local icons = require('custom.icons')
 
 local nvim_lsp = require('lspconfig')
--- local capabilities = vim.lsp.protocol.make_client_capabilities()
--- capabilities.textDocument.completion.completionItem.snippetSupport = true
+
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities.textDocument.completion.completionItem.snippetSupport = true
 
 vim.cmd('sign define LspDiagnosticsSignError text=' .. icons.diagnostic.error)
 vim.cmd('sign define LspDiagnosticsSignWarning text=' .. icons.diagnostic.warn)
@@ -25,32 +26,29 @@ nvim_lsp.tsserver.setup {
     "javascript", "javascriptreact", "javascript.jsx", "typescript", 
     "typescriptreact", "typescript.tsx" 
   },
+  capabilities = capabilities,
   on_attach = function(client, bufnr)
     on_attach.on_attach()
-  end,
-  capabilities = capabilities
+  end
 }
 
 -- ruby
 nvim_lsp.solargraph.setup {
   cmd = { "solargraph", "stdio" },
   filetypes = { "ruby" },
-  on_attach = function(client, bufnr)
-    on_attach.on_attach()
-  end,
   settings = {
     solargraph = {
       formatting = true
     }
-  }
+  },
+  on_attach = function(client, bufnr)
+    on_attach.on_attach()
+  end
 }
 
 -- golang
 nvim_lsp.gopls.setup {
   cmd = {"gopls", "serve"},
-  on_attach = function(client, bufnr)
-    on_attach.on_attach()
-  end,
   settings = {
     gopls = {
       analyses = {
@@ -59,19 +57,22 @@ nvim_lsp.gopls.setup {
       staticcheck = true,
     },
   },
+  on_attach = function(client, bufnr)
+    on_attach.on_attach()
+  end
 }
 
 -- bash
 nvim_lsp.bashls.setup {
+  filetypes = { "sh" },
   cmd = { "bash-language-server", "start" },
   on_attach = function(client, bufnr)
     on_attach.on_attach()
-  end,
-  filetypes = { "sh" }
+  end
 }
 
 -- vim
-nvim_lsp.vimls.setup{}
+nvim_lsp.vimls.setup {}
 
 -- css
 nvim_lsp.cssls.setup { 
@@ -85,27 +86,44 @@ nvim_lsp.cssls.setup {
     scss = {
       validate = true
     }
-  }
+  },
+  capabilities = capabilities,
+  on_attach = function(client, bufnr)
+    on_attach.on_attach()
+  end
 }
 
 -- docker
-nvim_lsp.dockerls.setup{}
+nvim_lsp.dockerls.setup {
+  on_attach = function(client, bufnr)
+    on_attach.on_attach()
+  end,
+}
 
 -- html
 nvim_lsp.html.setup {
   filetypes = { "html", "eruby"},
+  capabilities = capabilities,
   on_attach = function(client, bufnr)
     on_attach.on_attach()
   end,
-  capabilities = capabilities
 }
 
 -- yaml
-nvim_lsp.yamlls.setup{
+nvim_lsp.yamlls.setup {
   on_attach = function(client, bufnr)
     on_attach.on_attach()
   end,
 }
+
+-- sql
+-- nvim_lsp.sqlls.setup {
+--   filetypes = { "sql", "mysql" },
+--   cmd = {"sql-language-server", "up", "--method", "stdio"};
+--   on_attach = function(client, bufnr)
+--     on_attach.on_attach()
+--   end,
+-- }
 
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
   vim.lsp.diagnostic.on_publish_diagnostics, {

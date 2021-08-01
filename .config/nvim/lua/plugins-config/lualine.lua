@@ -86,7 +86,9 @@ local config = {
       'fugitive',
       'fugitiveblame',
       'gitcommit',
-      'help'
+      'help',
+      'dbui',
+      'dbout'
     }
   },
   sections = {

@@ -2,9 +2,6 @@ local cmd = vim.cmd
 
 -- Highlight like an error if more then 80 lines of code in one line.
 -- match ErrorMsg '\%>80v.\+'
-cmd([[
-autocmd FileType fern setlocal signcolumn=no
-]])
 
 -- Highlight yanked text
 cmd([[

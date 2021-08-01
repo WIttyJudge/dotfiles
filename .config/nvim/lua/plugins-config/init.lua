@@ -21,6 +21,7 @@ local plugins = {
   "todo-comments",
   "TruZen",
   "undotree",
+  "vim-dadbod-ui",
   "vim-rooter",
   "vim-startify",
   "vsnip",
@@ -53,7 +54,7 @@ local builtin_plugins = {
   "matchit"
 }
 
--- Disabling the builtin vim plugin
+-- Disabling builtins vim plugin
 for _, plugin in ipairs(builtin_plugins) do
   vim.g["loaded_" .. plugin] = 1
 end

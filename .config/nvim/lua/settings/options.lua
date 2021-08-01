@@ -81,9 +81,9 @@ opt.completeopt = { 'menuone', 'noinsert', 'noselect' }
 opt.shortmess:append({ c = true })
 
 -- Save undo history to the file.
-opt.undofile = false
+opt.undofile = true
 opt.undolevels = 100
-opt.undodir = '~/.vim/undo'
+opt.undodir = '/home/wittyjudge/.vim/undo'
 
 -- SEARCHING
 -- Case insensitive searching

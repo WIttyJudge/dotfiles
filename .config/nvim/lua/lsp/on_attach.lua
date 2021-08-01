@@ -34,7 +34,7 @@ local lsp_signature_cfg = {
 }
 
 local function nnoremap(key, action)
-  vim.api.nvim_buf_set_keymap(0, 'n', lhs, rhs, {noremap = true, silent = true})
+  vim.api.nvim_buf_set_keymap(0, 'n', key, action, {noremap = true, silent = true})
 end
 
 local M = {}

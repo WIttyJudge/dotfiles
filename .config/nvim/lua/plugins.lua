@@ -15,8 +15,7 @@ require('paq') {
   "neovim/nvim-lspconfig";
   "onsails/lspkind-nvim";
   "glepnir/lspsaga.nvim";
-  -- "kabouzeid/nvim-lspinstall";
-  -- "seblj/nvim-echo-diagnostics";
+  "kabouzeid/nvim-lspinstall";
 
   -- Aucomplete
   "hrsh7th/nvim-compe";
@@ -111,5 +110,7 @@ require('paq') {
   -- Full concentration
   "Pocco81/TrueZen.nvim";
 
-  "caenrique/nvim-maximize-window-toggle";
+  -- Database
+  "tpope/vim-dadbod";
+  "kristijanhusak/vim-dadbod-ui";
 }

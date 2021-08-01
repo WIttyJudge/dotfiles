@@ -1,7 +1,5 @@
 -- https://github.com/mhar tington/formatter.nvim
 
-local current_file_path = vim.api.nvim_buf_get_name(0)
-
 local function rubocop()
   return {
     exe = 'rubocop',
@@ -27,13 +25,13 @@ local function lua_format()
 end
 
 local function shfmt()
-  return { exe = 'shfmt', args = { '"%:p"' }, stdin = true }
+  return { exe = 'shfmt', args = { vim.api.nvim_buf_get_name(0) }, stdin = true }
 end
 
 local function prettier()
   return {
     exe = 'prettier',
-    args = { '--stdin-filepath', current_file_path },
+    args = { '--stdin-filepath', vim.api.nvim_buf_get_name(0) },
     stdin = true
   }
 end
@@ -46,9 +44,8 @@ require('formatter').setup {
     sh = { shfmt },
 
     html = { prettier },
-    css = { prettier},
-    scss = { prettier},
-    -- javascript = { prettier_javascript },
+    css = { prettier },
+    scss = { prettier },
     typescript = { prettier },
 
     json = { prettier},
