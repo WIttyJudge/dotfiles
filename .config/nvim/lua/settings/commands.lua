@@ -8,14 +8,11 @@ command! GoRun :call mappings#RunWith("go run")
 command! JsRun :call mappings#RunWith("node")
 
 command! TsRun :call mappings#RunWith("npx ts-node")
-command! TsBuidl :call mappings#RunWith("npx ts-node")
 ]])
 
 -- Linting
 vim.cmd([[
 command! Goimports :lua require('custom.go.format').goimports(1000)
-" command! FormatterEnable :lua require('toggle-formatting.toggle-formatting').setup({enable: true})
-" command! FormatterDisable :lua require('toggle-formatting.toggle-formatting').setup({enable: false})
 ]])
 
 -- Git

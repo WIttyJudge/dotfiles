@@ -21,7 +21,7 @@ require('paq') {
   "hrsh7th/nvim-compe";
   "ray-x/lsp_signature.nvim";
   "hrsh7th/vim-vsnip";
-  "tpope/vim-endwise";
+  -- "tpope/vim-endwise";
   -- "jiangmiao/auto-pairs";
   "rstacruz/vim-closer";
   -- html
@@ -64,14 +64,10 @@ require('paq') {
   -- Colorscheme
   "sainnhe/gruvbox-material";
 
-  -- Looking for files
-  { "junegunn/fzf", run = 'fzf#install()' };
-  "junegunn/fzf.vim";
-
-  -- telescope requirements...
-  -- "nvim-lua/popup.nvim";
+  -- Looking for files, etc..
+  "nvim-lua/popup.nvim";
   "nvim-lua/plenary.nvim";
-  -- "nvim-telescope/telescope.nvim";
+  "nvim-telescope/telescope.nvim";
   -- "nvim-telescope/telescope-fzy-native.nvim";
 
   -- Explorer
@@ -105,12 +101,17 @@ require('paq') {
   "mbbill/undotree";
 
   -- Profiling
-  "tweekmonster/startuptime.vim";
-
-  -- Full concentration
-  "Pocco81/TrueZen.nvim";
+  -- "tweekmonster/startuptime.vim";
+  "dstein64/vim-startuptime";
 
   -- Database
   "tpope/vim-dadbod";
   "kristijanhusak/vim-dadbod-ui";
+
+  "tpope/vim-rails";
+
+  "tpope/vim-rails";
+
+  "vim-test/vim-test";
+  { "rcarriga/vim-ultest", run = ":UpdateRemotePlugins" }
 }

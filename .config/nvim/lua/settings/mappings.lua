@@ -1,7 +1,5 @@
 -- HELP
 -- <C-f> = CTRL + f
--- <A-j> = ALT + j
-
 -- Read more about mappings
 -- https://github.com/nanotee/nvim-lua-guide#defining-mappings
 
@@ -21,6 +19,8 @@ vim.g.mapleader = ' '
 
 -- ********* CUSTOM MAPPING *********
 
+set_keymap('n', '<leader>tg', ':call v:lua.toggle_diagnostics()<CR>')
+
 -- Easier split navigation, CTRL + hjlk
 set_keymap('n', '<C-J>', '<C-W><C-J>')
 set_keymap('n', '<C-K>', '<C-W><C-K>')
@@ -29,8 +29,8 @@ set_keymap('n', '<C-H>', '<C-W><C-H>')
 
 -- Add space bellow or above without leaving normal mode
 vim.cmd([[
-nnoremap <silent> [<space>  :<c-u>put!=repeat([''],v:count)<bar>']+1<cr>
-nnoremap <silent> ]<space>  :<c-u>put =repeat([''],v:count)<bar>'[-1<cr>
+nnoremap <silent> [<space> :<c-u>put!=repeat([''],v:count)<bar>']+1<CR>
+nnoremap <silent> ]<space> :<c-u>put =repeat([''],v:count)<bar>'[-1<CR>
 ]])
 
 -- Easy copy whole text in file
@@ -122,18 +122,19 @@ set_keymap('c', 'e!!', 'e suda://%', { silent = false })
 set_keymap('c', 'w!!', 'w suda://%', { silent = false })
 
 -- fzf.vim
-set_keymap('', '<Leader>f', ':Files<CR>')
-set_keymap('', '<Leader>b', ':Buffers<CR>')
-set_keymap('n', '<Leader>ps', ':Rg<CR>')
+-- set_keymap('', '<Leader>f', ':Files<CR>')
+-- set_keymap('', '<Leader>b', ':Buffers<CR>')
+-- set_keymap('n', '<Leader>ps', ':Rg<CR>')
 
 -- telescope
--- nnoremap <leader>f :Telescope find_files<CR>
--- nnoremap <Leader>b <cmd>Telescope buffers<cr>
--- nnoremap <leader>ps :lua require('telescope.builtin').grep_string {}<CR>
--- nnoremap <leader>pw :lua require('telescope.builtin').grep_string({ search = vim.fn.input("Grep For > ")})<CR>
+set_keymap('n', '<Leader>f', ':lua require("plugins-config/telescope").find_all_files()<CR>')
 
--- nnoremap <leader>vh :lua require('telescope.builtin').help_tags()<CR>
--- nnoremap <leader>vrc :lua require('telescope.builtin').search_dotfiles()<CR>
+set_keymap('n', '<Leader>bb', ':lua require("telescope/builtin").buffers()<CR>')
+set_keymap('n', '<Leader>bj', ':bprevious<CR>')
+set_keymap('n', '<Leader>bk', ':bnext<CR>')
+
+set_keymap('n', '<Leader>ps', ':lua require("telescope/builtin").live_grep()<CR>')
+set_keymap('n', '<Leader>gb', ':lua require("plugins-config/telescope").git_branches()<CR>')
 
 -- nvim-tree.lua
 set_keymap('n', '<C-b>', ':NvimTreeToggle<CR>')
@@ -159,9 +160,3 @@ set_keymap('n', '<Leader>ut', ':UndotreeToggle<CR>')
 set_keymap('n', '<Leader>/', ':CommentToggle<CR>')
 set_keymap('v', '<Leader>/', ':CommentToggle<CR>')
 
--- LSP
--- Expand or jump
-vim.cmd([[
-imap <expr> <C-l> vsnip#available(1) ? '<Plug>(vsnip-expand-or-jump)' : '<C-l>'
-smap <expr> <C-l> vsnip#available(1) ? '<Plug>(vsnip-expand-or-jump)' : '<C-l>'
-]])

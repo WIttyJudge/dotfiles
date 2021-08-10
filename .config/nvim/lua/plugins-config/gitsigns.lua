@@ -69,8 +69,7 @@ local config = {
   current_line_blame_position = 'eol',
   sign_priority = 6,
   update_debounce = 200,
-  status_formatter = nil, -- Use default
-  use_decoration_api = false
+  status_formatter = nil -- Use default
 }
 
 require("gitsigns").setup(config)

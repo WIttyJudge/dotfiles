@@ -1,5 +1,4 @@
 -- https://github.com/nvim-treesitter/nvim-treesitter
-
 local config = {
   -- ensure_installed = "all",  -- one of "all", "maintained" (parsers with maintainers), or a list of languages
   ensure_installed = {
@@ -19,15 +18,7 @@ local config = {
   },
 
   -- nvim-treesitter-refactor
-  refactor = {
-    highlight_definitions = { enable = true },
-    keymaps = {
-      -- goto_definition = "gd",
-      -- goto_definition_lsp_fallback = "gd",
-      -- goto_next_usage = "<A-*>",
-      -- goto_previous_usage = "<A-#>",
-    }
-  },
+  refactor = { highlight_definitions = { enable = true } },
 
   -- nvim-ts-autotag
   autotag = {

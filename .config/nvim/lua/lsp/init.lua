@@ -20,118 +20,86 @@ vim.cmd('setlocal omnifunc=v:lua.vim.lsp.omnifunc')
 
 -- https://github.com/neovim/nvim-lspconfig/blob/master/CONFIG.md
 
--- typescript
-nvim_lsp.tsserver.setup {
-  filetypes = { 
-    "javascript", "javascriptreact", "javascript.jsx", "typescript", 
-    "typescriptreact", "typescript.tsx" 
+-- Setup LSP for docker, yaml, typescript, ruby, golang, rust, bash, html, css
+local servers = {
+  dockerls = true,
+  yamlls = true,
+  rust_analyzer = true,
+  tsserver = {
+    filetypes = { 
+      "javascript", "javascriptreact", "javascript.jsx", "typescript", 
+      "typescriptreact", "typescript.tsx" 
+    },
   },
-  capabilities = capabilities,
-  on_attach = function(client, bufnr)
-    on_attach.on_attach()
-  end
-}
-
--- ruby
-nvim_lsp.solargraph.setup {
-  cmd = { "solargraph", "stdio" },
-  filetypes = { "ruby" },
-  settings = {
-    solargraph = {
-      formatting = true
-    }
+  solargraph = {
+    filetypes = { "ruby" },
+    capabilities = capabilities 
   },
-  on_attach = function(client, bufnr)
-    on_attach.on_attach()
-  end
-}
-
--- golang
-nvim_lsp.gopls.setup {
-  cmd = {"gopls", "serve"},
-  settings = {
-    gopls = {
-      analyses = {
-        unusedparams = true,
+  gopls = {
+    cmd = {"gopls", "serve"},
+    settings = {
+      gopls = {
+        analyses = {
+          unusedparams = true,
+        },
+        staticcheck = true,
       },
-      staticcheck = true,
     },
   },
-  on_attach = function(client, bufnr)
-    on_attach.on_attach()
-  end
-}
-
--- bash
-nvim_lsp.bashls.setup {
-  filetypes = { "sh" },
-  cmd = { "bash-language-server", "start" },
-  on_attach = function(client, bufnr)
-    on_attach.on_attach()
-  end
-}
-
--- vim
-nvim_lsp.vimls.setup {}
-
--- css
-nvim_lsp.cssls.setup { 
-  settings = {
-    css = {
-      validate = true
-    },
-    less = {
-      validate = true
-    },
-    scss = {
-      validate = true
-    }
+  bashls = {
+    filetypes = { "sh" },
+    cmd = { "bash-language-server", "start" },
   },
-  capabilities = capabilities,
-  on_attach = function(client, bufnr)
-    on_attach.on_attach()
+  html = {
+    filetypes = { "html", "eruby"},
+  },
+  cssls = {
+    settings = {
+      css = {
+        validate = true
+      },
+      less = {
+        validate = true
+      },
+      scss = {
+        validate = true
+      }
+    },
+  },
+}
+
+local function setup_server(server_name, config)
+  if not config then
+    return
   end
-}
 
--- docker
-nvim_lsp.dockerls.setup {
-  on_attach = function(client, bufnr)
-    on_attach.on_attach()
-  end,
-}
+  if type(config) ~= "table" then
+    config = {}
+  end
 
--- html
-nvim_lsp.html.setup {
-  filetypes = { "html", "eruby"},
-  capabilities = capabilities,
-  on_attach = function(client, bufnr)
-    on_attach.on_attach()
-  end,
-}
+  config = vim.tbl_deep_extend("force", {
+    on_attach = function(client, bufnr)
+      on_attach.on_attach()
+    end,
+    capabilities = capabilities,
+    flags = {
+      debounce_text_changes = 50,
+    },
+  }, config)
 
--- yaml
-nvim_lsp.yamlls.setup {
-  on_attach = function(client, bufnr)
-    on_attach.on_attach()
-  end,
-}
+  nvim_lsp[server_name].setup(config)
+end
 
--- sql
--- nvim_lsp.sqlls.setup {
---   filetypes = { "sql", "mysql" },
---   cmd = {"sql-language-server", "up", "--method", "stdio"};
---   on_attach = function(client, bufnr)
---     on_attach.on_attach()
---   end,
--- }
+for server, config in pairs(servers) do
+  setup_server(server, config)
+end
+
 
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
   vim.lsp.diagnostic.on_publish_diagnostics, {
     underline = true,
 
     -- Disable virtual_text on file load
-    -- Show with vim.lsp.diagnostic.show_line_diagnostics()
-    -- I'm using nvim-echo-diagnostic plugin
     virtual_text = false,
     -- virtual_text = {
     --   prefix = "",

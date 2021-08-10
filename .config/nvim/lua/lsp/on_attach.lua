@@ -19,18 +19,24 @@ local custom_function = require('custom.functions')
 
 local mappings = {
   ['gd'] = ":lua vim.lsp.buf.definition()<CR>",
-  ['K'] = ":Lspsaga hover_doc<CR>",
-  ['<C-k>'] = ":Lspsaga signature_help<CR>",
+
+  -- ['K'] = ":Lspsaga hover_doc<CR>",
+  ['K'] = ":lua vim.lsp.buf.hover()<CR>",
+  -- ['<C-k>'] = ":Lspsaga signature_help<CR>",
+  ['<C-K>'] = ":lua vim.lsp.buf.signature_help()<CR>",
   ['<Leader>ar'] = ":Lspsaga rename<CR>",
 
-  ['<Leader>ee'] = ":Lspsaga show_line_diagnostics<CR>",
-  ['<Leader>ej'] = ":Lspsaga diagnostic_jump_next<CR>",
-  ['<Leader>ek'] = ":Lspsaga diagnostic_jump_prev<CR>",
+  -- ['<Leader>ee'] = ":Lspsaga show_line_diagnostics<CR>",
+  -- ['<Leader>ej'] = ":Lspsaga diagnostic_jump_next<CR>",
+  -- ['<Leader>ek'] = ":Lspsaga diagnostic_jump_prev<CR>",
+  ['<Leader>ee'] = ":lua vim.lsp.diagnostic.show_line_diagnostics()<CR>",
+  ['<Leader>ej'] = ":lua vim.lsp.diagnostic.goto_next()<CR>",
+  ['<Leader>ek'] = ":lua vim.lsp.diagnostic.goto_prev()<CR>",
 }
 
 -- https://github.com/ray-x/lsp_signature.nvim#full-configuration
 local lsp_signature_cfg = {
-  use_lspsaga = true   -- set to true if you want to use lspsaga popup
+  use_lspsaga = false   -- set to true if you want to use lspsaga popup
 }
 
 local function nnoremap(key, action)

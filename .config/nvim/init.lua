@@ -1,3 +1,7 @@
+-- Functions the whole lua code can use without any require.
+-- eg. dump({1, 2, 3})
+require('custom/global_functions')
+
 -- Paq package manager
 require('plugins')
 
@@ -11,7 +15,7 @@ require('settings/autocmds')
 -- nvim-compe
 require('settings/completion')
 
--- Lsp configuration
+-- LSP configuration
 require('lsp')
 
 -- Includes all configurations for installed plugins
