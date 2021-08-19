@@ -23,7 +23,8 @@ local mappings = {
   -- ['K'] = ":Lspsaga hover_doc<CR>",
   ['K'] = ":lua vim.lsp.buf.hover()<CR>",
   -- ['<C-k>'] = ":Lspsaga signature_help<CR>",
-  ['<C-K>'] = ":lua vim.lsp.buf.signature_help()<CR>",
+  -- TODO: Need to map this.
+  -- ['<C-k>'] = ":lua vim.lsp.buf.signature_help()<CR>",
   ['<Leader>ar'] = ":Lspsaga rename<CR>",
 
   -- ['<Leader>ee'] = ":Lspsaga show_line_diagnostics<CR>",

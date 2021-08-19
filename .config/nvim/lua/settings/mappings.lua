@@ -129,9 +129,9 @@ set_keymap('c', 'w!!', 'w suda://%', { silent = false })
 -- telescope
 set_keymap('n', '<Leader>f', ':lua require("plugins-config/telescope").find_all_files()<CR>')
 
-set_keymap('n', '<Leader>bb', ':lua require("telescope/builtin").buffers()<CR>')
-set_keymap('n', '<Leader>bj', ':bprevious<CR>')
-set_keymap('n', '<Leader>bk', ':bnext<CR>')
+set_keymap('n', '<Leader>b', ':lua require("telescope/builtin").buffers()<CR>')
+-- set_keymap('n', '<Leader>bj', ':bprevious<CR>')
+-- set_keymap('n', '<Leader>bk', ':bnext<CR>')
 
 set_keymap('n', '<Leader>ps', ':lua require("telescope/builtin").live_grep()<CR>')
 set_keymap('n', '<Leader>gb', ':lua require("plugins-config/telescope").git_branches()<CR>')

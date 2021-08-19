@@ -68,7 +68,6 @@ local vi_mode_color = {
   t = colors.red
 }
 
--- Config
 local config = {
   options = {
     -- Disable sections and component separators
@@ -88,7 +87,8 @@ local config = {
       'gitcommit',
       'help',
       'dbui',
-      'dbout'
+      'dbout',
+      'Trouble'
     }
   },
   sections = {
@@ -179,7 +179,7 @@ ins_left {
   },
   color_error = colors.red,
   color_warn = colors.yellow,
-  color_info = colors.cyan
+  color_info = colors.blue
 }
 
 -- Insert mid section. You can make any number of sections in neovim :)

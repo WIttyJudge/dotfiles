@@ -8,11 +8,14 @@ vim.g.db_ui_force_echo_notifications = 1
 
 vim.g.db_ui_table_helpers = {
   mysql = {
-    delete_from = "DELETE FROM {table} WHERE table = "
+    delete_from = 'DELETE FROM {table} WHERE table = '
   },
  	clickhouse = {
     select_limit_1 = 'SELECT * FROM {table} limit 1 FORMAT Vertical',
+    select_limit_200 = 'SELECT * FROM {table} limit 200 FORMAT Vertical',
  		show_create_table = 'SHOW CREATE TABLE {table} FORMAT PrettyNoEscapes',
- 		describe = 'DESCRIBE {table} FORMAT PrettyNoEscapes'
+ 		describe = 'DESCRIBE {table} FORMAT PrettyNoEscapes',
+ 		drop_table = 'DROP TABLE {table}',
+ 		count = 'SELECT count(*) FROM {table}',
  	}
 }

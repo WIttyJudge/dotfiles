@@ -10,10 +10,10 @@ local nvim_lsp = require('lspconfig')
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 
-vim.cmd('sign define LspDiagnosticsSignError text=' .. icons.diagnostic.error)
-vim.cmd('sign define LspDiagnosticsSignWarning text=' .. icons.diagnostic.warn)
-vim.cmd('sign define LspDiagnosticsSignHint text=' .. icons.diagnostic.hint)
-vim.cmd('sign define LspDiagnosticsSignInformation text=' .. icons.diagnostic.info)
+vim.fn.sign_define("LspDiagnosticsSignError", { text = icons.diagnostic.error })
+vim.fn.sign_define("LspDiagnosticsSignWarning", { text = icons.diagnostic.warn })
+vim.fn.sign_define("LspDiagnosticsSignHint", { text = icons.diagnostic.hint })
+vim.fn.sign_define("LspDiagnosticsSignInformation", { text = icons.diagnostic.info })
 
 --Enable completion triggered by <c-x><c-o>
 vim.cmd('setlocal omnifunc=v:lua.vim.lsp.omnifunc')
@@ -97,7 +97,7 @@ end
 
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
   vim.lsp.diagnostic.on_publish_diagnostics, {
-    underline = true,
+    underline = false,
 
     -- Disable virtual_text on file load
     virtual_text = false,

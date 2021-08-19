@@ -19,13 +19,14 @@ local tree_cb = require'nvim-tree.config'.nvim_tree_callback
 vim.g.nvim_tree_bindings = {
   -- custom mappings
   { key = {"<CR>", "l", "<2-LeftMouse>"}, cb = tree_cb("edit") },
-  { key = "s",                            cb = tree_cb("vsplit") },
+  { key = "v",                            cb = tree_cb("vsplit") },
   { key = "b",                            cb = tree_cb("split") },
   { key = "t",                            cb = tree_cb("tabnew") },
   { key = "dd",                           cb = tree_cb("remove") },
+  { key = "?",                            cb = tree_cb("toggle_help") },
+  { key = {"<CR>"},                       cb = tree_cb("cd") },
 
   -- default mappings
-  { key = {"<2-RightMouse>", "<C-}>"},    cb = tree_cb("cd") },
   { key = "<",                            cb = tree_cb("prev_sibling") },
   { key = ">",                            cb = tree_cb("next_sibling") },
   { key = "P",                            cb = tree_cb("parent_node") },
@@ -50,5 +51,4 @@ vim.g.nvim_tree_bindings = {
   { key = "}c",                           cb = tree_cb("next_git_item") },
   { key = "-",                            cb = tree_cb("dir_up") },
   { key = "q",                            cb = tree_cb("close") },
-  { key = "g?",                           cb = tree_cb("toggle_help") },
 }

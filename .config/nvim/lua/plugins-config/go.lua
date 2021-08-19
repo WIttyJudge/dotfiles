@@ -1,3 +1,5 @@
+-- https://github.com/ray-x/go.nvim
+
 local config = {
   goimport = 'goimports', -- goimport command
   gofmt = 'gofumpt', -- gofmt cmd,

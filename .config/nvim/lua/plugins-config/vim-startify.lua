@@ -53,6 +53,6 @@ vim.g.startify_commands = {
   { up = { 'Update Plugins', ':PaqUpdate' }},
   { uc = { 'Clean Plugin Manager', ':PaqClean' } },
   { ch = { 'Check Health', ':checkhealth' } },
-  -- { st = { 'Start Profiling', ':StartupTime ~/.config/nvim/init.lua' } },
+  { st = { 'Start Profiling', ':StartupTime ~/.config/nvim/init.lua' } },
 }
 

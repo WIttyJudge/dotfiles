@@ -105,5 +105,12 @@
       "<% end %>"
 		],
 		"description": "content for method with block"
+  },
+	"link_to": {
+		"prefix": "link_to",
+		"body": [
+      "<%= link_to '${1:Link Name}', ${0:link_path} %>"
+		],
+		"description": "link_to"
   }
 }

@@ -18,6 +18,7 @@ local plugins = {
   "surround",
   "telescope",
   "todo-comments",
+  "trouble",
   "undotree",
   "vim-dadbod-ui",
   "vim-rooter",

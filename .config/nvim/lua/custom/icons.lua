@@ -8,7 +8,7 @@ local icons = {
   diagnostic = {
     error = '',
     warn = '',
-    hint = '',
+    hint = '',
     info = '',
     header_icon = '  ',
   }

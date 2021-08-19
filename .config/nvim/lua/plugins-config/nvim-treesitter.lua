@@ -1,4 +1,5 @@
 -- https://github.com/nvim-treesitter/nvim-treesitter
+
 local config = {
   -- ensure_installed = "all",  -- one of "all", "maintained" (parsers with maintainers), or a list of languages
   ensure_installed = {

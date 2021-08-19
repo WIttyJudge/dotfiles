@@ -16,17 +16,15 @@ require('paq') {
   "onsails/lspkind-nvim";
   "glepnir/lspsaga.nvim";
   "kabouzeid/nvim-lspinstall";
+  "folke/trouble.nvim";
+  "liuchengxu/vista.vim";
 
   -- Aucomplete
   "hrsh7th/nvim-compe";
   "ray-x/lsp_signature.nvim";
   "hrsh7th/vim-vsnip";
-  -- "tpope/vim-endwise";
   -- "jiangmiao/auto-pairs";
   "rstacruz/vim-closer";
-  -- html
-  -- "gregsexton/MatchTag";
-  -- "AndrewRadev/tagalong.vim";
 
   -- Treesitter
   { "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" };
@@ -101,17 +99,9 @@ require('paq') {
   "mbbill/undotree";
 
   -- Profiling
-  -- "tweekmonster/startuptime.vim";
-  "dstein64/vim-startuptime";
+  "tweekmonster/startuptime.vim";
 
   -- Database
   "tpope/vim-dadbod";
   "kristijanhusak/vim-dadbod-ui";
-
-  "tpope/vim-rails";
-
-  "tpope/vim-rails";
-
-  "vim-test/vim-test";
-  { "rcarriga/vim-ultest", run = ":UpdateRemotePlugins" }
 }
