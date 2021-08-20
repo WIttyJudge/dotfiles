@@ -53,6 +53,7 @@ local config = {
 
     ['v <leader>ga'] = '<cmd>lua require"gitsigns".stage_hunk({vim.fn.line("."), vim.fn.line("v")})<CR>',
     ['v <leader>gu'] = '<cmd>lua require"gitsigns".reset_hunk({vim.fn.line("."), vim.fn.line("v")})<CR>',
+    ['n <leader>ga'] = '<cmd>lua require"gitsigns".stage_hunk()<CR>',
 
     -- ['n <leader>hs'] = '<cmd>lua require"gitsigns".stage_hunk()<CR>',
     -- ['n <leader>hu'] = '<cmd>lua require"gitsigns".undo_stage_hunk()<CR>',

@@ -128,21 +128,21 @@ set_keymap('c', 'w!!', 'w suda://%', { silent = false })
 
 -- telescope
 set_keymap('n', '<Leader>f', ':lua require("plugins-config/telescope").find_all_files()<CR>')
-
 set_keymap('n', '<Leader>b', ':lua require("telescope/builtin").buffers()<CR>')
--- set_keymap('n', '<Leader>bj', ':bprevious<CR>')
--- set_keymap('n', '<Leader>bk', ':bnext<CR>')
-
 set_keymap('n', '<Leader>ps', ':lua require("telescope/builtin").live_grep()<CR>')
 set_keymap('n', '<Leader>gb', ':lua require("plugins-config/telescope").git_branches()<CR>')
 
 -- nvim-tree.lua
 set_keymap('n', '<C-b>', ':NvimTreeToggle<CR>')
--- fern.vim
--- nnoremap <C-b> :Fern . -drawer -toggle<CR><C-w>=
 
 -- vim-startify
 set_keymap('n', '<Leader>st', ':Startify<CR>')
+
+-- vgit.nvim
+set_keymap('n', '<Leader>gj', ':VGit hunk_down<CR>')
+set_keymap('n', '<Leader>gk', ':VGit hunk_up<CR>')
+set_keymap('n', '<Leader>gu', ':VGit hunk_reset<CR>')
+set_keymap('n', '<Leader>ga', ':VGit hunk_stage<CR>')
 
 -- vim-fugitive
 set_keymap('n', '<Leader>gd', ':Gdiff<CR>')

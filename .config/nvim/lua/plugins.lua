@@ -37,7 +37,6 @@ require('paq') {
   { "mg979/vim-visual-multi", branch = "master"};
   "blackcauldron7/surround.nvim";
   "AndrewRadev/splitjoin.vim";
-  -- "tpope/vim-unimpaired";
   "kevinhwang91/nvim-hlslens";
   "karb94/neoscroll.nvim";
 
@@ -48,7 +47,8 @@ require('paq') {
 
   -- Git
   "tpope/vim-fugitive";
-  "lewis6991/gitsigns.nvim";
+  -- "lewis6991/gitsigns.nvim";
+  "tanvirtin/vgit.nvim";
   "junegunn/gv.vim";
   -- "sindrets/diffview.nvim";
 
