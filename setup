@@ -70,7 +70,6 @@ setup_link() {
   ln -sf $dotfiles_path/.config/$name $config_path/$name
 }
 
-
 ### SCRIPT EXECUTION ###
 
 # Output brief information before running the script
@@ -90,9 +89,17 @@ for i in ${config_directory[@]}; do
 	setup_link $i
 done
 
+stow --adopt -v -R -t ~ scripts
+
 # Local directory
 # logger_setup_for $dotfiles_path/.local
+# 
 # [ ! -d $HOME/.local ] && mkdir -p $HOME/.local/bin
+# 
 # [ -d $HOME/.local/bin ] && rm -rf $HOME/.local/bin
 # 
 # ln -sf $dotfiles_path/.local/bin $HOME/.local/bin
+# 
+# [ ! -d $HOME/.local/dmenu ] && mkdir -p $HOME/.local/dmenu
+# 
+# ln -sf $dotfiles_path/.local/bin/dmenu $HOME/.local/bin/dmenu

@@ -28,7 +28,7 @@ setopt share_history
 
 # load custom scripts
 if [ -d "$HOME/.local/bin" ] ; then
-  PATH=$PATH$(find $HOME/.local/bin -type d -printf ":%p")
+  PATH=$PATH$(find $HOME/dotfiles/scripts/.local/bin -type d -printf ":%p")
 fi
 
 # History in cache directory:
@@ -44,9 +44,6 @@ HISTCONTROL=ignoreboth:erasedups
 # Load the aliases and functions
 [ -f "$HOME/.alias-functions" ] && source "$HOME/.alias-functions"
 [ -f "$HOME/.aliases" ] && source "$HOME/.aliases"
-
-# Load RVM into a shell session as a function.
-[ -s "$HOME/.rvm/scripts/rvm" ] && source "$HOME/.rvm/scripts/rvm"
 
 # Basic auto/tab complete:
 autoload -U compinit
@@ -95,6 +92,5 @@ zinit light woefe/git-prompt.zsh
 
 source ~/.config/zsh/prompt.sh
 
-bindkey '^ ' autosuggest-accept
-
-alias luamake=/home/wittyjudge/lua-language-server/3rd/luamake/luamake
+# Load RVM into a shell session as a function.
+[ -s "$HOME/.rvm/scripts/rvm" ] && source "$HOME/.rvm/scripts/rvm"

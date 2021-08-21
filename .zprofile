@@ -8,7 +8,6 @@
 
 # Adds `~/.local/bin` to $PATH
 export PATH="$HOME/.local/bin:$PATH"
-export PATH="$PATH:${$(find ~/.local/bin -type d -printf %p:)%%:}"
 
 # Default apps
 export EDITOR="nvim"

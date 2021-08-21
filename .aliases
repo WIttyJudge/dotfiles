@@ -9,7 +9,7 @@ alias \
   p="sudo pacman " \
 	cp="cp -iv" \
 	mv="mv -iv" \
-  ping="ping -c 3 8.8.8.8" \
+  ping="ping -c 3 youtube.com" \
   e="$EDITOR" \
 
 # for testing

@@ -28,7 +28,7 @@ case "$choice" in
   "4 [ bookmarks ]")
     open-bookmarks ;;
   "dotfiles")
-    $TERMINAL -e sh -c 'cd ~/dotfiles && nvim' ;;
+    $TERMINAL -e sh -c 'cd ~/dotfiles && sleep 0.01 && nvim' ;;
   "suckess-tools")
     $TERMINAL -e sh -c 'cd ~/suckless-tools && nvim' ;;
   '< Exit') exit ;;

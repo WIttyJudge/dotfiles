@@ -11,7 +11,7 @@ vim.g.db_ui_table_helpers = {
     delete_from = 'DELETE FROM {table} WHERE table = '
   },
  	clickhouse = {
-    select_limit_1 = 'SELECT * FROM {table} limit 1 FORMAT Vertical',
+    select_latest_limit_1 = 'SELECT * FROM {table} ORDER BY tx_time DESC LIMIT 1 FORMAT Vertical',
     select_limit_200 = 'SELECT * FROM {table} limit 200 FORMAT Vertical',
  		show_create_table = 'SHOW CREATE TABLE {table} FORMAT PrettyNoEscapes',
  		describe = 'DESCRIBE {table} FORMAT PrettyNoEscapes',

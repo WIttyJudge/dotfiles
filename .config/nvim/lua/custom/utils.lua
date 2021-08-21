@@ -22,4 +22,8 @@ function M.convert_utf8_to_character(code)
   return table.concat(t)
 end
 
+function M.run_code(command)
+  vim.cmd('! ruby ' .. vim.fn.expand('%:p'))
+end
+
 return M
