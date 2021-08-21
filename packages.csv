@@ -22,7 +22,7 @@ TRUE,,scrot,Simple command-line screenshot utility for X.
 TRUE,,ttf-fira-code,Monospaced font with programming ligatures.
 ,,ttf-hack,Cool font for terminal and coding.
 ,,ttf-joypixels, Pack with some cool emodjis.
-,AUR,nerd-fonts-complete-mono-glyphs,Iconic font aggregator 3,600+ icons and 50+ patched fonts. (Mono glyphs only).
+,AUR,nerd-fonts-complete-mono-glyphs,Iconic font aggregator 3.600+ icons and 50+ patched fonts (Mono glyphs only).
 ,,noto-fonts,Google Noto TTF fonts.
 ,,httpie,user-friendly command-line HTTP client for the API era.
 ,,ripgrep,A search tool that combines the usability of ag with the raw speed of grep.
