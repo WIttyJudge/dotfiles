@@ -46,6 +46,7 @@ require('formatter').setup {
     html = { prettier },
     css = { prettier },
     scss = { prettier },
+    javascript = { prettier },
     typescript = { prettier },
 
     json = { prettier},

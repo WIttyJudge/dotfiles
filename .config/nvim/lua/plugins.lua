@@ -15,9 +15,11 @@ require('paq') {
   "neovim/nvim-lspconfig";
   "onsails/lspkind-nvim";
   "glepnir/lspsaga.nvim";
-  "kabouzeid/nvim-lspinstall";
   "folke/trouble.nvim";
   "liuchengxu/vista.vim";
+
+  -- LSP installer
+  "williamboman/nvim-lsp-installer";
 
   -- Aucomplete
   "hrsh7th/nvim-compe";

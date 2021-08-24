@@ -1,6 +1,3 @@
--- local nvim_lsp = require('lspconfig')
--- require'lspinstall'.setup() -- important
-
 local custom_function = require('custom.functions')
 
 -- lspsaga
@@ -30,9 +27,9 @@ local mappings = {
   -- ['<Leader>ee'] = ":Lspsaga show_line_diagnostics<CR>",
   -- ['<Leader>ej'] = ":Lspsaga diagnostic_jump_next<CR>",
   -- ['<Leader>ek'] = ":Lspsaga diagnostic_jump_prev<CR>",
-  ['<Leader>ee'] = ":lua vim.lsp.diagnostic.show_line_diagnostics()<CR>",
-  ['<Leader>ej'] = ":lua vim.lsp.diagnostic.goto_next()<CR>",
-  ['<Leader>ek'] = ":lua vim.lsp.diagnostic.goto_prev()<CR>",
+  ['<Leader>ee'] = ":lua require('lsp.diagnostic').show_line_diagnostics()<CR>",
+  ['<Leader>ej'] = ":lua require('lsp.diagnostic').goto_next()<CR>",
+  ['<Leader>ek'] = ":lua require('lsp.diagnostic').goto_prev()<CR>",
 }
 
 -- https://github.com/ray-x/lsp_signature.nvim#full-configuration

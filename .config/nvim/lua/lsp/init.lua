@@ -2,10 +2,10 @@
 
 -- Global configs
 local on_attach = require('lsp/on_attach')
-
 local icons = require('custom.icons')
 
 local nvim_lsp = require('lspconfig')
+local lsp_installer = require'nvim-lsp-installer'
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true
@@ -18,9 +18,8 @@ vim.fn.sign_define("LspDiagnosticsSignInformation", { text = icons.diagnostic.in
 --Enable completion triggered by <c-x><c-o>
 vim.cmd('setlocal omnifunc=v:lua.vim.lsp.omnifunc')
 
--- https://github.com/neovim/nvim-lspconfig/blob/master/CONFIG.md
-
 -- Setup LSP for docker, yaml, typescript, ruby, golang, rust, bash, html, css
+-- READ MORE: https://github.com/neovim/nvim-lspconfig/blob/master/CONFIG.md
 local servers = {
   dockerls = true,
   yamlls = true,
@@ -33,7 +32,6 @@ local servers = {
   },
   solargraph = {
     filetypes = { "ruby" },
-    capabilities = capabilities 
   },
   gopls = {
     cmd = {"gopls", "serve"},
@@ -91,9 +89,15 @@ local function setup_server(server_name, config)
 end
 
 for server, config in pairs(servers) do
+  local ok, lsp_server = lsp_installer.get_server(server)
+  if ok then
+    if not lsp_server:is_installed() then
+      lsp_server:install()
+    end
+  end
+
   setup_server(server, config)
 end
-
 
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
   vim.lsp.diagnostic.on_publish_diagnostics, {

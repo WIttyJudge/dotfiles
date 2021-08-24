@@ -62,6 +62,9 @@ opt.showtabline = 2
 -- More space for displaying messages
 opt.cmdheight = 2
 
+-- Enable mouse
+opt.mouse = 'a'
+
 -- Horizontal splits will open below
 opt.splitbelow = true
 -- Vertical splits will open  right
@@ -76,9 +79,6 @@ opt.undodir = '/home/wittyjudge/.vim/undo'
 opt.swapfile = false
 opt.backup = false
 opt.writebackup = false
-
--- We don't need mouse.
-opt.mouse = ''
 
 -- We don't need to see things like -- INSERT -- anymore
 opt.showmode = false
