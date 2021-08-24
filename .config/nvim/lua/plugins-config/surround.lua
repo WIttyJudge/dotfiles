@@ -1,8 +1,6 @@
 -- https://github.com/blackCauldron7/surround.nvim
 
--- FIX: does not read this options
-vim.g.sudround_content_offset = 1000
-vim.g.prefix = "S"
+vim.g.surround_content_offset = 500
 
 require('surround').setup {}
 

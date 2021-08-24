@@ -22,11 +22,7 @@ require('telescope').setup {
 
       horizontal = {
         preview_width = function(_, cols, _)
-          if cols > 200 then
-            return math.floor(cols * 0.4)
-          else
-            return math.floor(cols * 0.6)
-          end
+          return math.floor(cols * 0.6)
         end
       },
       vertical = { width = 0.90, height = 0.90, preview_height = 0.7 }

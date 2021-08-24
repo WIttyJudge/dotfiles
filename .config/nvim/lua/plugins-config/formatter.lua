@@ -4,7 +4,7 @@ local function rubocop()
   return {
     exe = 'rubocop',
     args = {
-      '--auto-correct', '--stdin', '"%:p"', '2>/dev/null', '|',
+      '--auto-correct', '--stdin', vim.api.nvim_buf_get_name(0), '2>/dev/null', '|',
       'sed "1,/^====================$/d"'
     },
     stdin = true

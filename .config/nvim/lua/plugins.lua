@@ -101,6 +101,9 @@ require('paq') {
   -- Profiling
   "tweekmonster/startuptime.vim";
 
+  -- Autosave
+  "Pocco81/AutoSave.nvim";
+
   -- Database
   "tpope/vim-dadbod";
   "kristijanhusak/vim-dadbod-ui";

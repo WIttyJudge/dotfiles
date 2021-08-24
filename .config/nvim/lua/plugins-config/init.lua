@@ -1,6 +1,7 @@
 -- Setup all plugins here
 
 local plugins = {
+  "auto-save",
   "formatter",
   -- "gitsigns",
   "go",

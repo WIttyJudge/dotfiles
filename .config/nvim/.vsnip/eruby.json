@@ -112,5 +112,21 @@
       "<%= link_to '${1:Link Name}', ${0:link_path} %>"
 		],
 		"description": "link_to"
+  },
+	"link_to_block": {
+		"prefix": "link_to_block",
+		"body": [
+      "<%= link_to ${1:link_path} do %>",
+      "\t${0:Link Name}",
+      "<% end %>"
+		],
+		"description": "link_to_block"
+  },
+	"button_to": {
+		"prefix": "button_to",
+		"body": [
+      "<%= button_to '${1:Link Name}', ${0:link_path} %>"
+		],
+		"description": "button_to"
   }
 }

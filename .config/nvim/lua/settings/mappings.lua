@@ -143,6 +143,7 @@ set_keymap('n', '<Leader>gj', ':VGit hunk_down<CR>')
 set_keymap('n', '<Leader>gk', ':VGit hunk_up<CR>')
 set_keymap('n', '<Leader>gu', ':VGit hunk_reset<CR>')
 set_keymap('n', '<Leader>ga', ':VGit hunk_stage<CR>')
+set_keymap('n', '<Leader>gp', ':VGit hunk_preview<CR>')
 
 -- vim-fugitive
 set_keymap('n', '<Leader>gd', ':Gdiff<CR>')

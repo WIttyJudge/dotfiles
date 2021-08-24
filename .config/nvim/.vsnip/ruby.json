@@ -23,5 +23,16 @@
       "<%= ENV['$1'] %>"
     ],
     "description": "Define class with superclass"
+  },
+  "rspec": {
+    "prefix": "RSpec",
+    "body": [
+      "require 'rails_helper'",
+      "",
+      "RSpec.describe ${1:Name}, type: :${2:model} do",
+      "\t$0",
+      "end"
+    ],
+    "description": "rspec"
   }
 }
