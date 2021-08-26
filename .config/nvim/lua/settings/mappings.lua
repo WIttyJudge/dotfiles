@@ -109,6 +109,10 @@ set_keymap('n', '<Leader>tt', ':split term://zsh | resize 20<CR> | a<CR>')
 
 -- ********* PLUGINS MAPPING *********
 
+-- nvim-comment
+set_keymap('n', '<Leader>/', ':CommentToggle<CR>')
+set_keymap('v', '<Leader>/', ':CommentToggle<CR>')
+
 -- nvim-hlslens
 set_keymap('n', 'n', "<Cmd>execute('normal! ' . v:count1 . 'nzzzv')<CR><Cmd>lua require('hlslens').start()<CR>")
 set_keymap('n', 'N', "<Cmd>execute('normal! ' . v:count1 . 'Nzzzv')<CR><Cmd>lua require('hlslens').start()<CR>")
@@ -117,9 +121,8 @@ set_keymap('n', '#', "#<Cmd>lua require('hlslens').start()<CR>", { silent = fals
 set_keymap('n', 'g*', "g*<Cmd>lua require('hlslens').start()<CR>", { silent = false })
 set_keymap('n', 'g#', "g#<Cmd>lua require('hlslens').start()<CR>", { silent = false })
 
--- suda.vim
-set_keymap('c', 'e!!', 'e suda://%', { silent = false })
-set_keymap('c', 'w!!', 'w suda://%', { silent = false })
+-- nvim-tree.lua
+set_keymap('n', '<C-b>', ':NvimTreeToggle<CR>')
 
 -- fzf.vim
 -- set_keymap('', '<Leader>f', ':Files<CR>')
@@ -132,11 +135,11 @@ set_keymap('n', '<Leader>b', ':lua require("telescope/builtin").buffers()<CR>')
 set_keymap('n', '<Leader>ps', ':lua require("telescope/builtin").live_grep()<CR>')
 set_keymap('n', '<Leader>gb', ':lua require("plugins-config/telescope").git_branches()<CR>')
 
--- nvim-tree.lua
-set_keymap('n', '<C-b>', ':NvimTreeToggle<CR>')
+-- nvim-dap
+set_keymap('n', '<Leader>db', ':lua require("dap").toggle_breakpoint()<CR>')
 
--- vim-startify
-set_keymap('n', '<Leader>st', ':Startify<CR>')
+-- undotree
+set_keymap('n', '<Leader>ut', ':UndotreeToggle<CR>')
 
 -- vgit.nvim
 set_keymap('n', '<Leader>gj', ':VGit hunk_down<CR>')
@@ -144,6 +147,9 @@ set_keymap('n', '<Leader>gk', ':VGit hunk_up<CR>')
 set_keymap('n', '<Leader>gu', ':VGit hunk_reset<CR>')
 set_keymap('n', '<Leader>ga', ':VGit hunk_stage<CR>')
 set_keymap('n', '<Leader>gp', ':VGit hunk_preview<CR>')
+
+-- vim-startify
+set_keymap('n', '<Leader>st', ':Startify<CR>')
 
 -- vim-fugitive
 set_keymap('n', '<Leader>gd', ':Gdiff<CR>')
@@ -154,10 +160,6 @@ set_keymap('n', '<Leader>gc', ':GV<CR>')
 set_keymap('v', '<Leader>gc', ':GV<CR>')
 set_keymap('n', '<Leader>gC', ':GV!<CR>')
 
--- undotree
-set_keymap('n', '<Leader>ut', ':UndotreeToggle<CR>')
-
--- nvim-comment
-set_keymap('n', '<Leader>/', ':CommentToggle<CR>')
-set_keymap('v', '<Leader>/', ':CommentToggle<CR>')
-
+-- suda.vim
+set_keymap('c', 'e!!', 'e suda://%', { silent = false })
+set_keymap('c', 'w!!', 'w suda://%', { silent = false })

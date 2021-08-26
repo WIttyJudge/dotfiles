@@ -73,7 +73,7 @@ opt.splitright = true
 -- Enable the integrated undo features.
 opt.undofile = true
 opt.undolevels = 500
-opt.undodir = '/home/wittyjudge/.vim/undo'
+opt.undodir = vim.fn.stdpath('cache') .. '/undo'
 
 -- I don't need swap file and backups
 opt.swapfile = false

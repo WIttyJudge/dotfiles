@@ -149,11 +149,11 @@ local function show_diagnostics(line_diagnostics)
     local lines = {}
     local highlights = {}
 
-    for i, diagnostic in ipairs(line_diagnostics) do
-        table.insert(lines, string.format("%s (%s)", 'Diagnostics', diagnostic.source or "unknown"))
-        table.insert(highlights, {0, "Bold"})
+    table.insert(lines, 'Diagnostics:')
+    table.insert(highlights, {0, "Bold"})
 
-        local prefix = string.format("%d. ", i)
+    for i, diagnostic in ipairs(line_diagnostics) do
+        local prefix = string.format("%d. (%s)", i, diagnostic.source or "unknown")
         local hiname = floating_severity_highlight_name[diagnostic.severity]
         assert(hiname, "unknown severity: " .. tostring(diagnostic.severity))
 
@@ -196,7 +196,6 @@ function M.show_line_diagnostics(bufnr, line_nr, client_id)
     local line_diagnostics = diagnostics.get_line_diagnostics(bufnr, line_nr, {}, client_id)
     return show_diagnostics(line_diagnostics)
 end
-
 
 api.nvim_command "autocmd BufEnter,WinEnter * call v:lua.lsp_diagnostic_on_buf_enter()"
 

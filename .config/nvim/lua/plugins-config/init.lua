@@ -25,6 +25,7 @@ local plugins = {
   "vim-dadbod-ui",
   "vim-rooter",
   "vim-startify",
+  "vim-test",
   "vsnip",
 }
 

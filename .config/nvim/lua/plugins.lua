@@ -88,10 +88,8 @@ require('paq') {
   -- Ruby
   "thoughtbot/vim-rspec";
   "tpope/vim-rvm";
-  -- "tpope/vim-rails";
 
   -- Golang
-  -- "fatih/vim-go", { "do": ":GoUpdateBinaries" };
   "ray-x/go.nvim";
 
   -- Useful functions
@@ -105,6 +103,9 @@ require('paq') {
 
   -- Autosave
   "Pocco81/AutoSave.nvim";
+
+  -- Run tests
+  "vim-test/vim-test";
 
   -- Database
   "tpope/vim-dadbod";
