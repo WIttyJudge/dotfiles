@@ -2,6 +2,7 @@
 
 local plugins = {
   "auto-save",
+  "auto-session",
   "formatter",
   -- "gitsigns",
   "go",
@@ -14,7 +15,7 @@ local plugins = {
   "nvim-comment",
   "nvim-hlslens",
   "nvim-tree",
-  "nvim-tabline",
+  "tabline",
   "nvim-treesitter",
   "surround",
   "telescope",

@@ -44,9 +44,10 @@ vim.g.startify_lists = {
 }
 
 vim.g.startify_bookmarks = {
-    { i = '~/.config/nvim/init.vim' },
-    { p = '~/.config/nvim/lua/plugins.lua' },
+    { i = '~/.config/nvim/init.lua' },
     { m = '~/.config/nvim/lua/settings/mappings.lua' },
+    { pp = '~/.config/nvim/lua/plugins.lua' },
+    { pi = '~/.config/nvim/lua/plugins-config/init.lua' },
 }
 
 vim.g.startify_commands = {
