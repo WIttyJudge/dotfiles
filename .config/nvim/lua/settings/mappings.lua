@@ -39,9 +39,9 @@ set_keymap('n', 'vfy', ':%y+<CR>')
 -- Easy select all of file
 -- set_keymap('n', 'va', 'GVgg^')
 
--- Easier file save
+-- Easier file save and exit
 set_keymap('n', '<Leader>w', ':w<CR>')
--- Exit
+set_keymap('n', '<Leader>W', ':x<CR>')
 set_keymap('n', '<Leader>q', ':q<CR>')
 set_keymap('n', '<Leader>Q', ':q!<CR>')
 
@@ -67,12 +67,6 @@ set_keymap('n', '<UP>', ':resize +2<CR>')
 set_keymap('n', '<Down>', ':resize -2<CR>')
 set_keymap('n', '<Left>', ':vertical resize +2<CR>')
 set_keymap('n', '<Right>', ':vertical resize -2<CR>')
-
--- Move windows
-set_keymap('n', '<S-UP>', ':resize +2<CR>')
-set_keymap('n', '<S-Down>', ':resize -2<CR>')
-set_keymap('n', '<S-Left>', '<C-W><C->')
-set_keymap('n', '<S-Right>', ':vertical resize -2<CR>')
 
 -- Make visual yanks place the cursor back where started
 set_keymap("v", "y", "ygv<Esc>")
@@ -139,9 +133,6 @@ set_keymap('n', '<Leader>f', ':lua require("plugins-config/telescope").find_all_
 set_keymap('n', '<Leader>b', ':lua require("telescope/builtin").buffers()<CR>')
 set_keymap('n', '<Leader>ps', ':lua require("telescope/builtin").live_grep()<CR>')
 set_keymap('n', '<Leader>gb', ':lua require("plugins-config/telescope").git_branches()<CR>')
-
--- nvim-dap
-set_keymap('n', '<Leader>db', ':lua require("dap").toggle_breakpoint()<CR>')
 
 -- undotree
 set_keymap('n', '<Leader>ut', ':UndotreeToggle<CR>')

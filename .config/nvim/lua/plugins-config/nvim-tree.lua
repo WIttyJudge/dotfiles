@@ -2,17 +2,18 @@
 
 vim.g.nvim_tree_width = 35
 vim.g.nvim_tree_ignore = {'.git', 'node_modules', '.cache'}
-vim.g.nvim_tree_indent_markers = 1
 vim.g.nvim_tree_auto_close = 1
-vim.g.nvim_tree_disable_netrw = 0
 vim.g.nvim_tree_follow = 1 -- "0 by default, this option allows the cursor to be updated when entering a buffer
 vim.g.nvim_tree_auto_ignore_ft = {'startify', 'dashboard'}
+vim.g.nvim_tree_indent_markers = 1
 vim.g.nvim_tree_icons = {
   default = '',
   symlink = '',
   git = {unstaged = "", staged = "✓", unmerged = "", renamed = "➜", untracked = ""},
   folder = {default = "", open = "", empty = "", empty_open = "", symlink = ""}
 }
+
+vim.g.nvim_tree_disable_default_keybindings = 1
 
 local tree_cb = require'nvim-tree.config'.nvim_tree_callback
 
@@ -24,14 +25,14 @@ vim.g.nvim_tree_bindings = {
   { key = "t",                            cb = tree_cb("tabnew") },
   { key = "dd",                           cb = tree_cb("remove") },
   { key = "?",                            cb = tree_cb("toggle_help") },
+  -- Press Enter
   { key = {"<CR>"},                       cb = tree_cb("cd") },
+  { key = "h",                            cb = tree_cb("close_node") },
 
   -- default mappings
   { key = "<",                            cb = tree_cb("prev_sibling") },
   { key = ">",                            cb = tree_cb("next_sibling") },
   { key = "P",                            cb = tree_cb("parent_node") },
-  { key = "<BS>",                         cb = tree_cb("close_node") },
-  { key = "<S-CR>",                       cb = tree_cb("close_node") },
   { key = "<Tab>",                        cb = tree_cb("preview") },
   { key = "K",                            cb = tree_cb("first_sibling") },
   { key = "J",                            cb = tree_cb("last_sibling") },
