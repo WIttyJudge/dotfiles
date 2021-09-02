@@ -107,6 +107,11 @@ require('paq') {
   -- Run tests
   "vim-test/vim-test";
 
+  -- Session manager
+  "rmagatti/auto-session";
+  -- Telescope extension for searching sessions
+  "rmagatti/session-lens";
+
   -- Database
   "tpope/vim-dadbod";
   "kristijanhusak/vim-dadbod-ui";

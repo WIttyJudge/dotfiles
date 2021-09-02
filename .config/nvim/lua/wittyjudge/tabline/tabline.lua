@@ -1,4 +1,4 @@
--- nvim-tabline
+-- Custom simple tabline
 
 local M = {}
 local fn = vim.fn
@@ -29,7 +29,7 @@ local function tabline(options)
     -- tab index
     s = s .. ' '
     if _TABLINE_NVIM_CFG.show_index then
-      s = s .. index .. ':'
+      s = s .. index .. ': '
     end
 
     -- buf name

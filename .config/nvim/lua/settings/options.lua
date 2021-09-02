@@ -65,6 +65,10 @@ opt.cmdheight = 2
 -- Enable mouse
 opt.mouse = 'a'
 
+-- For better experience this session manager
+-- opt.sessionoptions='blank,buffers,curdir,folds,help,options,tabpages,winsize,resize,winpos,terminal'
+vim.o.sessionoptions = 'buffers,curdir,folds,tabpages,winsize'
+
 -- Horizontal splits will open below
 opt.splitbelow = true
 -- Vertical splits will open  right

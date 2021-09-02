@@ -7,7 +7,7 @@ end
 
 -- Check if the windows width is greater than a given number of columns
 function M.hide_in_width(cols)
-  local cols = cols or 50
+  local cols = cols or 60
   return vim.fn.winwidth(0) / 2 > cols
 end
 

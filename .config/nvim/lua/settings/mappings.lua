@@ -23,9 +23,9 @@ set_keymap('n', '<leader>tg', ':call v:lua.toggle_diagnostics()<CR>')
 
 -- Easier split navigation, CTRL + hjlk
 set_keymap('n', '<C-J>', '<C-W><C-J>')
-set_keymap('n', '<C-K>', '<C-W><C-K>')
-set_keymap('n', '<C-L>', '<C-W><C-L>')
-set_keymap('n', '<C-H>', '<C-W><C-H>')
+set_keymap('n', '<C-K>', '<c-w><c-k>')
+set_keymap('n', '<c-l>', '<c-w><c-l>')
+set_keymap('n', '<c-h>', '<C-W><C-H>')
 
 -- Add space bellow or above without leaving normal mode
 vim.cmd([[
@@ -34,17 +34,16 @@ nnoremap <silent> ]<space> :<c-u>put =repeat([''],v:count)<bar>'[-1<CR>
 ]])
 
 -- Easy copy whole text in file
--- set_keymap('n', 'va', ':%y+<CR>')
+set_keymap('n', 'vfy', ':%y+<CR>')
 
 -- Easy select all of file
-set_keymap('n', 'va', 'GVgg^')
+-- set_keymap('n', 'va', 'GVgg^')
 
 -- Easier file save
 set_keymap('n', '<Leader>w', ':w<CR>')
--- Save and exit
-set_keymap('n', '<Leader>W', ':x<CR>')
 -- Exit
 set_keymap('n', '<Leader>q', ':q<CR>')
+set_keymap('n', '<Leader>Q', ':q!<CR>')
 
 -- Clean highliting after search
 -- nnoremap <Leader>; :nohlsearch<CR>
@@ -64,10 +63,16 @@ set_keymap('i', 'kj', '<Esc>')
 -- set_keymap('n', '<Leader>c', 'q:i')
 
 -- Resize windows
-set_keymap('n', '<UP>', ':vertical resize +2<CR>')
+set_keymap('n', '<UP>', ':resize +2<CR>')
 set_keymap('n', '<Down>', ':resize -2<CR>')
 set_keymap('n', '<Left>', ':vertical resize +2<CR>')
 set_keymap('n', '<Right>', ':vertical resize -2<CR>')
+
+-- Move windows
+set_keymap('n', '<S-UP>', ':resize +2<CR>')
+set_keymap('n', '<S-Down>', ':resize -2<CR>')
+set_keymap('n', '<S-Left>', '<C-W><C->')
+set_keymap('n', '<S-Right>', ':vertical resize -2<CR>')
 
 -- Make visual yanks place the cursor back where started
 set_keymap("v", "y", "ygv<Esc>")
