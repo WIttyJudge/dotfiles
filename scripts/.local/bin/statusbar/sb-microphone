@@ -14,7 +14,6 @@ mic_muted="$($command --get-status)"
 
 if [ "$mic_muted" = "muted" ]; then
   icon="🔇"
-  paplay ~/discordmute.vaw
 else
   icon="🎙️"
 fi

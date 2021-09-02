@@ -156,6 +156,10 @@ set_keymap('n', '<Leader>gp', ':VGit hunk_preview<CR>')
 -- vim-startify
 set_keymap('n', '<Leader>st', ':Startify<CR>')
 
+-- vim-test
+set_keymap('n', '<Leader>tf', ':TestFile<CR>')
+set_keymap('n', '<Leader>tn', ':TestNearest<CR>')
+
 -- vim-fugitive
 set_keymap('n', '<Leader>gd', ':Gdiff<CR>')
 set_keymap('n', '<Leader>gs', ':Git<CR>')
