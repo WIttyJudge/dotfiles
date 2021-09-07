@@ -152,7 +152,7 @@ set_keymap('n', '<Leader>tf', ':TestFile<CR>')
 set_keymap('n', '<Leader>tn', ':TestNearest<CR>')
 
 -- vim-fugitive
-set_keymap('n', '<Leader>gd', ':Gdiff<CR>')
+set_keymap('n', '<Leader>gd', ':Gvdiffsplit<CR>')
 set_keymap('n', '<Leader>gs', ':Git<CR>')
 
 -- gv.vim
