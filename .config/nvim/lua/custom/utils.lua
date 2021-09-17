@@ -1,5 +1,20 @@
 local M = {}
 
+-- Bind keymap
+function M.set_keymap(mode, key, action, opts)
+  local default_opts = { noremap = true, silent = true}
+  local opts = opts or {}
+  -- rewrite default_opts if opts defined
+  default_opts = vim.tbl_extend("force", default_opts, opts)
+
+  return vim.api.nvim_set_keymap(mode, key, action, default_opts)
+end
+
+-- Delete keymap
+function M.unmap(mode, lhs)
+  return vim.api.nvim_del_keymap(mode, lhs)
+end
+
 -- eg. f023 is a locker
 function M.convert_utf8_to_character(code)
   if type(code) == 'string' then code = tonumber('0x' .. code) end
@@ -20,10 +35,6 @@ function M.convert_utf8_to_character(code)
     t[4] = c(bit.bor(0x80, bit.band(code, 0x3f)))
   end
   return table.concat(t)
-end
-
-function M.run_code(command)
-  vim.cmd('! ruby ' .. vim.fn.expand('%:p'))
 end
 
 return M

@@ -2,9 +2,8 @@
 
 local plugins = {
   "auto-save",
-  "auto-session",
   "formatter",
-  -- "gitsigns",
+  "gitsigns",
   "go",
   "indentLine",
   "lspsaga",
@@ -22,7 +21,6 @@ local plugins = {
   "todo-comments",
   "trouble",
   "undotree",
-  "vgit",
   "vim-dadbod-ui",
   "vim-rooter",
   "vim-startify",

@@ -1,3 +1,5 @@
+-- https://github.com/mhinz/vim-startify
+
 -- print current directory as a banner startify header
 local cwd = vim.fn.split(vim.fn.getcwd(), '/')
 local banner = vim.fn.system("figlet "..cwd[#cwd])

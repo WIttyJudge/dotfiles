@@ -5,7 +5,7 @@ local config = {
   ensure_installed = {
     "query", "bash", "html", "cpp", "c", "go", "gomod", "ruby", "svelte",
     "graphql", "java", "json", "php", "python", "rust", "typescript", "vue",
-    "yaml", "regex", "javascript", "scss", "css", "lua", "toml", "dockerfile"
+    "yaml", "regex", "javascript", "scss", "css", "lua", "toml", "dockerfile", "vim"
   },
 
   highlight = { enable = true, disable = {} },

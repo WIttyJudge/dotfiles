@@ -1,14 +1,17 @@
--- https://github.com/mhar tington/formatter.nvim
-
+-- https://github.com/mhartington/formatter.nvim
 local function rubocop()
   return {
-    exe = 'rubocop',
+    exe = 'rubocop', -- might prepend `bundle exec `
     args = {
-      '--auto-correct', '--stdin', vim.api.nvim_buf_get_name(0), '2>/dev/null', '|',
-      'sed "1,/^====================$/d"'
+      '--auto-correct', '--stdin', '%:p', '2>/dev/null', '|',
+      "awk 'f; /^====================$/{f=1}'"
     },
     stdin = true
   }
+end
+
+local function rustfmt()
+  return { exe = "rustfmt", args = { "--emit=stdout" }, stdin = true }
 end
 
 local function lua_format()
@@ -25,7 +28,7 @@ local function lua_format()
 end
 
 local function shfmt()
-  return { exe = 'shfmt', args = { vim.api.nvim_buf_get_name(0) }, stdin = true }
+  return { exe = "shfmt", args = { "-i", 2 }, stdin = true }
 end
 
 local function prettier()
@@ -40,6 +43,7 @@ require('formatter').setup {
   logging = false,
   filetype = {
     ruby = { rubocop },
+    rust = { rustfmt },
     lua = { lua_format },
     sh = { shfmt },
 
@@ -49,8 +53,8 @@ require('formatter').setup {
     javascript = { prettier },
     typescript = { prettier },
 
-    json = { prettier},
-    yaml = { prettier},
+    json = { prettier },
+    yaml = { prettier },
     markdown = { prettier }
   }
 }

@@ -44,7 +44,10 @@ cmd([[
 autocmd BufWritePre *.go :silent! :Goimport
 ]])
 
--- autocmd BufWritePre *.go :silent! :Gofmt
- 
--- autocmd BufWritePre (InsertLeave?) *.go <buffer> :silent! lua vim.lsp.buf.formatting_sync(nil,500)
+cmd([[
+autocmd FileType fugitive map <buffer> q gq<CR>
+]])
 
+-- autocmd BufWritePre *.go :silent! :Gofmt
+
+-- autocmd BufWritePre (InsertLeave?) *.go <buffer> :silent! lua vim.lsp.buf.formatting_sync(nil,500)

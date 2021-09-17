@@ -58,9 +58,7 @@ require('telescope').setup {
   }
 }
 
--- require('telescope').load_extension('fzy_native')
-
-require("telescope").load_extension("session-lens")
+require('telescope').load_extension('fzy_native')
 
 -- CUSTOM FUNCTIONS
 
@@ -104,7 +102,7 @@ function M.git_branches()
   }
 
   attach_mappings = function(_, map)
-    actions.select_default:replace(actions.git_checkout)
+    -- actions.select_default:replace(actions.git_checkout)
 
     map("i", "<c-t>", false)
     map("n", "<c-t>", false)

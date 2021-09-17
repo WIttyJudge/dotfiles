@@ -34,5 +34,15 @@
       "end"
     ],
     "description": "rspec"
+  },
+  "if": {
+    "prefix": "if",
+    "body": "if ${1:statement}\n\t$0\nend",
+    "description": "if block"
+  },
+  "def": {
+    "prefix": "def",
+    "body": "def ${1:name}\n\t$0\nend",
+    "description": "def"
   }
 }

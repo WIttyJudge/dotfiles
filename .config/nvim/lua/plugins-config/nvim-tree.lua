@@ -3,14 +3,14 @@
 vim.g.nvim_tree_width = 35
 vim.g.nvim_tree_ignore = {'.git', 'node_modules', '.cache'}
 vim.g.nvim_tree_auto_close = 1
-vim.g.nvim_tree_follow = 1 -- "0 by default, this option allows the cursor to be updated when entering a buffer
+-- vim.g.nvim_tree_follow = 0 -- "0 by default, this option allows the cursor to be updated when entering a buffer
 vim.g.nvim_tree_auto_ignore_ft = {'startify', 'dashboard'}
 vim.g.nvim_tree_indent_markers = 1
 vim.g.nvim_tree_icons = {
   default = '',
   symlink = '',
-  git = {unstaged = "", staged = "✓", unmerged = "", renamed = "➜", untracked = ""},
-  folder = {default = "", open = "", empty = "", empty_open = "", symlink = ""}
+  git = { unstaged = '✹', staged = "✓", unmerged = "", renamed = "➜", untracked = "" },
+  folder = { default = "", open = "", empty = "", empty_open = "", symlink = "" }
 }
 
 vim.g.nvim_tree_disable_default_keybindings = 1

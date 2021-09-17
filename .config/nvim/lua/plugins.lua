@@ -41,6 +41,7 @@ require('paq') {
   "AndrewRadev/splitjoin.vim";
   "kevinhwang91/nvim-hlslens";
   "karb94/neoscroll.nvim";
+  "phaazon/hop.nvim";
 
   -- Syntax
   "folke/todo-comments.nvim";
@@ -49,8 +50,7 @@ require('paq') {
 
   -- Git
   "tpope/vim-fugitive";
-  -- "lewis6991/gitsigns.nvim";
-  "tanvirtin/vgit.nvim";
+  "lewis6991/gitsigns.nvim";
   "junegunn/gv.vim";
   -- "sindrets/diffview.nvim";
 
@@ -62,13 +62,14 @@ require('paq') {
   "mhartington/formatter.nvim";
 
   -- Colorscheme
-  "sainnhe/gruvbox-material";
+  -- "sainnhe/gruvbox-material";
+  "WIttyJudge/gruvbox-material.nvim";
 
   -- Looking for files, etc..
   "nvim-lua/popup.nvim";
   "nvim-lua/plenary.nvim";
   "nvim-telescope/telescope.nvim";
-  -- "nvim-telescope/telescope-fzy-native.nvim";
+  "nvim-telescope/telescope-fzy-native.nvim";
 
   -- Explorer
   "kyazdani42/nvim-tree.lua";
@@ -107,10 +108,8 @@ require('paq') {
   -- Run tests
   "vim-test/vim-test";
 
-  -- Session manager
-  "rmagatti/auto-session";
-  -- Telescope extension for searching sessions
-  "rmagatti/session-lens";
+  -- Improve startup time
+  "lewis6991/impatient.nvim";
 
   -- Database
   "tpope/vim-dadbod";

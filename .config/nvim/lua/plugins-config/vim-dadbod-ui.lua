@@ -5,6 +5,9 @@ vim.g.db_ui_use_nerd_fonts = 1
 
 vim.g.db_ui_force_echo_notifications = 1
 
+vim.g.db_ui_save_location = vim.fn.stdpath('cache') .. '/dbui/saved'
+vim.g.db_ui_tmp_query_location = vim.fn.stdpath('cache') .. '/dbui/queries'
+
 
 vim.g.db_ui_table_helpers = {
   mysql = {

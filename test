@@ -3,7 +3,18 @@
 -- Read more about mappings
 -- https://github.com/nanotee/nvim-lua-guide#defining-mappings
 
-local set_keymap = require('custom/utils').set_keymap
+local function set_keymap(mode, key, action, opts)
+  local default_opts = { noremap = true, silent = true}
+
+  local opts = opts or {}
+  
+  -- rewrite default_opts if opts defined
+  default_opts = vim.tbl_extend("force", default_opts, opts)
+
+  vim.api.nvim_set_keymap(mode, key, action, default_opts)
+end
+
+set_keymap('n', 'gF', ':call v:lua.open_file_or_create_new()<CR>')
 
 -- Set leader key
 vim.g.mapleader = ' '
@@ -11,7 +22,6 @@ vim.g.mapleader = ' '
 -- ********* CUSTOM MAPPING *********
 
 set_keymap('n', '<leader>tg', ':call v:lua.toggle_diagnostics()<CR>')
-set_keymap('n', 'gF', ':call v:lua.open_file_or_create_new()<CR>')
 
 -- Easier split navigation, CTRL + hjlk
 set_keymap('n', '<C-J>', '<C-W><C-J>')
@@ -35,7 +45,8 @@ set_keymap('n', 'vfy', ':%y+<CR>')
 set_keymap('n', '<Leader>w', ':w<CR>')
 set_keymap('n', '<Leader>W', ':x<CR>')
 set_keymap('n', '<Leader>q', ':q<CR>')
-set_keymap('n', '<Leader>Q', ':q!<CR>')
+set_keymap('n', '<Leader>Q', ':call v:lua.close_buffer(v:true)<CR>')
+-- set_keymap('n', '<Leader>Q', ':q!<CR>')
 
 -- Clean highliting after search
 -- nnoremap <Leader>; :nohlsearch<CR>

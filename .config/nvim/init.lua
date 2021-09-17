@@ -1,3 +1,6 @@
+-- https://github.com/lewis6991/impatient.nvim
+require('impatient')
+
 -- Functions the whole lua code can use without any require.
 -- eg. dump({1, 2, 3})
 require('custom/global_functions')

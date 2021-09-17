@@ -12,18 +12,18 @@ local icons = require('custom.icons')
 -- gruvbox-material
 local colors = {
   bg = '#282828',
-  fg = '#ddc7a1',
+  fg = '#d4be98',
+  red = '#ea6962',
+  orange = '#e78a4e',
   yellow = '#d8a657',
   cyan = '#89b482',
   darkblue = '#45707a',
   green = '#a9b665',
-  orange = '#e78a4e',
-  purple = '#d3869b',
-  magenta = '#c14a4a',
-  grey = '#a89984',
+  agua = '#89b482',
   blue = '#7daea3',
-  red = '#ea6962'
+  purple = '#d3869b'
 }
+
 
 local vi_mode_text = {
   n = 'NORMAL',
@@ -52,7 +52,7 @@ local vi_mode_color = {
   [''] = colors.blue,
   V = colors.blue,
   c = colors.purple,
-  no = colors.magenta,
+  no = colors.red,
   s = colors.orange,
   S = colors.orange,
   [''] = colors.orange,
@@ -88,7 +88,8 @@ local config = {
       'help',
       'dbui',
       'dbout',
-      'Trouble'
+      'Trouble',
+      'undotree',
     }
   },
   sections = {
@@ -219,8 +220,9 @@ ins_right {
   icon = '',
   condition = function()
     local extension = vim.fn.expand('%:e')
-
     if extension ~= 'rb' then return false end
+
+    if vim.fn.winwidth(0) / 2 < 60 then return false end
 
     return true
   end,

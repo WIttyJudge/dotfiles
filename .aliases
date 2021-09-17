@@ -1,5 +1,5 @@
 # sudo not required for some system commands
-for x in mount umount sv pacman ; do
+for x in mount umount sv pacman downgrade; do
 	alias $x="sudo $x"
 done
 
@@ -7,8 +7,6 @@ done
 alias \
   s="sudo " \
   p="sudo pacman " \
-	cp="cp -iv" \
-	mv="mv -iv" \
   ping="ping -c 3 youtube.com" \
   e="$EDITOR" \
 
@@ -28,6 +26,8 @@ alias dotfiles="cd ~/dotfiles && $EDITOR"
 alias \
   cat="bat" \
   rip="rip --graveyard ~/.local/share/Trash " \
+	cp="cp -iv" \
+	mv="mv -iv" \
 
 alias ls="exa -la --group-directories-first --icons" # doesn't show hidden files
 alias ls.="exa -dl .* --icons" # shows only hidden files
@@ -41,6 +41,7 @@ alias \
   ga="git add" \
   gc="git commit" \
   gp="git push" \
+  glog="git log --graph --oneline --decorate" \
 
 # docker
 alias \
