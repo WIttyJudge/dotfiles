@@ -14,6 +14,7 @@ TRUE,,feh,Fast and light imlib2-based image viewer.
 ,AUR,xwallpaper-git,Wallpaper setting utility for X.
 TRUE,,scrot,Simple command-line screenshot utility for X.
 ,,flameshot,Powerful yet simple to use screenshot software.
+,,maim,Utility to take a screenshot using imlib2.
 ,,pulseaudio-alsa,ALSA Configuration for PulseAudio.
 ,,pamixer,PulseAudio command-line mixer like amixer.
 ,,pavucontrol,PulseAudio Volume Control.
