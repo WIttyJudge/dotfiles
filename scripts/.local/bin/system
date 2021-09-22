@@ -10,11 +10,10 @@ commands=(
 
 case "$(readlink -f /sbin/init)" in
 	*runit*) 
-    poweroff="sudo poweroff";
     suspend="slock sudo -A zzz";
-    reboot="sudo reboot";
-    lock="slock && sleep 0.5 && xset dpms force off";
-    leave_dwm="kill -TERM $(pgrep -u $USER "\bdwm$")";
+    ;;
+  *openrc)
+    suspend="slock sudo -A zzz";
     ;;
 esac
 
@@ -25,13 +24,13 @@ case "$choice" in
   suspend)
     $suspend ;;
   poweroff)
-    $poweroff ;;
+    sudo poweroff ;;
   reboot)
-    $reboot ;;
+    sudo reboot ;;
   lock)
-    $lock ;;
+    slock && sleep 0.5 && xset dpms force off ;;
   leave-dwm)
-    $leave_dwm ;;
+    kill -TERM $(pgrep -u $USER "\bdwm$") ;;
   # logout)
   #   i3-msg exit ;;
   # hibernate)
