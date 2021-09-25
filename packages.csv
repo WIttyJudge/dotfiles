@@ -75,3 +75,4 @@ TRUE,,rofi-pass,Bash script to handle pass storages in a convenient way.
 ,,calcurse,A text-based personal organizer.
 ,,shell-color-scripts,Terminal color scripts.
 ,AUR,libxft-bgra,libXft with BGRA glyph (color emoji) rendering.
+,,dnsutils,Bunch of utils like nslookup and so on.
