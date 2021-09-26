@@ -9,34 +9,21 @@ commands=(
 )
 
 case "$(readlink -f /sbin/init)" in
-	*runit*) 
-    suspend="slock sudo -A zzz";
-    ;;
-  *openrc)
-    suspend="slock sudo -A zzz";
-    ;;
+	*systemd*) ctl='systemctl' ;;
+	*) ctl='loginctl' ;;
 esac
 
 # choice="$(printf '%s\n' "${commands[@]}" | dmenu -p "System:" )"
 choice="$(printf '%s\n' "${commands[@]}" | dmenu )"
 
 case "$choice" in
-  suspend)
-    $suspend ;;
-  poweroff)
-    sudo poweroff ;;
-  reboot)
-    sudo reboot ;;
-  lock)
-    slock && sleep 0.5 && xset dpms force off ;;
-  leave-dwm)
-    kill -TERM $(pgrep -u $USER "\bdwm$") ;;
-  # logout)
-  #   i3-msg exit ;;
-  # hibernate)
-  #   systemctl hibernate ;;
-  *)
-    exit 2
+  suspend) slock $ctl suspend ;;
+  poweroff) $ctl poweroff ;;
+  reboot) $ctl reboot ;;
+  lock) slock ;;
+  leave-dwm) kill -TERM $(pgrep -u $USER "\bdwm$") ;;
+  # logout) i3-msg exit ;;
+  # hibernate) systemctl hibernate ;;
+  *) exit 1 ;;
 esac
 
-exit 0
