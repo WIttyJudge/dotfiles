@@ -10,16 +10,16 @@ NORMAL=$(tput sgr0)
 
 # List that should be inside ~/ directory
 home_directory=(
- .alias-functions
- .aliases
- .gitconfig
- .bashrc
- .profile
- .xinitrc
- .xprofile
- .Xresources
- .zprofile
- .zshrc
+  .alias-functions
+  .aliases
+  .gitconfig
+  .bashrc
+  .profile
+  .xinitrc
+  .xprofile
+  .Xresources
+  .zprofile
+  .zshrc
 )
 
 # List for ~/.config folder
@@ -46,9 +46,7 @@ config_directory=(
 ### FUNCTIONS ###
 
 logger_setup_for() {
-	name=$1
-
-  printf "\nSetup for: ${GREEN}%s${NORMAL}\n" "$name"
+  printf "\nSetup for: ${GREEN}%s${NORMAL}\n" "$1"
 }
 
 logger_link_to() {
@@ -59,7 +57,7 @@ logger_link_to() {
 }
 
 setup_link() {
-	name=$1
+  name=$1
 
   logger_setup_for $name
 
@@ -86,20 +84,20 @@ for i in ${home_directory[@]}; do
 done
 
 for i in ${config_directory[@]}; do
-	setup_link $i
+  setup_link $i
 done
 
 stow --adopt -v -R -t ~ scripts
 
 # Local directory
 # logger_setup_for $dotfiles_path/.local
-# 
+#
 # [ ! -d $HOME/.local ] && mkdir -p $HOME/.local/bin
-# 
+#
 # [ -d $HOME/.local/bin ] && rm -rf $HOME/.local/bin
-# 
+#
 # ln -sf $dotfiles_path/.local/bin $HOME/.local/bin
-# 
+#
 # [ ! -d $HOME/.local/dmenu ] && mkdir -p $HOME/.local/dmenu
-# 
+#
 # ln -sf $dotfiles_path/.local/bin/dmenu $HOME/.local/bin/dmenu
