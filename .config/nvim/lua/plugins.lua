@@ -111,6 +111,13 @@ require('paq') {
   -- Improve startup time
   "lewis6991/impatient.nvim";
 
+  -- The interactive scratchpad.
+  "metakirby5/codi.vim";
+
+  -- Debug
+  -- "mfussenegger/nvim-dap";
+  -- "Pocco81/DAPInstall.nvim";
+
   -- Database
   "tpope/vim-dadbod";
   "kristijanhusak/vim-dadbod-ui";
