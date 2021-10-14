@@ -1,6 +1,7 @@
 #!/bin/sh
 
 # I use this script to check command exists
+# E.g. ifcommand $command || exit
 
 for x in "$@"; do
   command -v $x > /dev/null ||

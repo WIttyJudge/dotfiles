@@ -21,7 +21,7 @@ require('paq') {
   -- LSP installer
   "williamboman/nvim-lsp-installer";
 
-  -- Aucomplete
+  -- Autocomplete
   "hrsh7th/nvim-compe";
   "ray-x/lsp_signature.nvim";
   "hrsh7th/vim-vsnip";
@@ -91,7 +91,8 @@ require('paq') {
   "tpope/vim-rvm";
 
   -- Golang
-  "ray-x/go.nvim";
+  -- "ray-x/go.nvim";
+  "fatih/vim-go";
 
   -- Useful functions
   "lambdalisue/suda.vim";

@@ -196,7 +196,7 @@ ins_left {
 
 ins_right {
   'diff',
-  symbols = { added = '+', modified = '~', removed = '-' },
+  symbols = { added = ' ', modified = ' ', removed = '柳' },
   color_added = colors.green,
   color_modified = colors.blue,
   color_removed = colors.red,
