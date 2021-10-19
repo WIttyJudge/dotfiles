@@ -70,6 +70,8 @@ set_keymap("v", "y", "ygv<Esc>")
 -- Disable copy while deleting
 set_keymap('n', 'd', '"_d')
 set_keymap('x', 'd', '"_d')
+set_keymap('n', 'D', '"_D')
+set_keymap('n', 'x', '"_x')
 set_keymap('x', 'p', '"_dP')
 
 -- Scroll the viewport faster
@@ -136,6 +138,7 @@ set_keymap('n', '<Leader>f', ':lua require("plugins-config/telescope").find_all_
 set_keymap('n', '<Leader>b', ':lua require("telescope/builtin").buffers()<CR>')
 set_keymap('n', '<Leader>ps', ':lua require("telescope/builtin").live_grep()<CR>')
 set_keymap('n', '<Leader>gb', ':lua require("plugins-config/telescope").git_branches()<CR>')
+set_keymap('n', '<Leader>ca', ':lua require("plugins-config/telescope").lsp_code_actions()<CR>')
 
 -- undotree
 set_keymap('n', '<Leader>ut', ':UndotreeToggle<CR>')

@@ -1,12 +1,15 @@
 -- https://github.com/onsails/lspkind-nvim
 
-local config = {
+M = {}
+
+M.config = {
   with_text = true,
   symbol_map = {
     Text = '',
     Method = 'ƒ',
     Function = '',
     Constructor = '',
+    Field = "ﰠ",
     Variable = '',
     Class = '',
     Interface = 'ﰮ',
@@ -19,11 +22,17 @@ local config = {
     Snippet = '﬌',
     Color = '',
     File = '',
+    Reference = "",
     Folder = '',
     EnumMember = '',
     Constant = '',
-    Struct = ''
+    Struct = '',
+    Event = "",
+    jOperator = "",
+    TypeParameter = "",
   },
 }
 
 require('lspkind').init(config)
+
+return M

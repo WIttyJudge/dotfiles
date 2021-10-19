@@ -2,7 +2,7 @@
 # Read more: https://wiki.archlinux.org/index.php/Xprofile
 
 xrdb -merge ~/.Xresources & # theme configuration file
-xwallpaper --zoom ~/Pictures/wallpapers/* & # set desktop wallpaper
+setbg & # set desktop wallpaper
 # feh --bg-scale ~/Picture/wallpapers/* &
 
 dunst &      # notification-daemon

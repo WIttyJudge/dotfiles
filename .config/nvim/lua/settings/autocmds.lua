@@ -48,6 +48,11 @@ cmd([[
 autocmd FileType fugitive map <buffer> q gq<CR>
 ]])
 
+-- Add command to execute current file.
+cmd([[
+autocmd FileType javascript command! JsRun :call mappings#RunWith("node")
+]])
+
 -- autocmd BufWritePre *.go :silent! :Gofmt
 
 -- autocmd BufWritePre (InsertLeave?) *.go <buffer> :silent! lua vim.lsp.buf.formatting_sync(nil,500)

@@ -22,10 +22,11 @@ local plugins = {
   "trouble",
   "undotree",
   "vim-dadbod-ui",
-  "vim-go",
+  -- "vim-go",
   "vim-rooter",
   "vim-startify",
   "vim-test",
+  "vim-wordmotion",
   "vsnip",
 }
 

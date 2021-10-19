@@ -5,17 +5,24 @@ local on_attach = require('lsp/on_attach')
 local icons = require('custom.icons')
 
 local nvim_lsp = require('lspconfig')
-local lsp_installer = require'nvim-lsp-installer'
+local lsp_installer = require('nvim-lsp-installer')
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 
-vim.fn.sign_define("LspDiagnosticsSignError", { text = icons.diagnostic.error })
-vim.fn.sign_define("LspDiagnosticsSignWarning", { text = icons.diagnostic.warn })
-vim.fn.sign_define("LspDiagnosticsSignHint", { text = icons.diagnostic.hint })
-vim.fn.sign_define("LspDiagnosticsSignInformation", { text = icons.diagnostic.info })
+-- Define custom icons
+local signs = { 
+  Eror = icons.diagnostic.error,
+  Warning = icons.diagnostic.warn,
+  Hint = icons.diagnostic.hint,
+  Information = icons.diagnostic.Info
+}
+for type, icon in pairs(signs) do
+  local hl = "LspDiagnosticsSign" .. type
+  vim.fn.sign_define(hl, { text = icon})
+end
 
---Enable completion triggered by <c-x><c-o>
+-- Enable completion triggered by <c-x><c-o>
 vim.cmd('setlocal omnifunc=v:lua.vim.lsp.omnifunc')
 
 -- Setup LSP for docker, yaml, typescript, ruby, golang, rust, bash, html, css
@@ -23,46 +30,44 @@ vim.cmd('setlocal omnifunc=v:lua.vim.lsp.omnifunc')
 local servers = {
   dockerls = true,
   yamlls = true,
-  rust_analyzer = true,
+  rust_analyzer = {
+    cmd = { "rust-analyzer" },
+    filetypes = { "rust" },
+    settings = {
+      ["rust-analyzer"] = {}
+    }
+  },
   tsserver = {
-    filetypes = { 
-      "javascript", "javascriptreact", "javascript.jsx", "typescript", 
-      "typescriptreact", "typescript.tsx" 
-    },
+    filetypes = {
+      "javascript", "javascriptreact", "javascript.jsx", "typescript",
+      "typescriptreact", "typescript.tsx"
+    }
   },
-  solargraph = {
-    filetypes = { "ruby" },
-  },
+  solargraph = { filetypes = { "ruby" } },
   gopls = {
-    cmd = {"gopls", "serve"},
+    cmd = { "gopls", "serve" },
     settings = {
       gopls = {
         analyses = {
           unusedparams = true,
         },
         staticcheck = true,
-      },
-    },
+      }
+    }
   },
   bashls = {
     filetypes = { "sh" },
     cmd = { "bash-language-server", "start" },
   },
   html = {
-    filetypes = { "html", "eruby"},
+    filetypes = { "html", "eruby" },
   },
   cssls = {
     settings = {
-      css = {
-        validate = true
-      },
-      less = {
-        validate = true
-      },
-      scss = {
-        validate = true
-      }
-    },
+      css = { validate = true },
+      less = { validate = true },
+      scss = { validate = true }
+    }
   },
   vuels = {
     cmd = { "vls" },
@@ -108,7 +113,8 @@ local function setup_server(server_name, config)
     on_attach = function(client, bufnr)
       on_attach.on_attach()
     end,
-    capabilities = capabilities,
+    -- capabilities = capabilities,
+    capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities),
     flags = {
       debounce_text_changes = 50,
     },
@@ -128,18 +134,17 @@ for server, config in pairs(servers) do
   setup_server(server, config)
 end
 
-vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
-  vim.lsp.diagnostic.on_publish_diagnostics, {
-    underline = false,
+vim.lsp.handlers["textDocument/publishDiagnostics"] =
+    vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
+      underline = false,
 
-    -- Disable virtual_text on file load
-    virtual_text = false,
-    -- virtual_text = {
-    --   prefix = "",
-    --   spacing = 0,
-    -- },
+      -- Disable virtual_text on file load
+      virtual_text = false,
+      -- virtual_text = {
+      --   prefix = "",
+      --   spacing = 0,
+      -- },
 
-    signs = true,
-    update_in_insert = true,
-  }
-)
+      signs = true,
+      update_in_insert = false
+    })

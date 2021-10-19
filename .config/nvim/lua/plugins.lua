@@ -22,9 +22,14 @@ require('paq') {
   "williamboman/nvim-lsp-installer";
 
   -- Autocomplete
-  "hrsh7th/nvim-compe";
-  "ray-x/lsp_signature.nvim";
+  -- "hrsh7th/nvim-compe";
+  "hrsh7th/nvim-cmp";
+  "hrsh7th/cmp-nvim-lsp";
+  "hrsh7th/cmp-vsnip";
   "hrsh7th/vim-vsnip";
+  "hrsh7th/cmp-path";
+
+  "ray-x/lsp_signature.nvim";
   -- "jiangmiao/auto-pairs";
   "rstacruz/vim-closer";
 
@@ -42,6 +47,7 @@ require('paq') {
   "kevinhwang91/nvim-hlslens";
   "karb94/neoscroll.nvim";
   "phaazon/hop.nvim";
+  "chaoren/vim-wordmotion";
 
   -- Syntax
   "folke/todo-comments.nvim";
