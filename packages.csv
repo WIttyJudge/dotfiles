@@ -11,7 +11,7 @@ TRUE,AUR,termsyn-font,Monospaced font based on terminus and tamsyn.
 ,,telegram-desktop,Official Telegram Desktop client.
 ,,discord,All-in-one voice and text chat for gamers that's free and secure.
 TRUE,,feh,Fast and light imlib2-based image viewer.
-,AUR,xwallpaper-git,Wallpaper setting utility for X.
+,,xwallpaper,Wallpaper setting utility for X.
 TRUE,,scrot,Simple command-line screenshot utility for X.
 ,,flameshot,Powerful yet simple to use screenshot software.
 ,,maim,Utility to take a screenshot using imlib2.
