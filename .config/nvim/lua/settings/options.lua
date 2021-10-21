@@ -42,7 +42,7 @@ opt.shortmess:append('c')
 opt.pumheight = 10
 
 -- LINE OPTIONS
-opt.scrolloff = 10
+opt.scrolloff = 7
 opt.number = true
 opt.relativenumber = true
 opt.textwidth = 120

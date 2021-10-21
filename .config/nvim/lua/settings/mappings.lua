@@ -89,7 +89,8 @@ set_keymap('v', '<', '<gv')
 -- set_keymap('n','n', 'nzz')
 -- set_keymap('n','N', 'Nzz')
 
--- Cursor stops running away during line concatination set_keymap('n','J', 'mzJ`z')
+-- Cursor stops running away during line concatination 
+set_keymap('n','J', 'mzJ`z')
 
 -- Tabs control
 set_keymap('n', '<Leader>tl', ':tabnext<CR>')
