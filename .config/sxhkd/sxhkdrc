@@ -17,9 +17,8 @@ super + shift + w
 super + shift + q
       system
 
-/* Audio volumes */
-{F9, F10, F11}
-    amixer -q -D pulse set Master {toggle, 10%-, 10%+}; pkill -RTMIN+10 dwmblocks
+XF86Audio{Mute,LowerVolume,RaiseVolume}
+    pamixer --allow-boost {-t, -d 5, -i 5}; pkill -RTMIN+10 dwmblocks 
 
 /* Brightness volumes */
 {XF86MonBrightnessDown, XF86MonBrightnessUp}

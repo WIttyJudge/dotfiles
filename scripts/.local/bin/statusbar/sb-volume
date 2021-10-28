@@ -6,9 +6,9 @@ ifcommand $command || exit
 
 case $BLOCK_BUTTON in
 	1) pavucontrol ;;
-	2) pamixer -t ;;
-	4) amixer -q -D pulse set Master 10%+ ;;
-	5) amixer -q -D pulse set Master 10%- ;;
+	2) $command -t ;;
+	4) $command --allow-boost -i 10 ;;
+	5) $command --allow-boost -d 5 ;;
 	3) notify-send "📢 Volume module" "\- Shows volume 🔊, 🔇 if muted.
 - Middle click to mute.
 - Scroll to change." ;;
