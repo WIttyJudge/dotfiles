@@ -63,7 +63,7 @@ opt.showtabline = 2
 opt.cmdheight = 2
 
 -- Enable mouse
--- opt.mouse = 'a'
+opt.mouse = 'a'
 
 -- For better experience this session manager
 -- opt.sessionoptions='blank,buffers,curdir,folds,help,options,tabpages,winsize,resize,winpos,terminal'
