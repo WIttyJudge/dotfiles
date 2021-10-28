@@ -18,7 +18,6 @@ TRUE,,flameshot,Powerful yet simple to use screenshot software.
 ,,pulseaudio-alsa,ALSA Configuration for PulseAudio.
 ,,pamixer,PulseAudio command-line mixer like amixer.
 ,,pavucontrol,PulseAudio Volume Control.
-,,alsa-utils,Advanced Linux Sound Architecture - Utilities.
 ,,ttf-dejavu,Font family based on the Bitstream Vera Fonts with a wider range of characters.
 TRUE,,ttf-fira-code,Monospaced font with programming ligatures.
 ,,ttf-hack,Cool font for terminal and coding.
