@@ -35,10 +35,9 @@ autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "norm
 -- augroup END
 -- ]])
 
+-- execute goimports linter
 -- autocmd BufWritePre *.go :silent! lua require('go.format').gofmt()
 -- autocmd BufWritePre *.go :silent! lua require('custom.go.format').goimports(1000)
-
--- execute goimports linter
 
 cmd([[
 autocmd BufWritePre *.go :silent! :Goimport
@@ -50,7 +49,11 @@ autocmd FileType fugitive map <buffer> q gq<CR>
 
 -- Add command to execute current file.
 cmd([[
+autocmd FileType go command! GoRun :call mappings#RunWith("go run")
+autocmd FileType sh command! BashRun :call mappings#RunWith("bash")
+
 autocmd FileType javascript command! JsRun :call mappings#RunWith("node")
+autocmd FileType typescript command! TsRun :call mappings#RunWith("npx ts-node")
 ]])
 
 -- autocmd BufWritePre *.go :silent! :Gofmt
