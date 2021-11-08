@@ -25,6 +25,7 @@ require('paq') {
   -- "hrsh7th/nvim-compe";
   "hrsh7th/nvim-cmp";
   "hrsh7th/cmp-nvim-lsp";
+  "hrsh7th/cmp-buffer";
   "hrsh7th/cmp-vsnip";
   "hrsh7th/vim-vsnip";
   "hrsh7th/cmp-path";
@@ -68,8 +69,8 @@ require('paq') {
   "mhartington/formatter.nvim";
 
   -- Colorscheme
-  -- "sainnhe/gruvbox-material";
-  "WIttyJudge/gruvbox-material.nvim";
+  "sainnhe/gruvbox-material";
+  -- "WIttyJudge/gruvbox-material.nvim";
 
   -- Looking for files, etc..
   "nvim-lua/popup.nvim";
