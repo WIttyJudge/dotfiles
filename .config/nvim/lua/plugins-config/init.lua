@@ -5,6 +5,7 @@ local plugins = {
   "formatter",
   "gitsigns",
   -- "go",
+  "hop",
   "indentLine",
   "lspsaga",
   "lspkind-nvim",
