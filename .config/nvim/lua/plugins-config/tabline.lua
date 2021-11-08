@@ -1,4 +1,4 @@
--- look at the folder 'tabline'
+-- look at the folder 'wittyjudge/tabline'
 
 local config = {
   show_index = false,    -- show tab index
