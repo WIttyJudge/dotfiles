@@ -1,98 +1,84 @@
 -- Read more:
 -- https://github.com/nanotee/nvim-lua-guide#using-meta-accessors
 
-local opt = vim.opt
+local default_options = {
+  -- DEFAULTS
+  encoding = 'UTF-8', -- Always use UTF-8
+  fileencoding = 'UTF-8',
+  clipboard = 'unnamedplus', -- Copy paste between vim and everything else
 
--- local opt_global= vim.opt_global
--- local opt_local= vim.opt_local
+  -- INDENT OPTIONS
+  tabstop = 2,
+  shiftwidth = 2,
+  expandtab = true,
+  smarttab = true,
+  smartindent = true,
+  autoindent = true,
+
+  -- SEARCH OPTIONS
+  ignorecase = true, -- Case insensitive searching
+  smartcase = true, -- Case-sensitive if expresson contains a capital letter
+  hlsearch = true, -- Highlight search results
+
+  -- COMPLETION OPTIONS
+  updatetime = 200,
+  completeopt = 'menuone,noinsert,noselect',
+  -- Remove `Pattern not found` nvim-compe
+  pumheight = 10, -- Make pop up menu smaller
+
+  -- LINE OPTIONS
+  scrolloff = 7,
+  number = true,
+  relativenumber = true,
+  textwidth = 120,
+  linebreak = true,
+  -- wrap = true, Set automatic wrapping to new line if characters more then 80
+  -- colorcolumn = "80",
+  signcolumn = 'yes',
+  cursorline = true, -- Enable highlighting on the current_line
+
+  -- STATUSLINE, TABLINE, MESSAGES
+  laststatus = 2, -- Always display the status line
+  showtabline = 2,  -- Always show tables
+  cmdheight = 2, -- More space for displaying messages
+
+  mouse = 'a', -- Enable mouse
+
+  -- For better experience this session manager
+  -- sessionoptions='blank,buffers,curdir,folds,help,options,tabpages,winsize,resize,winpos,terminal'
+
+  splitbelow = true, -- Horizontal splits will open below
+  splitright = true, -- Vertical splits will open  right
+
+  -- Enable the integrated undo features.
+  undofile = true,
+  undolevels = 500,
+  undodir = vim.fn.stdpath('cache') .. '/undo',
+
+  -- I don't need swap file and backups
+  swapfile = false,
+  backup = false,
+  writebackup = false,
+
+  showmode = false, -- We don't need to see things like -- INSERT -- anymore
+
+  -- Buffer/Tabs/Windows
+  hidden = true,
+
+  fixeol = true,
+}
 
 -- Enables syntax highlighing
 vim.cmd([[ syntax enable ]])
 vim.cmd([[ filetype plugin on ]])
 
--- DEFAULTS
--- Always use UTF-8
-opt.encoding = 'UTF-8'
-opt.fileencoding = 'UTF-8'
--- Copy paste between vim and everything else
-opt.clipboard = 'unnamedplus'
-
--- INDENT OPTIONS
-opt.tabstop = 2
-opt.shiftwidth = 2
-opt.expandtab = true
-opt.smarttab = true
-opt.smartindent = true
-opt.autoindent = true
-
--- SEARCH OPTIONS
--- Case insensitive searching
-opt.ignorecase = true
--- Case-sensitive if expresson contains a capital letter
-opt.smartcase = true
--- Highlight search results
-opt.hlsearch = true
-
--- COMPLETION OPTIONS
-opt.updatetime = 200
-opt.completeopt = 'menuone,noinsert,noselect'
--- Remove `Pattern not found` nvim-compe
-opt.shortmess:append('c')
--- Make pop up menu smaller
-opt.pumheight = 10
-
--- LINE OPTIONS
-opt.scrolloff = 7
-opt.number = true
-opt.relativenumber = true
-opt.textwidth = 120
-opt.linebreak = true
--- Set automatic wrapping to new line if characters more then 80
--- opt.wrap = true
--- opt.colorcolumn = 80
-opt.signcolumn = 'yes'
--- Enable highlighting on the current_line
-opt.cursorline = true
-
--- STATUSLINE, TABLINE, MESSAGES
--- Always display the status line
-opt.laststatus = 2
--- Always show tables
-opt.showtabline = 2  
--- More space for displaying messages
-opt.cmdheight = 2
-
--- Enable mouse
-opt.mouse = 'a'
-
--- For better experience this session manager
--- opt.sessionoptions='blank,buffers,curdir,folds,help,options,tabpages,winsize,resize,winpos,terminal'
+vim.opt.shortmess:append('c')
 vim.o.sessionoptions = 'buffers,curdir,folds,tabpages,winsize'
 
--- Horizontal splits will open below
-opt.splitbelow = true
--- Vertical splits will open  right
-opt.splitright = true
-
--- Enable the integrated undo features.
-opt.undofile = true
-opt.undolevels = 500
-opt.undodir = vim.fn.stdpath('cache') .. '/undo'
-
--- I don't need swap file and backups
-opt.swapfile = false
-opt.backup = false
-opt.writebackup = false
-
--- We don't need to see things like -- INSERT -- anymore
-opt.showmode = false
-
--- Buffer/Tabs/Windows
-opt.hidden = true
-
-opt.fixeol = true
-
 -- Stop newline continution of comments
-opt.formatoptions:remove('c', 'r', 'o', 'l')
-opt.formatoptions:append('t')
+vim.opt.formatoptions:remove('c', 'r', 'o', 'l')
+vim.opt.formatoptions:append('t')
 
+for k, v in pairs(default_options) do
+  vim.opt[k] = v
+end
