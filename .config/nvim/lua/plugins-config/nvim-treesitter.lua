@@ -2,13 +2,12 @@
 
 local config = {
   -- ensure_installed = "all",  -- one of "all", "maintained" (parsers with maintainers), or a list of languages
-  ensure_installed = {
-    "query", "bash", "html", "cpp", "c", "go", "gomod", "ruby", "svelte",
-    "graphql", "java", "json", "php", "python", "rust", "typescript", "vue",
-    "yaml", "regex", "javascript", "scss", "css", "lua", "toml", "dockerfile", "vim"
+  ensure_installed = "maintained",
+  highlight = { 
+    enable = true, 
+    additional_vim_regex_highlighting = true,
+    disable = {} 
   },
-
-  highlight = { enable = true, disable = {} },
 
   -- PLUGINS
   -- nvim-ts-rainbow
