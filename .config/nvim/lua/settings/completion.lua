@@ -51,6 +51,7 @@ local config = {
     { name = 'path' },
     -- For vsnip user.
     { name = 'vsnip' },
+    { name = 'buffer', keyword_length = 5 }
   },
   formatting = {
     format = function(entry, vim_item) -- fancy icons and a name of kind
@@ -59,10 +60,11 @@ local config = {
 
       -- set a name for each source
       vim_item.menu = ({
-        buffer = "[Buffer]",
+        buffer = "[buf]",
         nvim_lsp = "[LSP]",
         nvim_lua = "[Lua]",
-        latex_symbols = "[Latex]",
+        path = "[path]",
+        vsnip = "[snip]"
       })[entry.source.name]
       return vim_item
     end,
