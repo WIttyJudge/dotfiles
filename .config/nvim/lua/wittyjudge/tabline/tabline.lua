@@ -3,6 +3,8 @@
 local M = {}
 local fn = vim.fn
 
+local has_devicons, devicons = pcall(require, 'nvim-web-devicons')
+
 _TABLINE_NVIM_CFG = {
     show_index = true,
     show_modify = true,
@@ -17,6 +19,7 @@ local function tabline(options)
     local buflist = fn.tabpagebuflist(index)
     local bufnr = buflist[winnr]
     local bufname = fn.bufname(bufnr)
+    local buftype = vim.bo[bufnr].filetype
     local bufmodified = fn.getbufvar(bufnr, "&mod")
 
     s = s .. '%' .. index .. 'T'
@@ -24,6 +27,19 @@ local function tabline(options)
       s = s .. '%#TabLineSel#'
     else
       s = s .. '%#TabLine#'
+    end
+
+    s = s .. ' '
+    if has_devicons then
+      local name = fn.fnamemodify(bufname, ':t')
+      local extension = fn.fnamemodify(bufname, ':e')
+      local icon, color =
+      devicons.get_icon_color(name, extension, {default = true})
+      s = s .. icon  
+      -- buffer.devicon = {
+      --   icon = icon .. ' ',
+      --   color = color,
+      -- }
     end
 
     -- tab index
@@ -39,7 +55,7 @@ local function tabline(options)
       s = s .. _TABLINE_NVIM_CFG.no_name .. ' '
     end
 
-    -- buffer name
+      -- dump(buftype)
 
     -- modification indicator
     if _TABLINE_NVIM_CFG.show_modify and bufmodified == 1 then

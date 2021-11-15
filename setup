@@ -15,6 +15,7 @@ home_directory=(
   .gitconfig
   .bashrc
   .profile
+  .tmux.conf
   .xinitrc
   .xprofile
   .Xresources

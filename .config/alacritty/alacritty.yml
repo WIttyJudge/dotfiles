@@ -10,7 +10,7 @@ env:
   # each instance of Alacritty. If it is not present, alacritty will
   # check the local terminfo database and use `alacritty` if it is
   # available, otherwise `xterm-256color` is used.
-  TERM: alacritty
+  TERM: xterm-256color 
 
 window:
   dynamic_title: true
@@ -98,7 +98,7 @@ font:
     #style: Bold Italic
 
   # Point size
-  size: 7
+  size: 9
 
   # Offset is the extra space around each character. `offset.y` can be thought of
   # as modifying the line spacing, and `offset.x` as modifying the letter spacing.
@@ -116,13 +116,13 @@ font:
 # If `true`, bold text is drawn using the bright color variants.
 draw_bold_text_with_bright_colors: false
 
-# Colors (Tomorrow Night Bright)
 # Colors (Gruvbox dark)
 colors:
   primary:
     # hard contrast background - '#1d2021'
     background:        &gruvbox_dark_bg '#282828'
     # soft contrast background - '#32302f'
+    background:        &gruvbox_dark_bg '#282828'
     foreground:        '#ebdbb2'
     bright_foreground: '#fbf1c7'
     dim_foreground:    '#a89984'

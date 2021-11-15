@@ -165,4 +165,4 @@ set_keymap('c', 'e!!', 'e suda://%', { silent = false })
 set_keymap('c', 'w!!', 'w suda://%', { silent = false })
 
 -- hop.nvim
-set_keymap('n', 'f', "<CMD>:HopChar1<CR>")
+set_keymap('n', 'f', "<CMD>:HopChar2<CR>")

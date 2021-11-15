@@ -1,6 +1,5 @@
 -- execute goimports linter
 -- vim.cmd([[ command! Goimports :lua require('custom.go.format').goimports(1000) ]])
-
 local commands_list = {
   -- General
   [[ command! Filetype execute 'lua print(vim.bo.filetype)' ]], 
@@ -8,15 +7,19 @@ local commands_list = {
   -- Git
   [[ command! GitBlameByLineToggle :Gitsigns toggle_current_line_blame ]],
 
-  -- Execute files
-  [[ "FileType", "go", "command! GoRun :call mappings#RunWith('go run')" ]],
-  [[ "FileType", "sh", "command! BashRun :call mappings#RunWith('bash')" ]],
-  [[ "FileType", "javascript", "command! JsRun :call mappings#RunWith('node')" ]],
-  [[
-    "FileType", "typescript",
-    "command! TsRun :call mappings#RunWith('npx ts-node')"
-  ]], -- Lsp
+  -- Lsp
   [[ command! LspFormat execute 'lua vim.lsp.buf.formatting_sync(nil, 1000)' ]]
+}
+
+-- list of commands dependent on autogroup.
+local autogroups_list = {
+  -- Execute files
+  _file_execution = {
+    { "FileType", "rust", "command! CargoRun :call mappings#RunWith('cargo run')" },
+    { "FileType", "go", "command! GoRun :call mappings#RunWith('go run')" },
+    { "FileType", "sh", "command! BashRun :call mappings#RunWith('bash')" },
+    { "FileType", "javascript", "command! JsRun :call mappings#RunWith('node')" }
+  }
 }
 
 local function define_commands(commands)
@@ -26,3 +29,5 @@ local function define_commands(commands)
 end
 
 define_commands(commands_list)
+
+require('settings.autocmds').define_augroups(autogroups_list)

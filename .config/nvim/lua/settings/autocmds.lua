@@ -44,8 +44,10 @@ local autogroups_list = {
   }
 }
 
+local M = {}
+
 -- Create autocommand groups based on the passed definitions
-local function define_augroups(definitions)
+ function M.define_augroups(definitions)
   for group_name, definition in pairs(definitions) do
     vim.cmd("augroup " .. group_name)
     vim.cmd "autocmd!"
@@ -59,4 +61,6 @@ local function define_augroups(definitions)
   end
 end
 
-define_augroups(autogroups_list)
+M.define_augroups(autogroups_list)
+
+return M
