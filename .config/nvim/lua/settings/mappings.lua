@@ -14,10 +14,10 @@ set_keymap('n', '<leader>tg', ':call v:lua.toggle_diagnostics()<CR>')
 set_keymap('n', 'gF', ':call v:lua.open_file_or_create_new()<CR>')
 
 -- Easier split navigation, CTRL + hjlk
-set_keymap('n', '<C-J>', '<C-W><C-J>')
-set_keymap('n', '<C-K>', '<c-w><c-k>')
-set_keymap('n', '<c-l>', '<c-w><c-l>')
-set_keymap('n', '<c-h>', '<C-W><C-H>')
+set_keymap('n', '<C-j>', '<C-W><C-j>')
+set_keymap('n', '<c-k>', '<c-w><C-k>')
+set_keymap('n', '<C-l>', '<c-w><C-l>')
+set_keymap('n', '<C-h>', '<C-W><C-h>')
 
 -- Add space bellow or above without leaving normal mode
 vim.cmd([[
@@ -138,6 +138,7 @@ set_keymap('n', '<Leader>hf', ':NvimTreeFindFile<CR>')
 set_keymap('n', '<Leader>f', ':lua require("plugins-config/telescope").find_all_files()<CR>')
 set_keymap('n', '<Leader>b', ':lua require("telescope/builtin").buffers()<CR>')
 set_keymap('n', '<Leader>ps', ':lua require("telescope/builtin").live_grep()<CR>')
+set_keymap('n', '<Leader>pf', ':lua require("telescope/builtin").live_grep({grep_open_files=true})<CR>')
 set_keymap('n', '<Leader>gb', ':lua require("plugins-config/telescope").git_branches()<CR>')
 set_keymap('n', '<Leader>ca', ':lua require("plugins-config/telescope").lsp_code_actions()<CR>')
 

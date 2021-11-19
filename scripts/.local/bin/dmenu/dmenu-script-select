@@ -28,9 +28,9 @@ case "$choice" in
   "4 [ bookmarks ]")
     open-bookmarks ;;
   "dotfiles")
-    $TERMINAL -e sh -c 'cd ~/dotfiles && sleep 0.01 && nvim' ;;
+    $TERMINAL -e sh -c 'tmux-sessionizer /home/wittyjudge/dotfiles' ;;
   "suckess-tools")
-    $TERMINAL -e sh -c 'cd ~/suckless-tools && nvim' ;;
+    $TERMINAL -e sh -c 'tmux-sessionizer /home/wittyjudge/suckless-tools' ;;
   '< Exit') exit ;;
   *) exit ;;
 esac

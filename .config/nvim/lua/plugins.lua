@@ -1,132 +1,142 @@
--- https://github.com/savq/paq-nvim
+vim.cmd('packadd packer.nvim')
 
 local fn = vim.fn
 
-local install_path = fn.stdpath('data') .. '/site/pack/paqs/start/paq-nvim'
-
+local install_path = fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
 if fn.empty(fn.glob(install_path)) > 0 then
-  fn.system({'git', 'clone', '--depth=1', 'https://github.com/savq/paq-nvim.git', install_path})
+  packer_bootstrap = fn.system({
+    'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim',
+    install_path
+  })
 end
 
-require('paq') {
-  "savq/paq-nvim";
+-- Auto compile when there are changes in plugins.lua
+vim.cmd 'autocmd BufWritePost plugins.lua PackerCompile'
+
+return require('packer').startup(function(use)
+  use "wbthomason/packer.nvim"
 
   -- LSP
-  "neovim/nvim-lspconfig";
-  "onsails/lspkind-nvim";
-  "glepnir/lspsaga.nvim";
-  "folke/trouble.nvim";
-  "liuchengxu/vista.vim";
+  use "neovim/nvim-lspconfig"
+  use "onsails/lspkind-nvim"
+  use "glepnir/lspsaga.nvim"
+  use "folke/trouble.nvim"
+  use "liuchengxu/vista.vim"
 
   -- LSP installer
-  "williamboman/nvim-lsp-installer";
+  use "williamboman/nvim-lsp-installer"
 
   -- Autocomplete
-  -- "hrsh7th/nvim-compe";
-  "hrsh7th/nvim-cmp";
-  "hrsh7th/cmp-nvim-lsp";
-  "hrsh7th/cmp-buffer";
-  "hrsh7th/cmp-vsnip";
-  "hrsh7th/vim-vsnip";
-  "hrsh7th/cmp-path";
+  -- "hrsh7th/nvim-compe"
+  use { 
+    "hrsh7th/nvim-cmp",
+    requires = {
+      "hrsh7th/cmp-nvim-lsp",
+      "hrsh7th/cmp-buffer",
+      "hrsh7th/cmp-vsnip",
+      "hrsh7th/cmp-path",
+    }
+  }
 
-  "ray-x/lsp_signature.nvim";
-  -- "jiangmiao/auto-pairs";
-  "rstacruz/vim-closer";
+  use "ray-x/lsp_signature.nvim"
+  -- use"jiangmiao/auto-pairs"
+  use "rstacruz/vim-closer"
 
   -- Treesitter
-  { "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" };
-  "p00f/nvim-ts-rainbow";
-  "nvim-treesitter/nvim-treesitter-refactor";
-  "windwp/nvim-ts-autotag";
+  use { "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" }
+  use "p00f/nvim-ts-rainbow"
+  use "nvim-treesitter/nvim-treesitter-refactor"
+  use "windwp/nvim-ts-autotag"
 
   -- Move && Scroll && Replace
-  "wellle/targets.vim";
-  { "mg979/vim-visual-multi", branch = "master"};
-  "blackcauldron7/surround.nvim";
-  "AndrewRadev/splitjoin.vim";
-  "kevinhwang91/nvim-hlslens";
-  "karb94/neoscroll.nvim";
-  "phaazon/hop.nvim";
-  "chaoren/vim-wordmotion";
+  use "wellle/targets.vim"
+  use { "mg979/vim-visual-multi", branch = "master" }
+  use "blackcauldron7/surround.nvim"
+  use "AndrewRadev/splitjoin.vim"
+  use "kevinhwang91/nvim-hlslens"
+  use "karb94/neoscroll.nvim"
+  use "phaazon/hop.nvim"
+  use "chaoren/vim-wordmotion"
 
   -- Syntax
-  "folke/todo-comments.nvim";
-  "norcalli/nvim-colorizer.lua";
-  "Yggdroot/indentLine";
+  use "folke/todo-comments.nvim"
+  use "norcalli/nvim-colorizer.lua"
+  use "Yggdroot/indentLine"
 
   -- Git
-  "tpope/vim-fugitive";
-  "lewis6991/gitsigns.nvim";
-  "junegunn/gv.vim";
-  -- "sindrets/diffview.nvim";
+  use "tpope/vim-fugitive"
+  use "lewis6991/gitsigns.nvim"
+  use "junegunn/gv.vim"
+  -- use "sindrets/diffview.nvim"
 
   -- Icons
-  "kyazdani42/nvim-web-devicons";
-  "lambdalisue/glyph-palette.vim";
+  use "kyazdani42/nvim-web-devicons"
+  use "lambdalisue/glyph-palette.vim"
 
   -- Linter
-  "mhartington/formatter.nvim";
+  use "mhartington/formatter.nvim"
 
   -- Colorscheme
-  "sainnhe/gruvbox-material";
-  -- "WIttyJudge/gruvbox-material.nvim";
+  -- use "sainnhe/gruvbox-material"
+  use "WIttyJudge/gruvbox-material.nvim"
 
   -- Looking for files, etc..
-  "nvim-lua/popup.nvim";
-  "nvim-lua/plenary.nvim";
-  "nvim-telescope/telescope.nvim";
-  "nvim-telescope/telescope-fzy-native.nvim";
+  use "nvim-lua/popup.nvim"
+  use "nvim-lua/plenary.nvim"
+  use "nvim-telescope/telescope.nvim"
+  use "nvim-telescope/telescope-fzy-native.nvim"
 
   -- Explorer
-  "kyazdani42/nvim-tree.lua";
+  use "kyazdani42/nvim-tree.lua"
 
   -- Comment out code
-  "terrortylor/nvim-comment";
+  use "terrortylor/nvim-comment"
 
   -- Statusline and bufferline
-  "hoob3rt/lualine.nvim";
+  use "hoob3rt/lualine.nvim"
 
   -- Fancy startup screen
-  "mhinz/vim-startify";
+  use "mhinz/vim-startify"
 
   -- Changes working directory
-  "airblade/vim-rooter";
+  use "airblade/vim-rooter"
 
   -- Ruby
-  "thoughtbot/vim-rspec";
-  "tpope/vim-rvm";
+  use { "thoughtbot/vim-rspec", ft = 'ruby' }
+  use { "tpope/vim-rvm", ft = 'ruby' }
 
   -- Golang
-  -- "ray-x/go.nvim";
-  "fatih/vim-go";
+  use { "ray-x/go.nvim" }
+  -- use { "fatih/vim-go", ft = 'go' }
 
   -- Useful functions
-  "lambdalisue/suda.vim";
- 
+  use "lambdalisue/suda.vim"
+
   -- Undo history visualizer
-  "mbbill/undotree";
+  use "mbbill/undotree"
 
   -- Profiling
-  "tweekmonster/startuptime.vim";
+  use "tweekmonster/startuptime.vim"
 
   -- Autosave
-  "Pocco81/AutoSave.nvim";
+  use "Pocco81/AutoSave.nvim"
 
   -- Run tests
-  "vim-test/vim-test";
+  use "vim-test/vim-test"
 
   -- Improve startup time
-  "lewis6991/impatient.nvim";
+  use "lewis6991/impatient.nvim"
 
   -- The interactive scratchpad.
-  "metakirby5/codi.vim";
+  use "metakirby5/codi.vim"
 
   -- Debug
-  -- "mfussenegger/nvim-dap";
+  use "mfussenegger/nvim-dap"
+  use "rcarriga/nvim-dap-ui"
+  -- "theHamsta/nvim-dap-virtual-text";
   -- "Pocco81/DAPInstall.nvim";
 
   -- Database
-  "tpope/vim-dadbod";
-  "kristijanhusak/vim-dadbod-ui";
-}
+  use "tpope/vim-dadbod"
+  use "kristijanhusak/vim-dadbod-ui"
+end)

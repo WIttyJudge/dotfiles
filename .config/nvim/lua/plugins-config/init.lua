@@ -13,6 +13,8 @@ local plugins = {
   "neoscroll-nvim",
   "nvim-colorizer",
   "nvim-comment",
+  "nvim-dap-ui",
+  "nvim-dap",
   "nvim-hlslens",
   "nvim-tree",
   "tabline",

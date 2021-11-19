@@ -10,7 +10,12 @@ local icons = {
     warn = '',
     hint = '',
     info = '',
-    header_icon = '  ',
+    header_icon = '  '
+  },
+
+  debug = {
+    breakpoint = { text = "→", texthl = "Red", linehl = "", numhl = "" },
+    stop = { text = "→", texthl = "Green", linehl = "", numhl = "" }
   }
 }
 

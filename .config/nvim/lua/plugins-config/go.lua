@@ -24,9 +24,9 @@ local config = {
   lsp_diag_hdlr = true, -- hook lsp diag handler
 
   dap_debug = false, -- set to false to disable dap
-  dap_debug_keymap = true, -- set keymaps for debugger
+  dap_debug_keymap = false, -- set keymaps for debugger
   dap_debug_gui = true, -- set to true to enable dap gui, highly recommand
-  dap_debug_vt = true, -- set to true to enable dap virtual text
+  dap_debug_vt = false, -- set to true to enable dap virtual text
 }
 
 require('go').setup(config)

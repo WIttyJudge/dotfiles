@@ -22,12 +22,16 @@ local autogroups_list = {
   }
 }
 
-local function define_commands(commands)
+local M = {}
+
+function M.define_commands(commands)
   for _, command in pairs(commands) do
     vim.cmd(command)
   end
 end
 
-define_commands(commands_list)
+M.define_commands(commands_list)
 
 require('settings.autocmds').define_augroups(autogroups_list)
+
+return M
