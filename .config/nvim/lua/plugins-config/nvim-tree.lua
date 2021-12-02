@@ -64,6 +64,10 @@ local config = {
   auto_close = true,
   -- updates the root directory of the tree on `DirChanged` (when your run `:cd` usually) 
   update_cwd = true,
+  -- update_to_buf_dir   = {
+  --   enable = true,
+  --   auto_open = true,
+  -- },
   -- show lsp diagnostics in the signcolumn
   diagnostics = {
     enable = true,

@@ -4,5 +4,6 @@
 .config/nvim/autoload/plug.vim
 .config/nvim/autoload/plug.vim.old
 .config/nvim/.netrwhist
+.config/nvim/plugin/*
 
 scripts/.local/share/

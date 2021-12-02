@@ -1,4 +1,4 @@
-/* *font: xft:monospace:size=11 */
+/* *font: xft:monospace:size=12 */
 *font: xft:Hack-Regular:pixelsize=14
 
 !! Transparency (0-1):
@@ -42,10 +42,11 @@
 
 !! URxvt Appearance
 URxvt.intensityStyles:	false
-URxvt.background:       [85]#1d2021
+URxvt.background:       [90]#1d2021
 URxvt.depth:		32
-/* URxvt.font: 		xft:monospace:size=11 */
+URxvt.font: 	xft:Hack-Regular:pixelsize=18
 URxvt.scrollBar:	false
+/* URxvt.saveLines:	0 */
 URxvt.cursorColor: #d8dee9	
 
 /* Disable iso mode while pressing CTRL + SHIFT */

@@ -34,7 +34,10 @@ local servers = {
     cmd = { "rust-analyzer" },
     filetypes = { "rust" },
     settings = {
-      ["rust-analyzer"] = {}
+      ["rust-analyzer"] = {
+        cargo =  { loadOutDirsFromCheck = true },
+        procMacro =  { enable = true },
+      }
     }
   },
   tsserver = {

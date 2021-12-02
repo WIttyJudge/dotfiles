@@ -3,7 +3,7 @@
 vim.g.indentLine_char = '¦'
 vim.g.indentLine_bufTypeExclude = { 'terminal' }
 vim.g.indentLine_fileTypeExclude = {
-  'help', 'man', 'startify', 'packer', 'NvimTree', 'Trouble', 'dashboard'
+  'help', 'man', 'startify', 'packer', 'NvimTree', 'Trouble', 'dashboard', 'alpha'
 }
 
 -- vim.g.indent_blankline_show_current_context = true

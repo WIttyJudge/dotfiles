@@ -40,7 +40,8 @@ return require('packer').startup(function(use)
 
   use "ray-x/lsp_signature.nvim"
   -- use"jiangmiao/auto-pairs"
-  use "rstacruz/vim-closer"
+  -- use "rstacruz/vim-closer"
+  use 'windwp/nvim-autopairs'
 
   -- Treesitter
   use { "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" }
@@ -97,6 +98,10 @@ return require('packer').startup(function(use)
 
   -- Fancy startup screen
   use "mhinz/vim-startify"
+  use {
+      'goolord/alpha-nvim',
+      requires = { 'kyazdani42/nvim-web-devicons' }
+  }
 
   -- Changes working directory
   use "airblade/vim-rooter"
@@ -104,9 +109,11 @@ return require('packer').startup(function(use)
   -- Ruby
   use { "thoughtbot/vim-rspec", ft = 'ruby' }
   use { "tpope/vim-rvm", ft = 'ruby' }
+  use { "tpope/vim-endwise", ft= 'ruby' }
+
 
   -- Golang
-  use { "ray-x/go.nvim" }
+  use "ray-x/go.nvim"
   -- use { "fatih/vim-go", ft = 'go' }
 
   -- Useful functions

@@ -8,6 +8,7 @@ autocmd FileType ruby,eruby let g:rubycomplete_rails = 1
 ]])
 
 local cmp = require('cmp')
+local lspkind = require('lspkind')
 
 local has_words_before = function()
     local line, col = unpack(vim.api.nvim_win_get_cursor(0))
@@ -26,7 +27,14 @@ local config = {
     ['<C-u>'] = cmp.mapping.scroll_docs(-4),
     ['<C-o>'] = cmp.mapping.complete(),
     ['<C-e>'] = cmp.mapping.close(),
-    ['<CR>'] = cmp.mapping.confirm({ select = true }),
+    -- ['<CR>'] = cmp.mapping.confirm({ select = true }),
+    ['<C-y>'] = cmp.mapping(
+      cmp.mapping.confirm {
+        behavior = cmp.ConfirmBehavior.Insert,
+        select = true,
+      },
+      { "i", "c" }
+    ),
     ["<Tab>"] = cmp.mapping(function(fallback)
         if cmp.visible() then
           cmp.select_next_item()
@@ -54,21 +62,18 @@ local config = {
     { name = 'buffer', keyword_length = 5 }
   },
   formatting = {
-    format = function(entry, vim_item) -- fancy icons and a name of kind
-      local lspkind_config = require('plugins-config/lspkind-nvim').config
-      vim_item.kind = lspkind_config.symbol_map[vim_item.kind] .. " " .. vim_item.kind
-
-      -- set a name for each source
-      vim_item.menu = ({
+    format = lspkind.cmp_format {
+      with_text = true,
+      menu = {
         buffer = "[buf]",
         nvim_lsp = "[LSP]",
         nvim_lua = "[Lua]",
         path = "[path]",
         vsnip = "[snip]"
-      })[entry.source.name]
-      return vim_item
-    end,
+      },
+    }
   },
+  preselect = false
 }
 
 cmp.setup(config)

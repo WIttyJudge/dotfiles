@@ -53,9 +53,9 @@ vim.g.startify_bookmarks = {
 }
 
 vim.g.startify_commands = {
-  { up = { 'Update Plugins', ':PaqUpdate' }},
-  { uc = { 'Clean Plugin Manager', ':PaqClean' } },
-  { ch = { 'Check Health', ':checkhealth' } },
+  { up = { 'Update Plugins', ':PackerUpdate' }},
+  { uc = { 'Clean Plugin Manager', ':PackerClean' } },
+  { ch = { 'Check Health', ':checkhealth <CR>' } },
   { st = { 'Start Profiling', ':StartupTime ~/.config/nvim/init.lua' } },
 }
 

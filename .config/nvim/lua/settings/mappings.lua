@@ -146,7 +146,10 @@ set_keymap('n', '<Leader>ca', ':lua require("plugins-config/telescope").lsp_code
 set_keymap('n', '<Leader>ut', ':UndotreeToggle<CR>')
 
 -- vim-startify
-set_keymap('n', '<Leader>st', ':tabnew | :Startify<CR>')
+-- set_keymap('n', '<Leader>st', ':tabnew | :Startify<CR>')
+
+-- alpha-nvim
+set_keymap('n', '<Leader>st', ':tabnew | :Alpha<CR>')
 
 -- vim-test
 set_keymap('n', '<Leader>tf', ':TestFile<CR>')

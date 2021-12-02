@@ -24,7 +24,13 @@ local autogroups_list = {
   },
   _filetype = {
     { "FileType", "fugitive", "map <buffer> q gq<CR>" },
-    { "BufWritePre", "*.go", ":silent! :Goimport" }
+  },
+  _linter = {
+    -- { "BufWritePre", "*.go", ":silent! :GoImport" },
+    -- { "BufWritePre", "*.go", ":silent! :GoFmt" },
+    { "BufWritePre", "*.go", ":silent! :lua require('custom.go.format').goimports(1000)" },
+    { "BufWritePre", "*.go", ":silent! :lua vim.lsp.buf.formatting_sync(nil,500)" },
+    { "BufWritePre", "*.rs", ":FormatWrite" }
   },
   _autocompile = {
     -- Compile suckless-tools on save
