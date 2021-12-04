@@ -46,8 +46,10 @@ config_directory=(
 
 ### FUNCTIONS ###
 
-logger_setup_for() {
-  printf "\nSetup for: ${GREEN}%s${NORMAL}\n" "$1"
+logger() {
+  title=$1
+  value=$2
+  printf "\n%s ${GREEN}%s${NORMAL}\n" "$title" "$value"
 }
 
 logger_link_to() {
@@ -60,7 +62,7 @@ logger_link_to() {
 setup_link() {
   name=$1
 
-  logger_setup_for $name
+  logger "Setup for:" $name
 
   [ -d $config_path/$name ] && rm -rf $config_path/$name
 
@@ -80,18 +82,19 @@ echo "///////////////////////////////////////////////////////////////////////"
 read -n 1 -r -s -p $'//////////////////// Press any key to continue ////////////////////////\n\n'
 
 for i in ${home_directory[@]}; do
-  logger_setup_for $i
-  ln -sf $dotfiles_path/$i $HOME/$i
+  logger "Setup for:" $i
+
+  ln -sfv $dotfiles_path/$i $HOME/$i
 done
 
-for i in ${config_directory[@]}; do
-  setup_link $i
-done
+# for i in ${config_directory[@]}; do
+#   setup_link $i
+# done
 
-stow --adopt -v -R -t ~ scripts
+# stow --adopt -v -R -t ~ scripts
 
 # Local directory
-# logger_setup_for $dotfiles_path/.local
+# logger "Setup for:" $dotfiles_path/.local
 #
 # [ ! -d $HOME/.local ] && mkdir -p $HOME/.local/bin
 #

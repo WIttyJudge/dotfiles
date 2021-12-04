@@ -21,6 +21,8 @@ local autogroups_list = {
   _general_settings = {
     -- Highlight yanked text
     { "TextYankPost", "*", "silent! lua vim.highlight.on_yank()" },
+
+    { "CursorHold", "*", "checktime" }
   },
   _filetype = {
     { "FileType", "fugitive", "map <buffer> q gq<CR>" },

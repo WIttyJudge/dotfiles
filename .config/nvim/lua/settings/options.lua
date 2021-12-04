@@ -66,6 +66,9 @@ local default_options = {
   hidden = true,
 
   fixeol = true,
+
+  -- Auto-reloading a file as it changed on disk
+  autoread = true
 }
 
 -- Enables syntax highlighing
