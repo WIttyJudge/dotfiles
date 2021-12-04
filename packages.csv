@@ -33,7 +33,7 @@ TRUE,,ttf-fira-code,Monospaced font with programming ligatures.
 ,,docker,Pack ship and run any application as a lightweight container.
 ,,docker-compose,Fast and isolated development environments using Docker.
 ,,neofetch,A fast and highly customizable system info script that supports displaying images with w3m.
-,,htop-vim-git,Fork of htop with vim bindings support.
+,AUR,htop-vim-git,Fork of htop with vim bindings support.
 ,,dunst,Customizable and lightweight notification-daemon.
 ,,sxiv,Simple X Image Viewer.
 ,,ncdu,Disk usage analyzer with an ncurses interface.
