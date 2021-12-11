@@ -6,8 +6,6 @@ setbg & # set desktop wallpaper
 # feh --bg-scale ~/Picture/wallpapers/* &
 
 dunst &      # notification-daemon
-dwmblocks &  # bar for dwm
-flameshot &  # screenshots utils
 xcompmgr &   # window transparency
 sxhkd &      # hotkey daemon
 unclutter --idle 3 &	 # Remove mouse when idle
