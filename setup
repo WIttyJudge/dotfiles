@@ -27,20 +27,16 @@ home_directory=(
 config_directory=(
   alacritty
   calcurse
-  custom
   dunst
-  flameshot
-  git
   # i3
   mpv
-  neofetch
   # polybar
   nvim
   rofi
-  scripts
   sxhkd
   sxiv
   # terminator
+  tmux
   zsh
 )
 
@@ -87,11 +83,11 @@ for i in ${home_directory[@]}; do
   ln -sfv $dotfiles_path/$i $HOME/$i
 done
 
-# for i in ${config_directory[@]}; do
-#   setup_link $i
-# done
+for i in ${config_directory[@]}; do
+  setup_link $i
+done
 
-# stow --adopt -v -R -t ~ scripts
+stow --adopt -v -R -t ~ scripts
 
 # Local directory
 # logger "Setup for:" $dotfiles_path/.local
