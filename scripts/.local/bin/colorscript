@@ -1,0 +1,99 @@
+#!/usr/bin/env bash
+
+# If you want to find more cool outputs, go to:
+# https://gitlab.com/dwt1/shell-color-scripts
+
+# Source: https://gitlab.com/dwt1/shell-color-scripts/-/blob/master/colorscripts/pacman
+esc=""
+
+blackf="${esc}[30m";   redf="${esc}[31m";    greenf="${esc}[32m"
+yellowf="${esc}[33m"   bluef="${esc}[34m";   purplef="${esc}[35m"
+cyanf="${esc}[36m";    whitef="${esc}[37m"
+
+blackfbrightbright="${esc}[90m";   redfbright="${esc}[91m";    greenfbright="${esc}[92m"
+yellowfbright="${esc}[93m"   bluefbright="${esc}[94m";   purplefbright="${esc}[95m"
+cyanfbright="${esc}[96m";    whitefbright="${esc}[97m"
+
+blackb="${esc}[40m";   redb="${esc}[41m";    greenb="${esc}[42m"
+yellowb="${esc}[43m"   blueb="${esc}[44m";   purpleb="${esc}[45m"
+cyanb="${esc}[46m";    whiteb="${esc}[47m"
+
+boldon="${esc}[1m";    boldoff="${esc}[22m"
+italicson="${esc}[3m"; italicsoff="${esc}[23m"
+ulon="${esc}[4m";      uloff="${esc}[24m"
+invon="${esc}[7m";     invoff="${esc}[27m"
+
+reset="${esc}[0m"
+
+pacman() {
+  f=3 b=4
+  for j in f b; do
+    for i in {0..7}; do
+      printf -v $j$i %b "\e[${!j}${i}m"
+    done
+  done
+  for i in {0..7}; do
+      printf -v fbright$i %b "\e[9${i}m"
+  done
+  bld=$'\e[1m'
+  rst=$'\e[0m'
+  inv=$'\e[7m'
+
+cat << EOF
+$rst
+ $f3  ▄███████▄                $f1  ▄██████▄    $f2  ▄██████▄    $f4  ▄██████▄    $f5  ▄██████▄    $f6  ▄██████▄    
+ $f3▄█████████▀▀               $f1▄$f7█▀█$f1██$f7█▀█$f1██▄  $f2▄█$f7███$f2██$f7███$f2█▄  $f4▄█$f7███$f4██$f7███$f4█▄  $f5▄█$f7███$f5██$f7███$f5█▄  $f6▄██$f7█▀█$f6██$f7█▀█$f6▄
+ $f3███████▀      $f7▄▄  ▄▄  ▄▄   $f1█$f7▄▄█$f1██$f7▄▄█$f1███  $f2██$f7█ █$f2██$f7█ █$f2██  $f4██$f7█ █$f4██$f7█ █$f4██  $f5██$f7█ █$f5██$f7█ █$f5██  $f6███$f7█▄▄$f6██$f7█▄▄$f6█
+ $f3███████▄      $f7▀▀  ▀▀  ▀▀   $f1████████████  $f2████████████  $f4████████████  $f5████████████  $f6████████████  
+ $f3▀█████████▄▄               $f1██▀██▀▀██▀██  $f2██▀██▀▀██▀██  $f4██▀██▀▀██▀██  $f5██▀██▀▀██▀██  $f6██▀██▀▀██▀██
+ $f3  ▀███████▀                $f1▀   ▀  ▀   ▀  $f2▀   ▀  ▀   ▀  $f4▀   ▀  ▀   ▀  $f5▀   ▀  ▀   ▀  $f6▀   ▀  ▀   ▀ 
+$bld
+ $fbright3  ▄███████▄                $fbright1  ▄██████▄    $fbright2  ▄██████▄    $fbright4  ▄██████▄    $fbright5  ▄██████▄    $fbright6  ▄██████▄    
+ $fbright3▄█████████▀▀               $fbright1▄$fbright7█▀█$fbright1██$fbright7█▀█$fbright1██▄  $fbright2▄█$fbright7█ █$fbright2██$fbright7█ █$fbright2█▄  $fbright4▄█$fbright7█ █$fbright4██$fbright7█ █$fbright4█▄  $fbright5▄█$fbright7█ █$fbright5██$fbright7█ █$fbright5█▄  $fbright6▄██$fbright7█▀█$fbright6██$fbright7█▀█$fbright6▄
+ $fbright3███████▀      $fbright7▄▄  ▄▄  ▄▄   $fbright1█$fbright7▄▄█$fbright1██$fbright7▄▄█$fbright1███  $fbright2██$fbright7███$fbright2██$fbright7███$fbright2██  $fbright4██$fbright7███$fbright4██$fbright7███$fbright4██  $fbright5██$fbright7███$fbright5██$fbright7███$fbright5██  $fbright6███$fbright7█▄▄$fbright6██$fbright7█▄▄$fbright6█
+ $fbright3███████▄      $fbright7▀▀  ▀▀  ▀▀   $fbright1████████████  $fbright2████████████  $fbright4████████████  $fbright5████████████  $fbright6████████████  
+ $fbright3▀█████████▄▄               $fbright1██▀██▀▀██▀██  $fbright2██▀██▀▀██▀██  $fbright4██▀██▀▀██▀██  $fbright5██▀██▀▀██▀██  $fbright6██▀██▀▀██▀██
+ $fbright3  ▀███████▀                $fbright1▀   ▀  ▀   ▀  $fbright2▀   ▀  ▀   ▀  $fbright4▀   ▀  ▀   ▀  $fbright5▀   ▀  ▀   ▀  $fbright6▀   ▀  ▀   ▀ 
+$rst
+EOF
+}
+
+# Source: https://gitlab.com/dwt1/shell-color-scripts/-/blob/master/colorscripts/monster
+monster() {
+cat << EOF
+              ${reset}${blackf}|               |               |               |               |${reset}
+   ${redf}█     █${reset}    ${blackf}|${reset}    ${greenf}█     █${reset}    ${blackf}|${reset}    ${yellowf}█     █${reset}    ${blackf}|${reset}    ${bluef}█     █${reset}    ${blackf}|${reset}    ${purplef}█     █${reset}    ${blackf}|${reset}    ${cyanf}█     █${reset}
+   ${redf}███████${reset}    ${blackf}|${reset}    ${greenf}███████${reset}    ${blackf}|${reset}    ${yellowf}███████${reset}    ${blackf}|${reset}    ${bluef}███████${reset}    ${blackf}|${reset}    ${purplef}███████${reset}    ${blackf}|${reset}    ${cyanf}███████${reset}
+ ${redf}███${boldon}${redfbright}██${reset}${redf}█${boldon}${redfbright}██${reset}${redf}███${reset}  ${blackf}|${reset}  ${greenf}███${boldon}${greenfbright}██${reset}${greenf}█${boldon}${greenfbright}██${reset}${greenf}███${reset}  ${blackf}|${reset}  ${yellowf}███${boldon}${yellowfbright}██${reset}${yellowf}█${boldon}${yellowfbright}██${reset}${yellowf}███${reset}  ${blackf}|${reset}  ${bluef}███${boldon}${bluefbright}██${reset}${bluef}█${boldon}${bluefbright}██${reset}${bluef}███${reset}  ${blackf}|${reset}  ${purplef}███${boldon}${purplefbright}██${reset}${purplef}█${boldon}${purplefbright}██${reset}${purplef}███${reset}  ${blackf}|${reset}  ${cyanf}███${boldon}${cyanfbright}██${reset}${cyanf}█${boldon}${cyanfbright}██${reset}${cyanf}███${reset}
+  ${redf}████${boldon}${redfbright}█${reset}${redf}████${reset}   ${blackf}|${reset}   ${greenf}████${boldon}${greenfbright}█${reset}${greenf}████${reset}   ${blackf}|${reset}   ${yellowf}████${boldon}${yellowfbright}█${reset}${yellowf}████${reset}   ${blackf}|${reset}   ${bluef}████${boldon}${bluefbright}█${reset}${bluef}████${reset}   ${blackf}|${reset}   ${purplef}████${boldon}${purplefbright}█${reset}${purplef}████${reset}   ${blackf}|${reset}   ${cyanf}████${boldon}${cyanfbright}█${reset}${cyanf}████${reset}
+  ${redf}█ █ ${boldon}${redfbright}█${reset} ${redf}█ █${reset}   ${blackf}|${reset}   ${greenf}█ █ ${boldon}${greenfbright}█${reset} ${greenf}█ █${reset}   ${blackf}|${reset}   ${yellowf}█ █ ${boldon}${yellowfbright}█${reset} ${yellowf}█ █${reset}   ${blackf}|${reset}   ${bluef}█ █ ${boldon}${bluefbright}█${reset} ${bluef}█ █${reset}   ${blackf}|${reset}   ${purplef}█ █ ${boldon}${purplefbright}█${reset} ${purplef}█ █${reset}   ${blackf}|${reset}   ${cyanf}█ █ ${boldon}${cyanfbright}█${reset} ${cyanf}█ █${reset}
+    ${redf}█   █${reset}     ${blackf}|${reset}     ${greenf}█   █${reset}     ${blackf}|${reset}     ${yellowf}█   █${reset}     ${blackf}|${reset}     ${bluef}█   █${reset}     ${blackf}|${reset}     ${purplef}█   █${reset}     ${blackf}|${reset}     ${cyanf}█   █${reset}
+              ${blackf}|               |               |               |               |${reset}
+EOF
+}
+
+# Source: https://gitlab.com/dwt1/shell-color-scripts/-/blob/master/colorscripts/crunch
+crunch() {
+
+cat << EOF
+
+ ${reset}${redf}  ██  ██   ${reset}${greenf}   ██  ██   ${reset}${yellowf}   ██  ██   ${reset}${bluef}   ██  ██   ${reset}${purplef}   ██  ██   ${reset}${cyanf}   ██  ██   ${reset}
+ ${reset}${redf}██████████ ${reset}${greenf} ██████████ ${reset}${yellowf} ██████████ ${reset}${bluef} ██████████ ${reset}${purplef} ██████████ ${reset} ${cyanf}██████████ ${reset}
+ ${reset}${redf}  ██${boldon}${redfbright}██${boldoff}${redf}██   ${reset}${greenf}   ██${boldon}${greenfbright}██${boldoff}${greenf}██   ${reset}${yellowf}   ██${boldon}${yellowfbright}██${boldoff}${yellowf}██   ${reset}${bluef}   ██${boldon}${bluefbright}██${boldoff}${bluef}██ ${reset}${purplef}     ██${boldon}${purplefbright}██${boldoff}${purplef}██   ${reset}${cyanf}   ██${boldon}${cyanfbright}██${boldoff}${cyanf}██   ${reset}
+ ${reset}${redf}██████████ ${reset}${greenf} ██████████ ${reset}${yellowf} ██████████ ${bluef} ██████████ ${purplef} ██████████ ${reset}${cyanf} ██████████${reset}
+ ${reset}${redf}  ██  ██   ${reset}${greenf}   ██  ██   ${reset}${yellowf}   ██  ██   ${reset}${bluef}   ██  ██   ${reset}${purplef}   ██  ██   ${reset}${cyanf}   ██  ██   ${reset}
+ ${reset}
+EOF
+
+}
+
+help() {
+  echo "Available scripts: pacman, monster, crunch.
+Execution: colorscript exec pacman"
+  exit 2
+}
+
+[ "$1" != '-e' ] && help
+
+declare -F "$2" > /dev/null && $2 || help
+
