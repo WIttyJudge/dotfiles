@@ -24,8 +24,8 @@ XF86Audio{Mute,LowerVolume,RaiseVolume}
 {XF86MonBrightnessDown, XF86MonBrightnessUp}
     sudo light {-U 10, -A 10}; pkill -RTMIN+6 dwmblocks
 
-/* Ride side buttons */
-KP_Add
+/* PageDown button */
+Next
     pactl set-source-mute @DEFAULT_SOURCE@ toggle; pkill -RTMIN+20 dwmblocks
 
 /* screenshoter */
@@ -33,6 +33,6 @@ Print
     make-screenshot
 
 /* Custom commands */
-super + Delete
+Home
     dmenu-script-select
 
