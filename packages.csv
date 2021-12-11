@@ -32,7 +32,7 @@ TRUE,,ttf-fira-code,Monospaced font with programming ligatures.
 ,,yarn,Fast and reliabl and secure dependency management.
 ,,docker,Pack ship and run any application as a lightweight container.
 ,,docker-compose,Fast and isolated development environments using Docker.
-,,neofetch,A fast and highly customizable system info script that supports displaying images with w3m.
+TRUE,AUR,pfetch,A pretty system information tool written in POSIX sh.
 ,AUR,htop-vim-git,Fork of htop with vim bindings support.
 ,,dunst,Customizable and lightweight notification-daemon.
 ,,sxiv,Simple X Image Viewer.
