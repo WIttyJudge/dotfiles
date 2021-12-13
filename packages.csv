@@ -77,3 +77,5 @@ TRUE,,rofi-pass,Bash script to handle pass storages in a convenient way.
 ,,dnsutils,Bunch of utils like nslookup and so on.
 ,,tmux,A terminal multiplexer.
 ,,mediainfo,Shows audio and video information.
+,,man-db,Read man pages of programs.
+
