@@ -1,14 +1,13 @@
 vim.cmd('packadd packer.nvim')
 
-local fn = vim.fn
-
-local install_path = fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
-if fn.empty(fn.glob(install_path)) > 0 then
-  packer_bootstrap = fn.system({
-    'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim',
-    install_path
-  })
-end
+-- local fn = vim.fn
+-- local install_path = fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
+-- if fn.empty(fn.glob(install_path)) > 0 then
+--   packer_bootstrap = fn.system({
+--     'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim',
+--     install_path
+--   })
+-- end
 
 -- Auto compile when there are changes in plugins.lua
 vim.cmd 'autocmd BufWritePost plugins.lua PackerCompile'
@@ -23,6 +22,8 @@ return require('packer').startup(function(use)
   use "folke/trouble.nvim"
   use "liuchengxu/vista.vim"
 
+  use { "xiyaowong/nvim-transparent" }
+
   -- LSP installer
   use "williamboman/nvim-lsp-installer"
 
@@ -33,8 +34,10 @@ return require('packer').startup(function(use)
     requires = {
       "hrsh7th/cmp-nvim-lsp",
       "hrsh7th/cmp-buffer",
-      "hrsh7th/cmp-vsnip",
       "hrsh7th/cmp-path",
+      "hrsh7th/cmp-vsnip",
+      "hrsh7th/vim-vsnip",
+      "hrsh7th/cmp-cmdline"
     }
   }
 
@@ -142,6 +145,9 @@ return require('packer').startup(function(use)
   use "rcarriga/nvim-dap-ui"
   -- "theHamsta/nvim-dap-virtual-text";
   -- "Pocco81/DAPInstall.nvim";
+
+  -- Full concentration on coding
+  use "folke/zen-mode.nvim"
 
   -- Database
   use "tpope/vim-dadbod"

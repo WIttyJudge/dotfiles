@@ -18,6 +18,7 @@ local plugins = {
   "nvim-dap-ui",
   "nvim-dap",
   "nvim-hlslens",
+  "nvim-transparent",
   "nvim-tree",
   "tabline",
   "nvim-treesitter",

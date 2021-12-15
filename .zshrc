@@ -7,8 +7,7 @@
 
 # Automatically cd into typed directory
 
-colorscript -e monster
-# colorscript -e pacman
+colorscript -e crunch
 
 setopt autocd
 
@@ -94,3 +93,4 @@ source ~/.config/zsh/prompt.sh
 
 # Load RVM into a shell session as a function.
 [ -s "$HOME/.rvm/scripts/rvm" ] && source "$HOME/.rvm/scripts/rvm"
+### End of Zinit's installer chunk

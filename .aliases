@@ -25,7 +25,6 @@ alias dotfiles="cd ~/dotfiles && $EDITOR"
 # rewrite standard commands
 alias \
   cat="bat" \
-  rip="rip --graveyard ~/.local/share/Trash " \
 	cp="cp -iv" \
 	mv="mv -iv" \
 
@@ -42,6 +41,9 @@ alias \
   gc="git commit" \
   gp="git push" \
   glog="git log --graph --oneline --decorate" \
+
+# tmux
+alias tkill="for s in \$(tmux list-sessions | awk '{print \$1}' | rg ':' -r '' | fzf); do tmux kill-session -t \$s; done;"
 
 # docker
 alias \

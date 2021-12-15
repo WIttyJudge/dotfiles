@@ -1,5 +1,4 @@
 -- https://github.com/kyazdani42/nvim-tree.lua
--- vim.g.nvim_tree_ignore = { '.git', 'node_modules', '.cache' }
 vim.g.nvim_tree_indent_markers = 1
 vim.g.nvim_tree_icons = {
   default = '',
@@ -71,6 +70,17 @@ local config = {
   -- show lsp diagnostics in the signcolumn
   diagnostics = {
     enable = true,
+  },
+  filters = {
+    -- You dont see this file/folder in the tree.
+    custom = {
+      ".git",
+      -- "node_modules",
+      -- ".cache",
+    }
+  },
+  git = {
+    ignore = false
   },
   view = {
     -- width of the window, can be either a number (columns) or a string in `%`
