@@ -1,13 +1,29 @@
-vim.cmd('packadd packer.nvim')
+local present, packer = pcall(require, 'packer')
+-- Install packer  if it is not already installed.
+if not present then
+  local packer_path = vim.fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
 
--- local fn = vim.fn
--- local install_path = fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
--- if fn.empty(fn.glob(install_path)) > 0 then
---   packer_bootstrap = fn.system({
---     'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim',
---     install_path
---   })
--- end
+  print('Cloning packer..')
+  -- remove the dir before cloning
+  vim.fn.delete(packer_path, 'rf')
+  vim.fn.system({
+    'git',
+    'clone',
+    '--depth',
+    '20',
+    'https://github.com/wbthomason/packer.nvim',
+    packer_path,
+  })
+
+  vim.cmd('packadd packer.nvim')
+
+  present, packer = pcall(require, 'packer')
+  if present then
+    print('Packer cloned successfully.')
+  else
+    error("Couldn't clone packer !\nPacker path: " .. packer_path .. '\n' .. packer)
+  end
+end
 
 -- Auto compile when there are changes in plugins.lua
 vim.cmd 'autocmd BufWritePost plugins.lua PackerCompile'
@@ -77,6 +93,10 @@ return require('packer').startup(function(use)
   use "kyazdani42/nvim-web-devicons"
   use "lambdalisue/glyph-palette.vim"
 
+  -- Improve startup time
+  use "lewis6991/impatient.nvim"
+  use "nathom/filetype.nvim"
+
   -- Linter
   use "mhartington/formatter.nvim"
 
@@ -85,10 +105,18 @@ return require('packer').startup(function(use)
   use "WIttyJudge/gruvbox-material.nvim"
 
   -- Looking for files, etc..
-  use "nvim-lua/popup.nvim"
-  use "nvim-lua/plenary.nvim"
-  use "nvim-telescope/telescope.nvim"
-  use "nvim-telescope/telescope-fzy-native.nvim"
+  use {
+    'nvim-telescope/telescope.nvim',
+    requires = {
+      'nvim-lua/popup.nvim',
+      'nvim-lua/plenary.nvim',
+      {
+        'nvim-telescope/telescope-fzf-native.nvim',
+        run = 'make',
+      },
+    },
+    event = 'BufWinEnter'
+  }
 
   -- Explorer
   use "kyazdani42/nvim-tree.lua"
@@ -133,9 +161,6 @@ return require('packer').startup(function(use)
 
   -- Run tests
   use "vim-test/vim-test"
-
-  -- Improve startup time
-  use "lewis6991/impatient.nvim"
 
   -- The interactive scratchpad.
   use "metakirby5/codi.vim"
