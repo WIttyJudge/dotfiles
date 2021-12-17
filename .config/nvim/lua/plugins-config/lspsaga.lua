@@ -3,11 +3,11 @@
 local icons = require('custom.icons')
 
 local config = {
-  error_sign = icons.diagnostic.error,
-  warn_sign = icons.diagnostic.warn,
-  hint_sign = icons.diagnostic.hint,
-  infor_sign = icons.diagnostic.info,
-  dianostic_header_icon = icons.diagnostic.header_icon,
+  error_sign = icons.error,
+  warn_sign = icons.warn,
+  hint_sign = icons.hint,
+  infor_sign = icons.info,
+  dianostic_header_icon = icons.header_icon,
 
   code_action_prompt = {
     enable = false,

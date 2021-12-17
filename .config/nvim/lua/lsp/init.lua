@@ -12,10 +12,10 @@ capabilities.textDocument.completion.completionItem.snippetSupport = true
 
 -- Define custom icons
 local signs = { 
-  Eror = icons.diagnostic.error,
-  Warning = icons.diagnostic.warn,
-  Hint = icons.diagnostic.hint,
-  Information = icons.diagnostic.Info
+  Eror = icons.error,
+  Warning = icons.warn,
+  Hint = icons.hint,
+  Information = icons.Info
 }
 for type, icon in pairs(signs) do
   local hl = "LspDiagnosticsSign" .. type

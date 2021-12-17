@@ -174,9 +174,9 @@ ins_left {
   'diagnostics',
   sources = { 'nvim_diagnostic' },
   symbols = {
-    error = icons.diagnostic.error .. ' ',
-    warn = icons.diagnostic.warn .. ' ',
-    info = icons.diagnostic.info .. ' '
+    error = icons.error .. ' ',
+    warn = icons.warn .. ' ',
+    info = icons.info .. ' '
   },
   color_error = colors.red,
   color_warn = colors.yellow,
@@ -196,7 +196,7 @@ ins_left {
 
 ins_right {
   'diff',
-  symbols = { added = ' ', modified = '柳', removed = ' ' },
+  symbols = icons.diff,
   color_added = colors.green,
   color_modified = colors.blue,
   color_removed = colors.red,

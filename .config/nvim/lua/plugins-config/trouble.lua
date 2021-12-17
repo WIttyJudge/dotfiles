@@ -40,10 +40,10 @@ local config = {
   auto_fold = false, -- automatically fold a file trouble list at creation
 
   signs = {
-    error = icons.diagnostic.error,
-    warning = icons.diagnostic.warning,
-    hint = icons.diagnostic.hint,
-    information = icons.diagnostic.info,
+    error = icons.error,
+    warning = icons.warning,
+    hint = icons.hint,
+    information = icons.info,
     other = "﫠"
   },
   use_diagnostic_signs = true -- enabling this will use the signs defined in your lsp client

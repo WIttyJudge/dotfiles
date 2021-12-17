@@ -5,12 +5,37 @@ local icons = {
   unsaved = utils.convert_utf8_to_character 'f693',
   locker = utils.convert_utf8_to_character 'f023',
 
-  diagnostic = {
-    error = '',
-    warn = '',
-    hint = '',
-    info = '',
-    header_icon = '  '
+  hint = '',
+  info = '',
+  warn = '',
+  error = '',
+  header_icon = '  ',
+
+  git = {
+    unstaged = '✹',
+    staged = "✓",
+    unmerged = "",
+    renamed = "➜",
+    untracked = "",
+    deleted = '',
+    ignored = '◌',
+  },
+
+  folder = {
+    arrow_open = '',
+    arrow_closed = '',
+    default = '',
+    open = '',
+    empty = '',
+    empty_open = '',
+    symlink = '',
+    symlink_open = '',
+  },
+
+  diff = {
+    added = ' ',
+    modified = '柳',
+    removed = ' ',
   },
 
   debug = {
