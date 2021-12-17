@@ -3,21 +3,21 @@
 -- Read more about mappings
 -- https://github.com/nanotee/nvim-lua-guide#defining-mappings
 
-local set_keymap = require('custom/utils').set_keymap
+local map = require('custom.utils').map
 
 -- Set leader key
 vim.g.mapleader = ' '
 
 -- ********* CUSTOM MAPPING *********
 
-set_keymap('n', '<leader>tg', ':call v:lua.toggle_diagnostics()<CR>')
-set_keymap('n', 'gF', ':call v:lua.open_file_or_create_new()<CR>')
+map('n', '<leader>tg', ':call v:lua.toggle_diagnostics()<CR>')
+map('n', 'gF', ':call v:lua.open_file_or_create_new()<CR>')
 
 -- Easier split navigation, CTRL + hjlk
-set_keymap('n', '<C-j>', '<C-W><C-j>')
-set_keymap('n', '<c-k>', '<c-w><C-k>')
-set_keymap('n', '<C-l>', '<c-w><C-l>')
-set_keymap('n', '<C-h>', '<C-W><C-h>')
+map('n', '<C-j>', '<C-W><C-j>')
+map('n', '<c-k>', '<c-w><C-k>')
+map('n', '<C-l>', '<c-w><C-l>')
+map('n', '<C-h>', '<C-W><C-h>')
 
 -- Add space bellow or above without leaving normal mode
 vim.cmd([[
@@ -26,147 +26,151 @@ nnoremap <silent> ]<space> :<c-u>put =repeat([''],v:count)<bar>'[-1<CR>
 ]])
 
 -- Easy copy whole text in file
-set_keymap('n', 'vfy', ':%y+<CR>')
+map('n', 'vfy', ':%y+<CR>')
 
 -- Easy select all of file
--- set_keymap('n', 'va', 'GVgg^')
+-- map('n', 'va', 'GVgg^')
 
 -- Easier file save and exit
-set_keymap('n', '<Leader>w', ':w<CR>')
-set_keymap('n', '<Leader>W', ':x<CR>')
-set_keymap('n', '<Leader>q', ':q<CR>')
-set_keymap('n', '<Leader>Q', ':q!<CR>')
+map('n', '<Leader>w', ':w<CR>')
+map('n', '<Leader>W', ':x<CR>')
+map('n', '<Leader>q', ':q<CR>')
+map('n', '<Leader>Q', ':q!<CR>')
 
 -- Clean highliting after search
 -- nnoremap <Leader>; :nohlsearch<CR>
 
 -- Use simple ; instead of shift + :
-set_keymap('n', ';', ':', { silent = false })
-set_keymap('v', ';', ':', { silent = false })
+map('n', ';', ':', { silent = false })
+map('v', ';', ':', { silent = false })
 
 -- Use this instead of touching Esc key
-set_keymap('i', 'jk', '<Esc>')
-set_keymap('i', 'kj', '<Esc>')
+map('i', 'jk', '<Esc>')
+map('i', 'kj', '<Esc>')
 
 -- Move selected lines up and down
-set_keymap('v', 'J', ":m '>+1<CR>gv=gv")
-set_keymap('v', 'K', ":m '<-2<CR>gv=gv")
+map('v', 'J', ":m '>+1<CR>gv=gv")
+map('v', 'K', ":m '<-2<CR>gv=gv")
 
 -- Tab to switch buffers
--- set_keymap('n', '<Leader>b', ':bprevious<CR>')
--- set_keymap('n', '<Leader>B', ':bnext<CR>')
+-- map('n', '<Leader>b', ':bprevious<CR>')
+-- map('n', '<Leader>B', ':bnext<CR>')
 
--- set_keymap('n', '<Leader>c', 'q:i')
+-- map('n', '<Leader>c', 'q:i')
 
 -- Resize windows
-set_keymap('n', '<UP>', ':resize +2<CR>')
-set_keymap('n', '<Down>', ':resize -2<CR>')
-set_keymap('n', '<Left>', ':vertical resize +2<CR>')
-set_keymap('n', '<Right>', ':vertical resize -2<CR>')
+map('n', '<UP>', ':resize +2<CR>')
+map('n', '<Down>', ':resize -2<CR>')
+map('n', '<Left>', ':vertical resize +2<CR>')
+map('n', '<Right>', ':vertical resize -2<CR>')
 
 -- Make visual yanks place the cursor back where started
-set_keymap("v", "y", "ygv<Esc>")
+map("v", "y", "ygv<Esc>")
 
 -- Disable copy while deleting
-set_keymap('n', 'd', '"_d')
-set_keymap('x', 'd', '"_d')
-set_keymap('n', 'D', '"_D')
-set_keymap('n', 'x', '"_x')
-set_keymap('x', 'p', '"_dP')
+map('n', 'd', '"_d')
+map('x', 'd', '"_d')
+map('n', 'D', '"_D')
+map('n', 'x', '"_x')
+map('x', 'p', '"_dP')
 
 -- Scroll the viewport faster
-set_keymap('n', '<C-e>', '3<C-e>')
-set_keymap('n', '<C-y>', '3<C-y>')
+map('n', '<C-e>', '3<C-e>')
+map('n', '<C-y>', '3<C-y>')
 
 -- Better tabbing
-set_keymap('v', '>', '>gv')
-set_keymap('v', '<', '<gv')
+map('v', '>', '>gv')
+map('v', '<', '<gv')
+
+  -- buffer navigation
+  map('n', '<leader>bh', ':bprev<cr>')
+  map('n', '<leader>bl', ':bnext<cr>')
 
 -- Don't jump when highlighting
--- set_keymap('n','*', '*``')
+-- map('n','*', '*``')
 
 -- Always keep in in the center of the screen
--- set_keymap('n','n', 'nzz')
--- set_keymap('n','N', 'Nzz')
+-- map('n','n', 'nzz')
+-- map('n','N', 'Nzz')
 
 -- Cursor stops running away during line concatination 
-set_keymap('n','J', 'mzJ`z')
+map('n','J', 'mzJ`z')
 
 -- Tabs control
-set_keymap('n', '<Leader>tl', ':tabnext<CR>')
-set_keymap('n', '<Leader>th', ':tabprev<CR>')
-set_keymap('n', '<Leader>tq', ':tabclose<CR>')
-set_keymap('n', '<Leader>t1', '1gt<CR>')
-set_keymap('n', '<Leader>t2', '2gt<CR>')
-set_keymap('n', '<Leader>t3', '3gt<CR>')
-set_keymap('n', '<Leader>t4', '4gt<CR>')
-set_keymap('n', '<Leader>t5', '5gt<CR>')
-set_keymap('n', '<Leader>t6', '6gt<CR>')
-set_keymap('n', '<Leader>t7', '7gt<CR>')
-set_keymap('n', '<Leader>t8', '8gt<CR>')
-set_keymap('n', '<Leader>t9', '9gt<CR>')
+map('n', '<Leader>tl', ':tabnext<CR>')
+map('n', '<Leader>th', ':tabprev<CR>')
+map('n', '<Leader>tq', ':tabclose<CR>')
+map('n', '<Leader>t1', '1gt<CR>')
+map('n', '<Leader>t2', '2gt<CR>')
+map('n', '<Leader>t3', '3gt<CR>')
+map('n', '<Leader>t4', '4gt<CR>')
+map('n', '<Leader>t5', '5gt<CR>')
+map('n', '<Leader>t6', '6gt<CR>')
+map('n', '<Leader>t7', '7gt<CR>')
+map('n', '<Leader>t8', '8gt<CR>')
+map('n', '<Leader>t9', '9gt<CR>')
 
 -- Open terminal
 -- nmap <Leader>tt :vnew term://zsh <CR>
-set_keymap('n', '<Leader>tt', ':split term://zsh | resize 20<CR> | a<CR>')
+map('n', '<Leader>tt', ':split term://zsh | resize 20<CR> | a<CR>')
 -- tmap <Leader>ot <C-\><C-n>:Ttoggle<CR>
 
 -- ********* PLUGINS MAPPING *********
 
 -- nvim-comment
-set_keymap('n', '<Leader>/', ':CommentToggle<CR>')
-set_keymap('v', '<Leader>/', ':CommentToggle<CR>')
+map('n', '<Leader>/', ':CommentToggle<CR>')
+map('v', '<Leader>/', ':CommentToggle<CR>')
 
 -- nvim-hlslens
-set_keymap('n', 'n', "<Cmd>execute('normal! ' . v:count1 . 'nzz')<CR><Cmd>lua require('hlslens').start()<CR>")
-set_keymap('n', 'N', "<Cmd>execute('normal! ' . v:count1 . 'Nzz')<CR><Cmd>lua require('hlslens').start()<CR>")
-set_keymap('n', '*', "*``<Cmd>lua require('hlslens').start()<CR>", { silent = false })
-set_keymap('n', '#', "#<Cmd>lua require('hlslens').start()<CR>", { silent = false })
-set_keymap('n', 'g*', "g*<Cmd>lua require('hlslens').start()<CR>", { silent = false })
-set_keymap('n', 'g#', "g#<Cmd>lua require('hlslens').start()<CR>", { silent = false })
+map('n', 'n', "<Cmd>execute('normal! ' . v:count1 . 'nzz')<CR><Cmd>lua require('hlslens').start()<CR>")
+map('n', 'N', "<Cmd>execute('normal! ' . v:count1 . 'Nzz')<CR><Cmd>lua require('hlslens').start()<CR>")
+map('n', '*', "*``<Cmd>lua require('hlslens').start()<CR>", { silent = false })
+map('n', '#', "#<Cmd>lua require('hlslens').start()<CR>", { silent = false })
+map('n', 'g*', "g*<Cmd>lua require('hlslens').start()<CR>", { silent = false })
+map('n', 'g#', "g#<Cmd>lua require('hlslens').start()<CR>", { silent = false })
 
 -- nvim-tree.lua
-set_keymap('n', '<C-b>', ':NvimTreeToggle<CR>')
-set_keymap('n', '<Leader>hf', ':NvimTreeFindFile<CR>')
+map('n', '<C-b>', ':NvimTreeToggle<CR>')
+map('n', '<Leader>hf', ':NvimTreeFindFile<CR>')
 
 -- fzf.vim
--- set_keymap('', '<Leader>f', ':Files<CR>')
--- set_keymap('', '<Leader>b', ':Buffers<CR>')
--- set_keymap('n', '<Leader>ps', ':Rg<CR>')
+-- map('', '<Leader>f', ':Files<CR>')
+-- map('', '<Leader>b', ':Buffers<CR>')
+-- map('n', '<Leader>ps', ':Rg<CR>')
 
 -- telescope
-set_keymap('n', '<Leader>f', ':lua require("plugins-config/telescope").find_all_files()<CR>')
-set_keymap('n', '<Leader>b', ':lua require("telescope/builtin").buffers()<CR>')
-set_keymap('n', '<Leader>ps', ':lua require("telescope/builtin").live_grep()<CR>')
-set_keymap('n', '<Leader>pf', ':lua require("telescope/builtin").live_grep({grep_open_files=true})<CR>')
-set_keymap('n', '<Leader>gb', ':lua require("plugins-config/telescope").git_branches()<CR>')
-set_keymap('n', '<Leader>ca', ':lua require("plugins-config/telescope").lsp_code_actions()<CR>')
+map('n', '<Leader>f', ':lua require("plugins-config/telescope").find_all_files()<CR>')
+map('n', '<Leader>bb', ':lua require("telescope/builtin").buffers()<CR>')
+map('n', '<Leader>ps', ':lua require("telescope/builtin").live_grep()<CR>')
+map('n', '<Leader>pf', ':lua require("telescope/builtin").live_grep({grep_open_files=true})<CR>')
+map('n', '<Leader>gb', ':lua require("plugins-config/telescope").git_branches()<CR>')
+map('n', '<Leader>ca', ':lua require("plugins-config/telescope").lsp_code_actions()<CR>')
 
 -- undotree
-set_keymap('n', '<Leader>ut', ':UndotreeToggle<CR>')
+map('n', '<Leader>ut', ':UndotreeToggle<CR>')
 
 -- vim-startify
--- set_keymap('n', '<Leader>st', ':tabnew | :Startify<CR>')
+-- map('n', '<Leader>st', ':tabnew | :Startify<CR>')
 
 -- alpha-nvim
-set_keymap('n', '<Leader>st', ':tabnew | :Alpha<CR>')
+map('n', '<Leader>st', ':tabnew | :Alpha<CR>')
 
 -- vim-test
-set_keymap('n', '<Leader>tf', ':TestFile<CR>')
-set_keymap('n', '<Leader>tn', ':TestNearest<CR>')
+map('n', '<Leader>tf', ':TestFile<CR>')
+map('n', '<Leader>tn', ':TestNearest<CR>')
 
 -- vim-fugitive
-set_keymap('n', '<Leader>gd', ':Gvdiffsplit<CR>')
-set_keymap('n', '<Leader>gs', ':Git<CR>')
+map('n', '<Leader>gd', ':Gvdiffsplit<CR>')
+map('n', '<Leader>gs', ':Git<CR>')
 
 -- gv.vim
-set_keymap('n', '<Leader>gc', ':GV<CR>')
-set_keymap('v', '<Leader>gc', ':GV<CR>')
-set_keymap('n', '<Leader>gC', ':GV!<CR>')
+map('n', '<Leader>gc', ':GV<CR>')
+map('v', '<Leader>gc', ':GV<CR>')
+map('n', '<Leader>gC', ':GV!<CR>')
 
 -- suda.vim
-set_keymap('c', 'e!!', 'e suda://%', { silent = false })
-set_keymap('c', 'w!!', 'w suda://%', { silent = false })
+map('c', 'e!!', 'e suda://%', { silent = false })
+map('c', 'w!!', 'w suda://%', { silent = false })
 
 -- hop.nvim
-set_keymap('n', 'f', "<CMD>:HopChar2<CR>")
+map('n', 'f', "<CMD>:HopChar2<CR>")

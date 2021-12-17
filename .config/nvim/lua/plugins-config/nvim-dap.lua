@@ -1,7 +1,7 @@
 -- https://github.com/mfussenegger/nvim-dap
 
 local dap = require('dap')
-local set_keymap = require('custom/utils').set_keymap
+local map = require('custom/utils').map
 local define_commands = require('settings/commands').define_commands
 local icons = require('custom/icons').debug
 
@@ -9,19 +9,19 @@ vim.fn.sign_define("DapBreakpoint", icons.breakpoint)
 vim.fn.sign_define("DapStopped", icons.stop)
 
 -- Mappings
-set_keymap('n', '<Leader>ds', ':lua require("plugins-config.nvim-dap").run()<CR>')
-set_keymap('n', '<Leader>dq', ':lua require("plugins-config.nvim-dap").close()<CR>')
-set_keymap('n', '<Leader>dt', ':lua require("dap").toggle_breakpoint()<CR>')
-set_keymap('n', '<Leader>db', ':lua require("dap").step_back()<CR>')
-set_keymap('n', '<Leader>dc', ':lua require("dap").continue()<CR>')
-set_keymap('n', '<Leader>dC', ':lua require("dap").run_to_cursor()<CR>')
-set_keymap('n', '<Leader>dd', ':lua require("dap").disconnect()<CR>')
-set_keymap('n', '<Leader>dg', ':lua require("dap").session()<CR>')
-set_keymap('n', '<F10>', ':lua require("dap").step_over()<CR>')
-set_keymap('n', '<F11>', ':lua require("dap").step_into()<CR>')
-set_keymap('n', '<F12>', ':lua require("dap").step_out()<CR>')
-set_keymap('n', '<Leader>dp', ':lua require("dap").pause.toggle()<CR>')
-set_keymap('n', '<Leader>dr', ':lua require("dap").repl.toggle()<CR>')
+map('n', '<Leader>ds', ':lua require("plugins-config.nvim-dap").run()<CR>')
+map('n', '<Leader>dq', ':lua require("plugins-config.nvim-dap").close()<CR>')
+map('n', '<Leader>dt', ':lua require("dap").toggle_breakpoint()<CR>')
+map('n', '<Leader>db', ':lua require("dap").step_back()<CR>')
+map('n', '<Leader>dc', ':lua require("dap").continue()<CR>')
+map('n', '<Leader>dC', ':lua require("dap").run_to_cursor()<CR>')
+map('n', '<Leader>dd', ':lua require("dap").disconnect()<CR>')
+map('n', '<Leader>dg', ':lua require("dap").session()<CR>')
+map('n', '<F10>', ':lua require("dap").step_over()<CR>')
+map('n', '<F11>', ':lua require("dap").step_into()<CR>')
+map('n', '<F12>', ':lua require("dap").step_out()<CR>')
+map('n', '<Leader>dp', ':lua require("dap").pause.toggle()<CR>')
+map('n', '<Leader>dr', ':lua require("dap").repl.toggle()<CR>')
 
 -- Define commands
 local commands_list = {

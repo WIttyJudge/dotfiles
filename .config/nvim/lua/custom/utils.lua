@@ -1,7 +1,7 @@
 local M = {}
 
 -- Bind keymap
-function M.set_keymap(mode, key, action, opts)
+function M.map(mode, key, action, opts)
   local default_opts = { noremap = true, silent = true}
   local opts = opts or {}
   -- rewrite default_opts if opts defined
