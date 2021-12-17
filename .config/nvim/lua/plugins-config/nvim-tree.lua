@@ -1,21 +1,22 @@
 -- https://github.com/kyazdani42/nvim-tree.lua
+
+local icons = require('custom.icons')
+
 vim.g.nvim_tree_indent_markers = 1
+
+vim.g.nvim_tree_git_hl = 1
+vim.g.nvim_tree_refresh_wait = 300
+
 vim.g.nvim_tree_icons = {
   default = '',
   symlink = '',
-  git = {
-    unstaged = '✹',
-    staged = "✓",
-    unmerged = "",
-    renamed = "➜",
-    untracked = ""
-  },
-  folder = {
-    default = "",
-    open = "",
-    empty = "",
-    empty_open = "",
-    symlink = ""
+  git = icons.git,
+  folder = icons.folder,
+  lsp = {
+    hint = icons.hint,
+    info = icons.info,
+    warning = icons.warn,
+    error = icons.error,
   }
 }
 
@@ -55,19 +56,11 @@ local list = {
 }
 
 local config = {
-  -- open the tree when running this setup function
-  open_on_setup = false,
-  -- will not open on setup if the filetype is in this list
-  ignore_ft_on_setup = { 'startify', 'dashboard' },
+  -- open_on_setup = true,
+  -- ignore_ft_on_setup = { 'startify', 'dashboard' },
   -- closes neovim automatically when the tree is the last **WINDOW** in the view
   auto_close = true,
   -- updates the root directory of the tree on `DirChanged` (when your run `:cd` usually) 
-  update_cwd = true,
-  -- update_to_buf_dir   = {
-  --   enable = true,
-  --   auto_open = true,
-  -- },
-  -- show lsp diagnostics in the signcolumn
   diagnostics = {
     enable = true,
   },
@@ -79,14 +72,10 @@ local config = {
       -- ".cache",
     }
   },
-  git = {
-    ignore = false
-  },
   view = {
-    -- width of the window, can be either a number (columns) or a string in `%`
     width = 35,
     -- if true the tree will resize itself after opening a file
-    auto_resize = true,
+    -- auto_resize = true,
     mappings = {
       -- custom only false will merge the list with the default mappings
       -- if true, it will only use your list to set the mappings
@@ -94,6 +83,9 @@ local config = {
       -- list of mappings to set on the tree manually
       list = list
     }
+  },
+  git = {
+    ignore = false
   }
 }
 
