@@ -6,7 +6,7 @@ local config = {
   highlight = { 
     enable = true, 
     additional_vim_regex_highlighting = true,
-    disable = {} 
+    use_languagetree = true
   },
 
   -- PLUGINS
@@ -18,7 +18,11 @@ local config = {
   },
 
   -- nvim-treesitter-refactor
-  refactor = { highlight_definitions = { enable = true } },
+  refactor = { 
+    highlight_definitions = { 
+      enable = true 
+    } 
+  },
 
   -- nvim-ts-autotag
   autotag = {
