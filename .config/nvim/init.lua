@@ -1,15 +1,11 @@
--- Install packer  if it is not already installed.
-local fn = vim.fn
-local install_path = fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
-if fn.empty(fn.glob(install_path)) > 0 then
-  packer_bootstrap = fn.system({
-    'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim',
-    install_path
-  })
-end
+do
+  -- https://github.com/lewis6991/impatient.nvim
+  local ok, _ = pcall(require, 'impatient')
 
--- https://github.com/lewis6991/impatient.nvim
-require('impatient')
+  if not ok then
+    vim.notify('impatient.nvim not installed', vim.log.levels.WARN)
+  end
+end
 
 -- Functions the whole lua code can use without any require.
 -- eg. dump({1, 2, 3})
