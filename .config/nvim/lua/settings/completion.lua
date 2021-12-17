@@ -53,6 +53,8 @@ local config = {
     ["<Tab>"] = function(fallback)
       if cmp.visible() then
         cmp.select_next_item()
+      elseif has_words_before() then
+        cmp.complete()
       else
         fallback()
       end
@@ -84,6 +86,9 @@ local config = {
 --         end
 --     end, {"i", "s"})
 
+  },
+  experimental = {
+    ghost_text = true,
   },
   sources = {
     { name = 'nvim_lsp' },
