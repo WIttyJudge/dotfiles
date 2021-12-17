@@ -5,15 +5,44 @@ local actions = require('telescope.actions')
 local previewers = require('telescope.previewers')
 local themes = require "telescope.themes"
 
+local opts_cursor = {
+  initial_mode = 'normal',
+  sorting_strategy = 'ascending',
+  layout_strategy = 'cursor',
+  results_title = false,
+  layout_config = {
+    width = 0.5,
+    height = 0.4,
+  },
+}
+
+local opts_vertical = {
+  initial_mode = 'normal',
+  sorting_strategy = 'ascending',
+  layout_strategy = 'vertical',
+  results_title = false,
+  layout_config = {
+    width = 0.3,
+    height = 0.5,
+    prompt_position = 'top',
+    mirror = true,
+  },
+}
+
 require('telescope').setup {
   defaults = {
     prompt_prefix = "λ -> ",
     selection_caret = "|> ",
 
+    file_ignore_patterns = {
+      '.git/',
+    },
+
+    dynamic_preview_title = true,
+
     layout_strategy = "horizontal",
     sorting_strategy = "ascending",
     layout_strategy = "horizontal",
-
     layout_config = {
       width = 0.90,
       height = 0.85,
@@ -31,14 +60,14 @@ require('telescope').setup {
     -- Don't pass to normal mode with ESC, problem with telescope-project
     mappings = {
       i = {
-        ["<esc>"] = actions.close,
+        -- ["<esc>"] = actions.close,
         ["<C-j>"] = actions.move_selection_next,
         ["<C-k>"] = actions.move_selection_previous,
-
         ["<C-q>"] = actions.smart_send_to_qflist + actions.open_qflist,
         ["<CR>"] = actions.select_default + actions.center
       },
       n = {
+        ["q"]     = actions.close,
         ["<C-j>"] = actions.move_selection_next,
         ["<C-k>"] = actions.move_selection_previous,
         ["<C-q>"] = actions.smart_send_to_qflist + actions.open_qflist
@@ -46,19 +75,33 @@ require('telescope').setup {
     }
   },
   pickers = { 
-    buffers = { 
-      sort_lastused = true
-    } 
+    buffers = {
+      prompt_title = '✨ Search Buffers ✨',
+      mappings =  {
+       n = {
+          ['r'] = actions.delete_buffer,
+        },
+      },
+      sort_lastused = true,
+      preview_title = false,
+    },
   },
   extensions = {
-    fzy_native = { 
-      override_generic_sorter = true, 
-      override_file_sorter = true 
-    }
-  }
+    fzf = {
+      fuzzy = true, -- false will only do exact matching
+      override_generic_sorter = true, -- override the generic sorter
+      override_file_sorter = true, -- override the file sorter
+      case_mode = 'smart_case', -- or "ignore_case" or "respect_case"
+      -- the default case_mode is "smart_case"
+    },
+  },
+  lsp_references = vim.tbl_deep_extend('force', opts_cursor, {
+    prompt_title = 'References',
+    mappings = default_mappings,
+  }),
 }
 
-require('telescope').load_extension('fzy_native')
+require('telescope').load_extension('fzf')
 
 -- CUSTOM FUNCTIONS
 
