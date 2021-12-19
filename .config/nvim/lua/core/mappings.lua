@@ -10,9 +10,6 @@ vim.g.mapleader = ' '
 
 -- ********* CUSTOM MAPPING *********
 
-map('n', '<leader>tg', ':call v:lua.toggle_diagnostics()<CR>')
-map('n', 'gF', ':call v:lua.open_file_or_create_new()<CR>')
-
 -- Easier split navigation, CTRL + hjlk
 map('n', '<C-j>', '<C-W><C-j>')
 map('n', '<c-k>', '<c-w><C-k>')
@@ -173,4 +170,4 @@ map('c', 'e!!', 'e suda://%', { silent = false })
 map('c', 'w!!', 'w suda://%', { silent = false })
 
 -- hop.nvim
-map('n', 'f', "<CMD>:HopChar2<CR>")
+map('n', 'f', "<CMD>:HopWord<CR>")

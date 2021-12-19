@@ -8,7 +8,11 @@ local commands_list = {
   [[ command! GitBlameByLineToggle :Gitsigns toggle_current_line_blame ]],
 
   -- Lsp
-  [[ command! LspFormat execute 'lua vim.lsp.buf.formatting_sync(nil, 1000)' ]]
+  [[ command! LspFormat execute 'lua vim.lsp.buf.formatting_sync(nil, 1000)' ]],
+
+  -- nvim-spectre
+  [[ command! SpectreOpen execute 'lua require("spectre").open()' ]],
+  [[ command! SpectreOpenCurrentFile execute 'lua require("spectre").open_file_search()' ]]
 }
 
 -- list of commands dependent on autogroup.
@@ -32,6 +36,6 @@ end
 
 M.define_commands(commands_list)
 
-require('settings.autocmds').define_augroups(autogroups_list)
+require('core.autocmds').define_augroups(autogroups_list)
 
 return M

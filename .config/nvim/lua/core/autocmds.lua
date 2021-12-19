@@ -24,8 +24,8 @@ local autogroups_list = {
 
     { "CursorHold", "*", "checktime" }
   },
-  _filetype = {
-    { "FileType", "fugitive", "map <buffer> q gq<CR>" },
+  _plugins = {
+    { "FileType", "fugitive", "map <buffer> q gq<CR>" }
   },
   _linter = {
     -- { "BufWritePre", "*.go", ":silent! :GoImport" },

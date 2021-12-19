@@ -59,7 +59,7 @@ local default_options = {
   -- linebreak = true,
 
   -- something new
-  list = true,
+  list = false,
   listchars = {
     tab = '❘-',
     trail = '·',
