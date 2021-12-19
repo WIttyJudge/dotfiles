@@ -9,20 +9,28 @@ end
 
 -- Functions the whole lua code can use without any require.
 -- eg. dump({1, 2, 3})
-require('custom/global_functions')
+require('custom.global_functions')
+
+local core_modules = {
+  'core.options',
+  'core.commands',
+  'core.mappings',
+  'core.colors',
+  'core.autocmds',
+  -- nvim-compe
+  'core.completion'
+}
+
+for _, module in ipairs(core_modules) do
+   local ok, err = pcall(require, module)
+   if not ok then
+      error("Error loading " .. module .. "\n\n" .. err)
+   end
+
+end
 
 -- Paq package manager
 require('plugins')
-
--- Basic settings
-require('settings/options')
-require('settings/commands')
-require('settings/mappings')
-require('settings/colors')
-require('settings/autocmds')
-
--- nvim-compe
-require('settings/completion')
 
 -- LSP configuration
 require('lsp')
