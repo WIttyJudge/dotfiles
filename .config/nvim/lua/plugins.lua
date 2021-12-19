@@ -124,11 +124,14 @@ return require('packer').startup(function(use)
   -- Comment out code
   use "terrortylor/nvim-comment"
 
+  -- Find and replace
+  use "nvim-pack/nvim-spectre"
+
   -- Statusline and bufferline
   use "hoob3rt/lualine.nvim"
 
   -- Fancy startup screen
-  use "mhinz/vim-startify"
+  -- use "mhinz/vim-startify"
   use {
       'goolord/alpha-nvim',
       requires = { 'kyazdani42/nvim-web-devicons' }
@@ -141,7 +144,6 @@ return require('packer').startup(function(use)
   use { "thoughtbot/vim-rspec", ft = 'ruby' }
   use { "tpope/vim-rvm", ft = 'ruby' }
   use { "tpope/vim-endwise", ft= 'ruby' }
-
 
   -- Golang
   use "ray-x/go.nvim"
