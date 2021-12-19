@@ -1,9 +1,9 @@
 -- https://github.com/mfussenegger/nvim-dap
 
 local dap = require('dap')
-local map = require('custom/utils').map
-local define_commands = require('settings/commands').define_commands
-local icons = require('custom/icons').debug
+local map = require('custom.utils').map
+local define_commands = require('core.commands').define_commands
+local icons = require('custom.icons').debug
 
 vim.fn.sign_define("DapBreakpoint", icons.breakpoint)
 vim.fn.sign_define("DapStopped", icons.stop)
