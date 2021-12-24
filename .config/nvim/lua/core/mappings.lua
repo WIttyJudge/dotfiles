@@ -171,3 +171,5 @@ map('c', 'w!!', 'w suda://%', { silent = false })
 
 -- hop.nvim
 map('n', 'f', "<CMD>:HopWord<CR>")
+
+map('n', '<Leader>mz', ":TZFocus<CR>")
