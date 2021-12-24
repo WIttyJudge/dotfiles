@@ -1,3 +1,5 @@
+-- https://github.com/chaoren/vim-wordmotion
+
 vim.g.wordmotion_nomap = 1
 
 vim.cmd([[

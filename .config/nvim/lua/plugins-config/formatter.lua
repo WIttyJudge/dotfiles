@@ -1,4 +1,5 @@
 -- https://github.com/mhartington/formatter.nvim
+
 local function rubocop()
   return {
     exe = 'rubocop', -- might prepend `bundle exec `

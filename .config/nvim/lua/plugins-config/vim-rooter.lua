@@ -1,3 +1,5 @@
+-- https://github.com/airblade/vim-rooter
+
 -- Trigger vim-rooter only if folder has this files
 vim.g.rooter_patterns = { '.git', 'Makefile', '.env', '.env.example' }
 
