@@ -114,8 +114,7 @@ return require('packer').startup(function(use)
         'nvim-telescope/telescope-fzf-native.nvim',
         run = 'make',
       },
-    },
-    event = 'BufWinEnter'
+    }
   }
 
   -- Explorer
@@ -174,7 +173,8 @@ return require('packer').startup(function(use)
   -- "Pocco81/DAPInstall.nvim";
 
   -- Full concentration on coding
-  use "folke/zen-mode.nvim"
+  -- use "folke/zen-mode.nvim"
+  use "Pocco81/TrueZen.nvim"
 
   -- Database
   use "tpope/vim-dadbod"
