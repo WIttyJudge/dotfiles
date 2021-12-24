@@ -12,14 +12,14 @@ capabilities.textDocument.completion.completionItem.snippetSupport = true
 
 -- Define custom icons
 local signs = { 
-  Eror = icons.error,
-  Warning = icons.warn,
-  Hint = icons.hint,
-  Information = icons.Info
+  Error = icons.error,
+  Warn = icons.warn,
+  Info = icons.info,
+  Hint = icons.hint
 }
 for type, icon in pairs(signs) do
-  local hl = "LspDiagnosticsSign" .. type
-  vim.fn.sign_define(hl, { text = icon})
+  local hl = "DiagnosticSign" .. type
+  vim.fn.sign_define(hl, { texthl = hl, text = icon, numhl = "" })
 end
 
 -- Enable completion triggered by <c-x><c-o>
