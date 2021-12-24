@@ -18,6 +18,7 @@ local plugins = {
   "nvim-dap-ui",
   "nvim-dap",
   "nvim-hlslens",
+  "nvim-specte",
   "nvim-transparent",
   "nvim-tree",
   "tabline",
@@ -26,6 +27,7 @@ local plugins = {
   "telescope",
   "todo-comments",
   "trouble",
+  "true-zen",
   "undotree",
   "vim-dadbod-ui",
   -- "vim-go",
@@ -37,9 +39,7 @@ local plugins = {
 }
 
 for _, plugin in ipairs(plugins) do
-   -- if plugin_is_enabled(plugin) then
-    require('plugins-config/' .. plugin)
-  -- end
+  require('plugins-config.' .. plugin)
 end
 
 local builtin_plugins = {
