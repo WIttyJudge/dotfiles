@@ -1,5 +1,5 @@
 # sudo not required for some system commands
-for x in mount umount sv pacman downgrade; do
+for x in systemctl sv pacman downgrade; do
 	alias $x="sudo $x"
 done
 
