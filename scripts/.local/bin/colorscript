@@ -93,7 +93,7 @@ Execution: colorscript exec pacman"
   exit 2
 }
 
-[ "$1" != '-e' ] && help
+[ "$1" != 'exec' ] && help
 
 declare -F "$2" > /dev/null && $2 || help
 
