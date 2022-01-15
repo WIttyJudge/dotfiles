@@ -21,5 +21,5 @@ for battery in /sys/class/power_supply/BAT?*; do
     notify-send 'Low battery'
 
 	# Prints the info
-	printf " %s %d%% " "$icon" "$capacity"; unset warn
+	printf "%s %d%%" "$icon" "$capacity"; unset warn
 done && exit 0

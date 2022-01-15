@@ -8,4 +8,4 @@ ifcommand $command || exit
 keyboard_layout="$($command print "%s")"
 icon="👻"
 
-printf " %s %s \\n" "$icon" "$keyboard_layout"
+printf "%s %s" "$icon" "$keyboard_layout"

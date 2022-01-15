@@ -13,5 +13,5 @@ case $BLOCK_BUTTON in
     ;;
 esac
 
-printf " %s\\n" "$icon "
+printf "%s" "$icon "
 

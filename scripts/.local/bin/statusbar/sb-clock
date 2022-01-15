@@ -25,7 +25,7 @@ esac
 dte="$(date +"%a, %B %d %l:%M %p"| sed 's/  / /g')"
 # icon="📅"
 
-printf " %s %s \n" "$icon" "$dte"
+printf "%s %s" "$icon" "$dte"
 
 # date "+%Y %b %d (%a) $icon%I:%M%p"
 

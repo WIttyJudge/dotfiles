@@ -14,4 +14,4 @@ icon="🔆"
 
 [ $brightness -le 71 ] && icon="🔅"
 
-printf " %s %s \n" "$icon" "$brightness%"
+printf "%s %s" "$icon" "$brightness%"

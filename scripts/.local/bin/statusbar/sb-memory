@@ -1,4 +1,4 @@
-#!/bin/bash 
+#!/bin/sh 
 
 case $BLOCK_BUTTON in
 	1) notify-send "Top memory processes" "$(ps axch -o cmd:15,%mem --sort=-%mem | head)" ;;
@@ -11,5 +11,5 @@ esac
 mem="$(free -m | awk 'NR==2{printf "%s/%s MB\n", $3,$2,$3*100/$2 }')"
 icon="🧠"
 
-printf " %s %s \\n" "$icon" "$mem"
+printf "%s %s" "$icon" "$mem"
 
