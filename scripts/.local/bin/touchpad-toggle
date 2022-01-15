@@ -1,0 +1,57 @@
+#!/usr/bin/env bash
+
+# `xinput` search strings for these devices
+# - Manually run `xinput` on your PC, look at the output, and adjust these search strings as necessary for your
+#   particular hardware and machine!
+
+TOUCHPAD_STR="Synaptic"
+# ----------------------------------------------------------------------------------------------------------------------
+
+HELP_STR=\
+"Usage: touchpad-toggle [command]\n"\
+"  Positional Parameters:\n"\
+"  -h OR --help  print this help menu/usage string\n"\
+"  toggle        Toggle between on and off\n"\
+"  enable        Turn touchpad ON\n"\
+"  disable       Turn touchpad OFF\n"
+
+TouchpadId=$(xinput | sed -nre "/${TOUCHPAD_STR}/s/.*id=([0-9]*).*/\1/p")
+
+notify() {
+  message=$1
+
+	echo -e $message
+}
+
+toggle() {
+  state=$(xinput list-props "$TouchpadId" | grep "Device Enabled" | grep -o "[01]$")
+
+  newstate="ON"
+  [ "$state" -eq '1' ] && newstate="OFF"
+}
+
+disable() {
+	notify "Touchpad disabled"
+  xinput --disable "$TouchpadId"
+}
+
+enable() {
+	notify "Touchpad enabled"
+  xinput --enable "$TouchpadId"
+}
+
+# INITIALIZE
+
+case "$1" in
+  toggle)
+    toggle ;;
+  enable)
+    newstate="ON" ;;
+  disable)
+    newstate="OFF" ;;
+  *|-h|--help)
+    echo -e "$HELP_STR" && exit 0 ;;
+esac
+
+[ "$newstate" == 'OFF' ] && disable
+[ "$newstate" == 'ON' ] && enable
