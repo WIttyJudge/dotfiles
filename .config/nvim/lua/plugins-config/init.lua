@@ -1,17 +1,20 @@
 -- Setup all plugins here
 
 local plugins = {
-  "alpha-nvim",
+  -- "alpha-nvim",
   "auto-save",
+  "better-escape",
+  "dashboard-nvim",
   "formatter",
   "gitsigns",
-  -- "go-nvim",
+  "go-nvim",
   "hop",
   "indentLine",
   "lspsaga",
   "lspkind-nvim",
   "lualine",
   "neoscroll-nvim",
+  "notify",
   "nvim-autopairs",
   "nvim-colorizer",
   "nvim-comment",

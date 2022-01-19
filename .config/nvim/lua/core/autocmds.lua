@@ -31,7 +31,7 @@ local autogroups_list = {
     -- { "BufWritePre", "*.go", ":silent! :GoImport" },
     -- { "BufWritePre", "*.go", ":silent! :GoFmt" },
     { "BufWritePre", "*.go", ":silent! :lua require('custom.go.format').goimports(1000)" },
-    { "BufWritePre", "*.go", ":silent! :lua vim.lsp.buf.formatting_sync(nil,500)" },
+    -- { "BufWritePre", "*.go", ":silent! :lua vim.lsp.buf.formatting_sync(nil,500)" },
     { "BufWritePre", "*.rs", ":FormatWrite" }
   },
   _autocompile = {
@@ -48,6 +48,11 @@ local autogroups_list = {
     {
       "BufWritePost", '~/suckless-tools/dmenu/config.h',
       "!cd ~/suckless-tools/dmenu; sudo make clean install"
+    },
+    -- Source files
+    {
+      "BufWritePost", ".tmux.conf",
+      "!tmux source-file %",
     }
   }
 }

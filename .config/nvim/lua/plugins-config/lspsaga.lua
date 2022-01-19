@@ -7,7 +7,6 @@ local config = {
   warn_sign = icons.warn,
   hint_sign = icons.hint,
   infor_sign = icons.info,
-  dianostic_header_icon = icons.header_icon,
 
   code_action_prompt = {
     enable = false,

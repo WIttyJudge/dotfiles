@@ -9,7 +9,9 @@ local icons = {
   info = '',
   warn = '',
   error = '',
-  header_icon = '  ',
+  -- header_icon = '  ',
+  bug = '',
+  trace = '✎',
 
   git = {
     unstaged = '✹',

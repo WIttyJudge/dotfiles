@@ -37,8 +37,7 @@ return require('packer').startup(function(use)
   use "glepnir/lspsaga.nvim"
   use "folke/trouble.nvim"
   use "liuchengxu/vista.vim"
-
-  use { "xiyaowong/nvim-transparent" }
+  use "ray-x/lsp_signature.nvim"
 
   -- LSP installer
   use "williamboman/nvim-lsp-installer"
@@ -57,7 +56,8 @@ return require('packer').startup(function(use)
     }
   }
 
-  use "ray-x/lsp_signature.nvim"
+  use { "xiyaowong/nvim-transparent" }
+
   -- use"jiangmiao/auto-pairs"
   -- use "rstacruz/vim-closer"
   use 'windwp/nvim-autopairs'
@@ -77,6 +77,7 @@ return require('packer').startup(function(use)
   use "karb94/neoscroll.nvim"
   use "phaazon/hop.nvim"
   use "chaoren/vim-wordmotion"
+  use "andymass/vim-matchup"
 
   -- Syntax
   use "folke/todo-comments.nvim"
@@ -131,10 +132,11 @@ return require('packer').startup(function(use)
 
   -- Fancy startup screen
   -- use "mhinz/vim-startify"
-  use {
-      'goolord/alpha-nvim',
-      requires = { 'kyazdani42/nvim-web-devicons' }
-  }
+  -- use {
+  --     'goolord/alpha-nvim',
+  --     requires = { 'kyazdani42/nvim-web-devicons' }
+  -- }
+  use 'glepnir/dashboard-nvim'
 
   -- Changes working directory
   use "airblade/vim-rooter"
@@ -146,7 +148,7 @@ return require('packer').startup(function(use)
 
   -- Golang
   use "ray-x/go.nvim"
-  -- use { "fatih/vim-go", ft = 'go' }
+  -- use { "fatih/vim-go" }
 
   -- Useful functions
   use "lambdalisue/suda.vim"
@@ -159,6 +161,14 @@ return require('packer').startup(function(use)
 
   -- Autosave
   use "Pocco81/AutoSave.nvim"
+  
+  -- Good notifications
+  use "rcarriga/nvim-notify"
+
+  -- Escape from insert mode without delay when typing
+  use {
+    "max397574/better-escape.nvim"
+  }
 
   -- Run tests
   use "vim-test/vim-test"

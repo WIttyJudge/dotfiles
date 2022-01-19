@@ -16,6 +16,12 @@ map('n', '<c-k>', '<c-w><C-k>')
 map('n', '<C-l>', '<c-w><C-l>')
 map('n', '<C-h>', '<C-W><C-h>')
 
+-- Allow moving the cursor through wrapped lines with j, k, <Up> and <Down>
+-- http://www.reddit.com/r/vim/comments/2k4cbr/problem_with_gj_and_gk/
+-- empty mode is same as using :map
+map("", "j", 'v:count || mode(1)[0:1] == "no" ? "j" : "gj"', { expr = true })
+map("", "k", 'v:count || mode(1)[0:1] == "no" ? "k" : "gk"', { expr = true })
+
 -- Add space bellow or above without leaving normal mode
 vim.cmd([[
 nnoremap <silent> [<space> :<c-u>put!=repeat([''],v:count)<bar>']+1<CR>
@@ -42,8 +48,9 @@ map('n', ';', ':', { silent = false })
 map('v', ';', ':', { silent = false })
 
 -- Use this instead of touching Esc key
-map('i', 'jk', '<Esc>')
-map('i', 'kj', '<Esc>')
+-- I use better-escape.nvim  plugins!!!
+-- map('i', 'jk', '<Esc>')
+-- map('i', 'kj', '<Esc>')
 
 -- Move selected lines up and down
 map('v', 'J', ":m '>+1<CR>gv=gv")
@@ -79,9 +86,9 @@ map('n', '<C-y>', '3<C-y>')
 map('v', '>', '>gv')
 map('v', '<', '<gv')
 
-  -- buffer navigation
-  map('n', '<leader>bh', ':bprev<cr>')
-  map('n', '<leader>bl', ':bnext<cr>')
+-- buffer navigation
+-- map('n', '<leader>bh', ':bprev<cr>')
+-- map('n', '<leader>bl', ':bnext<cr>')
 
 -- Don't jump when highlighting
 -- map('n','*', '*``')
@@ -137,7 +144,7 @@ map('n', '<Leader>hf', ':NvimTreeFindFile<CR>')
 
 -- telescope
 map('n', '<Leader>f', ':lua require("plugins-config/telescope").find_all_files()<CR>')
-map('n', '<Leader>bb', ':lua require("telescope/builtin").buffers()<CR>')
+map('n', '<Leader>b', ':lua require("telescope/builtin").buffers()<CR>')
 map('n', '<Leader>ps', ':lua require("telescope/builtin").live_grep()<CR>')
 map('n', '<Leader>pf', ':lua require("telescope/builtin").live_grep({grep_open_files=true})<CR>')
 map('n', '<Leader>gb', ':lua require("plugins-config/telescope").git_branches()<CR>')

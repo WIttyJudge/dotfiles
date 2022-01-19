@@ -9,6 +9,7 @@ alias \
   p="sudo pacman " \
   ping="ping -c 3 youtube.com" \
   e="$EDITOR" \
+  update-grub="sudo grub-mkconfig -o /boot/grub/grub.cfg" \
 
 # for testing
 alias \

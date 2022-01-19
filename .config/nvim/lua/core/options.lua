@@ -17,6 +17,10 @@ local default_options = {
   syntax = 'enable',
   clipboard = 'unnamedplus', -- Copy paste between vim and everything else
 
+  -- disable tilde on end of buffer: 
+  -- https://github.com/neovim/neovim/pull/8546#issuecomment-643643758
+  fillchars = { eob = " " },
+
   -- indent options
   tabstop = 2,
   shiftwidth = 2,

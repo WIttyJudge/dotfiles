@@ -2,7 +2,7 @@
 
 local api = vim.api
 local util = vim.lsp.util
-local diagnostics = vim.lsp.diagnostic
+local diagnostics = vim.diagnostic
 local protocol = vim.lsp.protocol
 
 local DiagnosticSeverity = protocol.DiagnosticSeverity

@@ -40,6 +40,7 @@ local servers = {
       }
     }
   },
+  pyright = true,
   tsserver = {
     filetypes = {
       "javascript", "javascriptreact", "javascript.jsx", "typescript",

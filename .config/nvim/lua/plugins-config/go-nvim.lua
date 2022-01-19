@@ -12,7 +12,7 @@ local config = {
 
   lsp_cfg = false, -- true: apply go.nvim non-default gopls setup
   lsp_gofumpt = false, -- true: set default gofmt in gopls format to gofumpt
-  lsp_on_attach = true, -- if a on_attach function provided:  attach on_attach function to gopls
+  lsp_on_attach = false, -- if a on_attach function provided:  attach on_attach function to gopls
                        -- true: will use go.nvim on_attach if true
                        -- nil/false do nothing
   lsp_codelens = false, -- set to false to disable codelens, true by default
