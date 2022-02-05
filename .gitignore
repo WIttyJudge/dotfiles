@@ -6,4 +6,8 @@
 .config/nvim/.netrwhist
 .config/nvim/plugin/*
 
+/* TMUX */
+.config/tmux/plugins
+.config/tmux/resurrect
+
 scripts/.local/share/

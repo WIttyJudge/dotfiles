@@ -31,6 +31,11 @@ local opts_vertical = {
 
 require('telescope').setup {
   defaults = {
+    preview = {
+      timeout = 500,
+      msg_bg_fillchar = "",
+    },
+
     prompt_prefix = "λ -> ",
     selection_caret = "|> ",
 
@@ -39,6 +44,17 @@ require('telescope').setup {
     },
 
     dynamic_preview_title = true,
+
+    vimgrep_arguments = {
+      "rg",
+      "--color=never",
+      "--no-heading",
+      "--with-filename",
+      "--line-number",
+      "--column",
+      "--smart-case",
+      "--hidden",
+    },
 
     layout_strategy = "horizontal",
     sorting_strategy = "ascending",
@@ -94,6 +110,36 @@ require('telescope').setup {
       case_mode = 'smart_case', -- or "ignore_case" or "respect_case"
       -- the default case_mode is "smart_case"
     },
+    command_palette = {
+      {
+        "1. File",
+        { "Yank Current File Name", ":lua require('joel.funcs').yank_current_file_name()" },
+        { "File Browser", ":lua require'telescope'.extensions.file_browser.file_browser()", 1 },
+        { "Search for Word", ":lua require('telescope.builtin').live_grep()", 1 },
+      },
+      {
+        "2. Help",
+        { "Search Help", ":lua require('telescope.builtin').help_tags()", 1 },
+      },
+      {
+        "3. Neovim",
+        { "checkhealth", ":checkhealth" },
+        { "commands", ":lua require('telescope.builtin').commands()" },
+        { "command history", ":lua require('telescope.builtin').command_history()" },
+        { "registers", ":lua require('telescope.builtin').registers()" },
+        { "options", ":lua require('telescope.builtin').vim_options()" },
+        { "keymaps", ":lua require('telescope.builtin').keymaps()" },
+        { "buffers", ":Telescope buffers" },
+        { "search history", ":lua require('telescope.builtin').search_history()" },
+      },
+      {
+        "4. Set",
+        { "cursor line", ":set cursorline!" },
+        { "cursor column", ":set cursorcolumn!" },
+        { "spell checker", ":set spell!" },
+        { "relative number", ":set relativenumber!" },
+      }
+    }
   },
   lsp_references = vim.tbl_deep_extend('force', opts_cursor, {
     prompt_title = 'References',
@@ -101,10 +147,13 @@ require('telescope').setup {
   }),
 }
 
+-- https://github.com/nvim-telescope/telescope-fzf-native.nvim
 require('telescope').load_extension('fzf')
 
--- CUSTOM FUNCTIONS
+-- https://github.com/LinArcX/telescope-command-palette.nvim
+require("telescope").load_extension("command_palette")
 
+-- CUSTOM FUNCTIONS
 local M = {}
 
 function M.find_all_files()
