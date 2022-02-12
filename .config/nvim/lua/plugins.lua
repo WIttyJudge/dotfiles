@@ -82,7 +82,7 @@ return require('packer').startup(function(use)
   -- Syntax
   use "folke/todo-comments.nvim"
   use "norcalli/nvim-colorizer.lua"
-  use "Yggdroot/indentLine"
+  use "lukas-reineke/indent-blankline.nvim"
 
   -- Git
   use "tpope/vim-fugitive"
@@ -111,6 +111,7 @@ return require('packer').startup(function(use)
     requires = {
       'nvim-lua/popup.nvim',
       'nvim-lua/plenary.nvim',
+      "LinArcX/telescope-command-palette.nvim",
       {
         'nvim-telescope/telescope-fzf-native.nvim',
         run = 'make',
