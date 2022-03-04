@@ -10,11 +10,15 @@ alias \
   ping="ping -c 3 youtube.com" \
   e="$EDITOR" \
   update-grub="sudo grub-mkconfig -o /boot/grub/grub.cfg" \
+  send-file="qrcp " \
+  receive-file="qrcp receive" \
+  open="xdg-open " \
 
 # for testing
 alias \
   t-micro="arecord -vv -f dat /dev/null" \
   t-sound="speaker-test -c2 -t wav" \
+  t-webcam="mpv av://v4l2:/dev/video0 --profile=low-latency --untimed" \
 
 # fast cd
 alias \
@@ -28,6 +32,8 @@ alias \
   cat="bat" \
 	cp="cp -iv" \
 	mv="mv -iv" \
+	rm="rm -vI" \
+	mkdir="mkdir -v" \
 
 alias ls="exa -la --group-directories-first --icons" # doesn't show hidden files
 alias ls.="exa -dl .* --icons" # shows only hidden files
@@ -42,9 +48,6 @@ alias \
   gc="git commit" \
   gp="git push" \
   glog="git log --graph --oneline --decorate" \
-
-# tmux
-alias tkill="for s in \$(tmux list-sessions | awk '{print \$1}' | rg ':' -r '' | fzf); do tmux kill-session -t \$s; done;"
 
 # docker
 alias \
