@@ -98,6 +98,7 @@ local function setup_server(server_name, config)
   nvim_lsp[server_name].setup(config)
 end
 
+-- Define servers
 for server, config in pairs(servers) do
   local ok, lsp_server = lsp_installer.get_server(server)
   if ok then

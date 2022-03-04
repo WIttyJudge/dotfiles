@@ -12,8 +12,8 @@ case "$location" in
 esac
 
 case $BLOCK_BUTTON in
-  1) notify-send "${icon} Disk module" "\- Right click to open ncdu disk analyzer." ;;
-  3) setsid -f "$TERMINAL" -e ncdu ;;
+  2) setsid -f "$TERMINAL" -e ncdu ;;
+  3) notify-send "${icon} Disk module" "\- Middle click to open ncdu disk analyzer." ;;
 esac
 
 used_hdd="$(df -h | awk 'NR==4{print $3}' | sed 's/G//g')"
