@@ -10,7 +10,7 @@ if ! pacman -Qs libxft-bgra >/dev/null 2>&1; then
 Please run:
 	\033[32mparu -S libxft-bgra-git\033[0m
 and replace \`libxft\`. Afterwards, you may start the graphical server by running \`startx\`." &&
-  exit 1 
+  exit 1
 fi
 
 # exec i3
