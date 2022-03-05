@@ -9,5 +9,3 @@
 /* TMUX */
 .config/tmux/plugins
 .config/tmux/resurrect
-
-scripts/.local/share/
