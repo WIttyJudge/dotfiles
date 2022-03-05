@@ -18,7 +18,7 @@ alias \
 alias \
   t-micro="arecord -vv -f dat /dev/null" \
   t-sound="speaker-test -c2 -t wav" \
-  t-webcam="mpv av://v4l2:/dev/video0 --profile=low-latency --untimed" \
+  t-webcam="mpv --untimed --no-cache --no-osc --no-input-default-bindings --profile=low-latency --input-conf=/dev/null av://v4l2:/dev/video0" \
 
 # fast cd
 alias \
