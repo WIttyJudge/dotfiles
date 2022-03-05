@@ -19,7 +19,7 @@ vim.g.db_ui_table_helpers = {
     select_limit_200 = 'SELECT * FROM {dbname}.{table} LIMIT 200 FORMAT Vertical',
  		show_create_table = 'SHOW CREATE TABLE {dbname}.{table} FORMAT PrettyNoEscapes',
  		describe = 'DESCRIBE {dbname}.{table} FORMAT PrettyNoEscapes',
- 		drop_table = 'DROP TABLE {dbname}.{table}',
+ 		-- drop_table = 'DROP TABLE {dbname}.{table}',
  		count = 'SELECT count(*) FROM {dbname}.{table}',
  	}
 }

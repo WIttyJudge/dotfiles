@@ -25,6 +25,7 @@ local autogroups_list = {
     { "FileType", "javascript", "command! JsRun :call mappings#RunWith('node')" }
   }
 }
+require('core.autocmds').define_augroups(autogroups_list)
 
 local M = {}
 
@@ -35,7 +36,5 @@ function M.define_commands(commands)
 end
 
 M.define_commands(commands_list)
-
-require('core.autocmds').define_augroups(autogroups_list)
 
 return M

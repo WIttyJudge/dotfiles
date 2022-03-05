@@ -17,9 +17,9 @@ local default_options = {
   syntax = 'enable',
   clipboard = 'unnamedplus', -- Copy paste between vim and everything else
 
-  -- disable tilde on end of buffer: 
+  -- disable tilde on end of buffer:
   -- https://github.com/neovim/neovim/pull/8546#issuecomment-643643758
-  fillchars = { eob = " " },
+  fillchars = { eob = " ", fold='‧' },
 
   -- indent options
   tabstop = 2,
@@ -63,15 +63,8 @@ local default_options = {
   -- linebreak = true,
 
   -- something new
-  list = false,
-  listchars = {
-    tab = '❘-',
-    trail = '·',
-    lead = '·',
-    extends = '»',
-    precedes = '«',
-    nbsp = '×',
-  },
+  list = true,
+  listchars = {tab='●·', extends='→', precedes='←', trail='■'},
 
   -- statusline, tabline, messages
   showtabline = 2,  -- Always show tables

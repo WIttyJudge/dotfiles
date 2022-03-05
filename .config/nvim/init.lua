@@ -38,3 +38,6 @@ require('lsp')
 -- Includes all configurations for installed plugins
 require('plugins-config')
 
+-- Test filetype.lua
+-- @see https://neovim.discourse.group/t/introducing-filetype-lua-and-a-call-for-help/1806
+vim.g.do_filetype_lua = 1

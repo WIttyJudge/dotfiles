@@ -88,14 +88,16 @@ local config = {
 
   },
   experimental = {
-    ghost_text = true,
+    ghost_text = false,
+    native_menu = false
   },
   sources = {
     { name = 'nvim_lsp' },
     { name = 'path' },
     -- For vsnip user.
     { name = 'vsnip' },
-    { name = 'buffer', keyword_length = 5 }
+    { name = 'buffer', keyword_length = 3 },
+    { name = 'nvim_lsp_signature_help' }
   },
   formatting = {
     format = lspkind.cmp_format {

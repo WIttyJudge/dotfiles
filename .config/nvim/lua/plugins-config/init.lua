@@ -12,7 +12,7 @@ local plugins = {
   "hop",
   "indent-blackline-nvim",
   "lspsaga",
-  "lspkind-nvim",
+  -- "lspkind-nvim",
   "lualine",
   "luatab",
   "neoscroll-nvim",

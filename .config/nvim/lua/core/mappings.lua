@@ -31,8 +31,8 @@ nnoremap <silent> ]<space> :<c-u>put =repeat([''],v:count)<bar>'[-1<CR>
 -- Easy copy whole text in file
 map('n', 'vfy', ':%y+<CR>')
 
--- Easy select all of file
--- map('n', 'va', 'GVgg^')
+-- Make an easier redo mapping
+map('n', 'U', '<C-R>')
 
 -- Easier file save and exit
 map('n', '<Leader>w', ':w<CR>')
@@ -53,8 +53,8 @@ map('v', ';', ':', { silent = false })
 -- map('i', 'kj', '<Esc>')
 
 -- Move selected lines up and down
-map('v', 'J', ":m '>+1<CR>gv=gv")
-map('v', 'K', ":m '<-2<CR>gv=gv")
+map('v', '<A-j>', ":m '>+1<CR>gv=gv")
+map('v', '<A-k>', ":m '<-2<CR>gv=gv")
 
 -- Tab to switch buffers
 -- map('n', '<Leader>b', ':bprevious<CR>')
@@ -143,10 +143,13 @@ map('n', '<Leader>hf', ':NvimTreeFindFile<CR>')
 -- map('n', '<Leader>ps', ':Rg<CR>')
 
 -- telescope
-map('n', '<Leader>f', ':lua require("plugins-config/telescope").find_all_files()<CR>')
-map('n', '<Leader>b', ':lua require("telescope/builtin").buffers()<CR>')
-map('n', '<Leader>ps', ':lua require("telescope/builtin").live_grep()<CR>')
-map('n', '<Leader>pf', ':lua require("telescope/builtin").live_grep({grep_open_files=true})<CR>')
+map('n', '<Leader>f', ':lua require("plugins-config.telescope").find_all_files()<CR>')
+map('n', '<Leader>b', ':lua require("telescope.builtin").buffers()<CR>')
+
+map('n', '<Leader>ps', ':lua require("telescope.builtin").live_grep()<CR>')
+map('n', '<Leader>pc', ':lua require("telescope.builtin").grep_string()<CR>')
+map('n', '<Leader>pf', ':lua require("telescope.builtin").live_grep({grep_open_files=true})<CR>')
+
 map('n', '<Leader>gb', ':lua require("plugins-config/telescope").git_branches()<CR>')
 map('n', '<Leader>ca', ':lua require("plugins-config/telescope").lsp_code_actions()<CR>')
 
@@ -177,6 +180,6 @@ map('c', 'e!!', 'e suda://%', { silent = false })
 map('c', 'w!!', 'w suda://%', { silent = false })
 
 -- hop.nvim
-map('n', 'f', "<CMD>:HopWord<CR>")
+map('n', 'f', "<CMD>:HopChar1<CR>")
 
-map('n', '<Leader>mz', ":TZFocus<CR>")
+-- map('n', '<Leader>mz', ":FocusMaximise<CR>")
