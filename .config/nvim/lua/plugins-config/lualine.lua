@@ -4,6 +4,7 @@ local lualine = require('lualine')
 local lualine_highlight = require('lualine.highlight')
 
 local devicons = require('nvim-web-devicons')
+local gps = require("nvim-gps")
 
 local custom_condition = require('custom.conditions')
 local custom_function = require('custom.functions')
@@ -68,6 +69,10 @@ local vi_mode_color = {
   t = colors.red
 }
 
+-- set color for disabled_filetypes statusline
+vim.api.nvim_command("hi StatusLine guibg=" .. colors.bg)
+vim.api.nvim_command("hi StatusLineNC guibg=" .. colors.bg)
+
 local config = {
   options = {
     -- Disable sections and component separators
@@ -113,10 +118,6 @@ local config = {
   }
 }
 
--- set color for disabled_filetypes statusline
-vim.api.nvim_command("hi StatusLine guibg=" .. colors.bg)
-vim.api.nvim_command("hi StatusLineNC guibg=" .. colors.bg)
-
 -- Inserts a component in lualine_c at left section
 local function ins_left(component)
   table.insert(config.sections.lualine_c, component)
@@ -137,23 +138,6 @@ ins_left {
   end,
   color = "LualineMode"
 }
-
--- ins_left {
---   -- File icon
---   function()
---     local fname, ext = vim.fn.expand '%:t', vim.fn.expand '%:e'
---     local icon, iconhl = devicons.get_icon(fname, ext)
-
---     if icon == nil then return '' end
-
---     local fg = vim.fn.synIDattr(vim.fn.hlID(iconhl), 'fg')
---     lualine_highlight.highlight('LualineIcon', fg, colors.bg)
-
---     return icon
---   end,
---   condition = custom_condition.buffer_not_empty,
---   color = {fg = colors.fg, gui = 'bold'}
--- }
 
 ins_left {
   -- File Name
@@ -182,6 +166,18 @@ ins_left {
   color_warn = colors.yellow,
   color_info = colors.blue
 }
+
+ins_left {
+  function()
+    return gps.get_location()
+  end,
+  cond = gps.is_available
+}
+
+-- ins_left {
+--   gps.get_location,
+--   cond = gps.is_available() 
+-- }
 
 -- Insert mid section. You can make any number of sections in neovim :)
 -- for lualine it's any number greater then 2

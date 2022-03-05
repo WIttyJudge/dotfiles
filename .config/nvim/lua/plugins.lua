@@ -25,10 +25,28 @@ if not present then
   end
 end
 
--- Auto compile when there are changes in plugins.lua
-vim.cmd 'autocmd BufWritePost plugins.lua PackerCompile'
+local function local_use(first, second, opts)
+  opts = opts or {}
 
-return require('packer').startup(function(use)
+  local plug_path, home
+  if second == nil then
+    plug_path = first
+    home = "wittyjudge"
+  else
+    plug_path = second
+    home = first
+  end
+
+  if vim.fn.isdirectory(vim.fn.expand("~/projects/" .. plug_path)) == 1 then
+    opts[1] = "~/plugins/" .. plug_path
+  else
+    opts[1] = string.format("%s/%s", home, plug_path)
+  end
+
+  require('packer').use(opts)
+end
+
+require('packer').startup(function()
   use "wbthomason/packer.nvim"
 
   -- LSP
