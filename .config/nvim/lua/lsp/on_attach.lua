@@ -1,4 +1,4 @@
-local custom_function = require('custom.functions')
+local custom_function = require('custom/functions')
 
 -- lspsaga
 -- nnoremap <silent><leader>clf :Lspsaga lsp_finder<CR>
@@ -16,6 +16,7 @@ local custom_function = require('custom.functions')
 
 local mappings = {
   ['gd'] = ":lua vim.lsp.buf.definition()<CR>",
+  ['gr'] = ":lua vim.lsp.buf.references()<CR>",
 
   -- ['K'] = ":Lspsaga hover_doc<CR>",
   ['K'] = ":lua vim.lsp.buf.hover()<CR>",
@@ -23,13 +24,6 @@ local mappings = {
   -- TODO: Need to map this.
   -- ['<C-k>'] = ":lua vim.lsp.buf.signature_help()<CR>",
   ['<Leader>ar'] = ":Lspsaga rename<CR>",
-
-  -- ['<Leader>ee'] = ":Lspsaga show_line_diagnostics<CR>",
-  -- ['<Leader>ej'] = ":Lspsaga diagnostic_jump_next<CR>",
-  -- ['<Leader>ek'] = ":Lspsaga diagnostic_jump_prev<CR>",
-  -- ['<Leader>ee'] = ":lua require('lsp.diagnostic').show_line_diagnostics()<CR>",
-  -- ['<Leader>ej'] = ":lua require('lsp.diagnostic').goto_next()<CR>",
-  -- ['<Leader>ek'] = ":lua require('lsp.diagnostic').goto_prev()<CR>",
 
   ['<Leader>ee'] = ":lua vim.diagnostic.open_float()<CR>",
   ['<Leader>ej'] = ":lua vim.diagnostic.goto_next()<CR>",
@@ -46,6 +40,7 @@ local function nnoremap(key, action)
 end
 
 local M = {}
+
 function M.on_attach()
   -- Init mappings
   for lhs, rhs in pairs(mappings) do
@@ -55,17 +50,7 @@ function M.on_attach()
   -- Init lsp_signature plugin
   require 'lsp_signature'.on_attach(lsp_signature_cfg)
 
-  print('LSP client', custom_function.get_lsp_client_name(), 'was attached')
+  -- print('LSP client', custom_function.get_lsp_client_name(), 'was attached')
 end
-return M
 
--- Use a loop to conveniently call 'setup' on multiple servers and
--- map buffer local keybindings when the language server attaches
--- local servers = { "solargraph" }
--- for _, lsp in ipairs(servers) do
---   nvim_lsp[lsp].setup { on_attach = on_attach }
--- end
--- local servers = require'lspinstall'.installed_servers()
--- for _, server in pairs(servers) do
---   require'lspconfig'[server].setup{}
--- end
+return M
