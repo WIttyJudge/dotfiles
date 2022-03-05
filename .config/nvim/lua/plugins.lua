@@ -70,7 +70,8 @@ require('packer').startup(function()
       "hrsh7th/cmp-path",
       "hrsh7th/cmp-vsnip",
       "hrsh7th/vim-vsnip",
-      "hrsh7th/cmp-cmdline"
+      "hrsh7th/cmp-cmdline",
+      -- "hrsh7th/cmp-nvim-lsp-signature-help"
     }
   }
 
@@ -148,6 +149,11 @@ require('packer').startup(function()
 
   -- Statusline and bufferline
   use "hoob3rt/lualine.nvim"
+  use { 'alvarosevilla95/luatab.nvim', requires='kyazdani42/nvim-web-devicons' }
+  use {
+    "SmiteshP/nvim-gps",
+    requires = "nvim-treesitter/nvim-treesitter"
+  }
 
   -- Fancy startup screen
   -- use "mhinz/vim-startify"
@@ -157,9 +163,6 @@ require('packer').startup(function()
   -- }
   use 'glepnir/dashboard-nvim'
 
-  -- Changes working directory
-  use "airblade/vim-rooter"
-
   -- Ruby
   use { "thoughtbot/vim-rspec", ft = 'ruby' }
   use { "tpope/vim-rvm", ft = 'ruby' }
@@ -168,6 +171,9 @@ require('packer').startup(function()
   -- Golang
   use "ray-x/go.nvim"
   -- use { "fatih/vim-go" }
+
+  -- Markdown
+  use 'ellisonleao/glow.nvim'
 
   -- Useful functions
   use "lambdalisue/suda.vim"
@@ -192,6 +198,9 @@ require('packer').startup(function()
   -- Run tests
   use "vim-test/vim-test"
 
+  use "luukvbaal/stabilize.nvim"
+  use "nacro90/numb.nvim"
+
   -- The interactive scratchpad.
   use "metakirby5/codi.vim"
 
@@ -202,10 +211,11 @@ require('packer').startup(function()
   -- "Pocco81/DAPInstall.nvim";
 
   -- Full concentration on coding
-  -- use "folke/zen-mode.nvim"
-  use "Pocco81/TrueZen.nvim"
+  -- use "Pocco81/TrueZen.nvim"
+  use 'beauwilliams/focus.nvim'
 
   -- Database
   use "tpope/vim-dadbod"
   use "kristijanhusak/vim-dadbod-ui"
+  use "kristijanhusak/vim-dadbod-completion"
 end)
