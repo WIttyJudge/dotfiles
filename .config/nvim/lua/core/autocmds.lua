@@ -5,11 +5,18 @@ local cmd = vim.cmd
 
 -- Restore cursor to where it was when the file was closed
 cmd([[
-autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+  if !&diff
+    autocmd BufLeave * let b:winview = winsaveview()
+    autocmd BufEnter * if exists('b:winview') | call winrestview(b:winview) | endif
+  endif
 ]])
 
 -- remove trailing whitespace on save
--- autocmd BufWritePre * %s/\s\+$//e
+-- cmd([[
+--   autocmd BufWritePre * %s/\s\+$//e
+--   autocmd InsertEnter * :set listchars-=trail:■
+--   autocmd InsertLeave * :set listchars+=trail:■
+-- ]])
 
 -- execute goimports linter
 -- autocmd BufWritePre *.go :silent! lua require('go.format').gofmt()
@@ -22,15 +29,29 @@ local autogroups_list = {
     -- Highlight yanked text
     { "TextYankPost", "*", "silent! lua vim.highlight.on_yank()" },
 
-    { "CursorHold", "*", "checktime" }
+    -- " Make 'autoread' work more responsively
+    { "BufEnter", "*", "silent! checktime" },
+    { "CursorHold", "*", "silent! checktime" },
+    { "CursorMoved", "*", "silent! checktime" },
+
+    -- Turn off line numbers in Terminal windows.
+    -- { "TermOpen", "*", "setlocal nonumber | startinsert" }
   },
   _plugins = {
-    { "FileType", "fugitive", "map <buffer> q gq<CR>" }
+    -- vim-figutive
+    { "FileType", "fugitive", "map <buffer> q gq<CR>" },
+    -- vim-dadbod-completion
+    { 
+      "FileType", "sql,mysql,plsql", 
+      ":lua require('cmp').setup.buffer({ sources = {{ name = 'vim-dadbod-completion' }} })" 
+    },
+    -- packer
+    { "BufWritePost", "plugins.lua", "PackerCompile" },
   },
   _linter = {
     -- { "BufWritePre", "*.go", ":silent! :GoImport" },
     -- { "BufWritePre", "*.go", ":silent! :GoFmt" },
-    { "BufWritePre", "*.go", ":silent! :lua require('custom.go.format').goimports(1000)" },
+    -- { "BufWritePre", "*.go", ":silent! :lua require('custom.go.format').goimports(1000)" },
     -- { "BufWritePre", "*.go", ":silent! :lua vim.lsp.buf.formatting_sync(nil,500)" },
     { "BufWritePre", "*.rs", ":FormatWrite" }
   },
@@ -60,7 +81,7 @@ local autogroups_list = {
 local M = {}
 
 -- Create autocommand groups based on the passed definitions
- function M.define_augroups(definitions)
+function M.define_augroups(definitions)
   for group_name, definition in pairs(definitions) do
     vim.cmd("augroup " .. group_name)
     vim.cmd "autocmd!"
