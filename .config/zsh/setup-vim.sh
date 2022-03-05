@@ -1,6 +1,6 @@
 # Activate vim mode.
 bindkey -v
-export KEYTIMEOUT=1
+export KEYTIMEOUT=3
 
 # Use vim keys in tab complete menu:
 bindkey -M menuselect 'h' vi-backward-char
@@ -9,6 +9,19 @@ bindkey -M menuselect 'l' vi-forward-char
 bindkey -M menuselect 'j' vi-down-line-or-history
 # Fix backspace bug when switching modes.
 bindkey -v '^?' backward-delete-char
+
+# Hit jk or jk to enter NORMAL mode.
+# You basically have to hit them at the same time.
+bindkey -s jk \\e
+bindkey -s kj \\e
+
+# Yank to the system clipboard
+function vi-yank-xclip {
+  zle vi-yank
+  echo "$CUTBUFFER" | xclip -in -selection clipboard 
+}
+zle -N vi-yank-xclip
+bindkey -M vicmd 'y' vi-yank-xclip
 
 function set_beam_cursor() {
   echo -ne '\e[6 q'
