@@ -40,9 +40,9 @@ HISTFILE=~/.cache/zsh/history
 # A value of erasedups causes all previous lines matching the current line to be removed from the history list before that line is saved.
 HISTCONTROL=ignoreboth:erasedups
 
-# Load the aliases and functions
-[ -f "$HOME/.alias-functions" ] && source "$HOME/.alias-functions"
+# Load aliases
 [ -f "$HOME/.aliases" ] && source "$HOME/.aliases"
+[ -f "$HOME/.aliase-functions" ] && source "$HOME/.alias-functions"
 
 # Basic auto/tab complete:
 autoload -U compinit
