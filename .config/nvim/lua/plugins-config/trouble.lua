@@ -1,6 +1,6 @@
 -- https://github.com/folke/trouble.nvim
 
-local icons = require('custom/icons')
+local icons = require('internal.icons')
 
 local config = {
   fold_open = icons.folder.arrow_open,  -- icon used for open folds

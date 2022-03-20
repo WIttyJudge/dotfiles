@@ -6,9 +6,9 @@ local lualine_highlight = require('lualine.highlight')
 local devicons = require('nvim-web-devicons')
 local gps = require("nvim-gps")
 
-local custom_condition = require('custom.conditions')
-local custom_function = require('custom.functions')
-local icons = require('custom.icons')
+local internal_condition = require('internal.conditions')
+local internal_function = require('internal.functions')
+local icons = require('internal.icons')
 
 -- gruvbox-material
 local colors = {
@@ -150,7 +150,7 @@ ins_left {
 
     return f_name
   end,
-  condition = custom_condition.buffer_not_empty,
+  condition = internal_condition.buffer_not_empty,
   color = { fg = colors.fg, gui = 'bold' }
 }
 
@@ -185,7 +185,7 @@ ins_left {
 
 -- ins_left {
 --   -- Lsp server name .
---   custom_function.get_lsp_client_name,
+--   internal_function.get_lsp_client_name,
 --   icon = '',
 --   color = {fg = colors.fg, gui = 'bold'}
 -- }
@@ -196,13 +196,13 @@ ins_right {
   color_added = colors.green,
   color_modified = colors.blue,
   color_removed = colors.red,
-  condition = custom_condition.hide_in_width
+  condition = internal_condition.hide_in_width
 }
 
 ins_right {
   'branch',
   icon = icons.git_branch,
-  condition = custom_condition.check_git_workspace,
+  condition = internal_condition.check_git_workspace,
   color = { fg = colors.yellow, gui = 'bold' }
 }
 

@@ -1,6 +1,6 @@
 -- https://github.com/kyazdani42/nvim-tree.lua
 
-local icons = require('custom.icons')
+local icons = require('internal.icons')
 
 vim.g.nvim_tree_indent_markers = 1
 

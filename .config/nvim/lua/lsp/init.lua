@@ -1,9 +1,9 @@
 -- https://github.com/neovim/nvim-lspconfig
 
 -- Global configs
-local on_attach = require('lsp/on_attach')
+local on_attach = require('lsp.on_attach')
 local servers = require('lsp/servers')
-local icons = require('custom/icons')
+local icons = require('internal.icons')
 
 local nvim_lsp = require('lspconfig')
 local lsp_installer = require('nvim-lsp-installer')

@@ -1,7 +1,7 @@
 local M = {}
 
 -- Check whether the current buffer is empty
-function M.buffer_not_empty() 
+function M.buffer_not_empty()
   return vim.fn.empty(vim.fn.expand('%:t')) ~= 1
 end
 

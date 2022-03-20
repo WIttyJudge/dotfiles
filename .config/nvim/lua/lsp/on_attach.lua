@@ -1,4 +1,4 @@
-local custom_function = require('custom/functions')
+local custom_function = require('internal.functions')
 
 -- lspsaga
 -- nnoremap <silent><leader>clf :Lspsaga lsp_finder<CR>

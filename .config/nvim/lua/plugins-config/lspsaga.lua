@@ -1,6 +1,6 @@
 -- https://github.com/glepnir/lspsaga.nvim
 
-local icons = require('custom.icons')
+local icons = require('internal.icons')
 
 local config = {
   error_sign = icons.error,

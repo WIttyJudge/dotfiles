@@ -1,4 +1,4 @@
-local icons = require('custom.icons')
+local icons = require('internal.icons')
 
 local config = {
   -- Animation style (see below for details)

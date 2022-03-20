@@ -27,9 +27,9 @@ M.config = {
     EnumMember = '',
     Constant = '',
     Struct = '',
-    Event = "",
-    jOperator = "",
-    TypeParameter = "",
+    Event = '',
+    jOperator = '',
+    TypeParameter = '',
   },
 }
 
