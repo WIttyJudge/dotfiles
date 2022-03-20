@@ -2,8 +2,8 @@
 
 -- Setup LSP for docker, yaml, typescript, ruby, golang, rust, bash, html, css
 local servers = {
-  dockerls = true,
-  yamlls = true,
+  -- dockerls = true,
+  -- yamlls = true,
   rust_analyzer = {
     cmd = { "rust-analyzer" },
     filetypes = { "rust" },
@@ -15,15 +15,25 @@ local servers = {
     }
   },
   pyright = true,
-  tsserver = {
-    filetypes = {
-      "javascript", "javascriptreact", "javascript.jsx", "typescript",
-      "typescriptreact", "typescript.tsx"
+  -- tsserver = {
+  --   filetypes = {
+  --     "javascript", "javascriptreact", "javascript.jsx", "typescript",
+  --     "typescriptreact", "typescript.tsx"
+  --   }
+  -- },
+  solargraph = { filetypes = { "ruby" } },
+  -- if it does not works, install binaries from 
+  -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#golangci_lint_ls
+  golangci_lint_ls = {
+    cmd = { "golangci-lint-langserver" },
+    filetypes = { "go", "gomod" },
+    init_options = {
+      command = { "golangci-lint", "run", "--out-format", "json" }
     }
   },
-  solargraph = { filetypes = { "ruby" } },
   gopls = {
     cmd = { "gopls", "serve" },
+    filetypes = {"go", "gomod"},
     settings = {
       gopls = {
         analyses = {
@@ -37,16 +47,16 @@ local servers = {
     filetypes = { "sh" },
     cmd = { "bash-language-server", "start" },
   },
-  html = {
-    filetypes = { "html", "eruby" },
-  },
-  cssls = {
-    settings = {
-      css = { validate = true },
-      less = { validate = true },
-      scss = { validate = true }
-    }
-  }
+  -- html = {
+  --   filetypes = { "html", "eruby" },
+  -- },
+  -- cssls = {
+  --   settings = {
+  --     css = { validate = true },
+  --     less = { validate = true },
+  --     scss = { validate = true }
+  --   }
+  -- }
 }
 
 return servers
