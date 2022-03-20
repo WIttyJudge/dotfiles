@@ -18,21 +18,16 @@ cmd([[
 --   autocmd InsertLeave * :set listchars+=trail:■
 -- ]])
 
--- execute goimports linter
--- autocmd BufWritePre *.go :silent! lua require('go.format').gofmt()
--- autocmd BufWritePre *.go :silent! lua require('custom.go.format').goimports(1000)
--- autocmd BufWritePre *.go :silent! :Gofmt
--- autocmd BufWritePre (InsertLeave?) *.go <buffer> :silent! lua vim.lsp.buf.formatting_sync(nil,500)
-
-local autogroups_list = {
+local autocmds_list = {
   _general_settings = {
     -- Highlight yanked text
     { "TextYankPost", "*", "silent! lua vim.highlight.on_yank()" },
 
     -- " Make 'autoread' work more responsively
-    { "BufEnter", "*", "silent! checktime" },
-    { "CursorHold", "*", "silent! checktime" },
-    { "CursorMoved", "*", "silent! checktime" },
+    -- { "BufEnter", "*", "silent! checktime" },
+    -- { "CursorHold", "*", "silent! checktime" },
+    -- { "CursorMoved", "*", "silent! checktime" },
+    {"FocusGained", "* checktime"},
 
     -- Turn off line numbers in Terminal windows.
     -- { "TermOpen", "*", "setlocal nonumber | startinsert" }
@@ -47,10 +42,10 @@ local autogroups_list = {
     },
     -- packer
     { "BufWritePost", "plugins.lua", "PackerCompile" },
+    {"BufWritePost", "*.sum, *.mod", ":silent :GoModTidy"}
   },
   _linter = {
-    -- { "BufWritePre", "*.go", ":silent! :GoImport" },
-    -- { "BufWritePre", "*.go", ":silent! :GoFmt" },
+    { "BufWritePre", "*.go", ":silent! lua require('go.format').goimport()" },
     -- { "BufWritePre", "*.go", ":silent! :lua require('custom.go.format').goimports(1000)" },
     -- { "BufWritePre", "*.go", ":silent! :lua vim.lsp.buf.formatting_sync(nil,500)" },
     { "BufWritePre", "*.rs", ":FormatWrite" }
@@ -95,6 +90,6 @@ function M.define_augroups(definitions)
   end
 end
 
-M.define_augroups(autogroups_list)
+M.define_augroups(autocmds_list)
 
 return M
