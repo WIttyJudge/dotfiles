@@ -3,7 +3,7 @@
 -- Read more about mappings
 -- https://github.com/nanotee/nvim-lua-guide#defining-mappings
 
-local map = require('custom.utils').map
+local map = require('internal.utils').map
 
 -- Set leader key
 vim.g.mapleader = ' '
@@ -30,6 +30,8 @@ nnoremap <silent> ]<space> :<c-u>put =repeat([''],v:count)<bar>'[-1<CR>
 
 -- Easy copy whole text in file
 map('n', 'vfy', ':%y+<CR>')
+
+map('n', '<Leader>r', ':lua require("internal.quickrun").run_command()<CR>')
 
 -- Make an easier redo mapping
 map('n', 'U', '<C-R>')
@@ -180,6 +182,6 @@ map('c', 'e!!', 'e suda://%', { silent = false })
 map('c', 'w!!', 'w suda://%', { silent = false })
 
 -- hop.nvim
-map('n', 'f', "<CMD>:HopChar1<CR>")
+map('n', 'f', "<CMD>HopChar1<CR>")
 
 -- map('n', '<Leader>mz', ":FocusMaximise<CR>")

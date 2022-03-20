@@ -53,12 +53,14 @@ local default_options = {
   laststatus = 2, -- Always display the status line
   -- wrap = true, Set automatic wrapping to new line if characters more then 80
   scrolloff = 7,
-  sidescrolloff = 3, -- Lines to scroll horizontally
-  showmode = false, -- We don't need to see things like -- INSERT -- anymore
-  mouse = 'a', -- Enable mouse
+  sidescrolloff = 5, -- Lines to scroll horizontally
+  showmode = false,  -- We don't need to see things like -- INSERT -- anymore
+  mouse = 'nv',      -- Enable mouse only for visual and normat mode.
   splitbelow = true, -- Horizontal splits will open below
   splitright = true, -- Vertical splits will open  right
   colorcolumn = "79",
+  -- pumblend = 10,
+  -- winblend = 10,
   -- textwidth = 120,
   -- linebreak = true,
 

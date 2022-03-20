@@ -2,7 +2,10 @@
 -- vim.cmd([[ command! Goimports :lua require('custom.go.format').goimports(1000) ]])
 local commands_list = {
   -- General
-  [[ command! Filetype execute 'lua print(vim.bo.filetype)' ]], 
+  [[ command! Filetype execute 'lua print(vim.bo.filetype)' ]],
+
+  -- Execute files
+  [[ command! RunCommand execute 'lua require("internal.quickrun").run_command()' ]],
 
   -- Git
   [[ command! GitBlameByLineToggle :Gitsigns toggle_current_line_blame ]],
@@ -16,16 +19,10 @@ local commands_list = {
 }
 
 -- list of commands dependent on autogroup.
-local autogroups_list = {
-  -- Execute files
-  _file_execution = {
-    { "FileType", "rust", "command! CargoRun :call mappings#RunWith('cargo run')" },
-    { "FileType", "go", "command! GoRun :call mappings#RunWith('go run')" },
-    { "FileType", "sh", "command! BashRun :call mappings#RunWith('bash')" },
-    { "FileType", "javascript", "command! JsRun :call mappings#RunWith('node')" }
-  }
-}
-require('core.autocmds').define_augroups(autogroups_list)
+-- local autogroups_list = {
+--   _general = {}
+-- }
+-- require('core.autocmds').define_augroups(autogroups_list)
 
 local M = {}
 
