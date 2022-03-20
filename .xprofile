@@ -1,4 +1,6 @@
-# An xprofile file, ~/.xprofile and /etc/xprofile, allows you to execute commands at the beginning of the X user session - before the window manager is started.
+# An xprofile file, ~/.xprofile and /etc/xprofile, allows you to execute 
+# commands at the beginning of the X user session 
+# - before the window manager is started.
 # Read more: https://wiki.archlinux.org/index.php/Xprofile
 
 xrdb -merge ~/.Xresources & # theme configuration file
@@ -19,9 +21,3 @@ for program in $autostart; do
 	pidof -s "$program" || setsid -f "$program"
 done >/dev/null 2>&1
 
-# This line autostarts an instance of Pulseaudio that does not exit on idle.
-# This is "necessary" on Artix due to a current bug between PA and
-# Chromium-based browsers where they fail to start PA and use dummy output.
-# pidof -s runit &&
-# 	! pidof -s pulseaudio >/dev/null 2>&1 &&
-# 	setsid -f pulseaudio --start --exit-idle-time=-1 >/dev/null 2>&1

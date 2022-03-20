@@ -32,7 +32,6 @@ alias \
   cat="bat" \
 	cp="cp -iv" \
 	mv="mv -iv" \
-	rm="rm -vI" \
 	mkdir="mkdir -v" \
 
 alias ls="exa -la --group-directories-first --icons" # doesn't show hidden files
