@@ -41,8 +41,8 @@ local autogroups_list = {
     -- vim-figutive
     { "FileType", "fugitive", "map <buffer> q gq<CR>" },
     -- vim-dadbod-completion
-    { 
-      "FileType", "sql,mysql,plsql", 
+    {
+      "FileType", "sql,mysql,plsql",
       ":lua require('cmp').setup.buffer({ sources = {{ name = 'vim-dadbod-completion' }} })" 
     },
     -- packer
@@ -61,11 +61,11 @@ local autogroups_list = {
       "BufWritePost", "~/suckless-tools/dwmblocks/config.h",
       "!cd ~/suckless-tools/dwmblocks;",
       "sudo make clean install && { killall -q dwmblocks;setsid -f dwmblocks }"
-    },  
+    },
     {
       "BufWritePost", "~/suckless-tools/dwm/config.h",
       "!cd ~/suckless-tools/dwm; sudo make clean install"
-    }, 
+    },
     {
       "BufWritePost", '~/suckless-tools/dmenu/config.h',
       "!cd ~/suckless-tools/dmenu; sudo make clean install"
