@@ -23,15 +23,13 @@ function vi-yank-xclip {
 zle -N vi-yank-xclip
 bindkey -M vicmd 'y' vi-yank-xclip
 
+# Change cursor shape for different vi modes.
 function set_beam_cursor() {
   echo -ne '\e[6 q'
 }
-
 function set_block_cursor() {
   echo -ne '\e[2 q'
 }
-
-# Change cursor shape for different vi modes.
 function zle-keymap-select () {
   case $KEYMAP in
     vicmd) set_block_cursor ;;     # block
