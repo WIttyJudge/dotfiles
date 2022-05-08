@@ -15,4 +15,7 @@ function M.unmap(mode, lhs)
   return vim.api.nvim_del_keymap(mode, lhs)
 end
 
+-- Get home dir ($HOME)
+function M.get_homedir() return os.getenv('HOME') end
+
 return M
