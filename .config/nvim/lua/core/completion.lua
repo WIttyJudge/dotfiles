@@ -20,14 +20,11 @@ local config = {
       vim.fn["vsnip#anonymous"](args.body)
     end,
   },
-  mapping = {
+  mapping = cmp.mapping.preset.insert({
     ['<C-d>'] = cmp.mapping.scroll_docs(4),
     ['<C-u>'] = cmp.mapping.scroll_docs(-4),
     ['<C-o>'] = cmp.mapping.complete(),
-    ['<C-e>'] = cmp.mapping({
-      i = cmp.mapping.abort(),
-      c = cmp.mapping.close(),
-    }),
+    ['<C-e>'] = cmp.mapping.abort(),
     -- ['<CR>'] = cmp.mapping.confirm({ select = true }),
     ['<C-y>'] = cmp.mapping(
       cmp.mapping.confirm {
@@ -86,28 +83,34 @@ local config = {
 --         end
 --     end, {"i", "s"})
 
+  }),
+  window = {
+    documentation = {
+      border = 'rounded',
+    },
   },
   experimental = {
     ghost_text = false,
-    native_menu = false
   },
-  sources = {
+  sources = cmp.config.sources({
     { name = 'nvim_lsp' },
     { name = 'path' },
     -- For vsnip user.
     { name = 'vsnip' },
     { name = 'buffer', keyword_length = 3 },
-    { name = 'nvim_lsp_signature_help' }
-  },
+    { name = 'nvim_lsp_signature_help' },
+    { name = 'emoji' }
+  }),
   formatting = {
     format = lspkind.cmp_format {
       with_text = true,
       menu = {
-        buffer = "[buf]",
+        buffer = "[Buffer]",
         nvim_lsp = "[LSP]",
         nvim_lua = "[Lua]",
-        path = "[path]",
-        vsnip = "[snip]"
+        path = "[Path]",
+        vsnip = "[Snippet]",
+        emoji = "[Emoji]"
       },
     }
   },
@@ -118,6 +121,7 @@ cmp.setup(config)
 
 -- Completions for / search based 
 cmp.setup.cmdline('/', {
+  mapping = cmp.mapping.preset.cmdline(),
   sources = {
     { name = 'buffer' }
   }
@@ -125,6 +129,7 @@ cmp.setup.cmdline('/', {
 
 -- Completions for : command mode
 cmp.setup.cmdline(':', {
+  mapping = cmp.mapping.preset.cmdline(),
   sources = cmp.config.sources({
     { name = 'path' }
   }, {

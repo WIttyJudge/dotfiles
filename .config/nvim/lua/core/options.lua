@@ -1,25 +1,7 @@
--- Read more:
--- https://github.com/nanotee/nvim-lua-guide#using-meta-accessors
-
--- Enables syntax highlighing
-vim.cmd([[ filetype plugin on ]])
-
-vim.opt.shortmess:append('c')
-vim.o.sessionoptions = 'buffers,curdir,folds,tabpages,winsize'
-
--- Stop newline continution of comments
-vim.opt.formatoptions:remove('c', 'r', 'o', 'l')
-vim.opt.formatoptions:append('t')
-
-local default_options = {
-  -- defaults
+local options = {
   encoding = 'UTF-8', -- Always use UTF-8
   syntax = 'enable',
   clipboard = 'unnamedplus', -- Copy paste between vim and everything else
-
-  -- disable tilde on end of buffer:
-  -- https://github.com/neovim/neovim/pull/8546#issuecomment-643643758
-  fillchars = { eob = " ", fold='‧' },
 
   -- indent options
   tabstop = 2,
@@ -50,7 +32,7 @@ local default_options = {
   relativenumber = true,
   cursorline = true, -- Enable highlighting on the current_line
   signcolumn = 'yes',
-  laststatus = 2, -- Always display the status line
+  laststatus = 3, -- Always display the status line
   -- wrap = true, Set automatic wrapping to new line if characters more then 80
   scrolloff = 7,
   sidescrolloff = 5, -- Lines to scroll horizontally
@@ -59,14 +41,10 @@ local default_options = {
   splitbelow = true, -- Horizontal splits will open below
   splitright = true, -- Vertical splits will open  right
   colorcolumn = "79",
-  -- pumblend = 10,
-  -- winblend = 10,
-  -- textwidth = 120,
-  -- linebreak = true,
 
   -- something new
-  list = true,
-  listchars = {tab='●·', extends='→', precedes='←', trail='■'},
+  -- list = true,
+  -- listchars = {tab='●·', extends='→', precedes='←', trail='■'},
 
   -- statusline, tabline, messages
   showtabline = 2,  -- Always show tables
@@ -81,16 +59,20 @@ local default_options = {
   swapfile = false,
   backup = false,
   writebackup = false,
-
-  -- Buffer/Tabs/Windows
-  -- hidden = true,
-
-  -- fixeol = true,
-
-  -- Auto-reloading a file as it changed on disk
-  -- autoread = true
 }
 
-for k, v in pairs(default_options) do
+-- Enables syntax highlighing
+-- vim.cmd([[ filetype plugin on ]])
+
+vim.opt.shortmess:append('c')
+vim.opt.fillchars:append { eob = " ", fold='‧' }
+
+-- Stop newline continution of comments
+vim.opt.formatoptions:remove('c', 'r', 'o', 'l')
+vim.opt.formatoptions:append('t')
+
+-- vim.o.sessionoptions = 'buffers,curdir,folds,tabpages,winsize'
+
+for k, v in pairs(options) do
   vim.opt[k] = v
 end

@@ -15,14 +15,3 @@ vim.opt.background = 'dark'
 -- require('gruvbox-material').setup()
 
 vim.cmd('colorscheme gruvbox-material')
-
--- hi! Normal ctermbg=NONE
--- hi! NonText ctermbg=NONE
--- 
--- autocmd SourcePost * highlight Normal ctermbg=NONE guibg=NONE
---       	\ |    highlight LineNr ctermbg=NONE guibg=NONE
---
-
--- vim.cmd([[
---   highlight CursorLine cterm=NONE ctermbg=NONE ctermfg=NONE guibg=NONE guifg=NONE
--- ]])

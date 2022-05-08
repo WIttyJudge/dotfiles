@@ -1,4 +1,6 @@
-local function disable_buildin_plugins()
+local M = {}
+
+local function disable_builtin_plugins()
   local plugins = {
     "netrw",
     "netrwPlugin",
@@ -44,11 +46,10 @@ local function load_modules()
   end
 end
 
-local function load()
+function M.load()
   require('core.global_functions')
 
-  disable_buildin_plugins()
-
+  disable_builtin_plugins()
   -- https://github.com/lewis6991/impatient.nvim
   if pcall(require, 'impatient') then
     require 'impatient'
@@ -60,7 +61,9 @@ local function load()
 
   -- Test filetype.lua
   -- @see https://neovim.discourse.group/t/introducing-filetype-lua-and-a-call-for-help/1806
-  vim.g.do_filetype_lua = 1
+  -- vim.g.do_filetype_lua = 1
+
+  -- vim.g.did_load_filetypes = 0
 end
 
-load()
+return M

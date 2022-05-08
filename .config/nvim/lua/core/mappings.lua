@@ -5,8 +5,19 @@
 
 local map = require('internal.utils').map
 
+--Remap space as leader key
+map("", "<Space>", "<Nop>", opts)
 -- Set leader key
 vim.g.mapleader = ' '
+vim.g.maplocalleader = " "
+
+-- Modes
+--   normal_mode = "n",
+--   insert_mode = "i",
+--   visual_mode = "v",
+--   visual_block_mode = "x",
+--   term_mode = "t",
+--   command_mode = "c",
 
 -- ********* CUSTOM MAPPING *********
 
@@ -15,6 +26,12 @@ map('n', '<C-j>', '<C-W><C-j>')
 map('n', '<c-k>', '<c-w><C-k>')
 map('n', '<C-l>', '<c-w><C-l>')
 map('n', '<C-h>', '<C-W><C-h>')
+
+-- Resize windows
+map('n', '<UP>', ':resize +2<CR>')
+map('n', '<Down>', ':resize -2<CR>')
+map('n', '<Left>', ':vertical resize +2<CR>')
+map('n', '<Right>', ':vertical resize -2<CR>')
 
 -- Allow moving the cursor through wrapped lines with j, k, <Up> and <Down>
 -- http://www.reddit.com/r/vim/comments/2k4cbr/problem_with_gj_and_gk/
@@ -31,7 +48,9 @@ nnoremap <silent> ]<space> :<c-u>put =repeat([''],v:count)<bar>'[-1<CR>
 -- Easy copy whole text in file
 map('n', 'vfy', ':%y+<CR>')
 
-map('n', '<Leader>r', ':lua require("internal.quickrun").run_command()<CR>')
+vim.keymap.set('n', '<Leader>r', function()
+  require("internal.quickrun").run_command()
+end)
 
 -- Make an easier redo mapping
 map('n', 'U', '<C-R>')
@@ -51,8 +70,8 @@ map('v', ';', ':', { silent = false })
 
 -- Use this instead of touching Esc key
 -- I use better-escape.nvim  plugins!!!
--- map('i', 'jk', '<Esc>')
--- map('i', 'kj', '<Esc>')
+map('i', 'jk', '<Esc>')
+map('i', 'kj', '<Esc>')
 
 -- Move selected lines up and down
 map('v', '<A-j>', ":m '>+1<CR>gv=gv")
@@ -61,14 +80,6 @@ map('v', '<A-k>', ":m '<-2<CR>gv=gv")
 -- Tab to switch buffers
 -- map('n', '<Leader>b', ':bprevious<CR>')
 -- map('n', '<Leader>B', ':bnext<CR>')
-
--- map('n', '<Leader>c', 'q:i')
-
--- Resize windows
-map('n', '<UP>', ':resize +2<CR>')
-map('n', '<Down>', ':resize -2<CR>')
-map('n', '<Left>', ':vertical resize +2<CR>')
-map('n', '<Right>', ':vertical resize -2<CR>')
 
 -- Make visual yanks place the cursor back where started
 map("v", "y", "ygv<Esc>")
@@ -88,10 +99,6 @@ map('n', '<C-y>', '3<C-y>')
 map('v', '>', '>gv')
 map('v', '<', '<gv')
 
--- buffer navigation
--- map('n', '<leader>bh', ':bprev<cr>')
--- map('n', '<leader>bl', ':bnext<cr>')
-
 -- Don't jump when highlighting
 -- map('n','*', '*``')
 
@@ -99,7 +106,7 @@ map('v', '<', '<gv')
 -- map('n','n', 'nzz')
 -- map('n','N', 'Nzz')
 
--- Cursor stops running away during line concatination 
+-- Cursor stops running away during line concatination
 map('n','J', 'mzJ`z')
 
 -- Tabs control
@@ -145,15 +152,16 @@ map('n', '<Leader>hf', ':NvimTreeFindFile<CR>')
 -- map('n', '<Leader>ps', ':Rg<CR>')
 
 -- telescope
-map('n', '<Leader>f', ':lua require("plugins-config.telescope").find_all_files()<CR>')
-map('n', '<Leader>b', ':lua require("telescope.builtin").buffers()<CR>')
+-- vim.keymap.set('n', '<Leader>f', function() require("plugins-config.telescope").find_all_files() end)
+vim.keymap.set('n', '<Leader>f', function() require("telescope.builtin").find_files({hidden = true}) end)
+vim.keymap.set('n', '<Leader>b', function() require("telescope.builtin").oldfiles() end)
 
-map('n', '<Leader>ps', ':lua require("telescope.builtin").live_grep()<CR>')
-map('n', '<Leader>pc', ':lua require("telescope.builtin").grep_string()<CR>')
-map('n', '<Leader>pf', ':lua require("telescope.builtin").live_grep({grep_open_files=true})<CR>')
+vim.keymap.set('n', '<Leader>ps', function() require("telescope.builtin").live_grep() end)
+vim.keymap.set('n', '<Leader>pc', function() require("telescope.builtin").grep_string() end)
+vim.keymap.set('n', '<Leader>pf', function() require("telescope.builtin").live_grep({grep_open_files=true}) end)
 
-map('n', '<Leader>gb', ':lua require("plugins-config/telescope").git_branches()<CR>')
-map('n', '<Leader>ca', ':lua require("plugins-config/telescope").lsp_code_actions()<CR>')
+vim.keymap.set('n', '<Leader>gb', function() require("plugins-config.telescope").git_branches() end)
+vim.keymap.set('n', '<Leader>ca', function() require("plugins-config.telescope").lsp_code_actions() end)
 
 -- undotree
 map('n', '<Leader>ut', ':UndotreeToggle<CR>')

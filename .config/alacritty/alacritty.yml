@@ -94,9 +94,7 @@ draw_bold_text_with_bright_colors: false
 # Colors (Gruvbox dark)
 colors:
   primary:
-    # hard contrast background - '#1d2021'
     background:        &gruvbox_dark_bg '#282828'
-    # soft contrast background - '#32302f'
     background:        &gruvbox_dark_bg '#282828'
     foreground:        '#ebdbb2'
     bright_foreground: '#fbf1c7'
@@ -107,19 +105,6 @@ colors:
   vi_mode_cursor:
     text:   CellBackground
     cursor: CellForeground
-  # search:
-  #   matches:
-  #     foreground: '#000000'
-  #     background: '#ffffff'
-  #   focused_match:
-  #    foreground: CellBackground
-  #    background: CellForeground
-  #   bar:
-  #     background: ''
-  #     foreground: ''
-  # line_indicator:
-  #   foreground: None
-  #   background: None
   selection:
     text:       CellBackground
     background: CellForeground
@@ -148,6 +133,7 @@ colors:
     yellow:  '#b57614'
     blue:    '#076678'
     magenta: '#8f3f71'
+
 # Visual Bell
 #
 # Any time the BEL code is received, Alacritty "rings" the visual bell. Once

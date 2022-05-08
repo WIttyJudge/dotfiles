@@ -1,8 +1,9 @@
--- execute goimports linter
--- vim.cmd([[ command! Goimports :lua require('custom.go.format').goimports(1000) ]])
+local M = {}
+
 local commands_list = {
   -- General
   [[ command! Filetype execute 'lua print(vim.bo.filetype)' ]],
+  [[ command! WhitespaceClean :%s/\s\+$//e ]],
 
   -- Execute files
   [[ command! RunCommand execute 'lua require("internal.quickrun").run_command()' ]],
@@ -12,6 +13,7 @@ local commands_list = {
 
   -- Lsp
   [[ command! LspFormat execute 'lua vim.lsp.buf.formatting_sync(nil, 1000)' ]],
+  [[ command! GoImports exectue 'lua require('internal.go.format').goimports(1000)' ]],
 
   -- nvim-spectre
   [[ command! SpectreOpen execute 'lua require("spectre").open()' ]],
@@ -23,8 +25,6 @@ local commands_list = {
 --   _general = {}
 -- }
 -- require('core.autocmds').define_augroups(autogroups_list)
-
-local M = {}
 
 function M.define_commands(commands)
   for _, command in pairs(commands) do
