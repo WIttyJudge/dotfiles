@@ -1,27 +1,16 @@
 -- https://github.com/neovim/nvim-lspconfig
 
 -- Global configs
+-- local handlers = require('lsp/handlers')
 local on_attach = require('lsp.on_attach')
-local servers = require('lsp/servers')
-local icons = require('internal.icons')
+local servers = require('lsp.servers')
 
 local nvim_lsp = require('lspconfig')
-local lsp_installer = require('nvim-lsp-installer')
+
+require('lsp.handlers').setup()
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true
-
--- Define custom icons
-local signs = { 
-  Error = icons.error,
-  Warn = icons.warn,
-  Info = icons.info,
-  Hint = icons.hint
-}
-for type, icon in pairs(signs) do
-  local hl = "DiagnosticSign" .. type
-  vim.fn.sign_define(hl, { texthl = hl, text = icon, numhl = "" })
-end
 
 -- Enable completion triggered by <c-x><c-o>
 vim.cmd('setlocal omnifunc=v:lua.vim.lsp.omnifunc')
@@ -51,27 +40,5 @@ end
 
 -- Define servers
 for server, config in pairs(servers) do
-  local ok, lsp_server = lsp_installer.get_server(server)
-  if ok then
-    if not lsp_server:is_installed() then
-      lsp_server:install()
-    end
-  end
-
   setup_server(server, config)
 end
-
-vim.lsp.handlers["textDocument/publishDiagnostics"] =
-    vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
-      underline = false,
-
-      -- Disable virtual_text on file load
-      virtual_text = false,
-      -- virtual_text = {
-      --   prefix = "",
-      --   spacing = 0,
-      -- },
-
-      signs = true,
-      update_in_insert = false
-    })

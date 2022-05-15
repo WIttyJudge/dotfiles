@@ -1,22 +1,11 @@
-local custom_function = require('internal.functions')
+local M = {}
 
--- lspsaga
--- nnoremap <silent><leader>clf :Lspsaga lsp_finder<CR>
--- nnoremap <silent><leader>cca :Lspsaga code_action<CR>
--- vnoremap <silent><leader>cca :<C-U>Lspsaga range_code_action<CR>
--- nnoremap <silent><C-f> <cmd>lua require('lspsaga.action').smart_scroll_with_saga(1)<CR>
--- nnoremap <silent><C-b> <cmd>lua require('lspsaga.action').smart_scroll_with_saga(-1)<CR>
--- nnoremap <silent><leader>csh :Lspsaga signature_help<CR>
--- nnoremap <silent><leader>cpd :Lspsaga preview_definition<CR>
--- nnoremap <silent> <leader>cld :Lspsaga show_line_diagnostics<CR>
--- nnoremap <silent> [e :Lspsaga diagnostic_jump_next<CR>
--- nnoremap <silent> ]e :Lspsaga diagnostic_jump_prev<CR>
--- nnoremap <silent> <leader>cot :Lspsaga open_floaterm<CR>
--- tnoremap <silent> <leader>cct <C-\><C-n>:Lspsaga close_floaterm<CR>
+local map = require('internal.utils').map
 
 local mappings = {
   ['gd'] = ":lua vim.lsp.buf.definition()<CR>",
-  ['gr'] = ":lua vim.lsp.buf.references()<CR>",
+  -- ['gr'] = ":lua vim.lsp.buf.references()<CR>",
+  ['gr'] = ":lua require('telescope.builtin').lsp_references()<CR>",
 
   -- ['K'] = ":Lspsaga hover_doc<CR>",
   ['K'] = ":lua vim.lsp.buf.hover()<CR>",
@@ -30,27 +19,16 @@ local mappings = {
   ['<Leader>ek'] = ":lua vim.diagnostic.goto_prev()<CR>",
 }
 
--- https://github.com/ray-x/lsp_signature.nvim#full-configuration
-local lsp_signature_cfg = {
-  use_lspsaga = false   -- set to true if you want to use lspsaga popup
-}
-
 local function nnoremap(key, action)
   vim.api.nvim_buf_set_keymap(0, 'n', key, action, {noremap = true, silent = true})
 end
-
-local M = {}
 
 function M.on_attach()
   -- Init mappings
   for lhs, rhs in pairs(mappings) do
     nnoremap(lhs, rhs)
+    map('n', '<c-k>', '<c-w><C-k>')
   end
-
-  -- Init lsp_signature plugin
-  require 'lsp_signature'.on_attach(lsp_signature_cfg)
-
-  -- print('LSP client', custom_function.get_lsp_client_name(), 'was attached')
 end
 
 return M
