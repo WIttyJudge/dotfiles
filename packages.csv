@@ -4,6 +4,9 @@ SKIP,TAG,NAME,DESCRIPTION
 ,,xorg-xrdb,X server resource database utility.
 ,,xorg-xdpyinfo,Display information utility for X.
 ,,xclip,CLI to the X11 clipboard.
+,,xwallpaper,Wallpaper setting utility for X.
+,,xcompmgr,Composite Window-effects manager for Xorg.
+,,xcolor,Color picker for X11.
 TRUE,AUR,polybar,A fast and easy-to-use status bar.
 TRUE,AUR,siji-git,Iconic bitmap font based on stlarch with additional glyphs.
 TRUE,AUR,termsyn-font,Monospaced font based on terminus and tamsyn.
@@ -12,7 +15,6 @@ TRUE,AUR,termsyn-font,Monospaced font based on terminus and tamsyn.
 ,,telegram-desktop,Official Telegram Desktop client.
 ,,discord,All-in-one voice and text chat for gamers that's free and secure.
 TRUE,,feh,Fast and light imlib2-based image viewer.
-,,xwallpaper,Wallpaper setting utility for X.
 TRUE,,scrot,Simple command-line screenshot utility for X.
 TRUE,,flameshot,Powerful yet simple to use screenshot software.
 ,,maim,Utility to take a screenshot using imlib2.
@@ -59,7 +61,6 @@ TRUE,AUR,urxvt-resize-font-git,An urxvt plugin to adjust the font size on the fl
 TRUE,,rofi,A window application launcher and dmenu replacement.
 TRUE,,rofi-pass,Bash script to handle pass storages in a convenient way.
 ,,pacman-contrib,Contributed scripts and tools for pacman systems.
-,,xcompmgr,Composite Window-effects manager for Xorg.
 ,,sxhkd,Simple X hotkey daemon.
 ,,zathura, Minimalistic document viewer with vim-like bindings.
 ,,zathura-pdf-mupdf, PDF support for Zathura.
@@ -79,4 +80,5 @@ TRUE,,rofi-pass,Bash script to handle pass storages in a convenient way.
 ,,tmux,A terminal multiplexer.
 ,,mediainfo,Shows audio and video information.
 ,,man-db,Read man pages of programs.
-
+,,transmission-cli,Light-weight and cross-platform BitTorrent client.
+,AUR,simple-mtpfs,A FUSE filesystem that supports reading/writing from MTP devices.
