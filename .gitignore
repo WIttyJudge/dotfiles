@@ -9,3 +9,6 @@
 /* TMUX */
 .config/tmux/plugins
 .config/tmux/resurrect
+
+.zcompdump*
+
