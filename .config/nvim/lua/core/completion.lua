@@ -5,8 +5,13 @@
 -- autocmd FileType ruby,eruby let g:rubycomplete_rails = 1
 -- ]])
 
-local cmp = require('cmp')
-local lspkind = require('lspkind')
+local cmp_present, cmp = pcall(require, "cmp")
+local lspkind_present, lspkind = pcall(require, "lspkind")
+
+if not cmp_present and not lspkind_present then
+  return
+end
+
 
 local has_words_before = function()
     local line, col = unpack(vim.api.nvim_win_get_cursor(0))
@@ -97,20 +102,21 @@ local config = {
     { name = 'path' },
     -- For vsnip user.
     { name = 'vsnip' },
-    { name = 'buffer', keyword_length = 3 },
-    { name = 'nvim_lsp_signature_help' },
-    { name = 'emoji' }
+    { name = 'buffer', keyword_length = 4 },
+    { name = 'nvim_lsp_signature_help' }
+    -- { name = 'emoji' }
   }),
   formatting = {
     format = lspkind.cmp_format {
-      with_text = true,
+      mode = 'symbol_text',
+      symbol_text = require("internal/icons").kind,
       menu = {
         buffer = "[Buffer]",
         nvim_lsp = "[LSP]",
         nvim_lua = "[Lua]",
         path = "[Path]",
         vsnip = "[Snippet]",
-        emoji = "[Emoji]"
+        -- emoji = "[Emoji]"
       },
     }
   },

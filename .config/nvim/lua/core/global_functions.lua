@@ -1,7 +1,3 @@
-function _G.dump(...)
-  print(unpack(vim.tbl_map(vim.inspect, { ... })))
-end
-
 -- convert word to Snake case
 function _G.Snake(s)
   if s == nil then
