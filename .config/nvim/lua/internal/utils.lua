@@ -1,13 +1,21 @@
 local M = {}
 
 -- Bind keymap
-function M.map(mode, key, action, opts)
-  local default_opts = { noremap = true, silent = true}
-  local opts = opts or {}
-  -- rewrite default_opts if opts defined
-  default_opts = vim.tbl_extend("force", default_opts, opts)
+function M.map(mode, keys, command, opts)
+  local options = { silent = true }
 
-  return vim.api.nvim_set_keymap(mode, key, action, default_opts)
+  if opts then
+    options = vim.tbl_extend("force", options, opts)
+  end
+
+  if type(keys) == "table" then
+    for _, keymap in ipairs(keys) do
+      M.map(mode, keymap, command, opts)
+    end
+    return
+  end
+
+  vim.keymap.set(mode, keys, command, opts)
 end
 
 -- Delete keymap

@@ -3,14 +3,6 @@
 -- Read more about mappings
 -- https://github.com/nanotee/nvim-lua-guide#defining-mappings
 
-local map = require('internal.utils').map
-
---Remap space as leader key
-map("", "<Space>", "<Nop>", opts)
--- Set leader key
-vim.g.mapleader = ' '
-vim.g.maplocalleader = " "
-
 -- Modes
 --   normal_mode = "n",
 --   insert_mode = "i",
@@ -18,6 +10,14 @@ vim.g.maplocalleader = " "
 --   visual_block_mode = "x",
 --   term_mode = "t",
 --   command_mode = "c",
+
+local map = require('internal.utils').map
+
+--Remap space as leader key
+map("", "<Space>", "<Nop>", opts)
+-- Set leader key
+vim.g.mapleader = ' '
+vim.g.maplocalleader = " "
 
 -- ********* CUSTOM MAPPING *********
 
@@ -48,7 +48,7 @@ nnoremap <silent> ]<space> :<c-u>put =repeat([''],v:count)<bar>'[-1<CR>
 -- Easy copy whole text in file
 map('n', 'vfy', ':%y+<CR>')
 
-vim.keymap.set('n', '<Leader>r', function()
+map('n', '<Leader>r', function()
   require("internal.quickrun").run_command()
 end)
 
@@ -65,13 +65,10 @@ map('n', '<Leader>Q', ':q!<CR>')
 -- nnoremap <Leader>; :nohlsearch<CR>
 
 -- Use simple ; instead of shift + :
-map('n', ';', ':', { silent = false })
-map('v', ';', ':', { silent = false })
+map({ 'n', 'v' }, ';', ':', { silent = false })
 
 -- Use this instead of touching Esc key
--- I use better-escape.nvim  plugins!!!
-map('i', 'jk', '<Esc>')
-map('i', 'kj', '<Esc>')
+map('i', { 'jk', 'kj' }, '<Esc>')
 
 -- Move selected lines up and down
 map('v', '<A-j>', ":m '>+1<CR>gv=gv")
@@ -85,8 +82,7 @@ map('v', '<A-k>', ":m '<-2<CR>gv=gv")
 map("v", "y", "ygv<Esc>")
 
 -- Disable copy while deleting
-map('n', 'd', '"_d')
-map('x', 'd', '"_d')
+map({ 'n', 'x' }, 'd', '"_d')
 map('n', 'D', '"_D')
 map('n', 'x', '"_x')
 map('x', 'p', '"_dP')
@@ -131,8 +127,7 @@ map('n', '<Leader>tt', ':split term://zsh | resize 20<CR> | a<CR>')
 -- ********* PLUGINS MAPPING *********
 
 -- nvim-comment
-map('n', '<Leader>/', ':CommentToggle<CR>')
-map('v', '<Leader>/', ':CommentToggle<CR>')
+map({ 'n', 'v' }, '<Leader>/', ':CommentToggle<CR>')
 
 -- nvim-hlslens
 map('n', 'n', "<Cmd>execute('normal! ' . v:count1 . 'nzz')<CR><Cmd>lua require('hlslens').start()<CR>")
@@ -153,21 +148,36 @@ map('n', '<Leader>hf', ':NvimTreeFindFile<CR>')
 
 -- telescope
 -- vim.keymap.set('n', '<Leader>f', function() require("plugins-config.telescope").find_all_files() end)
-vim.keymap.set('n', '<Leader>f', function() require("telescope.builtin").find_files({hidden = true}) end)
-vim.keymap.set('n', '<Leader>b', function() require("telescope.builtin").oldfiles() end)
+map('n', '<Leader>f', function()
+  require("telescope.builtin").find_files()
+end)
 
-vim.keymap.set('n', '<Leader>ps', function() require("telescope.builtin").live_grep() end)
-vim.keymap.set('n', '<Leader>pc', function() require("telescope.builtin").grep_string() end)
-vim.keymap.set('n', '<Leader>pf', function() require("telescope.builtin").live_grep({grep_open_files=true}) end)
+map('n', '<Leader>b', function()
+  require("telescope.builtin").oldfiles()
+end)
 
-vim.keymap.set('n', '<Leader>gb', function() require("plugins-config.telescope").git_branches() end)
-vim.keymap.set('n', '<Leader>ca', function() require("plugins-config.telescope").lsp_code_actions() end)
+map('n', '<Leader>ps', function()
+  require("telescope.builtin").live_grep()
+end)
+
+map('n', '<Leader>pc', function()
+  require("telescope.builtin").grep_string()
+end)
+
+map('n', '<Leader>pf', function()
+  require("telescope.builtin").live_grep({grep_open_files=true})
+end)
+
+map('n', '<Leader>gb', function()
+  require("plugins-config.telescope").git_branches()
+end)
+
+map('n', '<Leader>ca', function()
+  require("plugins-config.telescope").lsp_code_actions()
+end)
 
 -- undotree
 map('n', '<Leader>ut', ':UndotreeToggle<CR>')
-
--- vim-startify
--- map('n', '<Leader>st', ':tabnew | :Startify<CR>')
 
 -- alpha-nvim
 map('n', '<Leader>st', ':tabnew | :Alpha<CR>')
@@ -181,8 +191,7 @@ map('n', '<Leader>gd', ':Gvdiffsplit<CR>')
 map('n', '<Leader>gs', ':Git<CR>')
 
 -- gv.vim
-map('n', '<Leader>gc', ':GV<CR>')
-map('v', '<Leader>gc', ':GV<CR>')
+map({ 'n', 'v' }, '<Leader>gc', ':GV<CR>')
 map('n', '<Leader>gC', ':GV!<CR>')
 
 -- suda.vim
