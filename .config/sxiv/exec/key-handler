@@ -11,7 +11,7 @@ do
 	"R")
 		convert -rotate -90 "$file" "$file" ;;
 	"y")
-		echo -n "$file" | xclip -selection clipboard &&
+    xclip -selection clipboard "$file" -t image/png &&
 		notify-send "$file copied to clipboard" ;;
 	"Y")
 		readlink -f "$file" | xclip -selection clipboard &&
