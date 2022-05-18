@@ -7,7 +7,7 @@ ifcommand $command || exit
 
 case $BLOCK_BUTTON in
 	# 1) toggle-microphone --toggle ;;
-  1) pactl set-source-mute @DEFAULT_SOURCE@ toggle ;;
+  1) pactl set-source-mute @DEFAULT_SOURCE@ toggle; pkill -RTMIN+20 dwmblocks ;;
 esac
 
 mic_muted="$($command --get-status)"

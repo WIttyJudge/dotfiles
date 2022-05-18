@@ -8,6 +8,7 @@ end
 local builtin = require('telescope.builtin')
 local actions = require('telescope.actions')
 local previewers = require('telescope.previewers')
+local themes = require("telescope.themes")
 
 local icons = require("internal.icons")
 

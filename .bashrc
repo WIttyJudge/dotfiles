@@ -19,8 +19,9 @@ shopt -s autocd
 HISTCONTROL=ignoreboth:erasedups
 
 # Infinite history.
-HISTSIZE=
+export HISTSIZE=10000000
 HISTFILESIZE=
+export HISTFILE="${XDG_CACHE_HOME}/bash/history"
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 

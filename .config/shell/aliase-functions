@@ -60,3 +60,7 @@ function repeat() {
   done
 }
 
+# Prevent 'zsh: command not found: $'
+function $ () {
+  "$@"
+}

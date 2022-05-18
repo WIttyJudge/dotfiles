@@ -35,6 +35,7 @@ alias \
 	cp="cp -iv" \
 	mv="mv -iv" \
 	mkdir="mkdir -v" \
+  wget=wget --hsts-file="$XDG_DATA_HOME/wget-hsts"
 
 alias ls="exa -la --group-directories-first --icons" # doesn't show hidden files
 alias ls.="exa -dl .* --icons" # shows only hidden files

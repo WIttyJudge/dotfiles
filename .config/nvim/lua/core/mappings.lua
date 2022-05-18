@@ -147,7 +147,7 @@ map('n', '<Leader>hf', ':NvimTreeFindFile<CR>')
 -- map('n', '<Leader>ps', ':Rg<CR>')
 
 -- telescope
--- vim.keymap.set('n', '<Leader>f', function() require("plugins-config.telescope").find_all_files() end)
+-- vim.keymap.set('n', '<Leader>f', function() require("plugins.configs.telescope").find_all_files() end)
 map('n', '<Leader>f', function()
   require("telescope.builtin").find_files()
 end)
@@ -169,11 +169,11 @@ map('n', '<Leader>pf', function()
 end)
 
 map('n', '<Leader>gb', function()
-  require("plugins-config.telescope").git_branches()
+  require("plugins.configs.telescope").git_branches()
 end)
 
 map('n', '<Leader>ca', function()
-  require("plugins-config.telescope").lsp_code_actions()
+  require("plugins.configs.telescope").lsp_code_actions()
 end)
 
 -- undotree

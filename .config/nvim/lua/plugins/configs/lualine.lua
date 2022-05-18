@@ -96,6 +96,7 @@ local config = {
       'dbout',
       'Trouble',
       'undotree',
+      'alpha',
     }
   },
   sections = {

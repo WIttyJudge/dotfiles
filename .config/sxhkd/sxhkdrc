@@ -9,7 +9,7 @@ super + p
     dmenu_run -c -l 10
 
 super + shift + r
-      $TERMINAL -e htop
+      $TERMINAL -e btop
 
 super + shift + w
       $TERMINAL -n calcurse -e calcurse
@@ -30,7 +30,7 @@ Next
 
 /* screenshoter */
 Print
-    make-screenshot
+    screentools
 
 /* Custom commands */
 Home

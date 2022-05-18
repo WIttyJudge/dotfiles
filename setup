@@ -2,25 +2,22 @@
 
 ### OPTIONS AND VARIABLES ###
 
-dotfiles_path=$(pwd)
-config_path=$HOME/.config
+dotfiles_path="${DOTFILES:-$HOME/dotfiles}"
+config_path="${XDG_CONFIG_HOME:-$HOME/.config}"
 
 GREEN=$(tput setaf 2)
 NORMAL=$(tput sgr0)
 
 # List that should be inside ~/ directory
 home_directory=(
-  .alias-functions
-  .aliases
   .gitconfig
   .bashrc
   .profile
-  .tmux.conf
   .xinitrc
   .xprofile
   .Xresources
   .zprofile
-  .zshrc
+  # .zshrc
 )
 
 # List for ~/.config folder
@@ -28,44 +25,40 @@ config_directory=(
   alacritty
   calcurse
   dunst
+  git
   # i3
   mpv
+  navi
+  newsboat
   nvim
   pipewire
   # polybar
   # rofi
+  shell
   sxhkd
   sxiv
-  # terminator
   tmux
+  transmission-daemon/settings.json
   zsh
+  mimeapps.list
+  pavucontrol.ini
 )
 
 ### FUNCTIONS ###
 
 logger() {
-  title=$1
-  value=$2
-  printf "\n%s ${GREEN}%s${NORMAL}\n" "$title" "$value"
-}
+  msg=$1
 
-logger_link_to() {
-  from=$1
-  to=$2
-
-  printf "LINK: %s -> %s\n" "$from" "$to"
+  printf "\n${GREEN}%s${NORMAL} %s \n" "[LOG]" "$msg"
 }
 
 setup_link() {
   name=$1
-
-  logger "Setup for:" $name
+  # logger "Setup for:" $name
 
   [ -d $config_path/$name ] && rm -rf $config_path/$name
 
-  logger_link_to $dotfiles_path/.config/$name $config_path/$name
-
-  ln -sf $dotfiles_path/.config/$name $config_path/$name
+  ln -sfv $dotfiles_path/.config/$name $config_path/$name
 }
 
 ### SCRIPT EXECUTION ###
@@ -78,16 +71,17 @@ echo "///////////////////// Dotfile Setup /////////////////////////"
 echo "///////////////////////////////////////////////////////////////////////"
 read -n 1 -r -s -p $'//////////////////// Press any key to continue ////////////////////////\n\n'
 
+logger "Home directory setup"
 for i in ${home_directory[@]}; do
-  logger "Setup for:" $i
-
   ln -sfv $dotfiles_path/$i $HOME/$i
 done
 
+logger "Config directory setup"
 for i in ${config_directory[@]}; do
   setup_link $i
 done
 
+logger "Scripts setup"
 stow --adopt -v -R -t ~ scripts
 
 # Local directory

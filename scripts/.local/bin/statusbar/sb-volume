@@ -16,7 +16,7 @@ esac
 
 volume="$($command --get-volume)"
 
-[ $($command --get-mute) = true ] && echo " 🔇 " && exit
+[ $($command --get-mute) = true ] && echo "🔇" && exit
 
 if [ "$volume" -gt "69" ]; then
 	icon="🔊"
