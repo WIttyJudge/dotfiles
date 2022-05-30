@@ -1,4 +1,9 @@
  -- https://github.com/SmiteshP/nvim-gps
+local present, nvim_gps = pcall(require, "nvim-gps")
+
+if not present then
+  return
+end
 
 local config = {
   languages = {
@@ -21,4 +26,4 @@ local config = {
 	},
 }
 
-require("nvim-gps").setup(config)
+nvim_gps.setup(config)
