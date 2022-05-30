@@ -2,33 +2,34 @@ local M = {}
 
 local map = require('internal.utils').map
 
-local mappings = {
-  ['gd'] = ":lua vim.lsp.buf.definition()<CR>",
-  -- ['gr'] = ":lua vim.lsp.buf.references()<CR>",
-  ['gr'] = ":lua require('telescope.builtin').lsp_references()<CR>",
-
-  -- ['K'] = ":Lspsaga hover_doc<CR>",
-  ['K'] = ":lua vim.lsp.buf.hover()<CR>",
-  -- ['<C-k>'] = ":Lspsaga signature_help<CR>",
-  -- TODO: Need to map this.
-  -- ['<C-k>'] = ":lua vim.lsp.buf.signature_help()<CR>",
-  ['<Leader>ar'] = ":Lspsaga rename<CR>",
-
-  ['<Leader>ee'] = ":lua vim.diagnostic.open_float()<CR>",
-  ['<Leader>ej'] = ":lua vim.diagnostic.goto_next()<CR>",
-  ['<Leader>ek'] = ":lua vim.diagnostic.goto_prev()<CR>",
-}
-
-local function nnoremap(key, action)
-  vim.api.nvim_buf_set_keymap(0, 'n', key, action, {noremap = true, silent = true})
-end
-
 function M.on_attach()
-  -- Init mappings
-  for lhs, rhs in pairs(mappings) do
-    nnoremap(lhs, rhs)
-    map('n', '<c-k>', '<c-w><C-k>')
-  end
+  map('n', 'gd', function()
+    vim.lsp.buf.definition()
+  end)
+
+  map('n', 'gr', function()
+    require('telescope.builtin').lsp_references()
+  end)
+
+  map('n', 'K', function()
+    vim.lsp.buf.hover()
+  end)
+
+  map('n', '<Leader>ar', function()
+    vim.lsp.buf.rename()
+  end)
+
+  map('n', '<Leader>ee', function()
+    vim.diagnostic.open_float()
+  end)
+
+  map('n', '<Leader>ej', function()
+    vim.diagnostic.goto_next()
+  end)
+
+  map('n', '<Leader>ek', function()
+    vim.diagnostic.goto_prev()
+  end)
 end
 
 return M

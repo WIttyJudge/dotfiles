@@ -1,5 +1,3 @@
-vim.cmd('packadd packer.nvim')
-
 local present, packer = pcall(require, 'packer')
 
 -- Install packer  if it is not already installed.
@@ -29,14 +27,15 @@ if not present then
 end
 
 local config = {
-   display = {
-      open_fn = function()
-         return require("packer.util").float { border = "double" }
-      end,
-   },
-   git = {
-      clone_timeout = 600, -- seconds
-   }
+  display = {
+    open_fn = function()
+        return require("packer.util").float { border = "double" }
+    end,
+  },
+  git = {
+    -- seconds
+    clone_timeout = 600,
+  }
 }
 
 packer.init(config)
@@ -45,32 +44,32 @@ return packer.startup(function(use)
   use "wbthomason/packer.nvim"
 
   -- LSP stuff
+  use "neovim/nvim-lspconfig" 
   use {
     "williamboman/nvim-lsp-installer",
-     config = require("plugins.configs.nvim-lsp-installer"),
+    config = require("plugins.configs.nvim-lsp-installer")
   }
-  use "neovim/nvim-lspconfig"
   use "onsails/lspkind-nvim"
   use {
     "glepnir/lspsaga.nvim",
-     config = require("plugins.configs.lspsaga"),
+    config = require("plugins.configs.lspsaga")
   }
   use {
     "folke/trouble.nvim",
-     config = require("plugins.configs.trouble"),
+    config = require("plugins.configs.trouble")
   }
   -- use "liuchengxu/vista.vim"
   use {
     'j-hui/fidget.nvim',
-     config = require("plugins.configs.fidget"),
+    config = require("plugins.configs.fidget")
   }
   use {
     'stevearc/aerial.nvim',
-     config = require("plugins.configs.aerial"),
+    config = require("plugins.configs.aerial")
   }
   use {
     "ray-x/lsp_signature.nvim",
-     config = require("plugins.configs.lsp_signature"),
+    config = require("plugins.configs.lsp_signature")
   }
 
   -- Autocomplete
@@ -276,7 +275,6 @@ return packer.startup(function(use)
   -- Escape from insert mode without delay when typing
   use {
     "max397574/better-escape.nvim",
-    disable = true,
     config = require("plugins.configs.better-escape")
   }
 

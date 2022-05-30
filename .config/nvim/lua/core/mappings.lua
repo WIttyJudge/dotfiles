@@ -14,7 +14,7 @@
 local map = require('internal.utils').map
 
 --Remap space as leader key
-map("", "<Space>", "<Nop>", opts)
+map("", "<Space>", "<Nop>")
 -- Set leader key
 vim.g.mapleader = ' '
 vim.g.maplocalleader = " "
