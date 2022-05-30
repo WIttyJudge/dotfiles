@@ -18,8 +18,8 @@ choice="$(printf '%s\n' "${commands[@]}" | dmenu )"
 
 case "$choice" in
   suspend) slock $ctl suspend ;;
-  poweroff) $ctl poweroff ;;
-  reboot) $ctl reboot ;;
+  poweroff) $ctl poweroff -i ;;
+  reboot) $ctl reboot -i ;;
   lock) slock ;;
   leave-dwm) kill -TERM $(pgrep -u $USER "\bdwm$") ;;
   # logout) i3-msg exit ;;
