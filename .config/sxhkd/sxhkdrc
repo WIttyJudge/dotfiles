@@ -15,7 +15,7 @@ super + shift + w
       $TERMINAL -n calcurse -e calcurse
 
 super + shift + q
-      system
+      sysact
 
 XF86Audio{Mute,LowerVolume,RaiseVolume}
     pamixer --allow-boost {-t, -d 5, -i 5}; pkill -RTMIN+10 dwmblocks 
