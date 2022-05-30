@@ -1,28 +1,15 @@
 -- https://github.com/kyazdani42/nvim-tree.lua
 
+local present, nvim_tree = pcall(require, "nvim-tree")
+
+if not present then
+  return
+end
+
 local icons = require('internal.icons')
 
--- vim.g.nvim_tree_indent_markers = 1
-
-vim.g.nvim_tree_git_hl = 1
--- vim.g.nvim_tree_refresh_wait = 300
-vim.g.nvim_tree_respect_buf_cwd = 1
-
-vim.g.nvim_tree_icons = {
-  default = '',
-  symlink = '',
-  git = icons.git,
-  folder = icons.folder,
-  lsp = {
-    hint = icons.diagnostics.Hint,
-    info = icons.diagnostics.Info,
-    warning = icons.diagnostics.Warn,
-    error = icons.diagnostics.Error,
-  }
-}
-
   -- custom mappings
-local tree_cb = require'nvim-tree.config'.nvim_tree_callback
+local tree_cb = require('nvim-tree.config').nvim_tree_callback
 local list = {
   { key = { "<CR>", "l", "<2-LeftMouse>" }, cb = tree_cb("edit") },
   { key = "v", cb = tree_cb("vsplit") },
@@ -57,40 +44,52 @@ local list = {
 }
 
 local config = {
-  -- open_on_setup = true,
-  -- ignore_ft_on_setup = { 'startify', 'dashboard' },
-  -- updates the root directory of the tree on `DirChanged` (when your run `:cd` usually) 
+  -- respect_buf_cwd = true,
+  ignore_ft_on_setup = { 'startify', 'dashboard', 'alpha' },
   diagnostics = {
-    enable = true,
+    enable = false,
   },
-  filters = {
-    -- You dont see this file/folder in the tree.
-    -- custom = {
-    --   ".git",
-      -- "node_modules",
-      -- ".cache",
-    -- },
-    -- exclude = {
-    --   '.gitignore',
-    --   '.gitconfig',
-    --   '.github',
-    -- },
-  },
+  disable_netrw = true,
+  hijack_netrw = true,
+  hijack_cursor = true,
+  -- open_on_setup = true,
+  -- open_on_tab = false,
+  update_cwd = true,
   view = {
     width = 35,
-    -- if true the tree will resize itself after opening a file
-    -- auto_resize = true,
     mappings = {
-      -- custom only false will merge the list with the default mappings
-      -- if true, it will only use your list to set the mappings
       custom_only = true,
-      -- list of mappings to set on the tree manually
       list = list
     }
   },
   git = {
     ignore = false
+  },
+  renderer = {
+    highlight_git = true,
+    icons = {
+      glyphs = {
+        default = '',
+        symlink = '',
+        git = {
+          unstaged = icons.git.Unstaged,
+          staged = icons.git.Staged,
+          unmerged = icons.git.Unmerged,
+          renamed = icons.git.Renamed,
+          untracked = icons.git.Untracked,
+          deleted = icons.git.Deleted,
+          ignored = icons.git.Ignored,
+        },
+        folder = icons.folder
+        -- lsp = {
+        --   hint = icons.diagnostics.Hint,
+        --   info = icons.diagnostics.Info,
+        --   warning = icons.diagnostics.Warn,
+        --   error = icons.diagnostics.Error,
+        -- }
+      }
+    }
   }
 }
 
-require'nvim-tree'.setup(config)
+nvim_tree.setup(config)
