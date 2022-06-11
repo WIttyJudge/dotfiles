@@ -15,7 +15,6 @@ local config = {
   },
   highlight = { 
     enable = true, 
-    additional_vim_regex_highlighting = true,
     use_languagetree = true
   },
 

@@ -3,6 +3,9 @@ local options = {
   syntax = 'enable',
   clipboard = 'unnamedplus', -- Copy paste between vim and everything else
 
+  -- disable tilde on end of buffer: https://github.com/neovim/neovim/pull/8546#issuecomment-643643758
+  fillchars = { eob = " ", fold='‧' },
+
   -- indent options
   tabstop = 2,
   shiftwidth = 2,
@@ -48,7 +51,7 @@ local options = {
 
   -- statusline, tabline, messages
   showtabline = 2,  -- Always show tables
-  cmdheight = 2, -- More space for displaying messages
+  cmdheight = 1, -- More space for displaying messages
 
   -- Enable the integrated undo features.
   undofile = true,
@@ -65,7 +68,6 @@ local options = {
 -- vim.cmd([[ filetype plugin on ]])
 
 vim.opt.shortmess:append('c')
-vim.opt.fillchars:append { eob = " ", fold='‧' }
 
 -- Stop newline continution of comments
 vim.opt.formatoptions:remove('c', 'r', 'o', 'l')

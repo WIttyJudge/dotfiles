@@ -1,9 +1,9 @@
 -- https://github.com/mbbill/undotree
-local present, undotree = pcall(require, "undotree")
+-- local present, undotree = pcall(require, "undotree")
 
-if not present then
-  return
-end
+-- if not present then
+--   return
+-- end
 
 vim.g.undotree_WindowLayout = 4
 vim.g.undotree_SetFocusWhenToggle = 1

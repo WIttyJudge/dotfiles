@@ -195,9 +195,9 @@ ins_left {
 ins_right {
   'diff',
   symbols = { 
-    added = icons.git.Add, 
-    modified = icons.git.Modify,
-    removed = icons.git.Remove
+    added = icons.git.Add .. ' ',
+    modified = icons.git.Modify .. ' ',
+    removed = icons.git.Remove .. ' '
   }, 
   color_added = colors.green,
   color_modified = colors.blue,

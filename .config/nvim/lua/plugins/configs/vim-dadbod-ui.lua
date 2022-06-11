@@ -1,9 +1,9 @@
 -- https://github.com/kristijanhusak/vim-dadbod-ui
-local present, vim_dadbod_ui = pcall(require, "vim-dadbod-ui")
+-- local present, vim_dadbod_ui = pcall(require, "vim-dadbod-ui")
 
-if not present then
-  return
-end
+-- if not present then
+--   return
+-- end
 
 vim.g.db_ui_show_database_icon = 1
 vim.g.db_ui_use_nerd_fonts = 1

@@ -1,9 +1,9 @@
 -- https://github.com/chaoren/vim-wordmotion
-local present, vim_wordmotion = pcall(require, "vim-wordmotion")
+-- local present, vim_wordmotion = pcall(require, "vim-wordmotion")
 
-if not present then
-  return
-end
+-- if not present then
+--   return
+-- end
 
 vim.g.wordmotion_nomap = 1
 

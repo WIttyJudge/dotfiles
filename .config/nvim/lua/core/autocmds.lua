@@ -3,18 +3,7 @@ local utils = require('internal/utils')
 local cmd = vim.cmd
 local autocmd = vim.api.nvim_create_autocmd
 
--- General
--- =====================================
-
 local general_settings = vim.api.nvim_create_augroup('_general_settings', { clear = true })
-
--- Restore cursor to where it was when the file was closed
--- cmd([[
---   if !&diff
---     autocmd BufLeave * let b:winview = winsaveview()
---     autocmd BufEnter * if exists('b:winview') | call winrestview(b:winview) | endif
---   endif
--- ]])
 
 autocmd("BufReadPost", {
    callback = function()
@@ -48,6 +37,12 @@ autocmd({ "BufEnter", "FocusGained" }, {
   command = "silent! checktime",
   group = general_settings,
   desc = "Reload modified changes automatically (autoread)"
+})
+
+-- Don't auto commenting new lines
+autocmd('BufEnter', {
+  pattern = '*',
+  command = 'set fo-=c fo-=r fo-=o'
 })
 
 -- Plugins 

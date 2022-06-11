@@ -15,12 +15,22 @@ local config = {
     'NvimTree', 
     'Trouble', 
     'dashboard', 
-    'alpha'
+    'alpha',
+    "terminal",
+    "lspinfo",
+    "TelescopePrompt",
+    "TelescopeResults",
+    "nvchad_cheatsheet",
+    "lsp-installer",
+    "",
   },
   -- char = '¦',
   char_list = { "", "┊", "┆", "¦", "|", "¦", "┆", "┊", "" },
-  show_end_of_line = true,
-  space_char_blankline = " ",
+  -- show_end_of_line = true,
+  -- space_char_blankline = " ",
+
+  show_trailing_blankline_indent = false,
+  show_first_indent_level = false,
 }
 
 indent_blankline.setup(config)
