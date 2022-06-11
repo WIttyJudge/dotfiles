@@ -28,14 +28,16 @@ stty stop undef
 
 # History settings {{{
 
-setopt INC_APPEND_HISTORY    # Immediately append commands to history file.
-setopt SHARE_HISTORY         # import new commands from the history file also in other zsh-session
-setopt EXTENDED_HISTORY      # save each command beginning timestamp and the duration to the history file
+setopt INC_APPEND_HISTORY   # Immediately append commands to history file.
+setopt EXTENDED_HISTORY     # save each command beginning timestamp and the duration to the history file
 
-setopt HIST_IGNORE_ALL_DUPS  # Never add duplicate entries.
-setopt HIST_IGNORE_SPACE     # Ignore commands that start with a space.
+setopt HIST_IGNORE_ALL_DUPS # Never add duplicate entries.
+setopt HIST_IGNORE_SPACE    # Ignore commands that start with a space.
+setopt HIST_FIND_NO_DUPS    # Prevent showing duplicated in find (CTRL-R)
 setopt HIST_SAVE_NO_DUPS
-setopt HIST_REDUCE_BLANKS    # Remove unnecessary blank lines.
+setopt HIST_REDUCE_BLANKS   # Remove unnecessary blank lines.
+# Remove duplicated commands when $HISTSIZE will be reached
+setopt HIST_EXPIRE_DUPS_FIRST
 
 export HIST_STAMPS="mm/dd/yyyy"
 export HISTSIZE=10000000
@@ -55,9 +57,13 @@ fi
 
 # Basic auto/tab complete:
 autoload -U compinit && compinit
+
 zstyle ':completion:*' menu select
 zmodload zsh/complist
 _comp_options+=(globdots) # Include hidden files.
+
+# Move .zcompdump to the cache dir.
+compinit -d $XDG_CACHE_HOME/zsh/zcompdump-$ZSH_VERSION
 
 # # Edit line in with ctrl-e:
 autoload edit-command-line; zle -N edit-command-line
@@ -97,5 +103,4 @@ source ~/.config/zsh/themes/p10k.zsh
 
 # load bindings
 source "$XDG_CONFIG_HOME/zsh/bindings/vim.zsh"
-source "$XDG_CONFIG_HOME/zsh/bindings/fzf.zsh"
 source "$XDG_CONFIG_HOME/zsh/bindings/fzf-history-search.zsh"

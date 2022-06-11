@@ -39,6 +39,7 @@ config_directory=(
   sxiv
   tmux
   transmission-daemon/settings.json
+  wget
   zsh
   mimeapps.list
   pavucontrol.ini
@@ -50,15 +51,6 @@ logger() {
   msg=$1
 
   printf "\n${GREEN}%s${NORMAL} %s \n" "[LOG]" "$msg"
-}
-
-setup_link() {
-  name=$1
-  # logger "Setup for:" $name
-
-  [ -d $config_path/$name ] && rm -rf $config_path/$name
-
-  ln -sfv $dotfiles_path/.config/$name $config_path/$name
 }
 
 ### SCRIPT EXECUTION ###
@@ -78,7 +70,9 @@ done
 
 logger "Config directory setup"
 for i in ${config_directory[@]}; do
-  setup_link $i
+  [ -d $config_path/$i ] && rm -rf $config_path/$i
+
+  ln -sfv $dotfiles_path/.config/$i $config_path/$i
 done
 
 logger "Scripts setup"

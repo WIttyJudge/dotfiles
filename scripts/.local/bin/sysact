@@ -17,7 +17,7 @@ esac
 choice="$(printf '%s\n' "${commands[@]}" | dmenu )"
 
 case "$choice" in
-  suspend) slock $ctl suspend ;;
+  suspend) slock $ctl suspend -i ;;
   poweroff) $ctl poweroff -i ;;
   reboot) $ctl reboot -i ;;
   lock) slock ;;

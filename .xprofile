@@ -7,8 +7,11 @@ xrdb -merge ~/.Xresources & # theme configuration file
 
 setbg # set desktop wallpaper
 
-xset r rate 200 40 & # Speed xrate up
-setxkbmap -layout us,ru -option 'grp:alt_shift_toggle' & # set language keyboard
+xset r rate 250 40 & # Speed xrate up
+
+# set language keyboard and swape caps and escape
+setxkbmap -layout us,ru -option grp:alt_shift_toggle & 
+setxkbmap -option caps:swapescape & 
 
 # dunst     - notification-daemon
 # xcompmgr  - window transparency

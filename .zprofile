@@ -11,11 +11,12 @@ export PATH="$PATH:${$(find ~/.local/bin -type d -printf %p:)%%:}"
 
 unsetopt PROMPT_SP
 
-# Default apps
+# Default variables
 export EDITOR="nvim"
 export TERMINAL="alacritty"
 export DOTFILES="$HOME/dotfiles"
-export BROWSER="brave"
+export BROWSER="chromium"
+export DEV_HOME="$HOME/projects"
 
 # This specification defines where these files should be looked for by defining
 # one or more base directories relative to which files should be located.
@@ -23,30 +24,57 @@ export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_CACHE_HOME="$HOME/.cache"
 
-export CARGO_HOME="${XDG_DATA_HOME:-$HOME/.local/share}/cargo"
-export PASSWORD_STORE_DIR="${XDG_DATA_HOME:-$HOME/.local/share}/password-store"
-# export GOPATH="${XDG_DATA_HOME:-$HOME/.local/share}/go"
-export LESSHISTFILE="-" # stop storing search in the .lessst
+# Cleaning
+export PASSWORD_STORE_DIR="$XDG_DATA_HOME/password-store"
+export LESSHISTFILE="$XDG_CACHE_HOME/less/history"
 
-# Other program settings:
-# nvim as manpager
-# export MANPAGER="nvim -c 'set ft=man' -"
-export MANPAGER="sh -c 'col -bx | bat -l man -p'" # Use 'bat' as manpager
-export FZF_DEFAULT_OPTS="--layout=reverse --height 40%"
-export AWT_TOOLKIT="MToolkit wmname LG3D"	# May have to install wmname
-export _JAVA_AWT_WM_NONREPARENTING=1	# Fix for Java applications in dwm
-
-# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-export PATH="$PATH:$HOME/.rvm/bin"
-
-# root
+# Go
 export GOROOT=/usr/local/go
 export PATH=$PATH:$GOROOT/bin
 
-# my folder
-export GOPATH=$HOME/projects/golang
+export GOPATH="$DEV_HOME/golang"
 export PATH=$PATH:$GOPATH/bin
 
-# libs from golang
-# export GOPATH=$HOME/golib
+# Rust / Cargo
+export CARGO_HOME="$XDG_DATA_HOME/cargo"
+export BUNDLE_USER_CACHE="$XDG_CACHE_HOME/bundle"
 
+# Ruby
+export GEM_HOME="$XDG_DATE_HOME/gem"
+export GEM_SPEC_CACHE="$XDG_CACHE_HOME/gem"
+export PATH="$PATH:$HOME/.rvm/bin"
+export SOLARGRAPH_CACHE="$XDG_CACHE_HOME/solargraph"
+
+# Tmux / tpm
+export TMUX_PLUGIN_MANAGER_PATH="$XDG_CONFIG_HOME/tmux/plugins/"
+
+# MySQL
+export MYSQL_HISTFILE="$XDG_DATA_HOME/mysql_history"
+
+# PostgreSQL
+export PSQL_HISTORY="$XDG_DATA_HOME/psql_history"
+
+# zsh + tools
+export ZDOTDIR="$XDG_CONFIG_HOME/zsh" # Change default folder of zsh config.
+export ZINIT_HOME="$XDG_DATA_HOME/zinit/zinit.git"
+export ZIM_HOME="$XDG_DATA_HOME/zim"
+
+# Use 'bat' as manpager
+# export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+# nvim as manpager
+export MANPAGER="nvim +Man!"
+
+# FZF
+export FZF_DEFAULT_OPTS="--height 40% --layout=reverse --cycle"
+# export FZF_DEFAULT_COMMAND='rg --files --hidden --follow -g "!{.git,node_modules}/*" 2> /dev/null'
+
+# security
+export GPG_TTY=$(tty)
+
+# Fixing misbehaving Java applications
+export AWT_TOOLKIT="MToolkit wmname LG3D" # May have to install wmname
+export _JAVA_AWT_WM_NONREPARENTING=1
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+# Load RVM into a shell session *as a function*
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
