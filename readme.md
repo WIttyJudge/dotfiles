@@ -9,7 +9,7 @@ Repository dedicated to my configuration files of my Desktop environment, with t
 |:------------------------	|:--------------------------------------------------------------  |
 | App Launcher              | [dmenu](https://github.com/WIttyJudge/suckless-tools) (*) / [rofi](https://github.com/davatorium/rofi)                    	|
 | Hotkey Daemon             | [sxhkd](https://github.com/baskerville/sxhkd)                   |
-| Image Viewer            	| [sxiv](https://wiki.archlinux.org/index.php/sxiv)               |
+| Image Viewer            	| [nsxiv](https://github.com/nsxiv/nsxiv)                         |
 | Notification Daemon       | [dunst](https://github.com/dunst-project/dunst)                 |
 | Shell                   	| [zsh](https://wiki.archlinux.org/index.php/zsh)                	|
 | Status Bar              	| [dwmblocks](https://github.com/WIttyJudge/suckless-tools) (*) / [polybar](https://github.com/polybar/polybar)                   |

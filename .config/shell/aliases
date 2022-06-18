@@ -15,6 +15,7 @@ alias \
   send-file="qrcp " \
   receive-file="qrcp receive" \
   open="xdg-open " \
+  sxiv="nsxiv " \
 
 # for testing
 alias \

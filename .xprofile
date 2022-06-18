@@ -3,24 +3,34 @@
 # - before the window manager is started.
 # Read more: https://wiki.archlinux.org/index.php/Xprofile
 
-xrdb -merge ~/.Xresources & # theme configuration file
+# Set desktop wallpaper
+setbg &
 
-setbg # set desktop wallpaper
+# Theme configuration file
+xrdb -merge ~/.Xresources & 
+
+/* System tray network manager */
+nm-applet &
 
 xset r rate 250 40 & # Speed xrate up
 
+/* $HOME/.config/polybar/launch.sh */
+
 # set language keyboard and swape caps and escape
-setxkbmap -layout us,ru -option grp:alt_shift_toggle & 
-setxkbmap -option caps:swapescape & 
+setxkbmap -layout us,ru -option grp:alt_shift_toggle caps:swapescape & 
+
+# Remove mouse cursor when idle
+unclutter --timeout 2 &
 
 # dunst     - notification-daemon
 # xcompmgr  - window transparency
 # sxhkd     - hotkey daemon
-# unclutter - remove mouse cursor when idle
-autostart="dunst xcompmgr sxhkd unclutter pipewire"
+# pipewire  - server for handling audio
+# dwmblocks - status bar of DWM
+autostart="dunst xcompmgr sxhkd pipewire dwmblocks"
 
 for program in $autostart; do
-  # if program doesn't already started, start it.
+  # if program has not already started, start it.
 	pidof -s "$program" || setsid -f "$program"
 done >/dev/null 2>&1
 
