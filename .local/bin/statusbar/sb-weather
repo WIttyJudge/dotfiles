@@ -1,0 +1,19 @@
+#!/bin/bash
+
+command="curl"
+
+ifcommand $command || exit
+
+LOCATION=Moscow,Dnipro
+
+icon="⛅"
+
+case $BLOCK_BUTTON in
+  1)
+    weather=$($command -s wttr.in/{$LOCATION}?format="%l:+%c+%t+%h\n")
+
+    notify-send 'Weather'  "$weather"
+    ;;
+esac
+
+printf "%s" "$icon"

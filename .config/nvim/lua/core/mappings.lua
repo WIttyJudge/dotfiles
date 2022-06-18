@@ -127,7 +127,7 @@ map('n', '<Leader>tt', ':split term://zsh | resize 20<CR> | a<CR>')
 -- ********* PLUGINS MAPPING *********
 
 -- nvim-comment
-map({ 'n', 'v' }, '<Leader>/', ':CommentToggle<CR>')
+-- map({ 'n', 'v' }, '<Leader>/', ':CommentToggle<CR>')
 
 -- nvim-hlslens
 map('n', 'n', "<Cmd>execute('normal! ' . v:count1 . 'nzz')<CR><Cmd>lua require('hlslens').start()<CR>")

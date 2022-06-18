@@ -1,0 +1,17 @@
+#!/bin/sh
+
+command="light"
+
+case $BLOCK_BUTTON in
+	4) light -A 10; pkill -RTMIN+6 dwmblocks ;;
+	5) light -U 10; pkill -RTMIN+6 dwmblocks ;;
+esac
+
+ifcommand $command || exit
+
+brightness="$(printf '%.0f' $($command))"
+icon="🔆"
+
+[ $brightness -le 71 ] && icon="🔅"
+
+printf "%s %s" "$icon" "$brightness%"

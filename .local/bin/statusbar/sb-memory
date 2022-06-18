@@ -1,0 +1,15 @@
+#!/bin/sh 
+
+case $BLOCK_BUTTON in
+	1) notify-send "Top memory processes" "$(ps axch -o cmd:15,%mem --sort=-%mem | head)" ;;
+	2) setsid -f "$TERMINAL" -e htop --sort-key=PERCENT_MEM --tree ;;
+	3) notify-send "Memory module" "\- Shows Memory Used/Total.
+- Click to show memory hogs.
+- Middle click to open htop." ;;
+esac
+
+mem="$(free -m | awk 'NR==2{printf "%s/%s MB\n", $3,$2,$3*100/$2 }')"
+icon="🧠"
+
+printf "%s %s" "$icon" "$mem"
+

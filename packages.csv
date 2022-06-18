@@ -22,13 +22,15 @@ TRUE,,flameshot,Powerful yet simple to use screenshot software.
 ,,pamixer,PulseAudio command-line mixer like amixer.
 ,,pavucontrol,PulseAudio Volume Control.
 ,,ttf-dejavu,Font family based on the Bitstream Vera Fonts with a wider range of characters.
-TRUE,,ttf-fira-code,Monospaced font with programming ligatures.
+,,ttf-fira-code,Monospaced font with programming ligatures.
 ,,ttf-hack,Cool font for terminal and coding.
 ,,ttf-joypixels, Pack with some cool emodjis.
 ,AUR,nerd-fonts-complete-mono-glyphs,Iconic font aggregator 3.600+ icons and 50+ patched fonts (Mono glyphs only).
 ,,noto-fonts,Google Noto TTF fonts.
 ,,httpie,user-friendly command-line HTTP client for the API era.
+,,wget,user-friendly command-line HTTP client for the API era.
 ,,ripgrep,A search tool that combines the usability of ag with the raw speed of grep.
+,,fd,Fast and user-friendly alternative to find.
 ,AUR,neovim-nightly-bin,Fork of Vim aiming to improve user experience with plugins - Nightly Builds.
 ,,nodejs,Evented I/O for V8 javascript.
 ,,npm,A package manager for javascript.

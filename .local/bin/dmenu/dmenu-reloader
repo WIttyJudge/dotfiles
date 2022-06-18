@@ -1,0 +1,32 @@
+#!/bin/sh
+
+files=(
+  # i3wm
+  .Xresources
+  sxhkd
+  .zshrc
+  dwm
+)
+
+choice="$(printf '%s\n' "${files[@]}" | dmenu -p "What to reload > ")"
+
+notifier() {
+  notify-send 'Reloader' "$1 successfully reloaded."
+}
+
+case "$choice" in
+  # i3wm)
+  #   i3-msg restart && notifier "i3wm" ;;
+  .Xresources)
+    xrdb ~/.Xresources && notifier ".Xresources" ;;
+  .zshrc)
+    source ~/.zshrc && notifier ".zshrc" ;;
+  sxhkd)
+    pkill sxhkd; sxhkd &&
+    notifier "sxhkd" ;;
+  dwm)
+    kill -HUP $(pgrep -u $USER "\bdwm$") &&
+    notifier "dwm" ;;
+  *) exit ;;
+esac
+

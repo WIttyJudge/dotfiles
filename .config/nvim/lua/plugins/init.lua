@@ -198,9 +198,14 @@ return packer.startup(function(use)
   }
 
   -- Comment out code
+  -- use {
+  --   "terrortylor/nvim-comment",
+  --   config = require("plugins.configs.nvim-comment")
+  -- }
+
   use {
-    "terrortylor/nvim-comment",
-    config = require("plugins.configs.nvim-comment")
+    "numToStr/Comment.nvim",
+    config = require("plugins.configs.comment")
   }
 
   -- Find and replace
@@ -295,14 +300,14 @@ return packer.startup(function(use)
   }
 
   -- Debug
-  use {
-    "mfussenegger/nvim-dap",
-    config = require("plugins.configs.nvim-dap")
-  }
-  use {
-    "rcarriga/nvim-dap-ui",
-    config = require("plugins.configs.nvim-dap-ui")
-  }
+  -- use {
+  --   "mfussenegger/nvim-dap",
+  --   config = require("plugins.configs.nvim-dap")
+  -- }
+  -- use {
+  --   "rcarriga/nvim-dap-ui",
+  --   config = require("plugins.configs.nvim-dap-ui")
+  -- }
   -- "theHamsta/nvim-dap-virtual-text";
   -- "Pocco81/DAPInstall.nvim";
 

@@ -1,0 +1,47 @@
+#!/bin/sh
+
+prompt="dmenu -l 7 "
+
+uptime=$(uptime -p | sed -e 's/up //g')
+
+hibernate=" Hibernate"
+poweroff=" Poweroff"
+reboot="ﰇ Reboot"
+suspend="鈴 Suspend"
+lock=" Lock"
+logout="﫼 Logout"
+cancel="窱 Cancel"
+
+option="$cancel\n$hibernate\n$poweroff\n$reboot\n$suspend\n$lock\n$logout"
+
+select="$(echo -e "$option" | $prompt -p "Uptime - $uptime")"
+
+case "$(readlink -f /sbin/init)" in
+	*systemd*) ctl='systemctl' ;;
+	*) ctl='loginctl' ;;
+esac
+
+case $select in
+	$hibernate)
+		systemctl hibernate
+		;;
+	$poweroff)
+		$ctl poweroff -i
+		;;
+	$reboot)
+		$ctl reboot -i
+		;;
+	$suspend)
+		slock $ctl suspend
+		;;
+	$lock)
+		slock
+		;;
+	$logout)
+		kill -TERM dwmpid $(pidof dwm)
+    ;;
+  *)
+    exit 1
+    ;;
+esac
+

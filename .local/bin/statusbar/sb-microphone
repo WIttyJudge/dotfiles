@@ -1,0 +1,32 @@
+#!/bin/sh
+
+# my custom script
+command="pamixer"
+
+ifcommand $command || exit
+
+case $BLOCK_BUTTON in
+  1) pactl set-source-mute @DEFAULT_SOURCE@ toggle; pkill -RTMIN+20 dwmblocks ;;
+esac
+
+show_status() {
+  $command --list-sources \
+    | grep input \
+    | awk '{print $1}' \
+    | while read -r index; do
+
+      mic_muted="$($command --source "$index" --get-mute)"
+
+      [ "$mic_muted" = "true" ] && echo 'muted' || echo 'unmuted'
+  done
+}
+
+mic_muted="$(show_status)"
+
+if [ "$mic_muted" = "muted" ]; then
+  icon="🔇"
+else
+  icon="🎙️"
+fi
+
+echo $icon
