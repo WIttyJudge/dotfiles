@@ -29,7 +29,7 @@ TRUE,,ttf-fira-code,Monospaced font with programming ligatures.
 ,,noto-fonts,Google Noto TTF fonts.
 ,,httpie,user-friendly command-line HTTP client for the API era.
 ,,ripgrep,A search tool that combines the usability of ag with the raw speed of grep.
-,AUR,neovim-nightly-bin,Fork of Vim aiming to improve user experience with plugins - Nightly Builds
+,AUR,neovim-nightly-bin,Fork of Vim aiming to improve user experience with plugins - Nightly Builds.
 ,,nodejs,Evented I/O for V8 javascript.
 ,,npm,A package manager for javascript.
 ,,yarn,Fast and reliabl and secure dependency management.
@@ -38,7 +38,7 @@ TRUE,,ttf-fira-code,Monospaced font with programming ligatures.
 TRUE,AUR,pfetch,A pretty system information tool written in POSIX sh.
 ,AUR,htop-vim-git,Fork of htop with vim bindings support.
 ,,dunst,Customizable and lightweight notification-daemon.
-,,sxiv,Simple X Image Viewer.
+,AUR,nsxiv,Neo (or New or Not) Simple (or Small or Suckless) X Image Viewer.
 ,,ncdu,Disk usage analyzer with an ncurses interface.
 ,,hardinfo,A small application that displays information about your hardware and operating system.
 ,,libreoffice-still,The office productivity suite compatible to the open and standardized ODF document format.
@@ -47,7 +47,7 @@ TRUE,AUR,pfetch,A pretty system information tool written in POSIX sh.
 ,,openssl-1.0,The Open Source toolkit for Secure Sockets Layer and Transport Layer Security.
 TRUE,,terminator,Terminator is a terminal emulator.
 ,,base-devel,It a package group that includes tools needed for building.
-TRUE,,i3-gaps,Adding a few additional features such as gaps between windows
+TRUE,,i3-gaps,Adding a few additional features such as gaps between windows.
 TRUE,,i3lock,Improved screen locker.
 ,,zsh,It is a powerful shell that operates as both an interactive shell and as a scripting language interpreter.
 ,,libyaml,C library for parsing and emitting YAML.
