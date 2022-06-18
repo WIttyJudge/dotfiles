@@ -1,4 +1,4 @@
-SKIP,TAG,NAME,DESCRIPTION
+SKIP,TAG,PROGRAM,DESCRIPTION
 ,,xorg-server,Xorg (commonly referred as simply X) is the most popular display server among Linux users.
 ,,xorg-xinit,The xinit program allows a user to manually start an Xorg display server.
 ,,xorg-xrdb,X server resource database utility.
