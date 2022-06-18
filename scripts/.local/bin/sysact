@@ -1,29 +1,47 @@
 #!/bin/sh
 
-commands=(
-	suspend
-	poweroff
-	reboot
-	lock
-  leave-dwm
-)
+prompt="dmenu -l 7 "
+
+uptime=$(uptime -p | sed -e 's/up //g')
+
+hibernate=" Hibernate"
+poweroff=" Poweroff"
+reboot="ﰇ Reboot"
+suspend="鈴 Suspend"
+lock=" Lock"
+logout="﫼 Logout"
+cancel="窱 Cancel"
+
+option="$cancel\n$hibernate\n$poweroff\n$reboot\n$suspend\n$lock\n$logout"
+
+select="$(echo -e "$option" | $prompt -p "Uptime - $uptime")"
 
 case "$(readlink -f /sbin/init)" in
 	*systemd*) ctl='systemctl' ;;
 	*) ctl='loginctl' ;;
 esac
 
-# choice="$(printf '%s\n' "${commands[@]}" | dmenu -p "System:" )"
-choice="$(printf '%s\n' "${commands[@]}" | dmenu )"
-
-case "$choice" in
-  suspend) slock $ctl suspend -i ;;
-  poweroff) $ctl poweroff -i ;;
-  reboot) $ctl reboot -i ;;
-  lock) slock ;;
-  leave-dwm) kill -TERM $(pgrep -u $USER "\bdwm$") ;;
-  # logout) i3-msg exit ;;
-  # hibernate) systemctl hibernate ;;
-  *) exit 1 ;;
+case $select in
+	$hibernate)
+		systemctl hibernate
+		;;
+	$poweroff)
+		$ctl poweroff -i
+		;;
+	$reboot)
+		$ctl reboot -i
+		;;
+	$suspend)
+		slock $ctl suspend
+		;;
+	$lock)
+		slock
+		;;
+	$logout)
+		kill -TERM dwmpid $(pidof dwm)
+    ;;
+  *)
+    exit 1
+    ;;
 esac
 
