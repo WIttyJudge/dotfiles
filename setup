@@ -10,7 +10,6 @@ NORMAL=$(tput sgr0)
 
 # List that should be inside ~/ directory
 home_directory=(
-  .gitconfig
   .bashrc
   .profile
   .xinitrc
@@ -23,20 +22,22 @@ home_directory=(
 # List for ~/.config folder
 config_directory=(
   alacritty
+  bspwm
   calcurse
   dunst
   git
   # i3
+  lf
   mpv
   navi
   newsboat
+  nsxiv
   nvim
   pipewire
   # polybar
   # rofi
   shell
   sxhkd
-  sxiv
   tmux
   transmission-daemon/settings.json
   wget
