@@ -5,6 +5,8 @@ if not present then
   return
 end
 
+local util = require "formatter.util"
+
 local function rubocop()
   return {
     exe = 'rubocop', -- might prepend `bundle exec `
@@ -32,16 +34,17 @@ local function gofumpt()
   return { exe = "gofumpt", stdin = true }
 end
 
-local function lua_format()
+local function stylua()
   return {
-    exe = 'lua-format',
+    exe = "stylua",
     args = {
-      '--no-keep-simple-function-one-line', '--no-break-after-operator',
-      '--no-keep-simple-control-block-one-line', '--column-limit=80',
-      '--indent-width=2', '--spaces-inside-table-braces',
-      '--break-after-table-lb'
+      "--search-parent-directories",
+      "--stdin-filepath",
+      vim.fn.fnameescape(vim.api.nvim_buf_get_name(0)),
+      "--",
+      "-",
     },
-    stdin = true
+    stdin = true,
   }
 end
 
@@ -60,9 +63,13 @@ end
 formatter.setup {
   logging = false,
   filetype = {
-    ruby = { rubocop },
+    ruby = { 
+      require('formatter.filetypes.ruby').rubocop,
+    },
     rust = { rustfmt },
-    lua = { lua_format },
+    lua = {
+      require('formatter.filetypes.lua').stylua,
+    },
     sh = { shfmt },
 
     html = { prettier },
