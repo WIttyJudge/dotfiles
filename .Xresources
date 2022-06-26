@@ -1,8 +1,18 @@
+Xft.antialias:	1
+Xft.hinting:	1
+Xft.autohint:	1
+Xft.hintstyle:	hintslight
+Xft.rgba:	rgb
+Xft.lcdfilter:	lcddefault
+
 /* *font: xft:monospace:size=12 */
-*font: xft:Hack-Regular:pixelsize=14
+!*font: Fira Code:pixelsize=15
+*font: Hack:pixelsize=14
 
 !! Transparency (0-1):
-*.alpha: 0.85
+*alpha: 0.90
+
+*cursorColor: #cc241d
 
 !! Colorscheme
 
