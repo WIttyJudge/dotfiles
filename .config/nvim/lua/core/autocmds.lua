@@ -128,4 +128,10 @@ autocmd({ 'BufWritePost' }, {
   group = auto_compile
 })
 
+autocmd({ 'BufWritePost' }, {
+  pattern = ".Xresources",
+  command = "!xrdb %",
+  group = auto_compile
+})
+
 return M
