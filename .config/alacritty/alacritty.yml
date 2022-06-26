@@ -49,14 +49,8 @@ scrolling:
 # Font configuration
 font:
   normal:
-    family: "Fira Code"
     # family: Hack
     style: Medium
-  bold:
-    family: "Fira Code"
-
-  italic:
-    family: "Fira Code"
 
     # The `style` can be specified to pick a specific face.
     #style: Italic
