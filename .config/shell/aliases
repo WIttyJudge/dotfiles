@@ -16,6 +16,7 @@ alias \
   receive-file="qrcp receive" \
   open="xdg-open " \
   sxiv="nsxiv " \
+  lg="lazygit " \
 
 # for testing
 alias \
