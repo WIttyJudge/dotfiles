@@ -17,6 +17,7 @@ alias \
   open="xdg-open " \
   sxiv="nsxiv " \
   lg="lazygit " \
+  lf="lfrun " \
 
 # for testing
 alias \
