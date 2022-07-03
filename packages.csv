@@ -70,6 +70,7 @@ TRUE,,rofi-pass,Bash script to handle pass storages in a convenient way.
 ,,unclutter,It hides your X mouse cursor when you do not use it.
 ,,exa,Replacement for ls.
 ,,bat,Replacement for cat.
+,,fzf,Fuzzy finder tool.
 ,AUR,xkblayout-state-git,A small command-line program to get/set the current keyboard layout.
 ,AUR,downgrade,Bash script for downgrading packages.
 ,AUR,slack-desktop,Slack Desktop.
