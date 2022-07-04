@@ -2,7 +2,7 @@
 
 # sudo not required for some system commands
 for x in systemctl sv pacman downgrade; do
-	alias $x="sudo $x"
+  alias $x="sudo $x"
 done
 
 # useful
@@ -56,7 +56,5 @@ alias \
 
 # docker
 alias \
-  d="sudo docker " \
-  dc="sudo docker-compose " \
-  drmc="sudo docker rm $(sudo docker ps -aq)" \
-
+  d="docker " \
+  dc="docker-compose " \

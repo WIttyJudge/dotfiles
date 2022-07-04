@@ -25,6 +25,7 @@ config_directory=(
   calcurse
   dunst
   git
+  gitui
   # i3
   lf
   mpv

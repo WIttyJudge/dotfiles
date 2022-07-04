@@ -48,7 +48,7 @@ export HISTFILE="${XDG_CACHE_HOME}/zsh/history"
 
 # load custom scripts
 if [ -d "$HOME/.local/bin" ] ; then
-  PATH=$PATH$(find $HOME/dotfiles/scripts/.local/bin -type d -printf ":%p")
+  PATH=$PATH$(find $HOME/dotfiles/.local/bin -type d -printf ":%p")
 fi
 
 # Load aliases

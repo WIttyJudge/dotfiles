@@ -44,10 +44,13 @@ return packer.startup(function(use)
   use "wbthomason/packer.nvim"
 
   -- LSP stuff
-  use "neovim/nvim-lspconfig" 
   use {
     "williamboman/nvim-lsp-installer",
     config = require("plugins.configs.nvim-lsp-installer")
+  }
+  use { 
+    "neovim/nvim-lspconfig",
+    after = "nvim-lsp-installer",
   }
   use "onsails/lspkind-nvim"
   use {
@@ -73,20 +76,32 @@ return packer.startup(function(use)
   }
 
   -- Autocomplete
-  -- "hrsh7th/nvim-compe"
+  use { 
+    "rafamadriz/friendly-snippets",
+     --module = "cmp_nvim_lsp",
+     event = "InsertEnter"
+  }
+
   use { 
     "hrsh7th/nvim-cmp",
+    after = "friendly-snippets",
     requires = {
       "hrsh7th/cmp-nvim-lsp",
       "hrsh7th/cmp-buffer",
       "hrsh7th/cmp-path",
-      "hrsh7th/cmp-vsnip",
-      "hrsh7th/vim-vsnip",
-      "hrsh7th/cmp-cmdline",
-      -- "hrsh7th/cmp-emoji",
-      -- "hrsh7th/cmp-nvim-lsp-signature-help"
-    }
+      "saadparwaiz1/cmp_luasnip",
+      "hrsh7th/cmp-cmdline"
+    },
+    config = require("plugins.configs.cmp")
   }
+
+  use { 
+    "L3MON4D3/LuaSnip",
+    after = "nvim-cmp",
+    config = require("plugins.configs.lua_snip")
+  }
+ 
+  --================
 
   use {
     'windwp/nvim-autopairs',

@@ -15,25 +15,6 @@ require('lsp.handlers').setup()
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 
--- We don't need to use it cmp_nvim_lsp sets all default values
--- cmp_nvim_lsp sets all default values.
--- capabilities.textDocument.completion.completionItem = {
---   snippetSupport = true,
---   preselectSupport = true,
---   insertReplaceSupport = true,
---   labelDetailsSupport = true,
---   deprecatedSupport = true,
---   commitCharactersSupport = true,
---   tagSupport = { valueSet = { 1 } },
---   resolveSupport = {
---     properties = {
---       "documentation",
---       "detail",
---       "additionalTextEdits",
---     },
---   },
--- }
-
 -- Enable completion triggered by <c-x><c-o>
 -- vim.cmd('setlocal omnifunc=v:lua.vim.lsp.omnifunc')
 

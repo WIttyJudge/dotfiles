@@ -50,6 +50,7 @@ scrolling:
 font:
   normal:
     # family: Hack
+    family: Fira Code
     style: Medium
 
     # The `style` can be specified to pick a specific face.

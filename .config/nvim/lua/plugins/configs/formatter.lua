@@ -64,7 +64,8 @@ formatter.setup {
   logging = false,
   filetype = {
     ruby = { 
-      require('formatter.filetypes.ruby').rubocop,
+      rubocop
+      --require('formatter.filetypes.ruby').rubocop,
     },
     rust = { rustfmt },
     lua = {
