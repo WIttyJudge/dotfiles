@@ -300,12 +300,6 @@ return packer.startup(function(use)
     config = require("plugins.configs.better-escape")
   }
 
-  -- Run tests
-  -- use {
-  --   "vim-test/vim-test",
-  --   config = require("plugins.configs.vim-test")
-  -- }
-
   use {
     "luukvbaal/stabilize.nvim",
     config = require("plugins.configs.stabilize")
@@ -328,8 +322,6 @@ return packer.startup(function(use)
   -- "theHamsta/nvim-dap-virtual-text";
   -- "Pocco81/DAPInstall.nvim";
 
-  -- Full concentration on coding
-  -- use "Pocco81/TrueZen.nvim"
   use {
     "beauwilliams/focus.nvim",
     config = require("plugins.configs.focus")
