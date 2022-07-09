@@ -11,12 +11,15 @@ if not present then
     'git',
     'clone',
     '--depth',
-    '20',
+    '1',
     'https://github.com/wbthomason/packer.nvim',
     packer_path,
   })
 
   vim.cmd('packadd packer.nvim')
+  require "plugins"
+  vim.cmd("PackerSync")
+
   present, packer = pcall(require, 'packer')
 
   if present then
@@ -27,14 +30,13 @@ if not present then
 end
 
 local config = {
+  auto_clean = true,
+  compile_on_sync = true,
+  git = { clone_timeout = 6000 },
   display = {
     open_fn = function()
         return require("packer.util").float { border = "double" }
     end,
-  },
-  git = {
-    -- seconds
-    clone_timeout = 600,
   }
 }
 
@@ -50,7 +52,7 @@ return packer.startup(function(use)
   }
   use { 
     "neovim/nvim-lspconfig",
-    after = "nvim-lsp-installer",
+    config = require("lsp")
   }
   use "onsails/lspkind-nvim"
   use {
@@ -84,7 +86,7 @@ return packer.startup(function(use)
 
   use { 
     "hrsh7th/nvim-cmp",
-    after = "friendly-snippets",
+    -- after = "friendly-snippets",
     requires = {
       "hrsh7th/cmp-nvim-lsp",
       "hrsh7th/cmp-buffer",
@@ -97,7 +99,7 @@ return packer.startup(function(use)
 
   use { 
     "L3MON4D3/LuaSnip",
-    after = "nvim-cmp",
+    -- after = "nvim-cmp",
     config = require("plugins.configs.lua_snip")
   }
  

@@ -11,11 +11,7 @@ local config = {
   error_sign = icons.error,
   warn_sign = icons.warn,
   hint_sign = icons.hint,
-  infor_sign = icons.info,
-
-  code_action_prompt = {
-    enable = false,
-  }
+  infor_sign = icons.info
 }
 
 lspsaga.init_lsp_saga(config)

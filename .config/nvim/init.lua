@@ -4,4 +4,4 @@ require('core')
 require('plugins')
 
 -- LSP configuration
-require('lsp')
+-- require('lsp')
