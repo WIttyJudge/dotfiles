@@ -7,11 +7,11 @@ function send_notification() {
 
 case $1 in
 up)
-  light -A 10
+  sudo light -A 10
 	send_notification $1
 	;;
 down)
-  light -U 10
+  sudo light -U 10
 	send_notification $1
 	;;
 esac
