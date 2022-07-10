@@ -18,11 +18,11 @@ super + shift + q
       sysact
 
 XF86Audio{Mute,LowerVolume,RaiseVolume}
-    pamixer --allow-boost {-t, -d 5, -i 5}; pkill -RTMIN+10 dwmblocks 
+    changevolume {mute, down, up}; pkill -RTMIN+10 dwmblocks 
 
 /* Brightness volumes */
 {XF86MonBrightnessDown, XF86MonBrightnessUp}
-    sudo light {-U 10, -A 10}; pkill -RTMIN+6 dwmblocks
+    changevolume {down, up}; pkill -RTMIN+6 dwmblocks
 
 /* PageDown button */
 Next

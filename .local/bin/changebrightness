@@ -1,0 +1,17 @@
+#!/bin/bash
+
+function send_notification() {
+	brightness=$(printf "%.0f\n" $(light))
+	dunstify -a "changebrightness" -u low -r 9991 -h int:value:"$brightness" -i "brightness-$1" "Brightness: $brightness%" -t 2000
+}
+
+case $1 in
+up)
+  light -A 10
+	send_notification $1
+	;;
+down)
+  light -U 10
+	send_notification $1
+	;;
+esac
