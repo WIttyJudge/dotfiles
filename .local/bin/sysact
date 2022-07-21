@@ -23,7 +23,7 @@ esac
 
 case $select in
 	$hibernate)
-		systemctl hibernate
+		$ctl hibernate
 		;;
 	$poweroff)
 		$ctl poweroff -i
