@@ -1,24 +1,34 @@
-# thanks Luke Smith for that awesome config of lf
+set hidden true
+set ignorecase true
+set icons true
 
 set shellopts '-eu'
 set ifs "\n"
-set scrolloff 10
-set icons
-set period 1
-set hiddenfiles ".*:*.aux:*.log:*.bbl:*.bcf:*.blg:*.run.xml"
+set scrolloff 7
+
 set cleaner '~/.config/lf/cleaner'
-set preview true
 set previewer '~/.config/lf/preview'
 
 cmd mkdir $mkdir -p "$(echo $* | tr ' ' '\ ')"
 
-cmd delete ${{
-	clear; tput cup $(($(tput lines)/3)); tput bold
-	set -f
-	printf "%s\n\t" "$fx"
-	printf "delete?[y/N]"
-	read ans
-	[ $ans = "y" ] && rm -rf -- $fx
+# Trash cli bindings
+cmd trash ${{
+  files=$(printf "$fx" | tr '\n' ';')
+  while [ "$files" ]; do
+    # extract the substring from start of string up to delimiter.
+    # this is the first "element" of the string.
+    file=${files%%;*}
+
+    trash-put "$(basename "$file")"
+    # if there's only one element left, set `files` to an empty string.
+    # this causes us to exit this `while` loop.
+    # else, we delete the first "element" of the string from files, and move onto the next.
+    if [ "$files" = "$file" ]; then
+      files=''
+    else
+      files="${files#*;}"
+    fi
+  done
 }}
 
 cmd moveto ${{
@@ -41,8 +51,22 @@ cmd extract ${{
 	[ $ans = "y" ] && extract $fx
 }}
 
+# ------------------- Bindings -------------------
+
+# Remove some defaults
+map m
+map o
+map n
+map "'"
+map '"'
+map d
+
 map D delete
 map M moveto
 map E extract
 
 map <c-n> push :mkdir<space>
+
+# Trash Mappings
+map dd trash
+

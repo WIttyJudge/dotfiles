@@ -1,9 +1,9 @@
 #!/usr/bin/env sh
 
 # sudo not required for some system commands
-for x in systemctl sv pacman downgrade; do
+for x in downgrade mount umount sv pacman su shutdown poweroff reboot; do
   alias $x="sudo $x"
-done
+done; unset x
 
 # useful
 alias \
@@ -37,7 +37,9 @@ alias \
   cat="bat" \
 	cp="cp -iv" \
 	mv="mv -iv" \
-	mkdir="mkdir -v" \
+	rm="rm -vI" \
+  bc="bc -ql" \
+	mkdir="mkdir -pv" \
   wget=wget --hsts-file="$XDG_DATA_HOME/wget-hsts"
 
 alias ls="exa -la --group-directories-first --icons" # doesn't show hidden files

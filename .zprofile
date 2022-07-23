@@ -69,7 +69,7 @@ export FZF_DEFAULT_OPTS="--height 40% --layout=reverse --cycle"
 # export FZF_DEFAULT_COMMAND='rg --files --hidden --follow -g "!{.git,node_modules}/*" 2> /dev/null'
 
 # security
-export GPG_TTY=$(tty)
+#export GPG_TTY=$(tty)
 
 # Fixing misbehaving Java applications
 export AWT_TOOLKIT="MToolkit wmname LG3D" # May have to install wmname

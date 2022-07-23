@@ -9,6 +9,8 @@ Xft.lcdfilter:	lcddefault
 !*font: Fira Code:pixelsize=15
 *font: Hack:pixelsize=14
 
+st.font: Fira Code:style=Medium:size=11:antialias=true
+
 !! Transparency (0-1):
 *alpha: 0.90
 

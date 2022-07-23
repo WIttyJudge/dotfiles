@@ -9,28 +9,28 @@ setbg &
 # Theme configuration file
 xrdb -merge ~/.Xresources & 
 
-/* System tray network manager */
-nm-applet &
-
 xset r rate 250 40 & # Speed xrate up
 
-/* $HOME/.config/polybar/launch.sh */
-
 # set language keyboard and swape caps and escape
-setxkbmap -layout us,ru -option grp:alt_shift_toggle caps:swapescape & 
+setxkbmap -layout us,ru -option grp:alt_shift_toggle,caps:swapescape & 
 
 # Remove mouse cursor when idle
 unclutter --timeout 2 &
+
+# nm-applet - system tray network manager
+nm-applet &
 
 # dunst     - notification-daemon
 # xcompmgr  - window transparency
 # sxhkd     - hotkey daemon
 # pipewire  - server for handling audio
 # dwmblocks - status bar of DWM
-autostart="dunst xcompmgr sxhkd pipewire dwmblocks"
+autostart="dunst xcompmgr sxhkd pipewire"
 
 for program in $autostart; do
   # if program has not already started, start it.
 	pidof -s "$program" || setsid -f "$program"
 done >/dev/null 2>&1
 
+# Ensure that xrdb has finished running before moving on to start the WM/DE.
+[ -n "$xrdbpid" ] && wait "$xrdbpid"

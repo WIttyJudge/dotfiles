@@ -68,7 +68,7 @@ map('n', '<Leader>Q', ':q!<CR>')
 map({ 'n', 'v' }, ';', ':', { silent = false })
 
 -- Use this instead of touching Esc key
-map('i', { 'jk', 'kj' }, '<Esc>')
+--map('i', { 'jk', 'kj' }, '<Esc>')
 
 -- Move selected lines up and down
 map('v', '<A-j>', ":m '>+1<CR>gv=gv")

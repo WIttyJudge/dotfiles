@@ -77,16 +77,15 @@ return packer.startup(function(use)
     config = require("plugins.configs.lsp_signature")
   }
 
-  -- Autocomplete
+   -- load luasnips + cmp related in insert mode onlynvim/plugins
   use { 
     "rafamadriz/friendly-snippets",
-     --module = "cmp_nvim_lsp",
      event = "InsertEnter"
   }
 
   use { 
     "hrsh7th/nvim-cmp",
-    -- after = "friendly-snippets",
+    after = "friendly-snippets",
     requires = {
       "hrsh7th/cmp-nvim-lsp",
       "hrsh7th/cmp-buffer",
@@ -99,11 +98,9 @@ return packer.startup(function(use)
 
   use { 
     "L3MON4D3/LuaSnip",
-    -- after = "nvim-cmp",
+    after = "nvim-cmp",
     config = require("plugins.configs.lua_snip")
   }
- 
-  --================
 
   use {
     'windwp/nvim-autopairs',

@@ -34,11 +34,11 @@
     show_indicators = yes
     icon_position = left
     max_icon_size = 32
-    icon_path = /usr/share/icons/Adwaita/16x16/status/:/usr/share/icons/Adwaita/16x16/devices/:/usr/share/icons/Adwaita/16x16/legacy/
+    icon_path = /home/wittyjudge/.local/share/icons/fontawesome
     sticky_history = yes
     history_length = 20
     dmenu = /usr/bin/dmenu -p dunst:
-    browser = /usr/bin/brave
+    browser = /usr/bin/xdg-open
     always_run_script = true
     title = Dunst
     class = Dunst

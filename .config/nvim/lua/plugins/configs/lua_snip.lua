@@ -10,7 +10,9 @@ local options = {
 }
 
 luasnip.config.set_config(options)
+luasnip.filetype_extend("ruby", {"rails"})
 
+-- To use existing vs-code style snippets from a plugin (eg. rafamadriz/friendly-snippets)
 require("luasnip.loaders.from_vscode").lazy_load()
 require("luasnip.loaders.from_vscode").lazy_load({ paths = vim.g.luasnippets_path or "" })
 

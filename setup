@@ -54,6 +54,20 @@ logger() {
   printf "\n${GREEN}%s${NORMAL} %s \n" "[LOG]" "$msg"
 }
 
+create_folders() {
+  folders=(
+    .local/bin
+    .local/share/applications
+    .local/share/icons/fontawesome
+  )
+
+  for i in "${folders[@]}"
+  do
+    [ ! -d $HOME/$i ] && mkdir -vp $HOME/$i
+  done
+}
+
+
 ### SCRIPT EXECUTION ###
 
 # Output brief information before running the script
@@ -63,6 +77,8 @@ echo -e "//////////// https://github.com/WIttyJudge/dotfiles ///////////////"
 echo "///////////////////// Dotfile Setup /////////////////////////"
 echo "///////////////////////////////////////////////////////////////////////"
 read -n 1 -r -s -p $'//////////////////// Press any key to continue ////////////////////////\n\n'
+
+create_folders
 
 logger "Home directory setup"
 for i in ${home_directory[@]}; do
@@ -76,16 +92,13 @@ for i in ${config_directory[@]}; do
   ln -sfv $dotfiles_path/.config/$i $config_path/$i
 done
 
-# logger "Scripts setup"
-# stow --adopt -v -R -t ~ scripts
-
 logger "Local directory setup"
-logger "Applications folder"
-[ ! -d $HOME/.local ] && mkdir -p $HOME/.local/share
-[ ! -d $HOME/.local/share/applications ] && mkdir -p $HOME/.local/share/applications
-# [ -d $HOME/.local/share/applications ] && rm -rf $HOME/.local/share/applications
+
+logger "Applications"
 ln -sfv $dotfiles_path/.local/share/applications/* $HOME/.local/share/applications/
 
-logger "Bin folder"
-[ ! -d $HOME/.local/bin ] && mkdir -p $HOME/.local/bin
+logger "Icons"
+ln -sfv $dotfiles_path/.local/share/icons/fontawesome/* $HOME/.local/share/icons/fontawesome/
+
+logger "Bins"
 ln -sfv $dotfiles_path/.local/bin/* $HOME/.local/bin/
