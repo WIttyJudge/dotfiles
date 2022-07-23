@@ -80,12 +80,12 @@ return packer.startup(function(use)
    -- load luasnips + cmp related in insert mode onlynvim/plugins
   use { 
     "rafamadriz/friendly-snippets",
-     event = "InsertEnter"
+    -- event = "InsertEnter"
   }
 
   use { 
     "hrsh7th/nvim-cmp",
-    after = "friendly-snippets",
+    -- after = "friendly-snippets",
     requires = {
       "hrsh7th/cmp-nvim-lsp",
       "hrsh7th/cmp-buffer",
@@ -98,7 +98,7 @@ return packer.startup(function(use)
 
   use { 
     "L3MON4D3/LuaSnip",
-    after = "nvim-cmp",
+    -- after = "nvim-cmp",
     config = require("plugins.configs.lua_snip")
   }
 
