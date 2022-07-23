@@ -7,7 +7,6 @@ end
 
 local builtin = require('telescope.builtin')
 local actions = require('telescope.actions')
-local previewers = require('telescope.previewers')
 local themes = require("telescope.themes")
 
 local icons = require("internal.icons")
@@ -23,19 +22,6 @@ local opts_cursor = {
   },
 }
 
-local opts_vertical = {
-  initial_mode = 'normal',
-  sorting_strategy = 'ascending',
-  layout_strategy = 'vertical',
-  results_title = false,
-  layout_config = {
-    width = 0.3,
-    height = 0.5,
-    prompt_position = 'top',
-    mirror = true,
-  },
-}
-
 telescope.setup {
   defaults = {
     preview = {
@@ -48,6 +34,7 @@ telescope.setup {
 
     file_ignore_patterns = {
       '.git/',
+      'node_modules'
     },
 
     dynamic_preview_title = true,

@@ -176,6 +176,10 @@ map('n', '<Leader>ca', function()
   require("plugins.configs.telescope").lsp_code_actions()
 end)
 
+map('n', '<F1>', function()
+  require("telescope.builtin").help_tags()
+end)
+
 -- undotree
 map('n', '<Leader>ut', ':UndotreeToggle<CR>')
 
