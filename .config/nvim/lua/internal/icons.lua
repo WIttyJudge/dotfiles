@@ -67,7 +67,7 @@ local icons = {
     symlink_open = '',
   },
   ui = {
-    Lock = '',
+    Lock = '🔒',
     Unsaved = '',
     Circle = "",
     BigCircle = "",
