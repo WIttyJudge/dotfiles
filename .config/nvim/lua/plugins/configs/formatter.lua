@@ -5,8 +5,6 @@ if not present then
   return
 end
 
-local util = require "formatter.util"
-
 local function rubocop()
   return {
     exe = 'rubocop', -- might prepend `bundle exec `
@@ -16,10 +14,6 @@ local function rubocop()
     },
     stdin = true
   }
-end
-
-local function rustfmt()
-  return { exe = "rustfmt", args = { "--emit=stdout" }, stdin = true }
 end
 
 local function goimports()
@@ -34,22 +28,15 @@ local function gofumpt()
   return { exe = "gofumpt", stdin = true }
 end
 
-local function stylua()
-  return {
-    exe = "stylua",
-    args = {
-      "--search-parent-directories",
-      "--stdin-filepath",
-      vim.fn.fnameescape(vim.api.nvim_buf_get_name(0)),
-      "--",
-      "-",
-    },
-    stdin = true,
-  }
-end
-
 local function shfmt()
-  return { exe = "shfmt", args = { "-i", 2 }, stdin = true }
+  local shiftwidth = vim.opt.shiftwidth._value
+  local expandtab = vim.opt.expandtab._value
+
+  if not expandtab then
+    shiftwidth = 0
+  end
+
+  return { exe = "shfmt", args = { "-i", shiftwidth }, stdin = true }
 end
 
 local function prettier()
@@ -73,15 +60,8 @@ formatter.setup {
     },
     sh = { shfmt },
 
-    html = { prettier },
-    css = { prettier },
-    scss = { prettier },
-    javascript = { prettier },
-    typescript = { prettier },
-    vue = { prettier },
-
-    json = { prettier },
-    yaml = { prettier },
+    json = { require('formatter.filetypes.json').prettier },
+    yaml = { require('formatter.filetypes.json').prettier },
     markdown = { prettier }
   }
 }
