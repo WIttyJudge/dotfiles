@@ -141,11 +141,6 @@ map('n', 'g#', "g#<Cmd>lua require('hlslens').start()<CR>", { silent = false })
 map('n', '<C-b>', ':NvimTreeToggle<CR>')
 map('n', '<Leader>hf', ':NvimTreeFindFile<CR>')
 
--- fzf.vim
--- map('', '<Leader>f', ':Files<CR>')
--- map('', '<Leader>b', ':Buffers<CR>')
--- map('n', '<Leader>ps', ':Rg<CR>')
-
 -- telescope
 -- vim.keymap.set('n', '<Leader>f', function() require("plugins.configs.telescope").find_all_files() end)
 map('n', '<Leader>f', function()
@@ -204,5 +199,8 @@ map('c', 'w!!', 'w suda://%', { silent = false })
 
 -- hop.nvim
 map('n', 'f', "<CMD>HopChar1<CR>")
+
+-- hop.nvim
+map('n', '<Leader>gg', "<CMD>LazyGit<CR>")
 
 -- map('n', '<Leader>mz', ":FocusMaximise<CR>")
