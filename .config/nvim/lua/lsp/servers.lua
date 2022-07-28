@@ -1,6 +1,7 @@
 -- READ MORE: https://github.com/neovim/nvim-lspconfig/blob/master/CONFIG.md
 
 -- Setup LSP for yaml, typescript, ruby, golang, rust, bash, html, css
+
 local servers = {
   rust_analyzer = {
     cmd = { "rust-analyzer" },
@@ -43,6 +44,23 @@ local servers = {
   bashls = {
     filetypes = { "sh" },
     cmd = { "bash-language-server", "start" },
+  },
+  sumneko_lua = {
+    settings = {
+      Lua = {
+        diagnostics = {
+          globals = { "vim" },
+        },
+        workspace = {
+          library = {
+            [vim.fn.expand '$VIMRUNTIME/lua'] = true,
+            [vim.fn.expand "$VIMRUNTIME/lua/vim/lsp"] = true,
+          },
+          maxPreload = 100000,
+          preloadFileSize = 10000,
+        },
+      },
+    }
   },
   -- html = {
   --   filetypes = { "html", "eruby" },
