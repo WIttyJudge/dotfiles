@@ -5,10 +5,10 @@ if not present then
   return
 end
 
-local icons = require('internal.icons')
+local icons = require "internal.icons"
 
 local config = {
-  fold_open = icons.folder.arrow_open,  -- icon used for open folds
+  fold_open = icons.folder.arrow_open, -- icon used for open folds
   fold_closed = icons.folder.arrow_closed, -- icon used for closed folds
 
   action_keys = { -- key mappings for actions in the trouble list
@@ -31,9 +31,9 @@ local config = {
     warning = icons.diagnostics.Warn,
     information = icons.diagnostics.Info,
     hint = icons.diagnostics.Hint,
-    other = "﫠"
+    other = "﫠",
   },
-  use_diagnostic_signs = true -- enabling this will use the signs defined in your lsp client
+  use_diagnostic_signs = true, -- enabling this will use the signs defined in your lsp client
 }
 
 trouble.setup(config)

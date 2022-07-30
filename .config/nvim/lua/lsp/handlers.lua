@@ -1,13 +1,13 @@
 local M = {}
-local icons = require('internal.icons')
+local icons = require "internal.icons"
 
 function M.setup()
   -- Define custom icons
-  local signs = { 
+  local signs = {
     Error = icons.diagnostics.Error,
     Warn = icons.diagnostics.Error,
     Info = icons.diagnostics.Info,
-    Hint = icons.diagnostics.Hint
+    Hint = icons.diagnostics.Hint,
   }
   for type, icon in pairs(signs) do
     local hl = "DiagnosticSign" .. type
@@ -49,19 +49,18 @@ function M.setup()
     border = "rounded",
   })
 
-  vim.lsp.handlers["textDocument/publishDiagnostics"] =
-    vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
-      underline = false,
+  vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
+    underline = false,
 
-      -- Disable virtual_text on file load
-      virtual_text = false,
-      -- virtual_text = {
-      --   prefix = "",
-      --   spacing = 0,
-      -- },
+    -- Disable virtual_text on file load
+    virtual_text = false,
+    -- virtual_text = {
+    --   prefix = "",
+    --   spacing = 0,
+    -- },
 
-      signs = true,
-      update_in_insert = false
+    signs = true,
+    update_in_insert = false,
   })
 end
 

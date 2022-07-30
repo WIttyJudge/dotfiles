@@ -6,10 +6,12 @@ if not present then
 end
 
 local config = {
-  devicon = require('luatab').helpers.devicon,
-  title = require('luatab').helpers.title,
-  modified = function() return '' end,
-  windowCount = require('luatab').helpers.windowCount,
+  devicon = require("luatab").helpers.devicon,
+  title = require("luatab").helpers.title,
+  modified = function()
+    return ""
+  end,
+  windowCount = require("luatab").helpers.windowCount,
 }
 
 luatab.setup(config)

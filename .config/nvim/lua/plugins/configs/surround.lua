@@ -6,7 +6,7 @@ if not present then
 end
 
 local config = {
-  context_offset = 500
+  context_offset = 500,
 }
 
 surround.setup(config)

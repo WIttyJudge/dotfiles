@@ -6,13 +6,13 @@ if not present then
 end
 
 local config = {
-	force = true,
-	forcemark = nil,
+  force = true,
+  forcemark = nil,
   ignore = {
-		filetype = { "help", "list", "Trouble", "fugitive" },
-		buftype = { "terminal", "quickfix", "loclist" }
-	},
-	nested = nil,
+    filetype = { "help", "list", "Trouble", "fugitive" },
+    buftype = { "terminal", "quickfix", "loclist" },
+  },
+  nested = nil,
 }
 
 stabilize.setup(config)

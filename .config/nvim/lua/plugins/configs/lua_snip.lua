@@ -1,8 +1,8 @@
- local present, luasnip = pcall(require, "luasnip")
+local present, luasnip = pcall(require, "luasnip")
 
- if not present then
+if not present then
   return
- end
+end
 
 local options = {
   history = true,
@@ -10,19 +10,19 @@ local options = {
 }
 
 luasnip.config.set_config(options)
-luasnip.filetype_extend("ruby", {"rails"})
+luasnip.filetype_extend("ruby", { "rails" })
 
 -- To use existing vs-code style snippets from a plugin (eg. rafamadriz/friendly-snippets)
 require("luasnip.loaders.from_vscode").lazy_load()
-require("luasnip.loaders.from_vscode").lazy_load({ paths = vim.g.luasnippets_path or "" })
+require("luasnip.loaders.from_vscode").lazy_load { paths = vim.g.luasnippets_path or "" }
 
 vim.api.nvim_create_autocmd("InsertLeave", {
   callback = function()
-     if
-        require("luasnip").session.current_nodes[vim.api.nvim_get_current_buf()]
-        and not require("luasnip").session.jump_active
-     then
-        require("luasnip").unlink_current()
-     end
+    if
+      require("luasnip").session.current_nodes[vim.api.nvim_get_current_buf()]
+      and not require("luasnip").session.jump_active
+    then
+      require("luasnip").unlink_current()
+    end
   end,
 })

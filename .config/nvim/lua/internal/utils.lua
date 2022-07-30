@@ -24,6 +24,8 @@ function M.unmap(mode, lhs)
 end
 
 -- Get home dir ($HOME)
-function M.get_homedir() return os.getenv('HOME') end
+function M.get_homedir()
+  return os.getenv "HOME"
+end
 
 return M

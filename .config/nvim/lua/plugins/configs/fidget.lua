@@ -8,8 +8,8 @@ end
 config = {
   window = {
     -- adjust transparency.
-    blend = 0
-  }
+    blend = 0,
+  },
 }
 
 fidget.setup(config)

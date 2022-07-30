@@ -10,9 +10,9 @@ local config = {
     icons = {
       server_installed = "✓",
       server_pending = "➜",
-      server_uninstalled = "✗"
-    }
-  }
+      server_uninstalled = "✗",
+    },
+  },
 }
 
 mason.setup(config)
@@ -27,7 +27,7 @@ end
 local config = {
   automatic_installation = true,
   -- ensure_installed = {
-  --   "rust_analyzer", 
+  --   "rust_analyzer",
   --   "pyright",
   --   "solargraph",
   --   "golangci_lint_ls",

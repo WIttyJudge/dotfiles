@@ -6,16 +6,16 @@ if not present then
 end
 
 local config = {
-  buftype_exclude  = { 'terminal', 'README.md' },
+  buftype_exclude = { "terminal", "README.md" },
   filetype_exclude = {
-    'help', 
-    'man', 
-    'startify', 
-    'packer', 
-    'NvimTree', 
-    'Trouble', 
-    'dashboard', 
-    'alpha',
+    "help",
+    "man",
+    "startify",
+    "packer",
+    "NvimTree",
+    "Trouble",
+    "dashboard",
+    "alpha",
     "terminal",
     "lspinfo",
     "TelescopePrompt",

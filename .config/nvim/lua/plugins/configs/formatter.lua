@@ -7,20 +7,24 @@ end
 
 local function rubocop()
   return {
-    exe = 'rubocop', -- might prepend `bundle exec `
+    exe = "rubocop", -- might prepend `bundle exec `
     args = {
-      '--auto-correct', '--stdin', '%:p', '2>/dev/null', '|',
-      "awk 'f; /^====================$/{f=1}'"
+      "--auto-correct",
+      "--stdin",
+      "%:p",
+      "2>/dev/null",
+      "|",
+      "awk 'f; /^====================$/{f=1}'",
     },
-    stdin = true
+    stdin = true,
   }
 end
 
 local function goimports()
   return {
     exe = "goimports",
-    args = {"-w", vim.fn.fnameescape(vim.api.nvim_buf_get_name(0))},
-    stdin = false
+    args = { "-w", vim.fn.fnameescape(vim.api.nvim_buf_get_name(0)) },
+    stdin = false,
   }
 end
 
@@ -41,27 +45,27 @@ end
 
 local function prettier()
   return {
-    exe = 'prettier',
-    args = { '--stdin-filepath', vim.fn.fnameescape(vim.api.nvim_buf_get_name(0)) },
-    stdin = true
+    exe = "prettier",
+    args = { "--stdin-filepath", vim.fn.fnameescape(vim.api.nvim_buf_get_name(0)) },
+    stdin = true,
   }
 end
 
 formatter.setup {
   logging = false,
   filetype = {
-    ruby = { 
-      rubocop
+    ruby = {
+      rubocop,
       --require('formatter.filetypes.ruby').rubocop,
     },
     rust = { rustfmt },
     lua = {
-      require('formatter.filetypes.lua').stylua,
+      require("formatter.filetypes.lua").stylua,
     },
     sh = { shfmt },
 
-    json = { require('formatter.filetypes.json').prettier },
-    yaml = { require('formatter.filetypes.json').prettier },
-    markdown = { prettier }
-  }
+    json = { require("formatter.filetypes.json").prettier },
+    yaml = { require("formatter.filetypes.json").prettier },
+    markdown = { prettier },
+  },
 }

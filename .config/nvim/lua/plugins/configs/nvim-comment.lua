@@ -17,7 +17,7 @@ local config = {
   -- Normal mode mapping left hand side
   line_mapping = "gcc",
   -- Visual/Operator mapping left hand side
-  operator_mapping = "gc"
+  operator_mapping = "gc",
 }
 
 nvim_comment.setup(config)

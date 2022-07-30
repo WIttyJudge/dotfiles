@@ -1,10 +1,10 @@
 local options = {
   fileencoding = "utf-8", -- File content encoding for the buffer
-  syntax = 'enable',
+  syntax = "enable",
   clipboard = "unnamedplus", -- Connection to the system clipboard
 
   -- disable tilde on end of buffer: https://github.com/neovim/neovim/pull/8546#issuecomment-643643758
-  fillchars = { eob = " ", fold='‧' },
+  fillchars = { eob = " ", fold = "‧" },
 
   -- indent options
   tabstop = 2, -- Number of space in a tab
@@ -39,12 +39,12 @@ local options = {
   mouse = "a", -- Enable mouse support
   splitbelow = true, -- Splitting a new window below the current one
   splitright = true, -- Splitting a new window at the right of the current one
-  showtabline = 2,  -- Always show tables
+  showtabline = 2, -- Always show tables
   -- colorcolumn = "79",
 
   -- Enable the integrated undo features.
   undofile = true, -- Enable persistent undo
-  undodir = vim.fn.stdpath('cache') .. '/undo',
+  undodir = vim.fn.stdpath "cache" .. "/undo",
 
   -- I don't need swap file and backups
   swapfile = false, -- Disable use of swapfile for the buffer

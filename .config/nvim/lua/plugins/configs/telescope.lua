@@ -5,16 +5,16 @@ if not present then
   return
 end
 
-local builtin = require('telescope.builtin')
-local actions = require('telescope.actions')
-local themes = require("telescope.themes")
+local builtin = require "telescope.builtin"
+local actions = require "telescope.actions"
+local themes = require "telescope.themes"
 
-local icons = require("internal.icons")
+local icons = require "internal.icons"
 
 local opts_cursor = {
-  initial_mode = 'normal',
-  sorting_strategy = 'ascending',
-  layout_strategy = 'cursor',
+  initial_mode = "normal",
+  sorting_strategy = "ascending",
+  layout_strategy = "cursor",
   results_title = false,
   layout_config = {
     width = 0.5,
@@ -33,8 +33,8 @@ telescope.setup {
     selection_caret = "|> ",
 
     file_ignore_patterns = {
-      '.git/',
-      'node_modules'
+      ".git/",
+      "node_modules",
     },
 
     dynamic_preview_title = true,
@@ -62,9 +62,9 @@ telescope.setup {
       horizontal = {
         preview_width = function(_, cols, _)
           return math.floor(cols * 0.6)
-        end
+        end,
       },
-      vertical = { width = 0.90, height = 0.90, preview_height = 0.7 }
+      vertical = { width = 0.90, height = 0.90, preview_height = 0.7 },
     },
 
     -- Don't pass to normal mode with ESC, problem with telescope-project
@@ -74,31 +74,35 @@ telescope.setup {
         ["<C-j>"] = actions.move_selection_next,
         ["<C-k>"] = actions.move_selection_previous,
         ["<C-q>"] = actions.smart_send_to_qflist + actions.open_qflist,
-        ["<CR>"] = actions.select_default + actions.center
+        ["<CR>"] = actions.select_default + actions.center,
       },
       n = {
-        ["q"]     = actions.close,
+        ["q"] = actions.close,
         ["<C-j>"] = actions.move_selection_next,
         ["<C-k>"] = actions.move_selection_previous,
-        ["<C-q>"] = actions.smart_send_to_qflist + actions.open_qflist
-      }
-    }
+        ["<C-q>"] = actions.smart_send_to_qflist + actions.open_qflist,
+      },
+    },
   },
-  pickers = { 
+  pickers = {
     find_files = {
       hidden = true,
       find_command = {
         -- 'rg', '--files', '-g', '!.git', '-g', '!node_modules', '--hidden'
-        "fd", "--type", "f", "--strip-cwd-prefix", "--hidden"
+        "fd",
+        "--type",
+        "f",
+        "--strip-cwd-prefix",
+        "--hidden",
       },
 
-      prompt_title = icons.ui.Search .. 'Find Files'
+      prompt_title = icons.ui.Search .. "Find Files",
     },
     buffers = {
-      prompt_title = '✨ Search Buffers ✨',
-      mappings =  {
-       n = {
-          ['r'] = actions.delete_buffer,
+      prompt_title = "✨ Search Buffers ✨",
+      mappings = {
+        n = {
+          ["r"] = actions.delete_buffer,
         },
       },
       sort_lastused = true,
@@ -110,7 +114,7 @@ telescope.setup {
       fuzzy = true, -- false will only do exact matching
       override_generic_sorter = true, -- override the generic sorter
       override_file_sorter = true, -- override the file sorter
-      case_mode = 'smart_case', -- or "ignore_case" or "respect_case"
+      case_mode = "smart_case", -- or "ignore_case" or "respect_case"
       -- the default case_mode is "smart_case"
     },
     command_palette = {
@@ -139,20 +143,20 @@ telescope.setup {
         { "cursor column", ":set cursorcolumn!" },
         { "spell checker", ":set spell!" },
         { "relative number", ":set relativenumber!" },
-      }
-    }
+      },
+    },
   },
-  lsp_references = vim.tbl_deep_extend('force', opts_cursor, {
-    prompt_title = 'References',
+  lsp_references = vim.tbl_deep_extend("force", opts_cursor, {
+    prompt_title = "References",
     mappings = default_mappings,
   }),
 }
 
 -- https://github.com/nvim-telescope/telescope-fzf-native.nvim
-require('telescope').load_extension('fzf')
+require("telescope").load_extension "fzf"
 
 -- https://github.com/LinArcX/telescope-command-palette.nvim
-require("telescope").load_extension("command_palette")
+require("telescope").load_extension "command_palette"
 
 -- CUSTOM FUNCTIONS
 local M = {}
@@ -160,16 +164,22 @@ local M = {}
 function M.find_all_files()
   builtin.find_files {
     find_command = {
-      'rg', '--files', '-g', '!.git', '-g', '!node_modules', '--hidden'
+      "rg",
+      "--files",
+      "-g",
+      "!.git",
+      "-g",
+      "!node_modules",
+      "--hidden",
       -- "fd", "--type", "f", "--strip-cwd-prefix", "--hidden"
-    }
+    },
   }
 end
 
 function M.grep_prompt()
   local opts = {
     path_diplay = { "shorten" },
-    search = vim.fn.input "Grep String |> "
+    search = vim.fn.input "Grep String |> ",
   }
 
   builtin.grep_string(opts)
@@ -181,40 +191,41 @@ function M.lsp_code_actions()
     winblend = 10,
     border = true,
     previewer = false,
-    shorten_path = false
+    shorten_path = false,
   }
 
   builtin.lsp_code_actions(opts)
 end
 
 -- Git
-function M.git_branches() 
+function M.git_branches()
   local opts = themes.get_dropdown {
     winblend = 10,
     border = true,
     previewer = false,
   }
 
-  attach_mappings = function(_, map)
-    -- actions.select_default:replace(actions.git_checkout)
+  attach_mappings =
+    function(_, map)
+      -- actions.select_default:replace(actions.git_checkout)
 
-    map("i", "<c-t>", false)
-    map("n", "<c-t>", false)
-    map("i", "<c-r>", false)
-    map("n", "<c-r>", false)
+      map("i", "<c-t>", false)
+      map("n", "<c-t>", false)
+      map("i", "<c-r>", false)
+      map("n", "<c-r>", false)
 
-    map("i", "<c-a>", actions.git_create_branch)
-    map("n", "<c-a>", actions.git_create_branch)
+      map("i", "<c-a>", actions.git_create_branch)
+      map("n", "<c-a>", actions.git_create_branch)
 
-    map("i", "<c-s>", actions.git_switch_branch)
-    map("n", "<c-s>", actions.git_switch_branch)
+      map("i", "<c-s>", actions.git_switch_branch)
+      map("n", "<c-s>", actions.git_switch_branch)
 
-    map("i", "<c-d>", actions.git_delete_branch)
-    map("n", "<c-d>", actions.git_delete_branch)
-    return true
-  end,
-
-  builtin.git_branches(opts)
+      map("i", "<c-d>", actions.git_delete_branch)
+      map("n", "<c-d>", actions.git_delete_branch)
+      return true
+    end,
+    
+builtin.git_branches(opts)
 end
 
 return M

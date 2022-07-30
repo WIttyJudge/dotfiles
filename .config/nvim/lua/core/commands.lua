@@ -17,7 +17,7 @@ local commands_list = {
 
   -- nvim-spectre
   [[ command! SpectreOpen execute 'lua require("spectre").open()' ]],
-  [[ command! SpectreOpenCurrentFile execute 'lua require("spectre").open_file_search()' ]]
+  [[ command! SpectreOpenCurrentFile execute 'lua require("spectre").open_file_search()' ]],
 }
 
 -- list of commands dependent on autogroup.

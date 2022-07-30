@@ -43,32 +43,32 @@ local icons = {
     Hint = "",
   },
   git = {
-    Add = '',
-    Modify = '柳',
-    Remove = '',
-    Branch = '',
+    Add = "",
+    Modify = "柳",
+    Remove = "",
+    Branch = "",
 
-    Unstaged = '✹',
+    Unstaged = "✹",
     Staged = "✓",
     Unmerged = "",
     Renamed = "➜",
     Untracked = "",
-    Deleted = '',
-    Ignored = '◌',
+    Deleted = "",
+    Ignored = "◌",
   },
   folder = {
-    arrow_open = '',
-    arrow_closed = '',
-    default = '',
-    open = '',
-    empty = '',
-    empty_open = '',
-    symlink = '',
-    symlink_open = '',
+    arrow_open = "",
+    arrow_closed = "",
+    default = "",
+    open = "",
+    empty = "",
+    empty_open = "",
+    symlink = "",
+    symlink_open = "",
   },
   ui = {
-    Lock = '🔒',
-    Unsaved = '',
+    Lock = "🔒",
+    Unsaved = "",
     Circle = "",
     BigCircle = "",
     BigUnfilledCircle = "",
@@ -100,8 +100,8 @@ local icons = {
   },
   debug = {
     breakpoint = { text = "→", texthl = "Red", linehl = "", numhl = "" },
-    stop = { text = "→", texthl = "Green", linehl = "", numhl = "" }
-  }
+    stop = { text = "→", texthl = "Green", linehl = "", numhl = "" },
+  },
 }
 
 return icons

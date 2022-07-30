@@ -7,7 +7,7 @@ end
 
 local config = {
   enabled = true,
-  signcolumn = false
+  signcolumn = false,
 }
 
 focus.setup(config)

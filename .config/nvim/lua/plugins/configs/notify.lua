@@ -5,7 +5,7 @@ if not present then
   return
 end
 
-local icons = require('internal.icons')
+local icons = require "internal.icons"
 
 local config = {
   -- Animation style (see below for details)
@@ -36,7 +36,7 @@ local config = {
     WARN = icons.warn,
     INFO = icons.info,
     DEBUG = icons.ui.Bug,
-    TRACE = icons.ui.Pencil
+    TRACE = icons.ui.Pencil,
   },
 }
 

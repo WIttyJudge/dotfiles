@@ -8,10 +8,10 @@ local servers = {
     filetypes = { "rust" },
     settings = {
       ["rust-analyzer"] = {
-        cargo =  { loadOutDirsFromCheck = true },
-        procMacro =  { enable = true },
-      }
-    }
+        cargo = { loadOutDirsFromCheck = true },
+        procMacro = { enable = true },
+      },
+    },
   },
   pyright = true,
   tsserver = true,
@@ -22,8 +22,8 @@ local servers = {
     cmd = { "golangci-lint-langserver" },
     filetypes = { "go", "gomod" },
     init_options = {
-      command = { "golangci-lint", "run", "--out-format", "json" }
-    }
+      command = { "golangci-lint", "run", "--out-format", "json" },
+    },
   },
   gopls = {
     cmd = { "gopls", "--remote=auto" },
@@ -38,8 +38,8 @@ local servers = {
           unusedparams = true,
         },
         staticcheck = true,
-      }
-    }
+      },
+    },
   },
   bashls = {
     filetypes = { "sh" },
@@ -53,14 +53,14 @@ local servers = {
         },
         workspace = {
           library = {
-            [vim.fn.expand '$VIMRUNTIME/lua'] = true,
+            [vim.fn.expand "$VIMRUNTIME/lua"] = true,
             [vim.fn.expand "$VIMRUNTIME/lua/vim/lsp"] = true,
           },
           maxPreload = 100000,
           preloadFileSize = 10000,
         },
       },
-    }
+    },
   },
   -- html = {
   --   filetypes = { "html", "eruby" },

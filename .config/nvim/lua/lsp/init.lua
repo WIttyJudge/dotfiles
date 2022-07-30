@@ -8,10 +8,10 @@ end
 
 -- Global configs
 -- local handlers = require('lsp/handlers')
-local on_attach = require('lsp.on_attach')
-local servers = require('lsp.servers')
+local on_attach = require "lsp.on_attach"
+local servers = require "lsp.servers"
 
-require('lsp.handlers').setup()
+require("lsp.handlers").setup()
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 
@@ -32,7 +32,7 @@ local function setup_server(server_name, config)
       on_attach.on_attach()
     end,
     -- capabilities = capabilities,
-    capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities),
+    capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities),
     flags = {
       debounce_text_changes = 50,
     },
