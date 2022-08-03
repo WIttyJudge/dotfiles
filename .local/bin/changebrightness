@@ -2,7 +2,7 @@
 
 function send_notification() {
 	brightness=$(printf "%.0f\n" $(light))
-	dunstify -a "changebrightness" -u low -r 9991 -h int:value:"$brightness" -i "brightness-$1" "Brightness: $brightness%" -t 2000
+	dunstify -a "changebrightness" -u low -r 9991 -h int:value:"$brightness" -i "sun-solid" "Brightness: $brightness%" -t 2000
 }
 
 case $1 in

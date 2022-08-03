@@ -22,7 +22,7 @@ XF86Audio{Mute,LowerVolume,RaiseVolume}
 
 /* Brightness volumes */
 {XF86MonBrightnessDown, XF86MonBrightnessUp}
-    changevolume {down, up}; pkill -RTMIN+6 dwmblocks
+    changebrightness {down, up}; pkill -RTMIN+6 dwmblocks
 
 /* PageDown button */
 Next
