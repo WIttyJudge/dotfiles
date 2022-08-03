@@ -33,8 +33,8 @@ local function gofumpt()
 end
 
 local function shfmt()
-  local shiftwidth = vim.opt.shiftwidth._value
-  local expandtab = vim.opt.expandtab._value
+  local shiftwidth = vim.opt.shiftwidth:get()
+  local expandtab = vim.opt.expandtab:get()
 
   if not expandtab then
     shiftwidth = 0
