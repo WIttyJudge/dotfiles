@@ -54,6 +54,9 @@ export MYSQL_HISTFILE="$XDG_DATA_HOME/mysql_history"
 # PostgreSQL
 export PSQL_HISTORY="$XDG_DATA_HOME/psql_history"
 
+# Redis
+export REDISCLI_HISTFILE="$XDG_DATA_HOME/rediscli_history"
+
 # zsh + tools
 export ZDOTDIR="$XDG_CONFIG_HOME/zsh" # Change default folder of zsh config.
 export ZINIT_HOME="$XDG_DATA_HOME/zinit/zinit.git"
