@@ -102,3 +102,6 @@ ln -sfv $dotfiles_path/.local/share/icons/fontawesome/* $HOME/.local/share/icons
 
 logger "Bins"
 ln -sfv $dotfiles_path/.local/bin/* $HOME/.local/bin/
+
+logger "Background wallpaper"
+ln -sfv $dotfiles_path/.local/share/bg $HOME/.local/share/

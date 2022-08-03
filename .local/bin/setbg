@@ -6,7 +6,7 @@
 #	If given a directory, choose random file in it.
 
 # Location of link to wallpaper link.
-bgloc="$HOME/Pictures/wallpapers/bg"
+bgloc="${XDG_DATA_HOME:-$HOME/.local/share}/bg"
 
 trueloc="$(readlink -f "$1")" &&
 case "$(file --mime-type -b "$trueloc")" in
