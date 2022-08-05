@@ -32,17 +32,6 @@ local function gofumpt()
   return { exe = "gofumpt", stdin = true }
 end
 
-local function shfmt()
-  local shiftwidth = vim.opt.shiftwidth:get()
-  local expandtab = vim.opt.expandtab:get()
-
-  if not expandtab then
-    shiftwidth = 0
-  end
-
-  return { exe = "shfmt", args = { "-i", shiftwidth }, stdin = true }
-end
-
 local function prettier()
   return {
     exe = "prettier",
@@ -58,14 +47,15 @@ formatter.setup {
       rubocop,
       --require('formatter.filetypes.ruby').rubocop,
     },
-    rust = { rustfmt },
+    -- rust = { rustfmt },
     lua = {
       require("formatter.filetypes.lua").stylua,
     },
-    sh = { shfmt },
-
+    sh = {
+      require('formatter.filetypes.sh').shfmt
+    },
     json = { require("formatter.filetypes.json").prettier },
-    yaml = { require("formatter.filetypes.json").prettier },
+    yaml = { require("formatter.filetypes.yaml").prettier },
     markdown = { prettier },
   },
 }

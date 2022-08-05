@@ -50,7 +50,6 @@ telescope.setup {
       "--hidden",
     },
 
-    layout_strategy = "horizontal",
     sorting_strategy = "ascending",
     layout_strategy = "horizontal",
     layout_config = {
@@ -147,8 +146,7 @@ telescope.setup {
     },
   },
   lsp_references = vim.tbl_deep_extend("force", opts_cursor, {
-    prompt_title = "References",
-    mappings = default_mappings,
+    prompt_title = "References"
   }),
 }
 
@@ -205,7 +203,7 @@ function M.git_branches()
     previewer = false,
   }
 
-  attach_mappings =
+  local attach_mappings =
     function(_, map)
       -- actions.select_default:replace(actions.git_checkout)
 
@@ -224,8 +222,7 @@ function M.git_branches()
       map("n", "<c-d>", actions.git_delete_branch)
       return true
     end,
-    
-builtin.git_branches(opts)
+    builtin.git_branches(opts)
 end
 
 return M
