@@ -287,12 +287,6 @@ return packer.startup(function(use)
   -- Profiling
   use "tweekmonster/startuptime.vim"
 
-  -- Autosave
-  use {
-    "Pocco81/AutoSave.nvim",
-    config = require "plugins.configs.auto-save",
-  }
-
   -- Good notifications
   use {
     "rcarriga/nvim-notify",
