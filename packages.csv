@@ -78,7 +78,6 @@ TRUE,,rofi-pass,Bash script to handle pass storages in a convenient way.
 ,,python-pip,The PyPA recommended tool for installing Python packages.
 ,,light,Program to easily change brightness on backlight-controllers.
 ,,calcurse,A text-based personal organizer.
-,,shell-color-scripts,Terminal color scripts.
 ,AUR,libxft-bgra,libXft with BGRA glyph (color emoji) rendering.
 ,,dnsutils,Bunch of utils like nslookup and so on.
 ,,tmux,A terminal multiplexer.
