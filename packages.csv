@@ -75,6 +75,8 @@ TRUE,,rofi-pass,Bash script to handle pass storages in a convenient way.
 ,AUR,downgrade,Bash script for downgrading packages.
 ,AUR,slack-desktop,Slack Desktop.
 ,,openvpn,Configurable VPN (Virtual Private Network).
+,,networkmanager-openvpn,NetworkManager VPN plugin for OpenVPN.
+,,network-manager-applet,Applet for managing network connections.
 ,,python-pip,The PyPA recommended tool for installing Python packages.
 ,,light,Program to easily change brightness on backlight-controllers.
 ,,calcurse,A text-based personal organizer.
