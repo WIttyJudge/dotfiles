@@ -6,7 +6,7 @@ super + Return
 
 /* start dmenu (a program launcher) */
 super + p
-    dmenu_run -c -l 10
+  dmenu_run -x 450 -y 450 -z 500 -l 10
 
 super + shift + r
       $TERMINAL -e btop

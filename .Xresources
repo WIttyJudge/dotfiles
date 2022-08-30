@@ -1,9 +1,9 @@
-Xft.antialias:	1
-Xft.hinting:	1
-Xft.autohint:	1
+! Xft.dpi:   141
+Xft.antialias:	true
+Xft.hinting:	true
+Xft.autohint:	false
 Xft.hintstyle:	hintslight
 Xft.rgba:	rgb
-Xft.lcdfilter:	lcddefault
 
 /* *font: xft:monospace:size=12 */
 !*font: Fira Code:pixelsize=15
@@ -14,7 +14,7 @@ st.font: Fira Code:style=Medium:size=11:antialias=true
 !! Transparency (0-1):
 *alpha: 0.90
 
-*cursorColor: #cc241d
+*cursorColor: #d8dee9
 
 !! Colorscheme
 
@@ -59,7 +59,6 @@ URxvt.depth:		32
 URxvt.font: 	xft:Hack-Regular:pixelsize=18
 URxvt.scrollBar:	false
 /* URxvt.saveLines:	0 */
-URxvt.cursorColor: #d8dee9	
 
 /* Disable iso mode while pressing CTRL + SHIFT */
 URxvt.iso14755: false

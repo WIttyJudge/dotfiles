@@ -6,8 +6,6 @@ commands=(
   '1 [ System ]'
   '2 [ Reloader ]'
   '---'
-  '3 [ bookmarks ]'
-  '---'
   'dotfiles'
   'suckess-tools'
 )
@@ -15,15 +13,15 @@ commands=(
 scripts_folder="$HOME/.local/bin/dmenu"
 
 # choice="$(printf '%b\n' "${commands[@]}" | rofi -dmenu -i bmenu -p "Select command > ")"
-choice="$(printf '%b\n' "${commands[@]}" | dmenu -c -l 10 -h 30 )"
+choice="$(printf '%b\n' "${commands[@]}" | dmenu -x 450 -y 450 -z 500 -l 10)"
+
+
 
 case "$choice" in
   "1 [ System ]")
     sysact ;;
   "2 [ Reloader ]")
     dmenu-reloader ;;
-  "3 [ bookmarks ]")
-    open-bookmarks ;;
   "dotfiles")
     $TERMINAL -e sh -c 'tmux-sessionizer /home/wittyjudge/dotfiles' ;;
   "suckess-tools")

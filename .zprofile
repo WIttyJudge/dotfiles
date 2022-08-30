@@ -13,7 +13,7 @@ unsetopt PROMPT_SP
 
 # Default variables
 export EDITOR="nvim"
-export TERMINAL="alacritty"
+export TERMINAL="st"
 export DOTFILES="$HOME/dotfiles"
 export BROWSER="chromium"
 export DEV_HOME="$HOME/projects"
@@ -42,8 +42,9 @@ export BUNDLE_USER_CACHE="$XDG_CACHE_HOME/bundle"
 # Ruby
 export GEM_HOME="$XDG_DATE_HOME/gem"
 export GEM_SPEC_CACHE="$XDG_CACHE_HOME/gem"
-export PATH="$PATH:$HOME/.rvm/bin"
 export SOLARGRAPH_CACHE="$XDG_CACHE_HOME/solargraph"
+export PATH="$PATH:$HOME/.rvm/bin"
+export RBENV_ROOT="$XDG_CACHE_HOME/rbenv"
 
 # Tmux / tpm
 export TMUX_PLUGIN_MANAGER_PATH="$XDG_CONFIG_HOME/tmux/plugins/"
@@ -81,6 +82,9 @@ export _JAVA_AWT_WM_NONREPARENTING=1
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 # Load RVM into a shell session *as a function*
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+
+# asdf
+[[ -f "$HOME/.asdf/asdf.sh" ]] && source "$HOME/.asdf/asdf.sh"
 
 # This is the list for lf icons:
 export LF_ICONS="di=📁:\
