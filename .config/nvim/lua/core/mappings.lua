@@ -181,10 +181,6 @@ map("n", "<Leader>ut", ":UndotreeToggle<CR>")
 -- alpha-nvim
 map("n", "<Leader>st", ":tabnew | :Alpha<CR>")
 
--- vim-test
-map("n", "<Leader>tf", ":TestFile<CR>")
-map("n", "<Leader>tn", ":TestNearest<CR>")
-
 -- vim-fugitive
 map("n", "<Leader>gd", ":Gvdiffsplit<CR>")
 map("n", "<Leader>gs", ":Git<CR>")

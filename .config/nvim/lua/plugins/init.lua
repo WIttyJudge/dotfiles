@@ -3,7 +3,7 @@ local present, packer = pcall(require, "packer")
 -- Install packer  if it is not already installed.
 if not present then
   local fn = vim.fn
-  local install_path = fn.stdpath "data" .. "/site/pack/packer/start/packer.nvim"
+  local packer_path = fn.stdpath "data" .. "/site/pack/packer/start/packer.nvim"
 
   print "Cloning packer.."
   -- remove the dir before cloning

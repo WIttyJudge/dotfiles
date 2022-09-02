@@ -24,21 +24,6 @@ local opts_cursor = {
 
 telescope.setup {
   defaults = {
-    preview = {
-      timeout = 500,
-      msg_bg_fillchar = "",
-    },
-
-    prompt_prefix = "λ -> ",
-    selection_caret = "|> ",
-
-    file_ignore_patterns = {
-      ".git/",
-      "node_modules",
-    },
-
-    dynamic_preview_title = true,
-
     vimgrep_arguments = {
       "rg",
       "--color=never",
@@ -47,8 +32,22 @@ telescope.setup {
       "--line-number",
       "--column",
       "--smart-case",
-      "--hidden",
     },
+
+    prompt_prefix = "λ -> ",
+    selection_caret = "|> ",
+
+    preview = {
+      timeout = 500,
+      msg_bg_fillchar = "",
+    },
+
+    file_ignore_patterns = {
+      ".git/",
+      "node_modules",
+    },
+
+    dynamic_preview_title = true,
 
     sorting_strategy = "ascending",
     layout_strategy = "horizontal",
@@ -146,7 +145,7 @@ telescope.setup {
     },
   },
   lsp_references = vim.tbl_deep_extend("force", opts_cursor, {
-    prompt_title = "References"
+    prompt_title = "References",
   }),
 }
 
