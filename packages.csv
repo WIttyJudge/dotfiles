@@ -11,7 +11,8 @@ TRUE,AUR,polybar,A fast and easy-to-use status bar.
 TRUE,AUR,siji-git,Iconic bitmap font based on stlarch with additional glyphs.
 TRUE,AUR,termsyn-font,Monospaced font based on terminus and tamsyn.
 ,,chromium,Web browser developed by Google the open source project behind Google Chrome.
-,AUR,brave-bin,Web browser that blocks ads and trackers by default (binary release).
+TRUE,AUR,brave-bin,Web browser that blocks ads and trackers by default (binary release).
+,,firefox,Standalone web browser from mozilla.
 ,,telegram-desktop,Official Telegram Desktop client.
 ,,discord,All-in-one voice and text chat for gamers that's free and secure.
 TRUE,,feh,Fast and light imlib2-based image viewer.
