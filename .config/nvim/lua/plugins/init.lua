@@ -175,11 +175,6 @@ return packer.startup(function(use)
   use "junegunn/gv.vim"
   -- use "sindrets/diffview.nvim"
 
-  use {
-    "kdheepak/lazygit.nvim",
-    config = require "plugins.configs.lazygit",
-  }
-
   -- Icons
   -- use "kyazdani42/nvim-web-devicons"
   -- use "lambdalisue/glyph-palette.vim"

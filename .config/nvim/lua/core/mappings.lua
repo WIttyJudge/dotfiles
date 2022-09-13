@@ -196,7 +196,4 @@ map("c", "w!!", "w suda://%", { silent = false })
 -- hop.nvim
 map("n", "f", "<CMD>HopChar1<CR>")
 
--- hop.nvim
-map("n", "<Leader>gg", "<CMD>LazyGit<CR>")
-
 -- map('n', '<Leader>mz', ":FocusMaximise<CR>")
