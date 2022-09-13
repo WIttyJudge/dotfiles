@@ -123,7 +123,7 @@ autocmd({ "BufWritePost" }, {
 })
 
 autocmd({ "BufWritePost" }, {
-  pattern = ".tmux.conf",
+  pattern = { "tmux.conf", '.tmux.conf' },
   command = "!tmux source-file %",
   group = auto_compile,
 })
