@@ -15,7 +15,7 @@ unsetopt PROMPT_SP
 export EDITOR="nvim"
 export TERMINAL="st"
 export DOTFILES="$HOME/dotfiles"
-export BROWSER="chromium"
+export BROWSER="firefox"
 export DEV_HOME="$HOME/projects"
 
 # This specification defines where these files should be looked for by defining
