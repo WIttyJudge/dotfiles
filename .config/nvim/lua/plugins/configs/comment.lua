@@ -1,7 +1,7 @@
 local present, nvim_comment = pcall(require, "Comment")
 
 if not present then
-  return
+	return
 end
 
 nvim_comment.setup()

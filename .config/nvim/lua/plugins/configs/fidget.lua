@@ -2,14 +2,14 @@
 local present, fidget = pcall(require, "fidget")
 
 if not present then
-  return
+	return
 end
 
 config = {
-  window = {
-    -- adjust transparency.
-    blend = 0,
-  },
+	window = {
+		-- adjust transparency.
+		blend = 0,
+	},
 }
 
 fidget.setup(config)

@@ -2,7 +2,7 @@
 local present, spectre = pcall(require, "spectre")
 
 if not present then
-  return
+	return
 end
 
 spectre.setup()

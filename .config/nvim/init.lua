@@ -1,7 +1,7 @@
-require "core"
+require("core")
 
 -- Packer package manager
-require "plugins"
+require("plugins")
 
 -- LSP configuration
 -- require('lsp')

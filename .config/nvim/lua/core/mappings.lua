@@ -40,16 +40,16 @@ map("", "j", 'v:count || mode(1)[0:1] == "no" ? "j" : "gj"', { expr = true })
 map("", "k", 'v:count || mode(1)[0:1] == "no" ? "k" : "gk"', { expr = true })
 
 -- Add space bellow or above without leaving normal mode
-vim.cmd [[
+vim.cmd([[
 nnoremap <silent> [<space> :<c-u>put!=repeat([''],v:count)<bar>']+1<CR>
 nnoremap <silent> ]<space> :<c-u>put =repeat([''],v:count)<bar>'[-1<CR>
-]]
+]])
 
 -- Easy copy whole text in file
 map("n", "vfy", ":%y+<CR>")
 
 map("n", "<Leader>r", function()
-  require("internal.quickrun").run_command()
+	require("internal.quickrun").run_command()
 end)
 
 -- Make an easier redo mapping
@@ -144,35 +144,35 @@ map("n", "<Leader>hf", ":NvimTreeFindFile<CR>")
 -- telescope
 -- vim.keymap.set('n', '<Leader>f', function() require("plugins.configs.telescope").find_all_files() end)
 map("n", "<Leader>f", function()
-  require("telescope.builtin").find_files()
+	require("telescope.builtin").find_files()
 end)
 
 map("n", "<Leader>b", function()
-  require("telescope.builtin").oldfiles()
+	require("telescope.builtin").oldfiles()
 end)
 
 map("n", "<Leader>ps", function()
-  require("telescope.builtin").live_grep()
+	require("telescope.builtin").live_grep()
 end)
 
 map("n", "<Leader>pc", function()
-  require("telescope.builtin").grep_string()
+	require("telescope.builtin").grep_string()
 end)
 
 map("n", "<Leader>pf", function()
-  require("telescope.builtin").live_grep { grep_open_files = true }
+	require("telescope.builtin").live_grep({ grep_open_files = true })
 end)
 
 map("n", "<Leader>gb", function()
-  require("plugins.configs.telescope").git_branches()
+	require("plugins.configs.telescope").git_branches()
 end)
 
 map("n", "<Leader>ca", function()
-  require("plugins.configs.telescope").lsp_code_actions()
+	require("plugins.configs.telescope").lsp_code_actions()
 end)
 
 map("n", "<F1>", function()
-  require("telescope.builtin").help_tags()
+	require("telescope.builtin").help_tags()
 end)
 
 -- undotree

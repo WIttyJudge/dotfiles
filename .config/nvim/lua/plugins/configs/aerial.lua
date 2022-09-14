@@ -2,7 +2,7 @@
 local present, aerial = pcall(require, "aerial")
 
 if not present then
-  return
+	return
 end
 
 aerial.setup()

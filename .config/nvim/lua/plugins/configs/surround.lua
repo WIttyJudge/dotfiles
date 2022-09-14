@@ -2,11 +2,11 @@
 local present, surround = pcall(require, "surround")
 
 if not present then
-  return
+	return
 end
 
 local config = {
-  context_offset = 500,
+	context_offset = 500,
 }
 
 surround.setup(config)
