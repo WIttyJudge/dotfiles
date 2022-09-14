@@ -33,6 +33,9 @@ TRUE,,flameshot,Powerful yet simple to use screenshot software.
 ,,wget,user-friendly command-line HTTP client for the API era.
 ,,ripgrep,A search tool that combines the usability of ag with the raw speed of grep.
 ,,fd,Fast and user-friendly alternative to find.
+,,fx,Terminal JSON viewer.
+,AUR,jiq-bin,jq but interactive.
+,,jq,Command-line JSON processor.
 ,,neovim,Fork of Vim aiming to improve user experience with plugins.
 ,,nodejs,Evented I/O for V8 javascript.
 ,,npm,A package manager for javascript.
@@ -43,7 +46,8 @@ TRUE,AUR,pfetch,A pretty system information tool written in POSIX sh.
 ,AUR,htop-vim-git,Fork of htop with vim bindings support.
 ,,dunst,Customizable and lightweight notification-daemon.
 ,AUR,nsxiv,Neo (or New or Not) Simple (or Small or Suckless) X Image Viewer.
-,,ncdu,Disk usage analyzer with an ncurses interface.
+TRUE,,ncdu,Disk usage analyzer with an ncurses interface.
+,,gdu,Fast disk usage analyzer.
 ,AUR,hardinfo-git,A small application that displays information about your hardware and operating system.
 ,,libreoffice-still,The office productivity suite compatible to the open and standardized ODF document format.
 ,,pass,Simple console-based password manager featuring flat text file organization and GnuPG encryption.

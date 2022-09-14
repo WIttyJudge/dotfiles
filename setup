@@ -2,7 +2,7 @@
 
 ### OPTIONS AND VARIABLES ###
 
-dotfiles_path="${DOTFILES:-$HOME/dotfiles}"
+dotfiles_path="$(pwd)"
 config_path="${XDG_CONFIG_HOME:-$HOME/.config}"
 
 GREEN=$(tput setaf 2)
@@ -25,6 +25,7 @@ config_directory=(
   calcurse
   dunst
   git
+  htop
   gitui
   # i3
   lf
