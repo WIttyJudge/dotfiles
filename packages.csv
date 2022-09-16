@@ -43,7 +43,7 @@ TRUE,,flameshot,Powerful yet simple to use screenshot software.
 ,,docker,Pack ship and run any application as a lightweight container.
 ,,docker-compose,Fast and isolated development environments using Docker.
 TRUE,AUR,pfetch,A pretty system information tool written in POSIX sh.
-,AUR,htop-vim-git,Fork of htop with vim bindings support.
+,AUR,htop-vim,Fork of htop with vim bindings support.
 ,,dunst,Customizable and lightweight notification-daemon.
 ,AUR,nsxiv,Neo (or New or Not) Simple (or Small or Suckless) X Image Viewer.
 TRUE,,ncdu,Disk usage analyzer with an ncurses interface.
