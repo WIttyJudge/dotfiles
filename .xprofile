@@ -7,7 +7,7 @@
 setbg &
 
 # Theme configuration file
-xrdb -merge ~/.Xresources & 
+xrdb ~/.Xresources & 
 
 xset r rate 250 40 & # Speed xrate up
 
