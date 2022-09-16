@@ -28,21 +28,23 @@ stty stop undef
 
 # History settings {{{
 
-setopt INC_APPEND_HISTORY   # Immediately append commands to history file.
-setopt EXTENDED_HISTORY     # save each command beginning timestamp and the duration to the history file
-
-setopt HIST_IGNORE_ALL_DUPS # Never add duplicate entries.
-setopt HIST_IGNORE_SPACE    # Ignore commands that start with a space.
-setopt HIST_FIND_NO_DUPS    # Prevent showing duplicated in find (CTRL-R)
-setopt HIST_SAVE_NO_DUPS
-setopt HIST_REDUCE_BLANKS   # Remove unnecessary blank lines.
-# Remove duplicated commands when $HISTSIZE will be reached
-setopt HIST_EXPIRE_DUPS_FIRST
-
-export HIST_STAMPS="mm/dd/yyyy"
-export HISTSIZE=10000000
+export HISTSIZE=20000
 export SAVEHIST=$HISTSIZE
 export HISTFILE="${XDG_CACHE_HOME}/zsh/history"
+
+setopt APPEND_HISTORY   # Immediately append commands to history file.
+setopt SHARE_HISTORY
+setopt INC_APPEND_HISTORY   # Immediately append commands to history file.
+
+# setopt HIST_IGNORE_ALL_DUPS # Never add duplicate entries.
+setopt HIST_IGNORE_SPACE    # Ignore commands that start with a space.
+setopt HIST_FIND_NO_DUPS
+# HISTORY_IGNORE="(yt* *|t *|t|sdcv *|mmfileget *|arr)"
+
+setopt GLOB_STAR_SHORT GLOB_DOTS EXTENDED_GLOB
+
+# The number of matches to list without asking first.
+export LISTMAX=9999
 
 # END History }}}
 
@@ -54,6 +56,9 @@ fi
 # Load aliases
 [ -f "$XDG_CONFIG_HOME/shell/aliases" ] && source "$XDG_CONFIG_HOME/shell/aliases"
 [ -f "$XDG_CONFIG_HOME/shell/aliase-functions" ] && source "$XDG_CONFIG_HOME/shell/aliase-functions"
+
+# Load ASDF completions
+fpath=(${ASDF_DIR}/completions $fpath)
 
 # Basic auto/tab complete:
 autoload -U compinit && compinit

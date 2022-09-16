@@ -40,11 +40,10 @@ export CARGO_HOME="$XDG_DATA_HOME/cargo"
 export BUNDLE_USER_CACHE="$XDG_CACHE_HOME/bundle"
 
 # Ruby
-export GEM_HOME="$XDG_DATE_HOME/gem"
+export GEM_HOME="$XDG_DATA_HOME/gem"
 export GEM_SPEC_CACHE="$XDG_CACHE_HOME/gem"
 export SOLARGRAPH_CACHE="$XDG_CACHE_HOME/solargraph"
 export PATH="$PATH:$HOME/.rvm/bin"
-export RBENV_ROOT="$XDG_CACHE_HOME/rbenv"
 
 # Tmux / tpm
 export TMUX_PLUGIN_MANAGER_PATH="$XDG_CONFIG_HOME/tmux/plugins/"
