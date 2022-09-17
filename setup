@@ -16,6 +16,7 @@ home_directory=(
   .xprofile
   .Xresources
   .zprofile
+  asdfrc
 )
 
 # List for ~/.config folder
