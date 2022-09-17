@@ -14,6 +14,9 @@ local config = {
 		changedelete = { hl = "GitSignsChangeDelete", text = "~", numhl = "GitSignsChangeNr" },
 	},
 	-- hightlight numbers
+  current_line_blame_opts = {
+    delay = 400,
+  },
 	keymaps = {
 		-- Default keymap options
 		noremap = true,
