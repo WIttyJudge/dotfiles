@@ -2,7 +2,7 @@
 local present, numb = pcall(require, "numb")
 
 if not present then
-	return
+  return
 end
 
 numb.setup()

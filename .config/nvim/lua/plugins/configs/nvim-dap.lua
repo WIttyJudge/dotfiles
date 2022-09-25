@@ -2,7 +2,7 @@
 local present, dap = pcall(require, "dap")
 
 if not present then
-	return
+  return
 end
 
 local map = require("internal.utils").map
@@ -29,43 +29,43 @@ map("n", "<Leader>dr", ':lua require("dap").repl.toggle()<CR>')
 
 -- Define commands
 local commands_list = {
-	[[ command! BreakpointToggle :lua require('dap').toggle_breakpoint() ]],
+  [[ command! BreakpointToggle :lua require('dap').toggle_breakpoint() ]],
 
-	[[ command! DapREPL :lua require('dap').repl.toggle() ]],
-	[[ command! DapStart :lua require('plugins-config.nvim-dap').run() ]],
-	[[ command! DapClose :lua require('plugins-config.nvim-dap').close() ]],
+  [[ command! DapREPL :lua require('dap').repl.toggle() ]],
+  [[ command! DapStart :lua require('plugins-config.nvim-dap').run() ]],
+  [[ command! DapClose :lua require('plugins-config.nvim-dap').close() ]],
 }
 define_commands(commands_list)
 
 -- ADAPTERS
 dap.adapters.go = {
-	type = "executable",
-	command = "node",
-	args = { os.getenv("HOME") .. "/apps/vscode-go/dist/debugAdapter.js" },
+  type = "executable",
+  command = "node",
+  args = { os.getenv "HOME" .. "/apps/vscode-go/dist/debugAdapter.js" },
 }
 dap.configurations.go = {
-	{
-		type = "go",
-		name = "Debug",
-		request = "launch",
-		showLog = false,
-		program = "${file}",
-		dlvToolPath = vim.fn.exepath("dlv"),
-	},
+  {
+    type = "go",
+    name = "Debug",
+    request = "launch",
+    showLog = false,
+    program = "${file}",
+    dlvToolPath = vim.fn.exepath "dlv",
+  },
 }
 
 local M = {}
 
 function M.run()
-	require("dapui").open()
-	dap.continue()
+  require("dapui").open()
+  dap.continue()
 end
 
 function M.close()
-	-- dap.disconnect()
-	dap.close()
-	dap.repl.close()
-	require("dapui").close()
+  -- dap.disconnect()
+  dap.close()
+  dap.repl.close()
+  require("dapui").close()
 end
 
 return M

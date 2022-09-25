@@ -2,12 +2,12 @@
 local present, focus = pcall(require, "focus")
 
 if not present then
-	return
+  return
 end
 
 local config = {
-	enabled = true,
-	signcolumn = false,
+  enabled = true,
+  signcolumn = false,
 }
 
 focus.setup(config)

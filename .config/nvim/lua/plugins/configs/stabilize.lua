@@ -2,17 +2,17 @@
 local present, stabilize = pcall(require, "stabilize")
 
 if not present then
-	return
+  return
 end
 
 local config = {
-	force = true,
-	forcemark = nil,
-	ignore = {
-		filetype = { "help", "list", "Trouble", "fugitive" },
-		buftype = { "terminal", "quickfix", "loclist" },
-	},
-	nested = nil,
+  force = true,
+  forcemark = nil,
+  ignore = {
+    filetype = { "help", "list", "Trouble", "fugitive" },
+    buftype = { "terminal", "quickfix", "loclist" },
+  },
+  nested = nil,
 }
 
 stabilize.setup(config)

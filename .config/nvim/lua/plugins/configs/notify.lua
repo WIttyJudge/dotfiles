@@ -2,42 +2,42 @@
 local present, notify = pcall(require, "notify")
 
 if not present then
-	return
+  return
 end
 
-local icons = require("internal.icons")
+local icons = require "internal.icons"
 
 local config = {
-	-- Animation style (see below for details)
-	stages = "fade",
+  -- Animation style (see below for details)
+  stages = "fade",
 
-	-- Function called when a new window is opened, use for changing win settings/config
-	on_open = nil,
+  -- Function called when a new window is opened, use for changing win settings/config
+  on_open = nil,
 
-	-- Function called when a window is closed
-	on_close = nil,
+  -- Function called when a window is closed
+  on_close = nil,
 
-	-- Render function for notifications. See notify-render()
-	render = "default",
+  -- Render function for notifications. See notify-render()
+  render = "default",
 
-	-- Default timeout for notifications
-	timeout = 2000,
+  -- Default timeout for notifications
+  timeout = 2000,
 
-	-- For stages that change opacity this is treated as the highlight behind the window
-	-- Set this to either a highlight group or an RGB hex value e.g. "#000000"
-	background_colour = "Normal",
+  -- For stages that change opacity this is treated as the highlight behind the window
+  -- Set this to either a highlight group or an RGB hex value e.g. "#000000"
+  background_colour = "Normal",
 
-	-- Minimum width for notification windows
-	minimum_width = 50,
+  -- Minimum width for notification windows
+  minimum_width = 50,
 
-	-- Icons for the different levels
-	icons = {
-		ERROR = icons.error,
-		WARN = icons.warn,
-		INFO = icons.info,
-		DEBUG = icons.ui.Bug,
-		TRACE = icons.ui.Pencil,
-	},
+  -- Icons for the different levels
+  icons = {
+    ERROR = icons.error,
+    WARN = icons.warn,
+    INFO = icons.info,
+    DEBUG = icons.ui.Bug,
+    TRACE = icons.ui.Pencil,
+  },
 }
 
 notify.setup(config)
