@@ -10,13 +10,13 @@ NORMAL=$(tput sgr0)
 
 # List that should be inside ~/ directory
 home_directory=(
+  .asdfrc
   .bashrc
   .profile
   .xinitrc
   .xprofile
   .Xresources
   .zprofile
-  asdfrc
 )
 
 # List for ~/.config folder

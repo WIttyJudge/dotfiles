@@ -30,7 +30,7 @@ TRUE,,flameshot,Powerful yet simple to use screenshot software.
 ,AUR,nerd-fonts-complete-mono-glyphs,Iconic font aggregator 3.600+ icons and 50+ patched fonts (Mono glyphs only).
 ,,noto-fonts,Google Noto TTF fonts.
 ,,httpie,user-friendly command-line HTTP client for the API era.
-,,wget,user-friendly command-line HTTP client for the API era.
+,,wget,Network utility to retrieve files from the Web.
 ,,ripgrep,A search tool that combines the usability of ag with the raw speed of grep.
 ,,fd,Fast and user-friendly alternative to find.
 ,,fx,Terminal JSON viewer.
