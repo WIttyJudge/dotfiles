@@ -87,6 +87,7 @@ TRUE,,rofi-pass,Bash script to handle pass storages in a convenient way.
 ,,calcurse,A text-based personal organizer.
 ,AUR,libxft-bgra-git,libXft with BGRA glyph (color emoji) rendering.
 ,,dnsutils,Bunch of utils like nslookup and so on.
+,,alsa-utils,Bunch of useful utils especially for testing microphone, sound, etc.
 ,,tmux,A terminal multiplexer.
 ,,mediainfo,Shows audio and video information.
 ,,man-db,Read man pages of programs.
