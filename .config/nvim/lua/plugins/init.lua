@@ -152,7 +152,7 @@ return packer.startup(function(use)
     config = require "plugins.configs.todo-comments",
   }
   use {
-    "norcalli/nvim-colorizer.lua",
+    "NvChad/nvim-colorizer.lua",
     config = require "plugins.configs.nvim-colorizer",
   }
   use {
