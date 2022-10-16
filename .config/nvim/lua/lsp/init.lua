@@ -13,8 +13,6 @@ local servers = require "lsp.servers"
 
 require("lsp.handlers").setup()
 
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-
 -- Enable completion triggered by <c-x><c-o>
 -- vim.cmd('setlocal omnifunc=v:lua.vim.lsp.omnifunc')
 
@@ -32,7 +30,7 @@ local function setup_server(server_name, config)
       on_attach.on_attach()
     end,
     -- capabilities = capabilities,
-    capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities),
+    capabilities = require('cmp_nvim_lsp').default_capabilities(),
     flags = {
       debounce_text_changes = 50,
     },

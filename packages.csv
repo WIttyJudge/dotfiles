@@ -93,3 +93,5 @@ TRUE,,rofi-pass,Bash script to handle pass storages in a convenient way.
 ,,man-db,Read man pages of programs.
 ,,transmission-cli,Light-weight and cross-platform BitTorrent client.
 ,AUR,simple-mtpfs,A FUSE filesystem that supports reading/writing from MTP devices.
+,AUR,stylua-bin,Formatter for lua.
+,AUR,prettier,Formatter for lua.

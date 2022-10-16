@@ -64,14 +64,13 @@ return packer.startup(function(use)
     "folke/trouble.nvim",
     config = require "plugins.configs.trouble",
   }
-  -- use "liuchengxu/vista.vim"
+  use {
+    "RRethy/vim-illuminate",
+    config = require "plugins.configs.vim-illuminate"
+  }
   use {
     "j-hui/fidget.nvim",
     config = require "plugins.configs.fidget",
-  }
-  use {
-    "ray-x/lsp_signature.nvim",
-    config = require "plugins.configs.lsp_signature",
   }
 
   -- load luasnips + cmp related in insert mode onlynvim/plugins
