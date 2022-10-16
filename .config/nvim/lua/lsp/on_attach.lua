@@ -1,10 +1,9 @@
-local M = {}
-
 local map = require("internal.utils").map
 
-function M.on_attach()
+function on_attach(client, bufnr)
   map("n", "gd", function()
-    vim.lsp.buf.definition()
+    -- vim.lsp.buf.definition()
+    require("telescope.builtin").lsp_definitions()
   end)
 
   map("n", "gr", function()
@@ -32,4 +31,4 @@ function M.on_attach()
   end)
 end
 
-return M
+return on_attach

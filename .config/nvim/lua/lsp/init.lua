@@ -26,14 +26,8 @@ local function setup_server(server_name, config)
   end
 
   config = vim.tbl_deep_extend("force", {
-    on_attach = function(client, bufnr)
-      on_attach.on_attach()
-    end,
-    -- capabilities = capabilities,
-    capabilities = require('cmp_nvim_lsp').default_capabilities(),
-    flags = {
-      debounce_text_changes = 50,
-    },
+    on_attach = on_attach,
+    capabilities = require("cmp_nvim_lsp").default_capabilities(),
   }, config)
 
   lspconfig[server_name].setup(config)
