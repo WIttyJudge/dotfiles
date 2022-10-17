@@ -2,7 +2,12 @@
 
 ### OPTIONS AND VARIABLES ###
 
-dotfiles_path="$(pwd)"
+dotfiles_path="$(
+    cd "$(dirname "$0")"
+    pwd
+)"
+cd "$dotfiles_path"
+
 config_path="${XDG_CONFIG_HOME:-$HOME/.config}"
 
 GREEN=$(tput setaf 2)
@@ -71,33 +76,14 @@ create_folders() {
   [ ! -d $HOME/.config ] && mkdir -vp $HOME/.config
 }
 
-
 ### SCRIPT EXECUTION ###
-
-while [[ $# -gt 0 ]]; do
-  case $1 in
-    --noconfirm)
-      NOCONFIRM=true
-      shift # past argument
-      shift # past value
-      ;;
-    -*|--* |*)
-      echo "Unknown option $1"
-      exit 1
-      ;;
-  esac
-done
 
 # Output brief information before running the script
 echo "///////////////////////////////////////////////////////////////////////"
 echo -e "///////////////////// ${GREEN}Created by Witty Judge${NORMAL} //////////////////////////"
 echo -e "//////////// https://github.com/WIttyJudge/dotfiles ///////////////"
-echo "///////////////////// Dotfile Setup /////////////////////////"
+echo "///////////////////// Dotfile Setup ////////////////////////////"
 echo "///////////////////////////////////////////////////////////////////////"
-
-if ! [ $NOCONFIRM ]; then
-  read -n 1 -r -s -p $'//////////////////// Press any key to continue ////////////////////////\n\n'
-fi
 
 create_folders
 
