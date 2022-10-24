@@ -156,6 +156,9 @@ require("telescope").load_extension "fzf"
 -- https://github.com/LinArcX/telescope-command-palette.nvim
 require("telescope").load_extension "command_palette"
 
+-- https://github.com/princejoogie/dir-telescope.nvim
+require("telescope").load_extension("dir")
+
 -- CUSTOM FUNCTIONS
 local M = {}
 

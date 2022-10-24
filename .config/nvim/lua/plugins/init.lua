@@ -88,6 +88,7 @@ return packer.startup(function(use)
       "hrsh7th/cmp-path",
       "saadparwaiz1/cmp_luasnip",
       "hrsh7th/cmp-cmdline",
+      "amarakon/nvim-cmp-buffer-lines"
     },
     config = require "plugins.configs.cmp",
   }
