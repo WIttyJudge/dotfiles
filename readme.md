@@ -1,8 +1,14 @@
 ![Dotfiles](github-assets/dotfiles-logo.png)
 
-Repository dedicated to my configuration files of my Desktop environment, with the purpose of backup and sharing.
+I manage my dotfiles currently for Arch Linux machine.
+[The XDG Base Directory Specification](https://wiki.archlinux.org/title/XDG_Base_Directory) was followed as much as possible.
 
-## Description
+## Tools I use a lot
+
+List of all tools I install by default on any Arch Linux machines could be found in the [packages.csv](https://github.com/WIttyJudge/dotfiles/blob/master/packages.csv) file.
+I have an ansible script which iterates over this file, therefore then installs all the tools.
+
+## Configs list
 
 (\*) - Tools I use.
 
@@ -16,40 +22,29 @@ Repository dedicated to my configuration files of my Desktop environment, with t
 | Status Bar              | [dwmblocks](https://github.com/WIttyJudge/suckless-tools) (\*) / [polybar](https://github.com/polybar/polybar)                                                                        |
 | Screenshot Tool         | [Custom script](https://github.com/WIttyJudge/dotfiles/blob/master/scripts/.local/bin/make-screenshot)                                                                                |
 | System Information Tool | [Custom script](https://github.com/WIttyJudge/dotfiles/blob/master/scripts/.local/bin/ufetch)                                                                                         |
-| Terminal                | [alacritty](https://github.com/alacritty/alacritty) (\*) / [urxvt](https://wiki.archlinux.org/index.php/rxvt-unicode) / [terminator](https://wiki.archlinux.org/index.php/Terminator) |
+| Terminal                | [alacritty](https://github.com/alacritty/alacritty) (\*) / [urxvt](https://wiki.archlinux.org/index.php/rxvt-unicode)
 | Text Editor             | [neovim](https://github.com/neovim/neovim)                                                                                                                                            |
 | Window Manager          | [dwm](https://github.com/WIttyJudge/suckless-tools) (\*) / [i3](https://wiki.archlinux.org/index.php/i3)                                                                              |
+| Terminal Multiplexer          | [tmux](https://github.com/tmux/tmux/wiki)                                                                            |
 
 All configs will be symlinked to `~/.config/` folder.
-Useful scripts stored in `scripts` folder and symlinked to `~/.local/bin` folder.
+Useful scripts stored in `~/.local/bin` folder and symlinked to `~/.local/bin` folder.
 Environment variables have been set in `.zprofile` file.
 
-## Requirement
+## Setup
 
-I used [GNU Stow](https://www.gnu.org/software/stow) for creating
-a symlinks to files.
-
-Install stow and git with the package manager your linux uses.
-
-Ubuntu:
+Everything for you need to do is just to execute the setup script.
+It only loop thought the all config files and symlink them.
 
 ```
-$ sudo apt install -y stow git
+bash setup
 ```
 
-Arch Linux:
+## Screenshots 
 
-```
-$ sudo pacman -S stow git
-```
+..
 
-etc..
+## Notes
+- The ~/.zprofile file MUST be in the $HOME directory, however, the rest of the zsh config files live in ~/.config/zsh/.
+- I highly recommend you do not straight up copy these dotfiles. If you want to use them, read through them and understand how they work. Then take the parts of them that are relevant to your workflow.
 
-## Install
-
-```
-$ git clone https://github.com/WIttyJudge/dotfiles ~/ && cd ~/dotfiles
-$ bash setup.sh
-```
-
-After this, restart session.

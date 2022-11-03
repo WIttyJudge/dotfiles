@@ -72,8 +72,6 @@ create_folders() {
   do
     [ ! -d $HOME/$i ] && mkdir -vp $HOME/$i
   done
-
-  [ ! -d $HOME/.config ] && mkdir -vp $HOME/.config
 }
 
 ### SCRIPT EXECUTION ###
