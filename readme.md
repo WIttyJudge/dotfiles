@@ -36,8 +36,9 @@ Environment variables have been set in `.zprofile` file.
 Everything for you need to do is just to execute the setup script.
 It only loop thought the all config files and symlink them.
 
-```
-bash setup
+```bash
+~/dotfiles
+$ bash setup
 ```
 
 ## Screenshots 
