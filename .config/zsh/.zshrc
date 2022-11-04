@@ -5,7 +5,7 @@
 # /___|___/_| |_|_|  \___|
 #
 
-command -v colorscript >/dev/null 2>&1 && colorscript exec monster
+command -v colorscript >/dev/null 2>&1 && colorscript exec crunch
 
 # source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 
