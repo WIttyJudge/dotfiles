@@ -8,6 +8,7 @@ end
 local config = {
   filetypes_denylist = {
     "dirvish",
+    "alpha",
     "fugitive",
     "NvimTree",
     "TelescopePrompt",

@@ -1,4 +1,5 @@
--- https://github.com/norcalli/nvim-colorizer.lua
+-- https://github.com/NvChad/nvim-colorizer.lua
+
 local present, colorizer = pcall(require, "colorizer")
 
 if not present then

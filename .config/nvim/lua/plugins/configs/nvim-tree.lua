@@ -9,38 +9,37 @@ end
 local icons = require "internal.icons"
 
 -- custom mappings
-local tree_cb = require("nvim-tree.config").nvim_tree_callback
 local list = {
-  { key = { "<CR>", "l", "<2-LeftMouse>" }, cb = tree_cb "edit" },
-  { key = "v", cb = tree_cb "vsplit" },
-  { key = "b", cb = tree_cb "split" },
-  { key = "t", cb = tree_cb "tabnew" },
-  { key = "dd", cb = tree_cb "remove" },
-  { key = "?", cb = tree_cb "toggle_help" }, -- Press Enter
-  { key = { "<CR>" }, cb = tree_cb "cd" },
-  { key = "h", cb = tree_cb "close_node" }, -- default mappings
-  { key = "<", cb = tree_cb "prev_sibling" },
-  { key = ">", cb = tree_cb "next_sibling" },
-  { key = "P", cb = tree_cb "parent_node" },
-  { key = "<Tab>", cb = tree_cb "preview" },
-  { key = "K", cb = tree_cb "first_sibling" },
-  { key = "J", cb = tree_cb "last_sibling" },
-  { key = "I", cb = tree_cb "toggle_ignored" },
-  { key = "H", cb = tree_cb "toggle_dotfiles" },
-  { key = "R", cb = tree_cb "refresh" },
-  { key = "a", cb = tree_cb "create" },
-  { key = "r", cb = tree_cb "rename" },
-  { key = "<C->", cb = tree_cb "full_rename" },
-  { key = "x", cb = tree_cb "cut" },
-  { key = "c", cb = tree_cb "copy" },
-  { key = "p", cb = tree_cb "paste" },
-  { key = "y", cb = tree_cb "copy_name" },
-  { key = "Y", cb = tree_cb "copy_path" },
-  { key = "gy", cb = tree_cb "copy_absolute_path" },
-  { key = "[c", cb = tree_cb "prev_git_item" },
-  { key = "}c", cb = tree_cb "next_git_item" },
-  { key = "-", cb = tree_cb "dir_up" },
-  { key = "q", cb = tree_cb "close" },
+  { key = { "<CR>", "l", "<2-LeftMouse>" }, action = "edit" },
+  { key = "v", action = "vsplit" },
+  { key = "b", action = "split" },
+  { key = "t", action = "tabnew" },
+  { key = "dd", action = "remove" },
+  { key = "?", action = "toggle_help" }, -- Press Enter
+  { key = { "<CR>" }, action = "cd" },
+  { key = "h", action = "close_node" }, -- default mappings
+  { key = "<", action = "prev_sibling" },
+  { key = ">", action = "next_sibling" },
+  { key = "P", action = "parent_node" },
+  { key = "<Tab>", action = "preview" },
+  { key = "K", action = "first_sibling" },
+  { key = "J", action = "last_sibling" },
+  { key = "I", action = "toggle_ignored" },
+  { key = "H", action = "toggle_dotfiles" },
+  { key = "R", action = "refresh" },
+  { key = "a", action = "create" },
+  { key = "r", action = "rename" },
+  { key = "<C->", action = "full_rename" },
+  { key = "x", action = "cut" },
+  { key = "c", action = "copy" },
+  { key = "p", action = "paste" },
+  { key = "y", action = "copy_name" },
+  { key = "Y", action = "copy_path" },
+  { key = "gy", action = "copy_absolute_path" },
+  { key = "[c", action = "prev_git_item" },
+  { key = "}c", action = "next_git_item" },
+  { key = "-", action = "dir_up" },
+  { key = "q", action = "close" },
 }
 
 local config = {
