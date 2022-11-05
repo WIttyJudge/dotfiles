@@ -3,7 +3,7 @@ local present, packer = pcall(require, "packer")
 -- Install packer  if it is not already installed.
 if not present then
   local fn = vim.fn
-  local packer_path = fn.stdpath "data" .. "/site/pack/packer/start/packer.nvim"
+  local install_path = fn.stdpath "data" .. "/site/pack/packer/start/packer.nvim"
 
   print "Cloning packer.."
 
@@ -23,7 +23,7 @@ if not present then
   if present then
     print "Packer cloned successfully."
   else
-    error("Couldn't clone packer !\nPacker path: " .. packer_path .. "\n" .. packer)
+    error("Couldn't clone packer !\nPacker path: " .. install_path .. "\n" .. packer)
   end
 end
 
@@ -184,8 +184,8 @@ return packer.startup(function(use)
   }
 
   -- Colorscheme
-  -- use "sainnhe/gruvbox-material"
-  use "WIttyJudge/gruvbox-material.nvim"
+  use "sainnhe/gruvbox-material"
+  -- use "WIttyJudge/gruvbox-material.nvim"
 
   -- Looking for files, etc..
   use {
@@ -194,6 +194,7 @@ return packer.startup(function(use)
       "nvim-lua/popup.nvim",
       "nvim-lua/plenary.nvim",
       "LinArcX/telescope-command-palette.nvim",
+      "princejoogie/dir-telescope.nvim",
       {
         "nvim-telescope/telescope-fzf-native.nvim",
         run = "make",

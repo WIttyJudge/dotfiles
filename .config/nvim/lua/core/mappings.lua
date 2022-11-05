@@ -83,6 +83,7 @@ map("v", "y", "ygv<Esc>")
 
 -- Disable copy while deleting
 map({ "n", "x" }, "d", '"_d')
+map("n", "dw", 'vb"_d')
 map("n", "D", '"_D')
 map("n", "x", '"_x')
 map("x", "p", '"_dP')
@@ -92,6 +93,8 @@ map("n", "<C-e>", "3<C-e>")
 map("n", "<C-y>", "3<C-y>")
 
 -- Better tabbing
+map("n", ">", ">>")
+map("n", "<", "<<")
 map("v", ">", ">gv")
 map("v", "<", "<gv")
 
@@ -194,6 +197,6 @@ map("c", "e!!", "e suda://%", { silent = false })
 map("c", "w!!", "w suda://%", { silent = false })
 
 -- hop.nvim
-map("n", "f", "<CMD>HopChar1<CR>")
+map("n", "f", "<CMD>HopChar2<CR>")
 
 -- map('n', '<Leader>mz', ":FocusMaximise<CR>")
