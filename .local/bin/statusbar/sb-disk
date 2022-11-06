@@ -4,16 +4,17 @@ location=${1:-/}
 
 [ ! -d "$location" ] && exit
 
+case $BLOCK_BUTTON in
+	1) notify-send "💽 Disk space" "$(df -h --output=target,used,size)" ;;
+  2) setsid -f "$TERMINAL" -e gdu ~/ >/dev/null 2>&1 ;;
+  3) notify-send "${icon} Disk module" "\- Middle click to open ncdu disk analyzer." ;;
+esac
+
 # Set icon
 case "$location" in
   "/home"*) icon="🏠" ;;
   "/mnt"*) icon="💾" ;;
   *) icon="💾" ;;
-esac
-
-case $BLOCK_BUTTON in
-  2) setsid -f "$TERMINAL" -e ncdu ;;
-  3) notify-send "${icon} Disk module" "\- Middle click to open ncdu disk analyzer." ;;
 esac
 
 used_hdd="$(df -h | awk 'NR==4{print $3}' | sed 's/G//g')"

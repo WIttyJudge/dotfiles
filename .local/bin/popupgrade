@@ -1,0 +1,9 @@
+#!/bin/sh
+
+printf "Beginning upgrade.\\n"
+
+sudo pacman -Syu
+pkill -RTMIN+5 dwmblocks
+
+printf "\\nUpgrade complete.\\nPress <Enter> to exit window.\\n\\n"
+read -r _

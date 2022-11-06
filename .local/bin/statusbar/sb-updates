@@ -5,17 +5,16 @@
 command="checkupdates"
 
 case $BLOCK_BUTTON in
-	1) notify-send "🎁 Upgrade module" "📦 : number of upgradable packages
+	2) setsid -f "$TERMINAL" -e popupgrade ;;
+	3) notify-send "🎁 Upgrade module" "📦 : number of upgradable packages
 - Right click to upgrade packages
 - Middle click to show upgradable packages" ;;
-  3)
 esac
 
 ifcommand $command || exit
 
-updatesarch="$($command 2> /dev/null | wc -l)"
-updatesaur="$(yay -Qum 2> /dev/null | wc -l)"
-updates=$(("$updatesarch" + "$updatesaur"))
+updates=$(pacman -Qu | grep -Fcv "[ignored]")
 icon="📦"
 
 printf "%s %s"  "$icon" "$updates"
+
