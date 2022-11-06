@@ -18,7 +18,7 @@ super + shift + q
       sysact
 
 XF86Audio{Mute,LowerVolume,RaiseVolume}
-    changevolume {mute, down, up}; pkill -RTMIN+10 dwmblocks 
+    changevolume {toggle, down, up}; pkill -RTMIN+10 dwmblocks 
 
 /* Brightness volumes */
 {XF86MonBrightnessDown, XF86MonBrightnessUp}
