@@ -6,7 +6,7 @@
 # 1. environment variables to configure tools (flags for compilation, data folder location, etc.)
 # 2. configuration which execute commands (like SCONSFLAGS="--jobs=$(( $(nproc) - 1 ))") as it may take some time to execute.
 
-# Adds `~/.local/bin` to $PATH
+# Adds `~/.local/bin` and all subdirs to $PATH
 export PATH="$PATH:${$(find ~/.local/bin -type d -printf %p:)%%:}"
 
 unsetopt PROMPT_SP
@@ -14,12 +14,16 @@ unsetopt PROMPT_SP
 # Default variables
 export EDITOR="nvim"
 export TERMINAL="st"
-export DOTFILES="$HOME/dotfiles"
+export WM="dwm"
+export READER="zathura"
 export BROWSER="firefox"
+export MANPAGER="nvim +Man!"
+export AURHELPER="yay"
+export DOTFILES="$HOME/dotfiles"
 export DEV_HOME="$HOME/projects"
+# export SUDO_ASKPASS="$HOME/.local/bin/scripts/dmenupass"
 
-# This specification defines where these files should be looked for by defining
-# one or more base directories relative to which files should be located.
+# XDG Base Directory locations
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_CACHE_HOME="$HOME/.cache"
@@ -37,7 +41,6 @@ export PATH=$PATH:$GOPATH/bin
 
 # Rust / Cargo
 export CARGO_HOME="$XDG_DATA_HOME/cargo"
-export BUNDLE_USER_CACHE="$XDG_CACHE_HOME/bundle"
 
 # Ruby
 export GEM_HOME="$XDG_DATA_HOME/gem"
@@ -57,22 +60,22 @@ export PSQL_HISTORY="$XDG_DATA_HOME/psql_history"
 # Redis
 export REDISCLI_HISTFILE="$XDG_DATA_HOME/rediscli_history"
 
+# sqlite
+export SQLITE_HISTORY="${XDG_DATA_HOME:-$HOME/.local/share}/sqlite_history"
+
 # zsh + tools
 export ZDOTDIR="$XDG_CONFIG_HOME/zsh" # Change default folder of zsh config.
 export ZINIT_HOME="$XDG_DATA_HOME/zinit/zinit.git"
 export ZIM_HOME="$XDG_DATA_HOME/zim"
 
-# Use 'bat' as manpager
-# export MANPAGER="sh -c 'col -bx | bat -l man -p'"
-# nvim as manpager
-export MANPAGER="nvim +Man!"
+# Wget
+export WGETRC="${XDG_CONFIG_HOME:-$HOME/.config}/wget/wgetrc"
 
 # FZF
-export FZF_DEFAULT_OPTS="--height 40% --layout=reverse --cycle"
-# export FZF_DEFAULT_COMMAND='rg --files --hidden --follow -g "!{.git,node_modules}/*" 2> /dev/null'
+export FZF_DEFAULT_OPTS="--height 50% --layout=reverse --cycle --border"
 
 # security
-#export GPG_TTY=$(tty)
+export GPG_TTY=$(tty)
 
 # Fixing misbehaving Java applications
 export AWT_TOOLKIT="MToolkit wmname LG3D" # May have to install wmname
