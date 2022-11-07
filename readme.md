@@ -25,7 +25,7 @@ I have an ansible script which iterates over this file, therefore then installs 
 | Terminal                | [alacritty](https://github.com/alacritty/alacritty) (\*) / [urxvt](https://wiki.archlinux.org/index.php/rxvt-unicode)
 | Text Editor             | [neovim](https://github.com/neovim/neovim)                                                                                                                                            |
 | Window Manager          | [dwm](https://github.com/WIttyJudge/suckless-tools) (\*) / [i3](https://wiki.archlinux.org/index.php/i3)                                                                              |
-| Terminal Multiplexer          | [tmux](https://github.com/tmux/tmux/wiki)                                                                            |
+| Terminal Multiplexer    | [tmux](https://github.com/tmux/tmux/wiki)                                                                            |
 
 All configs will be symlinked to `~/.config/` folder.
 Useful scripts stored in `~/.local/bin` folder and symlinked to `~/.local/bin` folder.
@@ -33,8 +33,8 @@ Environment variables have been set in `.zprofile` file.
 
 ## Setup
 
-Everything for you need to do is just to execute the setup script.
-It only loop thought the all config files and symlink them.
+Everything you need to do is just to execute the setup script.
+It only loops through all the config files and symlinks them.
 
 ```bash
 ~/dotfiles
@@ -47,5 +47,5 @@ $ bash setup
 
 ## Notes
 - The ~/.zprofile file MUST be in the $HOME directory, however, the rest of the zsh config files live in ~/.config/zsh/.
-- I highly recommend you do not straight up copy these dotfiles. If you want to use them, read through them and understand how they work. Then take the parts of them that are relevant to your workflow.
+- I highly recommend you do not copy these dotfiles. If you want to use them, read through them and understand how they work. Then take the parts of them that are relevant to your workflow.
 
