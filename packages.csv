@@ -36,6 +36,7 @@ TRUE,,flameshot,Powerful yet simple to use screenshot software.
 ,,fx,Terminal JSON viewer.
 ,AUR,jiq-bin,jq but interactive.
 ,,jq,Command-line JSON processor.
+,,screenkey,Tool that displays keys you are pressing.
 ,,neovim,Fork of Vim aiming to improve user experience with plugins.
 ,,nodejs,Evented I/O for V8 javascript.
 ,,npm,A package manager for javascript.
@@ -94,4 +95,4 @@ TRUE,,rofi-pass,Bash script to handle pass storages in a convenient way.
 ,,transmission-cli,Light-weight and cross-platform BitTorrent client.
 ,AUR,simple-mtpfs,A FUSE filesystem that supports reading/writing from MTP devices.
 ,AUR,stylua-bin,Formatter for lua.
-,AUR,prettier,Formatter for lua.
+,AUR,prettier,Code formatter for js json css yaml and etc.

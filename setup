@@ -51,6 +51,7 @@ config_directory=(
   zsh
   mimeapps.list
   pavucontrol.ini
+  screenkey.json
 )
 
 ### FUNCTIONS ###
