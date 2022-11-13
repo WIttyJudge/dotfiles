@@ -1,17 +1,13 @@
 #!/bin/bash
 
 function send_notification() {
-	brightness=$(printf "%.0f\n" $(light))
-	dunstify -a "changebrightness" -u low -r 9991 -h int:value:"$brightness" -i "sun-solid" "Brightness: $brightness%" -t 2000
+  brightness=$(printf "%.0f\n" $(light))
+  dunstify -a "changebrightness" -u low -r 9991 -h int:value:"$brightness" -i "sun-solid" "Brightness: $brightness%" -t 2000
 }
 
 case $1 in
-up)
-  sudo light -A 10
-	send_notification $1
-	;;
-down)
-  sudo light -U 10
-	send_notification $1
-	;;
+up) sudo light -A 10 ;;
+down) sudo light -U 10 ;;
 esac
+
+send_notification $1

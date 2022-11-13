@@ -21,7 +21,7 @@ export MANPAGER="nvim +Man!"
 export AURHELPER="yay"
 export DOTFILES="$HOME/dotfiles"
 export DEV_HOME="$HOME/projects"
-# export SUDO_ASKPASS="$HOME/.local/bin/scripts/dmenupass"
+# export SUDO_ASKPASS="$HOME/.local/bin/dmenupass"
 
 # XDG Base Directory locations
 export XDG_CONFIG_HOME="$HOME/.config"
@@ -47,6 +47,7 @@ export GEM_HOME="$XDG_DATA_HOME/gem"
 export GEM_SPEC_CACHE="$XDG_CACHE_HOME/gem"
 export SOLARGRAPH_CACHE="$XDG_CACHE_HOME/solargraph"
 export PATH="$PATH:$HOME/.rvm/bin"
+export BUNDLE_USER_CACHE="$XDG_CACHE_HOME/bundle"
 
 # Tmux / tpm
 export TMUX_PLUGIN_MANAGER_PATH="$XDG_CONFIG_HOME/tmux/plugins/"
@@ -75,11 +76,18 @@ export WGETRC="${XDG_CONFIG_HOME:-$HOME/.config}/wget/wgetrc"
 export FZF_DEFAULT_OPTS="--height 50% --layout=reverse --cycle --border"
 
 # security
-export GPG_TTY=$(tty)
+# export GPG_TTY=$(tty)
 
 # Fixing misbehaving Java applications
 export AWT_TOOLKIT="MToolkit wmname LG3D" # May have to install wmname
 export _JAVA_AWT_WM_NONREPARENTING=1
+
+# Openssl fix
+export PATH=$HOME/openssl/bin:$PATH
+export LD_LIBRARY_PATH=$HOME/openssl/lib
+export LC_ALL="en_US.UTF-8"
+export LDFLAGS="-L /home/wittyjudge/openssl/lib -Wl,-rpath,/home/wittyjudge/openssl/lib"
+
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 # Load RVM into a shell session *as a function*
