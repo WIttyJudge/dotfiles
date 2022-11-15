@@ -1,0 +1,17 @@
+#!/usr/bin/env sh
+
+function send_notification() {
+  brightness=$(printf "%.0f\n" $(light))
+  dunstify -a "change-brightness" -t 2000 -r 9991 -h int:value:"$brightness" -i "sun-solid" -u low "Brightness: $brightness%"
+}
+
+case $1 in
+  up) sudo light -A 10 ;;
+  down) sudo light -U 10 ;;
+  *) 
+    echo >&2 "Unknown action '$1'"
+    exit 1
+    ;;
+esac
+
+send_notification $1
