@@ -18,15 +18,15 @@ super + shift + q
       sysact
 
 XF86Audio{Mute,LowerVolume,RaiseVolume}
-    changevolume {toggle, down, up}; pkill -RTMIN+10 dwmblocks 
+    change-audio {volume-toggle, volume-down, volume-up}; pkill -RTMIN+10 dwmblocks 
 
 /* Brightness volumes */
 {XF86MonBrightnessDown, XF86MonBrightnessUp}
-    changebrightness {down, up}; pkill -RTMIN+6 dwmblocks
+    change-brightness {down, up}; pkill -RTMIN+6 dwmblocks
 
 /* PageDown button */
 Next
-    pactl set-source-mute @DEFAULT_SOURCE@ toggle; pkill -RTMIN+20 dwmblocks
+    change-audio microphone-toggle; pkill -RTMIN+20 dwmblocks
 
 /* screenshoter */
 Print
