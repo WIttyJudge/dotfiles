@@ -13,6 +13,9 @@ local config = {
     "NvimTree",
     "TelescopePrompt",
   },
+
+  -- set highest priority for treesitter, and disable regex search
+  providers = { "treesitter", "lsp" },
 }
 
 illuminate.configure(config)

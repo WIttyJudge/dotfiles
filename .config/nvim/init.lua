@@ -1,3 +1,12 @@
+--[[
+███╗   ██╗██╗   ██╗██╗███╗   ███╗
+████╗  ██║██║   ██║██║████╗ ████║
+██╔██╗ ██║██║   ██║██║██╔████╔██║
+██║╚██╗██║╚██╗ ██╔╝██║██║╚██╔╝██║
+██║ ╚████║ ╚████╔╝ ██║██║ ╚═╝ ██║
+╚═╝  ╚═══╝  ╚═══╝  ╚═╝╚═╝     ╚═╝
+--]]
+
 -- https://github.com/lewis6991/impatient.nvim
 if pcall(require, "impatient") then
   require "impatient"
@@ -9,6 +18,3 @@ require "core"
 
 -- Packer package manager
 require "plugins"
-
--- LSP configuration
--- require('lsp')

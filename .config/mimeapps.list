@@ -20,6 +20,5 @@ image/webp=img.desktop
 inode/directory=file.desktop
 video/mp4=mpv.desktop
 video/x-matroska=mpv.desktop
-x-scheme-handler/lbry=lbry.desktop
 x-scheme-handler/magnet=torrent.desktop;
 x-scheme-handler/mailto=mail.desktop;

@@ -16,10 +16,6 @@ for battery in /sys/class/power_supply/BAT?*; do
 
 	capacity=$(cat "$battery/capacity" 2>&1)
 
-	# Will make a warn variable if discharging and low
-	[ "$icon" = "🔋" ] && [ "$capacity" -le 7 ] &&
-    notify-send 'Low battery'
-
 	# Prints the info
 	printf "%s %d%%" "$icon" "$capacity"; unset warn
 done && exit 0
