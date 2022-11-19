@@ -1,11 +1,8 @@
 #!/bin/sh
 
 # yay -S xkblayout-state-git
-command="xkblayout-state"
 
-ifcommand $command || exit
-
-keyboard_layout="$($command print "%s")"
+keyboard_layout="$(xkblayout-state print "%s")"
 icon="👻"
 
 printf "%s %s" "$icon" "$keyboard_layout"

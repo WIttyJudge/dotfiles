@@ -1,22 +1,18 @@
 #!/bin/bash
 
-command="pamixer"
-
-ifcommand $command || exit
-
 case $BLOCK_BUTTON in
 	1) pavucontrol ;;
-	2) $command -t ;;
-	4) $command --allow-boost -i 10 ;;
-	5) $command --allow-boost -d 5 ;;
-	3) notify-send "📢 Volume module" "\- Shows volume 🔊, 🔇 if muted.
+	2) pamixer -t ;;
+	4) pamixer --allow-boost -i 10 ;;
+	5) pamixer --allow-boost -d 5 ;;
+	3) notify-send "📢 Volume module" "Shows volume 🔊, 🔇 if muted.
 - Middle click to mute.
 - Scroll to change." ;;
 esac
 
-volume="$($command --get-volume)"
+volume="$(pamixer --get-volume)"
 
-[ $($command --get-mute) = true ] && echo "🔇" && exit
+[ $(pamixer --get-mute) = true ] && echo "🔇" && exit
 
 if [ "$volume" -gt "69" ]; then
 	icon="🔊"

@@ -1,19 +1,31 @@
 #!/bin/bash
 
-command="curl"
+weatherreport="${XDG_CACHE_HOME:-$HOME/.cache}/weather-report"
+LOCATION=Moscow,Dnipro,Tbilisy
 
-ifcommand $command || exit
+get_weather() {
+  curl -sf "wttr.in/{$LOCATION}?format=%l:+%c+%t+%h\n" >"$weatherreport"
+  notify-send 'Weather Updated'
+  exit 1
+}
 
-LOCATION=Moscow,Dnipro
+show_weather() {
+  weather=$(cat $weatherreport)
+
+  notify-send 'Weather Report' "$weather"
+  exit 1
+}
 
 icon="⛅"
 
 case $BLOCK_BUTTON in
-  1)
-    weather=$($command -s wttr.in/{$LOCATION}?format="%l:+%c+%t+%h\n")
-
-    notify-send 'Weather'  "$weather"
-    ;;
+  1) show_weather ;;
+  2) get_weather ;;
+	3) notify-send "🌈 Weather module" "\- Left click for full forecast.
+- Middle click to update forecast.
+☔: Chance of rain/snow
+🥶: Daily low
+🌞: Daily high" ;;
 esac
 
 printf "%s" "$icon"
