@@ -39,6 +39,13 @@ autocmd({ "BufEnter", "FocusGained" }, {
   desc = "Reload modified changes automatically (autoread)",
 })
 
+autocmd("FileType", {
+  pattern = "gitcommit",
+  command = "startinsert",
+  group = general_settings,
+  desc = "Trigger insert mode"
+})
+
 autocmd("BufEnter", {
   pattern = "*",
   command = "set fo-=c fo-=r fo-=o",

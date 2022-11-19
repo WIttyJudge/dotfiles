@@ -1,6 +1,4 @@
 local options = {
-  fileencoding = "utf-8", -- File content encoding for the buffer
-  syntax = "enable",
   clipboard = "unnamedplus", -- Connection to the system clipboard
 
   -- disable tilde on end of buffer: https://github.com/neovim/neovim/pull/8546#issuecomment-643643758

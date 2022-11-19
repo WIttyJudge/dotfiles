@@ -66,7 +66,7 @@ return packer.startup(function(use)
   }
   use {
     "RRethy/vim-illuminate",
-    config = require "plugins.configs.vim-illuminate"
+    config = require "plugins.configs.vim-illuminate",
   }
   use {
     "j-hui/fidget.nvim",
@@ -88,7 +88,6 @@ return packer.startup(function(use)
       "hrsh7th/cmp-path",
       "saadparwaiz1/cmp_luasnip",
       "hrsh7th/cmp-cmdline",
-      "amarakon/nvim-cmp-buffer-lines"
     },
     config = require "plugins.configs.cmp",
   }
@@ -258,7 +257,7 @@ return packer.startup(function(use)
 
   -- Markdown
   use {
-    "ellisonleao/glow.nvim"
+    "ellisonleao/glow.nvim",
   }
 
   -- Useful functions
@@ -300,6 +299,11 @@ return packer.startup(function(use)
     "nacro90/numb.nvim",
     config = require "plugins.configs.numb",
   }
+
+  -- use {
+  --   "Pocco81/auto-save.nvim",
+  --   config = require "plugins.configs.auto-save",
+  -- }
 
   -- Debug
   -- use {
