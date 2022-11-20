@@ -45,6 +45,7 @@ TRUE,,flameshot,Powerful yet simple to use screenshot software.
 ,,docker-compose,Fast and isolated development environments using Docker.
 ,AUR,pfetch,A pretty system information tool written in POSIX sh.
 ,AUR,htop-vim,Fork of htop with vim bindings support.
+,,s-tui,Terminal UI stress test and monitoring tool.
 ,,dunst,Customizable and lightweight notification-daemon.
 ,AUR,nsxiv,Neo (or New or Not) Simple (or Small or Suckless) X Image Viewer.
 TRUE,,ncdu,Disk usage analyzer with an ncurses interface.
@@ -77,17 +78,24 @@ TRUE,,rofi-pass,Bash script to handle pass storages in a convenient way.
 ,,exa,Replacement for ls.
 ,,bat,Replacement for cat.
 ,,fzf,Fuzzy finder tool.
+,,croc,Easily and securely send things from one computer to another.
+,,udiskie,Removable disk automounter.
+,AUR,udiskie-dmenu-git,manage removable devices via dmenu (or rofi).
+,,trash-cli,Recycle bin interface.
 ,AUR,xkblayout-state-git,A small command-line program to get/set the current keyboard layout.
 ,AUR,downgrade,Bash script for downgrading packages.
 ,AUR,slack-desktop,Slack Desktop.
 ,,openvpn,Configurable VPN (Virtual Private Network).
+,,wireguard-tools,Lools to configure wireguard.
 ,,networkmanager-openvpn,NetworkManager VPN plugin for OpenVPN.
 ,,network-manager-applet,Applet for managing network connections.
+,,curlie,The power of curl.
+,,dnsutils,Bunch of utils like nslookup and so on.
+,,net-tools,Configuration tools for Linux networking.
 ,,python-pip,The PyPA recommended tool for installing Python packages.
 ,,light,Program to easily change brightness on backlight-controllers.
 ,,calcurse,A text-based personal organizer.
 ,AUR,libxft-bgra-git,libXft with BGRA glyph (color emoji) rendering.
-,,dnsutils,Bunch of utils like nslookup and so on.
 ,,alsa-utils,Bunch of useful utils especially for testing microphone and sound.
 ,,tmux,A terminal multiplexer.
 ,,mediainfo,Shows audio and video information.
@@ -96,3 +104,7 @@ TRUE,,rofi-pass,Bash script to handle pass storages in a convenient way.
 ,AUR,simple-mtpfs,A FUSE filesystem that supports reading/writing from MTP devices.
 ,AUR,stylua-bin,Formatter for lua.
 ,AUR,prettier,Code formatter for js json css yaml and etc.
+,AUR,overdue,Get notified about running daemons that reference outdated shared libraries.
+,,earlyoom,Early OOM Daemon for Linux.
+,,systembus-notify,System bus notification daemon.
+,,throttled,Workaround for Intel throttling issues in Linux.
