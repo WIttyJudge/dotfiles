@@ -3,25 +3,36 @@
 if [[ $# -eq 1 ]]; then
   selected=$1
 else
-  selected=$(find ~/projects ~/projects/clusters ~/projects/repos -mindepth 1 -maxdepth 1 -type d | fzf)
+  selected=$(find ~/projects ~/projects/clusters ~/projects/repos ~/projects/ansible -mindepth 1 -maxdepth 1 -type d | fzf)
 fi
-
-[ -z $selected ] && exit 0 
 
 selected_name=$(basename "$selected" | tr . _)
 
-tmux_running=$(pgrep tmux)
-if [[ -z $TMUX ]] && [[ -z $tmux_running ]]; then
-  tmux new-session -s $selected_name -c $selected
-  exit 0
-fi
+# operation cancelled by user
+[ -z $selected ] && exit 0
 
-if ! tmux has-session -t $selected_name 2>/dev/null; then
-  tmux new-session -ds $selected_name -c $selected
-fi
+# Checks if tmux session is not opened
+not_in_tmux() {
+  [ -z "$TMUX" ]
+}
 
-if [[ -z $TMUX ]]; then
-  tmux attach-session -t $selected_name
-else
+# Checks if selected session have already created
+session_exists() {
+  tmux has-session -t $selected_name 2>/dev/null
+}
+
+create_if_needed_and_attach() {
+  # Create the session and attach it automatically.
+  if not_in_tmux; then
+    tmux new-session -A -s $selected_name -c $selected
+    exit 0
+  fi
+
+  if ! session_exists; then
+    tmux new-session -ds $selected_name -c $selected
+  fi
+
   tmux switch-client -t $selected_name
-fi
+}
+
+create_if_needed_and_attach
