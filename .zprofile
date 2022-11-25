@@ -18,9 +18,6 @@ export WM="dwm"
 export READER="zathura"
 export BROWSER="firefox"
 export MANPAGER="nvim +Man!"
-export AURHELPER="yay"
-export DOTFILES="$HOME/dotfiles"
-export DEV_HOME="$HOME/projects"
 # export SUDO_ASKPASS="$HOME/.local/bin/dmenupass"
 
 # XDG Base Directory locations
