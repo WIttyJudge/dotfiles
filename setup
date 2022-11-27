@@ -33,6 +33,7 @@ config_directory=(
   git
   htop
   gitui
+  gtk-3.0
   # i3
   lf
   mpv

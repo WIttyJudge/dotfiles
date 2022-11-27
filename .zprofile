@@ -13,6 +13,7 @@ unsetopt PROMPT_SP
 
 # Default variables
 export EDITOR="nvim"
+export VISUAL=$EDITOR
 export TERMINAL="st"
 export WM="dwm"
 export READER="zathura"
