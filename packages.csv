@@ -85,6 +85,7 @@ TRUE,,rofi-pass,Bash script to handle pass storages in a convenient way.
 ,AUR,xkblayout-state-git,A small command-line program to get/set the current keyboard layout.
 ,AUR,downgrade,Bash script for downgrading packages.
 ,AUR,slack-desktop,Slack Desktop.
+,AUR,gtk-theme-arc-gruvbox-git,GTK gruvbox theme.
 ,,openvpn,Configurable VPN (Virtual Private Network).
 ,,wireguard-tools,Lools to configure wireguard.
 ,,networkmanager-openvpn,NetworkManager VPN plugin for OpenVPN.
