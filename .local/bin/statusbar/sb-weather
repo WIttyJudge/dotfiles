@@ -10,7 +10,7 @@ get_weather() {
 }
 
 show_weather() {
-  weather=$(cat $weatherreport)
+  weather=$(< $weatherreport)
 
   notify-send 'Weather Report' "$weather"
   exit 1
