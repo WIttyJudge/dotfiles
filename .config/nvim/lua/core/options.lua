@@ -1,9 +1,6 @@
 local options = {
   clipboard = "unnamedplus", -- Connection to the system clipboard
 
-  -- disable tilde on end of buffer: https://github.com/neovim/neovim/pull/8546#issuecomment-643643758
-  fillchars = { eob = " ", fold = "‧" },
-
   -- indent options
   tabstop = 2, -- Number of space in a tab
   shiftwidth = 2, -- Number of space inserted for indentation
@@ -11,9 +8,10 @@ local options = {
   expandtab = true, -- Enable the use of space in tab
   smartindent = true,
 
-  -- search options
+  fillchars = { eob = " " },
   ignorecase = true, -- Case insensitive searching
   smartcase = true, -- Case-sensitive if expresson contains a capital letter
+  mouse = "a", -- Enable mouse support
 
   -- perfomance
   updatetime = 200, -- Length of time to wait before triggering the plugin
@@ -37,7 +35,6 @@ local options = {
   scrolloff = 7, -- Number of lines to keep above and below the cursor
   sidescrolloff = 7, -- Number of columns to keep at the sides of the cursor
   showmode = false, -- Disable showing modes in command line
-  mouse = "a", -- Enable mouse support
   splitbelow = true, -- Splitting a new window below the current one
   splitright = true, -- Splitting a new window at the right of the current one
   showtabline = 2, -- Always show tables

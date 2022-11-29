@@ -64,7 +64,7 @@ local function load_modules()
 end
 
 local function load_core()
-  require "core.global_functions"
+  -- require "core.global_functions"
 
   disable_builtin_plugins()
   default_providers()
