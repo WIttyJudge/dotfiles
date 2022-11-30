@@ -50,6 +50,7 @@ config_directory=(
   tmux
   transmission-daemon/settings.json
   wget
+  zathura
   zsh
   mimeapps.list
   pavucontrol.ini
