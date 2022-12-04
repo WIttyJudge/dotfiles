@@ -20,7 +20,6 @@ TRUE,,scrot,Simple command-line screenshot utility for X.
 TRUE,,flameshot,Powerful yet simple to use screenshot software.
 ,,maim,Utility to take a screenshot using imlib2.
 ,,pipewire-pulse,Low-latency audio/video router and processor.
-,,pipewire,Gives pipewire compatibility with PulseAudio programs.
 ,,pamixer,PulseAudio command-line mixer like amixer.
 ,,pavucontrol,PulseAudio Volume Control.
 ,,ttf-dejavu,Font family based on the Bitstream Vera Fonts with a wider range of characters.

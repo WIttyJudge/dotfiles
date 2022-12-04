@@ -13,9 +13,6 @@ local servers = require "lsp.servers"
 
 require("lsp.handlers").setup()
 
--- Enable completion triggered by <c-x><c-o>
--- vim.cmd('setlocal omnifunc=v:lua.vim.lsp.omnifunc')
-
 local function setup_server(server_name, config)
   if not config then
     return

@@ -1,11 +1,11 @@
 -- https://github.com/williamboman/mason.nvim
-local present, mason = pcall(require, "mason")
+local mason_present, mason = pcall(require, "mason")
 
-if not present then
+if not mason_present then
   return
 end
 
-local config = {
+local mason_config = {
   ui = {
     icons = {
       server_installed = "✓",
@@ -15,17 +15,17 @@ local config = {
   },
 }
 
-mason.setup(config)
+mason.setup(mason_config)
 
 -- https://github.com/williamboman/mason-lspconfig.nvim
-local present, mason_lspconfig = pcall(require, "mason-lspconfig")
+local mason_lsp_present, mason_lspconfig = pcall(require, "mason-lspconfig")
 
-if not present then
+if not mason_lsp_present then
   return
 end
 
-local config = {
-  automatic_installation = true,
+local mason_lsp_config = {
+  automatic_installation = false,
   -- ensure_installed = {
   --   "rust_analyzer",
   --   "pyright",
@@ -36,4 +36,4 @@ local config = {
   -- },
 }
 
-mason_lspconfig.setup(config)
+mason_lspconfig.setup(mason_lsp_config)

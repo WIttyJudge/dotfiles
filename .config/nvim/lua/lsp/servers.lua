@@ -41,10 +41,7 @@ local servers = {
       },
     },
   },
-  bashls = {
-    filetypes = { "sh" },
-    cmd = { "bash-language-server", "start" },
-  },
+  bashls = true,
   sumneko_lua = {
     settings = {
       Lua = {
@@ -62,7 +59,6 @@ local servers = {
       },
     },
   },
-  ansiblels = {},
   -- html = {
   --   filetypes = { "html", "eruby" },
   -- },

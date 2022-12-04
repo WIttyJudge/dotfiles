@@ -44,10 +44,9 @@ local icons = {
   },
   git = {
     Add = "",
-    Modify = "柳",
+    Modify = "",
     Remove = "",
     Branch = "",
-
     Unstaged = "✹",
     Staged = "✓",
     Unmerged = "",
@@ -55,6 +54,13 @@ local icons = {
     Untracked = "",
     Deleted = "",
     Ignored = "◌",
+  },
+  dap = {
+    Breakpoint = "",
+    BreakpointCondition = "",
+    BreakpointRejected = "",
+    LogPoint = ".>",
+    Stopped = "",
   },
   folder = {
     arrow_open = "",
