@@ -300,6 +300,12 @@ return packer.startup(function(use)
     config = require "plugins.configs.numb",
   }
 
+
+  use {
+    "folke/which-key.nvim",
+    config = require "plugins.configs.whichkey"
+  }
+
   -- use {
   --   "Pocco81/auto-save.nvim",
   --   config = require "plugins.configs.auto-save",
