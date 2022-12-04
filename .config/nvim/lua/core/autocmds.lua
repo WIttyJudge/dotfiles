@@ -43,7 +43,7 @@ autocmd("FileType", {
   pattern = "gitcommit",
   command = "startinsert",
   group = general_settings,
-  desc = "Trigger insert mode"
+  desc = "Trigger insert mode",
 })
 
 autocmd("BufEnter", {
@@ -68,13 +68,6 @@ autocmd({ "FileType" }, {
 })
 
 autocmd({ "BufWritePost" }, {
-  pattern = { "plugins.lua" },
-  command = "PackerCompile",
-  group = plugins,
-  desc = "packer-plugin",
-})
-
-autocmd({ "BufWritePost" }, {
   pattern = { "*.sum", "*.mod" },
   command = ":silent :GoModTidy",
   group = plugins,
@@ -88,12 +81,9 @@ local linter = vim.api.nvim_create_augroup("_linter", { clear = true })
 
 autocmd({ "BufWritePre" }, {
   pattern = { "*.go" },
-  command = ":silent! lua require('go.format').goimport()",
-  group = linter,
-})
-autocmd({ "BufWritePre" }, {
-  pattern = { "*.go" },
-  command = ":silent! lua require('internal.go.format').goimports(1000)",
+  callback = function()
+    require("go.format").goimport()
+  end,
   group = linter,
 })
 
