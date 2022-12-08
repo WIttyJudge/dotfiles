@@ -13,7 +13,6 @@ local commands_list = {
 
   -- Lsp
   [[ command! LspFormat execute 'lua vim.lsp.buf.formatting_sync(nil, 1000)' ]],
-  [[ command! GoImports exectue 'lua require('internal.go.format').goimports(1000)' ]],
 
   -- nvim-spectre
   [[ command! SpectreOpen execute 'lua require("spectre").open()' ]],

@@ -11,6 +11,15 @@ local themes = require "telescope.themes"
 
 local icons = require "internal.icons"
 
+-- https://github.com/nvim-telescope/telescope-fzf-native.nvim
+-- https://github.com/LinArcX/telescope-command-palette.nvim
+-- https://github.com/princejoogie/dir-telescope.nvim
+local extensions_list = {
+  "fzf",
+  "command_palette",
+  "dir",
+}
+
 local opts_cursor = {
   initial_mode = "normal",
   sorting_strategy = "ascending",
@@ -22,7 +31,7 @@ local opts_cursor = {
   },
 }
 
-telescope.setup {
+local config = {
   defaults = {
     vimgrep_arguments = {
       "rg",
@@ -36,7 +45,9 @@ telescope.setup {
     },
 
     prompt_prefix = "λ -> ",
-    selection_caret = "|> ",
+    selection_caret = "  ",
+
+    initial_mode = "insert",
 
     preview = {
       timeout = 500,
@@ -95,17 +106,7 @@ telescope.setup {
         "--hidden",
       },
 
-      prompt_title = icons.ui.Search .. "Find Files",
-    },
-    buffers = {
-      prompt_title = "✨ Search Buffers ✨",
-      mappings = {
-        n = {
-          ["r"] = actions.delete_buffer,
-        },
-      },
-      sort_lastused = true,
-      preview_title = false,
+      prompt_title = icons.ui.Search .. " Find Files",
     },
   },
   extensions = {
@@ -150,14 +151,13 @@ telescope.setup {
   }),
 }
 
--- https://github.com/nvim-telescope/telescope-fzf-native.nvim
-require("telescope").load_extension "fzf"
+telescope.setup(config)
 
--- https://github.com/LinArcX/telescope-command-palette.nvim
-require("telescope").load_extension "command_palette"
-
--- https://github.com/princejoogie/dir-telescope.nvim
-require("telescope").load_extension("dir")
+pcall(function()
+  for _, ext in ipairs(extensions_list) do
+    telescope.load_extension(ext)
+  end
+end)
 
 -- CUSTOM FUNCTIONS
 local M = {}

@@ -128,16 +128,8 @@ map("n", "<Leader>t9", "9gt<CR>", { desc = "tab 9" })
 -- map({ 'n', 'v' }, '<Leader>/', ':CommentToggle<CR>')
 
 -- Comment.nvim
-map("n", "<Leader>/", function()
-  require("Comment.api").toggle.linewise.current()
-end, { desc = "toggle comment" })
-
-map(
-  "v",
-  "<Leader>/",
-  "<ESC><cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<CR>",
-  { desc = "toggle comment" }
-)
+map("n", "<Leader>/", function() require("Comment.api").toggle.linewise.current() end, { desc = "toggle comment" })
+map("v", "<Leader>/", "<ESC><cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<CR>", { desc = "toggle comment" })
 
 -- nvim-hlslens
 map("n", "n", "<Cmd>execute('normal! ' . v:count1 . 'nzz')<CR><Cmd>lua require('hlslens').start()<CR>")
@@ -189,8 +181,8 @@ map("n", "<Leader>ut", ":UndotreeToggle<CR>")
 map("n", "<Leader>st", ":tabnew | :Alpha<CR>")
 
 -- vim-fugitive
-map("n", "<Leader>gd", ":Gvdiffsplit<CR>", {desc = "git dif"})
-map("n", "<Leader>gs", ":Git<CR>", {desc = "git menu"})
+map("n", "<Leader>gd", ":Gvdiffsplit<CR>", { desc = "git dif" })
+map("n", "<Leader>gs", ":Git<CR>", { desc = "git menu" })
 
 -- gv.vim
 map({ "n", "v" }, "<Leader>gc", ":GV<CR>")
