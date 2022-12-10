@@ -266,6 +266,12 @@ return packer.startup(function(use)
     "ellisonleao/glow.nvim",
   }
 
+  use {
+    "Wansmer/treesj",
+    requires = { "nvim-treesitter" },
+    config = require "plugins.configs.treesj",
+  }
+
   -- Useful functions
   use "lambdalisue/suda.vim"
 
