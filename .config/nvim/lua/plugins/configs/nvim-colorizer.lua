@@ -6,4 +6,4 @@ if not present then
   return
 end
 
-require("colorizer").setup()
+colorizer.setup()

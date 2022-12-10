@@ -166,11 +166,7 @@ map("n", "<F1>", function()
   require("telescope.builtin").help_tags()
 end)
 
--- map("n", "<Leader>gb", function()
---   require("plugins.configs.telescope").git_branches()
--- end)
---
--- map("n", "<Leader>ca", function()
+-- map("n", "<leader>ca", function()
 --   require("plugins.configs.telescope").lsp_code_actions()
 -- end)
 

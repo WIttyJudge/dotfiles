@@ -5,7 +5,7 @@ if not present then
   return
 end
 
-config = {
+local config = {
   window = {
     -- adjust transparency.
     blend = 0,

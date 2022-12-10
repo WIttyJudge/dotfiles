@@ -8,7 +8,6 @@ end
 local gps = require "nvim-gps"
 
 local internal_condition = require "internal.conditions"
-local internal_function = require "internal.functions"
 local icons = require "internal.icons"
 
 -- gruvbox-material
@@ -29,7 +28,6 @@ local colors = {
 local vi_mode_text = {
   n = "NORMAL",
   i = "INSERT",
-  c = "COMMAND",
   V = "VISUAL",
   [""] = "VISUAL",
   v = "VISUAL",
@@ -185,13 +183,6 @@ ins_left {
 -- Insert mid section. You can make any number of sections in neovim :)
 -- for lualine it's any number greater then 2
 -- ins_left {function() return '%=' end}
-
--- ins_left {
---   -- Lsp server name .
---   internal_function.get_lsp_client_name,
---   icon = '',
---   color = {fg = colors.fg, gui = 'bold'}
--- }
 
 ins_right {
   "diff",

@@ -2,8 +2,9 @@
 
 local cmp_present, cmp = pcall(require, "cmp")
 local lspkind_present, lspkind = pcall(require, "lspkind")
+local luasnip_present, luasnip = pcall(require, "luasnip")
 
-if not cmp_present and not lspkind_present then
+if not cmp_present or not lspkind_present or not luasnip_present then
   return
 end
 
@@ -19,8 +20,7 @@ end
 local config = {
   snippet = {
     expand = function(args)
-      --vim.fn["vsnip#anonymous"](args.body)
-      require("luasnip").lsp_expand(args.body)
+      luasnip.lsp_expand(args.body)
     end,
   },
   mapping = cmp.mapping.preset.insert {
@@ -53,7 +53,7 @@ local config = {
     ["<Tab>"] = cmp.mapping(function(fallback)
       if cmp.visible() then
         cmp.select_next_item()
-      elseif require("luasnip").expand_or_jumpable() then
+      elseif luasnip.expand_or_jumpable() then
         vim.fn.feedkeys(vim.api.nvim_replace_termcodes("<Plug>luasnip-expand-or-jump", true, true, true), "")
       else
         fallback()
@@ -65,7 +65,7 @@ local config = {
     ["<S-Tab>"] = cmp.mapping(function(fallback)
       if cmp.visible() then
         cmp.select_prev_item()
-      elseif require("luasnip").jumpable(-1) then
+      elseif luasnip.jumpable(-1) then
         vim.fn.feedkeys(vim.api.nvim_replace_termcodes("<Plug>luasnip-jump-prev", true, true, true), "")
       else
         fallback()
@@ -93,7 +93,7 @@ local config = {
   formatting = {
     format = lspkind.cmp_format {
       mode = "symbol_text",
-      symbol_text = require("internal/icons").kind,
+      symbol_text = require("internal.icons").kind,
       menu = {
         buffer = "[Buffer]",
         nvim_lsp = "[LSP]",

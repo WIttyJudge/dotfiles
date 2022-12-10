@@ -198,34 +198,4 @@ function M.lsp_code_actions()
   builtin.lsp_code_actions(opts)
 end
 
--- Git
-function M.git_branches()
-  local opts = themes.get_dropdown {
-    winblend = 10,
-    border = true,
-    previewer = false,
-  }
-
-  local attach_mappings =
-    function(_, map)
-      -- actions.select_default:replace(actions.git_checkout)
-
-      map("i", "<c-t>", false)
-      map("n", "<c-t>", false)
-      map("i", "<c-r>", false)
-      map("n", "<c-r>", false)
-
-      map("i", "<c-a>", actions.git_create_branch)
-      map("n", "<c-a>", actions.git_create_branch)
-
-      map("i", "<c-s>", actions.git_switch_branch)
-      map("n", "<c-s>", actions.git_switch_branch)
-
-      map("i", "<c-d>", actions.git_delete_branch)
-      map("n", "<c-d>", actions.git_delete_branch)
-      return true
-    end,
-    builtin.git_branches(opts)
-end
-
 return M

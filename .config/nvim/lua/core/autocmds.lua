@@ -1,4 +1,4 @@
-local utils = require "internal/utils"
+local utils = require "internal.utils"
 
 local cmd = vim.cmd
 local autocmd = vim.api.nvim_create_autocmd
@@ -8,8 +8,8 @@ local general_settings = vim.api.nvim_create_augroup("_general_settings", { clea
 autocmd("BufReadPost", {
   callback = function()
     if not vim.fn.expand("%:p"):match ".git" and vim.fn.line "'\"" > 1 and vim.fn.line "'\"" <= vim.fn.line "$" then
-      vim.cmd "normal! g'\""
-      vim.cmd "normal zz"
+      cmd "normal! g'\""
+      cmd "normal zz"
     end
   end,
   desc = "Restore cursor to where it was when the file was closed",
@@ -131,5 +131,3 @@ autocmd({ "BufWritePost" }, {
   command = "!xrdb %",
   group = auto_compile,
 })
-
-return M

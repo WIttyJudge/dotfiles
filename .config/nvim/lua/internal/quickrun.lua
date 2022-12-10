@@ -1,4 +1,3 @@
-local api = vim.api
 local M = {
   go = { "go run ", "go test " },
   rust = { "cargo run " },
@@ -23,7 +22,7 @@ function M.run_command()
     return
   end
 
-  runner = M[file_type]
+  local runner = M[file_type]
   cmd = runner[1]
 
   if file_type == "go" then

@@ -315,7 +315,7 @@ return packer.startup(function(use)
 
   use {
     "folke/which-key.nvim",
-    config = require "plugins.configs.whichkey"
+    config = require "plugins.configs.whichkey",
   }
 
   -- use {
