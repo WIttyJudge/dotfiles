@@ -128,11 +128,12 @@ return packer.startup(function(use)
     "ur4ltz/surround.nvim",
     config = require "plugins.configs.surround",
   }
-  use "AndrewRadev/splitjoin.vim"
+
   use {
     "kevinhwang91/nvim-hlslens",
     config = require "plugins.configs.nvim-hlslens",
   }
+
   use {
     "karb94/neoscroll.nvim",
     config = require "plugins.configs.neoscroll",
