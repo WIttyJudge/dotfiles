@@ -93,6 +93,11 @@ return packer.startup(function(use)
   }
 
   use {
+    "Darazaki/indent-o-matic",
+    config = require "plugins.configs.indent-o-matic",
+  }
+
+  use {
     "L3MON4D3/LuaSnip",
     -- after = "nvim-cmp",
     config = require "plugins.configs.lua_snip",
