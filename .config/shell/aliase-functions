@@ -1,35 +1,30 @@
+#!/usr/bin/env zsh
+
 # fzf Integrations {{{
 
-# fo [FUZZY PATTERN] - Open the selected file with $EDITOR
-#   - Bypass fuzzy finder if there's only one match (--select-1)
-#   - Exit if there's no match (--exit-0)
-function fo() {
-	local files
-	/* IFS=$'\n'  */
-  files=($(fzf --preview="cat {}" --preview-window=right:70%:wrap --query="$1" --multi --select-1 --exit-0))
-	[[ -n "$files" ]] && ${EDITOR} "${files[@]}"
-}
-
-# fman [FUZZY PATTERN] - Search man pages.
+# fman - Search man pages.
 function fman() {
-	man -k . | fzf --prompt='Man> ' | awk '{print $1}' | cut -d "(" -f1 | xargs man
+	MAN="/usr/bin/man"
+
+	if [ -n "$1" ]; then
+		$MAN "$@"
+		return $?
+	else
+		$MAN -k . | fzf --preview="echo {1,2} | sed 's/ (/./' | sed -E 's/\)\s*$//' | xargs $MAN" | awk '{print $1 "." $2}' | tr -d '()' | xargs -r $MAN
+		return $?
+	fi
 }
 
-# fkill - kill processes - list only the ones you can kill. Modified the earlier script.
+# fkill - kill processes.
 function fkill() {
   local pid
-  if [ "$UID" != "0" ]; then
-    pid=$(ps -f -u $UID | sed 1d | fzf -m | awk '{print $2}')
-  else
-    pid=$(ps -ef | sed 1d | fzf -m | awk '{print $2}')
-  fi
+  pid=$(ps -ef | sed 1d | fzf -m | awk '{print $2}')
 
   if [ "x$pid" != "x" ]
   then
-      echo $pid | xargs kill -${1:-9}
+    echo $pid | xargs kill -${1:-9}
   fi
 }
-
 # END fzf Integrations }}}
 
 # git {{{
@@ -58,6 +53,34 @@ function repeat() {
   for ((i=1; i <= max ; i++)); do
     eval "$@";
   done
+}
+
+# Converts files to backup.
+function bak() {
+	for source in "$@"; do
+		mv "$source" "$source.bak"
+	done
+}
+
+# Converts backup files back.
+function unbak() {
+	for source in "$@"; do
+		result=${source/.bak/}
+
+		mv "$source" "$result"
+	done
+}
+
+# Search env variables
+function vars() {
+    local out
+    out=$(env | fzf)
+    echo $(echo $out | cut -d= -f2)
+}
+
+# Clean whitespace inside all files
+function whitespace-clean() {
+  find . -type f -print0 | xargs -0 perl -pi -e 's/ +$//'
 }
 
 # Prevent 'zsh: command not found: $'

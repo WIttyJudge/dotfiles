@@ -1,9 +1,13 @@
 #!/usr/bin/env sh
 
 # sudo not required for some system commands
-for x in downgrade mount umount sv pacman su shutdown poweroff reboot; do
+for x in mount umount sv pacman su shutdown poweroff reboot downgrade ; do
   alias $x="sudo $x"
 done; unset x
+
+command -v curlie    &> /dev/null    && alias curl='curlie'
+# command -v trash-put &> /dev/null    && alias rm='trash-put'
+command -v bat       &> /dev/null    && alias c='bat'         || alias c='cat'
 
 # useful
 alias \
@@ -12,12 +16,14 @@ alias \
   ping="ping -c 3 youtube.com" \
   e="$EDITOR" \
   update-grub="sudo grub-mkconfig -o /boot/grub/grub.cfg" \
-  send-file="qrcp " \
-  receive-file="qrcp receive" \
+  qr-send-file="qrcp " \
+  qr-receive-file="qrcp receive" \
+  send-file="croc " \
   open="xdg-open " \
   sxiv="nsxiv " \
   lg="lazygit " \
   lf="lfrun " \
+  man="fman" \
 
 # for testing
 alias \
@@ -34,10 +40,8 @@ alias dotfiles="cd ~/dotfiles && $EDITOR"
 
 # rewrite standard commands
 alias \
-  cat="bat" \
 	cp="cp -iv" \
 	mv="mv -iv" \
-	rm="rm -vI" \
   bc="bc -ql" \
 	mkdir="mkdir -pv" \
   wget=wget --hsts-file="$XDG_DATA_HOME/wget-hsts"
