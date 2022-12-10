@@ -1,7 +1,11 @@
-local present, nvim_comment = pcall(require, "Comment")
+local present, comment = pcall(require, "Comment")
 
 if not present then
   return
 end
 
-nvim_comment.setup()
+local config = {
+  mappings = false
+}
+
+comment.setup(config)

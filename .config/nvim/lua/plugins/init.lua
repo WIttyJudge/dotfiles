@@ -214,12 +214,6 @@ return packer.startup(function(use)
     config = require "plugins.configs.nvim-tree",
   }
 
-  -- Comment out code
-  -- use {
-  --   "terrortylor/nvim-comment",
-  --   config = require("plugins.configs.nvim-comment")
-  -- }
-
   use {
     "numToStr/Comment.nvim",
     config = require "plugins.configs.comment",
@@ -251,15 +245,13 @@ return packer.startup(function(use)
     config = require "plugins.configs.alpha-nvim",
   }
 
-  -- Ruby
-  -- use { "thoughtbot/vim-rspec", ft = 'ruby' }
-  use { "tpope/vim-endwise", ft = "ruby" }
-
   -- Golang
   use {
     "ray-x/go.nvim",
     config = require "plugins.configs.go-nvim",
   }
+  -- Used by go.nvim plugin, it supports floating windows.
+  use { "ray-x/guihua.lua" }
 
   -- Markdown
   use {
