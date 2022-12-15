@@ -10,6 +10,10 @@ function on_attach(client, bufnr)
     require("telescope.builtin").lsp_references()
   end)
 
+  map("n", "ca", function()
+    vim.lsp.buf.code_action()
+  end)
+
   map("n", "K", function()
     vim.lsp.buf.hover()
   end)
