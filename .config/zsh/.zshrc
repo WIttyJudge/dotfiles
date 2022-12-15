@@ -9,7 +9,9 @@ command -v colorscript >/dev/null 2>&1 && colorscript exec crunch
 
 # source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 
-# Useful options (man zshoptions) {{{
+####################################
+#  Useful options (man zshoptions) #
+####################################
 
 # cd without needing "cd"
 setopt AUTO_CD
@@ -24,9 +26,9 @@ setopt RM_STAR_WAIT
 # Disable ctrl-s to freeze terminal.
 stty stop undef
 
-# General zsh behavior }}}
-
-# History settings {{{
+######################
+#  History settings  #
+######################
 
 export HISTSIZE=20000
 export SAVEHIST=$HISTSIZE
@@ -46,18 +48,8 @@ setopt GLOB_STAR_SHORT GLOB_DOTS EXTENDED_GLOB
 # The number of matches to list without asking first.
 export LISTMAX=9999
 
-# END History }}}
 
-# load custom scripts
-if [ -d "$HOME/.local/bin" ] ; then
-  PATH=$PATH$(find $HOME/dotfiles/.local/bin -type d -printf ":%p")
-fi
-
-# Load aliases
-[ -f "$XDG_CONFIG_HOME/shell/aliases" ] && source "$XDG_CONFIG_HOME/shell/aliases"
-[ -f "$XDG_CONFIG_HOME/shell/aliase-functions" ] && source "$XDG_CONFIG_HOME/shell/aliase-functions"
-
-# Load ASDF completions
+# ASDF completions
 fpath=(${ASDF_DIR}/completions $fpath)
 
 # Basic auto/tab complete:
@@ -68,13 +60,11 @@ zmodload zsh/complist
 _comp_options+=(globdots) # Include hidden files.
 
 # Move .zcompdump to the cache dir.
-compinit -d $XDG_CACHE_HOME/zsh/zcompdump-$ZSH_VERSION
+export ZSH_COMPDUMP="$XDG_CACHE_HOME/zsh/zcompdump-$HOST-$ZSH_VERSION"
 
-# # Edit line in with ctrl-e:
-autoload edit-command-line; zle -N edit-command-line
-bindkey '^e' edit-command-line
-
-# ZIM {{{
+########################
+#  ZIM Plugin manager  #
+########################
 
 # Download zimfw plugin manager if missing.
 
@@ -94,18 +84,37 @@ source ${ZIM_HOME}/init.zsh
 
 zstyle ':zim:zmodule' use 'degit'
 
-# END ZIM }}}
-
-# Plugins settings {{{
+######################
+#  Plugins Settings  #
+######################
 
 # zsh-autosuggestions settings.
 export ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=20
 
-# END Plugins settings }}}
-
 # theme
 source ~/.config/zsh/themes/p10k.zsh
 
-# load bindings
+############
+#  Loader  #
+############
+
+# Load custom scripts
+if [ -d "$HOME/.local/bin" ] ; then
+  PATH=$PATH$(find $HOME/dotfiles/.local/bin -type d -printf ":%p")
+fi
+
+# Load aliases
+[ -f "$XDG_CONFIG_HOME/shell/aliases" ] && source "$XDG_CONFIG_HOME/shell/aliases"
+[ -f "$XDG_CONFIG_HOME/shell/aliase-functions" ] && source "$XDG_CONFIG_HOME/shell/aliase-functions"
+
+##############
+#  Mappings  #
+##############
+
+# Load bindings
 source "$XDG_CONFIG_HOME/zsh/bindings/vim.zsh"
 source "$XDG_CONFIG_HOME/zsh/bindings/fzf-history-search.zsh"
+
+# # Edit line in with ctrl-e:
+autoload edit-command-line; zle -N edit-command-line
+bindkey '^e' edit-command-line
