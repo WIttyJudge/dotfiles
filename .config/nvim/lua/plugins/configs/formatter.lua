@@ -20,26 +20,6 @@ local function rubocop()
   }
 end
 
-local function goimports()
-  return {
-    exe = "goimports",
-    args = { "-w", vim.fn.fnameescape(vim.api.nvim_buf_get_name(0)) },
-    stdin = false,
-  }
-end
-
-local function gofumpt()
-  return { exe = "gofumpt", stdin = true }
-end
-
-local function prettier()
-  return {
-    exe = "prettier",
-    args = { "--stdin-filepath", vim.fn.fnameescape(vim.api.nvim_buf_get_name(0)) },
-    stdin = true,
-  }
-end
-
 formatter.setup {
   logging = false,
   filetype = {
@@ -56,6 +36,6 @@ formatter.setup {
     },
     json = { require("formatter.filetypes.json").prettier },
     yaml = { require("formatter.filetypes.yaml").prettier },
-    markdown = { prettier },
+    markdown = { require("formatter.filetypes.markdown").prettier },
   },
 }

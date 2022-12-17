@@ -3,6 +3,10 @@ local utils = require "internal.utils"
 local cmd = vim.cmd
 local autocmd = vim.api.nvim_create_autocmd
 
+-- ##########################
+-- #    General Settings    #
+-- ##########################
+
 local general_settings = vim.api.nvim_create_augroup("_general_settings", { clear = true })
 
 autocmd("BufReadPost", {
@@ -33,11 +37,19 @@ autocmd({ "TextYankPost" }, {
   desc = "Highlight yanked text",
 })
 
-autocmd({ "BufEnter", "FocusGained" }, {
-  command = "silent! checktime",
-  group = general_settings,
-  desc = "Reload modified changes automatically (autoread)",
-})
+-- autocmd({ "BufEnter", "FocusGained" }, {
+--   command = "silent! checktime",
+--   group = general_settings,
+--   desc = "Reload modified changes automatically (autoread)",
+-- })
+
+-- autocmd({ "InsertLeave", "TextChanged" }, {
+--     pattern = { "*" },
+--     command = "silent! wall",
+--     nested = true,
+--     group = general_settings,
+--     desc = "Auto save buffer",
+-- })
 
 autocmd("FileType", {
   pattern = "gitcommit",
@@ -53,8 +65,9 @@ autocmd("BufEnter", {
   desc = "Don't auto commenting new lines",
 })
 
--- Plugins
--- =====================================
+-- #################
+-- #    Plugins    #
+-- #################
 
 local plugins = vim.api.nvim_create_augroup("_plugins", { clear = true })
 
@@ -74,8 +87,9 @@ autocmd({ "BufWritePost" }, {
   desc = "Golang plugins",
 })
 
--- Linter
--- =====================================
+-- ################
+-- #    Linter    #
+-- ################
 
 local linter = vim.api.nvim_create_augroup("_linter", { clear = true })
 
@@ -93,8 +107,9 @@ autocmd({ "BufWritePre" }, {
   group = linter,
 })
 
--- Auto Compile
--- =====================================
+-- ######################
+-- #    Auto Compile    #
+-- ######################
 
 local auto_compile = vim.api.nvim_create_augroup("_auto_compile", { clear = true })
 

@@ -49,34 +49,45 @@ return packer.startup(function(use)
     requires = {
       "williamboman/mason-lspconfig.nvim",
     },
-    config = require "plugins.configs.mason",
+    config = function()
+      require "plugins.configs.mason"
+    end,
   }
   use {
     "neovim/nvim-lspconfig",
-    config = require "lsp",
+    config = function()
+      require "lsp"
+    end,
   }
   use "onsails/lspkind-nvim"
   use {
     "glepnir/lspsaga.nvim",
-    config = require "plugins.configs.lspsaga",
+    config = function()
+      require "plugins.configs.lspsaga"
+    end,
   }
   use {
     "folke/trouble.nvim",
-    config = require "plugins.configs.trouble",
+    config = function()
+      require "plugins.configs.trouble"
+    end,
   }
   use {
     "RRethy/vim-illuminate",
-    config = require "plugins.configs.vim-illuminate",
+    config = function()
+      require "plugins.configs.vim-illuminate"
+    end,
   }
   use {
     "j-hui/fidget.nvim",
-    config = require "plugins.configs.fidget",
+    config = function()
+      require "plugins.configs.fidget"
+    end,
   }
 
   -- load luasnips + cmp related in insert mode onlynvim/plugins
   use {
-    "rafamadriz/friendly-snippets",
-    -- event = "InsertEnter"
+    "rafamadriz/friendly-snippets"
   }
 
   use {
@@ -89,30 +100,40 @@ return packer.startup(function(use)
       "saadparwaiz1/cmp_luasnip",
       "hrsh7th/cmp-cmdline",
     },
-    config = require "plugins.configs.cmp",
+    config = function()
+      require "plugins.configs.cmp"
+    end,
   }
 
   use {
     "Darazaki/indent-o-matic",
-    config = require "plugins.configs.indent-o-matic",
+    config = function()
+      require "plugins.configs.indent-o-matic"
+    end,
   }
 
   use {
     "L3MON4D3/LuaSnip",
     -- after = "nvim-cmp",
-    config = require "plugins.configs.lua_snip",
+    config = function()
+      require "plugins.configs.lua_snip"
+    end,
   }
 
   use {
     "windwp/nvim-autopairs",
-    config = require "plugins.configs.nvim-autopairs",
+    config = function()
+      require "plugins.configs.nvim-autopairs"
+    end,
   }
 
   -- Treesitter
   use {
     "nvim-treesitter/nvim-treesitter",
     run = ":TSUpdate",
-    config = require "plugins.configs.nvim-treesitter",
+    config = function()
+      require "plugins.configs.nvim-treesitter"
+    end,
   }
   use "p00f/nvim-ts-rainbow"
   use "nvim-treesitter/nvim-treesitter-refactor"
@@ -126,57 +147,74 @@ return packer.startup(function(use)
   }
   use {
     "ur4ltz/surround.nvim",
-    config = require "plugins.configs.surround",
+    config = function()
+      require "plugins.configs.surround"
+    end,
   }
 
   use {
     "kevinhwang91/nvim-hlslens",
-    config = require "plugins.configs.nvim-hlslens",
+    config = function()
+      require "plugins.configs.nvim-hlslens"
+    end,
+    commit = "e820ce69905f382e01d6e37d1a5be7529a466544",
+  }
+
+  -- use {
+  --   "karb94/neoscroll.nvim",
+  --   config = function() require "plugins.configs.neoscroll",
+  -- }
+
+  use {
+    "phaazon/hop.nvim",
+    config = function()
+      require "plugins.configs.hop"
+    end,
   }
 
   use {
-    "karb94/neoscroll.nvim",
-    config = require "plugins.configs.neoscroll",
-  }
-  use {
-    "phaazon/hop.nvim",
-    config = require "plugins.configs.hop",
-  }
-  use {
     "chaoren/vim-wordmotion",
-    config = require "plugins.configs.vim-wordmotion",
+    config = function()
+      require "plugins.configs.vim-wordmotion"
+    end,
   }
+
   use {
     "andymass/vim-matchup",
-    config = require "plugins.configs.vim-matchup",
+    config = function()
+      require "plugins.configs.vim-matchup"
+    end,
   }
 
   -- Syntax
   use {
     "folke/todo-comments.nvim",
-    config = require "plugins.configs.todo-comments",
+    config = function()
+      require "plugins.configs.todo-comments"
+    end,
   }
   use {
     "NvChad/nvim-colorizer.lua",
-    config = require "plugins.configs.nvim-colorizer",
+    config = function()
+      require "plugins.configs.nvim-colorizer"
+    end,
   }
   use {
     "lukas-reineke/indent-blankline.nvim",
-    config = require "plugins.configs.indent-blankline-nvim",
+    config = function()
+      require "plugins.configs.indent-blankline-nvim"
+    end,
   }
 
   -- Git
   use "tpope/vim-fugitive"
   use {
     "lewis6991/gitsigns.nvim",
-    config = require "plugins.configs.gitsigns",
+    config = function()
+      require "plugins.configs.gitsigns"
+    end,
   }
   use "junegunn/gv.vim"
-  -- use "sindrets/diffview.nvim"
-
-  -- Icons
-  -- use "kyazdani42/nvim-web-devicons"
-  -- use "lambdalisue/glyph-palette.vim"
 
   -- Improve startup time
   use "lewis6991/impatient.nvim"
@@ -185,7 +223,9 @@ return packer.startup(function(use)
   -- Linter
   use {
     "mhartington/formatter.nvim",
-    config = require "plugins.configs.formatter",
+    config = function()
+      require "plugins.configs.formatter"
+    end,
   }
 
   -- Colorscheme
@@ -205,18 +245,24 @@ return packer.startup(function(use)
         run = "make",
       },
     },
-    config = require "plugins.configs.telescope",
+    config = function()
+      require "plugins.configs.telescope"
+    end,
   }
 
   -- Explorer
   use {
     "kyazdani42/nvim-tree.lua",
-    config = require "plugins.configs.nvim-tree",
+    config = function()
+      require "plugins.configs.nvim-tree"
+    end,
   }
 
   use {
     "numToStr/Comment.nvim",
-    config = require "plugins.configs.comment",
+    config = function()
+      require "plugins.configs.comment"
+    end,
   }
 
   -- Find and replace
@@ -225,30 +271,40 @@ return packer.startup(function(use)
   -- Statusline and bufferline
   use {
     "hoob3rt/lualine.nvim",
-    config = require "plugins.configs.lualine",
+    config = function()
+      require "plugins.configs.lualine"
+    end,
   }
   use {
     "alvarosevilla95/luatab.nvim",
     requires = "kyazdani42/nvim-web-devicons",
-    config = require "plugins.configs.luatab",
+    config = function()
+      require "plugins.configs.luatab"
+    end,
   }
   use {
     "SmiteshP/nvim-gps",
     requires = "nvim-treesitter/nvim-treesitter",
-    config = require "plugins.configs.nvim-gps",
+    config = function()
+      require "plugins.configs.nvim-gps"
+    end,
   }
 
   -- Fancy startup screen
   use {
     "goolord/alpha-nvim",
     requires = { "kyazdani42/nvim-web-devicons" },
-    config = require "plugins.configs.alpha-nvim",
+    config = function()
+      require "plugins.configs.alpha-nvim"
+    end,
   }
 
   -- Golang
   use {
     "ray-x/go.nvim",
-    config = require "plugins.configs.go-nvim",
+    config = function()
+      require "plugins.configs.go-nvim"
+    end,
   }
   -- Used by go.nvim plugin, it supports floating windows.
   use { "ray-x/guihua.lua" }
@@ -256,12 +312,15 @@ return packer.startup(function(use)
   -- Markdown
   use {
     "ellisonleao/glow.nvim",
+    ft = "md",
   }
 
   use {
     "Wansmer/treesj",
     requires = { "nvim-treesitter" },
-    config = require "plugins.configs.treesj",
+    config = function()
+      require "plugins.configs.treesj"
+    end,
   }
 
   -- Useful functions
@@ -270,13 +329,17 @@ return packer.startup(function(use)
   -- Sorting plugin
   use {
     "sQVe/sort.nvim",
-    config = require "plugins.configs.sort",
+    config = function()
+      require "plugins.configs.sort"
+    end,
   }
 
   -- Undo history visualizer
   use {
     "mbbill/undotree",
-    config = require "plugins.configs.undotree",
+    config = function()
+      require "plugins.configs.undotree"
+    end,
   }
 
   -- Profiling
@@ -285,58 +348,78 @@ return packer.startup(function(use)
   -- Good notifications
   use {
     "rcarriga/nvim-notify",
-    config = require "plugins.configs.notify",
+    config = function()
+      require "plugins.configs.notify"
+    end,
   }
 
   -- Escape from insert mode without delay when typing
   use {
     "max397574/better-escape.nvim",
-    config = require "plugins.configs.better-escape",
+    config = function()
+      require "plugins.configs.better-escape"
+    end,
   }
 
   use {
     "luukvbaal/stabilize.nvim",
-    config = require "plugins.configs.stabilize",
+    config = function()
+      require "plugins.configs.stabilize"
+    end,
   }
 
   use {
     "nacro90/numb.nvim",
-    config = require "plugins.configs.numb",
+    config = function()
+      require "plugins.configs.numb"
+    end,
   }
 
+  use {
+    "stevearc/dressing.nvim",
+    config = function()
+      require "plugins.configs.dressing"
+    end,
+  }
 
   use {
     "folke/which-key.nvim",
-    config = require "plugins.configs.whichkey",
+    config = function()
+      require "plugins.configs.whichkey"
+    end,
   }
 
   -- use {
   --   "Pocco81/auto-save.nvim",
-  --   config = require "plugins.configs.auto-save",
+  --   config = function() require "plugins.configs.auto-save",
   -- }
 
   -- Debug
   -- use {
   --   "mfussenegger/nvim-dap",
-  --   config = require("plugins.configs.nvim-dap")
+  --   config = function() require("plugins.configs.nvim-dap") end,
   -- }
   -- use {
   --   "rcarriga/nvim-dap-ui",
-  --   config = require("plugins.configs.nvim-dap-ui")
+  --   config = function() require("plugins.configs.nvim-dap-ui") end,
   -- }
   -- "theHamsta/nvim-dap-virtual-text";
   -- "Pocco81/DAPInstall.nvim";
 
   use {
     "beauwilliams/focus.nvim",
-    config = require "plugins.configs.focus",
+    config = function()
+      require "plugins.configs.focus"
+    end,
   }
 
   -- Database
   use "tpope/vim-dadbod"
   use {
     "kristijanhusak/vim-dadbod-ui",
-    config = require "plugins.configs.vim-dadbod-ui",
+    config = function()
+      require "plugins.configs.vim-dadbod-ui"
+    end,
   }
   use "kristijanhusak/vim-dadbod-completion"
 end)

@@ -18,7 +18,9 @@ map("", "<Space>", "<Nop>")
 -- Set leader key
 vim.g.mapleader = " "
 
--- ********* CUSTOM MAPPING *********
+-- #########################
+-- #    Custom Mappings    #
+-- #########################
 
 -- Easier split navigation, CTRL + hjlk
 map("n", "<C-j>", "<C-W><C-j>", { desc = "window down" })
@@ -97,6 +99,8 @@ map("v", "<", "<gv")
 -- map('n','*', '*``')
 
 -- Always keep in in the center of the screen
+map('n','<C-d>', '<C-d>zz')
+map('n','<C-u>', '<C-u>zz')
 -- map('n','n', 'nzz')
 -- map('n','N', 'Nzz')
 
@@ -117,15 +121,17 @@ map("n", "<Leader>t7", "7gt<CR>", { desc = "tab 7" })
 map("n", "<Leader>t8", "8gt<CR>", { desc = "tab 8" })
 map("n", "<Leader>t9", "9gt<CR>", { desc = "tab 9" })
 
+-- Replace under a cursor
+-- map("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
+
 -- Open terminal
 -- nmap <Leader>tt :vnew term://zsh <CR>
 -- map("n", "<Leader>tt", ":split term://zsh | resize 20<CR> | a<CR>")
 -- tmap <Leader>ot <C-\><C-n>:Ttoggle<CR>
 
--- ********* PLUGINS MAPPING *********
-
--- nvim-comment
--- map({ 'n', 'v' }, '<Leader>/', ':CommentToggle<CR>')
+-- ##########################
+-- #    Plugins Mappings    #
+-- ##########################
 
 -- Comment.nvim
 map("n", "<Leader>/", function() require("Comment.api").toggle.linewise.current() end, { desc = "toggle comment" })
@@ -184,9 +190,5 @@ map("n", "<Leader>gs", ":Git<CR>", { desc = "git menu" })
 map({ "n", "v" }, "<Leader>gc", ":GV<CR>")
 map("n", "<Leader>gC", ":GV!<CR>")
 
--- suda.vim
-map("c", "e!!", "e suda://%", { silent = false })
-map("c", "w!!", "w suda://%", { silent = false })
-
 -- hop.nvim
-map("n", "f", "<CMD>HopChar2<CR>")
+map("n", "f", "<CMD>HopChar1<CR>")
