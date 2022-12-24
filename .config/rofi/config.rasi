@@ -1,17 +1,17 @@
 configuration {
+	combi-hide-mode-prefix: true;
+	combi-modi: "window,drun,run";
+	disable-history: false;
+	drun-display-format: "{name}";
+	icon-theme: "Papirus";
+	matching: "fuzzy";
 	modi: "drun";
-	width: 30;
-	lines: 10;
-	font: "mono 12";
-	location: 8;
-	yoffset: -120;
-	xoffset: 250;
+	scroll-method: 0;
 	show-icons: true;
-	terminal: "urxvt";
-/* theme: "gruvbox-dark"; */
-	display-drun: "Search";
-	kb-remove-to-eol: "Control+p";
-	kb-accept-entry: "Control+m,Return,KP_Enter";
-	kb-row-up: "Up,Control+k,ISO_Left_Tab";
-	kb-row-down: "Down,Control+j";
+	sorting-method: "fzf";
+	sort: true;
+	threads: 0;
+	window-thumbnail: true;
 }
+
+@theme "themes/gruvbox-common.rasi"
