@@ -146,3 +146,9 @@ autocmd({ "BufWritePost" }, {
   command = "!xrdb %",
   group = auto_compile,
 })
+
+autocmd({ "BufWritePost" }, {
+  pattern = "bspwmrc",
+  command = "!bspc wm -r",
+  group = auto_compile,
+})
