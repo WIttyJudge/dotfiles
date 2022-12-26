@@ -19,11 +19,11 @@ alias \
   qr-send-file="qrcp " \
   qr-receive-file="qrcp receive" \
   send-file="croc " \
-  open="xdg-open " \
   sxiv="nsxiv " \
   lg="lazygit " \
   lf="lfrun " \
   man="fman" \
+  # open="xdg-open " \
 
 # for testing
 alias \

@@ -42,8 +42,8 @@ config_directory=(
   nsxiv
   nvim
   pipewire
-  # polybar
-  # rofi
+  polybar
+  rofi
   shell
   sxhkd
   tig

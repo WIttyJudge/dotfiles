@@ -1,8 +1,12 @@
 #!/usr/bin/env zsh
 
-# fzf Integrations {{{
 
-# fman - Search man pages.
+#########
+#  FZF  #
+#########
+
+# Search man pages.
+# https://github.com/junegunn/fzf/wiki/Examples#man-pages
 function fman() {
 	MAN="/usr/bin/man"
 
@@ -10,33 +14,40 @@ function fman() {
 		$MAN "$@"
 		return $?
 	else
-		$MAN -k . | fzf --preview="echo {1,2} | sed 's/ (/./' | sed -E 's/\)\s*$//' | xargs $MAN" | awk '{print $1 "." $2}' | tr -d '()' | xargs -r $MAN
+		$MAN -k . | awk '{print $1}' | fzf | xargs -r $MAN
 		return $?
 	fi
 }
 
-# fkill - kill processes.
-function fkill() {
-  local pid
-  pid=$(ps -ef | sed 1d | fzf -m | awk '{print $2}')
+# fkill - kill processes - list only the ones you can kill. Modified the earlier script.
+# https://github.com/junegunn/fzf/wiki/Examples#processes
+fkill() {
+	local pid 
+	if [ "$UID" != "0" ]; then
+		pid=$(ps -f -u $UID | sed 1d | fzf -m | awk '{print $2}')
+	else
+		pid=$(ps -ef | sed 1d | fzf -m | awk '{print $2}')
+	fi  
 
-  if [ "x$pid" != "x" ]
-  then
-    echo $pid | xargs kill -${1:-9}
-  fi
+	if [ "x$pid" != "x" ]
+	then
+		echo $pid | xargs kill -${1:-9}
+	fi  
 }
-# END fzf Integrations }}}
 
-# git {{{
+#########
+#  Git  #
+#########
 
 function acp() {
   git commit -am "$1"
   git push origin master
 }
 
-# END git }}}
 
-# tmux {{{
+##########
+#  Tmux  #
+##########
 
 function tkill() {
   tmux ls -F '#{session_name}' |\
@@ -44,7 +55,9 @@ function tkill() {
     xargs -I {} tmux kill-session -t {}
 }
 
-# END tmux }}}
+#############################
+#  Simple useful functions  #
+#############################
 
 # example: repeat 3 ping google.com
 function repeat() {
@@ -76,11 +89,6 @@ function vars() {
     local out
     out=$(env | fzf)
     echo $(echo $out | cut -d= -f2)
-}
-
-# Clean whitespace inside all files
-function whitespace-clean() {
-  find . -type f -print0 | xargs -0 perl -pi -e 's/ +$//'
 }
 
 # Prevent 'zsh: command not found: $'

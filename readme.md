@@ -41,11 +41,11 @@ It only loops through all the config files and symlinks them.
 $ bash setup
 ```
 
-## Screenshots 
+## Screenshots
 
 ..
 
 ## Notes
+
 - The ~/.zprofile file MUST be in the $HOME directory, however, the rest of the zsh config files live in ~/.config/zsh/.
 - I highly recommend you do not copy these dotfiles. If you want to use them, read through them and understand how they work. Then take the parts of them that are relevant to your workflow.
-

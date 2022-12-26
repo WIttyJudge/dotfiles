@@ -34,20 +34,16 @@ export HISTSIZE=20000
 export SAVEHIST=$HISTSIZE
 export HISTFILE="${XDG_CACHE_HOME}/zsh/history"
 
-setopt APPEND_HISTORY   # Immediately append commands to history file.
-setopt SHARE_HISTORY
-setopt INC_APPEND_HISTORY   # Immediately append commands to history file.
+setopt APPEND_HISTORY # Immediately append commands to history file.
+setopt INC_APPEND_HISTORY 
 
-# setopt HIST_IGNORE_ALL_DUPS # Never add duplicate entries.
-setopt HIST_IGNORE_SPACE    # Ignore commands that start with a space.
-setopt HIST_FIND_NO_DUPS
-# HISTORY_IGNORE="(yt* *|t *|t|sdcv *|mmfileget *|arr)"
+setopt HIST_IGNORE_ALL_DUPS # Never add duplicate entries.
+setopt HIST_IGNORE_SPACE    # Delete space and the beginning of command.
 
 setopt GLOB_STAR_SHORT GLOB_DOTS EXTENDED_GLOB
 
 # The number of matches to list without asking first.
 export LISTMAX=9999
-
 
 # ASDF completions
 fpath=(${ASDF_DIR}/completions $fpath)
@@ -118,3 +114,6 @@ source "$XDG_CONFIG_HOME/zsh/bindings/fzf-history-search.zsh"
 # # Edit line in with ctrl-e:
 autoload edit-command-line; zle -N edit-command-line
 bindkey '^e' edit-command-line
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"

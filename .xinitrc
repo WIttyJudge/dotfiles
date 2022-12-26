@@ -14,4 +14,5 @@ and replace \`libxft\`. Afterwards, you may start the graphical server by runnin
 fi
 
 # exec i3
-ssh-agent dwm
+# ssh-agent dwm
+exec bspwm
