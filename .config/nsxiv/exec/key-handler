@@ -7,9 +7,13 @@ do
 	"w")
     setbg "$file" ;;
 	"r")
-		convert -rotate 90 "$file" "$file" ;;
+		convert -rotate 90 "$file" "$file"
+		notify-send "Sxiv" "rotated 90 clockwise"
+		;;
 	"R")
-		convert -rotate -90 "$file" "$file" ;;
+		convert -rotate -90 "$file" "$file"
+		notify-send "Sxiv: rotated 90 anti-clockwise"
+		;;
 	"y")
     xclip -selection clipboard "$file" -t image/png &&
 		notify-send "$file copied to clipboard" ;;
