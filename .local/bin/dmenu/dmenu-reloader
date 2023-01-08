@@ -1,36 +1,24 @@
 #!/bin/sh
 
-files=(
-  # i3wm
-  .Xresources
-  sxhkd
-  .zshrc
-  # dwm
-  bspwm
-)
-
-choice="$(printf '%s\n' "${files[@]}" | rofi -dmenu -theme theme/dmenu)"
-
 notifier() {
   notify-send 'Reloader' "$1 successfully reloaded."
 }
 
+menu(){
+	printf ".Xresources\n"
+	printf "sxhkd\n"
+	printf "bspwm\n"
+}
+
+choice="$(menu | rofi -dmenu -theme theme/dmenu)"
+
 case "$choice" in
-  # i3wm)
-  #   i3-msg restart && notifier "i3wm" ;;
-  .Xresources)
-    xrdb ~/.Xresources && notifier ".Xresources" ;;
-  .zshrc)
-    source ~/.zshrc && notifier ".zshrc" ;;
-  sxhkd)
-    pkill -USR1 -x sxhkd
-    notifier "sxhkd" ;;
-  # dwm)
-  #   kill -HUP $(pgrep -u $USER "\bdwm$") &&
-    # notifier "dwm" ;;
-  bspwm)
-    bspc wm -r 
-    notifier "Bspwm" ;;
+  .Xresources) xrdb ~/.Xresources ;;
+  sxhkd) pkill -USR1 -x sxhkd ;;
+  bspwm) bspc wm -r ;;
+  # dwm) kill -HUP $(pgrep -u $USER "\bdwm$") ;;
+  # i3wm) i3-msg restart;;
   *) exit ;;
 esac
 
+notifier $choice

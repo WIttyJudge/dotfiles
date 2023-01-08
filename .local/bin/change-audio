@@ -2,7 +2,7 @@
 
 function send_notification() {
   volume=$(pamixer --get-volume)
-  dunstify -a "change-audio" -t 2000 -r 9993 -h int:value:"$volume" -i "$1" -u low "Volume: ${volume}%"
+  notify-send -a "change-audio" -t 2000 -r 9993 -h int:value:"$volume" -i "$1" -u low "Volume: ${volume}%"
 }
 
 case $1 in
@@ -19,7 +19,7 @@ case $1 in
   volume-toggle)
     pamixer -t
     if $(pamixer --get-mute); then
-      dunstify -a "change-audio" -t 2000 -r 9993 -i volume-mute -u low "Muted"
+      notify-send -a "change-audio" -t 2000 -r 9993 -i volume-mute -u low "Muted"
     else
       send_notification volume-up
     fi
@@ -30,8 +30,8 @@ case $1 in
     index=$(pamixer --list-sources | grep input | awk '{print $1}')
     mic_muted="$(pamixer --source "$index" --get-mute)"
     [ "$mic_muted" == "true" ] &&
-      dunstify -a "change-audio" -t 2000 -r 9992 -i "microphone-mute" "Muted" ||
-      dunstify -a "change-audio" -t 2000 -r 9992 -i "microphone" "Active"
+      notify-send -a "change-audio" -t 2000 -r 9992 -i "microphone-mute" "Muted" ||
+      notify-send -a "change-audio" -t 2000 -r 9992 -i "microphone" "Active"
     ;;
   *)
     echo >&2 "Unknown action '$1'"

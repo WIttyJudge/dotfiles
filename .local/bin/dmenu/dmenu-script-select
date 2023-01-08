@@ -1,24 +1,24 @@
 #!/bin/sh
 
-commands=(
-  '< Exit'
-  '1 [ System ]'
-  '2 [ Reloader ]'
-  'dotfiles'
-  'suckess-tools'
-)
+menu(){
+	printf "< Exit\n"
+	printf "1. System\n"
+	printf "2. Reloader\n"
+	printf "dotfiles\n"
+	# printf "suckless-tools"
+}
 
-choice="$(printf '%b\n' "${commands[@]}" | rofi -dmenu -theme theme/dmenu)"
+choice="$(menu | rofi -dmenu -theme theme/dmenu | cut -d. -f2 | sed 's/ //')"
 
 case "$choice" in
-  "1 [ System ]")
+  "System")
     sysact ;;
-  "2 [ Reloader ]")
+  "Reloader")
     dmenu-reloader ;;
   "dotfiles")
     $TERMINAL -e sh -c 'tmux-sessionizer /home/wittyjudge/dotfiles' ;;
-  "suckess-tools")
-    $TERMINAL -e sh -c 'tmux-sessionizer /home/wittyjudge/suckless-tools' ;;
+  # "suckless-tools")
+  #   $TERMINAL -e sh -c 'tmux-sessionizer /home/wittyjudge/suckless-tools' ;;
   '< Exit') exit ;;
   *) exit ;;
 esac
