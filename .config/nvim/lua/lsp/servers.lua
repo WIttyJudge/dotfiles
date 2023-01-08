@@ -3,6 +3,11 @@
 -- Setup LSP for yaml, typescript, ruby, golang, rust, bash, html, css
 
 local servers = {
+  bashls = true,
+  sumneko_lua = true,
+  pyright = true,
+  -- tsserver = true,
+  solargraph = true,
   rust_analyzer = {
     cmd = { "rust-analyzer" },
     filetypes = { "rust" },
@@ -13,9 +18,6 @@ local servers = {
       },
     },
   },
-  pyright = true,
-  tsserver = true,
-  solargraph = { filetypes = { "ruby" } },
   -- if it does not works, install binaries from
   -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#golangci_lint_ls
   golangci_lint_ls = {
@@ -41,18 +43,6 @@ local servers = {
       },
     },
   },
-  bashls = true,
-  sumneko_lua = {},
-  -- html = {
-  --   filetypes = { "html", "eruby" },
-  -- },
-  -- cssls = {
-  --   settings = {
-  --     css = { validate = true },
-  --     less = { validate = true },
-  --     scss = { validate = true }
-  --   }
-  -- }
 }
 
 return servers
