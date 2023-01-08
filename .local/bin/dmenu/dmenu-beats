@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # add more args here according to preference
-ARGS="--volume=40"
+ARGS="--vo=null --video=no --no-video --term-osd-bar --no-resume-playback --volume=50"
 
 notification(){
 # change the icon to whatever you want. Make sure your notification server 
@@ -19,7 +19,6 @@ menu(){
 	printf "3. Box Lofi\n"
 	printf "4. The Bootleg Boy\n"
 	printf "5. Radio Spinner\n"
-	printf "6. SmoothChill"
 }
 
 main() {
@@ -49,11 +48,6 @@ main() {
 		5)
 			notification "Radio Spinner ☕️🎶";
             URL="https://live.radiospinner.com/lofi-hip-hop-64"
-			break
-			;;
-		6)
-			notification "SmoothChill ☕️🎶";
-            URL="https://media-ssl.musicradio.com/SmoothChill"
 			break
 			;;
 	esac

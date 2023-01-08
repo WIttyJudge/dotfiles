@@ -14,7 +14,7 @@ cancel="窱 Cancel"
 
 option="$cancel\n$hibernate\n$poweroff\n$reboot\n$suspend\n$lock\n$logout"
 
-select="$(echo -e "$option" | $prompt -p "Uptime - $uptime")"
+select="$(echo -e "$option" | rofi -dmenu -theme theme/dmenu)"
 
 case "$(readlink -f /sbin/init)" in
 	*systemd*) ctl='systemctl' ;;
@@ -38,7 +38,8 @@ case $select in
 		slock
 		;;
 	$logout)
-		kill -TERM dwmpid $(pidof dwm)
+		# kill -TERM dwmpid $(pidof dwm)
+		bspc quit
     ;;
   *)
     exit 1

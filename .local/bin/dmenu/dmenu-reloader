@@ -5,10 +5,11 @@ files=(
   .Xresources
   sxhkd
   .zshrc
-  dwm
+  # dwm
+  bspwm
 )
 
-choice="$(printf '%s\n' "${files[@]}" | dmenu -p "What to reload > ")"
+choice="$(printf '%s\n' "${files[@]}" | rofi -dmenu -theme theme/dmenu)"
 
 notifier() {
   notify-send 'Reloader' "$1 successfully reloaded."
@@ -22,11 +23,14 @@ case "$choice" in
   .zshrc)
     source ~/.zshrc && notifier ".zshrc" ;;
   sxhkd)
-    pkill sxhkd; sxhkd &&
+    pkill -USR1 -x sxhkd
     notifier "sxhkd" ;;
-  dwm)
-    kill -HUP $(pgrep -u $USER "\bdwm$") &&
-    notifier "dwm" ;;
+  # dwm)
+  #   kill -HUP $(pgrep -u $USER "\bdwm$") &&
+    # notifier "dwm" ;;
+  bspwm)
+    bspc wm -r 
+    notifier "Bspwm" ;;
   *) exit ;;
 esac
 

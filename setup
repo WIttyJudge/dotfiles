@@ -41,6 +41,7 @@ config_directory=(
   newsboat
   nsxiv
   nvim
+  pcmanfm
   pipewire
   polybar
   rofi

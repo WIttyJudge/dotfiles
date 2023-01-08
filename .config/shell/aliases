@@ -13,7 +13,6 @@ command -v bat       &> /dev/null    && alias c='bat'         || alias c='cat'
 alias \
   s="sudo " \
   p="sudo pacman " \
-  ping="ping -c 3 youtube.com" \
   e="$EDITOR" \
   update-grub="sudo grub-mkconfig -o /boot/grub/grub.cfg" \
   qr-send-file="qrcp " \

@@ -46,6 +46,11 @@ bspc config merge_overlapping_monitors    true
 #  Rules  #
 ###########
 
+# Delete all automatically set rules
+# bspc rule -r "*"
+# Set rules for all floating windows
+# bspc rule -a \* rectangle 800x600+0+0 center=true
+
 bspc rule -a Chromium desktop='^1'
 bspc rule -a firefox desktop='^1'
 bspc rule -a Brave desktop='^1'
@@ -60,5 +65,8 @@ bspc rule -a Battle.net desktop='^5'
 
 bspc rule -a mpv state=fullscreen
 bspc rule -a Zathura state=tiled
+bspc rule -a Nm-connection-editor state=floating
+bspc rule -a system-config-printer state=floating rectangle=800x600+0+0 center=on
+bspc rule -a Simple-scan state=floating
 bspc rule -a Pavucontrol state=floating
 bspc rule -a Pcmanfm state=floating

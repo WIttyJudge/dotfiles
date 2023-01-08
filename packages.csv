@@ -85,6 +85,8 @@ TRUE,,rofi-pass,Bash script to handle pass storages in a convenient way.
 ,AUR,xkblayout-state-git,A small command-line program to get/set the current keyboard layout.
 ,AUR,downgrade,Bash script for downgrading packages.
 ,AUR,slack-desktop,Slack Desktop.
+,,gtk2,GObject-based multi-platform GUI toolkit(legacy).
+,,gtk3,GObject-based multi-platform GUI toolkit.
 ,AUR,gruvbox-material-gtk-theme-git,Gruvbox Material theme for GTK.
 ,,openvpn,Configurable VPN (Virtual Private Network).
 ,,wireguard-tools,Lools to configure wireguard.
@@ -109,3 +111,9 @@ TRUE,,rofi-pass,Bash script to handle pass storages in a convenient way.
 ,,earlyoom,Early OOM Daemon for Linux.
 ,,systembus-notify,System bus notification daemon.
 ,,throttled,Workaround for Intel throttling issues in Linux.
+,,arandr,Visual front end for xrandr.
+,,autorandr,Auto-detect connected display hardware and load appropiate X11 setup using xrandr
+,,cups,The CUPS Printing System.
+,,system-config-printer,GTK printer configuration tool.
+,,sane,Scanner Access Now Easy.
+,,simple-scan,GTK document scanning application.

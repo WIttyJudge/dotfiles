@@ -1,13 +1,16 @@
 /**
  *
- * Author : Aditya Shakya (adi1090x)
- * Github : @adi1090x
+ * All of this config settings I got from:
+ * https://github.com/adi1090x/rofi
  *
- * Configuration For Rofi Version: 1.7.3
+ * config.rasi is a default settings, which is being applied first,
+ * before theme started.
+ * 
  **/
 
 configuration {
 	/*---------- General setting ----------*/
+
 	modi: "drun,run,filebrowser,window";
 	case-sensitive: false;
 	cycle: true;
@@ -37,9 +40,9 @@ configuration {
 	drun-use-desktop-cache: false;
 	drun-reload-desktop-cache: false;
 	drun {
-		/** Parse user desktop files. */
+		/* Parse user desktop files. */
 		parse-user:   true;
-		/** Parse system desktop files. */
+		/* Parse system desktop files. */
 		parse-system: true;
 	}
 
@@ -60,16 +63,16 @@ configuration {
 	window-thumbnail: false;
 
 	/*---------- Combi settings ----------*/
-/*	combi-modi: "window,run";*/
-/*	combi-hide-mode-prefix: false;*/
-/*	combi-display-format: "{mode} {text}";*/
+	/* combi-modi: "window,run"; */
+	/* combi-hide-mode-prefix: false; */
+	/* combi-display-format: "{mode} {text}"; */
 
 	/*---------- History and Sorting ----------*/
 	disable-history: false;
 	sorting-method: "normal";
 	max-history-size: 25;
 
-	/*---------- Display setting ----------*/
+	/* ---------- Display setting ---------- */
 	display-window: "Windows";
 	display-windowcd: "Window CD";
 	display-run: "Run";
@@ -79,31 +82,32 @@ configuration {
 	display-keys: "Keys";
 	display-filebrowser: "Files";
 
-	/*---------- Misc setting ----------*/
+	/* ---------- Misc setting ---------- */
 	terminal: "rofi-sensible-terminal";
 	font: "Mono 12";
 	sort: false;
 	threads: 0;
 	click-to-exit: true;
 
-	/*---------- File browser settings ----------*/
+	/* ---------- File browser settings ---------- */
 	filebrowser {
 		directories-first: true;
 		sorting-method:    "name";
 	}
 
-	/*---------- Other settings ----------*/
+	/* ---------- Other settings ---------- */
 	timeout {
 		action: "kb-cancel";
 		delay:  0;
 	}
 
+	/* Vim keybindings */
 	kb-row-up: "Up,Control+k,Shift+Tab,Shift+ISO_Left_Tab";
 	kb-row-down: "Down,Control+j";
 	kb-accept-entry: "Control+m,Return,KP_Enter";
-	terminal: "mate-terminal";
 	kb-remove-to-eol: "Control+Shift+e";
-	/*kb-mode-next: "Shift+Right,Control+Tab,Control+l";*/
 	kb-mode-previous: "Shift+Left,Control+Shift+Tab,Control+h";
 	kb-remove-char-back: "BackSpace";
 }
+
+@theme "theme/centered.rasi"

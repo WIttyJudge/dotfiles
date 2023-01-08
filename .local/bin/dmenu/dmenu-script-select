@@ -2,20 +2,13 @@
 
 commands=(
   '< Exit'
-  '---'
   '1 [ System ]'
   '2 [ Reloader ]'
-  '---'
   'dotfiles'
   'suckess-tools'
 )
 
-scripts_folder="$HOME/.local/bin/dmenu"
-
-# choice="$(printf '%b\n' "${commands[@]}" | rofi -dmenu -i bmenu -p "Select command > ")"
-choice="$(printf '%b\n' "${commands[@]}" | dmenu -x 450 -y 450 -z 500 -l 10)"
-
-
+choice="$(printf '%b\n' "${commands[@]}" | rofi -dmenu -theme theme/dmenu)"
 
 case "$choice" in
   "1 [ System ]")
