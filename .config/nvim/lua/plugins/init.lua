@@ -342,9 +342,6 @@ return packer.startup(function(use)
     end,
   }
 
-  -- Profiling
-  use "tweekmonster/startuptime.vim"
-
   -- Good notifications
   use {
     "rcarriga/nvim-notify",
