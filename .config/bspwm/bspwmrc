@@ -68,5 +68,6 @@ bspc rule -a Zathura state=tiled
 bspc rule -a Nm-connection-editor state=floating
 bspc rule -a system-config-printer state=floating rectangle=800x600+0+0 center=on
 bspc rule -a Simple-scan state=floating
+bspc rule -a Blueberry.py state=floating
 bspc rule -a Pavucontrol state=floating
 bspc rule -a Pcmanfm state=floating
