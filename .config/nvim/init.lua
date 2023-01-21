@@ -1,11 +1,4 @@
--- https://github.com/lewis6991/impatient.nvim
-if pcall(require, "impatient") then
-  require "impatient"
-else
-  vim.notify("impatient.nvim not installed", vim.log.levels.WARN)
-end
+-- Lazy.nvim plugin manager
+require "core.lazy"
 
 require "core"
-
--- Packer package manager
-require "plugins"
