@@ -303,13 +303,6 @@ return {
   },
 
   {
-    "luukvbaal/stabilize.nvim",
-    config = function()
-      require "plugins.configs.stabilize"
-    end,
-  },
-
-  {
     "nacro90/numb.nvim",
     config = function()
       require "plugins.configs.numb"
