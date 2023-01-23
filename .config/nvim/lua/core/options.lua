@@ -17,6 +17,7 @@ local options = {
   updatetime = 200, -- Length of time to wait before triggering the plugin
   timeoutlen = 300, -- Length of time to wait for a mapped sequence
   ttimeoutlen = 10, -- Length of time to wait for a key code sequence to complete.
+  splitkeep = 'screen',
 
   -- completion options
   -- completeopt = 'menuone,noinsert,noselect',
