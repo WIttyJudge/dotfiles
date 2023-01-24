@@ -30,9 +30,12 @@ return {
   },
   {
     "j-hui/fidget.nvim",
-    config = function()
-      require "plugins.configs.fidget"
-    end,
+    opts = {
+      window = {
+        -- adjust transparency.
+        blend = 0,
+      },
+    }
   },
 
   {
@@ -78,6 +81,7 @@ return {
   {
     "nvim-treesitter/nvim-treesitter",
     build = ":TSUpdate",
+    event = "BufReadPost",
     config = function()
       require "plugins.configs.nvim-treesitter"
     end,
@@ -119,12 +123,12 @@ return {
     end,
   },
 
-  {
-    "chaoren/vim-wordmotion",
-    config = function()
-      require "plugins.configs.vim-wordmotion"
-    end,
-  },
+  -- {
+  --   "chaoren/vim-wordmotion",
+  --   config = function()
+  --     require "plugins.configs.vim-wordmotion"
+  --   end,
+  -- },
 
   {
     "andymass/vim-matchup",
@@ -203,9 +207,7 @@ return {
 
   {
     "numToStr/Comment.nvim",
-    config = function()
-      require "plugins.configs.comment"
-    end,
+    opts = { mappings = false }
   },
 
   -- Find and replace
@@ -226,11 +228,9 @@ return {
     end,
   },
   {
-    "SmiteshP/nvim-gps",
-    dependencies = "nvim-treesitter/nvim-treesitter",
-    config = function()
-      require "plugins.configs.nvim-gps"
-    end,
+    "SmiteshP/nvim-navic",
+    lazy = true,
+    opts = { separator = " ", highlight = true, depth_limit = 5 }
   },
 
   -- -- Fancy startup screen
@@ -297,15 +297,18 @@ return {
   -- Escape from insert mode without delay when typing
   {
     "max397574/better-escape.nvim",
-    config = function()
-      require "plugins.configs.better-escape"
-    end,
+    opts = {
+      mapping = { "jk", "kj" },
+      timeout = vim.o.timeoutlen,
+      clear_empty_lines = false,
+      keys = "<Esc>",
+    }
   },
 
   {
     "nacro90/numb.nvim",
     config = function()
-      require "plugins.configs.numb"
+      require("numb").setup()
     end,
   },
 
@@ -325,8 +328,12 @@ return {
 
   -- {
   --   "Pocco81/auto-save.nvim",
-  --   config = function() require "plugins.configs.auto-save",
-  -- }
+  --   opts = {
+  --     execution_message = {
+  --       message = function() return ("") end,
+  --     },
+  --   }
+  -- },
 
   -- Debug
   -- {
@@ -342,9 +349,7 @@ return {
 
   {
     "beauwilliams/focus.nvim",
-    config = function()
-      require "plugins.configs.focus"
-    end,
+    opts = { enabled = true, signcolumn = false, }
   },
 
   -- Database

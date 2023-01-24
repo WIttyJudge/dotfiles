@@ -7,8 +7,9 @@ local options = {
   shiftwidth = 2,
   tabstop = 2,
   softtabstop = 2,
+  confirm = true,
 
-  fillchars = { eob = " " },
+  -- fillchars = { eob = " " },
   ignorecase = true,
   smartcase = true,
   mouse = "a",
@@ -39,7 +40,7 @@ local options = {
   splitright = true,  -- Splitting a new window at the right of the current one
   showtabline = 2,    -- Always show tables
   termguicolors = true,
-  -- colorcolumn = "79",
+  colorcolumn = "79",
 
   -- Enable the integrated undo features.
   undofile = true, -- Enable persistent undo

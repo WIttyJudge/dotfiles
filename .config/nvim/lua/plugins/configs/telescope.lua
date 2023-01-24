@@ -162,21 +162,6 @@ end)
 -- CUSTOM FUNCTIONS
 local M = {}
 
-function M.find_all_files()
-  builtin.find_files {
-    find_command = {
-      "rg",
-      "--files",
-      "-g",
-      "!.git",
-      "-g",
-      "!node_modules",
-      "--hidden",
-      -- "fd", "--type", "f", "--strip-cwd-prefix", "--hidden"
-    },
-  }
-end
-
 function M.grep_prompt()
   local opts = {
     path_diplay = { "shorten" },
