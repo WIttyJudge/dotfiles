@@ -5,7 +5,7 @@ if not present then
   return
 end
 
-local gps = require "nvim-gps"
+-- local gps = require "nvim-gps"
 
 local internal_condition = require "internal.conditions"
 local icons = require "internal.icons"
@@ -170,9 +170,11 @@ ins_left {
 
 ins_left {
   function()
-    return gps.get_location()
+    return require("nvim-navic").get_location()
   end,
-  cond = gps.is_available,
+  cond = function()
+    return package.loaded["nvim-navic"] and require("nvim-navic").is_available()
+  end,
 }
 
 -- ins_left {

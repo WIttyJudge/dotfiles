@@ -81,7 +81,9 @@ local config = {
     },
   },
   experimental = {
-    ghost_text = false,
+    ghost_text = {
+      hl_group = "LspCodeLens",
+    },
   },
   sources = cmp.config.sources {
     { name = "nvim_lsp" },

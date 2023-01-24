@@ -149,9 +149,6 @@ map("n", "g#", "g#<Cmd>lua require('hlslens').start()<CR>", { silent = false })
 map("n", "<C-b>", ":NvimTreeToggle<CR>", { desc = "toggle nvimtree" })
 map("n", "<Leader>hf", ":NvimTreeFindFile<CR>", { desc = "find file nvimtree" })
 
--- telescope
--- vim.keymap.set('n', '<Leader>f', function() require("plugins.configs.telescope").find_all_files() end)
-
 map("n", "<Leader>ff", function()
   require("telescope.builtin").find_files()
 end, { desc = "find fles" })

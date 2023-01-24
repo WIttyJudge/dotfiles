@@ -19,6 +19,7 @@ local options = {
   timeoutlen = 300, -- Length of time to wait for a mapped sequence
   ttimeoutlen = 10, -- Length of time to wait for a key code sequence to complete.
   splitkeep = 'screen',
+  shortmess = "filnxtToOFWIcC",
 
   -- completion options
   -- completeopt = 'menuone,noinsert,noselect',
@@ -33,8 +34,8 @@ local options = {
   cursorline = true,  -- Enable highlighting on the current_line
   signcolumn = "yes", -- Always show the sign column
   laststatus = 3,     -- globalstatus
-  scrolloff = 7,      -- Number of lines to keep above and below the cursor
-  sidescrolloff = 7,  -- Number of columns to keep at the sides of the cursor
+  scrolloff = 8,      -- Number of lines to keep above and below the cursor
+  sidescrolloff = 8,  -- Number of columns to keep at the sides of the cursor
   showmode = false,   -- Disable showing modes in command line
   splitbelow = true,  -- Splitting a new window below the current one
   splitright = true,  -- Splitting a new window at the right of the current one

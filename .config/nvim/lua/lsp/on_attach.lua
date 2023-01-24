@@ -1,6 +1,15 @@
 local map = require("internal.utils").map
 
+local navic = require("nvim-navic")
+
 function on_attach(client, bufnr)
+  -- Plugins
+  if client.server_capabilities.documentSymbolProvider then
+      navic.attach(client, bufnr)
+  end
+
+  -- Mappings
+
   map("n", "gd", function()
     -- vim.lsp.buf.definition()
     require("telescope.builtin").lsp_definitions()
