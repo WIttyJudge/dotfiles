@@ -17,10 +17,6 @@ local commands_list = {
   -- nvim-spectre
   [[ command! SpectreOpen execute 'lua require("spectre").open()' ]],
   [[ command! SpectreOpenCurrentFile execute 'lua require("spectre").open_file_search()' ]],
-
-  -- suda.vim
-  [[ command! SudoEdit  :e suda://% ]],
-  [[ command! SudoWrite :w suda://% ]],
 }
 
 -- list of commands dependent on autogroup.

@@ -44,15 +44,12 @@ local list = {
 
 local config = {
   -- respect_buf_cwd = true,
-  ignore_ft_on_setup = { "startify", "dashboard", "alpha" },
   diagnostics = {
     enable = false,
   },
   disable_netrw = true,
   hijack_netrw = true,
   hijack_cursor = true,
-  -- open_on_setup = true,
-  -- open_on_tab = false,
   update_cwd = true,
   view = {
     width = 35,

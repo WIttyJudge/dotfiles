@@ -5,8 +5,6 @@ if not present then
   return
 end
 
--- local gps = require "nvim-gps"
-
 local internal_condition = require "internal.conditions"
 local icons = require "internal.icons"
 
@@ -73,6 +71,7 @@ vim.api.nvim_command("hi StatusLineNC guibg=" .. colors.bg)
 
 local config = {
   options = {
+    globalstatus = true,
     -- Disable sections and component separators
     component_separators = "",
     section_separators = "",
@@ -176,11 +175,6 @@ ins_left {
     return package.loaded["nvim-navic"] and require("nvim-navic").is_available()
   end,
 }
-
--- ins_left {
---   gps.get_location,
---   cond = gps.is_available()
--- }
 
 -- Insert mid section. You can make any number of sections in neovim :)
 -- for lualine it's any number greater then 2

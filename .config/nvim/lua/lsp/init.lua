@@ -1,12 +1,6 @@
 -- https://github.com/neovim/nvim-lspconfig
+local lspconfig = require("lspconfig")
 
-local present, lspconfig = pcall(require, "lspconfig")
-
-if not present then
-  return
-end
-
--- Global configs
 -- local handlers = require('lsp/handlers')
 local on_attach = require "lsp.on_attach"
 local servers = require "lsp.servers"

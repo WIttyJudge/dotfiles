@@ -1,3 +1,6 @@
+-- Set leader key
+vim.g.mapleader = " "
+
 local options = {
   clipboard = "unnamedplus", -- Connection to the system clipboard
 

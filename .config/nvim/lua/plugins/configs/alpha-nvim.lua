@@ -1,8 +1,4 @@
-local present, alpha = pcall(require, "alpha")
-
-if not present then
-  return
-end
+local alpha = require("alpha")
 
 local icons = require "internal.icons"
 
@@ -64,7 +60,7 @@ options.buttons = {
     button("t", icons.ui.List .. " Find text", ":Telescope live_grep <CR>"),
     -- button("s", icons.ui.SignIn .. " Find Session", ":Telescope sessions save_current=false <CR>"),
     button("c", icons.ui.Gear .. " Config", ":e ~/.config/nvim/init.lua <CR>"),
-    button("q", icons.diagnostics.Error .. " Quit", ":qa<CR>"),
+    button("q", icons.diagnostics.Error .. "Quit", ":qa<CR>"),
   },
   opts = {
     spacing = 1,

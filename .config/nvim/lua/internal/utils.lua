@@ -26,4 +26,14 @@ function M.get_homedir()
   return os.getenv "HOME"
 end
 
+local diagnostics_enabled = true
+function M.toggle_diagnostics()
+  diagnostics_enabled = not diagnostics_enabled
+  if diagnostics_enabled then
+    vim.diagnostic.enable()
+  else
+    vim.diagnostic.disable()
+  end
+end
+
 return M

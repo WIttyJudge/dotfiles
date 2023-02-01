@@ -49,10 +49,11 @@ end
 local function load_modules()
   local core_modules = {
     "core.options",
-    "core.commands",
-    "core.mappings",
+    "core.plugin_manager",
+    -- "core.commands",
+    -- "core.autocmds",
+    -- "core.mappings",
     "core.colors",
-    "core.autocmds",
   }
 
   for _, module in ipairs(core_modules) do
@@ -63,13 +64,13 @@ local function load_modules()
   end
 end
 
-local function load_core()
-  -- require "core.global_functions"
+local M = {}
 
+function M.load()
   disable_builtin_plugins()
   default_providers()
 
   load_modules()
 end
 
-load_core()
+return M

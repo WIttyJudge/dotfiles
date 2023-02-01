@@ -9,25 +9,34 @@ return {
       require "plugins.configs.mason"
     end,
   },
+
+  {
+    "nvim-tree/nvim-web-devicons",
+    event = "BufRead",
+  },
+
   {
     "neovim/nvim-lspconfig",
     config = function()
       require "lsp"
     end,
   },
+
   "onsails/lspkind-nvim",
-  {
-    "folke/trouble.nvim",
-    config = function()
-      require "plugins.configs.trouble"
-    end,
-  },
+
   {
     "RRethy/vim-illuminate",
+    event = "BufEnter",
     config = function()
       require "plugins.configs.vim-illuminate"
     end,
   },
+
+  {
+    "sindrets/diffview.nvim",
+    dependencies = { "nvim-lua/plenary.nvim" },
+  },
+
   {
     "j-hui/fidget.nvim",
     opts = {
@@ -35,7 +44,7 @@ return {
         -- adjust transparency.
         blend = 0,
       },
-    }
+    },
   },
 
   {
@@ -55,9 +64,11 @@ return {
 
   {
     "Darazaki/indent-o-matic",
-    config = function()
-      require "plugins.configs.indent-o-matic"
-    end,
+    opts = {
+      max_lines = 2048,
+      standard_widths = { 2, 4, 8 },
+      skip_multiline = true,
+    },
   },
 
   {
@@ -72,6 +83,7 @@ return {
 
   {
     "windwp/nvim-autopairs",
+    event = "InsertEnter",
     config = function()
       require "plugins.configs.nvim-autopairs"
     end,
@@ -96,11 +108,10 @@ return {
     "mg979/vim-visual-multi",
     branch = "master",
   },
+
   {
     "ur4ltz/surround.nvim",
-    config = function()
-      require "plugins.configs.surround"
-    end,
+    opts = { context_offset = 500 },
   },
 
   {
@@ -118,54 +129,53 @@ return {
 
   {
     "phaazon/hop.nvim",
-    config = function()
-      require "plugins.configs.hop"
-    end,
+    config = true,
   },
 
   -- {
   --   "chaoren/vim-wordmotion",
-  --   config = function()
-  --     require "plugins.configs.vim-wordmotion"
-  --   end,
+  --   init = function()
+  --     vim.g.wordmotion_nomap = 1
+  --
+  --     vim.cmd [[
+  --     nmap w          <Plug>WordMotion_w
+  --     nmap b          <Plug>WordMotion_b
+  --     ]]
+  --   end
   -- },
 
   {
     "andymass/vim-matchup",
-    config = function()
-      require "plugins.configs.vim-matchup"
+    init = function()
+      vim.g.matchup_matchparen_offscreen = { method = "popup" }
     end,
   },
 
   -- Syntax
   {
-    "folke/todo-comments.nvim",
-    config = function()
-      require "plugins.configs.todo-comments"
-    end,
-  },
-  {
     "NvChad/nvim-colorizer.lua",
-    config = function()
-      require "plugins.configs.nvim-colorizer"
-    end,
+    config = true,
   },
+
   {
     "lukas-reineke/indent-blankline.nvim",
+    event = "BufReadPre",
     config = function()
       require "plugins.configs.indent-blankline-nvim"
     end,
   },
 
   -- Git
-  "tpope/vim-fugitive",
+  { "tpope/vim-fugitive" },
+
   {
     "lewis6991/gitsigns.nvim",
     config = function()
       require "plugins.configs.gitsigns"
     end,
   },
-  "junegunn/gv.vim",
+
+  -- { "junegunn/gv.vim" },
 
   -- Linter
   {
@@ -176,21 +186,23 @@ return {
   },
 
   -- Colorscheme
-  "sainnhe/gruvbox-material",
+  {
+    "sainnhe/gruvbox-material",
+    lazy = false, -- make sure we load this during startup if it is your main colorscheme
+    priority = 1000, -- make sure to load this before all the other start plugins
+    name = "gruvbox-material",
+  },
+
   -- "WIttyJudge/gruvbox-material.nvim"
-  --
+
   -- -- Looking for files, etc..
   {
     "nvim-telescope/telescope.nvim",
+    -- cmd = "Telescope",
     dependencies = {
-      "nvim-lua/popup.nvim",
       "nvim-lua/plenary.nvim",
-      "LinArcX/telescope-command-palette.nvim",
       "princejoogie/dir-telescope.nvim",
-      {
-        "nvim-telescope/telescope-fzf-native.nvim",
-        build = "make",
-      },
+      { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
     },
     config = function()
       require "plugins.configs.telescope"
@@ -199,7 +211,7 @@ return {
   --
   -- -- Explorer
   {
-    "kyazdani42/nvim-tree.lua",
+    "nvim-tree/nvim-tree.lua",
     config = function()
       require "plugins.configs.nvim-tree"
     end,
@@ -207,91 +219,119 @@ return {
 
   {
     "numToStr/Comment.nvim",
-    opts = { mappings = false }
+    opts = { mappings = false },
   },
 
   -- Find and replace
-  "nvim-pack/nvim-spectre",
+  { "nvim-pack/nvim-spectre" },
 
   -- Statusline and bufferline
   {
     "hoob3rt/lualine.nvim",
+    dependencies = { "nvim-tree/nvim-web-devicons" },
     config = function()
       require "plugins.configs.lualine"
     end,
   },
+
   {
     "alvarosevilla95/luatab.nvim",
-    dependencies = "kyazdani42/nvim-web-devicons",
+    dependencies = "nvim-tree/nvim-web-devicons",
     config = function()
       require "plugins.configs.luatab"
     end,
   },
+
   {
     "SmiteshP/nvim-navic",
-    lazy = true,
-    opts = { separator = " ", highlight = true, depth_limit = 5 }
+    opts = { separator = " ", highlight = true, depth_limit = 7 },
   },
 
-  -- -- Fancy startup screen
+  -- Fancy startup screen
   {
     "goolord/alpha-nvim",
-    dependencies = { "kyazdani42/nvim-web-devicons" },
+    lazy = false,
+    dependencies = { "nvim-tree/nvim-web-devicons" },
     config = function()
       require "plugins.configs.alpha-nvim"
     end,
   },
-  --
-  -- -- Golang
+
+  -- Golang
   {
     "ray-x/go.nvim",
+    ft = "go",
+    dependencies = {
+      "ray-x/guihua.lua",
+    },
     config = function()
       require "plugins.configs.go-nvim"
     end,
   },
-  -- Used by go.nvim plugin, it supports floating windows.
-  "ray-x/guihua.lua",
 
   -- Markdown
   {
     "ellisonleao/glow.nvim",
     ft = "markdown",
+    config = true,
   },
 
   {
     "Wansmer/treesj",
+    cmd = { "TSJSplit", "TSJJoin" },
     dependencies = { "nvim-treesitter" },
-    config = function()
-      require "plugins.configs.treesj"
+    init = function()
+      vim.keymap.set("n", "gS", ":TSJSplit<CR>", { silent = true })
+      vim.keymap.set("n", "gJ", ":TSJJoin<CR>", { silent = true })
     end,
+    opts = {
+      use_default_keymaps = false,
+    },
   },
 
   -- Useful functions
-  "lambdalisue/suda.vim",
+  {
+    "lambdalisue/suda.vim",
+    cmd = { "SudaEdit", "SudaWrite" },
+  },
 
   -- Sorting plugin
   {
     "sQVe/sort.nvim",
-    event = 'BufEnter',
-    config = function()
-      require "plugins.configs.sort"
-    end,
+    cmd = { "Sort" },
   },
 
   -- Undo history visualizer
-  {
-    "mbbill/undotree",
-    config = function()
-      require "plugins.configs.undotree"
-    end,
-  },
+  -- {
+  --   "mbbill/undotree",
+  --   init = function()
+  --     vim.g.undotree_WindowLayout = 4
+  --     vim.g.undotree_SetFocusWhenToggle = 1
+  --
+  --     vim.g.undotree_DiffpanelHeight = 10
+  --     vim.g.undotree_SplitWidth = 40
+  --
+  --     vim.cmd [[
+  --     function g:Undotree_CustomMap()
+  --       map <buffer> <c-j> J
+  --       map <buffer> <c-k> K
+  --     endfunction
+  --     ]]
+  --   end,
+  -- },
 
   -- Good notifications
   {
     "rcarriga/nvim-notify",
-    config = function()
-      require "plugins.configs.notify"
-    end,
+    opts = {
+      max_height = function()
+        return math.floor(vim.o.lines * 0.75)
+      end,
+      max_width = function()
+        return math.floor(vim.o.columns * 0.75)
+      end,
+      timeout = 3000,
+    },
   },
 
   -- Escape from insert mode without delay when typing
@@ -299,23 +339,32 @@ return {
     "max397574/better-escape.nvim",
     opts = {
       mapping = { "jk", "kj" },
-      timeout = vim.o.timeoutlen,
-      clear_empty_lines = false,
-      keys = "<Esc>",
-    }
+    },
   },
 
   {
     "nacro90/numb.nvim",
-    config = function()
-      require("numb").setup()
-    end,
+    config = true,
   },
 
   {
     "stevearc/dressing.nvim",
+    event = "VeryLazy",
     config = function()
       require "plugins.configs.dressing"
+    end,
+  },
+
+  -- I LOVE YOU FOLKE
+  {
+    "folke/todo-comments.nvim",
+    opts = { signs = false },
+  },
+
+  {
+    "folke/trouble.nvim",
+    config = function()
+      require "plugins.configs.trouble"
     end,
   },
 
@@ -349,16 +398,20 @@ return {
 
   {
     "beauwilliams/focus.nvim",
-    opts = { enabled = true, signcolumn = false, }
+    opts = { enabled = true, signcolumn = false },
   },
 
   -- Database
-  "tpope/vim-dadbod",
+
   {
-    "kristijanhusak/vim-dadbod-ui",
-    config = function()
+    "tpope/vim-dadbod",
+    event = "VeryLazy",
+    dependencies = {
+      { "kristijanhusak/vim-dadbod-completion", ft = { "sql", "mysql", "plsql" } },
+      { "kristijanhusak/vim-dadbod-ui", cmd = { "DBUI", "DBUIFindBuffer" } },
+    },
+    init = function()
       require "plugins.configs.vim-dadbod-ui"
     end,
   },
-  "kristijanhusak/vim-dadbod-completion"
 }
