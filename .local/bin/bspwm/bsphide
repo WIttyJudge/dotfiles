@@ -1,9 +1,0 @@
-#!/bin/sh
-
-# Simple script to hide all the nodes on a desktop in bspwm
-
-NODES=$(bspc query -N -n .tiled -d focused)
-
-for node in $NODES; do
-  bspc node $node -g hidden=on
-done
