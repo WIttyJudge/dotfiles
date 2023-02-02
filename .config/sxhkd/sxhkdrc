@@ -14,7 +14,7 @@ super + shift + q
 XF86Audio{Mute,LowerVolume,RaiseVolume}
     change-audio {volume-toggle, volume-down, volume-up}; polybar-msg action "#volume.hook.0"
 
-{XF86MonBrightnessDown, XF86MonBrightnessUp}
+XF86MonBrightness{Down,Up}
     change-brightness {down, up}; polybar-msg action "#brightness.hook.0"
 
 Next
@@ -74,22 +74,6 @@ super + {_,shift + } + {1-9,0}
 # Switch window to the larger window
 super + space
     bspc node -s $(bspc query -N -n biggest.local)
-
-/* preselect the direction */
-/* super + ctrl + {h,j,k,l} */
-/* 	bspc node -p {west,south,north,east} */
-
-/* # preselect the ratio */
-/* super + ctrl + {1-9} */
-/* 	bspc node -o 0.{1-9} */
-
-/* # cancel the preselection for the focused node */
-/* super + ctrl + space */
-/* 	bspc node -p cancel */
-
-/* # cancel the preselection for the focused desktop */
-/* super + ctrl + shift + space */
-/* 	bspc query -N -d | xargs -I id -n 1 bspc node id -p cancel */
 
 # expand a window by moving one of its side outward
 super + alt + {h,j,k,l}

@@ -3,7 +3,7 @@
 printf "Beginning upgrade.\\n"
 
 sudo pacman -Syu
-pkill -RTMIN+5 dwmblocks
+polybar-msg action "#pacman-packages.hook.0"
 
 printf "\\nUpgrade complete.\\nPress <Enter> to exit window.\\n\\n"
 read -r _

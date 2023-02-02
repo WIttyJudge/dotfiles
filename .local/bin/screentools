@@ -29,4 +29,7 @@ case "$operation" in
   *) notify=false ;;
 esac
 
-[ $notify = true ] && notify-send "$operation task" 'Done'
+if [[ $notify = true ]]; then
+	paplay /usr/share/sounds/freedesktop/stereo/screen-capture.oga &>/dev/null &
+	notify-send "$operation task" 'Done'
+fi

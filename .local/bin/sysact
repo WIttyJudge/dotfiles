@@ -1,18 +1,15 @@
 #!/bin/sh
 
-prompt="dmenu -l 7 "
-
 uptime=$(uptime -p | sed -e 's/up //g')
 
-hibernate=" Hibernate"
-poweroff=" Poweroff"
-reboot="ﰇ Reboot"
-suspend="鈴 Suspend"
-lock=" Lock"
-logout="﫼 Logout"
-cancel="窱 Cancel"
+poweroff=" Poweroff"
+reboot=" Reboot"
+suspend=" Suspend"
+lock=" Lock"
+logout=" Logout"
+cancel=" Cancel"
 
-option="$cancel\n$hibernate\n$poweroff\n$reboot\n$suspend\n$lock\n$logout"
+option="$cancel\n$poweroff\n$reboot\n$suspend\n$lock\n$logout"
 
 select="$(echo -e "$option" | rofi -dmenu -theme theme/dmenu)"
 
@@ -22,9 +19,6 @@ case "$(readlink -f /sbin/init)" in
 esac
 
 case $select in
-	$hibernate)
-		$ctl hibernate
-		;;
 	$poweroff)
 		$ctl poweroff -i
 		;;
