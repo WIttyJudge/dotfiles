@@ -66,19 +66,6 @@ logger() {
   printf "\n${GREEN}%s${NORMAL} %s \n" "[LOG]" "$msg"
 }
 
-create_folders() {
-  folders=(
-    .local/bin
-    .local/share/applications
-    .local/share/icons/fontawesome
-  )
-
-  for i in "${folders[@]}"
-  do
-    [ ! -d $HOME/$i ] && mkdir -vp $HOME/$i
-  done
-}
-
 ### SCRIPT EXECUTION ###
 
 # Output brief information before running the script
@@ -87,8 +74,6 @@ echo -e "///////////////////// ${GREEN}Created by Witty Judge${NORMAL} /////////
 echo -e "//////////// https://github.com/WIttyJudge/dotfiles ///////////////"
 echo "///////////////////// Dotfile Setup ////////////////////////////"
 echo "///////////////////////////////////////////////////////////////////////"
-
-create_folders
 
 logger "Home directory setup"
 for i in ${home_directory[@]}; do
