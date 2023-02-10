@@ -9,26 +9,29 @@ setbg &
 # Theme configuration file
 xrdb ~/.Xresources & 
 
-xset r rate 250 40 & # Speed xrate up
+# Speed xrate up
+xset r rate 250 40 &
 
-# set language keyboard and swape caps and escape
+# Set language keyboard and swape caps and escape
 setxkbmap -layout us,ru -option grp:alt_shift_toggle,caps:swapescape & 
 
 # Remove mouse cursor when idle
 unclutter --timeout 2 &
 
-# nm-applet - system tray network manager
+# System tray network manager
 nm-applet --indicator &
+
+# animation for x11
+picom -b &
 
 # dunst     - notification-daemon
 # xcompmgr  - window transparency
 # sxhkd     - hotkey daemon
 # pipewire  - server for handling audio
-autostart="dunst xcompmgr sxhkd pipewire"
+autostart="dunst sxhkd pipewire"
 
 for program in $autostart; do
-  # if program has not already started, start it.
-	pidof -s "$program" || setsid -f "$program"
+	pidof -s "$program" || "$program" &
 done >/dev/null 2>&1
 
 # Ensure that xrdb has finished running before moving on to start the WM/DE.
