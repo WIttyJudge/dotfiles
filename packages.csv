@@ -5,7 +5,8 @@ SKIP,TAG,PROGRAM,DESCRIPTION
 ,,xorg-xdpyinfo,Display information utility for X.
 ,,xclip,CLI to the X11 clipboard.
 ,,xwallpaper,Wallpaper setting utility for X.
-,,xcompmgr,Composite Window-effects manager for Xorg.
+TRUE,xcompmgr,Composite Window-effects manager for Xorg.
+,,picom,X compositor that may fix tearing issues.
 ,,xcolor,Color picker for X11.
 TRUE,AUR,polybar,A fast and easy-to-use status bar.
 TRUE,AUR,siji-git,Iconic bitmap font based on stlarch with additional glyphs.
@@ -28,12 +29,13 @@ TRUE,,flameshot,Powerful yet simple to use screenshot software.
 ,,ttf-joypixels, Pack with some cool emodjis.
 ,AUR,nerd-fonts-complete-mono-glyphs,Iconic font aggregator 3.600+ icons and 50+ patched fonts (Mono glyphs only).
 ,,noto-fonts,Google Noto TTF fonts.
-,,papirus-icon-theme,Papirus icon theme.
+,,breeze-icons,Breeze icon themes.
 ,,httpie,user-friendly command-line HTTP client for the API era.
 ,,wget,Network utility to retrieve files from the Web.
 ,,ripgrep,A search tool that combines the usability of ag with the raw speed of grep.
 ,,fd,Fast and user-friendly alternative to find.
 ,,fx,Terminal JSON viewer.
+,,git-delta,Syntax-highlighting pager for git and diff output.
 ,AUR,jiq-bin,jq but interactive.
 ,,jq,Command-line JSON processor.
 ,,screenkey,Tool that displays keys you are pressing.
@@ -96,7 +98,8 @@ TRUE,,rofi-pass,Bash script to handle pass storages in a convenient way.
 ,,dnsutils,Bunch of utils like nslookup and so on.
 ,,net-tools,Configuration tools for Linux networking.
 ,,python-pip,The PyPA recommended tool for installing Python packages.
-,,light,Program to easily change brightness on backlight-controllers.
+TRUE,light,Program to easily change brightness on backlight-controllers.
+,,brightnessctl,Lightweight brightness control tool.
 ,,calcurse,A text-based personal organizer.
 ,AUR,libxft-bgra-git,libXft with BGRA glyph (color emoji) rendering.
 ,,alsa-utils,Bunch of useful utils especially for testing microphone and sound.
