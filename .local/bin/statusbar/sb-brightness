@@ -1,13 +1,12 @@
 #!/bin/sh
 
-case $BLOCK_BUTTON in
-	4) light -A 10; pkill -RTMIN+6 dwmblocks ;;
-	5) light -U 10; pkill -RTMIN+6 dwmblocks ;;
-esac
+function get_brightness() {
+  brightnessctl info | sed -En 's/.*\(([0-9]+)%\).*/\1/p'
+}
 
-brightness="$(printf '%.0f' $(light))"
+brightness="$(get_brightness)"
+
 icon="🔆"
-
-[ $brightness -le 71 ] && icon="🔅"
+[ $brightness -le 69 ] && icon="🔅"
 
 printf "%s %s" "$icon" "$brightness%"
