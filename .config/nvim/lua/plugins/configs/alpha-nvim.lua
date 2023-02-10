@@ -55,9 +55,9 @@ options.header = {
 options.buttons = {
   type = "group",
   val = {
-    button("r", icons.ui.History .. " Recent files", ":Telescope oldfiles <CR>"),
+    button("o", icons.ui.History .. " Recent files", ":Telescope oldfiles <CR>"),
     button("f", icons.ui.Search .. " Find file", ":Telescope find_files <CR>"),
-    button("t", icons.ui.List .. " Find text", ":Telescope live_grep <CR>"),
+    button("w", icons.ui.List .. " Find text", ":Telescope live_grep <CR>"),
     -- button("s", icons.ui.SignIn .. " Find Session", ":Telescope sessions save_current=false <CR>"),
     button("c", icons.ui.Gear .. " Config", ":e ~/.config/nvim/init.lua <CR>"),
     button("q", icons.diagnostics.Error .. "Quit", ":qa<CR>"),
