@@ -42,6 +42,7 @@ config_directory=(
   nsxiv
   nvim
   pcmanfm
+  picom
   pipewire
   polybar
   rofi
