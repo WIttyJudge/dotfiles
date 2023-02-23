@@ -10,6 +10,8 @@ local luasnip_present, luasnip = pcall(require, "luasnip")
 
 local cmp_window = require "cmp.utils.window"
 
+vim.o.completeopt = "menu,menuone,noselect"
+
 cmp_window.info_ = cmp_window.info
 cmp_window.info = function(self)
   local info = self:info_()

@@ -4,7 +4,7 @@
 
 local servers = {
   bashls = true,
-  sumneko_lua = true,
+  lua_ls = true,
   pyright = true,
   tsserver = true,
   solargraph = true,
