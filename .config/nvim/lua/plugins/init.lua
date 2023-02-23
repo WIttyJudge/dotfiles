@@ -22,7 +22,21 @@ return {
     end,
   },
 
-  "onsails/lspkind-nvim",
+  {
+    "onsails/lspkind-nvim",
+  },
+
+  {
+    "m4xshen/smartcolumn.nvim",
+    opts = {
+      disabled_filetypes = {
+        "help",
+        "text",
+        "markdown",
+        "alpha",
+      },
+    },
+  },
 
   {
     "RRethy/vim-illuminate",
@@ -103,7 +117,10 @@ return {
   "windwp/nvim-ts-autotag",
 
   -- Move && Scroll && Replace
-  "wellle/targets.vim",
+  {
+    "wellle/targets.vim",
+  },
+
   {
     "mg979/vim-visual-multi",
     branch = "master",
@@ -122,6 +139,12 @@ return {
     commit = "e820ce69905f382e01d6e37d1a5be7529a466544",
   },
 
+  {
+    "LudoPinelli/comment-box.nvim",
+    config = true,
+    event = "BufEnter",
+  },
+
   -- {
   --   "karb94/neoscroll.nvim",
   --   config = function() require "plugins.configs.neoscroll",
@@ -131,18 +154,6 @@ return {
     "phaazon/hop.nvim",
     config = true,
   },
-
-  -- {
-  --   "chaoren/vim-wordmotion",
-  --   init = function()
-  --     vim.g.wordmotion_nomap = 1
-  --
-  --     vim.cmd [[
-  --     nmap w          <Plug>WordMotion_w
-  --     nmap b          <Plug>WordMotion_b
-  --     ]]
-  --   end
-  -- },
 
   {
     "andymass/vim-matchup",
@@ -198,7 +209,7 @@ return {
   -- -- Looking for files, etc..
   {
     "nvim-telescope/telescope.nvim",
-    -- cmd = "Telescope",
+    cmd = "Telescope",
     dependencies = {
       "nvim-lua/plenary.nvim",
       "princejoogie/dir-telescope.nvim",
@@ -212,6 +223,7 @@ return {
   -- -- Explorer
   {
     "nvim-tree/nvim-tree.lua",
+    cmd = { "NvimTreeToggle", "NvimTreeFocus" },
     config = function()
       require "plugins.configs.nvim-tree"
     end,
@@ -228,6 +240,7 @@ return {
   -- Statusline and bufferline
   {
     "hoob3rt/lualine.nvim",
+    lazy = false,
     dependencies = { "nvim-tree/nvim-web-devicons" },
     config = function()
       require "plugins.configs.lualine"
@@ -370,6 +383,7 @@ return {
 
   {
     "folke/which-key.nvim",
+    keys = { "<leader>", '"', "'", "`" },
     config = function()
       require "plugins.configs.whichkey"
     end,
@@ -385,10 +399,16 @@ return {
   -- },
 
   -- Debug
-  -- {
-  --   "mfussenegger/nvim-dap",
-  --   config = function() require("plugins.configs.nvim-dap") end,
-  -- }
+  {
+    "mfussenegger/nvim-dap",
+    dependencies = {
+      { "theHamsta/nvim-dap-virtual-text" },
+    },
+    config = function()
+      require "plugins.configs.nvim-dap"
+    end,
+  },
+
   -- {
   --   "rcarriga/nvim-dap-ui",
   --   config = function() require("plugins.configs.nvim-dap-ui") end,

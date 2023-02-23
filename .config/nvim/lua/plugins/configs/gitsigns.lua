@@ -1,9 +1,5 @@
 -- https://github.com/lewis6991/gitsigns.nvim
-local present, gitsigns = pcall(require, "gitsigns")
-
-if not present then
-  return
-end
+local gitsigns = require("gitsigns")
 
 local config = {
   signs = {
@@ -12,10 +8,6 @@ local config = {
     delete = { hl = "GitSignsDelete", text = "-", numhl = "GitSignsDeleteNr" },
     topdelete = { hl = "GitSignsDelete", text = "_", numhl = "GitSignsDeleteNr" },
     changedelete = { hl = "GitSignsChangeDelete", text = "~", numhl = "GitSignsChangeNr" },
-  },
-  -- hightlight numbers
-  current_line_blame_opts = {
-    delay = 400,
   },
   keymaps = {
     -- Default keymap options
