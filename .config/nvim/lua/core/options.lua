@@ -1,61 +1,57 @@
+local opt = vim.opt
+local g = vim.g
+
 -- Set leader key
-vim.g.mapleader = " "
+g.mapleader = " "
 
-local options = {
-  clipboard = "unnamedplus", -- Connection to the system clipboard
+-- global statusline
+opt.laststatus = 3
+opt.showmode = false
 
-  -- indent options
-  expandtab = true,
-  smartindent = true,
-  shiftwidth = 2,
-  tabstop = 2,
-  softtabstop = 2,
-  confirm = true,
+opt.clipboard = "unnamedplus"
+opt.cursorline = true
 
-  -- fillchars = { eob = " " },
-  ignorecase = true,
-  smartcase = true,
-  mouse = "a",
+-- Indenting
+opt.expandtab = true
+opt.shiftwidth = 2
+opt.smartindent = true
+opt.tabstop = 2
+opt.softtabstop = 2
 
-  -- perfomance
-  updatetime = 200, -- Length of time to wait before triggering the plugin
-  timeoutlen = 300, -- Length of time to wait for a mapped sequence
-  ttimeoutlen = 10, -- Length of time to wait for a key code sequence to complete.
-  splitkeep = 'screen',
-  shortmess = "filnxtToOFWIcC",
+opt.fillchars = { eob = " " }
+opt.ignorecase = true
+opt.smartcase = true
+opt.mouse = "a"
 
-  -- completion options
-  -- completeopt = 'menuone,noinsert,noselect',
-  completeopt = { "menuone", "noselect" }, -- Options for insert mode completion
-  pumheight = 10, -- Height of the pop up menu
+-- Numbers
+opt.number = true
+opt.numberwidth = 2
+opt.relativenumber = true
+opt.ruler = false
 
-  -- ui
-  number = true,
-  numberwidth = 2,    -- Minimal number of columns to use for the line number.
-  ruler = false,
-  relativenumber = true,
-  cursorline = true,  -- Enable highlighting on the current_line
-  signcolumn = "yes", -- Always show the sign column
-  laststatus = 3,     -- globalstatus
-  scrolloff = 8,      -- Number of lines to keep above and below the cursor
-  sidescrolloff = 8,  -- Number of columns to keep at the sides of the cursor
-  showmode = false,   -- Disable showing modes in command line
-  splitbelow = true,  -- Splitting a new window below the current one
-  splitright = true,  -- Splitting a new window at the right of the current one
-  showtabline = 2,    -- Always show tables
-  termguicolors = true,
-  colorcolumn = "79",
+-- ui
+opt.pumheight = 10
+opt.splitkeep = "screen"
+opt.shortmess = "filnxtToOFWIcC"
+opt.scrolloff = 8
+opt.sidescrolloff = 8
+opt.showtabline = 2
+opt.colorcolumn = "79"
 
-  -- Enable the integrated undo features.
-  undofile = true, -- Enable persistent undo
-  undodir = vim.fn.stdpath "cache" .. "/undo",
+opt.signcolumn = "yes"
+opt.splitbelow = true
+opt.splitright = true
+opt.termguicolors = true
+opt.timeoutlen = 300
+-- interval for writing swap file to disk, also used by gitsigns
+opt.updatetime = 250
+-- opt.ttimeoutlen = 10
 
-  -- I don't need swap file and backups
-  swapfile = false, -- Disable use of swapfile for the buffer
-  backup = false,
-  writebackup = false, -- Disable making a backup before overwriting a file
-}
+-- Enable integrated undo.
+opt.undofile = true
+opt.undodir = vim.fn.stdpath "cache" .. "/undo"
 
-for k, v in pairs(options) do
-  vim.opt[k] = v
-end
+-- I don't need swap file and backups
+opt.swapfile = false
+opt.backup = false
+opt.writebackup = false
