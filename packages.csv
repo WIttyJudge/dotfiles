@@ -5,7 +5,7 @@ SKIP,TAG,PROGRAM,DESCRIPTION
 ,,xorg-xdpyinfo,Display information utility for X.
 ,,xclip,CLI to the X11 clipboard.
 ,,xwallpaper,Wallpaper setting utility for X.
-TRUE,xcompmgr,Composite Window-effects manager for Xorg.
+TRUE,,xcompmgr,Composite Window-effects manager for Xorg.
 ,,picom,X compositor that may fix tearing issues.
 ,,xcolor,Color picker for X11.
 TRUE,AUR,polybar,A fast and easy-to-use status bar.
