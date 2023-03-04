@@ -9,9 +9,9 @@ command -v colorscript >/dev/null 2>&1 && colorscript exec crunch
 
 # source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 
-#########################################
-#    Useful options (man zshoptions)    #
-#########################################
+#  +----------------------------------------------------------+
+#  |             Useful options (man zshoptions)              |
+#  +----------------------------------------------------------+
 
 # cd without needing "cd"
 setopt AUTO_CD
@@ -26,9 +26,9 @@ setopt RM_STAR_WAIT
 # Disable ctrl-s to freeze terminal.
 stty stop undef
 
-##########################
-#    History settings    #
-##########################
+#  +----------------------------------------------------------+
+#  |                     History settings                     |
+#  +----------------------------------------------------------+
 
 export HISTSIZE=20000
 export SAVEHIST=$HISTSIZE
@@ -58,9 +58,10 @@ _comp_options+=(globdots) # Include hidden files.
 # Move .zcompdump to the cache dir.
 export ZSH_COMPDUMP="$XDG_CACHE_HOME/zsh/zcompdump-$HOST-$ZSH_VERSION"
 
-############################
-#    ZIM Plugin manager    #
-############################
+
+#  +----------------------------------------------------------+
+#  |                    ZIM Plugin manager                    |
+#  +----------------------------------------------------------+
 
 # Download zimfw plugin manager if missing.
 
@@ -80,9 +81,10 @@ source ${ZIM_HOME}/init.zsh
 
 zstyle ':zim:zmodule' use 'degit'
 
-######################
-#  Plugins Settings  #
-######################
+#  +----------------------------------------------------------+
+#  |                     Plugins Settings                     |
+#  +----------------------------------------------------------+
+
 
 # zsh-autosuggestions settings.
 export ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=20
@@ -90,9 +92,9 @@ export ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=20
 # theme
 source ~/.config/zsh/themes/p10k.zsh
 
-################
-#    Loader    #
-################
+#  +----------------------------------------------------------+
+#  |                          Loader                          |
+#  +----------------------------------------------------------+
 
 # Load custom scripts
 if [ -d "$HOME/.local/bin" ] ; then
@@ -103,9 +105,9 @@ fi
 [ -f "$XDG_CONFIG_HOME/shell/aliases" ] && source "$XDG_CONFIG_HOME/shell/aliases"
 [ -f "$XDG_CONFIG_HOME/shell/aliase-functions" ] && source "$XDG_CONFIG_HOME/shell/aliase-functions"
 
-##################
-#    Mappings    #
-##################
+#  +----------------------------------------------------------+
+#  |                         Mappings                         |
+#  +----------------------------------------------------------+
 
 # Load bindings
 source "$XDG_CONFIG_HOME/zsh/bindings/vim.zsh"
