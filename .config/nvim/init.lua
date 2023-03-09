@@ -3,7 +3,7 @@
 -- Lazy.nvim plugin manager
 -- require "core.plugin_manager"
 
-require "core".load()
+require("core").load()
 
 vim.api.nvim_create_autocmd("User", {
   pattern = "VeryLazy",
