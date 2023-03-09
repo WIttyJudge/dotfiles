@@ -71,7 +71,7 @@ export ZIM_HOME="$XDG_DATA_HOME/zim"
 export WGETRC="${XDG_CONFIG_HOME:-$HOME/.config}/wget/wgetrc"
 
 # FZF
-export FZF_DEFAULT_OPTS="--height 50% --layout=reverse --cycle --border"
+export FZF_DEFAULT_OPTS="--height 75% --layout=reverse --cycle --border"
 
 # security
 # export GPG_TTY=$(tty)

@@ -37,12 +37,6 @@ autocmd({ "TextYankPost" }, {
   desc = "Highlight yanked text",
 })
 
--- autocmd({ "BufEnter", "FocusGained" }, {
---   command = "silent! checktime",
---   group = general_settings,
---   desc = "Reload modified changes automatically (autoread)",
--- })
-
 -- autocmd({ "InsertLeave", "TextChanged" }, {
 --     pattern = { "*" },
 --     command = "silent! wall",
@@ -64,6 +58,12 @@ autocmd("BufEnter", {
   group = general_settings,
   desc = "Don't auto commenting new lines",
 })
+
+-- autocmd({ "InsertLeave", "TextChanged" }, {
+--   pattern = { "*" },
+--   command = "silent! wall",
+--   nested = true,
+-- })
 
 -- #################
 -- #    Plugins    #
@@ -136,8 +136,8 @@ autocmd({ "BufWritePost" }, {
 })
 
 autocmd({ "BufWritePost" }, {
-  pattern = { "tmux.conf", ".tmux.conf" },
-  command = "!tmux source-file %",
+  pattern = { "*tmux.conf" },
+  command = "execute 'silent !tmux source <afile> --silent'",
   group = auto_compile,
 })
 

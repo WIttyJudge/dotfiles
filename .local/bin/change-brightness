@@ -1,13 +1,17 @@
 #!/usr/bin/env sh
 
+function get_brightness() {
+  brightnessctl info | sed -En 's/.*\(([0-9]+)%\).*/\1/p'
+}
+
 function send_notification() {
-  brightness=$(printf "%.0f\n" $(light))
+  brightness=$(get_brightness)
   notify-send -a "change-brightness" -t 2000 -r 9991 -h int:value:"$brightness" -i "sun" -u low "Brightness: $brightness%"
 }
 
 case $1 in
-  up) sudo light -A 10 ;;
-  down) sudo light -U 10 ;;
+  up) brightnessctl set 10%+ ;;
+  down) brightnessctl set 10%- ;;
   *) 
     echo >&2 "Unknown action '$1'"
     exit 1

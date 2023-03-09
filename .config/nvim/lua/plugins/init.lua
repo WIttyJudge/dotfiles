@@ -27,18 +27,6 @@ return {
   },
 
   {
-    "m4xshen/smartcolumn.nvim",
-    opts = {
-      disabled_filetypes = {
-        "help",
-        "text",
-        "markdown",
-        "alpha",
-      },
-    },
-  },
-
-  {
     "RRethy/vim-illuminate",
     event = "BufEnter",
     config = function()
@@ -74,15 +62,6 @@ return {
     config = function()
       require "plugins.configs.cmp"
     end,
-  },
-
-  {
-    "Darazaki/indent-o-matic",
-    opts = {
-      max_lines = 2048,
-      standard_widths = { 2, 4, 8 },
-      skip_multiline = true,
-    },
   },
 
   {
@@ -141,7 +120,6 @@ return {
 
   {
     "LudoPinelli/comment-box.nvim",
-    config = true,
     event = "BufEnter",
   },
 
@@ -191,6 +169,7 @@ return {
   -- Linter
   {
     "mhartington/formatter.nvim",
+    cmd = { "Format", "FormatWrite" },
     config = function()
       require "plugins.configs.formatter"
     end,
@@ -204,9 +183,11 @@ return {
     name = "gruvbox-material",
   },
 
-  -- "WIttyJudge/gruvbox-material.nvim"
+  -- { "catppuccin/nvim", name = "catppuccin" },
 
-  -- -- Looking for files, etc..
+  -- { "WIttyJudge/gruvbox-material.nvim" }
+
+  -- Looking for files, etc..
   {
     "nvim-telescope/telescope.nvim",
     cmd = "Telescope",
@@ -219,11 +200,11 @@ return {
       require "plugins.configs.telescope"
     end,
   },
-  --
-  -- -- Explorer
+
+  -- Explorer
   {
     "nvim-tree/nvim-tree.lua",
-    cmd = { "NvimTreeToggle", "NvimTreeFocus" },
+    cmd = { "NvimTreeToggle", "NvimTreeFindFile" },
     config = function()
       require "plugins.configs.nvim-tree"
     end,
@@ -273,13 +254,11 @@ return {
   -- Golang
   {
     "ray-x/go.nvim",
-    ft = "go",
+    ft = { "go", "gomod" },
     dependencies = {
       "ray-x/guihua.lua",
     },
-    config = function()
-      require "plugins.configs.go-nvim"
-    end,
+    config = true,
   },
 
   -- Markdown
@@ -314,25 +293,6 @@ return {
     cmd = { "Sort" },
   },
 
-  -- Undo history visualizer
-  -- {
-  --   "mbbill/undotree",
-  --   init = function()
-  --     vim.g.undotree_WindowLayout = 4
-  --     vim.g.undotree_SetFocusWhenToggle = 1
-  --
-  --     vim.g.undotree_DiffpanelHeight = 10
-  --     vim.g.undotree_SplitWidth = 40
-  --
-  --     vim.cmd [[
-  --     function g:Undotree_CustomMap()
-  --       map <buffer> <c-j> J
-  --       map <buffer> <c-k> K
-  --     endfunction
-  --     ]]
-  --   end,
-  -- },
-
   -- Good notifications
   {
     "rcarriga/nvim-notify",
@@ -360,13 +320,23 @@ return {
     config = true,
   },
 
-  {
-    "stevearc/dressing.nvim",
-    event = "VeryLazy",
-    config = function()
-      require "plugins.configs.dressing"
-    end,
-  },
+  -- {
+  --   "stevearc/dressing.nvim",
+  --   enabled = false,
+  --   event = "VeryLazy",
+  --   otps = {
+  --     input = {
+  --       default_prompt = "➤ ",
+  --       win_options = {
+  --         winhighlight = "Normal:Normal,NormalNC:Normal",
+  --       },
+  --     },
+  --     select = {
+  --       backend = { "telescope", "builtin" },
+  --       builtin = { win_options = { winhighlight = "Normal:Normal,NormalNC:Normal" } },
+  --     },
+  --   }
+  -- },
 
   -- I LOVE YOU FOLKE
   {

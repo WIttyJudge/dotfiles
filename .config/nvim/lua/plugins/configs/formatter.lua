@@ -1,10 +1,3 @@
--- https://github.com/mhartington/formatter.nvim
-local present, formatter = pcall(require, "formatter")
-
-if not present then
-  return
-end
-
 local function rubocop()
   return {
     exe = "rubocop", -- might prepend `bundle exec `
@@ -20,7 +13,7 @@ local function rubocop()
   }
 end
 
-formatter.setup {
+require("formatter").setup  {
   logging = false,
   filetype = {
     ruby = {

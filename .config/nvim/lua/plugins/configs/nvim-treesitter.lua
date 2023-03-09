@@ -1,10 +1,3 @@
--- https://github.com/nvim-treesitter/nvim-treesitter
-local present, nvim_treesitter = pcall(require, "nvim-treesitter.configs")
-
-if not present then
-  return
-end
-
 local config = {
   -- ensure_installed = "all",  -- one of "all", "maintained" (parsers with maintainers), or a list of languages
   ensure_installed = {
@@ -83,4 +76,4 @@ local config = {
   },
 }
 
-nvim_treesitter.setup(config)
+require("nvim-treesitter.configs").setup(config)
