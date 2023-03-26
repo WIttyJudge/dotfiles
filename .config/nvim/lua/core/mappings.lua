@@ -13,11 +13,6 @@
 
 local map = require("internal.utils").map
 
---Remap space as leader key
-map("", "<Space>", "<Nop>")
--- Set leader key
-vim.g.mapleader = " "
-
 -- #########################
 -- #    Custom Mappings    #
 -- #########################
@@ -173,9 +168,6 @@ end)
 --   require("plugins.configs.telescope").lsp_code_actions()
 -- end)
 
--- undotree
-map("n", "<Leader>ut", ":UndotreeToggle<CR>")
-
 -- alpha-nvim
 map("n", "<Leader>st", ":tabnew | :Alpha<CR>")
 
@@ -184,8 +176,8 @@ map("n", "<Leader>gd", ":Gvdiffsplit<CR>", { desc = "git dif" })
 map("n", "<Leader>gs", ":Git<CR>", { desc = "git menu" })
 
 -- gv.vim
-map({ "n", "v" }, "<Leader>gc", ":GV<CR>")
-map("n", "<Leader>gC", ":GV!<CR>")
+-- map({ "n", "v" }, "<Leader>gc", ":GV<CR>")
+-- map("n", "<Leader>gC", ":GV!<CR>")
 
 -- hop.nvim
-map("n", "f", "<CMD>HopChar1<CR>")
+map("n", "f", "<CMD>HopChar2<CR>")

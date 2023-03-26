@@ -1,8 +1,10 @@
 -- https://github.com/neovim/nvim-lspconfig
-local lspconfig = require("lspconfig")
+local lspconfig = require "lspconfig"
 
 -- local handlers = require('lsp/handlers')
 local on_attach = require "lsp.on_attach"
+local capabilities = require("cmp_nvim_lsp").default_capabilities()
+
 local servers = require "lsp.servers"
 
 require("lsp.handlers").setup()
@@ -18,7 +20,7 @@ local function setup_server(server_name, config)
 
   config = vim.tbl_deep_extend("force", {
     on_attach = on_attach,
-    capabilities = require("cmp_nvim_lsp").default_capabilities(),
+    capabilities = capabilities,
   }, config)
 
   lspconfig[server_name].setup(config)

@@ -154,6 +154,12 @@ return {
     end,
   },
 
+  -- Automatic indentation
+  {
+    "nmac427/guess-indent.nvim",
+    config = true,
+  },
+
   -- Git
   { "tpope/vim-fugitive" },
 
