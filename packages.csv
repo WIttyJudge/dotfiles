@@ -20,14 +20,15 @@ TRUE,,feh,Fast and light imlib2-based image viewer.
 TRUE,,scrot,Simple command-line screenshot utility for X.
 TRUE,,flameshot,Powerful yet simple to use screenshot software.
 ,,maim,Utility to take a screenshot using imlib2.
+,,swappy,This is a screenshot editor tool.
 ,,pipewire-pulse,Low-latency audio/video router and processor.
 ,,pamixer,PulseAudio command-line mixer like amixer.
 ,,pavucontrol,PulseAudio Volume Control.
-,,ttf-dejavu,Font family based on the Bitstream Vera Fonts with a wider range of characters.
-,,ttf-fira-code,Monospaced font with programming ligatures.
-,,ttf-hack,Cool font for terminal and coding.
-,,ttf-joypixels, Pack with some cool emodjis.
-,AUR,nerd-fonts-complete-mono-glyphs,Iconic font aggregator 3.600+ icons and 50+ patched fonts (Mono glyphs only).
+,,ttf-dejavu-nerd,Patched font Dejavu Sans Mono from nerd fonts library.
+,,ttf-firacode-nerd,Patched font Fira (Fura) Code from nerd fonts library.
+,,ttf-jetbrains-mono-nerd,Patched font JetBrains Mono from nerd fonts library.
+,,ttf-joypixels,Pack with some cool emodjis.
+TRUE,AUR,nerd-fonts-complete-mono-glyphs,Iconic font aggregator 3.600+ icons and 50+ patched fonts (Mono glyphs only).
 ,,noto-fonts,Google Noto TTF fonts.
 ,,breeze-icons,Breeze icon themes.
 ,,httpie,user-friendly command-line HTTP client for the API era.
