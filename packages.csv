@@ -99,7 +99,7 @@ TRUE,,rofi-pass,Bash script to handle pass storages in a convenient way.
 ,,dnsutils,Bunch of utils like nslookup and so on.
 ,,net-tools,Configuration tools for Linux networking.
 ,,python-pip,The PyPA recommended tool for installing Python packages.
-TRUE,light,Program to easily change brightness on backlight-controllers.
+TRUE,,light,Program to easily change brightness on backlight-controllers.
 ,,brightnessctl,Lightweight brightness control tool.
 ,,calcurse,A text-based personal organizer.
 ,AUR,libxft-bgra-git,libXft with BGRA glyph (color emoji) rendering.
