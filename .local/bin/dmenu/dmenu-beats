@@ -5,15 +5,17 @@ ARGS="--vo=null --video=no --no-video --term-osd-bar --no-resume-playback --volu
 
 send_notification() {
 	radio=$1
-	notify-send "Playing now: " $radio -i music
+	notify-send "Playing now: " "$radio" -i music
 }
 
 menu() {
-	printf "1. Lofi Girl\n"
-	printf "2. Chillhop\n"
-	printf "3. Box Lofi\n"
-	printf "4. The Bootleg Boy\n"
-	printf "5. Radio Spinner\n"
+    cat << EOF
+1. Lofi Girl
+2. Chillhop
+3. Box Lofi
+4. The Bootleg Boy
+5. Radio Spinner
+EOF
 }
 
 main() {
@@ -27,7 +29,7 @@ main() {
 		"Radio Spinner") URL="https://live.radiospinner.com/lofi-hip-hop-64" ;;
 	esac
 
-	send_notification $choice
+	send_notification "$choice"
 
 	mpv $ARGS --title="lofi-radio" $URL
 }
