@@ -104,6 +104,9 @@ return {
     "mg979/vim-visual-multi",
     branch = "master",
   },
+  {
+    "junegunn/gv.vim"
+  },
 
   {
     "ur4ltz/surround.nvim",
@@ -226,7 +229,7 @@ return {
 
   -- Statusline and bufferline
   {
-    "hoob3rt/lualine.nvim",
+    "nvim-lualine/lualine.nvim",
     lazy = false,
     dependencies = { "nvim-tree/nvim-web-devicons" },
     config = function()
