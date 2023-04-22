@@ -57,6 +57,8 @@ config_directory=(
   mimeapps.list
   pavucontrol.ini
   screenkey.json
+  # hypr
+  # waybar
 )
 
 ### FUNCTIONS ###

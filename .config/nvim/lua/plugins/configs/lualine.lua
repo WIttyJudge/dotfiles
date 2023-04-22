@@ -202,27 +202,6 @@ ins_right {
 
 ins_right { "filetype" }
 
--- ruby version
-ins_right {
-  function()
-    return vim.fn["rvm#string"]()
-  end,
-  icon = "",
-  condition = function()
-    local extension = vim.fn.expand "%:e"
-    if extension ~= "rb" then
-      return false
-    end
-
-    if vim.fn.winwidth(0) / 2 < 60 then
-      return false
-    end
-
-    return true
-  end,
-  color = { fg = colors.red },
-}
-
 ins_right { "location" }
 
 ins_right { "progress", color = { fg = colors.fg, gui = "bold" } }

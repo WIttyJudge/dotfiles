@@ -8,7 +8,7 @@ local luasnip_present, luasnip = pcall(require, "luasnip")
 --   return
 -- end
 
-local cmp_window = require "cmp.utils.window"
+local cmp_window = require("cmp.utils.window")
 
 vim.o.completeopt = "menu,menuone,noselect"
 
@@ -25,33 +25,33 @@ local config = {
       luasnip.lsp_expand(args.body)
     end,
   },
-  mapping = cmp.mapping.preset.insert {
+  mapping = cmp.mapping.preset.insert({
     ["<C-d>"] = cmp.mapping.scroll_docs(4),
     ["<C-u>"] = cmp.mapping.scroll_docs(-4),
     ["<C-o>"] = cmp.mapping.complete(),
     ["<C-e>"] = cmp.mapping.abort(),
     -- ['<CR>'] = cmp.mapping.confirm({ select = true }),
     ["<C-y>"] = cmp.mapping(
-      cmp.mapping.confirm {
+      cmp.mapping.confirm({
         behavior = cmp.ConfirmBehavior.Insert,
         select = true,
-      },
+      }),
       { "i", "c" }
     ),
-    ["<C-space>"] = cmp.mapping {
+    ["<C-space>"] = cmp.mapping({
       i = cmp.mapping.complete(),
       c = function(
         _ --[[fallback]]
       )
         if cmp.visible() then
-          if not cmp.confirm { select = true } then
+          if not cmp.confirm({ select = true }) then
             return
           end
         else
           cmp.complete()
         end
       end,
-    },
+    }),
     ["<Tab>"] = cmp.mapping(function(fallback)
       if cmp.visible() then
         cmp.select_next_item()
@@ -76,7 +76,7 @@ local config = {
       "i",
       "s",
     }),
-  },
+  }),
   window = {
     documentation = {
       border = "rounded",
@@ -87,15 +87,15 @@ local config = {
       hl_group = "LspCodeLens",
     },
   },
-  sources = cmp.config.sources {
+  sources = cmp.config.sources({
     { name = "nvim_lsp" },
     { name = "path" },
     --{ name = 'vsnip' },
     { name = "luasnip" },
     { name = "buffer", keyword_length = 4 },
-  },
+  }),
   formatting = {
-    format = lspkind.cmp_format {
+    format = lspkind.cmp_format({
       mode = "symbol_text",
       symbol_text = require("internal.icons").kind,
       menu = {
@@ -105,7 +105,7 @@ local config = {
         path = "[Path]",
         vsnip = "[Snippet]",
       },
-    },
+    }),
   },
   preselect = false,
 }
@@ -113,7 +113,7 @@ local config = {
 cmp.setup(config)
 
 -- Use buffer source for `/` (if you enabled `native_menu`, this won't work anymore).
-cmp.setup.cmdline("/", {
+cmp.setup.cmdline({ "/", "?" }, {
   mapping = cmp.mapping.preset.cmdline(),
   sources = {
     { name = "buffer" },
@@ -131,9 +131,9 @@ cmp.setup.cmdline(":", {
 })
 
 -- Expand or jump snippets
-vim.cmd [[
+vim.cmd([[
 imap <silent><expr> <C-l> luasnip#expand_or_jumpable() ? '<Plug>luasnip-expand-or-jump' : '<C-l>' 
 
 "imap <expr> <C-l> vsnip#available(1) ? '<Plug>(vsnip-expand-or-jump)' : '<C-l>'
 "smap <expr> <C-l> vsnip#available(1) ? '<Plug>(vsnip-expand-or-jump)' : '<C-l>'
-]]
+]])
