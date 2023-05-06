@@ -13,9 +13,9 @@
 
 local map = require("internal.utils").map
 
--- #########################
--- #    Custom Mappings    #
--- #########################
+--  +----------------------------------------------------------+
+--  |                     Custom Mappings                      |
+--  +----------------------------------------------------------+
 
 -- Easier split navigation, CTRL + hjlk
 map("n", "<C-j>", "<C-W><C-j>", { desc = "window down" })
@@ -116,6 +116,10 @@ map("n", "<Leader>t7", "7gt<CR>", { desc = "tab 7" })
 map("n", "<Leader>t8", "8gt<CR>", { desc = "tab 8" })
 map("n", "<Leader>t9", "9gt<CR>", { desc = "tab 9" })
 
+-- Tabs control
+-- map("n", "<Leader>tl", ":bnext<CR>", { desc = "tab right" })
+-- map("n", "<Leader>th", ":bprevious<CR>", { desc = "tab left" })
+
 -- Replace under a cursor
 -- map("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 
@@ -124,9 +128,9 @@ map("n", "<Leader>t9", "9gt<CR>", { desc = "tab 9" })
 -- map("n", "<Leader>tt", ":split term://zsh | resize 20<CR> | a<CR>")
 -- tmap <Leader>ot <C-\><C-n>:Ttoggle<CR>
 
--- ##########################
--- #    Plugins Mappings    #
--- ##########################
+--  +----------------------------------------------------------+
+--  |                     Plugins Mappings                     |
+--  +----------------------------------------------------------+
 
 -- Comment.nvim
 map("n", "<Leader>/", function() require("Comment.api").toggle.linewise.current() end, { desc = "toggle comment" })
@@ -144,23 +148,28 @@ map("n", "g#", "g#<Cmd>lua require('hlslens').start()<CR>", { silent = false })
 map("n", "<C-b>", ":NvimTreeToggle<CR>", { desc = "toggle nvimtree" })
 map("n", "<Leader>hf", ":NvimTreeFindFile<CR>", { desc = "find file nvimtree" })
 
+-- telescope.nvim
 map("n", "<Leader>ff", function()
   require("telescope.builtin").find_files()
-end, { desc = "find fles" })
+end, { desc = "Find files" })
 
 map("n", "<Leader>fo", function()
   require("telescope.builtin").oldfiles()
-end, { desc = "find oldfiles" })
+end, { desc = "Find oldfiles" })
 
 map("n", "<Leader>fW", function()
   require("telescope.builtin").live_grep()
-end, { desc = "live grep" })
+end, { desc = "Live grep" })
 
 map("n", "<Leader>fc", function()
   require("telescope.builtin").grep_string()
-end, { desc = "grep by word under cursor" })
+end, { desc = "Find for word under cursor" })
 
-map("n", "<F1>", function()
+map("n", "<Leader>fm", function()
+  require("telescope.builtin").man_pages()
+end, { desc = "Find man" })
+
+map("n", "<Leader>fh", function()
   require("telescope.builtin").help_tags()
 end)
 
@@ -176,8 +185,8 @@ map("n", "<Leader>gd", ":Gvdiffsplit<CR>", { desc = "git dif" })
 map("n", "<Leader>gs", ":Git<CR>", { desc = "git menu" })
 
 -- gv.vim
--- map({ "n", "v" }, "<Leader>gc", ":GV<CR>")
--- map("n", "<Leader>gC", ":GV!<CR>")
+map({ "n", "v" }, "<Leader>gc", ":GV<CR>")
+map("n", "<Leader>gC", ":GV!<CR>")
 
 -- hop.nvim
 map("n", "f", "<CMD>HopChar2<CR>")

@@ -7,20 +7,17 @@ local autocmd = vim.api.nvim_create_autocmd
 -- #    General Settings    #
 -- ##########################
 
-local function augroup(name)
-  return vim.api.nvim_create_augroup(name, { clear = true })
-end
+local general_settings = vim.api.nvim_create_augroup("_general_settings", { clear = true })
 
 autocmd("BufReadPost", {
-  group = augroup "general_settings",
   callback = function()
-    local mark = vim.api.nvim_buf_get_mark(0, '"')
-    local lcount = vim.api.nvim_buf_line_count(0)
-    if mark[1] > 0 and mark[1] <= lcount then
-      pcall(vim.api.nvim_win_set_cursor, 0, mark)
+    if not vim.fn.expand("%:p"):match ".git" and vim.fn.line "'\"" > 1 and vim.fn.line "'\"" <= vim.fn.line "$" then
+      cmd "normal! g'\""
+      cmd "normal zz"
     end
   end,
-  desc = "Go to last location when opening a buffer",
+  group = general_settings,
+  desc = "Restore cursor to where it was when the file was closed",
 })
 
 autocmd({ "FileType" }, {
@@ -29,7 +26,7 @@ autocmd({ "FileType" }, {
     vim.opt_local.wrap = true
     vim.opt_local.spell = true
   end,
-  group = augroup "general_settings",
+  group = general_settings,
   desc = "Spell check",
 })
 
@@ -37,7 +34,7 @@ autocmd({ "TextYankPost" }, {
   callback = function()
     vim.highlight.on_yank { timeout = 200 }
   end,
-  group = augroup "general_settings",
+  group = general_settings,
   desc = "Highlight yanked text",
 })
 
@@ -45,27 +42,29 @@ autocmd({ "TextYankPost" }, {
 --     pattern = { "*" },
 --     command = "silent! wall",
 --     nested = true,
---     group = augroup("general_settings"),
+--     group = general_settings,
 --     desc = "Auto save buffer",
 -- })
 
 autocmd("FileType", {
   pattern = "gitcommit",
   command = "startinsert",
-  group = augroup "general_settings",
+  group = general_settings,
   desc = "Trigger insert mode",
 })
 
 autocmd("BufEnter", {
   pattern = "*",
-  command = "set fo-=c fo-=r fo-=o",
-  group = augroup "general_settings",
+  callback = function()
+    vim.opt.formatoptions:remove { "c", "r", "o" }
+  end,
+  group = general_settings,
   desc = "Don't auto commenting new lines",
 })
 
 -- Check if we need to reload the file when it changed
 autocmd({ "FocusGained", "TermClose", "TermLeave" }, {
-  group = augroup "general_settings",
+  group = general_settings,
   command = "checktime",
 })
 
@@ -73,19 +72,21 @@ autocmd({ "FocusGained", "TermClose", "TermLeave" }, {
 -- #    Plugins    #
 -- #################
 
+local plugins = vim.api.nvim_create_augroup("_plugins", { clear = true })
+
 autocmd({ "FileType" }, {
   pattern = { "sql", "mysql", "plsql" },
   callback = function()
     require("cmp").setup.buffer { sources = { { name = "vim-dadbod-completion" } } }
   end,
-  group = augroup "plugins",
+  group = plugins,
   desc = "vim-dadbod-completion-plugin",
 })
 
 autocmd({ "BufWritePost" }, {
   pattern = { "*.sum", "*.mod" },
   command = ":silent :GoModTidy",
-  group = augroup "plugins",
+  group = plugins,
   desc = "Golang plugins",
 })
 
@@ -93,60 +94,64 @@ autocmd({ "BufWritePost" }, {
 -- #    Linter    #
 -- ################
 
+local linter = vim.api.nvim_create_augroup("_linter", { clear = true })
+
 autocmd({ "BufWritePre" }, {
   pattern = { "*.go" },
   callback = function()
     require("go.format").goimport()
   end,
-  group = augroup "linter",
+  group = linter,
 })
 
 autocmd({ "BufWritePre" }, {
   pattern = { "*.rs" },
   command = "FormatWrite",
-  group = augroup "linter",
+  group = linter,
 })
 
 -- ######################
 -- #    Auto Compile    #
 -- ######################
 
+local auto_compile = vim.api.nvim_create_augroup("_auto_compile", { clear = true })
+
 -- Compile suckless-tools on save
 autocmd({ "BufWritePost" }, {
   pattern = utils.get_homedir() .. "/suckless-tools/dwmblocks/config.h",
   command = "!cd ~/suckless-tools/dwmblocks; sudo make clean install && { killall -q dwmblocks;setsid -f dwmblocks }",
-  group = augroup "auto_compile",
+  group = auto_compile,
   desc = "Dwmblocks suckless utils",
 })
 
 autocmd({ "BufWritePost" }, {
   pattern = utils.get_homedir() .. "/suckless-tools/dwm/config.h",
   command = "!cd ~/suckless-tools/dwm; sudo make clean install",
-  group = augroup "auto_compile",
+  group = auto_compile,
   desc = "DWM suckless utils",
 })
 
 autocmd({ "BufWritePost" }, {
   pattern = utils.get_homedir() .. "/suckless-tools/dmenu/config.h",
   command = "!cd ~/suckless-tools/dmenu; sudo make clean install",
-  group = augroup "auto_compile",
+  group = auto_compile,
   desc = "Dmenu suckless utils",
 })
 
 autocmd({ "BufWritePost" }, {
   pattern = { "*tmux.conf" },
   command = "execute 'silent !tmux source <afile> --silent'",
-  group = augroup "auto_compile",
+  group = auto_compile,
 })
 
 autocmd({ "BufWritePost" }, {
   pattern = ".Xresources",
-  command = "!xrdb %",
-  group = augroup "auto_compile",
+  command = "!xrdb % ; kill -USR1 $(pidof st)",
+  group = auto_compile,
 })
 
 autocmd({ "BufWritePost" }, {
   pattern = "bspwmrc",
   command = "!bspc wm -r",
-  group = augroup "auto_compile",
+  group = auto_compile,
 })

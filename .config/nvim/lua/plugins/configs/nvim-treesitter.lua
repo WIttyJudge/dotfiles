@@ -28,6 +28,10 @@ local config = {
     "dockerfile",
     "vim",
   },
+
+  -- Install parsers synchronously (only applied to `ensure_installed`)
+  sync_install = false,
+
   incremental_selection = {
     enable = true,
     keymaps = {

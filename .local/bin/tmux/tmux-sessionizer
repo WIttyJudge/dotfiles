@@ -1,13 +1,16 @@
 #!/usr/bin/env bash
 
+# Set FZF options
 FZF_OPTS=-"-height=100% --no-border"
 
+# Get the directory to attach to
 if [[ $# -eq 1 ]]; then
   selected=$1
 else
   selected=$(find ~/projects ~/projects/work ~/projects/repos ~/projects/ansible ~/projects/golang/src -mindepth 1 -maxdepth 1 -type d | fzf $FZF_OPTS)
 fi
 
+# Get the name of the session to create/attach to
 selected_name=$(basename "$selected" | tr . _)
 
 # operation cancelled by user
@@ -20,18 +23,18 @@ not_in_tmux() {
 
 # Checks if selected session have already created
 session_exists() {
-  tmux has-session -t $selected_name 2>/dev/null
+  tmux has-session -t "=$selected_name" 2>/dev/null
 }
 
 create_if_needed_and_attach() {
   # Create the session and attach it automatically.
   if not_in_tmux; then
-    tmux new-session -A -s $selected_name -c $selected
+    tmux new-session -A -s "$selected_name" -c $selected
     exit 0
   fi
 
   if ! session_exists; then
-    tmux new-session -ds $selected_name -c $selected
+    tmux new-session -Ad -s "$selected_name" -c $selected
   fi
 
   tmux switch-client -t $selected_name

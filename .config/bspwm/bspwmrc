@@ -5,6 +5,7 @@
 ################
 
 launchpolybar &
+setbg &
 
 killall bspswallow
 pidof bspswallow | bspswallow &
@@ -12,9 +13,17 @@ pidof bspswallow | bspswallow &
 #########################
 #  BSPWM configuration  #
 #########################
- 
-# bspc monitor eDP-1 -d 1 2 3 4 5 6 7
-bspc monitor DP-2 -d 1 2 3 4 5 6 7
+
+workspaces() {
+	name=1
+	for monitor in $(bspc query -M); do
+		bspc monitor "${monitor}" -n "$name" -d 1 2 3 4 5 6 7
+		# bspc monitor ${monitor} -n "$name" -d '' '' '' '' '' ''
+		(( name++ ))
+	done
+}
+
+workspaces
 
 bspc config top_padding           32
 bspc config bottom_padding         0
@@ -66,8 +75,10 @@ bspc rule -a Battle.net desktop='^5'
 bspc rule -a mpv state=fullscreen
 bspc rule -a Zathura state=tiled
 bspc rule -a Nm-connection-editor state=floating
-bspc rule -a system-config-printer state=floating rectangle=800x600+0+0 center=on
+bspc rule -a Print state=floating
+bspc rule -a System-config-printer.py state=floating rectangle=800x600+0+0 center=on
 bspc rule -a Simple-scan state=floating
 bspc rule -a Blueberry.py state=floating
 bspc rule -a Pavucontrol state=floating
 bspc rule -a Pcmanfm state=floating
+bspc rule -a Viewnior state=floating

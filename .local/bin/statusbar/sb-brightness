@@ -1,10 +1,6 @@
 #!/bin/sh
 
-function get_brightness() {
-  brightnessctl info | sed -En 's/.*\(([0-9]+)%\).*/\1/p'
-}
-
-brightness="$(get_brightness)"
+brightness="$(brightness get)"
 
 icon="🔆"
 [ $brightness -le 69 ] && icon="🔅"
