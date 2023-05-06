@@ -9,7 +9,7 @@ send_notification() {
 }
 
 menu() {
-    cat << EOF
+	cat <<EOF
 1. Lofi Girl
 2. Chillhop
 3. Box Lofi
@@ -20,6 +20,8 @@ EOF
 
 main() {
 	choice=$(menu | rofi -dmenu -theme theme/dmenu | cut -d. -f2 | sed 's/ //')
+
+	[ -z $choice ] && exit 0
 
 	case $choice in
 		"Lofi Girl") URL="https://play.streamafrica.net/lofiradio" ;;

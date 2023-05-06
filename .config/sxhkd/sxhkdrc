@@ -12,13 +12,13 @@ super + shift + q
       sysact
 
 XF86Audio{Mute,LowerVolume,RaiseVolume}
-    change-audio {volume-toggle, volume-down, volume-up}; polybar-msg action "#volume.hook.0"
+    audio {volume-toggle, volume-down, volume-up}; polybar-msg action "#volume.hook.0"
 
 XF86MonBrightness{Down,Up}
-    change-brightness {down, up}; polybar-msg action "#brightness.hook.0"
+    brightness {down, up}; polybar-msg action "#brightness.hook.0"
 
 Next
-    change-audio microphone-toggle; polybar-msg action "#microphone.hook.0" 
+    audio microphone-toggle; polybar-msg action "#microphone.hook.0" 
 
 Print
     screentools

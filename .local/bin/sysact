@@ -13,6 +13,10 @@ option="$cancel\n$poweroff\n$reboot\n$suspend\n$lock\n$logout"
 
 select="$(echo -e "$option" | rofi -dmenu -theme theme/dmenu)"
 
+before_exit() {
+	bluetoothctl disconnect
+}
+
 case "$(readlink -f /sbin/init)" in
 	*systemd*) ctl='systemctl' ;;
 	*) ctl='loginctl' ;;
@@ -26,9 +30,11 @@ case $select in
 		$ctl reboot -i
 		;;
 	$suspend)
+		before_exit
 		slock $ctl suspend
 		;;
 	$lock)
+		before_exit
 		slock
 		;;
 	$logout)

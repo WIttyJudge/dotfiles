@@ -22,7 +22,8 @@ alias \
   lg="lazygit " \
   lf="lfrun " \
   man="fman" \
-  # open="xdg-open " \
+  open="xdg-open " \
+  whoami="whoami && curl ident.me" \
 
 # for testing
 alias \
