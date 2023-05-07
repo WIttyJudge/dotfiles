@@ -2,19 +2,37 @@
 
 # Set FZF options
 FZF_OPTS=-"-height=100% --no-border"
+SPECIFIED_DIR=$1
 
 # Get the directory to attach to
-if [ $# -eq 1 ]; then
-  selected=$1
-else
-  selected=$(find ~/projects ~/projects/work ~/projects/repos ~/projects/ansible ~/projects/golang/src -mindepth 1 -maxdepth 1 -type d | fzf $FZF_OPTS)
-fi
+select_directory() {
+  if [ "$SPECIFIED_DIR" != '' ]; then
+    selected=$SPECIFIED_DIR
+  else
+    selected=$(find ~/projects ~/projects/work ~/projects/repos ~/projects/ansible ~/projects/golang/src -mindepth 1 -maxdepth 1 -type d | fzf $FZF_OPTS)
+  fi
 
-# Get the name of the session to create/attach to
-selected_name=$(basename "$selected" | tr . _)
+  # operation cancelled by user
+  [ -z $selected ] && exit 0
+}
 
-# operation cancelled by user
-[ -z $selected ] && exit 0
+define_session_name() {
+  session_name=$(basename "$selected" | tr . _)
+}
+
+create_if_needed_and_attach() {
+  # Create the session and attach it automatically.
+  if not_in_tmux; then
+    tmux new-session -A -s "$session_name" -c $selected
+    exit 0
+  fi
+
+  if ! session_exists; then
+    create_new_session
+  fi
+
+  tmux switch-client -t $session_name
+}
 
 # Checks if tmux session is not opened
 not_in_tmux() {
@@ -23,22 +41,17 @@ not_in_tmux() {
 
 # Checks if selected session have already created
 session_exists() {
-  tmux has-session -t "=$selected_name" 2>/dev/null
+  tmux has-session -t "=$session_name" 2>/dev/null
 }
 
-create_if_needed_and_attach() {
-  # Create the session and attach it automatically.
-  if not_in_tmux; then
-    tmux new-session -A -s "$selected_name" -c $selected
-    exit 0
-  fi
-
-  if ! session_exists; then
-    tmux new-session -Ad -s "$selected_name" -c $selected "nvim";
-    tmux new-window -t "$selected_name" -d;
-  fi
-
-  tmux switch-client -t $selected_name
+create_new_session() {
+  tmux new-session -Ad -s "$session_name" -c "$selected" "nvim"
+  tmux new-window -t "$session_name" -d -c "$selected"
 }
+
+# EXECUTION
+
+select_directory
+define_session_name
 
 create_if_needed_and_attach
