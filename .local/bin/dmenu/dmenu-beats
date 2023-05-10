@@ -21,7 +21,7 @@ EOF
 main() {
 	choice=$(menu | rofi -dmenu -theme theme/dmenu | cut -d. -f2 | sed 's/ //')
 
-	[ -z $choice ] && exit 0
+	[[ -z $choice ]] && exit 0
 
 	case $choice in
 		"Lofi Girl") URL="https://play.streamafrica.net/lofiradio" ;;

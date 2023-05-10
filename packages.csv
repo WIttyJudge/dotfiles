@@ -99,6 +99,9 @@ TRUE,,rofi-pass,Bash script to handle pass storages in a convenient way.
 ,,wireguard-tools,Lools to configure wireguard.
 ,,networkmanager-openvpn,NetworkManager VPN plugin for OpenVPN.
 ,,network-manager-applet,Applet for managing network connections.
+,,bluez,Bluetooth daemons.
+,,bluez-utils,Bluetooth utilities.
+,,blueberry,Applet for managing network connections.
 ,,curlie,The power of curl.
 ,,dnsutils,Bunch of utils like nslookup and so on.
 ,,net-tools,Configuration tools for Linux networking.

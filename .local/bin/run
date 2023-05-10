@@ -1,0 +1,22 @@
+#!/bin/bash
+
+# Run project depending on the folder name
+
+path=$(pwd)
+project=$(basename $path)
+
+case "$project" in
+  'graphql') 
+    RUN_COMMAND="bundle exec rails s -p 3001" ;;
+  'explorer')
+    RUN_COMMAND="bundle exec rails s -p 3000" ;;
+  'spy') 
+    RUN_COMMAND="bundle exec rails s -p 3002" ;;
+  *) 
+    echo "Runner for '$project' project not found"
+    exit 1
+  ;;
+esac
+
+echo "Run command: $RUN_COMMAND"
+eval $RUN_COMMAND
