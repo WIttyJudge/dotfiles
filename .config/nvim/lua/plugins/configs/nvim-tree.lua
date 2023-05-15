@@ -2,7 +2,7 @@
 
 local nvim_tree = require("nvim-tree")
 
-local icons = require "internal.icons"
+local icons = require("internal.icons")
 
 -- custom mappings
 local list = {
