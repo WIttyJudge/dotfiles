@@ -1,12 +1,8 @@
 -- https://github.com/hoob3rt/lualine.nvim
-local present, lualine = pcall(require, "lualine")
+local lualine = require("lualine")
 
-if not present then
-  return
-end
-
-local internal_condition = require "internal.conditions"
-local icons = require "internal.icons"
+local internal_condition = require("internal.conditions")
+local icons = require("internal.icons")
 
 -- gruvbox-material
 local colors = {
@@ -126,19 +122,19 @@ local function ins_right(component)
   table.insert(config.sections.lualine_x, component)
 end
 
-ins_left {
+ins_left({
   function()
     vim.api.nvim_command("hi! LualineMode gui=bold guibg=" .. vi_mode_color[vim.fn.mode()] .. " guifg=" .. colors.bg)
 
     return vi_mode_text[vim.fn.mode()]
   end,
   color = "LualineMode",
-}
+})
 
-ins_left {
+ins_left({
   -- File Name
   function()
-    local f_name = vim.fn.expand "%:t"
+    local f_name = vim.fn.expand("%:t")
 
     if vim.bo.readonly then
       f_name = f_name .. " " .. icons.ui.Lock
@@ -152,9 +148,9 @@ ins_left {
   end,
   condition = internal_condition.buffer_not_empty,
   color = { fg = colors.fg, gui = "bold" },
-}
+})
 
-ins_left {
+ins_left({
   "diagnostics",
   sources = { "nvim_diagnostic" },
   symbols = {
@@ -165,22 +161,22 @@ ins_left {
   color_error = colors.red,
   color_warn = colors.yellow,
   color_info = colors.blue,
-}
+})
 
-ins_left {
+ins_left({
   function()
     return require("nvim-navic").get_location()
   end,
   cond = function()
     return package.loaded["nvim-navic"] and require("nvim-navic").is_available()
   end,
-}
+})
 
 -- Insert mid section. You can make any number of sections in neovim :)
 -- for lualine it's any number greater then 2
 -- ins_left {function() return '%=' end}
 
-ins_right {
+ins_right({
   "diff",
   symbols = {
     added = icons.git.Add .. " ",
@@ -191,20 +187,20 @@ ins_right {
   color_modified = colors.blue,
   color_removed = colors.red,
   condition = internal_condition.hide_in_width,
-}
+})
 
-ins_right {
+ins_right({
   "branch",
   icon = icons.git.Branch,
   condition = internal_condition.check_git_workspace,
   color = { fg = colors.yellow, gui = "bold" },
-}
+})
 
-ins_right { "filetype" }
+ins_right({ "filetype" })
 
-ins_right { "location" }
+ins_right({ "location" })
 
-ins_right { "progress", color = { fg = colors.fg, gui = "bold" } }
+ins_right({ "progress", color = { fg = colors.fg, gui = "bold" } })
 
 -- Now don't forget to initialize lualine
 lualine.setup(config)

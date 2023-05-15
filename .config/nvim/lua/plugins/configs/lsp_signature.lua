@@ -1,9 +1,5 @@
 -- https://github.com/ray-x/lsp_signature.nvim
-local present, lsp_signature = pcall(require, "lsp_signature")
-
-if not present then
-  return
-end
+local lsp_signature = require("lsp_signature")
 
 local config = {
   doc_lines = 0,

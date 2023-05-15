@@ -1,9 +1,5 @@
 -- https://github.com/lukas-reineke/indent-blankline.nvim
-local present, indent_blankline = pcall(require, "indent_blankline")
-
-if not present then
-  return
-end
+local indent_blankline = require("indent_blankline")
 
 local config = {
   buftype_exclude = { "terminal", "README.md" },

@@ -1,10 +1,6 @@
 -- https://github.com/kyazdani42/nvim-tree.lua
 
-local present, nvim_tree = pcall(require, "nvim-tree")
-
-if not present then
-  return
-end
+local nvim_tree = require("nvim-tree")
 
 local icons = require "internal.icons"
 

@@ -1,9 +1,5 @@
 -- https://github.com/alvarosevilla95/luatab.nvim
-local present, luatab = pcall(require, "luatab")
-
-if not present then
-  return
-end
+local luatab = require("luatab")
 
 local config = {
   devicon = require("luatab").helpers.devicon,

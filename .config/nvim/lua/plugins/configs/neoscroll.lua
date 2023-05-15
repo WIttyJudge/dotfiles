@@ -1,9 +1,5 @@
 -- https://github.com/karb94/neoscroll.nvim
-local present, neoscroll = pcall(require, "neoscroll")
-
-if not present then
-  return
-end
+local neoscroll = require("neoscroll")
 
 local config = {
   -- All these keys will be mapped to their corresponding default scrolling animation

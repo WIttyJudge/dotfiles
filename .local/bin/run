@@ -18,5 +18,5 @@ case "$project" in
   ;;
 esac
 
-echo "Run command: $RUN_COMMAND"
+echo -e "$RUN_COMMAND\n"
 eval $RUN_COMMAND

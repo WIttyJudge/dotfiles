@@ -1,9 +1,5 @@
 -- https://github.com/RRethy/vim-illuminate
-local present, illuminate = pcall(require, "illuminate")
-
-if not present then
-  return
-end
+local illuminate = require("illuminate")
 
 local config = {
   filetypes_denylist = {
