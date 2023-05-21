@@ -18,14 +18,4 @@ show_weather() {
 
 icon="⛅"
 
-case $BLOCK_BUTTON in
-  1) show_weather ;;
-  2) get_weather ;;
-	3) notify-send "🌈 Weather module" "\- Left click for full forecast.
-- Middle click to update forecast.
-☔: Chance of rain/snow
-🥶: Daily low
-🌞: Daily high" ;;
-esac
-
 printf "%s" "$icon"

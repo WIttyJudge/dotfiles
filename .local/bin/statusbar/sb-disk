@@ -11,12 +11,6 @@ case "$location" in
   *) icon="💾" ;;
 esac
 
-case $BLOCK_BUTTON in
-	1) notify-send "💽 Disk space" "$(df -h --output=target,used,size)" ;;
-  2) setsid -f "$TERMINAL" -e gdu ~/ >/dev/null 2>&1 ;;
-  3) notify-send "${icon} Disk module" "\- Middle click to open gdu disk analyzer." ;;
-esac
-
 used_hdd="$(df -h | awk 'NR==4{print $3}' | sed 's/G//g')"
 used_hdd_percent="$(df -h | awk 'NR==4{print $5}')"
 # used_and_total_hdd="$(df -h "$location" | awk ' /[0-9]/ {print $3 "/" $2}')"

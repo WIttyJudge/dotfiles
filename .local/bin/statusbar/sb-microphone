@@ -1,9 +1,5 @@
 #!/bin/sh
 
-case $BLOCK_BUTTON in
-  1) change-audio microphone-toggle; pkill -RTMIN+20 dwmblocks ;;
-esac
-
 show_status() {
   pamixer --list-sources \
     | grep input \

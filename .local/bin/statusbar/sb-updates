@@ -2,12 +2,6 @@
 
 icon="📦"
 
-case $BLOCK_BUTTON in
-	2) setsid -f "$TERMINAL" -e popupgrade ;;
-	3) notify-send "🎁 Upgrade module" "Shows number of upgradable packages.
-- Middle click to upgrade packages" ;;
-esac
-
 updates=$(pacman -Qu | grep -Fcv "[ignored]")
 
 printf "%s %s"  "$icon" "$updates"

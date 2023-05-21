@@ -1,22 +1,5 @@
 #!/bin/sh
 
-# Show wifi 📶 and percent strength or 📡 if none.
-# Show 🌐 if connected to ethernet or ❎ if none.
-# Show 🔒 if a vpn connection is active
-
-case $BLOCK_BUTTON in
-	1) "$TERMINAL" -e nmtui; pkill -RTMIN+4 dwmblocks ;;
-	3) notify-send "🌐 Internet module" "\- Click to connect
-❌: wifi disabled
-📡: no wifi connection
-📶: wifi connection with quality
-❎: no ethernet
-🌐: ethernet working
-🔒: vpn is active
-" ;;
-	6) "$TERMINAL" -e "$EDITOR" "$0" ;;
-esac
-
 etherned_plugged() {
   sed "s/down/❎/;s/up/🌐/" /sys/class/net/e*/operstate 2>/dev/null 
 }

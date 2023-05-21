@@ -2,14 +2,6 @@
 
 icon="🖥"
 
-case $BLOCK_BUTTON in
-	1) notify-send "Top CPU processes" "$(ps axch -o cmd:15,%cpu --sort=-%cpu | head)\\n(100% per core)" ;;
-	2) setsid -f "$TERMINAL" -e htop --sort-key=PERCENT_CPU --tree ;;
-	3) notify-send "$icon CPU module " "Shows CPU temperature.
-- Right click to show intensive processes.
-- Middle click to open htop." ;;
-esac
-
 cpu="$(top -b -n1 | grep "Cpu(s)" | awk '{print $2 + $4}')"
 printf "%s %.0f%s" "$icon" "$cpu" "%"
 
