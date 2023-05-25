@@ -10,9 +10,9 @@ send_notification() {
 
 menu() {
 	cat <<EOF
-1. Lofi Girl
-2. Chillhop
-3. Box Lofi
+1. Box Lofi
+2. Lofi Girl
+3. Chillhop
 4. The Bootleg Boy
 5. Radio Spinner
 EOF
@@ -24,9 +24,9 @@ main() {
 	[[ -z $choice ]] && exit 0
 
 	case $choice in
+		"Box Lofi") URL="http://stream.zeno.fm/f3wvbbqmdg8uv" ;;
 		"Lofi Girl") URL="https://play.streamafrica.net/lofiradio" ;;
 		"Chillhop") URL="http://stream.zeno.fm/fyn8eh3h5f8uv" ;;
-		"Box Lofi") URL="http://stream.zeno.fm/f3wvbbqmdg8uv" ;;
 		"The Bootleg Boy") URL="http://stream.zeno.fm/0r0xa792kwzuv" ;;
 		"Radio Spinner") URL="https://live.radiospinner.com/lofi-hip-hop-64" ;;
 	esac
