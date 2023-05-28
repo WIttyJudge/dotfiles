@@ -15,7 +15,7 @@ case "$project" in
   'bloxyinfo') 
     RUN_COMMAND="bundle exec rails s -p 3003" ;;
   'wittyjudge.github.io') 
-    RUN_COMMAND="hugo server -D" ;;
+    RUN_COMMAND="hugo server -D -p 1313" ;;
   *) 
     echo "Runner for '$project' project not found"
     exit 1
