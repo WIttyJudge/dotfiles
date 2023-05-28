@@ -1,12 +1,8 @@
 -- https://github.com/hrsh7th/nvim-cmp
 
-local cmp_present, cmp = pcall(require, "cmp")
-local lspkind_present, lspkind = pcall(require, "lspkind")
-local luasnip_present, luasnip = pcall(require, "luasnip")
-
--- if not cmp_present or not lspkind_present or not luasnip_present then
---   return
--- end
+local cmp = require("cmp")
+local lspkind = require("lspkind")
+local luasnip = require("luasnip")
 
 local cmp_window = require("cmp.utils.window")
 
