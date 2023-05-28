@@ -1,11 +1,6 @@
 -- https://github.com/folke/trouble.nvim
-local present, trouble = pcall(require, "trouble")
-
-if not present then
-  return
-end
-
-local icons = require "internal.icons"
+local trouble = require("trouble")
+local icons = require("internal.icons")
 
 local config = {
   fold_open = icons.folder.arrow_open, -- icon used for open folds

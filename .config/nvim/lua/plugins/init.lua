@@ -30,7 +30,20 @@ return {
     "RRethy/vim-illuminate",
     event = "BufEnter",
     config = function()
-      require("plugins.configs.vim-illuminate")
+      local config = {
+        filetypes_denylist = {
+          "dirvish",
+          "alpha",
+          "fugitive",
+          "NvimTree",
+          "TelescopePrompt",
+        },
+
+        -- set highest priority for treesitter, and disable regex search
+        providers = { "treesitter", "lsp" },
+      }
+
+      require("illuminate").configure(config)
     end,
   },
 
@@ -242,9 +255,9 @@ return {
   {
     "alvarosevilla95/luatab.nvim",
     dependencies = "nvim-tree/nvim-web-devicons",
-    config = function()
-      require("plugins.configs.luatab")
-    end,
+    opts = {
+      modified = function() return "" end,
+    }
   },
 
   {
