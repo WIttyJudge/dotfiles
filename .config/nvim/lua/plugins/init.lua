@@ -6,7 +6,7 @@ return {
       "williamboman/mason-lspconfig.nvim",
     },
     config = function()
-      require "plugins.configs.mason"
+      require("plugins.configs.mason")
     end,
   },
 
@@ -18,7 +18,7 @@ return {
   {
     "neovim/nvim-lspconfig",
     config = function()
-      require "lsp"
+      require("lsp")
     end,
   },
 
@@ -30,7 +30,7 @@ return {
     "RRethy/vim-illuminate",
     event = "BufEnter",
     config = function()
-      require "plugins.configs.vim-illuminate"
+      require("plugins.configs.vim-illuminate")
     end,
   },
 
@@ -60,7 +60,7 @@ return {
       "hrsh7th/cmp-cmdline",
     },
     config = function()
-      require "plugins.configs.cmp"
+      require("plugins.configs.cmp")
     end,
   },
 
@@ -70,7 +70,7 @@ return {
       "rafamadriz/friendly-snippets",
     },
     config = function()
-      require "plugins.configs.lua_snip"
+      require("plugins.configs.lua_snip")
     end,
   },
 
@@ -88,7 +88,7 @@ return {
     build = ":TSUpdate",
     event = "BufReadPost",
     config = function()
-      require "plugins.configs.nvim-treesitter"
+      require("plugins.configs.nvim-treesitter")
     end,
   },
   "p00f/nvim-ts-rainbow",
@@ -105,7 +105,7 @@ return {
     branch = "master",
   },
   {
-    "junegunn/gv.vim"
+    "junegunn/gv.vim",
   },
 
   {
@@ -116,7 +116,7 @@ return {
   {
     "kevinhwang91/nvim-hlslens",
     config = function()
-      require "plugins.configs.nvim-hlslens"
+      require("plugins.configs.nvim-hlslens")
     end,
     commit = "e820ce69905f382e01d6e37d1a5be7529a466544",
   },
@@ -126,10 +126,10 @@ return {
     event = "BufEnter",
   },
 
-  -- {
-  --   "karb94/neoscroll.nvim",
-  --   config = function() require "plugins.configs.neoscroll",
-  -- }
+  {
+    "karb94/neoscroll.nvim",
+    config = true,
+  },
 
   {
     "phaazon/hop.nvim",
@@ -153,7 +153,7 @@ return {
     "lukas-reineke/indent-blankline.nvim",
     event = "BufReadPre",
     config = function()
-      require "plugins.configs.indent-blankline-nvim"
+      require("plugins.configs.indent-blankline-nvim")
     end,
   },
 
@@ -169,7 +169,7 @@ return {
   {
     "lewis6991/gitsigns.nvim",
     config = function()
-      require "plugins.configs.gitsigns"
+      require("plugins.configs.gitsigns")
     end,
   },
 
@@ -180,7 +180,7 @@ return {
     "mhartington/formatter.nvim",
     cmd = { "Format", "FormatWrite" },
     config = function()
-      require "plugins.configs.formatter"
+      require("plugins.configs.formatter")
     end,
   },
 
@@ -199,14 +199,13 @@ return {
   -- Looking for files, etc..
   {
     "nvim-telescope/telescope.nvim",
-    cmd = "Telescope",
     dependencies = {
       "nvim-lua/plenary.nvim",
       "princejoogie/dir-telescope.nvim",
       { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
     },
     config = function()
-      require "plugins.configs.telescope"
+      require("plugins.configs.telescope")
     end,
   },
 
@@ -215,7 +214,7 @@ return {
     "nvim-tree/nvim-tree.lua",
     cmd = { "NvimTreeToggle", "NvimTreeFindFile" },
     config = function()
-      require "plugins.configs.nvim-tree"
+      require("plugins.configs.nvim-tree")
     end,
   },
 
@@ -225,7 +224,10 @@ return {
   },
 
   -- Find and replace
-  { "nvim-pack/nvim-spectre" },
+  {
+    "nvim-pack/nvim-spectre",
+    cmd = { "SpectreOpen" },
+  },
 
   -- Statusline and bufferline
   {
@@ -233,7 +235,7 @@ return {
     lazy = false,
     dependencies = { "nvim-tree/nvim-web-devicons" },
     config = function()
-      require "plugins.configs.lualine"
+      require("plugins.configs.lualine")
     end,
   },
 
@@ -241,7 +243,7 @@ return {
     "alvarosevilla95/luatab.nvim",
     dependencies = "nvim-tree/nvim-web-devicons",
     config = function()
-      require "plugins.configs.luatab"
+      require("plugins.configs.luatab")
     end,
   },
 
@@ -256,7 +258,7 @@ return {
     lazy = false,
     dependencies = { "nvim-tree/nvim-web-devicons" },
     config = function()
-      require "plugins.configs.alpha-nvim"
+      require("plugins.configs.alpha-nvim")
     end,
   },
 
@@ -264,14 +266,14 @@ return {
 
   {
     "ray-x/go.nvim",
-    dependencies = {  -- optional packages
+    dependencies = { -- optional packages
       "ray-x/guihua.lua",
       "neovim/nvim-lspconfig",
       "nvim-treesitter/nvim-treesitter",
     },
     config = true,
-    ft = {"go", 'gomod'},
-    build = ':lua require("go.install").update_all_sync()' -- if you need to install/update all binaries
+    ft = { "go", "gomod" },
+    build = ':lua require("go.install").update_all_sync()', -- if you need to install/update all binaries
   },
 
   -- Markdown
@@ -360,7 +362,7 @@ return {
   {
     "folke/trouble.nvim",
     config = function()
-      require "plugins.configs.trouble"
+      require("plugins.configs.trouble")
     end,
   },
 
@@ -368,7 +370,7 @@ return {
     "folke/which-key.nvim",
     keys = { "<leader>", '"', "'", "`" },
     config = function()
-      require "plugins.configs.whichkey"
+      require("plugins.configs.whichkey")
     end,
   },
 
@@ -396,8 +398,12 @@ return {
   --   "rcarriga/nvim-dap-ui",
   --   config = function() require("plugins.configs.nvim-dap-ui") end,
   -- }
-  -- "theHamsta/nvim-dap-virtual-text";
   -- "Pocco81/DAPInstall.nvim";
+
+  -- {
+  --   "beauwilliams/focus.nvim",
+  --   opts = { enabled = true, signcolumn = false },
+  -- },
 
   {
     "beauwilliams/focus.nvim",
@@ -414,7 +420,7 @@ return {
       { "kristijanhusak/vim-dadbod-ui", cmd = { "DBUI", "DBUIFindBuffer" } },
     },
     init = function()
-      require "plugins.configs.vim-dadbod-ui"
+      require("plugins.configs.vim-dadbod-ui")
     end,
   },
 }
