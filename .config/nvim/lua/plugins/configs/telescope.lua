@@ -1,33 +1,11 @@
-local telescope = require "telescope"
+local telescope = require("telescope")
 
-local builtin = require "telescope.builtin"
-local actions = require "telescope.actions"
-local themes = require "telescope.themes"
+local builtin = require("telescope.builtin")
+local actions = require("telescope.actions")
+local themes = require("telescope.themes")
 
 local config = {
   defaults = {
-    vimgrep_arguments = {
-      "rg",
-      "--color=never",
-      "--no-heading",
-      "--with-filename",
-      "--line-number",
-      "--column",
-      "--no-ignore",
-      "--smart-case",
-      "--hidden",
-    },
-
-    prompt_prefix = "λ -> ",
-    selection_caret = "  ",
-
-    initial_mode = "insert",
-
-    preview = {
-      timeout = 500,
-      msg_bg_fillchar = "",
-    },
-
     file_ignore_patterns = {
       ".git/",
       "node_modules",
@@ -73,22 +51,14 @@ local config = {
       hidden = true,
     },
   },
-  extensions = {
-    fzf = {
-      fuzzy = true,
-      override_generic_sorter = true,
-      override_file_sorter = true,
-      case_mode = "smart_case",
-    },
-  },
 }
 
 telescope.setup(config)
 
 -- https://github.com/nvim-telescope/telescope-fzf-native.nvim
 -- https://github.com/princejoogie/dir-telescope.nvim
-telescope.load_extension "fzf"
-telescope.load_extension "dir"
+telescope.load_extension("fzf")
+telescope.load_extension("dir")
 
 -- CUSTOM FUNCTIONS
 local M = {}
@@ -96,7 +66,7 @@ local M = {}
 function M.grep_prompt()
   local opts = {
     path_diplay = { "shorten" },
-    search = vim.fn.input "Grep String |> ",
+    search = vim.fn.input("Grep String |> "),
   }
 
   builtin.grep_string(opts)
@@ -104,12 +74,12 @@ end
 
 -- LSP
 function M.lsp_code_actions()
-  local opts = themes.get_cursor {
+  local opts = themes.get_cursor({
     winblend = 10,
     border = true,
     previewer = false,
     shorten_path = false,
-  }
+  })
 
   builtin.lsp_code_actions(opts)
 end
