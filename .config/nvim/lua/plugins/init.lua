@@ -98,19 +98,17 @@ return {
   -- Treesitter
   {
     "nvim-treesitter/nvim-treesitter",
+    dependencies = {
+      'nvim-treesitter/nvim-treesitter-textobjects',
+      "p00f/nvim-ts-rainbow",
+      "nvim-treesitter/nvim-treesitter-refactor",
+      "windwp/nvim-ts-autotag",
+    },
     build = ":TSUpdate",
     event = "BufReadPost",
     config = function()
       require("plugins.configs.nvim-treesitter")
     end,
-  },
-  "p00f/nvim-ts-rainbow",
-  "nvim-treesitter/nvim-treesitter-refactor",
-  "windwp/nvim-ts-autotag",
-
-  -- Move && Scroll && Replace
-  {
-    "wellle/targets.vim",
   },
 
   {

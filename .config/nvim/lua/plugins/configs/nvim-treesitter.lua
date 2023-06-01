@@ -4,12 +4,12 @@ local config = {
     "query",
     "bash",
     "html",
+    "css",
     "cpp",
     "c",
     "go",
     "gomod",
     "ruby",
-    "svelte",
     "graphql",
     "java",
     "json",
@@ -17,36 +17,83 @@ local config = {
     "python",
     "rust",
     "typescript",
-    "vue",
     "yaml",
     "regex",
     "javascript",
-    "scss",
-    "css",
     "lua",
     "toml",
     "dockerfile",
     "vim",
+    -- "svelte",
+    -- "scss",
+    -- "vue",
   },
 
-  -- Install parsers synchronously (only applied to `ensure_installed`)
-  sync_install = false,
+  auto_install = false,
 
   incremental_selection = {
     enable = true,
     keymaps = {
-      init_selection = "<CR>", -- set to `false` to disable one of the mappings
-      node_incremental = "<CR>",
-      scope_incremental = "<S-CR>",
-      node_decremental = "<BS>",
+      init_selection = '<c-space>',
+      node_incremental = '<c-space>',
+      scope_incremental = '<c-s>',
+      node_decremental = '<M-space>',
     },
   },
+
   highlight = {
     enable = true,
     use_languagetree = true,
   },
 
   -- PLUGINS
+
+  -- nvim-treesitter/nvim-treesitter-textobjects
+  textobjects = {
+    select = {
+      enable = true,
+      lookahead = true, -- Automatically jump forward to textobj, similar to targets.vim
+      keymaps = {
+        -- You can use the capture groups defined in textobjects.scm
+        ['aa'] = '@parameter.outer',
+        ['ia'] = '@parameter.inner',
+        ['af'] = '@function.outer',
+        ['if'] = '@function.inner',
+        ['ac'] = '@class.outer',
+        ['ic'] = '@class.inner',
+      },
+    },
+    move = {
+      enable = true,
+      set_jumps = true, -- whether to set jumps in the jumplist
+      goto_next_start = {
+        [']m'] = '@function.outer',
+        [']]'] = '@class.outer',
+      },
+      goto_next_end = {
+        [']M'] = '@function.outer',
+        [']['] = '@class.outer',
+      },
+      goto_previous_start = {
+        ['[m'] = '@function.outer',
+        ['[['] = '@class.outer',
+      },
+      goto_previous_end = {
+        ['[M'] = '@function.outer',
+        ['[]'] = '@class.outer',
+      },
+    },
+    swap = {
+      enable = true,
+      swap_next = {
+        ['<leader>a'] = '@parameter.inner',
+      },
+      swap_previous = {
+        ['<leader>A'] = '@parameter.inner',
+      },
+    },
+  },
+
   -- nvim-ts-rainbow
   rainbow = {
     enable = true,
