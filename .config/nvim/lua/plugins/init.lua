@@ -200,12 +200,24 @@ return {
     "sainnhe/gruvbox-material",
     lazy = false, -- make sure we load this during startup if it is your main colorscheme
     priority = 1000, -- make sure to load this before all the other start plugins
-    name = "gruvbox-material",
+    config = function()
+      vim.g.gruvbox_material_better_performance = 1
+      vim.g.gruvbox_material_enable_italic_comments = true
+      vim.opt.background = "dark"
+
+      vim.cmd.colorscheme('gruvbox-material')
+    end,
   },
 
   -- { "catppuccin/nvim", name = "catppuccin" },
 
-  -- { "WIttyJudge/gruvbox-material.nvim" }
+  -- {
+  --   "WIttyJudge/gruvbox-material.nvim",
+  --   config = true,
+  --   init = function()
+  --     vim.cmd.colorscheme('gruvbox-material')
+  --   end
+  -- },
 
   -- Looking for files, etc..
   {

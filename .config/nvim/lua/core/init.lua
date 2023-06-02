@@ -16,10 +16,9 @@ local function load_modules()
   local core_modules = {
     "core.options",
     "core.plugin_manager",
-    -- "core.commands",
-    -- "core.autocmds",
-    -- "core.mappings",
-    "core.colors",
+    "core.commands",
+    "core.autocmds",
+    "core.mappings",
   }
 
   for _, module in ipairs(core_modules) do
