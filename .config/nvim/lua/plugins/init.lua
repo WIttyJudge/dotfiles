@@ -23,10 +23,6 @@ return {
   },
 
   {
-    "onsails/lspkind-nvim",
-  },
-
-  {
     "RRethy/vim-illuminate",
     event = "BufEnter",
     config = function()
@@ -48,11 +44,6 @@ return {
   },
 
   {
-    "sindrets/diffview.nvim",
-    dependencies = { "nvim-lua/plenary.nvim" },
-  },
-
-  {
     "j-hui/fidget.nvim",
     opts = {
       window = {
@@ -71,6 +62,7 @@ return {
       "hrsh7th/cmp-path",
       "saadparwaiz1/cmp_luasnip",
       "hrsh7th/cmp-cmdline",
+      "onsails/lspkind-nvim"
     },
     config = function()
       require("plugins.configs.cmp")
@@ -87,12 +79,18 @@ return {
     end,
   },
 
+  -- {
+  --   "windwp/nvim-autopairs",
+  --   event = "InsertEnter",
+  --   config = function()
+  --     require "plugins.configs.nvim-autopairs"
+  --   end,
+  -- },
+
   {
-    "windwp/nvim-autopairs",
+    "echasnovski/mini.pairs",
     event = "InsertEnter",
-    config = function()
-      require "plugins.configs.nvim-autopairs"
-    end,
+    config = true,
   },
 
   -- Treesitter
@@ -139,13 +137,32 @@ return {
 
   {
     "karb94/neoscroll.nvim",
-    config = true,
+    config = {
+      -- All these keys will be mapped to their corresponding default scrolling animation
+      mappings = {'<C-u>', '<C-d>', '<C-b>', '<C-f>',
+                  '<C-y>', '<C-e>', 'zt', 'zz', 'zb'},
+      hide_cursor = true,          -- Hide cursor while scrolling
+      stop_eof = true,             -- Stop at <EOF> when scrolling downwards
+      respect_scrolloff = false,   -- Stop scrolling when the cursor reaches the scrolloff margin of the file
+      cursor_scrolls_alone = true, -- The cursor will keep on scrolling even if the window cannot scroll further
+      easing_function = nil,       -- Default easing function
+      pre_hook = nil,              -- Function to run before the scrolling animation starts
+      post_hook = nil,             -- Function to run after the scrolling animation ends
+      performance_mode = false,    -- Disable "Performance Mode" on all buffers.
+    },
   },
 
   {
     "phaazon/hop.nvim",
     config = true,
   },
+
+  -- {
+  --   "ggandor/leap.nvim",
+  --   init = function()
+  --     require('leap').add_default_mappings()
+  --   end,
+  -- },
 
   {
     "andymass/vim-matchup",
@@ -195,21 +212,42 @@ return {
     end,
   },
 
-  -- Colorscheme
+  -- Colorschema
+
+  -- {
+  --   "sainnhe/gruvbox-material",
+  --   lazy = false,
+  --   priority = 1000,
+  --   config = function()
+  --     vim.g.gruvbox_material_better_performance = 1
+  --     vim.g.gruvbox_material_enable_italic_comments = true
+  --     vim.opt.background = "dark"
+  --
+  --     vim.cmd.colorscheme('gruvbox-material')
+  --   end,
+  -- },
+
+  -- {
+  --   'navarasu/onedark.nvim',
+  --   laze = false,
+  --   priority = 1000,
+  --   config = function()
+  --     vim.cmd.colorscheme 'onedark'
+  --   end,
+  -- },
+
   {
-    "sainnhe/gruvbox-material",
-    lazy = false, -- make sure we load this during startup if it is your main colorscheme
-    priority = 1000, -- make sure to load this before all the other start plugins
-    config = function()
-      vim.g.gruvbox_material_better_performance = 1
-      vim.g.gruvbox_material_enable_italic_comments = true
-      vim.opt.background = "dark"
-
-      vim.cmd.colorscheme('gruvbox-material')
-    end,
+    "catppuccin/nvim",
+    name = "catppuccin",
+    laze = false,
+    priority = 1000,
+    config = {
+      flavour = "mocha",
+    },
+    init = function()
+      vim.cmd.colorscheme "catppuccin"
+    end
   },
-
-  -- { "catppuccin/nvim", name = "catppuccin" },
 
   -- {
   --   "WIttyJudge/gruvbox-material.nvim",
@@ -257,9 +295,10 @@ return {
     "nvim-lualine/lualine.nvim",
     lazy = false,
     dependencies = { "nvim-tree/nvim-web-devicons" },
-    config = function()
-      require("plugins.configs.lualine")
-    end,
+    config = true,
+    -- config = function()
+    --   require("plugins.configs.lualine")
+    -- end,
   },
 
   {
@@ -407,26 +446,21 @@ return {
   -- },
 
   -- Debug
-  {
-    "mfussenegger/nvim-dap",
-    dependencies = {
-      { "theHamsta/nvim-dap-virtual-text" },
-    },
-    config = function()
-      require "plugins.configs.nvim-dap"
-    end,
-  },
+  -- {
+  --   "mfussenegger/nvim-dap",
+  --   dependencies = {
+  --     { "theHamsta/nvim-dap-virtual-text" },
+  --   },
+  --   config = function()
+  --     require "plugins.configs.nvim-dap"
+  --   end,
+  -- },
 
   -- {
   --   "rcarriga/nvim-dap-ui",
   --   config = function() require("plugins.configs.nvim-dap-ui") end,
   -- }
   -- "Pocco81/DAPInstall.nvim";
-
-  -- {
-  --   "beauwilliams/focus.nvim",
-  --   opts = { enabled = true, signcolumn = false },
-  -- },
 
   {
     "beauwilliams/focus.nvim",
@@ -436,11 +470,14 @@ return {
   -- Database
 
   {
-    "tpope/vim-dadbod",
-    event = "VeryLazy",
+    "kristijanhusak/vim-dadbod-ui",
+    cmd = {
+      "DBUI",
+      "DBUIFindBuffer",
+    },
     dependencies = {
+      "tpope/vim-dadbod",
       { "kristijanhusak/vim-dadbod-completion", ft = { "sql", "mysql", "plsql" } },
-      { "kristijanhusak/vim-dadbod-ui", cmd = { "DBUI", "DBUIFindBuffer" } },
     },
     init = function()
       require("plugins.configs.vim-dadbod-ui")

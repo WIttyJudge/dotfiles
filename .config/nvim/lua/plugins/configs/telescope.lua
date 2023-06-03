@@ -6,6 +6,18 @@ local themes = require("telescope.themes")
 
 local config = {
   defaults = {
+    vimgrep_arguments = {
+      "rg",
+      "--color=never",
+      "--no-heading",
+      "--with-filename",
+      "--line-number",
+      "--column",
+      "--no-ignore",
+      "--smart-case",
+      "--hidden",
+    },
+
     file_ignore_patterns = {
       ".git/",
       "node_modules",
