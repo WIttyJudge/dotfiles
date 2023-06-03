@@ -7,7 +7,6 @@ SKIP,TAG,PROGRAM,DESCRIPTION
 ,,xwallpaper,Wallpaper setting utility for X.
 TRUE,,xcompmgr,Composite Window-effects manager for Xorg.
 ,,picom,X compositor that may fix tearing issues.
-,,xcolor,Color picker for X11.
 TRUE,AUR,polybar,A fast and easy-to-use status bar.
 TRUE,AUR,siji-git,Iconic bitmap font based on stlarch with additional glyphs.
 TRUE,AUR,termsyn-font,Monospaced font based on terminus and tamsyn.

@@ -11,9 +11,9 @@ commands=(
 	"current window"
 	"full screen"
 	"a selected area (copy)"
+	"a selected area with timer (copy)"
 	"current window (copy)"
 	"full screen (copy)"
-	"colorpicker"
 )
 
 operation="$(printf '%b\n' "${commands[@]}" | dmenu -l 10 -i -p "Screenshot which area?" )"
@@ -23,9 +23,9 @@ case "$operation" in
   "current window") maim -i "$(xdotool getactivewindow)" ~/Pictures/screenshots/pic-window-"$(date '+%d.%m.%y-%H:%M').png" ;;
   "full screen") maim ~/Pictures/screenshots/pic-full-"$(date '+%d.%m.%y-%H:%M').png" ;;
   "a selected area (copy)") maim -s | xclip -selection clipboard -t image/png ;;
+  "a selected area with timer (copy)") sleep 3 && maim -s | xclip -selection clipboard -t image/png ;;
   "current window (copy)") maim -i "$(xdotool getactivewindow)" | xclip -selection clipboard -t image/png ;;
   "full screen (copy)") maim | xclip -selection clipboard -t image/png ;;
-  "colorpicker") xcolor -s;;
   *) notify=false ;;
 esac
 
