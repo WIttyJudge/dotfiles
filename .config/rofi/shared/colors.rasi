@@ -1,4 +1,4 @@
-/* Import color-scheme from `colors` directory */
+/* Colors */
 
-@import "colors/gruvbox.rasi"
+@import "colors/catppuccin.rasi"
 

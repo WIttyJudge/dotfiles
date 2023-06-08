@@ -94,6 +94,7 @@ TRUE,,rofi-pass,Bash script to handle pass storages in a convenient way.
 ,,gtk2,GObject-based multi-platform GUI toolkit(legacy).
 ,,gtk3,GObject-based multi-platform GUI toolkit.
 ,AUR,gruvbox-material-gtk-theme-git,Gruvbox Material theme for GTK.
+,AUR,catppuccin-gtk-theme-mocha ,Soothing pastel theme for GTK3 - Mocha.
 ,,openvpn,Configurable VPN (Virtual Private Network).
 ,,wireguard-tools,Lools to configure wireguard.
 ,,networkmanager-openvpn,NetworkManager VPN plugin for OpenVPN.

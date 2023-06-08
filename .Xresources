@@ -29,27 +29,46 @@ st.font: JetBrainsMono Nerd Font:style=Regular:size=11:antialias=true
 /* cyan		  6	   14 */
 /* white	  7	   15 */
 
-/* gruvbox */
-! hard contrast: *background: #1d2021
-! soft contrast: *background: #32302f
-*background: #282828
-*foreground: #ebdbb2
-*color0:  #282828
-*color8:  #928374
-*color1:  #cc241d
-*color9:  #fb4934
-*color2:  #98971a
-*color10: #b8bb26
-*color3:  #d79921
-*color11: #fabd2f
-*color4:  #458588
-*color12: #83a598
-*color5:  #b16286
-*color13: #d3869b
-*color6:  #689d6a
-*color14: #8ec07c
-*color7:  #a89984
-*color15: #ebdbb2
+! /* gruvbox material */
+! *background: #282828
+! *foreground: #ebdbb2
+! *color0:  #282828
+! *color8:  #928374
+! *color1:  #cc241d
+! *color9:  #fb4934
+! *color2:  #98971a
+! *color10: #b8bb26
+! *color3:  #d79921
+! *color11: #fabd2f
+! *color4:  #458588
+! *color12: #83a598
+! *color5:  #b16286
+! *color13: #d3869b
+! *color6:  #689d6a
+! *color14: #8ec07c
+! *color7:  #a89984
+! *color15: #ebdbb2
+
+! catppuccin mocha
+*background: #1E1E2E
+*foreground: #CDD6F4
+*color0: #45475A
+*color8: #585B70
+*color1: #F38BA8
+*color9: #F38BA8
+*color2: #A6E3A1
+*color10: #A6E3A1
+*color3: #F9E2AF
+*color11: #F9E2AF
+*color4: #89B4FA
+*color12: #89B4FA
+*color5: #F5C2E7
+*color13: #F5C2E7
+*color6: #94E2D5
+*color14: #94E2D5
+*color7: #BAC2DE
+*color15: #A6ADC8
+
 
 !! URxvt Appearance
 URxvt.intensityStyles:	false
