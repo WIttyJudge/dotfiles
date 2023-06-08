@@ -5,7 +5,8 @@
 # set by alacritty itself.
 import:
   # Import colorschema
-  - ~/.config/alacritty/themes/gruvbox.yml
+  # - ~/.config/alacritty/themes/gruvbox.yml
+  - ~/.config/alacritty/themes/catppuccin-mocha.yml
 
 env:
   # TERM variable
