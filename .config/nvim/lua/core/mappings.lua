@@ -29,11 +29,9 @@ map("n", "<Down>", ":resize -2<CR>")
 map("n", "<Left>", ":vertical resize +2<CR>")
 map("n", "<Right>", ":vertical resize -2<CR>")
 
--- Allow moving the cursor through wrapped lines with j, k, <Up> and <Down>
--- http://www.reddit.com/r/vim/comments/2k4cbr/problem_with_gj_and_gk/
--- empty mode is same as using :map
-map("", "j", 'v:count || mode(1)[0:1] == "no" ? "j" : "gj"', { expr = true })
-map("", "k", 'v:count || mode(1)[0:1] == "no" ? "k" : "gk"', { expr = true })
+-- Remap for dealing with word wrap
+map('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
+map('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
 
 -- Add space bellow or above without leaving normal mode
 vim.cmd [[

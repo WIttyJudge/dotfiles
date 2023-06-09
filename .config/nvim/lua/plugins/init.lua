@@ -471,10 +471,7 @@ return {
 
   {
     "kristijanhusak/vim-dadbod-ui",
-    cmd = {
-      "DBUI",
-      "DBUIFindBuffer",
-    },
+    cmd = { "DBUI" },
     dependencies = {
       "tpope/vim-dadbod",
       { "kristijanhusak/vim-dadbod-completion", ft = { "sql", "mysql", "plsql" } },
