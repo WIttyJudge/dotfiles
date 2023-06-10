@@ -5,7 +5,7 @@ function M.setup()
   -- Define custom icons
   local signs = {
     Error = icons.diagnostics.Error,
-    Warn = icons.diagnostics.Error,
+    Warn = icons.diagnostics.Warn,
     Info = icons.diagnostics.Info,
     Hint = icons.diagnostics.Hint,
   }
