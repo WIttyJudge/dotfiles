@@ -55,4 +55,3 @@ opt.undodir = vim.fn.stdpath "cache" .. "/undo"
 opt.swapfile = false
 opt.backup = false
 opt.writebackup = false
-opt.termguicolors = true
