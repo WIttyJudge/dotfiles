@@ -45,6 +45,7 @@ return {
 
   {
     "j-hui/fidget.nvim",
+    tag = "legacy",
     opts = {
       window = {
         -- adjust transparency.
@@ -62,7 +63,7 @@ return {
       "hrsh7th/cmp-path",
       "saadparwaiz1/cmp_luasnip",
       "hrsh7th/cmp-cmdline",
-      "onsails/lspkind-nvim"
+      "onsails/lspkind-nvim",
     },
     config = function()
       require("plugins.configs.cmp")
@@ -97,7 +98,7 @@ return {
   {
     "nvim-treesitter/nvim-treesitter",
     dependencies = {
-      'nvim-treesitter/nvim-treesitter-textobjects',
+      "nvim-treesitter/nvim-treesitter-textobjects",
       "p00f/nvim-ts-rainbow",
       "nvim-treesitter/nvim-treesitter-refactor",
       "windwp/nvim-ts-autotag",
@@ -133,23 +134,6 @@ return {
   {
     "LudoPinelli/comment-box.nvim",
     event = "BufEnter",
-  },
-
-  {
-    "karb94/neoscroll.nvim",
-    config = {
-      -- All these keys will be mapped to their corresponding default scrolling animation
-      mappings = {'<C-u>', '<C-d>', '<C-b>', '<C-f>',
-                  '<C-y>', '<C-e>', 'zt', 'zz', 'zb'},
-      hide_cursor = true,          -- Hide cursor while scrolling
-      stop_eof = true,             -- Stop at <EOF> when scrolling downwards
-      respect_scrolloff = false,   -- Stop scrolling when the cursor reaches the scrolloff margin of the file
-      cursor_scrolls_alone = true, -- The cursor will keep on scrolling even if the window cannot scroll further
-      easing_function = nil,       -- Default easing function
-      pre_hook = nil,              -- Function to run before the scrolling animation starts
-      post_hook = nil,             -- Function to run after the scrolling animation ends
-      performance_mode = false,    -- Disable "Performance Mode" on all buffers.
-    },
   },
 
   {
@@ -239,14 +223,14 @@ return {
   {
     "catppuccin/nvim",
     name = "catppuccin",
-    laze = false,
+    lazy = false,
     priority = 1000,
-    config = {
+    opts = {
       flavour = "mocha",
     },
     init = function()
-      vim.cmd.colorscheme "catppuccin"
-    end
+      vim.cmd.colorscheme("catppuccin")
+    end,
   },
 
   -- {
@@ -305,12 +289,16 @@ return {
     dependencies = "nvim-tree/nvim-web-devicons",
     opts = {
       modified = function() return "" end,
-    }
+    },
   },
 
   {
     "SmiteshP/nvim-navic",
-    opts = { separator = " ", highlight = true, depth_limit = 7 },
+    dependencies = {
+      "neovim/nvim-lspconfig",
+    },
+    config = true,
+    -- opts = { separator = " ", highlight = true, depth_limit = 7 },
   },
 
   -- Fancy startup screen
@@ -334,7 +322,7 @@ return {
     },
     config = true,
     ft = { "go", "gomod" },
-    build = ':lua require("go.install").update_all_sync()', -- if you need to install/update all binaries
+    build = ':lua require("go.install").update_all_sync()',
   },
 
   -- Markdown
@@ -360,7 +348,7 @@ return {
   -- Useful functions
   {
     "lambdalisue/suda.vim",
-    cmd = { "SudaEdit", "SudaWrite" },
+    cmd = { "SudaRead", "SudaWrite" },
   },
 
   -- Sorting plugin
