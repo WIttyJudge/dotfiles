@@ -176,7 +176,10 @@ return {
   },
 
   -- Git
-  { "tpope/vim-fugitive" },
+  {
+    "tpope/vim-fugitive",
+    cmd = { "Gvdiffsplit", "Git" },
+  },
 
   {
     "lewis6991/gitsigns.nvim",
@@ -288,7 +291,9 @@ return {
     "alvarosevilla95/luatab.nvim",
     dependencies = "nvim-tree/nvim-web-devicons",
     opts = {
-      modified = function() return "" end,
+      modified = function()
+        return ""
+      end,
     },
   },
 
@@ -335,7 +340,7 @@ return {
   {
     "Wansmer/treesj",
     cmd = { "TSJSplit", "TSJJoin" },
-    dependencies = { "nvim-treesitter" },
+    dependencies = { "nvim-treesitter/nvim-treesitter" },
     init = function()
       vim.keymap.set("n", "gS", ":TSJSplit<CR>", { silent = true })
       vim.keymap.set("n", "gJ", ":TSJJoin<CR>", { silent = true })
