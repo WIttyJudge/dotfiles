@@ -123,8 +123,8 @@ return {
     opts = {
       calm_down = true,
       nearest_only = true,
-      nearest_float_when = 'always',
-    }
+      nearest_float_when = "always",
+    },
   },
 
   {
@@ -210,15 +210,6 @@ return {
   --   end,
   -- },
 
-  -- {
-  --   'navarasu/onedark.nvim',
-  --   laze = false,
-  --   priority = 1000,
-  --   config = function()
-  --     vim.cmd.colorscheme 'onedark'
-  --   end,
-  -- },
-
   {
     "catppuccin/nvim",
     name = "catppuccin",
@@ -231,14 +222,6 @@ return {
       vim.cmd.colorscheme("catppuccin")
     end,
   },
-
-  -- {
-  --   "WIttyJudge/gruvbox-material.nvim",
-  --   config = true,
-  --   init = function()
-  --     vim.cmd.colorscheme('gruvbox-material')
-  --   end
-  -- },
 
   -- Looking for files, etc..
   {
