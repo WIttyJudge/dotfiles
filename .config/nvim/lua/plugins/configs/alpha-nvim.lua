@@ -1,3 +1,4 @@
+-- https://github.com/goolord/alpha-nvim
 local alpha = require("alpha")
 
 local icons = require "internal.icons"

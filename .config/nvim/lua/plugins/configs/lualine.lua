@@ -1,4 +1,5 @@
 -- https://github.com/hoob3rt/lualine.nvim
+local lualine = require("lualine")
 local icons = require("internal.icons")
 
 local diff = {
@@ -60,4 +61,4 @@ local config = {
   },
 }
 
-require("lualine").setup(config)
+lualine.setup(config)

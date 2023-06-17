@@ -41,22 +41,6 @@ local config = {
     changedelete = { hl = "GitSignsChangeDelete", text = "~", numhl = "GitSignsChangeNr" },
   },
   on_attach = on_attach
-  -- keymaps = {
-  --   -- Default keymap options
-  --   noremap = true,
-  --
-  --   ["n <leader>ga"] = '<cmd>lua require"gitsigns".stage_hunk()<CR>',
-  --   ["n <leader>gp"] = '<cmd>lua require"gitsigns".preview_hunk()<CR>',
-  --
-  --   -- ['n <leader>hs'] = '<cmd>lua require"gitsigns".stage_hunk()<CR>',
-  --   -- ['n <leader>hu'] = '<cmd>lua require"gitsigns".undo_stage_hunk()<CR>',
-  --   -- ['n <leader>hp'] = '<cmd>lua require"gitsigns".preview_hunk()<CR>',
-  --   -- ['n <leader>hb'] = '<cmd>lua require"gitsigns".blame_line()<CR>',
-  --
-  --   -- Text objects
-  --   ["o ih"] = ':<C-U>lua require"gitsigns".text_object()<CR>',
-  --   ["x ih"] = ':<C-U>lua require"gitsigns".text_object()<CR>',
-  -- },
 }
 
 gitsigns.setup(config)

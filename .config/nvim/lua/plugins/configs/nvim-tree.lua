@@ -1,5 +1,4 @@
 -- https://github.com/kyazdani42/nvim-tree.lua
-
 local nvim_tree = require("nvim-tree")
 
 local icons = require("internal.icons")

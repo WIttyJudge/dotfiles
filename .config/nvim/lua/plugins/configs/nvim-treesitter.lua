@@ -1,3 +1,6 @@
+-- https://github.com/nvim-treesitter/nvim-treesitter
+local nvim_treesitter_config = require("nvim-treesitter.configs")
+
 local config = {
   -- ensure_installed = "all",  -- one of "all", "maintained" (parsers with maintainers), or a list of languages
   ensure_installed = {
@@ -128,4 +131,4 @@ local config = {
   },
 }
 
-require("nvim-treesitter.configs").setup(config)
+nvim_treesitter_config.setup(config)

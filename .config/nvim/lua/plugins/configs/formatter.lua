@@ -1,3 +1,6 @@
+-- https://github.com/mhartington/formatter.nvim
+local formatter = require("formatter")
+
 local function rubocop()
   return {
     exe = "rubocop", -- might prepend `bundle exec `
@@ -13,7 +16,7 @@ local function rubocop()
   }
 end
 
-require("formatter").setup  {
+formatter.setup  {
   logging = false,
   filetype = {
     ruby = {

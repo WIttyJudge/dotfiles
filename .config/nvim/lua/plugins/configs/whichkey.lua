@@ -1,3 +1,4 @@
+-- https://github.com/kristijanhusak/vim-dadbod-ui
 local wk = require("which-key")
 
 local options = {

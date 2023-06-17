@@ -11,11 +11,6 @@ return {
   },
 
   {
-    "nvim-tree/nvim-web-devicons",
-    event = "BufRead",
-  },
-
-  {
     "neovim/nvim-lspconfig",
     config = function()
       require("lsp")
@@ -125,10 +120,11 @@ return {
 
   {
     "kevinhwang91/nvim-hlslens",
-    config = function()
-      require("plugins.configs.nvim-hlslens")
-    end,
-    commit = "e820ce69905f382e01d6e37d1a5be7529a466544",
+    opts = {
+      calm_down = true,
+      nearest_only = true,
+      nearest_float_when = 'always',
+    }
   },
 
   {
@@ -302,14 +298,13 @@ return {
     dependencies = {
       "neovim/nvim-lspconfig",
     },
-    config = true,
-    -- opts = { separator = " ", highlight = true, depth_limit = 7 },
+    opts = { separator = " ", highlight = true, depth_limit = 7 },
   },
 
   -- Fancy startup screen
   {
     "goolord/alpha-nvim",
-    lazy = false,
+    event = "VimEnter",
     dependencies = { "nvim-tree/nvim-web-devicons" },
     config = function()
       require("plugins.configs.alpha-nvim")
