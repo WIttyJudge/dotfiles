@@ -178,10 +178,6 @@ end)
 -- alpha-nvim
 map("n", "<Leader>st", ":tabnew | :Alpha<CR>")
 
--- vim-fugitive
-map("n", "<Leader>gd", ":Gvdiffsplit<CR>", { desc = "git dif" })
-map("n", "<Leader>gs", ":Git<CR>", { desc = "git menu" })
-
 -- gv.vim
 map({ "n", "v" }, "<Leader>gc", ":GV<CR>")
 map("n", "<Leader>gC", ":GV!<CR>")

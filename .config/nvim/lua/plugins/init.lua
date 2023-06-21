@@ -12,6 +12,7 @@ return {
 
   {
     "neovim/nvim-lspconfig",
+    event = { "BufReadPre", "BufNewFile" },
     config = function()
       require("lsp")
     end,
@@ -111,6 +112,9 @@ return {
   },
   {
     "junegunn/gv.vim",
+    dependencies = {
+      "tpope/vim-fugitive"
+    }
   },
 
   {
