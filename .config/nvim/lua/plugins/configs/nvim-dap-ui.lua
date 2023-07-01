@@ -1,22 +1,17 @@
--- https://github.com/rcarriga/nvim-dap-ui
-local present, dapui = pcall(require, "dapui")
-
-if not present then
-  return
-end
+local dap, dapui = require("dap"), require("dapui")
 
 local config = {
-  mappings = {
-    -- Use a table to apply multiple mappings
-    expand = { "<CR>", "<LeftMouse>" },
-    open = "o",
-    remove = "d",
-    edit = "e",
-    repl = "r",
-  },
-  sidebar = { size = 80 },
-  tray = { size = 10 },
-  floating = { max_width = 0.9, max_height = 0.5, border = vim.g.border_chars },
+  floating = { border = "rounded" }
 }
+
+dap.listeners.after.event_initialized["dapui_config"] = function()
+  dapui.open()
+end
+dap.listeners.before.event_terminated["dapui_config"] = function()
+  dapui.close()
+end
+dap.listeners.before.event_exited["dapui_config"] = function()
+  dapui.close()
+end
 
 dapui.setup(config)

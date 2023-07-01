@@ -2,12 +2,10 @@
 local indent_blankline = require("indent_blankline")
 
 local config = {
-  buftype_exclude = { "terminal", "README.md" },
+  -- buftype_exclude = { "terminal", "README.md" },
   filetype_exclude = {
     "help",
     "man",
-    "startify",
-    "packer",
     "NvimTree",
     "Trouble",
     "dashboard",
@@ -21,7 +19,6 @@ local config = {
     "lazy",
     "",
   },
-  -- char = '¦',
   char = "│",
 
   show_trailing_blankline_indent = false,

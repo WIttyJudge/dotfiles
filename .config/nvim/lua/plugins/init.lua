@@ -58,7 +58,10 @@ return {
       "hrsh7th/cmp-buffer",
       "hrsh7th/cmp-path",
       "saadparwaiz1/cmp_luasnip",
-      "hrsh7th/cmp-cmdline",
+      {
+        "hrsh7th/cmp-cmdline",
+        event = { "CmdlineEnter" }
+      },
       "onsails/lspkind-nvim",
     },
     config = function()
@@ -110,12 +113,6 @@ return {
     "mg979/vim-visual-multi",
     branch = "master",
   },
-  {
-    "junegunn/gv.vim",
-    dependencies = {
-      "tpope/vim-fugitive"
-    }
-  },
 
   {
     "ur4ltz/surround.nvim",
@@ -136,17 +133,16 @@ return {
     event = "BufEnter",
   },
 
+  -- {
+  --   "folke/flash.nvim",
+  --   event = "VeryLazy",
+  --   config = true,
+  -- },
+
   {
     "phaazon/hop.nvim",
     config = true,
   },
-
-  -- {
-  --   "ggandor/leap.nvim",
-  --   init = function()
-  --     require('leap').add_default_mappings()
-  --   end,
-  -- },
 
   {
     "andymass/vim-matchup",
@@ -163,7 +159,7 @@ return {
 
   {
     "lukas-reineke/indent-blankline.nvim",
-    event = "BufReadPre",
+    event = { "BufReadPost", "BufNewFile" },
     config = function()
       require("plugins.configs.indent-blankline-nvim")
     end,
@@ -177,8 +173,11 @@ return {
 
   -- Git
   {
-    "tpope/vim-fugitive",
-    cmd = { "Gvdiffsplit", "Git" },
+    "junegunn/gv.vim",
+    cmd = { "GV" },
+    dependencies = {
+      "tpope/vim-fugitive",
+    },
   },
 
   {
@@ -187,8 +186,6 @@ return {
       require("plugins.configs.gitsigns")
     end,
   },
-
-  -- { "junegunn/gv.vim" },
 
   -- Linter
   {
@@ -420,21 +417,21 @@ return {
   -- },
 
   -- Debug
-  -- {
-  --   "mfussenegger/nvim-dap",
-  --   dependencies = {
-  --     { "theHamsta/nvim-dap-virtual-text" },
-  --   },
-  --   config = function()
-  --     require "plugins.configs.nvim-dap"
-  --   end,
-  -- },
-
-  -- {
-  --   "rcarriga/nvim-dap-ui",
-  --   config = function() require("plugins.configs.nvim-dap-ui") end,
-  -- }
-  -- "Pocco81/DAPInstall.nvim";
+  {
+    "mfussenegger/nvim-dap",
+    dependencies = {
+      {
+        "rcarriga/nvim-dap-ui",
+        config = function()
+          require("plugins.configs.nvim-dap-ui")
+        end,
+      },
+      {
+        "theHamsta/nvim-dap-virtual-text",
+        config = true,
+      },
+    },
+  },
 
   {
     "beauwilliams/focus.nvim",
