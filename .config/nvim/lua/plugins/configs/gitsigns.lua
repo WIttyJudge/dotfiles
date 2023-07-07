@@ -33,13 +33,6 @@ local function on_attach(bufnr)
 end
 
 local config = {
-  signs = {
-    add = { hl = "GitSignsAdd", text = "│", numhl = "GitSignsAddNr" },
-    change = { hl = "GitSignsChange", text = "│", numhl = "GitSignsChangeNr" },
-    delete = { hl = "GitSignsDelete", text = "-", numhl = "GitSignsDeleteNr" },
-    topdelete = { hl = "GitSignsDelete", text = "_", numhl = "GitSignsDeleteNr" },
-    changedelete = { hl = "GitSignsChangeDelete", text = "~", numhl = "GitSignsChangeNr" },
-  },
   on_attach = on_attach
 }
 
