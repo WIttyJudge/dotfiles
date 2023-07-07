@@ -63,6 +63,7 @@ return {
         event = { "CmdlineEnter" }
       },
       "onsails/lspkind-nvim",
+      "hrsh7th/cmp-nvim-lsp-signature-help",
     },
     config = function()
       require("plugins.configs.cmp")
@@ -77,6 +78,16 @@ return {
     config = function()
       require("plugins.configs.lua_snip")
     end,
+  },
+
+  {
+    'stevearc/aerial.nvim',
+    cmd = { "AerialToggle" },
+    dependencies = {
+       "nvim-treesitter/nvim-treesitter",
+       "nvim-tree/nvim-web-devicons"
+    },
+    config = true
   },
 
   -- {

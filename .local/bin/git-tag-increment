@@ -1,10 +1,10 @@
 #!/bin/bash
 
 echo "Fetching all tags.."
-# git fetch --tags
+git fetch --tags
 echo
 
-latest_tag=$(git describe --tags $(git rev-list --tags --max-count=1))
+latest_tag="v$(git tag --sort=committerdate | grep -E 'v[0-9]' | tail -1 | cut -b 2-7)"
 echo "Latest tag: ${latest_tag}"
 
 last_number=$(echo $latest_tag | grep -oE '[0-9]+$')

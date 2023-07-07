@@ -7,6 +7,7 @@ echo "Usage: extract [file]
 
 Available file formats:
   .tar
+  .tar.lz4
   .tar.bz2
   .tar.gz
   .tbz2
@@ -22,6 +23,7 @@ Available file formats:
 if [ -f "$1" ] ; then
   case "$1" in
     *.tar) tar xvf "$1" ;;
+    *.tar.lz4) lz4 -d "$1" -c | tar xvf - ;;
     *.tar.bz2) tar xvjf "$1" ;;
     *.tar.gz) tar xvzf "$1" ;;
     *.tbz2) tar xvjf "$1" ;;
