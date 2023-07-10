@@ -60,7 +60,7 @@ return {
       "saadparwaiz1/cmp_luasnip",
       {
         "hrsh7th/cmp-cmdline",
-        event = { "CmdlineEnter" }
+        event = { "CmdlineEnter" },
       },
       "onsails/lspkind-nvim",
       "hrsh7th/cmp-nvim-lsp-signature-help",
@@ -81,13 +81,13 @@ return {
   },
 
   {
-    'stevearc/aerial.nvim',
+    "stevearc/aerial.nvim",
     cmd = { "AerialToggle" },
     dependencies = {
-       "nvim-treesitter/nvim-treesitter",
-       "nvim-tree/nvim-web-devicons"
+      "nvim-treesitter/nvim-treesitter",
+      "nvim-tree/nvim-web-devicons",
     },
-    config = true
+    config = true,
   },
 
   -- {
