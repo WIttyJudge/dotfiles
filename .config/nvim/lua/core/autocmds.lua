@@ -3,9 +3,9 @@ local utils = require "internal.utils"
 local cmd = vim.cmd
 local autocmd = vim.api.nvim_create_autocmd
 
--- ##########################
--- #    General Settings    #
--- ##########################
+--  +----------------------------------------------------------+
+--  |                     General Settings                     |
+--  +----------------------------------------------------------+
 
 local general_settings = vim.api.nvim_create_augroup("_general_settings", { clear = true })
 
@@ -22,9 +22,11 @@ autocmd("BufReadPost", {
 
 autocmd({ "FileType" }, {
   pattern = { "gitcommit", "markdown" },
+
   callback = function()
     vim.opt_local.wrap = true
     vim.opt_local.spell = true
+    vim.opt.spelllang = "en"
   end,
   group = general_settings,
   desc = "Spell check",
@@ -62,15 +64,15 @@ autocmd("BufEnter", {
   desc = "Don't auto commenting new lines",
 })
 
--- Check if we need to reload the file when it changed
 autocmd({ "FocusGained", "TermClose", "TermLeave" }, {
   group = general_settings,
   command = "checktime",
+  desc = "Check if we need to reload the file when it changed"
 })
 
--- #################
--- #    Plugins    #
--- #################
+--  +----------------------------------------------------------+
+--  |                         Plugins                          |
+--  +----------------------------------------------------------+
 
 local plugins = vim.api.nvim_create_augroup("_plugins", { clear = true })
 
@@ -90,29 +92,21 @@ autocmd({ "BufWritePost" }, {
   desc = "Golang plugins",
 })
 
--- ################
--- #    Linter    #
--- ################
+--  +----------------------------------------------------------+
+--  |                          Linter                          |
+--  +----------------------------------------------------------+
 
 local linter = vim.api.nvim_create_augroup("_linter", { clear = true })
 
-autocmd({ "BufWritePre" }, {
-  pattern = { "*.go" },
-  callback = function()
-    require("go.format").goimport()
-  end,
-  group = linter,
-})
-
-autocmd({ "BufWritePre" }, {
-  pattern = { "*.rs" },
+autocmd({ "BufWritePost" }, {
+  pattern = { "*.go", "*.rs" },
   command = "FormatWrite",
   group = linter,
 })
 
--- ######################
--- #    Auto Compile    #
--- ######################
+--  +----------------------------------------------------------+
+--  |                       Auto Compile                       |
+--  +----------------------------------------------------------+
 
 local auto_compile = vim.api.nvim_create_augroup("_auto_compile", { clear = true })
 
@@ -142,16 +136,19 @@ autocmd({ "BufWritePost" }, {
   pattern = { "*tmux.conf" },
   command = "execute 'silent !tmux source <afile> --silent'",
   group = auto_compile,
+  desc = "Reload tmux",
 })
 
 autocmd({ "BufWritePost" }, {
   pattern = ".Xresources",
   command = "!xrdb % ; kill -USR1 $(pidof st)",
   group = auto_compile,
+  desc = "Reload .Xresources",
 })
 
 autocmd({ "BufWritePost" }, {
   pattern = "bspwmrc",
   command = "!bspc wm -r",
   group = auto_compile,
+  desc = "Reload bspwm",
 })
