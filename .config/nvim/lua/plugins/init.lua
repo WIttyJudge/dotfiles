@@ -18,6 +18,38 @@ return {
     end,
   },
 
+  -- Autocompletion
+  {
+    "hrsh7th/nvim-cmp",
+    event = "InsertEnter",
+    dependencies = {
+      "hrsh7th/cmp-nvim-lsp",
+      "hrsh7th/cmp-buffer",
+      "hrsh7th/cmp-path",
+      "saadparwaiz1/cmp_luasnip",
+      {
+        "hrsh7th/cmp-cmdline",
+        event = { "CmdlineEnter" },
+      },
+      "onsails/lspkind-nvim",
+      "hrsh7th/cmp-nvim-lsp-signature-help",
+    },
+    config = function()
+      require("plugins.configs.cmp")
+    end,
+  },
+
+  -- Snippets
+  {
+    "L3MON4D3/LuaSnip",
+    dependencies = {
+      "rafamadriz/friendly-snippets",
+    },
+    config = function()
+      require("plugins.configs.lua_snip")
+    end,
+  },
+
   {
     "RRethy/vim-illuminate",
     event = "BufEnter",
@@ -48,36 +80,6 @@ return {
         blend = 0,
       },
     },
-  },
-
-  {
-    "hrsh7th/nvim-cmp",
-    event = "InsertEnter",
-    dependencies = {
-      "hrsh7th/cmp-nvim-lsp",
-      "hrsh7th/cmp-buffer",
-      "hrsh7th/cmp-path",
-      "saadparwaiz1/cmp_luasnip",
-      {
-        "hrsh7th/cmp-cmdline",
-        event = { "CmdlineEnter" },
-      },
-      "onsails/lspkind-nvim",
-      "hrsh7th/cmp-nvim-lsp-signature-help",
-    },
-    config = function()
-      require("plugins.configs.cmp")
-    end,
-  },
-
-  {
-    "L3MON4D3/LuaSnip",
-    dependencies = {
-      "rafamadriz/friendly-snippets",
-    },
-    config = function()
-      require("plugins.configs.lua_snip")
-    end,
   },
 
   {
