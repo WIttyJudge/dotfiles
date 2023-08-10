@@ -19,6 +19,8 @@ export WM="dwm"
 export READER="zathura"
 export BROWSER="firefox"
 export MANPAGER="nvim +Man!"
+
+export DEV_HOME="$HOME/projects"
 # export SUDO_ASKPASS="$HOME/.local/bin/dmenupass"
 
 # XDG Base Directory locations
@@ -41,7 +43,7 @@ export PATH=$PATH:$GOPATH/bin
 export CARGO_HOME="$XDG_DATA_HOME/cargo"
 
 # Ruby
-export GEM_HOME="$XDG_DATA_HOME/gem"
+# export GEM_HOME="$XDG_DATA_HOME/gem"
 export GEM_SPEC_CACHE="$XDG_CACHE_HOME/gem"
 export SOLARGRAPH_CACHE="$XDG_CACHE_HOME/solargraph"
 export PATH="$PATH:$HOME/.rvm/bin"
@@ -89,7 +91,7 @@ export LDFLAGS="-L /home/wittyjudge/openssl/lib -Wl,-rpath,/home/wittyjudge/open
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 # Load RVM into a shell session *as a function*
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+# [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 
 # asdf
 [[ -f "$HOME/.asdf/asdf.sh" ]] && source "$HOME/.asdf/asdf.sh"
