@@ -10,7 +10,7 @@ Xft.rgba:	rgb
 *font: Hack:pixelsize=14
 
 ! st.font: FiraCode Nerd Font:style=Regular:size=11:antialias=true
-st.font: JetBrainsMono Nerd Font:style=Regular:size=11:antialias=true
+st.font: JetBrainsMono Nerd Font:style=Regular:size=12:antialias=true
 
 !! Transparency (0-1):
 *alpha: 0.90
