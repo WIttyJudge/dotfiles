@@ -28,7 +28,8 @@ picom -b &
 # xcompmgr  - window transparency
 # sxhkd     - hotkey daemon
 # pipewire  - server for handling audio
-autostart="dunst sxhkd pipewire"
+# batsignal - battery notifier
+autostart="dunst sxhkd pipewire batsignal"
 
 for program in $autostart; do
 	pidof -sx "$program" || "$program" &
