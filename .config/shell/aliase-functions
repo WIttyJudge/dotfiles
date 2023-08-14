@@ -1,8 +1,36 @@
 #!/usr/bin/env zsh
 
+#  +----------------------------------------------------------+
+#  |                           Git                            |
+#  +----------------------------------------------------------+
+
+function acp() {
+  git commit -am "Auto commit"
+  git push origin master
+}
 
 #  +----------------------------------------------------------+
-#  |                           FZF                            |
+#  |                           Tmux                           |
+#  +----------------------------------------------------------+
+
+function tkill() {
+  tmux ls -F '#{session_name}' |\
+    fzf --header='Kill session' |\
+    xargs -I {} tmux kill-session -t {}
+}
+
+#  +----------------------------------------------------------+
+#  |                          Pacman                          |
+#  +----------------------------------------------------------+
+
+# Install packages using yay (change to pacman/AUR helper of your choice)
+# https://github.com/junegunn/fzf/wiki/Examples#pacman
+function fyayi() {
+    yay -Slq | fzf -q "$1" -m --preview 'yay -Si {1}'| xargs -ro yay -S
+}
+
+#  +----------------------------------------------------------+
+#  |                 Simple useful functions                  |
 #  +----------------------------------------------------------+
 
 # Search man pages.
@@ -21,7 +49,7 @@ function fman() {
 
 # fkill - kill processes - list only the ones you can kill. Modified the earlier script.
 # https://github.com/junegunn/fzf/wiki/Examples#processes
-fkill() {
+function fkill() {
 	local pid 
 	if [ "$UID" != "0" ]; then
 		pid=$(ps -f -u $UID | sed 1d | fzf -m | awk '{print $2}')
@@ -34,30 +62,6 @@ fkill() {
 		echo $pid | xargs kill -${1:-9}
 	fi  
 }
-
-#  +----------------------------------------------------------+
-#  |                           Git                            |
-#  +----------------------------------------------------------+
-
-function acp() {
-  git commit -am "Auto commit"
-  git push origin master
-}
-
-
-#  +----------------------------------------------------------+
-#  |                           Tmux                           |
-#  +----------------------------------------------------------+
-
-function tkill() {
-  tmux ls -F '#{session_name}' |\
-    fzf --header='Kill session' |\
-    xargs -I {} tmux kill-session -t {}
-}
-
-#  +----------------------------------------------------------+
-#  |                 Simple useful functions                  |
-#  +----------------------------------------------------------+
 
 # example: repeat 3 ping google.com
 function repeat() {
@@ -86,9 +90,7 @@ function unbak() {
 
 # Search env variables
 function vars() {
-    local out
-    out=$(env | fzf)
-    echo $(echo $out | cut -d= -f2)
+	env | fzf | cut -d= -f2
 }
 
 # Prevent 'zsh: command not found: $'

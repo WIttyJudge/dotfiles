@@ -23,7 +23,7 @@ alias \
   lf="lfrun " \
   man="fman" \
   open="xdg-open " \
-  whoami="whoami && curl ident.me" \
+  whoami="whoami && curl -s ident.me" \
 
 # for testing
 alias \
