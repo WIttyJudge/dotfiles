@@ -183,11 +183,11 @@ end)
 map("n", "<Leader>st", "<cmd>tabnew | :Alpha<CR>")
 
 -- gv.vim
-map({ "n", "v" }, "<Leader>gc", "<cmd>GV<CR>")
-map("n", "<Leader>gC", "<cmd>GV!<CR>")
+map({ "n", "v" }, "<Leader>gc", ":GV<CR>")
+map("n", "<Leader>gC", ":GV!<CR>")
 
 -- hop.nvim
-map("n", "f", "<CMD>HopChar2<CR>")
+map("n", "f", "<cmd>HopChar2<CR>")
 
 -- nvim-spider
 map({"n", "o", "x"}, "w", "<cmd>lua require('spider').motion('w')<CR>", { desc = "Spider-w" })
