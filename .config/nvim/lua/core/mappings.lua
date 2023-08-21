@@ -30,14 +30,14 @@ map("n", "<Left>", "<cmd>vertical resize +2<CR>")
 map("n", "<Right>", "<cmd>vertical resize -2<CR>")
 
 -- Remap for dealing with word wrap
-map('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
-map('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
+map("n", "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
+map("n", "k", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
 
 -- Add space bellow or above without leaving normal mode
-vim.cmd [[
+vim.cmd([[
 nnoremap <silent> [<space> :<c-u>put!=repeat([''],v:count)<bar>']+1<CR>
 nnoremap <silent> ]<space> :<c-u>put =repeat([''],v:count)<bar>'[-1<CR>
-]]
+]])
 
 -- Easy copy whole text in file
 map("n", "vfy", "<cmd>%y+<CR>", { desc = "copy whole file" })
@@ -92,8 +92,8 @@ map("v", "<", "<gv")
 -- map('n','*', '*``')
 
 -- Always keep in in the center of the screen
-map('n','<C-d>', '<C-d>zz')
-map('n','<C-u>', '<C-u>zz')
+map("n", "<C-d>", "<C-d>zz")
+map("n", "<C-u>", "<C-u>zz")
 -- map('n','n', 'nzz')
 -- map('n','N', 'Nzz')
 
@@ -131,8 +131,15 @@ map("n", "<Leader>t9", "9gt<CR>", { desc = "tab 9" })
 --  +----------------------------------------------------------+
 
 -- Comment.nvim
-map("n", "<Leader>/", function() require("Comment.api").toggle.linewise.current() end, { desc = "toggle comment" })
-map("v", "<Leader>/", "<ESC><cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<CR>", { desc = "toggle comment" })
+map("n", "<Leader>/", function()
+  require("Comment.api").toggle.linewise.current()
+end, { desc = "toggle comment" })
+map(
+  "v",
+  "<Leader>/",
+  "<ESC><cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<CR>",
+  { desc = "toggle comment" }
+)
 
 -- nvim-hlslens
 map("n", "n", "<Cmd>execute('normal! ' . v:count1 . 'nzz')<CR><Cmd>lua require('hlslens').start()<CR>")
@@ -190,7 +197,64 @@ map("n", "<Leader>gC", ":GV!<CR>")
 map("n", "f", "<cmd>HopChar2<CR>")
 
 -- nvim-spider
-map({"n", "o", "x"}, "w", "<cmd>lua require('spider').motion('w')<CR>", { desc = "Spider-w" })
-map({"n", "o", "x"}, "e", "<cmd>lua require('spider').motion('e')<CR>", { desc = "Spider-e" })
-map({"n", "o", "x"}, "b", "<cmd>lua require('spider').motion('b')<CR>", { desc = "Spider-b" })
-map({"n", "o", "x"}, "ge", "<cmd>lua require('spider').motion('ge')<CR>", { desc = "Spider-ge" })
+map({ "n", "o", "x" }, "w", "<cmd>lua require('spider').motion('w')<CR>", { desc = "Spider-w" })
+map({ "n", "o", "x" }, "e", "<cmd>lua require('spider').motion('e')<CR>", { desc = "Spider-e" })
+map({ "n", "o", "x" }, "b", "<cmd>lua require('spider').motion('b')<CR>", { desc = "Spider-b" })
+map({ "n", "o", "x" }, "ge", "<cmd>lua require('spider').motion('ge')<CR>", { desc = "Spider-ge" })
+
+-- nvim-dap
+map("n", "<Leader>db", function()
+  require("dap").toggle_breakpoint()
+end, { desc = "Toggle Breakpoint" })
+
+map("n", "<Leader>dB", function()
+  require("dap").clear_breakpoints()
+end, { desc = "Clear Breakpoint" })
+
+map("n", "<Leader>dc", function()
+  require("dap").continue()
+end, { desc = "Start / Continue" })
+
+map("n", "<Leader>dq", function()
+  require("dap").close()
+end, { desc = "Close session" })
+
+map("n", "<Leader>dQ", function()
+  require("dap").terminate()
+end, { desc = "Terminate session" })
+
+-- map("n", "<Leader>dp", function()
+--   require("dap").pause()
+-- end, { desc = "Pause" })
+
+-- map("n", "<Leader>dr", function()
+--   require("dap").restart_frame()
+-- end, { desc = "Restart Frame" })
+
+map("n", "<Leader>dR", function()
+  require("dap").repl.toggle()
+end, { desc = "Toggle REPL" })
+
+map("n", "<Leader>ds", function()
+  require("dap").run_to_cursor()
+end, { desc = "Run To Cursor" })
+
+map("n", "<Leader>dC", function()
+  vim.ui.input({ prompt = "Condition: " }, function(condition)
+    if condition then
+      require("dap").set_breakpoint(condition)
+    end
+  end)
+end, { desc = "Conditional Breakpoint" })
+
+map("n", "<Leader>di", function()
+  require("dap").step_into()
+end, { desc = "Step Into" })
+
+map("n", "<Leader>do", function()
+  require("dap").step_over()
+end, { desc = "Step Over" })
+
+map("n", "<Leader>dO", function()
+  require("dap").step_out()
+end, { desc = "Step Out" })

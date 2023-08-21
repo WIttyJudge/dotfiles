@@ -3,8 +3,8 @@ local trouble = require("trouble")
 local icons = require("internal.icons")
 
 local config = {
-  fold_open = icons.folder.arrow_open, -- icon used for open folds
-  fold_closed = icons.folder.arrow_closed, -- icon used for closed folds
+  fold_open = icons.fold.Opened, -- icon used for open folds
+  fold_closed = icons.fold.Closed, -- icon used for closed folds
 
   action_keys = { -- key mappings for actions in the trouble list
     -- map to {} to remove a mapping, for example:

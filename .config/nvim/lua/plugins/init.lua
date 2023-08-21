@@ -164,6 +164,10 @@ return {
     end,
   },
 
+  {
+    "chrisgrieser/nvim-spider",
+  },
+
   -- Syntax
   {
     "NvChad/nvim-colorizer.lua",
@@ -251,11 +255,25 @@ return {
   },
 
   -- Explorer
+  -- {
+  --   "nvim-tree/nvim-tree.lua",
+  --   cmd = { "NvimTreeToggle", "NvimTreeFindFile" },
+  --   config = function()
+  --     require("plugins.configs.nvim-tree")
+  --   end,
+  -- },
+
   {
-    "nvim-tree/nvim-tree.lua",
-    cmd = { "NvimTreeToggle", "NvimTreeFindFile" },
+    "nvim-neo-tree/neo-tree.nvim",
+    -- cmd = "Neotree",
+    dependencies = {
+      "MunifTanjim/nui.nvim",
+    },
     config = function()
-      require("plugins.configs.nvim-tree")
+      require("plugins.configs.neo-tree")
+    end,
+    init = function()
+      vim.g.neo_tree_remove_legacy_commands = true
     end,
   },
 
@@ -441,15 +459,22 @@ return {
       },
       {
         "theHamsta/nvim-dap-virtual-text",
-        config = true,
+        opts = {
+          commented = true,
+        },
+      },
+      {
+        "leoluz/nvim-dap-go",
+        ft = "go",
+        config = true
       },
     },
   },
 
-  {
-    "beauwilliams/focus.nvim",
-    opts = { enabled = true, signcolumn = false },
-  },
+  -- {
+  --   "nvim-focus/focus.nvim",
+  --   opts = { enabled = true, signcolumn = false },
+  -- },
 
   -- Database
 
