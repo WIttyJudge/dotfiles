@@ -3,12 +3,13 @@ local neotree = require("neo-tree")
 local icons = require("internal.icons")
 
 local config = {
-  auto_clean_after_session_restore = true,
+  -- auto_clean_after_session_restore = true,
   close_if_last_window = true,
+  enable_diagnostics = false,
+  enable_modified_markers = false,
 
   filesystem = {
-    follow_current_file = { enabled = false },
-    hijack_netrw_behavior = "open_current",
+    -- follow_current_file = { enabled = false },
     use_libuv_file_watcher = true,
     filtered_items = {
       -- visible = true,
@@ -53,13 +54,12 @@ local config = {
       ["<space>"] = false, -- disable space until we figure out which-key disabling
       ["[b"] = "prev_source",
       ["]b"] = "next_source",
-      -- F = utils.is_available "telescope.nvim" and "find_in_dir" or nil,
       F = "find_in_dir",
-      -- O = "system_open",
-      -- Y = "copy_selector",
-      h = "parent_or_close",
-      l = "child_or_open",
-      o = "open",
+      -- ["O"] = "system_open",
+      -- ["Y"] = "copy_selector",
+      ["h"] = "parent_or_close",
+      ["l"] = "child_or_open",
+      ["<enter>"] = "set_root",
     },
     fuzzy_finder_mappings = { -- define keymaps for filter popup window in fuzzy_finder_mode
       ["<C-j>"] = "move_cursor_down",
