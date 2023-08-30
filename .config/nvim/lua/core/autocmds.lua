@@ -34,7 +34,7 @@ autocmd({ "FileType" }, {
 
 autocmd({ "TextYankPost" }, {
   callback = function()
-    vim.highlight.on_yank { timeout = 200 }
+    vim.highlight.on_yank()
   end,
   group = general_settings,
   desc = "Highlight yanked text",

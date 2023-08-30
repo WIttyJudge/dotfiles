@@ -258,3 +258,12 @@ end, { desc = "Step Over" })
 map("n", "<Leader>dO", function()
   require("dap").step_out()
 end, { desc = "Step Out" })
+
+-- text-case.nvim
+map("n", "<Leader>gas", function()
+  require('textcase').current_word('to_snake_case')
+end, { desc = "To Snake case" })
+
+map("n", "<Leader>gac", function()
+  require('textcase').current_word('to_camel_case')
+end, { desc = "To Camel case" })

@@ -109,6 +109,7 @@ return {
   -- Treesitter
   {
     "nvim-treesitter/nvim-treesitter",
+    commit = "31f608e47b838594d32a7bc42028e2cefd0ddaad",
     dependencies = {
       "nvim-treesitter/nvim-treesitter-textobjects",
       "p00f/nvim-ts-rainbow",
@@ -162,10 +163,6 @@ return {
     init = function()
       vim.g.matchup_matchparen_offscreen = { method = "popup" }
     end,
-  },
-
-  {
-    "chrisgrieser/nvim-spider",
   },
 
   -- Syntax
@@ -360,7 +357,7 @@ return {
     },
   },
 
-  -- Useful functions
+  -- Small and very helpful plugins
   {
     "lambdalisue/suda.vim",
     cmd = { "SudaRead", "SudaWrite" },
@@ -379,11 +376,21 @@ return {
     "LunarVim/bigfile.nvim",
   },
 
-  file_test
-
   {
     "sQVe/sort.nvim",
     cmd = { "Sort" },
+  },
+
+  {
+    "max397574/better-escape.nvim",
+    opts = {
+      mapping = { "jk", "kj" },
+    },
+  },
+
+  {
+    "nacro90/numb.nvim",
+    config = true,
   },
 
   -- Good notifications
@@ -398,19 +405,6 @@ return {
       end,
       timeout = 3000,
     },
-  },
-
-  -- Escape from insert mode without delay when typing
-  {
-    "max397574/better-escape.nvim",
-    opts = {
-      mapping = { "jk", "kj" },
-    },
-  },
-
-  {
-    "nacro90/numb.nvim",
-    config = true,
   },
 
   -- {
@@ -480,7 +474,7 @@ return {
       {
         "leoluz/nvim-dap-go",
         ft = "go",
-        config = true
+        config = true,
       },
     },
   },
