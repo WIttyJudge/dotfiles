@@ -366,7 +366,21 @@ return {
     cmd = { "SudaRead", "SudaWrite" },
   },
 
-  -- Sorting plugin
+  {
+    "chrisgrieser/nvim-spider",
+  },
+
+  {
+    "johmsalas/text-case.nvim",
+    config = true,
+  },
+
+  {
+    "LunarVim/bigfile.nvim",
+  },
+
+  file_test
+
   {
     "sQVe/sort.nvim",
     cmd = { "Sort" },
