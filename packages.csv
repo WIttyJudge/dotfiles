@@ -79,7 +79,7 @@ TRUE,,rofi-pass,Bash script to handle pass storages in a convenient way.
 ,,zathura, Minimalistic document viewer with vim-like bindings.
 ,,zathura-pdf-mupdf, PDF support for Zathura.
 ,,unclutter,It hides your X mouse cursor when you do not use it.
-,,exa,Replacement for ls.
+,,eza,Replacement for ls.
 ,,bat,Replacement for cat.
 ,,fzf,Fuzzy finder tool.
 ,,croc,Easily and securely send things from one computer to another.
