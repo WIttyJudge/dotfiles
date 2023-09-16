@@ -3,37 +3,28 @@
 # - before the window manager is started.
 # Read more: https://wiki.archlinux.org/index.php/Xprofile
 
-# Set desktop wallpaper
-setbg &
-
-# Theme configuration file
-xrdb ~/.Xresources & 
-
-# Speed xrate up
-xset r rate 250 40 &
-
-# Set language keyboard and swape caps and escape
-setxkbmap -layout us,ru -option grp:alt_shift_toggle,caps:swapescape & 
-
-# Remove mouse cursor when idle
-unclutter --timeout 2 &
-
-# System tray network manager
-nm-applet --indicator &
-
-# animation for x11
-picom -b &
-
+# setbg			- set desktop wallpaper
+# xrdb			- theme configuration file
+# xset			- speed xrate up
+# setxkbmap - set language keyboard and swape caps and escape
+# unclutter - remove mouse cursor when idle
+# nm-applet - system tray network manager
+# picom			- animation for x11
 # dunst     - notification-daemon
-# xcompmgr  - window transparency
 # sxhkd     - hotkey daemon
 # pipewire  - server for handling audio
 # batsignal - battery notifier
+
+setbg &
+xrdb ~/.Xresources & 
+xset r rate 250 40 &
+setxkbmap -layout us,ru -option grp:alt_shift_toggle,caps:swapescape & 
+unclutter --timeout 2 &
+nm-applet --indicator &
+picom -b &
+
 autostart="dunst sxhkd pipewire batsignal"
 
 for program in $autostart; do
 	pidof -sx "$program" || "$program" &
 done >/dev/null 2>&1
-
-# Ensure that xrdb has finished running before moving on to start the WM/DE.
-[ -n "$xrdbpid" ] && wait "$xrdbpid"
