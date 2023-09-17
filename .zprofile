@@ -8,8 +8,9 @@
 
 # Adds `~/.local/bin` and all subdirs to $PATH
 export PATH="$PATH:${$(find ~/.local/bin -type d -printf %p:)%%:}"
+export PATH="$PATH:${$(find ~/.local/bin -type d -o -printf %p:)%%:}"
 
-unsetopt PROMPT_SP
+# unsetopt PROMPT_SP
 
 # Default variables
 export EDITOR="nvim"

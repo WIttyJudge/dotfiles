@@ -1,22 +1,37 @@
-local commands = {
-  -- General
-  { "FileType", "lua print(vim.bo.filetype)" },
-  { "WhitespaceClean", "%s/s+$//e" },
+local cmd = vim.api.nvim_create_user_command
 
-  -- Execute files
-  { "RunCommand", "lua require('internal.quickrun').run_command()" },
+-- cmd(
+--   "FileType",
+--   function() print(vim.bo.filetype) end,
+--   {desc = "Execute files"}
+-- )
 
-  -- Git
-  { "GitBlameByLineToggle", "Gitsigns toggle_current_line_blame" },
+cmd(
+  "WhitespaceClean",
+  "%s/s+$//e",
+  {}
+)
 
-  -- nvim-spectre
-  { "SpectreOpen", "lua require('spectre').open()" },
+cmd(
+  "RunCommand",
+  function() require('internal.quickrun').run_command() end,
+  {desc = "Execute files"}
+)
 
-  -- comment-box
-  { "CommentBox", "CBcbox10" },
-}
+cmd(
+  "GitBlameByLineToggle",
+  "Gitsigns toggle_current_line_blame",
+  {desc = "Toggle Git blame"}
+)
 
-for _, command in ipairs(commands) do
-  local opts = command[3] or {}
-  vim.api.nvim_create_user_command(command[1], command[2], opts)
-end
+cmd(
+  "SpectreOpen",
+  function() require('spectre').open() end,
+  {desc = "nvim-spectre plugin"}
+)
+
+cmd(
+  "CommentBox",
+  "CBcbox10",
+  {desc = "comment-box plugin"}
+)

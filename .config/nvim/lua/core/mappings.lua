@@ -193,6 +193,10 @@ map("n", "<Leader>st", "<cmd>tabnew | :Alpha<CR>")
 map({ "n", "v" }, "<Leader>gc", ":GV<CR>")
 map("n", "<Leader>gC", ":GV!<CR>")
 
+-- treesj
+map("n", "gS", ":TSJSplit<CR>")
+map("n", "gJ", ":TSJJoin<CR>")
+
 -- hop.nvim
 map("n", "f", "<cmd>HopChar2<CR>")
 

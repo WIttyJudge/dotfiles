@@ -1,4 +1,4 @@
-local utils = require "internal.utils"
+local utils = require("internal.utils")
 
 local cmd = vim.cmd
 local autocmd = vim.api.nvim_create_autocmd
@@ -58,7 +58,7 @@ autocmd("FileType", {
 autocmd("BufEnter", {
   pattern = "*",
   callback = function()
-    vim.opt.formatoptions:remove { "c", "r", "o" }
+    vim.opt.formatoptions:remove({ "c", "r", "o" })
   end,
   group = general_settings,
   desc = "Don't auto commenting new lines",
@@ -67,7 +67,7 @@ autocmd("BufEnter", {
 autocmd({ "FocusGained", "TermClose", "TermLeave" }, {
   group = general_settings,
   command = "checktime",
-  desc = "Check if we need to reload the file when it changed"
+  desc = "Check if we need to reload the file when it changed",
 })
 
 --  +----------------------------------------------------------+
@@ -79,7 +79,7 @@ local plugins = vim.api.nvim_create_augroup("_plugins", { clear = true })
 autocmd({ "FileType" }, {
   pattern = { "sql", "mysql", "plsql" },
   callback = function()
-    require("cmp").setup.buffer { sources = { { name = "vim-dadbod-completion" } } }
+    require("cmp").setup.buffer({ sources = { { name = "vim-dadbod-completion" } } })
   end,
   group = plugins,
   desc = "vim-dadbod-completion-plugin",

@@ -92,24 +92,17 @@ return {
     config = true,
   },
 
-  -- {
-  --   "windwp/nvim-autopairs",
-  --   event = "InsertEnter",
-  --   config = function()
-  --     require "plugins.configs.nvim-autopairs"
-  --   end,
-  -- },
-
   {
-    "echasnovski/mini.pairs",
+    "windwp/nvim-autopairs",
     event = "InsertEnter",
-    config = true,
+    config = function()
+      require "plugins.configs.nvim-autopairs"
+    end,
   },
 
   -- Treesitter
   {
     "nvim-treesitter/nvim-treesitter",
-    commit = "31f608e47b838594d32a7bc42028e2cefd0ddaad",
     dependencies = {
       "nvim-treesitter/nvim-treesitter-textobjects",
       "p00f/nvim-ts-rainbow",
@@ -340,7 +333,7 @@ return {
   -- Markdown
   {
     "ellisonleao/glow.nvim",
-    ft = "markdown",
+    cmd = { "Glow" },
     config = true,
   },
 
@@ -348,10 +341,6 @@ return {
     "Wansmer/treesj",
     cmd = { "TSJSplit", "TSJJoin" },
     dependencies = { "nvim-treesitter/nvim-treesitter" },
-    init = function()
-      vim.keymap.set("n", "gS", ":TSJSplit<CR>", { silent = true })
-      vim.keymap.set("n", "gJ", ":TSJJoin<CR>", { silent = true })
-    end,
     opts = {
       use_default_keymaps = false,
     },
@@ -374,6 +363,9 @@ return {
 
   {
     "LunarVim/bigfile.nvim",
+    config = function()
+      require("plugins.configs.bigfile")
+    end,
   },
 
   {
@@ -391,20 +383,6 @@ return {
   {
     "nacro90/numb.nvim",
     config = true,
-  },
-
-  -- Good notifications
-  {
-    "rcarriga/nvim-notify",
-    opts = {
-      max_height = function()
-        return math.floor(vim.o.lines * 0.75)
-      end,
-      max_width = function()
-        return math.floor(vim.o.columns * 0.75)
-      end,
-      timeout = 3000,
-    },
   },
 
   -- {
@@ -428,11 +406,14 @@ return {
   -- I LOVE YOU FOLKE
   {
     "folke/todo-comments.nvim",
+    cmd = { "TodoTrouble", "TodoTelescope" },
+    event = { "BufReadPost", "BufNewFile" },
     opts = { signs = false },
   },
 
   {
     "folke/trouble.nvim",
+    cmd = { "Trouble" },
     config = function()
       require("plugins.configs.trouble")
     end,

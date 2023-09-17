@@ -87,7 +87,6 @@ zstyle ':zim:zmodule' use 'degit'
 #  |                     Plugins Settings                     |
 #  +----------------------------------------------------------+
 
-
 # zsh-autosuggestions settings.
 export ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=20
 
@@ -97,11 +96,6 @@ source ~/.config/zsh/themes/p10k.zsh
 #  +----------------------------------------------------------+
 #  |                          Loader                          |
 #  +----------------------------------------------------------+
-
-# Load custom scripts
-if [ -d "$HOME/.local/bin" ] ; then
-  PATH=$PATH$(find $HOME/dotfiles/.local/bin -type d -printf ":%p")
-fi
 
 # Load aliases
 [ -f "$XDG_CONFIG_HOME/shell/aliases" ] && source "$XDG_CONFIG_HOME/shell/aliases"
