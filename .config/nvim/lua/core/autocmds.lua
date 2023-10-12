@@ -100,7 +100,7 @@ local linter = vim.api.nvim_create_augroup("_linter", { clear = true })
 
 autocmd({ "BufWritePost" }, {
   pattern = { "*.go", "*.rs" },
-  command = "FormatWrite",
+  command = "Format",
   group = linter,
 })
 

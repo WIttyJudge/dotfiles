@@ -196,10 +196,23 @@ return {
 
   -- Linter
   {
-    "mhartington/formatter.nvim",
-    cmd = { "Format", "FormatWrite" },
-    config = function()
-      require("plugins.configs.formatter")
+    "stevearc/conform.nvim",
+    event = { "BufWritePre" },
+    cmd = { "ConformInfo" },
+    opts = {
+      formatters_by_ft = {
+        ruby = { "rubocop" },
+        go = { "goimports" },
+        -- rust = { "rustfmt" },
+        lua = { "stylua" },
+        sh = { "shfmt" },
+        json = { "prettier" },
+        yaml = { "prettier" },
+        markdown = { "prettier" },
+      },
+    },
+    init = function()
+      vim.o.formatexpr = "v:lua.require'conform'.formatexpr()"
     end,
   },
 
