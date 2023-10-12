@@ -12,6 +12,7 @@ function on_attach(client, bufnr)
 
   map("n", "gd", function() require("telescope.builtin").lsp_definitions() end)
   map("n", "gr", function() require("telescope.builtin").lsp_references() end)
+  map("n", "gi", function() require("telescope.builtin").lsp_implementations() end)
 
   map("n", "ca", function() vim.lsp.buf.code_action() end)
 
