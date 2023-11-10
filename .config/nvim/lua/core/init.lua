@@ -1,5 +1,5 @@
 -- disable some default providers
-local function default_providers()
+local function disable_default_providers()
   local providers = {
     "node",
     "perl",
@@ -32,7 +32,7 @@ end
 local M = {}
 
 function M.load()
-  default_providers()
+  disable_default_providers()
 
   load_modules()
 end

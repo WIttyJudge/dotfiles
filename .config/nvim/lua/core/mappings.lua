@@ -114,6 +114,14 @@ map("n", "<Leader>t7", "7gt<CR>", { desc = "tab 7" })
 map("n", "<Leader>t8", "8gt<CR>", { desc = "tab 8" })
 map("n", "<Leader>t9", "9gt<CR>", { desc = "tab 9" })
 
+map("n", "i", function()
+  if #vim.fn.getline(".") == 0 then
+    return [["_cc]]
+  else
+    return "i"
+  end
+end, { expr = true, desc = "properly indent on empty line when insert" })
+
 -- Tabs control
 -- map("n", "<Leader>tl", ":bnext<CR>", { desc = "tab right" })
 -- map("n", "<Leader>th", ":bprevious<CR>", { desc = "tab left" })
@@ -265,9 +273,9 @@ end, { desc = "Step Out" })
 
 -- text-case.nvim
 map("n", "<Leader>gas", function()
-  require('textcase').current_word('to_snake_case')
+  require("textcase").current_word("to_snake_case")
 end, { desc = "To Snake case" })
 
 map("n", "<Leader>gac", function()
-  require('textcase').current_word('to_camel_case')
+  require("textcase").current_word("to_camel_case")
 end, { desc = "To Camel case" })
