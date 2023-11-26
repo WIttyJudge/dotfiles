@@ -46,9 +46,7 @@ config_directory=(
   rofi
   shell
   sxhkd
-  tig
   tmux
-  transmission-daemon/settings.json
   wget
   zathura
   zsh
