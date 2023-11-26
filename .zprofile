@@ -31,7 +31,7 @@ export XDG_CACHE_HOME="$HOME/.cache"
 
 # Cleaning
 export PASSWORD_STORE_DIR="$XDG_DATA_HOME/password-store"
-export LESSHISTFILE="$XDG_CACHE_HOME/less/history"
+export LESSHISTFILE="$XDG_DATA_HOME/less_history"
 
 # Go
 export GOROOT=/usr/local/go
@@ -63,7 +63,7 @@ export PSQL_HISTORY="$XDG_DATA_HOME/psql_history"
 export REDISCLI_HISTFILE="$XDG_DATA_HOME/rediscli_history"
 
 # sqlite
-export SQLITE_HISTORY="${XDG_DATA_HOME:-$HOME/.local/share}/sqlite_history"
+export SQLITE_HISTORY="${XDG_DATA_HOME}/sqlite_history"
 
 # zsh + tools
 export ZDOTDIR="$XDG_CONFIG_HOME/zsh" # Change default folder of zsh config.

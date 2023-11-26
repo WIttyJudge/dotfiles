@@ -34,7 +34,7 @@ stty stop undef
 
 export HISTSIZE=20000
 export SAVEHIST=$HISTSIZE
-export HISTFILE="${XDG_CACHE_HOME}/zsh/history"
+export HISTFILE="${XDG_DATA_HOME}/zsh_history"
 
 setopt APPEND_HISTORY # Immediately append commands to history file.
 setopt INC_APPEND_HISTORY 
