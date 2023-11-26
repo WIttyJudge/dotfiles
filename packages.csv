@@ -7,7 +7,7 @@ SKIP,TAG,PROGRAM,DESCRIPTION
 ,,xwallpaper,Wallpaper setting utility for X.
 TRUE,,xcompmgr,Composite Window-effects manager for Xorg.
 ,,picom,X compositor that may fix tearing issues.
-TRUE,AUR,polybar,A fast and easy-to-use status bar.
+,,AUR,polybar,A fast and easy-to-use status bar.
 TRUE,AUR,siji-git,Iconic bitmap font based on stlarch with additional glyphs.
 TRUE,AUR,termsyn-font,Monospaced font based on terminus and tamsyn.
 ,,chromium,Web browser developed by Google the open source project behind Google Chrome.
@@ -94,7 +94,7 @@ TRUE,,rofi-pass,Bash script to handle pass storages in a convenient way.
 ,,gtk2,GObject-based multi-platform GUI toolkit(legacy).
 ,,gtk3,GObject-based multi-platform GUI toolkit.
 TRUE,AUR,gruvbox-material-gtk-theme-git,Gruvbox Material theme for GTK.
-,AUR,catppuccin-gtk-theme-mocha ,Soothing pastel theme for GTK3 - Mocha.
+,AUR,catppuccin-gtk-theme-mocha,Soothing pastel theme for GTK3 - Mocha.
 ,,openvpn,Configurable VPN (Virtual Private Network).
 ,,wireguard-tools,Lools to configure wireguard.
 ,,networkmanager-openvpn,NetworkManager VPN plugin for OpenVPN.
@@ -128,3 +128,4 @@ TRUE,,light,Program to easily change brightness on backlight-controllers.
 ,,system-config-printer,GTK printer configuration tool.
 ,,sane,Scanner Access Now Easy.
 ,,simple-scan,GTK document scanning application.
+,,bspwm,Tiling window manager.
