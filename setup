@@ -28,7 +28,6 @@ home_directory=(
 config_directory=(
   alacritty
   bspwm
-  calcurse
   dunst
   git
   htop
@@ -37,7 +36,6 @@ config_directory=(
   # i3
   lf
   mpv
-  navi
   newsboat
   nsxiv
   nvim
@@ -57,8 +55,6 @@ config_directory=(
   mimeapps.list
   pavucontrol.ini
   screenkey.json
-  # hypr
-  # waybar
 )
 
 ### FUNCTIONS ###
