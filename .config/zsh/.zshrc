@@ -39,8 +39,12 @@ export HISTFILE="${XDG_DATA_HOME}/zsh_history"
 setopt APPEND_HISTORY # Immediately append commands to history file.
 setopt INC_APPEND_HISTORY 
 
-setopt HIST_IGNORE_ALL_DUPS # Never add duplicate entries.
+setopt HIST_IGNORE_ALL_DUPS  # Never add duplicate entries.
+setopt HIST_IGNORE_DUPS
 setopt HIST_IGNORE_SPACE    # Delete space and the beginning of command.
+setopt HIST_EXPIRE_DUPS_FIRST # Delete duplicates first when HISTFILE size exceeds HISTSIZE
+setopt HIST_FIND_NO_DUPS 
+setopt HIST_SAVE_NO_DUPS
 
 setopt GLOB_STAR_SHORT GLOB_DOTS EXTENDED_GLOB
 
