@@ -9,7 +9,7 @@ select_directory() {
   if [ "$SPECIFIED_DIR" != '' ]; then
     selected=$SPECIFIED_DIR
   else
-    selected=$(find ~/projects ~/projects/work ~/projects/work/clusters ~/projects/repos ~/projects/ansible ~/projects/golang/src -mindepth 1 -maxdepth 1 -type d | fzf $FZF_OPTS)
+    selected=$(find ~/projects ~/projects/work ~/projects/repos ~/projects/ansible ~/projects/golang/src -mindepth 1 -maxdepth 1 -type d | fzf $FZF_OPTS)
   fi
 
   # operation cancelled by user
