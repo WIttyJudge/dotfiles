@@ -9,5 +9,3 @@ if type "xrandr"; then
     MONITOR=$m polybar main 2>&1 & disown
   done
 fi
-
-echo "Bars launched..."
