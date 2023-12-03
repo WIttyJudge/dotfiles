@@ -17,7 +17,7 @@ mic_muted="$(show_status)"
 if [ "$mic_muted" = "muted" ]; then
   icon="🔇"
 else
-  icon="🎙️"
+  icon="🎤"
 fi
 
 echo $icon
