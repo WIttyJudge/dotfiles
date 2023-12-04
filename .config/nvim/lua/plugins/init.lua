@@ -96,7 +96,7 @@ return {
     "windwp/nvim-autopairs",
     event = "InsertEnter",
     config = function()
-      require "plugins.configs.nvim-autopairs"
+      require("plugins.configs.nvim-autopairs")
     end,
   },
 

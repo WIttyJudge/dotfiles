@@ -30,8 +30,9 @@ case $select in
 		$ctl reboot -i
 		;;
 	$suspend)
-		before_exit
-		slock $ctl suspend
+		# before_exit
+		$ctl suspend -i
+		slock
 		;;
 	$lock)
 		before_exit

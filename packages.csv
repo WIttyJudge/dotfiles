@@ -116,8 +116,9 @@ TRUE,,light,Program to easily change brightness on backlight-controllers.
 ,,man-db,Read man pages of programs.
 ,,transmission-cli,Light-weight and cross-platform BitTorrent client.
 ,AUR,simple-mtpfs,A FUSE filesystem that supports reading/writing from MTP devices.
-,AUR,stylua-bin,Formatter for lua.
-,AUR,prettier,Code formatter for js json css yaml and etc.
+,,stylua,Formatter for lua.
+,,prettier,Code formatter for js json css yaml and etc.
+,,shfmt,Format shell programs.
 ,AUR,overdue,Get notified about running daemons that reference outdated shared libraries.
 ,,earlyoom,Early OOM Daemon for Linux.
 ,,systembus-notify,System bus notification daemon.

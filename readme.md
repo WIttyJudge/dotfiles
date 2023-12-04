@@ -12,20 +12,20 @@ I have an ansible script which iterates over this file, therefore then installs 
 
 (\*) - Tools I use.
 
-| Type                    | Program                                                                                                                                                                               |
-| :---------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| App Launcher            | [dmenu](https://github.com/WIttyJudge/suckless-tools) (\*) / [rofi](https://github.com/davatorium/rofi)                                                                               |
-| Hotkey Daemon           | [sxhkd](https://github.com/baskerville/sxhkd)                                                                                                                                         |
-| Image Viewer            | [nsxiv](https://github.com/nsxiv/nsxiv)                                                                                                                                               |
-| Notification Daemon     | [dunst](https://github.com/dunst-project/dunst)                                                                                                                                       |
-| Shell                   | [zsh](https://wiki.archlinux.org/index.php/zsh)                                                                                                                                       |
-| Status Bar              | [dwmblocks](https://github.com/WIttyJudge/suckless-tools) (\*) / [polybar](https://github.com/polybar/polybar)                                                                        |
-| Screenshot Tool         | [Custom script](https://github.com/WIttyJudge/dotfiles/blob/master/scripts/.local/bin/make-screenshot)                                                                                |
-| System Information Tool | [Custom script](https://github.com/WIttyJudge/dotfiles/blob/master/scripts/.local/bin/ufetch)                                                                                         |
-| Terminal                | [alacritty](https://github.com/alacritty/alacritty) (\*) / [urxvt](https://wiki.archlinux.org/index.php/rxvt-unicode)
-| Text Editor             | [neovim](https://github.com/neovim/neovim)                                                                                                                                            |
-| Window Manager          | [dwm](https://github.com/WIttyJudge/suckless-tools) (\*) / [i3](https://wiki.archlinux.org/index.php/i3)                                                                              |
-| Terminal Multiplexer    | [tmux](https://github.com/tmux/tmux/wiki)                                                                            |
+| Type                    | Program                                                                                                               |
+| :---------------------- | :-------------------------------------------------------------------------------------------------------------------- |
+| App Launcher            | [dmenu](https://github.com/WIttyJudge/suckless-tools) (\*) / [rofi](https://github.com/davatorium/rofi)               |
+| Hotkey Daemon           | [sxhkd](https://github.com/baskerville/sxhkd)                                                                         |
+| Image Viewer            | [nsxiv](https://github.com/nsxiv/nsxiv)                                                                               |
+| Notification Daemon     | [dunst](https://github.com/dunst-project/dunst)                                                                       |
+| Shell                   | [zsh](https://wiki.archlinux.org/index.php/zsh)                                                                       |
+| Status Bar              | [dwmblocks](https://github.com/WIttyJudge/suckless-tools) (\*) / [polybar](https://github.com/polybar/polybar)        |
+| Screenshot Tool         | [Custom script](https://github.com/WIttyJudge/dotfiles/blob/master/scripts/.local/bin/make-screenshot)                |
+| System Information Tool | [Custom script](https://github.com/WIttyJudge/dotfiles/blob/master/scripts/.local/bin/ufetch)                         |
+| Terminal                | [alacritty](https://github.com/alacritty/alacritty) (\*) / [urxvt](https://wiki.archlinux.org/index.php/rxvt-unicode) |
+| Text Editor             | [neovim](https://github.com/neovim/neovim)                                                                            |
+| Window Manager          | [dwm](https://github.com/WIttyJudge/suckless-tools) (\*) / [i3](https://wiki.archlinux.org/index.php/i3)              |
+| Terminal Multiplexer    | [tmux](https://github.com/tmux/tmux/wiki)                                                                             |
 
 All configs will be symlinked to `~/.config/` folder.
 Useful scripts stored in `~/.local/bin` folder and symlinked to `~/.local/bin` folder.
