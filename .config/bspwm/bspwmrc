@@ -68,6 +68,7 @@ bspc rule -a Chromium desktop='^1'
 bspc rule -a firefox desktop='^1'
 bspc rule -a Brave desktop='^1'
 bspc rule -a jetbrains-rubymine desktop='^3' follow=off
+bspc rule -a jetbrains-idea-ce desktop='^3' follow=off
 bspc rule -a TelegramDesktop desktop='^4' state=floating follow=on
 bspc rule -a Slack desktop='^4'
 bspc rule -a discord desktop='^4'
