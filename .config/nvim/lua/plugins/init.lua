@@ -105,7 +105,7 @@ return {
     "nvim-treesitter/nvim-treesitter",
     dependencies = {
       "nvim-treesitter/nvim-treesitter-textobjects",
-      "p00f/nvim-ts-rainbow",
+      "HiPhish/rainbow-delimiters.nvim",
       "nvim-treesitter/nvim-treesitter-refactor",
       "windwp/nvim-ts-autotag",
     },
