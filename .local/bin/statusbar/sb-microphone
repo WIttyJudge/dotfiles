@@ -1,23 +1,7 @@
 #!/bin/sh
 
-show_status() {
-  pamixer --list-sources \
-    | grep input \
-    | awk '{print $1}' \
-    | while read -r index; do
-
-      mic_muted="$(pamixer --source "$index" --get-mute)"
-
-      [ "$mic_muted" = "true" ] && echo 'muted' || echo 'unmuted'
-  done
-}
-
-mic_muted="$(show_status)"
-
-if [ "$mic_muted" = "muted" ]; then
-  icon="🔇"
-else
-  icon="🎤"
-fi
+muted="$(microphone get-mute)"
+ 
+[ "$muted" == true ] && icon="🔇" || icon="🎤"
 
 echo $icon

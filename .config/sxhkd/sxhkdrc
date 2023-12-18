@@ -18,7 +18,7 @@ XF86MonBrightness{Down,Up}
     brightness {down, up}; polybar-msg action "#brightness.hook.0"
 
 Next
-    audio microphone-toggle; polybar-msg action "#microphone.hook.0" 
+    microphone toggle; polybar-msg action "#microphone.hook.0" 
 
 Print
     screentools
