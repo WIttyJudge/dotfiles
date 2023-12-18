@@ -1,10 +1,10 @@
 #!/usr/bin/env sh
 
-function get_brightness() {
+get_brightness() {
   brightnessctl info | grep -oP '\(\K[^%\)]+'
 }
 
-function send_notification() {
+send_notification() {
   brightness=$(get_brightness)
   notify-send -a "brightness" -t 2000 -r 9991 -h int:value:"$brightness" -i "sun" -u low "Brightness: $brightness%"
 }
