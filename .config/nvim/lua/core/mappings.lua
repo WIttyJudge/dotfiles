@@ -49,6 +49,9 @@ end, { desc = "run command" })
 -- Make an easier redo mapping
 map("n", "U", "<C-R>")
 
+-- Search within visual selection
+map('x', '/', '<Esc>/\\%V')
+
 -- Easier file save and exit
 map("n", "<Leader>w", "<cmd>w<CR>", { desc = "save file" })
 map("n", "<Leader>W", "<cmd>x<CR>", { desc = "save file and exit" })
