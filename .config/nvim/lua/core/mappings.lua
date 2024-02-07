@@ -50,7 +50,7 @@ end, { desc = "run command" })
 map("n", "U", "<C-R>")
 
 -- Search within visual selection
-map('x', '/', '<Esc>/\\%V')
+map("x", "/", "<Esc>/\\%V")
 
 -- Easier file save and exit
 map("n", "<Leader>w", "<cmd>w<CR>", { desc = "save file" })

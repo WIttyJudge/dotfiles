@@ -9,27 +9,11 @@ local autocmd = vim.api.nvim_create_autocmd
 
 local general_settings = vim.api.nvim_create_augroup("_general_settings", { clear = true })
 
-autocmd("BufReadPost", {
-  callback = function()
-    if not vim.fn.expand("%:p"):match ".git" and vim.fn.line "'\"" > 1 and vim.fn.line "'\"" <= vim.fn.line "$" then
-      cmd "normal! g'\""
-      cmd "normal zz"
-    end
-  end,
-  group = general_settings,
+autocmd('BufReadPost', {
+  group = misc_augroup,
+  pattern = '*',
+  command = 'silent! normal! g`"zv',
   desc = "Restore cursor to where it was when the file was closed",
-})
-
-autocmd({ "FileType" }, {
-  pattern = { "gitcommit", "markdown" },
-
-  callback = function()
-    vim.opt_local.wrap = true
-    vim.opt_local.spell = true
-    vim.opt.spelllang = "en"
-  end,
-  group = general_settings,
-  desc = "Spell check",
 })
 
 autocmd({ "TextYankPost" }, {
@@ -64,10 +48,20 @@ autocmd("BufEnter", {
   desc = "Don't auto commenting new lines",
 })
 
-autocmd({ "FocusGained", "TermClose", "TermLeave" }, {
-  group = general_settings,
-  command = "checktime",
-  desc = "Check if we need to reload the file when it changed",
+-- autocmd({ "FocusGained", "BufEnter", "CursorHold", "CursorHoldI" }, {
+--   group = general_settings,
+--   command = "checktime",
+--   desc = "Check if we need to reload the file when it changed",
+-- })
+
+autocmd({ "FocusGained", "BufEnter", "CursorHold", }, {
+  callback = function()
+    if vim.fn.getcmdwintype() == "" then
+      vim.cmd "checktime"
+    end
+  end,
+  group = group,
+  desc = "Reload buffer on focus",
 })
 
 --  +----------------------------------------------------------+
@@ -75,15 +69,6 @@ autocmd({ "FocusGained", "TermClose", "TermLeave" }, {
 --  +----------------------------------------------------------+
 
 local plugins = vim.api.nvim_create_augroup("_plugins", { clear = true })
-
-autocmd({ "FileType" }, {
-  pattern = { "sql", "mysql", "plsql" },
-  callback = function()
-    require("cmp").setup.buffer({ sources = { { name = "vim-dadbod-completion" } } })
-  end,
-  group = plugins,
-  desc = "vim-dadbod-completion-plugin",
-})
 
 autocmd({ "BufWritePost" }, {
   pattern = { "*.sum", "*.mod" },

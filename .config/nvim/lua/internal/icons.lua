@@ -36,11 +36,11 @@ local icons = {
     Watch = "",
   },
   diagnostics = {
-    Error = " ",
-    Hint = " ",
-    Info = " ",
-    Question = " ",
-    Warn = " ",
+    Error = "",
+    Hint = "",
+    Info = "",
+    Question = "",
+    Warn = "",
   },
   git = {
     Add = "",

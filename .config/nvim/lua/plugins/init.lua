@@ -21,16 +21,13 @@ return {
   -- Autocompletion
   {
     "hrsh7th/nvim-cmp",
-    event = "InsertEnter",
+    event = { "InsertEnter", "CmdlineEnter" },
     dependencies = {
       "hrsh7th/cmp-nvim-lsp",
       "hrsh7th/cmp-buffer",
       "hrsh7th/cmp-path",
       "saadparwaiz1/cmp_luasnip",
-      {
-        "hrsh7th/cmp-cmdline",
-        event = { "CmdlineEnter" },
-      },
+      "hrsh7th/cmp-cmdline",
       "onsails/lspkind-nvim",
       "hrsh7th/cmp-nvim-lsp-signature-help",
     },
@@ -73,13 +70,8 @@ return {
 
   {
     "j-hui/fidget.nvim",
-    tag = "legacy",
-    opts = {
-      window = {
-        -- adjust transparency.
-        blend = 0,
-      },
-    },
+    event = "LspAttach",
+    config = true,
   },
 
   {
@@ -122,8 +114,9 @@ return {
   },
 
   {
-    "ur4ltz/surround.nvim",
-    opts = { context_offset = 500 },
+    "kylechui/nvim-surround",
+    event = "VeryLazy",
+    config = true,
   },
 
   {
@@ -451,28 +444,28 @@ return {
   -- },
 
   -- Debug
-  {
-    "mfussenegger/nvim-dap",
-    dependencies = {
-      {
-        "rcarriga/nvim-dap-ui",
-        config = function()
-          require("plugins.configs.nvim-dap-ui")
-        end,
-      },
-      {
-        "theHamsta/nvim-dap-virtual-text",
-        opts = {
-          commented = true,
-        },
-      },
-      {
-        "leoluz/nvim-dap-go",
-        ft = "go",
-        config = true,
-      },
-    },
-  },
+  -- {
+  --   "mfussenegger/nvim-dap",
+  --   dependencies = {
+  --     {
+  --       "rcarriga/nvim-dap-ui",
+  --       config = function()
+  --         require("plugins.configs.nvim-dap-ui")
+  --       end,
+  --     },
+  --     {
+  --       "theHamsta/nvim-dap-virtual-text",
+  --       opts = {
+  --         commented = true,
+  --       },
+  --     },
+  --     {
+  --       "leoluz/nvim-dap-go",
+  --       ft = "go",
+  --       config = true,
+  --     },
+  --   },
+  -- },
 
   -- {
   --   "nvim-focus/focus.nvim",
