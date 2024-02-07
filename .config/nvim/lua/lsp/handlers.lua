@@ -15,11 +15,11 @@ function M.setup()
   end
 
   local config = {
-    underline = false,
-    virtual_text = false,
-    signs = { active = signs },
-    update_in_insert = true,
+    -- underline = false,
+    -- virtual_text = false,
+    -- update_in_insert = true,
 
+    signs = { active = signs },
     severity_sort = true,
     float = {
       focused = false,

@@ -3,11 +3,11 @@
 -- Setup LSP for yaml, typescript, ruby, golang, rust, bash, html, css
 
 local servers = {
-  bashls = true,
-  lua_ls = true,
-  pyright = true,
-  tsserver = true,
-  solargraph = true,
+  bashls = {},
+  lua_ls = {},
+  pyright = {},
+  tsserver = {},
+  solargraph = {},
   rust_analyzer = {
     cmd = {
       "rustup",

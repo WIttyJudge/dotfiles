@@ -3,28 +3,24 @@
 local mason = require("mason")
 local mason_lspconfig = require("mason-lspconfig")
 
-local mason_config = {
-  ui = {
-    icons = {
-      server_installed = "✓",
-      server_pending = "➜",
-      server_uninstalled = "✗",
-    },
-  },
-}
-
-mason.setup(mason_config)
+local servers = require("lsp.servers")
+local capabilities = require("lsp.capabilities")
+local on_attach = require("lsp.on_attach")
 
 local mason_lsp_config = {
   automatic_installation = false,
-  -- ensure_installed = {
-  --   "rust_analyzer",
-  --   "pyright",
-  --   "solargraph",
-  --   "golangci_lint_ls",
-  --   "gopls",
-  --   "bashls"
-  -- },
+  ensure_installed = vim.tbl_keys(servers),
+  handlers = {
+    function(server_name)
+      require("lspconfig")[server_name].setup({
+        capabilities = capabilities,
+        on_attach = on_attach,
+        settings = servers[server_name],
+        filetypes = (servers[server_name] or {}).filetypes,
+      })
+    end,
+  },
 }
 
+mason.setup()
 mason_lspconfig.setup(mason_lsp_config)
