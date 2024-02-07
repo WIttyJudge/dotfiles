@@ -49,7 +49,7 @@ opt.updatetime = 250
 
 -- Enable integrated undo.
 opt.undofile = true
-opt.undodir = vim.fn.stdpath "cache" .. "/undo"
+opt.undodir = vim.fn.stdpath("cache") .. "/undo"
 
 -- I don't need swap file and backups
 opt.swapfile = false

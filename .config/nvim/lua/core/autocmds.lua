@@ -9,9 +9,9 @@ local autocmd = vim.api.nvim_create_autocmd
 
 local general_settings = vim.api.nvim_create_augroup("_general_settings", { clear = true })
 
-autocmd('BufReadPost', {
+autocmd("BufReadPost", {
   group = misc_augroup,
-  pattern = '*',
+  pattern = "*",
   command = 'silent! normal! g`"zv',
   desc = "Restore cursor to where it was when the file was closed",
 })
@@ -54,10 +54,10 @@ autocmd("BufEnter", {
 --   desc = "Check if we need to reload the file when it changed",
 -- })
 
-autocmd({ "FocusGained", "BufEnter", "CursorHold", }, {
+autocmd({ "FocusGained", "BufEnter", "CursorHold" }, {
   callback = function()
     if vim.fn.getcmdwintype() == "" then
-      vim.cmd "checktime"
+      vim.cmd("checktime")
     end
   end,
   group = group,

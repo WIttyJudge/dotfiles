@@ -2,7 +2,7 @@
 local luasnip = require("luasnip")
 
 local options = {
-  history = true,
+	history = true,
 }
 
 luasnip.config.set_config(options)
