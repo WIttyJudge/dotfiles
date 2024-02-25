@@ -3,8 +3,6 @@ local cmp = require("cmp")
 local lspkind = require("lspkind")
 local luasnip = require("luasnip")
 
-local cmp_window = require("cmp.utils.window")
-
 vim.o.completeopt = "menu,menuone,noselect"
 
 local has_words_before = function()

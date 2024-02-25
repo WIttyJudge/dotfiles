@@ -57,7 +57,7 @@ autocmd("BufEnter", {
 autocmd({ "FocusGained", "BufEnter", "CursorHold" }, {
   callback = function()
     if vim.fn.getcmdwintype() == "" then
-      vim.cmd("checktime")
+      cmd("checktime")
     end
   end,
   group = group,

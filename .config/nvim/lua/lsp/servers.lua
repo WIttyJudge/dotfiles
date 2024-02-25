@@ -1,7 +1,5 @@
 -- READ MORE: https://github.com/neovim/nvim-lspconfig/blob/master/CONFIG.md
 
--- Setup LSP for yaml, typescript, ruby, golang, rust, bash, html, css
-
 local servers = {
 	bashls = {},
 	lua_ls = {},

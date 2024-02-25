@@ -42,8 +42,11 @@ return {
 		dependencies = {
 			"rafamadriz/friendly-snippets",
 		},
-		config = function()
-			require("plugins.configs.lua_snip")
+		opts = {
+			history = true
+		},
+		init = function()
+			require("luasnip.loaders.from_vscode").lazy_load()
 		end,
 	},
 
@@ -441,30 +444,6 @@ return {
 	--       message = function() return ("") end,
 	--     },
 	--   }
-	-- },
-
-	-- Debug
-	-- {
-	--   "mfussenegger/nvim-dap",
-	--   dependencies = {
-	--     {
-	--       "rcarriga/nvim-dap-ui",
-	--       config = function()
-	--         require("plugins.configs.nvim-dap-ui")
-	--       end,
-	--     },
-	--     {
-	--       "theHamsta/nvim-dap-virtual-text",
-	--       opts = {
-	--         commented = true,
-	--       },
-	--     },
-	--     {
-	--       "leoluz/nvim-dap-go",
-	--       ft = "go",
-	--       config = true,
-	--     },
-	--   },
 	-- },
 
 	-- {
