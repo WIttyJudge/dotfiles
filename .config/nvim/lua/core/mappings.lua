@@ -197,12 +197,8 @@ end)
 --   require("plugins.configs.telescope").lsp_code_actions()
 -- end)
 
--- alpha-nvim
-map("n", "<Leader>st", "<cmd>tabnew | :Alpha<CR>")
-
--- gv.vim
-map({ "n", "v" }, "<Leader>gc", ":GV<CR>")
-map("n", "<Leader>gC", ":GV!<CR>")
+-- diffview.nvim
+map({ "n", "v" }, "<Leader>gc", ":DiffviewFileHistory<CR>")
 
 -- treesj
 map("n", "gS", ":TSJSplit<CR>")

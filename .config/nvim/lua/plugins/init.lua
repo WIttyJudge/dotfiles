@@ -177,14 +177,6 @@ return {
 
 	-- Git
 	{
-		"junegunn/gv.vim",
-		cmd = { "GV" },
-		dependencies = {
-			"tpope/vim-fugitive",
-		},
-	},
-
-	{
 		"lewis6991/gitsigns.nvim",
 		config = function()
 			require("plugins.configs.gitsigns")
@@ -315,6 +307,19 @@ return {
 		},
 		opts = { separator = " ", highlight = true, depth_limit = 7 },
 	},
+
+  -- better diffing
+  {
+    "sindrets/diffview.nvim",
+    cmd = {
+			"DiffviewOpen",
+			"DiffviewClose",
+			"DiffviewToggleFiles",
+			"DiffviewFocusFiles",
+			"DiffviewFileHistory",
+		},
+		config = true
+  },
 
 	-- Fancy startup screen
 	{
