@@ -18,7 +18,8 @@ require("lazy").setup("plugins", {
 	-- install = { colorscheme = { "gruvbox-material" } },
 	-- defaults = { lazy = true },
 	install = {
-		colorscheme = { "default" },
+		colorscheme = { "catppuccin", "habamax" },
+
 	},
 	ui = {
 		border = "rounded",
