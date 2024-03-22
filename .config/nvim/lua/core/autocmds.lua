@@ -32,13 +32,6 @@ autocmd({ "TextYankPost" }, {
 --     desc = "Auto save buffer",
 -- })
 
-autocmd("FileType", {
-  pattern = "gitcommit",
-  command = "startinsert",
-  group = general_settings,
-  desc = "Trigger insert mode",
-})
-
 autocmd("BufEnter", {
   pattern = "*",
   callback = function()
@@ -48,20 +41,10 @@ autocmd("BufEnter", {
   desc = "Don't auto commenting new lines",
 })
 
--- autocmd({ "FocusGained", "BufEnter", "CursorHold", "CursorHoldI" }, {
---   group = general_settings,
---   command = "checktime",
---   desc = "Check if we need to reload the file when it changed",
--- })
-
-autocmd({ "FocusGained", "BufEnter", "CursorHold" }, {
-  callback = function()
-    if vim.fn.getcmdwintype() == "" then
-      cmd("checktime")
-    end
-  end,
-  group = group,
-  desc = "Reload buffer on focus",
+autocmd({ "FocusGained", "TermClose", "TermLeave" }, {
+  group = general_settings,
+  command = "checktime",
+  desc = "Check if we need to reload the file when it changed",
 })
 
 --  +----------------------------------------------------------+

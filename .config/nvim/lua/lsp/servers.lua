@@ -32,10 +32,6 @@ local servers = {
 	gopls = {
 		cmd = { "gopls", "--remote=auto" },
 		filetypes = { "go", "gomod" },
-		init_options = {
-			usePlaceholders = true,
-			completeUnimported = true,
-		},
 		settings = {
 			gopls = {
 				analyses = {
