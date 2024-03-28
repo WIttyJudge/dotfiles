@@ -36,7 +36,7 @@ local icons = {
 		Watch = "",
 	},
 	diagnostics = {
-		Error = "",
+		Error = " ",
 		Hint = "",
 		Info = "",
 		Question = "",

@@ -24,10 +24,10 @@ map("n", "<C-l>", "<c-w><C-l>", { desc = "window left" })
 map("n", "<C-h>", "<C-W><C-h>", { desc = "window right" })
 
 -- Resize windows
-map("n", "<UP>", "<cmd>resize +2<CR>")
-map("n", "<Down>", "<cmd>resize -2<CR>")
-map("n", "<Left>", "<cmd>vertical resize +2<CR>")
-map("n", "<Right>", "<cmd>vertical resize -2<CR>")
+map("n", "<UP>", "<Cmd>resize +2<CR>")
+map("n", "<Down>", "<Cmd>resize -2<CR>")
+map("n", "<Left>", "<Cmd>vertical resize +2<CR>")
+map("n", "<Right>", "<Cmd>vertical resize -2<CR>")
 
 -- Remap for dealing with word wrap
 map("n", "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
@@ -40,7 +40,7 @@ nnoremap <silent> ]<space> :<c-u>put =repeat([''],v:count)<bar>'[-1<CR>
 ]])
 
 -- Easy copy whole text in file
-map("n", "vfy", "<cmd>%y+<CR>", { desc = "copy whole file" })
+map("n", "vfy", "<Cmd>%y+<CR>", { desc = "copy whole file" })
 
 map("n", "<Leader>r", function()
 	require("internal.quickrun").run_command()
@@ -53,13 +53,13 @@ map("n", "U", "<C-R>")
 map("x", "/", "<Esc>/\\%V")
 
 -- Easier file save and exit
-map("n", "<Leader>w", "<cmd>w<CR>", { desc = "save file" })
-map("n", "<Leader>W", "<cmd>x<CR>", { desc = "save file and exit" })
-map("n", "<Leader>q", "<cmd>q<CR>", { desc = "exit" })
--- map("n", "<Leader>Q", "<cmd>q!<CR>")
+map("n", "<Leader>w", "<Cmd>update<CR>", { desc = "save file" })
+map("n", "<Leader>W", "<Cmd>x<CR>", { desc = "save file and exit" })
+map("n", "<Leader>q", "<Cmd>q<CR>", { desc = "exit" })
+-- map("n", "<Leader>Q", "<Cmd>q!<CR>")
 
 -- Clean highliting after search
--- nnoremap <Leader>; <cmd>nohlsearch<CR>
+-- nnoremap <Leader>; <Cmd>nohlsearch<CR>
 
 -- Use simple ; instead of shift + :
 map({ "n", "v" }, ";", ":", { silent = false })
@@ -104,9 +104,9 @@ map("n", "<C-u>", "<C-u>zz")
 map("n", "J", "mzJ`z")
 
 -- Tabs control
-map("n", "<Leader>tl", "<cmd>tabnext<CR>", { desc = "tab right" })
-map("n", "<Leader>th", "<cmd>tabprev<CR>", { desc = "tab left" })
-map("n", "<Leader>tq", "<cmd>tabclose<CR>", { desc = "tab close" })
+map("n", "<Leader>tl", "<Cmd>tabnext<CR>", { desc = "tab right" })
+map("n", "<Leader>th", "<Cmd>tabprev<CR>", { desc = "tab left" })
+map("n", "<Leader>tq", "<Cmd>tabclose<CR>", { desc = "tab close" })
 map("n", "<Leader>t1", "1gt<CR>", { desc = "tab 1" })
 map("n", "<Leader>t2", "2gt<CR>", { desc = "tab 2" })
 map("n", "<Leader>t3", "3gt<CR>", { desc = "tab 3" })
@@ -148,7 +148,7 @@ end, { desc = "toggle comment" })
 map(
 	"v",
 	"<Leader>/",
-	"<ESC><cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<CR>",
+	"<ESC><Cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<CR>",
 	{ desc = "toggle comment" }
 )
 
@@ -165,8 +165,8 @@ map("n", "g#", "g#<Cmd>lua require('hlslens').start()<CR>", { silent = false })
 -- map("n", "<Leader>hf", ":NvimTreeFindFile<CR>", { desc = "find file nvimtree" })
 
 -- neo-tree.nvim
-map("n", "<C-b>", "<cmd>Neotree toggle<CR>", { desc = "toggle nvimtree" })
-map("n", "<Leader>hf", "<cmd>Neotree reveal<CR>", { desc = "toggle nvimtree" })
+map("n", "<C-b>", "<Cmd>Neotree toggle<CR>", { desc = "toggle nvimtree" })
+map("n", "<Leader>hf", "<Cmd>Neotree reveal<CR>", { desc = "toggle nvimtree" })
 
 -- telescope.nvim
 map("n", "<Leader>ff", function()
@@ -205,13 +205,13 @@ map("n", "gS", ":TSJSplit<CR>")
 map("n", "gJ", ":TSJJoin<CR>")
 
 -- hop.nvim
-map("n", "f", "<cmd>HopChar2<CR>")
+map("n", "f", "<Cmd>HopChar2<CR>")
 
 -- nvim-spider
-map({ "n", "o", "x" }, "w", "<cmd>lua require('spider').motion('w')<CR>", { desc = "Spider-w" })
-map({ "n", "o", "x" }, "e", "<cmd>lua require('spider').motion('e')<CR>", { desc = "Spider-e" })
-map({ "n", "o", "x" }, "b", "<cmd>lua require('spider').motion('b')<CR>", { desc = "Spider-b" })
-map({ "n", "o", "x" }, "ge", "<cmd>lua require('spider').motion('ge')<CR>", { desc = "Spider-ge" })
+map({ "n", "o", "x" }, "w", "<Cmd>lua require('spider').motion('w')<CR>", { desc = "Spider-w" })
+map({ "n", "o", "x" }, "e", "<Cmd>lua require('spider').motion('e')<CR>", { desc = "Spider-e" })
+map({ "n", "o", "x" }, "b", "<Cmd>lua require('spider').motion('b')<CR>", { desc = "Spider-b" })
+map({ "n", "o", "x" }, "ge", "<Cmd>lua require('spider').motion('ge')<CR>", { desc = "Spider-ge" })
 
 -- nvim-dap
 map("n", "<Leader>db", function()
