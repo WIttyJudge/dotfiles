@@ -1,0 +1,17 @@
+#!/bin/sh
+
+etherned_plugged() {
+  sed "s/down/❎/;s/up/🌐/" /sys/class/net/e*/operstate 2>/dev/null 
+}
+
+vpn_connection() {
+  sed "s/.*/🔒/" /sys/class/net/tun*/operstate 2>/dev/null
+}
+
+if grep -xq 'up' /sys/class/net/w*/operstate 2>/dev/null ; then
+	wifiicon="$(awk '/^\s*w/ { print "📶", int($3 * 100 / 70) "% " }' /proc/net/wireless)"
+elif grep -xq 'down' /sys/class/net/w*/operstate 2>/dev/null ; then
+	grep -xq '0x1003' /sys/class/net/w*/flags && wifiicon="📡 " || wifiicon="❌ "
+fi
+
+printf "%s%s%s" "$wifiicon" "$(etherned_plugged)" "$(vpn_connection)"

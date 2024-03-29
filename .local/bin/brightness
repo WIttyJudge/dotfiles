@@ -1,0 +1,27 @@
+#!/usr/bin/env sh
+
+get_brightness() {
+  brightnessctl info | grep -oP '\(\K[^%\)]+'
+}
+
+send_notification() {
+  brightness=$(get_brightness)
+  notify-send -a "brightness" -t 2000 -r 9991 -h int:value:"$brightness" -i "sun" -u low "Brightness: $brightness%"
+}
+
+case $1 in
+  up) 
+    brightnessctl set 10%+ 
+    send_notification up
+    ;;
+  down) 
+    brightnessctl set 10%- 
+    send_notification down
+    ;;
+  get) get_brightness ;;
+  *) 
+    echo >&2 "Unknown action '$1'"
+    exit 1
+    ;;
+esac
+

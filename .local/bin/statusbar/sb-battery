@@ -1,0 +1,21 @@
+#!/bin/sh
+
+for battery in /sys/class/power_supply/BAT?*; do
+	# If non-first battery, print a space separator.
+	[ -n "${capacity+x}" ] && printf " "
+
+	# Sets up the status and capacity
+	case "$(cat "$battery/status" 2>&1)" in
+		"Full") icon="⚡" ;;
+		"Discharging") icon="🔋" ;;
+		"Charging") icon="🔌" ;;
+		"Not charging") icon="🛑" ;;
+		"Unknown") icon="♻️" ;;
+		*) exit 1 ;;
+	esac
+
+	capacity=$(cat "$battery/capacity" 2>&1)
+
+	# Prints the info
+	printf "%s %d%%" "$icon" "$capacity"; unset warn
+done && exit 0

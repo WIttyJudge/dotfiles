@@ -1,0 +1,11 @@
+#!/bin/sh
+
+FZF_OPTS=-"-height=100% --no-border"
+
+current_session=$(tmux display-message -p '#S')
+selected=$(tmux ls -F "#{session_name}" | grep -v "^$current_session\$" | fzf $FZF_OPTS)
+
+# operation cancelled by user
+[ -z $selected ] && exit 0
+
+tmux switch-client -t $selected

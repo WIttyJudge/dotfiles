@@ -1,0 +1,49 @@
+#!/bin/sh
+
+uptime=$(uptime -p | sed -e 's/up //g')
+
+poweroff=" Poweroff"
+reboot=" Reboot"
+suspend=" Suspend"
+lock=" Lock"
+logout=" Logout"
+cancel=" Cancel"
+
+option="$cancel\n$poweroff\n$reboot\n$suspend\n$lock\n$logout"
+
+select="$(echo -e "$option" | rofi -dmenu -theme theme/dmenu)"
+
+before_exit() {
+	bluetoothctl disconnect
+}
+
+case "$(readlink -f /sbin/init)" in
+	*systemd*) ctl='systemctl' ;;
+	*) ctl='loginctl' ;;
+esac
+
+case $select in
+	$poweroff)
+		$ctl poweroff -i
+		;;
+	$reboot)
+		$ctl reboot -i
+		;;
+	$suspend)
+		# before_exit
+		$ctl suspend -i
+		slock
+		;;
+	$lock)
+		before_exit
+		slock
+		;;
+	$logout)
+		# kill -TERM dwmpid $(pidof dwm)
+		bspc quit
+    ;;
+  *)
+    exit 1
+    ;;
+esac
+

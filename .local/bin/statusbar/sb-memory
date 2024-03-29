@@ -1,0 +1,7 @@
+#!/bin/sh 
+
+icon="🧠"
+
+mem="$(free -m | awk 'NR==2{printf "%s/%s MB\n", $3,$2,$3*100/$2 }')"
+printf "%s %s" "$icon" "$mem"
+

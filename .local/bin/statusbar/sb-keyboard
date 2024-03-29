@@ -1,0 +1,8 @@
+#!/bin/sh
+
+# yay -S xkblayout-state-git
+
+keyboard_layout="$(xkblayout-state print "%s")"
+icon="👻"
+
+printf "%s %s" "$icon" "$keyboard_layout"

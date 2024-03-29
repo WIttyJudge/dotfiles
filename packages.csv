@@ -1,0 +1,134 @@
+SKIP,TAG,PROGRAM,DESCRIPTION
+,,xorg-server,Xorg (commonly referred as simply X) is the most popular display server among Linux users.
+,,xorg-xinit,The xinit program allows a user to manually start an Xorg display server.
+,,xorg-xrdb,X server resource database utility.
+,,xorg-xdpyinfo,Display information utility for X.
+,,xclip,CLI to the X11 clipboard.
+,,feh,Fast and light image viewer.
+TRUE,,xcompmgr,Composite Window-effects manager for Xorg.
+,,picom,X compositor that may fix tearing issues.
+,,AUR,polybar,A fast and easy-to-use status bar.
+TRUE,AUR,siji-git,Iconic bitmap font based on stlarch with additional glyphs.
+TRUE,AUR,termsyn-font,Monospaced font based on terminus and tamsyn.
+,,chromium,Web browser developed by Google the open source project behind Google Chrome.
+TRUE,AUR,brave-bin,Web browser that blocks ads and trackers by default (binary release).
+,,firefox,Standalone web browser from mozilla.
+,,telegram-desktop,Official Telegram Desktop client.
+,,discord,All-in-one voice and text chat for gamers that's free and secure.
+TRUE,,feh,Fast and light imlib2-based image viewer.
+TRUE,,scrot,Simple command-line screenshot utility for X.
+TRUE,,flameshot,Powerful yet simple to use screenshot software.
+,,maim,Utility to take a screenshot using imlib2.
+,,swappy,This is a screenshot editor tool.
+,,pipewire-pulse,Low-latency audio/video router and processor.
+,,pamixer,PulseAudio command-line mixer like amixer.
+,,pavucontrol,PulseAudio Volume Control.
+,,ttf-dejavu,Font family based on the Bitstream Vera Fonts with a wider range of characters.
+,,ttf-fira-code,Monospaced font with programming ligatures.
+,,ttf-firacode-nerd,Patched font Fira (Fura) Code from nerd fonts library.
+,,ttf-jetbrains-mono-nerd,Patched font JetBrains Mono from nerd fonts library.
+,,ttf-joypixels,Pack with some cool emodjis.
+,,noto-fonts,Google Noto TTF fonts.
+,,noto-fonts-emoji,Google Noto emoji fonts
+TRUE,AUR,nerd-fonts-complete-mono-glyphs,Iconic font aggregator 3.600+ icons and 50+ patched fonts (Mono glyphs only).
+,,papirus-icon-them,Papirus icon theme.
+,,httpie,user-friendly command-line HTTP client for the API era.
+,,wget,Network utility to retrieve files from the Web.
+,,ripgrep,A search tool that combines the usability of ag with the raw speed of grep.
+,,fd,Fast and user-friendly alternative to find.
+,,fx,Terminal JSON viewer.
+,,git-delta,Syntax-highlighting pager for git and diff output.
+,AUR,jiq-bin,jq but interactive.
+,,jq,Command-line JSON processor.
+,,screenkey,Tool that displays keys you are pressing.
+,,neovim,Fork of Vim aiming to improve user experience with plugins.
+,,nodejs,Evented I/O for V8 javascript.
+,,npm,A package manager for javascript.
+,,yarn,Fast and reliabl and secure dependency management.
+,,docker,Pack ship and run any application as a lightweight container.
+,,docker-compose,Fast and isolated development environments using Docker.
+,AUR,pfetch,A pretty system information tool written in POSIX sh.
+,AUR,htop-vim,Fork of htop with vim bindings support.
+,,s-tui,Terminal UI stress test and monitoring tool.
+,,dunst,Customizable and lightweight notification-daemon.
+,AUR,nsxiv,Neo (or New or Not) Simple (or Small or Suckless) X Image Viewer.
+TRUE,,ncdu,Disk usage analyzer with an ncurses interface.
+,,gdu,Fast disk usage analyzer.
+,AUR,hardinfo-git,A small application that displays information about your hardware and operating system.
+,,libreoffice-still,The office productivity suite compatible to the open and standardized ODF document format.
+,,pass,Simple console-based password manager featuring flat text file organization and GnuPG encryption.
+,,openssh,Premier connectivity tool for remote login with the SSH protocol.
+,,openssl-1.0,The Open Source toolkit for Secure Sockets Layer and Transport Layer Security.
+TRUE,,terminator,Terminator is a terminal emulator.
+,,base-devel,It a package group that includes tools needed for building.
+TRUE,,i3-gaps,Adding a few additional features such as gaps between windows.
+TRUE,,i3lock,Improved screen locker.
+,,zsh,It is a powerful shell that operates as both an interactive shell and as a scripting language interpreter.
+,,libyaml,C library for parsing and emitting YAML.
+,,zip,Compressor/archiver for creating and modifying zipfiles.
+,,unzip,For extracting and viewing files in .zip archives.
+TRUE,,rxvt-unicode,Unicode enabled rxvt-clone terminal emulator (urxvt).
+TRUE,AUR,rxvt-unicode-256xresources,urxvt with patches to support 256 Xresource colors and fixes for line/font spacing.
+TRUE,,urxvt-perls,URL and Mouseless text selection for rxvt-unicode.
+TRUE,AUR,urxvt-resize-font-git,An urxvt plugin to adjust the font size on the fly.
+,,alacritty,GPU-accelerated terminal emulator.
+TRUE,,rofi,A window application launcher and dmenu replacement.
+TRUE,,rofi-pass,Bash script to handle pass storages in a convenient way.
+,,pacman-contrib,Contributed scripts and tools for pacman systems.
+,,sxhkd,Simple X hotkey daemon.
+,,zathura, Minimalistic document viewer with vim-like bindings.
+,,zathura-pdf-mupdf, PDF support for Zathura.
+,,unclutter,It hides your X mouse cursor when you do not use it.
+,,eza,Replacement for ls.
+,,bat,Replacement for cat.
+,,fzf,Fuzzy finder tool.
+,,croc,Easily and securely send things from one computer to another.
+,,udiskie,Removable disk automounter.
+,AUR,udiskie-dmenu-git,manage removable devices via dmenu (or rofi).
+,,trash-cli,Recycle bin interface.
+,,entr,Watch for changes.
+,,hyperfine,CLI benchmarking.
+,AUR,xkblayout-state-git,A small command-line program to get/set the current keyboard layout.
+,AUR,downgrade,Bash script for downgrading packages.
+,AUR,slack-desktop,Slack Desktop.
+,,gtk2,GObject-based multi-platform GUI toolkit(legacy).
+,,gtk3,GObject-based multi-platform GUI toolkit.
+TRUE,AUR,gruvbox-material-gtk-theme-git,Gruvbox Material theme for GTK.
+,AUR,catppuccin-gtk-theme-mocha,Soothing pastel theme for GTK3 - Mocha.
+,,openvpn,Configurable VPN (Virtual Private Network).
+,,wireguard-tools,Lools to configure wireguard.
+,,networkmanager-openvpn,NetworkManager VPN plugin for OpenVPN.
+,,network-manager-applet,Applet for managing network connections.
+,,bluez,Bluetooth daemons.
+,,bluez-utils,Bluetooth utilities.
+,,blueberry,Applet for managing network connections.
+,,curlie,The power of curl.
+,,dnsutils,Bunch of utils like nslookup and so on.
+,,net-tools,Configuration tools for Linux networking.
+,,python-pip,The PyPA recommended tool for installing Python packages.
+TRUE,,light,Program to easily change brightness on backlight-controllers.
+,,brightnessctl,Lightweight brightness control tool.
+,,calcurse,A text-based personal organizer.
+,AUR,libxft-bgra-git,libXft with BGRA glyph (color emoji) rendering.
+,,alsa-utils,Bunch of useful utils especially for testing microphone and sound.
+,,tmux,A terminal multiplexer.
+,,mediainfo,Shows audio and video information.
+,,man-db,Read man pages of programs.
+,,transmission-cli,Light-weight and cross-platform BitTorrent client.
+,AUR,simple-mtpfs,A FUSE filesystem that supports reading/writing from MTP devices.
+,,stylua,Formatter for lua.
+,,prettier,Code formatter for js json css yaml and etc.
+,,shfmt,Format shell programs.
+,AUR,overdue,Get notified about running daemons that reference outdated shared libraries.
+,,earlyoom,Early OOM Daemon for Linux.
+,,systembus-notify,System bus notification daemon.
+,,throttled,Workaround for Intel throttling issues in Linux.
+,,arandr,Visual front end for xrandr.
+,,autorandr,Auto-detect connected display hardware and load appropiate X11 setup using xrandr
+,,cups,The CUPS Printing System.
+,,system-config-printer,GTK printer configuration tool.
+,,sane,Scanner Access Now Easy.
+,,simple-scan,GTK document scanning application.
+,,bspwm,Tiling window manager.
+,,lxappearance-gtk3,GTK theme switcher.
+,,pcmanfm,Fast and lightweight GUI file manager.

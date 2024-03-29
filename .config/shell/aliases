@@ -1,0 +1,66 @@
+#!/usr/bin/env sh
+
+# sudo not required for some system commands
+for x in mount umount sv pacman su shutdown poweroff reboot downgrade ; do
+  alias $x="sudo $x"
+done; unset x
+
+command -v curlie    &> /dev/null    && alias curl='curlie'
+# command -v trash-put &> /dev/null    && alias rm='trash-put'
+command -v bat       &> /dev/null    && alias c='bat'         || alias c='cat'
+
+# useful
+alias \
+  s="sudo " \
+  p="sudo pacman " \
+  e="$EDITOR" \
+  update-grub="sudo grub-mkconfig -o /boot/grub/grub.cfg" \
+  qr-send-file="qrcp " \
+  qr-receive-file="qrcp receive" \
+  send-file="croc " \
+  sxiv="nsxiv " \
+  lg="lazygit " \
+  lf="lfrun " \
+  man="fman" \
+  open="xdg-open " \
+  whoami="whoami && curl -s ident.me" \
+
+# for testing
+alias \
+  t-micro="arecord -vv -f dat /dev/null" \
+  t-sound="speaker-test -c2 -t wav" \
+  t-webcam="mpv av://v4l2:/dev/video0 --profile=low-latency --untimed" \
+
+# fast cd
+alias \
+  ..="cd .." \
+
+# commands
+alias dotfiles="cd ~/dotfiles && $EDITOR"
+
+# rewrite standard commands
+alias \
+	cp="cp -iv" \
+	mv="mv -iv" \
+  bc="bc -ql" \
+	mkdir="mkdir -pv" \
+  wget=wget --hsts-file="$XDG_DATA_HOME/wget-hsts"
+
+alias ls="exa -la --group-directories-first --icons" # doesn't show hidden files
+alias ls.="exa -dl .* --icons" # shows only hidden files
+alias lst="exa -l --sort newest --icons" # sort output by newest file
+alias la="exa -la --group-directories-first --icons"  # all files and dirs
+
+# git
+alias \
+  g="git " \
+  gs="git status" \
+  ga="git add" \
+  gc="git commit" \
+  gp="git push" \
+  glog="git log --graph --oneline --decorate" \
+
+# docker
+alias \
+  d="docker " \
+  dc="docker-compose " \

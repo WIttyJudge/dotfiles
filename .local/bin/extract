@@ -1,0 +1,43 @@
+#!/usr/bin/env bash
+
+# Extract archives - use: extract <file>
+
+help() {
+  echo "Usage: extract [file]
+
+Available file formats:
+  .tar
+  .tar.lz4
+  .lz4
+  .tar.bz2
+  .tar.gz
+  .tbz2
+  .tgz
+  .bz2
+  .rar
+  .gz
+  .zip
+  .Z
+  .7z"
+}
+
+if [ -f "$1" ]; then
+  case "$1" in
+    *.tar) tar xvf "$1" ;;
+    *.tar.lz4) lz4 -d "$1" -c | tar xvf - ;;
+    *.lz4) unlz4 "$1" ;;
+    *.tar.bz2) tar xvjf "$1" ;;
+    *.tar.gz) tar xvzf "$1" ;;
+    *.tbz2) tar xvjf "$1" ;;
+    *.tgz) tar xvzf "$1" ;;
+    *.bz2) bunzip2 "$1" ;;
+    *.rar) rar x "$1" ;;
+    *.gz) gunzip "$1" ;;
+    *.zip) unzip "$1" ;;
+    *.Z) uncompress "$1" ;;
+    *.7z) 7z x "$1" ;;
+    *) echo "'$1' cannot be extracted via extract()" && help ;;
+  esac
+else
+  help
+fi

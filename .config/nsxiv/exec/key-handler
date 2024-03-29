@@ -1,0 +1,28 @@
+#!/bin/sh
+
+# To execute this file you need to press ctrl + x and then press key you can see below.
+while read file
+do
+  case "$1" in
+	"w")
+    setbg "$file" ;;
+	"r")
+		convert -rotate 90 "$file" "$file"
+		notify-send "Sxiv" "rotated 90 clockwise"
+		;;
+	"R")
+		convert -rotate -90 "$file" "$file"
+		notify-send "Sxiv: rotated 90 anti-clockwise"
+		;;
+	"y")
+    xclip -selection clipboard "$file" -t image/png &&
+		notify-send "$file copied to clipboard" ;;
+	"Y")
+		readlink -f "$file" | xclip -selection clipboard &&
+		notify-send "$(readlink -f "$file") copied to clipboard" ;;
+	"d")
+		[ "$(printf "Yes\\nNo" | dmenu -i -p "Delete $file?")" == "Yes" ] && rm "$file" && notify-send "$file deleted" ;;
+	"i")
+		notify-send "File information" "$(mediainfo $file)" ;;
+  esac
+done

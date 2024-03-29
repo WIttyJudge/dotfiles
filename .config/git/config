@@ -1,0 +1,28 @@
+[user]
+	name = Ruslan
+	email = kros8925@gmail.com
+[pull]
+	rebase = true
+[rebase]
+	autoStash = true
+
+; https://github.com/dandavison/delta
+[core]
+    pager = delta
+
+[interactive]
+    diffFilter = delta --color-only
+
+[delta]
+    navigate = true    # use n and N to move between diff sections
+    light = false      # set to true if you're in a terminal w/ a light background color (e.g. the default macOS terminal)
+    side-by-side = true
+
+[merge]
+    conflictstyle = diff3
+
+[diff]
+    colorMoved = default
+
+[url "git@github.com:"]
+	insteadOf = https://github.com/

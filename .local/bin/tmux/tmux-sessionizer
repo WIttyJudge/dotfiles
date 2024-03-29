@@ -1,0 +1,57 @@
+#!/usr/bin/env bash
+
+# Set FZF options
+FZF_OPTS=-"-height=100% --no-border"
+SPECIFIED_DIR=$1
+
+# Get the directory to attach to
+select_directory() {
+  if [ "$SPECIFIED_DIR" != '' ]; then
+    selected=$SPECIFIED_DIR
+  else
+    selected=$(find ~/projects ~/projects/work ~/projects/repos ~/projects/ansible ~/projects/golang/src -mindepth 1 -maxdepth 1 -type d | fzf $FZF_OPTS)
+  fi
+
+  # operation cancelled by user
+  [ -z $selected ] && exit 0
+}
+
+define_session_name() {
+  session_name=$(basename "$selected" | tr . _)
+}
+
+# Checks if tmux session is not opened
+not_in_tmux() {
+  [ -z "$TMUX" ]
+}
+
+# Checks if selected session have already created
+session_exists() {
+  tmux has-session -t "=$session_name" 2>/dev/null
+}
+
+create_new_session() {
+  tmux new-session -Ad -s "$session_name" -c "$selected" "nvim"
+  tmux new-window -t "$session_name" -d -c "$selected"
+}
+
+create_if_needed_and_attach() {
+  # Create the session and attach it automatically.
+  if not_in_tmux; then
+    tmux new-session -A -s "$session_name" -c $selected
+    exit 0
+  fi
+
+  if ! session_exists; then
+    create_new_session
+  fi
+
+  tmux switch-client -t $session_name
+}
+
+# EXECUTION
+
+select_directory
+define_session_name
+
+create_if_needed_and_attach

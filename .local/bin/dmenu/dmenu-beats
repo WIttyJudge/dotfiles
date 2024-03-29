@@ -1,0 +1,39 @@
+#!/bin/sh
+
+# add more args here according to preference
+ARGS="--vo=null --video=no --no-video --term-osd-bar --no-resume-playback --volume=40"
+
+send_notification() {
+	radio=$1
+	notify-send "Playing now: " "$radio" -i music
+}
+
+menu() {
+	cat <<EOF
+1. Box Lofi
+2. Lofi Girl
+3. Chillhop
+4. The Bootleg Boy
+5. Radio Spinner
+EOF
+}
+
+main() {
+	choice=$(menu | rofi -dmenu -theme theme/dmenu | cut -d. -f2 | sed 's/ //')
+
+	[[ -z $choice ]] && exit 0
+
+	case $choice in
+		"Box Lofi") URL="http://stream.zeno.fm/f3wvbbqmdg8uv" ;;
+		"Lofi Girl") URL="https://play.streamafrica.net/lofiradio" ;;
+		"Chillhop") URL="http://stream.zeno.fm/fyn8eh3h5f8uv" ;;
+		"The Bootleg Boy") URL="http://stream.zeno.fm/0r0xa792kwzuv" ;;
+		"Radio Spinner") URL="https://live.radiospinner.com/lofi-hip-hop-64" ;;
+	esac
+
+	send_notification "$choice"
+
+	mpv $ARGS --title="lofi-radio" $URL
+}
+
+pkill -f lofi-radio || main

@@ -1,0 +1,30 @@
+# An xprofile file, ~/.xprofile and /etc/xprofile, allows you to execute 
+# commands at the beginning of the X user session 
+# - before the window manager is started.
+# Read more: https://wiki.archlinux.org/index.php/Xprofile
+
+# setbg			- set desktop wallpaper
+# xrdb			- theme configuration file
+# xset			- speed xrate up
+# setxkbmap - set language keyboard and swape caps and escape
+# unclutter - remove mouse cursor when idle
+# nm-applet - system tray network manager
+# picom			- animation for x11
+# dunst     - notification-daemon
+# sxhkd     - hotkey daemon
+# pipewire  - server for handling audio
+# batsignal - battery notifier
+
+setbg &
+xrdb ~/.Xresources & 
+xset r rate 250 40 &
+setxkbmap -layout us,ru -option grp:alt_shift_toggle,caps:swapescape & 
+unclutter --timeout 2 &
+nm-applet --indicator &
+picom -b &
+
+autostart="dunst sxhkd batsignal"
+
+for program in $autostart; do
+	pidof -sx "$program" || "$program" &
+done >/dev/null 2>&1

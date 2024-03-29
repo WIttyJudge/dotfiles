@@ -1,0 +1,8 @@
+#!/bin/sh
+
+icon="📦"
+
+updates=$(pacman -Qu | grep -Fcv "[ignored]")
+
+printf "%s %s"  "$icon" "$updates"
+

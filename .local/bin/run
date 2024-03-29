@@ -1,0 +1,26 @@
+#!/bin/bash
+
+# Run project depending on the folder name
+
+path=$(pwd)
+project=$(basename $path)
+
+case "$project" in
+  'explorer')
+    RUN_COMMAND="bundle exec rails s -p 3000" ;;
+  'graphql') 
+    RUN_COMMAND="bundle exec rails s -p 3001" ;;
+  'bloxyapi') 
+    RUN_COMMAND="bundle exec rails s -p 3002" ;;
+  'spy') 
+    RUN_COMMAND="PORT=3003 bundle exec pumactl -F config/puma.api.rb start" ;;
+  'wittyjudge.github.io') 
+    RUN_COMMAND="hugo server -D -p 1313" ;;
+  *) 
+    echo "Runner for '$project' project not found"
+    exit 1
+  ;;
+esac
+
+echo -e "$RUN_COMMAND\n"
+eval $RUN_COMMAND

@@ -1,0 +1,44 @@
+#!/usr/bin/env sh
+
+get_input_source_indexes() {
+  pamixer --list-sources | grep input | awk '{print $1}' | tr '\n' ' '
+}
+
+mute_input_sources() {
+  for index in $(get_input_source_indexes); do
+    pactl set-source-mute $index 1
+  done
+
+  notify-send -a "change-audio" -t 2000 -r 9992 -i "microphone-mute" "Muted"
+}
+
+activate_input_sources() {
+  for index in $(get_input_source_indexes); do
+    pactl set-source-mute $index 0
+  done
+
+  notify-send -a "change-audio" -t 2000 -r 9992 -i "microphone" "Active"
+}
+
+input_sources_is_muted() {
+  first_index="$(get_input_source_indexes | awk '{print $1}')"
+  pamixer --source $first_index --get-mute
+}
+
+toggle_input_sources() {
+  muted=$(input_sources_is_muted)
+  [ "$muted" == "true" ] && activate_input_sources || mute_input_sources
+}
+
+case $1 in
+  toggle)
+    toggle_input_sources
+    ;;
+  get-mute)
+    input_sources_is_muted
+    ;;
+  *)
+    echo >&2 "Unknown action '$1'"
+    exit 1
+    ;;
+esac

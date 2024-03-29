@@ -1,0 +1,19 @@
+#!/bin/bash
+
+location=${1:-/}
+
+[ ! -d "$location" ] && exit
+
+# Set icon
+case "$location" in
+  "/home"*) icon="🏠" ;;
+  "/mnt"*) icon="💾" ;;
+  *) icon="💾" ;;
+esac
+
+used_hdd="$(df -h | awk 'NR==4{print $3}' | sed 's/G//g')"
+used_hdd_percent="$(df -h | awk 'NR==4{print $5}')"
+# used_and_total_hdd="$(df -h "$location" | awk ' /[0-9]/ {print $3 "/" $2}')"
+
+printf "%s %s (%s)" "$icon" "$used_hdd GB" "$used_hdd_percent"
+# printf " %s %s \n" "$icon" "$used_and_total_hdd"

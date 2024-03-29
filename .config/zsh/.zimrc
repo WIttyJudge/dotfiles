@@ -1,0 +1,6 @@
+zmodule zsh-users/zsh-autosuggestions
+zmodule zdharma-continuum/fast-syntax-highlighting
+
+zmodule romkatv/powerlevel10k --use degit
+
+# zmodule woefe/git-prompt.zsh

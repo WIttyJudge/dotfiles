@@ -1,0 +1,88 @@
+#  +----------------------------------------------------------+
+#  |                      System Control                      |
+#  +----------------------------------------------------------+
+
+super + Return
+    $TERMINAL
+
+super + {_,shift} + p
+    rofi -show {drun, run}
+
+super + shift + q
+      sysact
+
+XF86Audio{Mute,LowerVolume,RaiseVolume}
+    audio {volume-toggle, volume-down, volume-up}; polybar-msg action "#volume.hook.0"
+
+XF86MonBrightness{Down,Up}
+    brightness {down, up}; polybar-msg action "#brightness.hook.0"
+
+Next
+    microphone toggle; polybar-msg action "#microphone.hook.0" 
+
+Print
+    screentools
+
+Home
+    dmenu-script-select
+
+#  +----------------------------------------------------------+
+#  |                      BSPWM Bindings                      |
+#  +----------------------------------------------------------+
+
+# restart bspwm
+super + shift + w
+	bspc wm -r
+
+# hide-show polybar
+super + b
+	{polybar-msg cmd hide; bspc config top_padding +0 ,\
+         polybar-msg cmd show; bspc config top_padding 32 }
+
+# kill window
+super + q
+	bspc node -c
+
+# toggle fullscreen on / off
+super + f
+    bspfullscreen
+
+# toggle floating on / off
+super + o
+    bspc node focused.tiled -t floating || bspc node focused.floating -t tiled
+
+# set the node flags
+super + ctrl + y
+	bspc node -g sticky
+
+# focus the last node/desktop
+super + Tab
+	bspc desktop -f last
+
+# focus / swap window with direction
+super + {_,shift} + {h,j,k,l}
+    bspc node {-f,-s} {west,south,north,east}
+
+# focus the next/previous desktop in the current monitor
+super + bracket{left,right}
+	bspc desktop -f {prev,next}.local
+
+# focus / send to the given desktop
+super + {_,shift + } + {1-9,0}
+	bspc {desktop -f,node -d} '^{1-9,10}'
+
+# Switch window to the larger window
+super + space
+    bspc node -s $(bspc query -N -n biggest.local)
+
+# expand a window by moving one of its side outward
+super + alt + {h,j,k,l}
+	bspc node -z {left -20 0,bottom 0 20,top 0 -20,right 20 0}
+
+# contract a window by moving one of its side inward
+super + alt + shift + {h,j,k,l}
+	bspc node -z {right -20 0,top 0 20,bottom 0 -20,left 20 0}
+
+# move a floating window
+super + {Left,Down,Up,Right}
+	bspc node -v {-20 0,0 20,0 -20,20 0}

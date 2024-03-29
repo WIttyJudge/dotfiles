@@ -1,0 +1,111 @@
+#!/usr/bin/env zsh
+
+#  +----------------------------------------------------------+
+#  |                           Git                            |
+#  +----------------------------------------------------------+
+
+function acp() {
+  git commit -am "Auto commit"
+  git push origin master
+}
+
+#  +----------------------------------------------------------+
+#  |                           Tmux                           |
+#  +----------------------------------------------------------+
+
+function tkill() {
+  tmux ls -F '#{session_name}' |\
+    fzf --header='Kill session' |\
+    xargs -I {} tmux kill-session -t {}
+}
+
+#  +----------------------------------------------------------+
+#  |                          Pacman                          |
+#  +----------------------------------------------------------+
+
+# Install packages using yay (change to pacman/AUR helper of your choice)
+# https://github.com/junegunn/fzf/wiki/Examples#pacman
+function fyayi() {
+    yay -Slq | fzf -q "$1" -m --preview 'yay -Si {1}'| xargs -ro yay -S
+}
+
+#  +----------------------------------------------------------+
+#  |                 Simple useful functions                  |
+#  +----------------------------------------------------------+
+
+# Search man pages.
+# https://github.com/junegunn/fzf/wiki/Examples#man-pages
+function fman() {
+	MAN="/usr/bin/man"
+
+	if [ -n "$1" ]; then
+		$MAN "$@"
+		return $?
+	else
+		$MAN -k . | awk '{print $1}' | fzf | xargs -r $MAN
+		return $?
+	fi
+}
+
+# fkill - kill processes - list only the ones you can kill. Modified the earlier script.
+# https://github.com/junegunn/fzf/wiki/Examples#processes
+function fkill() {
+	local pid 
+	if [ "$UID" != "0" ]; then
+		pid=$(ps -f -u $UID | sed 1d | fzf -m | awk '{print $2}')
+	else
+		pid=$(ps -ef | sed 1d | fzf -m | awk '{print $2}')
+	fi  
+
+	if [ "x$pid" != "x" ]
+	then
+		echo $pid | xargs kill -${1:-9}
+	fi  
+}
+
+# example: repeat 3 ping google.com
+function repeat() {
+  local i max
+  max=$1; shift;
+  for ((i=1; i <= max ; i++)); do
+    eval "$@";
+  done
+}
+
+# Converts files to backup.
+function bak() {
+	for source in "$@"; do
+		mv "$source" "$source.bak"
+	done
+}
+
+# Converts backup files back.
+function unbak() {
+	for source in "$@"; do
+		result=${source/.bak/}
+
+		mv "$source" "$result"
+	done
+}
+
+# Search env variables
+function vars() {
+	env | fzf | cut -d= -f2
+}
+
+# Prevent 'zsh: command not found: $'
+function $ () {
+  "$@"
+}
+
+function nvims() {
+  items=("default" "nvim-kickstart")
+  config=$(printf "%s\n" "${items[@]}" | fzf --prompt=" Neovim Config  " --height=~50% --layout=reverse --border --exit-0)
+  if [[ -z $config ]]; then
+    echo "Nothing selected"
+    return 0
+  elif [[ $config == "default" ]]; then
+    config=""
+  fi
+  NVIM_APPNAME=$config nvim $@
+}

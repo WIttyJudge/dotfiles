@@ -1,0 +1,17 @@
+#!/bin/sh
+
+acpi="$(acpi)"
+percent="$(echo "$acpi" | grep -P -o '[0-9]+(?=%)')"
+status="$(echo "$acpi" | grep -P -o '(?<=: )[^,]+')"
+
+bat0_percent="$(echo "$percent" | sed -n 1p)"
+bat1_percent="$(echo "$percent" | sed -n 2p)"
+bat_level_sum=`expr $bat0_percent + $bat1_percent`
+
+[ "$(echo "$status" | grep 'Charging')" == 'Charging' ] && exit 1
+
+if [ $bat_level_sum -le 15 ]; then
+    notify-send -u critical -i battery-empty-symbolic "Battery level is critically low" "$bat_level_sum% remaining"
+elif [ $bat_level_sum -le 50 ]; then
+    notify-send -i battery-low-symbolic "Battery level is low" "$bat_level_sum% remaining"
+fi

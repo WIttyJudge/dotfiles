@@ -1,0 +1,7 @@
+#!/bin/sh
+
+muted="$(microphone get-mute)"
+ 
+[ "$muted" == true ] && icon="🔇" || icon="🎤"
+
+echo $icon

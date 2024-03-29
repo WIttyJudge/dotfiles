@@ -1,0 +1,8 @@
+#!/bin/sh
+
+brightness="$(brightness get)"
+
+icon="🔆"
+[ $brightness -le 69 ] && icon="🔅"
+
+printf "%s %s" "$icon" "$brightness%"

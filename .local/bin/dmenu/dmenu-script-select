@@ -1,0 +1,24 @@
+#!/bin/sh
+
+menu(){
+	printf "< Exit\n"
+	printf "1. System\n"
+	printf "2. Reloader\n"
+	printf "dotfiles\n"
+	# printf "suckless-tools"
+}
+
+choice="$(menu | rofi -dmenu -theme theme/dmenu | cut -d. -f2 | sed 's/ //')"
+
+case "$choice" in
+  "System")
+    sysact ;;
+  "Reloader")
+    dmenu-reloader ;;
+  "dotfiles")
+    $TERMINAL -e sh -c 'tmux-sessionizer /home/wittyjudge/dotfiles' ;;
+  # "suckless-tools")
+  #   $TERMINAL -e sh -c 'tmux-sessionizer /home/wittyjudge/suckless-tools' ;;
+  '< Exit') exit ;;
+  *) exit ;;
+esac

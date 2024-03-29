@@ -1,0 +1,24 @@
+#!/bin/sh
+
+notifier() {
+  notify-send 'Reloader' "$1 successfully reloaded."
+}
+
+menu(){
+	printf ".Xresources\n"
+	printf "sxhkd\n"
+	printf "bspwm\n"
+}
+
+choice="$(menu | rofi -dmenu -theme theme/dmenu)"
+
+case "$choice" in
+  .Xresources) xrdb ~/.Xresources ;;
+  sxhkd) pkill -USR1 -x sxhkd ;;
+  bspwm) bspc wm -r ;;
+  # dwm) kill -HUP $(pgrep -u $USER "\bdwm$") ;;
+  # i3wm) i3-msg restart;;
+  *) exit ;;
+esac
+
+notifier $choice

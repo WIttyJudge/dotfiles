@@ -1,0 +1,35 @@
+#!/bin/sh
+
+# This is bound to Shift+PrintScreen by default, requires maim. It lets you
+# choose the kind of screenshot to take, including copying the image or even
+# highlighting an area to copy. scrotcucks on suicidewatch right now.
+
+notify=true
+
+commands=(
+	"a selected area"
+	"current window"
+	"full screen"
+	"a selected area (copy)"
+	"a selected area with timer (copy)"
+	"current window (copy)"
+	"full screen (copy)"
+)
+
+operation="$(printf '%b\n' "${commands[@]}" | dmenu -l 10 -i -p "Screenshot which area?" )"
+
+case "$operation" in
+  "a selected area") maim -s ~/Pictures/screenshots/pic-selected-$(date '+%d.%m.%y-%H:%M').png ;;
+  "current window") maim -i "$(xdotool getactivewindow)" ~/Pictures/screenshots/pic-window-"$(date '+%d.%m.%y-%H:%M').png" ;;
+  "full screen") maim ~/Pictures/screenshots/pic-full-"$(date '+%d.%m.%y-%H:%M').png" ;;
+  "a selected area (copy)") maim -s | xclip -selection clipboard -t image/png ;;
+  "a selected area with timer (copy)") sleep 3 && maim -s | xclip -selection clipboard -t image/png ;;
+  "current window (copy)") maim -i "$(xdotool getactivewindow)" | xclip -selection clipboard -t image/png ;;
+  "full screen (copy)") maim | xclip -selection clipboard -t image/png ;;
+  *) notify=false ;;
+esac
+
+if [[ $notify = true ]]; then
+	paplay /usr/share/sounds/freedesktop/stereo/screen-capture.oga &>/dev/null &
+	notify-send "$operation task" 'Done'
+fi

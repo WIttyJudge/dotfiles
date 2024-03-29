@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+# Terminate already running bar instances
+killall -q polybar
+
+# Launch bars for each connected monitors
+if type "xrandr"; then
+  for m in $(polybar --list-monitors | cut -d":" -f1); do
+    MONITOR=$m polybar main 2>&1 & disown
+  done
+fi

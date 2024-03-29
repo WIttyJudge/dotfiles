@@ -1,0 +1,4 @@
+[Desktop Entry]
+Type=Application
+Name=MPVGif
+Exec=mpv --loop=inf %u
