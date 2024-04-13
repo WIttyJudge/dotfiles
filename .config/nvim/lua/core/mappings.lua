@@ -42,10 +42,6 @@ nnoremap <silent> ]<space> :<c-u>put =repeat([''],v:count)<bar>'[-1<CR>
 -- Easy copy whole text in file
 map("n", "vfy", "<Cmd>%y+<CR>", { desc = "copy whole file" })
 
-map("n", "<Leader>r", function()
-	require("internal.quickrun").run_command()
-end, { desc = "run command" })
-
 -- Make an easier redo mapping
 map("n", "U", "<C-R>")
 

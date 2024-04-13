@@ -1,9 +1,5 @@
 local cmd = vim.api.nvim_create_user_command
 
-cmd("RunCommand", function()
-	require("internal.quickrun").run_command()
-end, { desc = "Execute files" })
-
 -- conform.nvim
 cmd("Format", function(args)
 	local range = nil
