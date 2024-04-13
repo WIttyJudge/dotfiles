@@ -14,6 +14,7 @@ alias \
   s="sudo " \
   p="sudo pacman " \
   e="$EDITOR" \
+  nvim-kick="NVIM_APPNAME=kickstart nvim" \
   update-grub="sudo grub-mkconfig -o /boot/grub/grub.cfg" \
   qr-send-file="qrcp " \
   qr-receive-file="qrcp receive" \
