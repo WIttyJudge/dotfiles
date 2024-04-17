@@ -86,7 +86,6 @@ local config = {
 	formatting = {
 		format = lspkind.cmp_format({
 			mode = "symbol_text",
-			symbol_text = require("internal.icons").kind,
 			menu = {
 				buffer = "[Buffer]",
 				nvim_lsp = "[LSP]",
