@@ -29,18 +29,7 @@ local servers = {
 			command = { "golangci-lint", "run", "--out-format", "json" },
 		},
 	},
-	gopls = {
-		cmd = { "gopls", "--remote=auto" },
-		filetypes = { "go", "gomod" },
-		settings = {
-			gopls = {
-				analyses = {
-					unusedparams = true,
-				},
-				staticcheck = true,
-			},
-		},
-	},
+	gopls = {},
 }
 
 -- CONFIGURE RUST_ANALYZER SERVER.

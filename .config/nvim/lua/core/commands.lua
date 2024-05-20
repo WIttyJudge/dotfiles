@@ -22,7 +22,7 @@ cmd("SpectreOpen", function()
 end, { desc = "nvim-spectre plugin" })
 
 -- comment-box.nvim
-cmd("CommentBox", "CBcbox10", { desc = "comment-box plugin" })
+cmd("CommentBox", "CBlcbox10", { desc = "comment-box plugin" })
 
 -- global-note.nvim
 cmd("ProjectNote", function ()

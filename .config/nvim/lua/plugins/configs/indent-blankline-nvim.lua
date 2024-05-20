@@ -21,7 +21,7 @@ local config = {
 		},
 	},
 	indent = {
-		char = "│",
+    char = "┊",
 	},
 	scope = {
 		enabled = false,

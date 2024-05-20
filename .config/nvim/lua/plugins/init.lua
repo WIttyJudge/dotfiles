@@ -150,7 +150,7 @@ return {
 
 	{
 		"LudoPinelli/comment-box.nvim",
-		event = "BufEnter",
+		cmd = { "CBlcbox" }
 	},
 
 	{
