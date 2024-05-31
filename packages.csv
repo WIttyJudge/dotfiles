@@ -55,7 +55,7 @@ TRUE,AUR,nerd-fonts-complete-mono-glyphs,Iconic font aggregator 3.600+ icons and
 TRUE,,ncdu,Disk usage analyzer with an ncurses interface.
 ,,gdu,Fast disk usage analyzer.
 ,AUR,hardinfo-git,A small application that displays information about your hardware and operating system.
-,,libreoffice-still,The office productivity suite compatible to the open and standardized ODF document format.
+TRUE,,libreoffice-still,The office productivity suite compatible to the open and standardized ODF document format.
 ,,pass,Simple console-based password manager featuring flat text file organization and GnuPG encryption.
 ,,openssh,Premier connectivity tool for remote login with the SSH protocol.
 ,,openssl-1.0,The Open Source toolkit for Secure Sockets Layer and Transport Layer Security.
