@@ -18,7 +18,7 @@ alias \
   update-grub="sudo grub-mkconfig -o /boot/grub/grub.cfg" \
   qr-send-file="qrcp " \
   qr-receive-file="qrcp receive" \
-  send-file="croc " \
+  send-file="portal send" \
   sxiv="nsxiv " \
   lg="lazygit " \
   lf="lfrun " \

@@ -1,10 +1,12 @@
 [user]
 	name = Ruslan
-	email = kros8925@gmail.com
 [pull]
 	rebase = true
 [rebase]
 	autoStash = true
+
+[url "git@github.com:"]
+	insteadOf = https://github.com/
 
 ; https://github.com/dandavison/delta
 [core]
@@ -24,5 +26,3 @@
 [diff]
     colorMoved = default
 
-[url "git@github.com:"]
-	insteadOf = https://github.com/
