@@ -4,7 +4,7 @@ local servers = {
 	bashls = {},
 	lua_ls = {},
 	pyright = {},
-	tsserver = {},
+	ts_ls = {},
 	solargraph = {},
 	rust_analyzer = {
 		cmd = {
@@ -30,42 +30,7 @@ local servers = {
 		},
 	},
 	gopls = {},
+	clangd = {}
 }
-
--- CONFIGURE RUST_ANALYZER SERVER.
--- READ IT WHEN YOU NEED IT.
-
--- local rt_status_ok, rt = pcall(require, "rust-tools")
--- if not rt_status_ok then
--- 	print("no rust-tools")
--- 	return
--- end
---
--- local rust_opts = {
--- 	tools = {
--- 		autoSetHints = false,
--- 		hover_actions = { border = false },
--- 		cache = true,
--- 	},
--- 	server = {
--- 		on_attach = on_attach,
--- 		capabilities = capabilities,
--- 		cmd = {
--- 			"rustup",
--- 			"run",
--- 			"stable",
--- 			"rust-analyzer",
--- 		},
--- 		settings = {
--- 			["rust-analyzer"] = {
--- 				diagnostics = {
--- 					experimental = true,
--- 				},
--- 			},
--- 		},
--- 	},
--- }
---
--- rt.setup(rust_opts)
 
 return servers
