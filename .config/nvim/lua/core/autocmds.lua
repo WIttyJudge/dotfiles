@@ -1,6 +1,5 @@
 local utils = require("internal.utils")
 
-local cmd = vim.cmd
 local autocmd = vim.api.nvim_create_autocmd
 
 --  +----------------------------------------------------------+
@@ -10,7 +9,7 @@ local autocmd = vim.api.nvim_create_autocmd
 local general_settings = vim.api.nvim_create_augroup("_general_settings", { clear = true })
 
 autocmd("BufReadPost", {
-  group = misc_augroup,
+  group = general_settings,
   pattern = "*",
   command = 'silent! normal! g`"zv',
   desc = "Restore cursor to where it was when the file was closed",
@@ -39,12 +38,6 @@ autocmd("BufEnter", {
   end,
   group = general_settings,
   desc = "Don't auto commenting new lines",
-})
-
-autocmd({ "FocusGained", "TermClose", "TermLeave" }, {
-  group = general_settings,
-  command = "checktime",
-  desc = "Check if we need to reload the file when it changed",
 })
 
 --  +----------------------------------------------------------+

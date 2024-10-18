@@ -11,6 +11,7 @@ opt.showmode = false
 
 opt.clipboard = "unnamedplus"
 opt.cursorline = true
+opt.cursorlineopt = "number"
 
 -- Indenting
 opt.expandtab = true
@@ -32,21 +33,19 @@ opt.ruler = false
 
 -- ui
 opt.pumheight = 10
-opt.splitkeep = "screen"
-opt.shortmess = "filnxtToOFWIcC"
 opt.scrolloff = 999
 opt.sidescrolloff = 8
 opt.showtabline = 2
+-- Preview substitutions live, as you type 
+opt.inccommand = "split"
 -- opt.colorcolumn = "79"
 
 opt.signcolumn = "yes"
 opt.splitbelow = true
 opt.splitright = true
-opt.termguicolors = true
+-- opt.termguicolors = true
 opt.timeoutlen = 300
--- interval for writing swap file to disk, also used by gitsigns
 opt.updatetime = 250
--- opt.ttimeoutlen = 10
 
 -- Enable integrated undo.
 opt.undofile = true
@@ -56,3 +55,6 @@ opt.undodir = vim.fn.stdpath("cache") .. "/undo"
 opt.swapfile = false
 opt.backup = false
 opt.writebackup = false
+
+-- disable nvim intro
+opt.shortmess:append "sI"

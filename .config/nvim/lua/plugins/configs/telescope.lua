@@ -39,7 +39,11 @@ local config = {
 					return math.floor(cols * 0.6)
 				end,
 			},
-			vertical = { width = 0.90, height = 0.90, preview_height = 0.7 },
+			vertical = {
+				width = 0.90,
+				height = 0.90,
+				preview_height = 0.7,
+			},
 		},
 
 		-- Don't pass to normal mode with ESC, problem with telescope-project
@@ -64,26 +68,25 @@ local config = {
 			hidden = true,
 		},
 	},
+
+  extensions = {
+    smart_open = {
+      match_algorithm = "fzf",
+    },
+  },
 }
 
 telescope.setup(config)
 
 -- https://github.com/nvim-telescope/telescope-fzf-native.nvim
 -- https://github.com/princejoogie/dir-telescope.nvim
+-- https://github.com/danielfalk/smart-open.nvim
 telescope.load_extension("fzf")
 telescope.load_extension("dir")
+telescope.load_extension("smart_open")
 
 -- CUSTOM FUNCTIONS
 local M = {}
-
-function M.grep_prompt()
-	local opts = {
-		path_diplay = { "shorten" },
-		search = vim.fn.input("Grep String |> "),
-	}
-
-	builtin.grep_string(opts)
-end
 
 -- LSP
 function M.lsp_code_actions()

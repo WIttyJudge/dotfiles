@@ -7,6 +7,7 @@ local config = {
 		"query",
 		"bash",
 		"html",
+		"http",
 		"css",
 		"cpp",
 		"c",
@@ -98,6 +99,7 @@ local config = {
 		},
 	},
 
+	-- windwp/nvim-ts-autotag
 	autopairs = {
 		enable = true,
 	},

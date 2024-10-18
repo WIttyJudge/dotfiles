@@ -55,7 +55,7 @@ options.buttons = {
 	type = "group",
 	val = {
 		button("o", icons.ui.History .. " Recent files", ":Telescope oldfiles <CR>"),
-		button("f", icons.ui.Search .. " Find file", ":Telescope find_files <CR>"),
+		button("f", icons.ui.Search .. " Find file", ":Telescope smart_open <CR>"),
 		button("w", icons.ui.List .. " Find text", ":Telescope live_grep <CR>"),
 		-- button("s", icons.ui.SignIn .. " Find Session", ":Telescope sessions save_current=false <CR>"),
 		button("c", icons.ui.Gear .. " Config", ":e ~/.config/nvim/init.lua <CR>"),

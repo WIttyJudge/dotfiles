@@ -5,12 +5,23 @@ local luasnip = require("luasnip")
 
 vim.o.completeopt = "menu,menuone,noselect"
 
-local has_words_before = function()
-	local line, col = table.unpack(vim.api.nvim_win_get_cursor(0))
-	return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match '%s' == nil
-end
-
 local config = {
+	enabled = function()
+		-- disable completion in comments
+		local context = require 'cmp.config.context'
+
+		-- disable in telescope prompt
+		 buftype = vim.api.nvim_buf_get_option(0, "buftype")
+		 if buftype == "prompt" then return false end
+
+		-- keep command mode completion enabled when cursor is in a comment
+		if vim.api.nvim_get_mode().mode == 'c' then
+			return true
+		else
+			return not context.in_treesitter_capture("comment")
+				and not context.in_syntax_group("Comment")
+		end
+	end,
 	snippet = {
 		expand = function(args)
 			luasnip.lsp_expand(args.body)
@@ -19,11 +30,8 @@ local config = {
 	window = {
 		completion = cmp.config.window.bordered(),
 		documentation = cmp.config.window.bordered(),
-		-- documentation = {
-		--   border = "rounded",
-		-- },
 	},
-	mapping = cmp.mapping.preset.insert({
+	mapping = {
 		["<C-d>"] = cmp.mapping.scroll_docs(4),
 		["<C-u>"] = cmp.mapping.scroll_docs(-4),
 		["<C-o>"] = cmp.mapping.complete(),
@@ -37,31 +45,17 @@ local config = {
 			}),
 			{ "i", "c" }
 		),
-		["<C-space>"] = cmp.mapping({
-			i = cmp.mapping.complete(),
-			c = function(
-				_ --[[fallback]]
-			)
-				if cmp.visible() then
-					if not cmp.confirm({ select = true }) then
-						return
-					end
-				else
-					cmp.complete()
-				end
-			end,
-		}),
+
 		["<Tab>"] = cmp.mapping(function(fallback)
 			if cmp.visible() then
 				cmp.select_next_item()
 			elseif luasnip.expand_or_jumpable() then
 				luasnip.expand_or_jump()
-			elseif has_words_before() then
-				cmp.complete()
 			else
 				fallback()
 			end
 		end, { "i", "s" }),
+
 		["<S-Tab>"] = cmp.mapping(function(fallback)
 			if cmp.visible() then
 				cmp.select_prev_item()
@@ -71,7 +65,7 @@ local config = {
 				fallback()
 			end
 		end, { "i", "s" }),
-	}),
+	},
 	experimental = {
 		experimental = { ghost_text = true },
 	},

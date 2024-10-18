@@ -132,11 +132,18 @@ return {
 		config = true,
 	},
 
+	-- {
+	-- 	"zeioth/garbage-day.nvim",
+	-- 	dependencies = "neovim/nvim-lspconfig",
+	-- 	event = "VeryLazy",
+	-- 	opts = { }
+	-- },
+
+	-- HTTP REST-Client Interface
 	{
-		"zeioth/garbage-day.nvim",
-		dependencies = "neovim/nvim-lspconfig",
-		event = "VeryLazy",
-		opts = { }
+		"mistweaverco/kulala.nvim",
+		enabled = false,
+		config = true,
 	},
 
 	{
@@ -251,6 +258,7 @@ return {
 			"nvim-lua/plenary.nvim",
 			"princejoogie/dir-telescope.nvim",
 			{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
+			{ "danielfalk/smart-open.nvim", dependencies = { "kkharji/sqlite.lua" } }
 		},
 		config = function()
 			require("plugins.configs.telescope")
@@ -274,22 +282,35 @@ return {
 		},
 		config = function()
 			require("plugins.configs.neo-tree")
-		end,
-		init = function()
-			vim.g.neo_tree_remove_legacy_commands = true
-		end,
+		end
+	},
+
+	{
+		"stevearc/oil.nvim",
+		enabled = true,
+		dependencies = {
+			{ "nvim-tree/nvim-web-devicons" },
+		},
+		keys = {
+			{ "~", "<cmd>Oil<cr>", desc = "Oil parent directory" },
+		},
+		config = function()
+			require("plugins.configs.oil-nvim")
+		end
 	},
 
 	{
 		"numToStr/Comment.nvim",
-		opts = { mappings = false },
+		opts = {
+			mappings = false,
+		},
 	},
 
 	-- Find and replace
-	{
-		"nvim-pack/nvim-spectre",
-		cmd = { "SpectreOpen" },
-	},
+	-- {
+	-- 	"nvim-pack/nvim-spectre",
+	-- 	cmd = { "SpectreToggle", "SpectreCurrentWord", "SpectreCurrentFile" },
+	-- },
 
 	-- Statusline and bufferline
 	{
@@ -316,7 +337,11 @@ return {
 		dependencies = {
 			"neovim/nvim-lspconfig",
 		},
-		opts = { separator = " ", highlight = true, depth_limit = 7 },
+		opts = {
+			separator = " ",
+			highlight = true,
+			depth_limit = 7,
+		},
 	},
 
   -- better diffing
@@ -357,9 +382,19 @@ return {
 	},
 
 	-- Markdown
+	-- {
+	-- 	"ellisonleao/glow.nvim",
+	-- 	cmd = { "Glow" },
+	-- 	config = true,
+	-- },
+
 	{
-		"ellisonleao/glow.nvim",
-		cmd = { "Glow" },
+		"OXY2DEV/markview.nvim",
+		dependencies = {
+			"nvim-treesitter/nvim-treesitter",
+			"nvim-tree/nvim-web-devicons"
+		},
+		ft = { "markdown", },
 		config = true,
 	},
 
@@ -372,6 +407,21 @@ return {
 		},
 	},
 
+  {
+    'nguyenvukhang/nvim-toggler',
+		opts = {
+			remove_default_keybinds = false,
+			remove_default_inverses = false,
+			inverses = {
+				['true'] = 'false',
+				['!='] = '==',
+			},
+		},
+    keys = {
+			{ "<leader>i", desc = "Toggle text inverter" },
+    }
+  },
+
 	-- Notes taking
 
 	{
@@ -381,20 +431,15 @@ return {
 		end,
 	},
 
-	-- Small and very helpful plugins
-	{
-		"lambdalisue/suda.vim",
-		cmd = { "SudaRead", "SudaWrite" },
-	},
+  {
+    "chrisgrieser/nvim-spider",
+    lazy = true,
+  },
 
-	{
-		"chrisgrieser/nvim-spider",
-	},
-
-	{
-		"johmsalas/text-case.nvim",
-		config = true,
-	},
+	-- {
+	-- 	"johmsalas/text-case.nvim",
+	-- 	config = true,
+	-- },
 
 	{
 		"LunarVim/bigfile.nvim",
@@ -410,13 +455,18 @@ return {
 
 	{
 		"max397574/better-escape.nvim",
-		opts = {
-			mapping = { "jk", "kj" },
-		},
+		config = true
 	},
+
+  {
+    "tzachar/highlight-undo.nvim",
+		event = "BufEnter",
+		config = true,
+  },
 
 	{
 		"nacro90/numb.nvim",
+		event = { "CmdlineEnter" },
 		config = true,
 	},
 
@@ -425,7 +475,9 @@ return {
 		"folke/todo-comments.nvim",
 		cmd = { "TodoTrouble", "TodoTelescope" },
 		event = { "BufReadPost", "BufNewFile" },
-		opts = { signs = false },
+		opts = {
+			signs = false,
+		},
 	},
 
 	{
@@ -455,7 +507,10 @@ return {
 
 	-- {
 	--   "nvim-focus/focus.nvim",
-	--   opts = { enabled = true, signcolumn = false },
+	--   opts = {
+	-- 		enabled = true,
+	-- 		signcolumn = false,
+	-- 	},
 	-- },
 
 	-- Database
@@ -465,7 +520,14 @@ return {
 		cmd = { "DBUI" },
 		dependencies = {
 			"tpope/vim-dadbod",
-			{ "kristijanhusak/vim-dadbod-completion", ft = { "sql", "mysql", "plsql" } },
+			{
+				"kristijanhusak/vim-dadbod-completion",
+				ft = {
+					"sql",
+					"mysql",
+					"plsql",
+				},
+			},
 		},
 		init = function()
 			require("plugins.configs.vim-dadbod-ui")

@@ -121,18 +121,6 @@ map("n", "i", function()
 	end
 end, { expr = true, desc = "properly indent on empty line when insert" })
 
--- Tabs control
--- map("n", "<Leader>tl", ":bnext<CR>", { desc = "tab right" })
--- map("n", "<Leader>th", ":bprevious<CR>", { desc = "tab left" })
-
--- Replace under a cursor
--- map("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
-
--- Open terminal
--- nmap <Leader>tt :vnew term://zsh <CR>
--- map("n", "<Leader>tt", ":split term://zsh | resize 20<CR> | a<CR>")
--- tmap <Leader>ot <C-\><C-n>:Ttoggle<CR>
-
 --  +----------------------------------------------------------+
 --  |                     Plugins Mappings                     |
 --  +----------------------------------------------------------+
@@ -165,8 +153,12 @@ map("n", "<C-b>", "<Cmd>Neotree toggle<CR>", { desc = "toggle nvimtree" })
 map("n", "<Leader>hf", "<Cmd>Neotree reveal<CR>", { desc = "toggle nvimtree" })
 
 -- telescope.nvim
-map("n", "<Leader>ff", function()
-	require("telescope.builtin").find_files()
+-- map("n", "<Leader>ff", function()
+-- 	require("telescope.builtin").find_files()
+-- end, { desc = "Find files" })
+
+map("n", "<leader>ff", function ()
+  require("telescope").extensions.smart_open.smart_open()
 end, { desc = "Find files" })
 
 map("n", "<Leader>fo", function()
@@ -267,10 +259,10 @@ map("n", "<Leader>dO", function()
 end, { desc = "Step Out" })
 
 -- text-case.nvim
-map("n", "<Leader>gas", function()
-	require("textcase").current_word("to_snake_case")
-end, { desc = "To Snake case" })
-
-map("n", "<Leader>gac", function()
-	require("textcase").current_word("to_camel_case")
-end, { desc = "To Camel case" })
+-- map("n", "<Leader>gas", function()
+-- 	require("textcase").current_word("to_snake_case")
+-- end, { desc = "To Snake case" })
+--
+-- map("n", "<Leader>gac", function()
+-- 	require("textcase").current_word("to_camel_case")
+-- end, { desc = "To Camel case" })

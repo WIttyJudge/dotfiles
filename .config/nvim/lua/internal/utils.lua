@@ -16,24 +16,9 @@ function M.map(mode, keys, command, opts)
 	vim.keymap.set(mode, keys, command, opts)
 end
 
--- Delete keymap
-function M.unmap(mode, lhs)
-	return vim.api.nvim_del_keymap(mode, lhs)
-end
-
 -- Get home dir ($HOME)
 function M.get_homedir()
 	return os.getenv("HOME")
-end
-
-local diagnostics_enabled = true
-function M.toggle_diagnostics()
-	diagnostics_enabled = not diagnostics_enabled
-	if diagnostics_enabled then
-		vim.diagnostic.enable()
-	else
-		vim.diagnostic.disable()
-	end
 end
 
 return M
