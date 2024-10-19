@@ -125,102 +125,230 @@ end, { expr = true, desc = "properly indent on empty line when insert" })
 --  |                     Plugins Mappings                     |
 --  +----------------------------------------------------------+
 
--- Comment.nvim
-map("n", "<Leader>/", function()
-	require("Comment.api").toggle.linewise.current()
-end, { desc = "toggle comment" })
-map(
-	"v",
-	"<Leader>/",
-	"<ESC><Cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<CR>",
-	{ desc = "toggle comment" }
-)
+local plugins_mappings = {
+	-- chrisgrieser/nvim-spider
+	nvim_spider = {
+		{
+			"w",
+			"<Cmd>lua require('spider').motion('w')<CR>",
+			mode = { "n", "o", "x" },
+			desc = "Spider-w",
+		},
+		{
+			"e",
+			"<Cmd>lua require('spider').motion('e')<CR>",
+			mode = { "n", "o", "x" },
+			desc = "Spider-e",
+		},
+		{
+			"b",
+			"<Cmd>lua require('spider').motion('b')<CR>",
+			mode = { "n", "o", "x" },
+			desc = "Spider-b",
+		},
+	},
+	-- numToStr/Comment.nvim
+	comment_nvim = {
+		{
+			"<Leader>/",
+			function ()require("Comment.api").toggle.linewise.current() end,
+			mode = "n",
+			desc = "Toggle comment"
+		},
+		{
+			"<Leader>/",
+			"<ESC><Cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<CR>",
+			mode = "v",
+			desc = "Toggle comment",
+		}
+	},
+	-- kevinhwang91/nvim-hlslens
+	nvim_hlslens = {
+		{
+			"n",
+			"<Cmd>execute('normal! ' . v:count1 . 'nzz')<CR><Cmd>lua require('hlslens').start()<CR>",
+		},
+		{
+			"N",
+			"<Cmd>execute('normal! ' . v:count1 . 'Nzz')<CR><Cmd>lua require('hlslens').start()<CR>",
+		},
+		{
+			"*",
+			"*``<Cmd>lua require('hlslens').start()<CR>",
+		},
+		{
+			"#",
+			"#<Cmd>lua require('hlslens').start()<CR>",
+		},
+		{
+			"g*",
+			"g*<Cmd>lua require('hlslens').start()<CR>"
+		},
+		{
+			"g#",
+			"g#<Cmd>lua require('hlslens').start()<CR>"
+		},
+	},
+	-- nvim-neo-tree/neo-tree.nvim
+	neo_tree = {
+		{
+			"<C-b>",
+			"<Cmd>Neotree toggle<CR>",
+			desc = "Toggle NvimTree",
+		},
+		{
+			"<Leader>hf",
+			"<Cmd>Neotree reveal<CR>",
+			desc = "Find file inside tree",
+		},
+	},
+	-- sindrets/diffview.nvim
+	diffview = {
+		{
+			"<Leader>gc",
+			"<Cmd>DiffviewFileHistory<CR>",
+			desc = "Open diff view file history",
+		},
+	},
+	-- Wansmer/treesj
+	treesj = {
+		{
+			"gS",
+			"<Cmd>TSJSplit<CR>",
+			desc = "Treesj split line"
+		},
+		{
+			"gJ",
+			"<Cmd>TSJJoin<CR>",
+			desc = "Treesj join line"
+		},
+	},
+	-- phaazon/hop.nvim
+	hop = {
+		"f",
+		"<Cmd>HopChar2<CR>"
+	},
+	-- nvim-telescope/telescope.nvim
+	telescope = {
+		-- {
+		-- 	"<Leader>ff",
+		-- 	function () require("telescope.builtin").find_files() end,
+		-- 	desc = "Find files"
+		-- },
+		{
+			"<Leader>ff",
+			function () require("telescope").extensions.smart_open.smart_open() end,
+			desc = "Find files"
+		},
+		{
+			"<Leader>fo",
+			function () require("telescope.builtin").oldfiles() end,
+			desc = "Find oldfiles"
+		},
+		{
+			"<Leader>fW",
+			function () require("telescope.builtin").live_grep() end,
+			desc = "Live grep"
+		},
+		{
+			"<Leader>fc",
+			function () require("telescope.builtin").grep_string() end,
+			desc = "Find for word under cursor"
+		},
+		{
+			"<Leader>fm",
+			function () require("telescope.builtin").man_pages() end,
+			desc = "Find man"
+		},
+		{
+			"<Leader>fh",
+			function ()
+				require("telescope.builtin").help_tags()
+			end,
+			desc = "FInd neovim help"
+		},
+	},
+}
 
 -- nvim-hlslens
-map("n", "n", "<Cmd>execute('normal! ' . v:count1 . 'nzz')<CR><Cmd>lua require('hlslens').start()<CR>")
-map("n", "N", "<Cmd>execute('normal! ' . v:count1 . 'Nzz')<CR><Cmd>lua require('hlslens').start()<CR>")
-map("n", "*", "*``<Cmd>lua require('hlslens').start()<CR>", { silent = false })
-map("n", "#", "#<Cmd>lua require('hlslens').start()<CR>", { silent = false })
-map("n", "g*", "g*<Cmd>lua require('hlslens').start()<CR>", { silent = false })
-map("n", "g#", "g#<Cmd>lua require('hlslens').start()<CR>", { silent = false })
+-- map("n", "n", "<Cmd>execute('normal! ' . v:count1 . 'nzz')<CR><Cmd>lua require('hlslens').start()<CR>")
+-- map("n", "N", "<Cmd>execute('normal! ' . v:count1 . 'Nzz')<CR><Cmd>lua require('hlslens').start()<CR>")
+-- map("n", "*", "*``<Cmd>lua require('hlslens').start()<CR>", { silent = false })
+-- map("n", "#", "#<Cmd>lua require('hlslens').start()<CR>", { silent = false })
+-- map("n", "g*", "g*<Cmd>lua require('hlslens').start()<CR>", { silent = false })
+-- map("n", "g#", "g#<Cmd>lua require('hlslens').start()<CR>", { silent = false })
 
 -- nvim-tree.lua
 -- map("n", "<C-b>", ":NvimTreeToggle<CR>", { desc = "toggle nvimtree" })
 -- map("n", "<Leader>hf", ":NvimTreeFindFile<CR>", { desc = "find file nvimtree" })
 
 -- neo-tree.nvim
-map("n", "<C-b>", "<Cmd>Neotree toggle<CR>", { desc = "toggle nvimtree" })
-map("n", "<Leader>hf", "<Cmd>Neotree reveal<CR>", { desc = "toggle nvimtree" })
+-- map("n", "<C-b>", "<Cmd>Neotree toggle<CR>", { desc = "toggle nvimtree" })
+-- map("n", "<Leader>hf", "<Cmd>Neotree reveal<CR>", { desc = "find file inside tree" })
 
 -- telescope.nvim
 -- map("n", "<Leader>ff", function()
 -- 	require("telescope.builtin").find_files()
 -- end, { desc = "Find files" })
 
-map("n", "<leader>ff", function ()
-  require("telescope").extensions.smart_open.smart_open()
-end, { desc = "Find files" })
+-- map("n", "<Leader>ff", function ()
+--   require("telescope").extensions.smart_open.smart_open()
+-- end, { desc = "Find files" })
+--
+-- map("n", "<Leader>fo", function()
+-- 	require("telescope.builtin").oldfiles()
+-- end, { desc = "Find oldfiles" })
+--
+-- map("n", "<Leader>fW", function()
+-- 	require("telescope.builtin").live_grep()
+-- end, { desc = "Live grep" })
+--
+-- map("n", "<Leader>fc", function()
+-- 	require("telescope.builtin").grep_string()
+-- end, { desc = "Find for word under cursor" })
+--
+-- map("n", "<Leader>fm", function()
+-- 	require("telescope.builtin").man_pages()
+-- end, { desc = "Find man" })
+--
+-- map("n", "<Leader>fh", function()
+-- 	require("telescope.builtin").help_tags()
+-- end)
 
-map("n", "<Leader>fo", function()
-	require("telescope.builtin").oldfiles()
-end, { desc = "Find oldfiles" })
-
-map("n", "<Leader>fW", function()
-	require("telescope.builtin").live_grep()
-end, { desc = "Live grep" })
-
-map("n", "<Leader>fc", function()
-	require("telescope.builtin").grep_string()
-end, { desc = "Find for word under cursor" })
-
-map("n", "<Leader>fm", function()
-	require("telescope.builtin").man_pages()
-end, { desc = "Find man" })
-
-map("n", "<Leader>fh", function()
-	require("telescope.builtin").help_tags()
-end)
-
--- map("n", "<leader>ca", function()
+-- map("n", "<Leader>ca", function()
 --   require("plugins.configs.telescope").lsp_code_actions()
 -- end)
 
 -- diffview.nvim
-map({ "n", "v" }, "<Leader>gc", ":DiffviewFileHistory<CR>")
+-- map({ "n", "v" }, "<Leader>gc", "<Cmd>DiffviewFileHistory<CR>")
 
 -- treesj
-map("n", "gS", ":TSJSplit<CR>")
-map("n", "gJ", ":TSJJoin<CR>")
+-- map("n", "gS", ":TSJSplit<CR>")
+-- map("n", "gJ", ":TSJJoin<CR>")
 
 -- hop.nvim
-map("n", "f", "<Cmd>HopChar2<CR>")
-
--- nvim-spider
-map({ "n", "o", "x" }, "w", "<Cmd>lua require('spider').motion('w')<CR>", { desc = "Spider-w" })
-map({ "n", "o", "x" }, "e", "<Cmd>lua require('spider').motion('e')<CR>", { desc = "Spider-e" })
-map({ "n", "o", "x" }, "b", "<Cmd>lua require('spider').motion('b')<CR>", { desc = "Spider-b" })
-map({ "n", "o", "x" }, "ge", "<Cmd>lua require('spider').motion('ge')<CR>", { desc = "Spider-ge" })
+-- map("n", "f", "<Cmd>HopChar2<CR>")
 
 -- nvim-dap
-map("n", "<Leader>db", function()
-	require("dap").toggle_breakpoint()
-end, { desc = "Toggle Breakpoint" })
-
-map("n", "<Leader>dB", function()
-	require("dap").clear_breakpoints()
-end, { desc = "Clear Breakpoint" })
-
-map("n", "<Leader>dc", function()
-	require("dap").continue()
-end, { desc = "Start / Continue" })
-
-map("n", "<Leader>dq", function()
-	require("dap").close()
-end, { desc = "Close session" })
-
-map("n", "<Leader>dQ", function()
-	require("dap").terminate()
-end, { desc = "Terminate session" })
+-- map("n", "<Leader>db", function()
+-- 	require("dap").toggle_breakpoint()
+-- end, { desc = "Toggle Breakpoint" })
+--
+-- map("n", "<Leader>dB", function()
+-- 	require("dap").clear_breakpoints()
+-- end, { desc = "Clear Breakpoint" })
+--
+-- map("n", "<Leader>dc", function()
+-- 	require("dap").continue()
+-- end, { desc = "Start / Continue" })
+--
+-- map("n", "<Leader>dq", function()
+-- 	require("dap").close()
+-- end, { desc = "Close session" })
+--
+-- map("n", "<Leader>dQ", function()
+-- 	require("dap").terminate()
+-- end, { desc = "Terminate session" })
 
 -- map("n", "<Leader>dp", function()
 --   require("dap").pause()
@@ -230,33 +358,33 @@ end, { desc = "Terminate session" })
 --   require("dap").restart_frame()
 -- end, { desc = "Restart Frame" })
 
-map("n", "<Leader>dR", function()
-	require("dap").repl.toggle()
-end, { desc = "Toggle REPL" })
-
-map("n", "<Leader>ds", function()
-	require("dap").run_to_cursor()
-end, { desc = "Run To Cursor" })
-
-map("n", "<Leader>dC", function()
-	vim.ui.input({ prompt = "Condition: " }, function(condition)
-		if condition then
-			require("dap").set_breakpoint(condition)
-		end
-	end)
-end, { desc = "Conditional Breakpoint" })
-
-map("n", "<Leader>di", function()
-	require("dap").step_into()
-end, { desc = "Step Into" })
-
-map("n", "<Leader>do", function()
-	require("dap").step_over()
-end, { desc = "Step Over" })
-
-map("n", "<Leader>dO", function()
-	require("dap").step_out()
-end, { desc = "Step Out" })
+-- map("n", "<Leader>dR", function()
+-- 	require("dap").repl.toggle()
+-- end, { desc = "Toggle REPL" })
+--
+-- map("n", "<Leader>ds", function()
+-- 	require("dap").run_to_cursor()
+-- end, { desc = "Run To Cursor" })
+--
+-- map("n", "<Leader>dC", function()
+-- 	vim.ui.input({ prompt = "Condition: " }, function(condition)
+-- 		if condition then
+-- 			require("dap").set_breakpoint(condition)
+-- 		end
+-- 	end)
+-- end, { desc = "Conditional Breakpoint" })
+--
+-- map("n", "<Leader>di", function()
+-- 	require("dap").step_into()
+-- end, { desc = "Step Into" })
+--
+-- map("n", "<Leader>do", function()
+-- 	require("dap").step_over()
+-- end, { desc = "Step Over" })
+--
+-- map("n", "<Leader>dO", function()
+-- 	require("dap").step_out()
+-- end, { desc = "Step Out" })
 
 -- text-case.nvim
 -- map("n", "<Leader>gas", function()
@@ -266,3 +394,5 @@ end, { desc = "Step Out" })
 -- map("n", "<Leader>gac", function()
 -- 	require("textcase").current_word("to_camel_case")
 -- end, { desc = "To Camel case" })
+
+return plugins_mappings

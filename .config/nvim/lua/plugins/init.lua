@@ -88,7 +88,7 @@ return {
 			"nvim-tree/nvim-web-devicons",
 		},
 		keys = {
-			{ "<leader>a", "<cmd>AerialToggle<CR>", desc = "Toggle Aerial" },
+			{ "<Leader>a", "<cmd>AerialToggle<CR>", desc = "Toggle Aerial" },
 		},
 		config = true,
 	},
@@ -153,6 +153,7 @@ return {
 			nearest_only = true,
 			nearest_float_when = "always",
 		},
+		keys = require("core.mappings").nvim_hlslens
 	},
 
 	{
@@ -163,6 +164,7 @@ return {
 	{
 		"phaazon/hop.nvim",
 		config = true,
+		keys = require("core.mappings").hop
 	},
 
 	{
@@ -260,8 +262,10 @@ return {
 			{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
 			{ "danielfalk/smart-open.nvim", dependencies = { "kkharji/sqlite.lua" } }
 		},
+		keys = require("core.mappings").telescope,
+		cmd = { "Telescope" },
 		config = function()
-			require("plugins.configs.telescope")
+			require("plugins.configs.telescope_nvim")
 		end,
 	},
 
@@ -280,6 +284,7 @@ return {
 		dependencies = {
 			"MunifTanjim/nui.nvim",
 		},
+		keys = require("core.mappings").neo_tree,
 		config = function()
 			require("plugins.configs.neo-tree")
 		end
@@ -304,7 +309,7 @@ return {
 		opts = {
 			mappings = false,
 		},
-	},
+		keys = require("core.mappings").comment_nvim },
 
 	-- Find and replace
 	-- {
@@ -354,6 +359,7 @@ return {
 			"DiffviewFocusFiles",
 			"DiffviewFileHistory",
 		},
+		keys = require("core.mappings").diffview,
 		config = true
   },
 
@@ -400,8 +406,9 @@ return {
 
 	{
 		"Wansmer/treesj",
-		cmd = { "TSJSplit", "TSJJoin" },
 		dependencies = { "nvim-treesitter/nvim-treesitter" },
+		cmd = { "TSJSplit", "TSJJoin" },
+		keys = require("core.mappings").treesj,
 		opts = {
 			use_default_keymaps = false,
 		},
@@ -418,7 +425,7 @@ return {
 			},
 		},
     keys = {
-			{ "<leader>i", desc = "Toggle text inverter" },
+			{ "<Leader>i", desc = "Toggle text inverter" },
     }
   },
 
@@ -434,6 +441,7 @@ return {
   {
     "chrisgrieser/nvim-spider",
     lazy = true,
+		keys = require("core.mappings").nvim_spider
   },
 
 	-- {
@@ -490,7 +498,7 @@ return {
 
 	{
 		"folke/which-key.nvim",
-		keys = { "<leader>", '"', "'", "`" },
+		keys = { "<Leader>", '"', "'", "`" },
 		config = function()
 			require("plugins.configs.whichkey")
 		end,
