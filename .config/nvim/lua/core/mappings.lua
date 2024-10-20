@@ -225,8 +225,10 @@ local plugins_mappings = {
 	},
 	-- phaazon/hop.nvim
 	hop = {
-		"f",
-		"<Cmd>HopChar2<CR>"
+		{
+			"f",
+			"<Cmd>HopChar2<CR>"
+		},
 	},
 	-- nvim-telescope/telescope.nvim
 	telescope = {

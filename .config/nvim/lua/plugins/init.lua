@@ -23,6 +23,14 @@ return {
 		"hrsh7th/nvim-cmp",
 		event = { "InsertEnter", "CmdlineEnter" },
 		dependencies = {
+			-- autopairing of (){}[] etc
+			{
+				"windwp/nvim-autopairs",
+				config = function()
+					require("plugins.configs.nvim-autopairs")
+				end,
+			},
+
 			"hrsh7th/cmp-nvim-lsp",
 			"hrsh7th/cmp-buffer",
 			"hrsh7th/cmp-path",
@@ -91,14 +99,6 @@ return {
 			{ "<Leader>a", "<cmd>AerialToggle<CR>", desc = "Toggle Aerial" },
 		},
 		config = true,
-	},
-
-	{
-		"windwp/nvim-autopairs",
-		event = "InsertEnter",
-		config = function()
-			require("plugins.configs.nvim-autopairs")
-		end,
 	},
 
 	-- Treesitter
