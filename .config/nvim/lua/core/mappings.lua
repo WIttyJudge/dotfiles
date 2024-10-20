@@ -172,35 +172,15 @@ local plugins_mappings = {
 			"N",
 			"<Cmd>execute('normal! ' . v:count1 . 'Nzz')<CR><Cmd>lua require('hlslens').start()<CR>",
 		},
-		{
-			"*",
-			"*``<Cmd>lua require('hlslens').start()<CR>",
-		},
-		{
-			"#",
-			"#<Cmd>lua require('hlslens').start()<CR>",
-		},
-		{
-			"g*",
-			"g*<Cmd>lua require('hlslens').start()<CR>"
-		},
-		{
-			"g#",
-			"g#<Cmd>lua require('hlslens').start()<CR>"
-		},
+		{ "*", "*``<Cmd>lua require('hlslens').start()<CR>" },
+		{ "#", "#<Cmd>lua require('hlslens').start()<CR>", },
+		{ "g*", "g*<Cmd>lua require('hlslens').start()<CR>" },
+		{ "g#", "g#<Cmd>lua require('hlslens').start()<CR>" },
 	},
 	-- nvim-neo-tree/neo-tree.nvim
 	neo_tree = {
-		{
-			"<C-b>",
-			"<Cmd>Neotree toggle<CR>",
-			desc = "Toggle NvimTree",
-		},
-		{
-			"<Leader>hf",
-			"<Cmd>Neotree reveal<CR>",
-			desc = "Find file inside tree",
-		},
+		{ "<C-b>", "<Cmd>Neotree toggle<CR>", desc = "Toggle NvimTree" },
+		{ "<Leader>hf", "<Cmd>Neotree reveal<CR>", desc = "Find file inside tree" },
 	},
 	-- sindrets/diffview.nvim
 	diffview = {
@@ -212,23 +192,24 @@ local plugins_mappings = {
 	},
 	-- Wansmer/treesj
 	treesj = {
-		{
-			"gS",
-			"<Cmd>TSJSplit<CR>",
-			desc = "Treesj split line"
-		},
-		{
-			"gJ",
-			"<Cmd>TSJJoin<CR>",
-			desc = "Treesj join line"
-		},
+		{ "gS", "<Cmd>TSJSplit<CR>", desc = "Treesj split line" },
+		{ "gJ", "<Cmd>TSJJoin<CR>", desc = "Treesj join line" },
 	},
 	-- phaazon/hop.nvim
 	hop = {
-		{
-			"f",
-			"<Cmd>HopChar2<CR>"
-		},
+		{ "f", "<Cmd>HopChar2<CR>" },
+	},
+	-- stevearc/oil.nvim
+	oil = {
+		{ "~", "<Cmd>Oil<cr>", desc = "Oil parent directory" },
+	},
+	-- nguyenvukhang/nvim-toggler
+	toggler = {
+		{ "<Leader>i", desc = "Toggle text inverter" },
+	},
+	-- folke/which-key.nvim
+	which_key = {
+		"<Leader>", '"', "'", "`",
 	},
 	-- nvim-telescope/telescope.nvim
 	telescope = {

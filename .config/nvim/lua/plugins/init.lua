@@ -95,9 +95,6 @@ return {
 			"nvim-treesitter/nvim-treesitter",
 			"nvim-tree/nvim-web-devicons",
 		},
-		keys = {
-			{ "<Leader>a", "<cmd>AerialToggle<CR>", desc = "Toggle Aerial" },
-		},
 		config = true,
 	},
 
@@ -296,9 +293,7 @@ return {
 		dependencies = {
 			{ "nvim-tree/nvim-web-devicons" },
 		},
-		keys = {
-			{ "~", "<cmd>Oil<cr>", desc = "Oil parent directory" },
-		},
+		keys = require("core.mappings").oil,
 		config = function()
 			require("plugins.configs.oil-nvim")
 		end
@@ -415,7 +410,7 @@ return {
 	},
 
   {
-    'nguyenvukhang/nvim-toggler',
+    "nguyenvukhang/nvim-toggler",
 		opts = {
 			remove_default_keybinds = false,
 			remove_default_inverses = false,
@@ -424,9 +419,7 @@ return {
 				['!='] = '==',
 			},
 		},
-    keys = {
-			{ "<Leader>i", desc = "Toggle text inverter" },
-    }
+    keys = require("core.mappings").toggler
   },
 
 	-- Notes taking
@@ -498,7 +491,7 @@ return {
 
 	{
 		"folke/which-key.nvim",
-		keys = { "<Leader>", '"', "'", "`" },
+		keys = require("core.mappings").which_key,
 		config = function()
 			require("plugins.configs.whichkey")
 		end,
