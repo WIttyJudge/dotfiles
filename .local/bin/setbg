@@ -15,4 +15,4 @@ case "$(file --mime-type -b "$trueloc")" in
 	*) notify-send "Error" "Not a valid image." ; exit 1;;
 esac
 
-feh --bg-scale "$bgloc"
+# feh --bg-scale "$bgloc"

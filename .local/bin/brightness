@@ -11,11 +11,11 @@ send_notification() {
 
 case $1 in
   up) 
-    brightnessctl set 10%+ 
+    brightnessctl set 5%+ 
     send_notification up
     ;;
   down) 
-    brightnessctl set 10%- 
+    brightnessctl set 5%- 
     send_notification down
     ;;
   get) get_brightness ;;

@@ -1,0 +1,134 @@
+/* improt catppuccin mocha theme */
+@import "theme/catppuccin-mocha.css";
+
+/* Reset all styles */
+* {
+    border: none;
+    border-radius: 0;
+    min-height: 0;
+    margin: 0;
+    padding: 0;
+}
+
+/* The whole bar */
+#waybar {
+    font-family: "JetBrainsMono Nerd Font";
+    font-size: 16px;
+
+    color: @text;
+    background-color: shade(@base, 0.9);
+    border: 2px solid alpha(@crust, 0.3);
+}
+
+/* Each module */
+#workspaces,
+#window,
+#memory,
+#cpu,
+#temperature,
+#backlight,
+#pulseaudio,
+#battery,
+#network,
+#language,
+#clock,
+#tray {
+    /* opacity: 0.8; */
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-top: 3px;
+    margin-bottom: 3px;
+}
+
+tooltip {
+    background: @base;
+    border-width: 2px;
+    border-style: solid;
+    border-color: @crust;
+}
+
+/* Module styles */
+
+#temperature {
+    color: @sky;
+}
+
+#backlight {
+    color: @peach;
+}
+
+#tray {
+    margin-right: 10px;
+}
+
+#workspaces {
+    background: @base;
+    margin-left: 10px;
+    padding-right: 0px;
+    padding-left: 5px;
+}
+
+#window {
+    font-size: 13;
+    /* margin-left: 60px; */
+    /* margin-right: 60px; */
+}
+
+#clock {
+    color: @flamingo;
+    font-weight: bold;
+}
+
+#network {
+    color: @yellow;
+}
+
+#pulseaudio {
+    color: @maroon;
+}
+
+#pulseaudio.microphone {
+    /* color: @mauve; */
+}
+
+#battery {
+    color: @green;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+#battery.warning.discharging {
+    animation-name: blink-warning;
+    animation-duration: 3s;
+}
+
+#battery.critical.discharging {
+    animation-name: blink-critical;
+    animation-duration: 2s;
+}
+
+#workspaces button {
+    padding: 5px;
+    color: @surface0;
+    margin-right: 5px;
+}
+
+#workspaces button.active {
+    color: @subtext0;
+}
+
+#workspaces button.focused {
+    color: @subtext0;
+    background: @maroon;
+}
+
+#workspaces button.urgent {
+    color: @crust;
+    background: @green;
+}
+
+#workspaces button:hover {
+    background: @crust;
+    color: @text;
+}
