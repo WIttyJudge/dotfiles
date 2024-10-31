@@ -25,10 +25,12 @@
 #window,
 #memory,
 #cpu,
+#disk,
 #temperature,
+#custom-pacman_updates,
 #backlight,
 #pulseaudio,
-#battery,
+#battery.bat0,
 #network,
 #language,
 #clock,
@@ -48,65 +50,6 @@ tooltip {
 }
 
 /* Module styles */
-
-#temperature {
-    color: @sky;
-}
-
-#backlight {
-    color: @peach;
-}
-
-#tray {
-    margin-right: 10px;
-}
-
-#workspaces {
-    background: @base;
-    margin-left: 10px;
-    padding-right: 0px;
-    padding-left: 5px;
-}
-
-#window {
-    font-size: 13;
-    /* margin-left: 60px; */
-    /* margin-right: 60px; */
-}
-
-#clock {
-    color: @flamingo;
-    font-weight: bold;
-}
-
-#network {
-    color: @yellow;
-}
-
-#pulseaudio {
-    color: @maroon;
-}
-
-#pulseaudio.microphone {
-    /* color: @mauve; */
-}
-
-#battery {
-    color: @green;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
-}
-
-#battery.warning.discharging {
-    animation-name: blink-warning;
-    animation-duration: 3s;
-}
-
-#battery.critical.discharging {
-    animation-name: blink-critical;
-    animation-duration: 2s;
-}
 
 #workspaces button {
     padding: 5px;
@@ -131,4 +74,80 @@ tooltip {
 #workspaces button:hover {
     background: @crust;
     color: @text;
+}
+
+#window {
+    font-size: 13;
+    /* margin-left: 60px; */
+    /* margin-right: 60px; */
+}
+
+/* #memory { */
+/* } */
+
+#disk {
+    /* color: @lavender; */
+}
+
+#temperature {
+    /* color: @sky; */
+}
+
+#custom-pacman_updates {
+    /* color: @mauve; */
+}
+
+#backlight {
+    /* color: @peach; */
+}
+
+#workspaces {
+    background: @base;
+    margin-left: 10px;
+    padding-right: 0px;
+    padding-left: 5px;
+}
+
+#clock {
+    /* color: @flamingo; */
+    font-weight: bold;
+}
+
+#network {
+    /* color: @yellow; */
+}
+
+#pulseaudio {
+    /* color: @maroon; */
+}
+
+#pulseaudio.microphone {
+    /* color: @mauve; */
+}
+
+#battery.bat0 {}
+
+#battery.bat1 {
+    margin-right: 10px;
+}
+
+#battery {
+    /* color: @green; */
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+#battery.warning.discharging {
+    animation-name: blink-warning;
+    animation-duration: 3s;
+}
+
+#battery.critical.discharging {
+    animation-name: blink-critical;
+    animation-duration: 2s;
+}
+
+#tray {
+    margin-right: 10px;
 }

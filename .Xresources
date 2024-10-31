@@ -9,7 +9,7 @@ Xft.rgba:	rgb
 *font: Fira Code:pixelsize=15
 ! *font: Hack:pixelsize=14
 
-! st.font: FiraCode Nerd Font:style=Medium:size=10:antialias=true
+! st.font: FiraCode Nerd Font:style=Medium:size=12:antialias=true
 st.font: JetBrainsMono NFM:style=Regular:size=12:antialias=true
 
 !! Transparency (0-1):
@@ -68,44 +68,3 @@ st.font: JetBrainsMono NFM:style=Regular:size=12:antialias=true
 *color14: #94E2D5
 *color7: #BAC2DE
 *color15: #A6ADC8
-
-
-!! URxvt Appearance
-URxvt.intensityStyles:	false
-URxvt.background:       [90]#1d2021
-URxvt.depth:		32
-URxvt.font: 	xft:Hack-Regular:pixelsize=18
-URxvt.scrollBar:	false
-/* URxvt.saveLines:	0 */
-
-/* Disable iso mode while pressing CTRL + SHIFT */
-URxvt.iso14755: false
-URxvt.iso14755_52: false
-
-/* URxvt Extensions */
-URxvt.perl-ext-common: default,matcher,resize-font,url-select,clipboard
-
-/* matcher */
-URxvt.url-launcher: /usr/bin/xdg-open
-URxvt.matcher.button: 1
-
-/* url-select */
-URxvt.keysym.M-u: perl:url-select:select_next
-URxvt.url-select.launcher: /usr/bin/xdg-open
-URxvt.url-select.underline: true
-
-/* resize-font */
-URxvt.resize-font.smaller: C-minus
-URxvt.resize-font.bigger: C-plus
-URxvt.resize-font:reset: c-equel
-
-/* clipboard */
-URxvt.clipboard.autocopy: true
-URxvt.keysym.C-c: perl:clipboard:copy
-URxvt.keysym.C-v: perl:clipboard:paste
-
-/* scrolling */
-URxvt*scrollBar: false
-URxvt*scrollBar_right: false
-URxvt.keysym.A-e: command:\033]721;3\007
-URxvt.keysym.A-y: command:\033]720;3\007

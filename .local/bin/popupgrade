@@ -3,10 +3,8 @@
 printf "Beginning upgrade.\\n"
 
 sudo pacman -Syu
-polybar-msg action "#pacman-packages.hook.0"
-
-printf "Upgrading tdrl..\\n"
-tldr --update
+# polybar-msg action "#pacman-packages.hook.0"
+pkill -SIGRTMIN+8 waybar
 
 printf "\\nUpgrade complete.\\nPress <Enter> to exit window.\\n\\n"
 read -r _

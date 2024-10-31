@@ -4,33 +4,33 @@
 {
   "layer": "top",
   "position": "top",
-  // If height property would be not present, it'd be calculated dynamically
   "height": 32,
-
   "modules-left": ["hyprland/workspaces", "hyprland/window"],
   "modules-right": [
     "memory",
     "cpu",
+    // "disk",
     "temperature",
+    "custom/pacman_updates",
     "backlight",
     "pulseaudio",
-    "battery",
+    "battery#bat0",
+    "battery#bat1",
     "network",
     // "hyprland/language",
     "clock",
     "tray",
   ],
 
-
-  "pulseaudio#microphone": {
-    "format": "{format_source}",
-    "format-source": " {volume}%",
-    "format-source-muted": " Muted",
-    "on-click": "pamixer --default-source -t",
-    "on-scroll-up": "pamixer --default-source -i 5",
-    "on-scroll-down": "pamixer --default-source -d 5",
-    "scroll-step": 5,
-  },
+  // "pulseaudio#microphone": {
+  //   "format": "{format_source}",
+  //   "format-source": " {volume}%",
+  //   "format-source-muted": " Muted",
+  //   "on-click": "pamixer --default-source -t",
+  //   "on-scroll-up": "pamixer --default-source -i 5",
+  //   "on-scroll-down": "pamixer --default-source -d 5",
+  //   "scroll-step": 5,
+  // },
 
   // "bluetooth": {
   //   "format": " {status}",
@@ -51,11 +51,13 @@
   },
 
   "memory": {
-    "format": " {}%",
+    "format": " {}%",
     "states": {
       "warning": 70,
       "critical": 90,
     },
+    "tooltip": true,
+    "tooltip-format": "{used:0.1f}GB/{total:0.1f}GB"
   },
 
   "cpu": {
@@ -63,12 +65,25 @@
     "format-icons": [""],
   },
 
+  "disk": {
+    "format": "{used} ({percentage_used}%)",
+    "unit": "GB",
+  },
+
   "temperature": {
     "hwmon-path": "/sys/class/hwmon/hwmon3/temp1_input",
     "critical-threshold": 80,
     "format": "{icon} {temperatureC}°C",
-    "format-icons": ["", "", ""],
+    "format-icons": ["", "", "", "", ""],
     "tooltip": false,
+  },
+
+  "custom/pacman_updates": {
+    "format": "{}",
+    "interval": 3600,
+		"exec": "sb-updates",
+    "on-click": "setsid -f $TERMINAL -e popupgrade",
+    "signal": 8,
   },
 
   "backlight": {
@@ -100,7 +115,8 @@
     "tooltip": false,
   },
 
-  "battery": {
+  "battery#bat0": {
+    "bat": "BAT0",
     "states": {
       "warning": 25,
       "critical": 15,
@@ -112,8 +128,12 @@
     "format-icons": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
   },
 
+  "battery#bat1": {
+    "bat": "BAT1"
+  },
+
   "network": {
-    "format-wifi": "  {essid}({signalStrength}%)",
+    "format-wifi": "  {essid} ({signalStrength}%)",
     "format-ethernet": "{ipaddr}/{cidr}",
     "format-disconnected": "⚠ Disconnected",
     "tooltip-format": "{essid} - {ifname} via {gwaddr}",
@@ -134,6 +154,6 @@
 
   "tray": {
     "icon-size": 22,
-    "spacing": 5,
+    "spacing": 10,
   },
 }

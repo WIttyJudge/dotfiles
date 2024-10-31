@@ -1,3 +1,4 @@
+[general]
 import = ["/home/wittyjudge/.config/alacritty/themes/catppuccin-mocha.toml"]
 working_directory = "None"
 

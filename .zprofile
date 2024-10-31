@@ -15,7 +15,7 @@ export PATH="$PATH:${$(find ~/.local/bin -type d -o -printf %p:)%%:}"
 # Default variables
 export EDITOR="nvim"
 export VISUAL=$EDITOR
-export TERMINAL="st"
+export TERMINAL="foot"
 export WM="dwm"
 export READER="zathura"
 export BROWSER="firefox"
@@ -88,11 +88,3 @@ export PATH=$HOME/openssl/bin:$PATH
 export LD_LIBRARY_PATH=$HOME/openssl/lib
 export LC_ALL="en_US.UTF-8"
 export LDFLAGS="-L /home/wittyjudge/openssl/lib -Wl,-rpath,/home/wittyjudge/openssl/lib"
-
-
-# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-# Load RVM into a shell session *as a function*
-# [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
-
-# asdf
-[[ -f "$HOME/.asdf/asdf.sh" ]] && source "$HOME/.asdf/asdf.sh"
