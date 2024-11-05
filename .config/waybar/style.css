@@ -51,6 +51,13 @@ tooltip {
 
 /* Module styles */
 
+#workspaces {
+    background: @base;
+    margin-left: 10px;
+    padding-right: 0px;
+    padding-left: 5px;
+}
+
 #workspaces button {
     padding: 5px;
     color: @surface0;
@@ -99,13 +106,6 @@ tooltip {
 
 #backlight {
     /* color: @peach; */
-}
-
-#workspaces {
-    background: @base;
-    margin-left: 10px;
-    padding-right: 0px;
-    padding-left: 5px;
 }
 
 #clock {

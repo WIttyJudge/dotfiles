@@ -16,3 +16,4 @@ case "$(file --mime-type -b "$trueloc")" in
 esac
 
 # feh --bg-scale "$bgloc"
+wbg "$bgloc"
