@@ -1,4 +1,3 @@
-set sandbox none
 set statusbar-h-padding 0
 set statusbar-v-padding 0
 set page-padding 1
@@ -14,3 +13,4 @@ map J zoom out
 map i recolor
 map p print
 map g goto top
+include catppuccin-mocha
