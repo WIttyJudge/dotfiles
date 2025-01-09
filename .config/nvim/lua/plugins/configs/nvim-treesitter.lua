@@ -28,6 +28,7 @@ local config = {
 		"toml",
 		"dockerfile",
 		"vim",
+		"sql",
 		-- "svelte",
 		-- "scss",
 		-- "vue",

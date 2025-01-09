@@ -5,6 +5,7 @@
   "layer": "top",
   "position": "top",
   "height": 32,
+  "reload_style_on_change": true,
   "modules-left": ["hyprland/workspaces", "hyprland/window"],
   "modules-right": [
     "memory",
@@ -80,7 +81,7 @@
 
   "custom/pacman_updates": {
     "format": "{}",
-    "interval": 3600,
+    "interval": 180,
 		"exec": "sb-updates",
     "on-click": "setsid -f $TERMINAL -e popupgrade",
     "signal": 8,

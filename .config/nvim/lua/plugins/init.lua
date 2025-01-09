@@ -208,7 +208,7 @@ return {
 		opts = {
 			formatters_by_ft = {
 				ruby = { "rubocop" },
-				go = { "goimports" },
+				go = { "goimports", "gofumpt"},
 				-- rust = { "rustfmt" },
 				lua = { "stylua" },
 				sh = { "shfmt" },
@@ -380,6 +380,7 @@ return {
 		},
 		config = true,
 		ft = { "go", "gomod" },
+		keys = require("core.mappings").go_nvim,
 		build = ':lua require("go.install").update_all_sync()',
 	},
 

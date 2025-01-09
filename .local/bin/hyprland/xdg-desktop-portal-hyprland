@@ -1,9 +1,20 @@
 #!/usr/bin/env bash
+
 sleep 1
 
+# kill all possible running xdg-desktop-portals
 killall -e xdg-desktop-portal-hyprland
-killall xdg-desktop-portal
+killall -e xdg-desktop-portal
+sleep 1
 
 /usr/lib/xdg-desktop-portal-hyprland &
 sleep 2
+
+# start xdg-desktop-portal-gtk
+if [ -f /usr/lib/xdg-desktop-portal-gtk ] ;then
+    /usr/lib/xdg-desktop-portal-gtk &
+    sleep 1
+fi
+
 /usr/lib/xdg-desktop-portal &
+sleep 1

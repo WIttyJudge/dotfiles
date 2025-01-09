@@ -23,6 +23,26 @@ autocmd({ "TextYankPost" }, {
   desc = "Highlight yanked text",
 })
 
+autocmd({ "FocusGained", "TermClose", "TermLeave" }, {
+  group = general_settings,
+  callback = function()
+    if vim.o.buftype ~= "nofile" then
+      vim.cmd("checktime")
+    end
+  end,
+  desc = "Check if we need to reload the file when it changed"
+})
+
+
+-- wrap and check for spell in text filetypes
+vim.api.nvim_create_autocmd("FileType", {
+  group = general_settings,
+  pattern = { "text", "plaintex", "typst", "gitcommit", "markdown" },
+  callback = function()
+    vim.opt_local.wrap = true
+    vim.opt_local.spell = true
+  end,
+})
 -- autocmd({ "InsertLeave", "TextChanged" }, {
 --     pattern = { "*" },
 --     command = "silent! wall",

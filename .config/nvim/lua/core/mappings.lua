@@ -190,6 +190,10 @@ local plugins_mappings = {
 			desc = "Open diff view file history",
 		},
 	},
+	go_nvim = {
+		{ "<Leader>rf", "<Cmd>GoTestFunc<CR>", desc = "Run function golang test" },
+		{ "<Leader>rs", "<Cmd>GoTestSubCase<CR>", desc = "Run sub case golang test" },
+	},
 	-- Wansmer/treesj
 	treesj = {
 		{ "gS", "<Cmd>TSJSplit<CR>", desc = "Treesj split line" },

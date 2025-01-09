@@ -15,11 +15,12 @@ menu() {
 3. Chillhop
 4. The Bootleg Boy
 5. Radio Spinner
+6. Lofi Hip Hop
 EOF
 }
 
 main() {
-	choice=$(menu | rofi -dmenu -theme theme/dmenu | cut -d. -f2 | sed 's/ //')
+	choice=$(menu | rofi -i -dmenu -theme theme/dmenu | cut -d. -f2 | sed 's/ //')
 
 	[[ -z $choice ]] && exit 0
 
@@ -29,6 +30,7 @@ main() {
 		"Chillhop") URL="http://stream.zeno.fm/fyn8eh3h5f8uv" ;;
 		"The Bootleg Boy") URL="http://stream.zeno.fm/0r0xa792kwzuv" ;;
 		"Radio Spinner") URL="https://live.radiospinner.com/lofi-hip-hop-64" ;;
+		"Lofi Hip Hop") URL="https://stream.zeno.fm/0r0xa792kwzuv";;
 	esac
 
 	send_notification "$choice"
