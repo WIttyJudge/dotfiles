@@ -41,6 +41,8 @@ local function on_attach(bufnr)
 end
 
 local config = {
+  sign_priority = 15,
+
 	on_attach = on_attach,
 }
 

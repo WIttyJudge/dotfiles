@@ -82,7 +82,7 @@ TRUE,,rofi-pass,Bash script to handle pass storages in a convenient way.
 ,,eza,Replacement for ls.
 ,,bat,Replacement for cat.
 ,,fzf,Fuzzy finder tool.
-,,croc,Easily and securely send things from one computer to another.
+,AUR,portal-bin,Quick and easy command-line file transfer utility from any computer to another.
 ,,udiskie,Removable disk automounter.
 ,AUR,udiskie-dmenu-git,manage removable devices via dmenu (or rofi).
 ,,trash-cli,Recycle bin interface.
@@ -131,4 +131,4 @@ TRUE,,light,Program to easily change brightness on backlight-controllers.
 ,,simple-scan,GTK document scanning application.
 ,,bspwm,Tiling window manager.
 ,,lxappearance-gtk3,GTK theme switcher.
-,,pcmanfm,Fast and lightweight GUI file manager.
+,,pcmanfm-gtk3,Fast and lightweight GUI file manager.

@@ -58,3 +58,6 @@ opt.writebackup = false
 
 -- disable nvim intro
 opt.shortmess:append "sI"
+
+-- enable spelling
+opt.spell = true

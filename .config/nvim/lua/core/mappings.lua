@@ -162,6 +162,14 @@ local plugins_mappings = {
 			desc = "Toggle comment",
 		}
 	},
+	kulala = {
+		{
+			"<Leader>hr",
+			function () require("kulala").run() end,
+			mode = "n",
+			desc = "Run HTTP query"
+		},
+	},
 	-- kevinhwang91/nvim-hlslens
 	nvim_hlslens = {
 		{

@@ -30,7 +30,8 @@ local servers = {
 		},
 	},
 	gopls = {},
-	clangd = {}
+	clangd = {},
+	dockerls = {}
 }
 
 return servers
