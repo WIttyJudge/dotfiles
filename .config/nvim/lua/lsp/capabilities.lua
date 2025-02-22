@@ -1,21 +1,22 @@
--- Default LSP server settigns
--- local M = vim.lsp.protocol.make_client_capabilities()
+local has_cmp, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
+local has_blink, blink = pcall(require, "blink.cmp")
 
--- local ok, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
--- if not ok then
--- 	vim.notify("Could not load nvim-cmp")
--- 	return
--- end
+local globalCapabilities = {
+  workspace = {
+    fileOperations = {
+      didRename = true,
+      willRename = true,
+    },
+  },
+}
 
--- M.workspace.didChangeWatchedFiles.dynamicRegistration = true
+local capabilities = vim.tbl_deep_extend(
+  "force",
+  {},
+  vim.lsp.protocol.make_client_capabilities(),
+  has_cmp and cmp_nvim_lsp.default_capabilities() or {},
+  has_blink and blink.get_lsp_capabilities() or {},
+  globalCapabilities or {}
+)
 
--- Add additional capabilities supported by nvim-cmp
-local M = require('blink.cmp').get_lsp_capabilities()
-
--- Enable LSP folddingRange capability
--- M.textDocument.foldingRange = {
--- 	dynamicRegistration = true,
--- 	lineFoldingOnly = true,
--- }
-
-return M
+return capabilities

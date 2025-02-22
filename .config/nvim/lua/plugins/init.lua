@@ -3,9 +3,13 @@ return {
   {
     "neovim/nvim-lspconfig",
     event = { "BufReadPre", "BufNewFile" },
-    init = function()
-      require("lsp.handlers").setup()
-    end,
+    dependencies = {
+      "mason.nvim",
+      { "williamboman/mason-lspconfig.nvim"},
+    },
+    config = function ()
+      require("plugins.configs.lspconfig")
+    end
   },
 
   {
@@ -13,10 +17,7 @@ return {
     dependencies = {
       "williamboman/mason-lspconfig.nvim",
     },
-
-    config = function()
-      require("plugins.configs.mason")
-    end,
+    build = ":MasonUpdate",
   },
 
   -- Autocompletion
@@ -44,6 +45,24 @@ return {
     config = function()
       require("plugins.configs.cmp")
     end,
+  },
+
+  -- auto pairs
+  {
+    "echasnovski/mini.pairs",
+    event = "VeryLazy",
+    opts = {
+      modes = { insert = true, command = true, terminal = false },
+      -- skip autopair when next character is one of these
+      skip_next = [=[[%w%%%'%[%"%.%`%$]]=],
+      -- skip autopair when the cursor is inside these treesitter nodes
+      skip_ts = { "string" },
+      -- skip autopair when next character is closing pair
+      -- and there are more closing pairs than opening pairs
+      skip_unbalanced = true,
+      -- better deal with markdown code blocks
+      markdown = true,
+    },
   },
 
   {
@@ -336,10 +355,12 @@ return {
   },
 
   -- Find and replace
-  -- {
-  -- 	"nvim-pack/nvim-spectre",
-  -- 	cmd = { "SpectreToggle", "SpectreCurrentWord", "SpectreCurrentFile" },
-  -- },
+  {
+    "MagicDuck/grug-far.nvim",
+    opts = { headerMaxWidth = 80 },
+    cmd = "GrugFar",
+    keys =   require("core.mappings").grub_fat
+  },
 
   -- Statusline and bufferline
   {
@@ -472,12 +493,12 @@ return {
   -- 	config = true,
   -- },
 
-  {
-    "LunarVim/bigfile.nvim",
-    config = function()
-      require("plugins.configs.bigfile")
-    end,
-  },
+  -- {
+  --   "LunarVim/bigfile.nvim",
+  --   config = function()
+  --     require("plugins.configs.bigfile")
+  --   end,
+  -- },
 
   {
     "sQVe/sort.nvim",
@@ -502,6 +523,16 @@ return {
   },
 
   -- I LOVE YOU FOLKE
+  {
+    "folke/snacks.nvim",
+    priority = 1000,
+    lazy = false,
+    opts = {
+      bigfile = { enabled = true },
+      quickfile = { enabled = true },
+    }
+  },
+
   {
     "folke/todo-comments.nvim",
     cmd = { "TodoTrouble", "TodoTelescope" },

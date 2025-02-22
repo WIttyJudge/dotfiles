@@ -1,5 +1,5 @@
 -- https://github.com/saghen/blink.cmp
--- Documentation site: https://cmp.saghen.dev/
+-- https://cmp.saghen.dev/
 
 local blink = require("blink.cmp")
 
@@ -21,6 +21,15 @@ local config = {
     -- maybe I'll add copilet later
     default = { "lsp", "path", "snippets", "buffer", "dadbod", "emoji", "dictionary" },
     providers = {
+      buffer = {
+        opts = {
+          get_bufnrs = function()
+            return vim.tbl_filter(function(bufnr)
+              return vim.bo[bufnr].buftype == ""
+            end, vim.api.nvim_list_bufs())
+          end,
+        },
+      },
       dadbod = { name = "Dadbod", module = "vim_dadbod_completion.blink" },
       emoji = {
         module = "blink-emoji",

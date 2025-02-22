@@ -16,19 +16,6 @@ end, { range = true })
 -- gitsigns.nvim
 cmd("GitBlameByLineToggle", "Gitsigns toggle_current_line_blame", { desc = "Toggle Git blame" })
 
--- nvim-spectre
--- cmd("SpectreToggle", function()
--- 	require("spectre").toggle()
--- end, { desc = "Toggle Spectre" })
---
--- cmd("SpectreCurrentWord", function()
--- 	require("spectre").open_visual()
--- end, { desc = "Search current word" })
---
--- cmd("SpectreCurrentFile", function()
--- 	require("spectre").open_file_search({select_word=true})
--- end, { desc = "Search on current file" })
-
 -- comment-box.nvim
 cmd("CommentBox", "CBlcbox10", { desc = "comment-box plugin" })
 

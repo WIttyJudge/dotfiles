@@ -13,6 +13,8 @@ local config = {
 		"c",
 		"go",
 		"gomod",
+		"gowork",
+		"gosum" ,
 		"ruby",
 		"graphql",
 		"java",
