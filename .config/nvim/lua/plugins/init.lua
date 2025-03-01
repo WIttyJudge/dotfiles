@@ -5,11 +5,11 @@ return {
     event = { "BufReadPre", "BufNewFile" },
     dependencies = {
       "mason.nvim",
-      { "williamboman/mason-lspconfig.nvim"},
+      { "williamboman/mason-lspconfig.nvim" },
     },
-    config = function ()
+    config = function()
       require("plugins.configs.lspconfig")
-    end
+    end,
   },
 
   {
@@ -72,10 +72,10 @@ return {
       "rafamadriz/friendly-snippets",
       "moyiz/blink-emoji.nvim",
       "Kaiser-Yang/blink-cmp-dictionary",
-      { 'L3MON4D3/LuaSnip', version = 'v2.*' },
+      { "L3MON4D3/LuaSnip", version = "v2.*" },
     },
     version = "*",
-    config = function ()
+    config = function()
       require("plugins.configs.blink-nvim")
     end,
     opts_extend = {
@@ -359,7 +359,7 @@ return {
     "MagicDuck/grug-far.nvim",
     opts = { headerMaxWidth = 80 },
     cmd = "GrugFar",
-    keys =   require("core.mappings").grub_fat
+    keys = require("core.mappings").grub_fat,
   },
 
   -- Statusline and bufferline
@@ -530,7 +530,7 @@ return {
     opts = {
       bigfile = { enabled = true },
       quickfile = { enabled = true },
-    }
+    },
   },
 
   {
@@ -579,9 +579,9 @@ return {
 
   {
     "kristijanhusak/vim-dadbod-ui",
-    cmd = { 'DBUI', 'DBUIToggle', 'DBUIAddConnection', 'DBUIFindBuffer' },
+    cmd = { "DBUI", "DBUIToggle", "DBUIAddConnection", "DBUIFindBuffer" },
     dependencies = {
-      { 'tpope/vim-dadbod', lazy = true },
+      { "tpope/vim-dadbod", lazy = true },
       {
         "kristijanhusak/vim-dadbod-completion",
         ft = {

@@ -4,8 +4,6 @@
 # choose the kind of screenshot to take, including copying the image or even
 # highlighting an area to copy. scrotcucks on suicidewatch right now.
 
-notify=true
-
 commands=(
 	"a selected area"
 	"current window"
@@ -26,10 +24,7 @@ case "$operation" in
   "a selected area with timer (copy)") sleep 3 && maim -s | xclip -selection clipboard -t image/png ;;
   "current window (copy)") maim -i "$(xdotool getactivewindow)" | xclip -selection clipboard -t image/png ;;
   "full screen (copy)") maim | xclip -selection clipboard -t image/png ;;
-  *) notify=false ;;
+  *) exit 0; ;;
 esac
 
-if [[ $notify = true ]]; then
-	paplay /usr/share/sounds/freedesktop/stereo/screen-capture.oga &>/dev/null &
-	notify-send "$operation task" 'Done'
-fi
+notify-send "$operation task" 'Done'

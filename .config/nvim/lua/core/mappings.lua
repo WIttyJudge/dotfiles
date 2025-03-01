@@ -277,7 +277,7 @@ local plugins_mappings = {
 			function ()
 				require("telescope.builtin").help_tags()
 			end,
-			desc = "FInd neovim help"
+			desc = "Find neovim help"
 		},
 	},
 }

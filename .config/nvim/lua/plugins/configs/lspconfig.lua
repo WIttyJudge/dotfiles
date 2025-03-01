@@ -22,15 +22,15 @@ local config = {
     -- signs = { active = signs },
     severity_sort = true,
 
-		signs = { active = signs },
-		float = {
-			focused = false,
-			style = "minimal",
-			border = "rounded",
-			source = "always",
-			header = "",
-			prefix = "",
-		},
+    signs = { active = signs },
+    float = {
+      focused = false,
+      style = "minimal",
+      border = "rounded",
+      source = "always",
+      header = "",
+      prefix = "",
+    },
   },
 }
 
@@ -43,18 +43,18 @@ vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.s
 })
 
 local mason_lsp_config = {
-	automatic_installation = false,
-	ensure_installed = vim.tbl_keys(servers),
-	handlers = {
-		function(server_name)
-			require("lspconfig")[server_name].setup({
-				capabilities = capabilities,
-				on_attach = on_attach,
-				settings = servers[server_name],
-				-- filetypes = (servers[server_name] or {}).filetypes,
-			})
-		end,
-	},
+  automatic_installation = false,
+  ensure_installed = vim.tbl_keys(servers),
+  handlers = {
+    function(server_name)
+      require("lspconfig")[server_name].setup({
+        capabilities = capabilities,
+        on_attach = on_attach,
+        settings = servers[server_name],
+        -- filetypes = (servers[server_name] or {}).filetypes,
+      })
+    end,
+  },
 }
 
 vim.diagnostic.config(config.diagnostics)

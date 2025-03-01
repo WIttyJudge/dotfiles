@@ -1,0 +1,5 @@
+#!/bin/sh
+
+geometry="$(slurp)"
+grim -g "$geometry" - | swappy -f -
+
