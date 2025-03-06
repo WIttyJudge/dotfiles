@@ -217,14 +217,14 @@ return {
     config = true,
   },
 
-  {
-    "lukas-reineke/indent-blankline.nvim",
-    main = "ibl",
-    event = { "BufReadPost", "BufNewFile" },
-    config = function()
-      require("plugins.configs.indent-blankline-nvim")
-    end,
-  },
+  -- {
+  --   "lukas-reineke/indent-blankline.nvim",
+  --   main = "ibl",
+  --   event = { "BufReadPost", "BufNewFile" },
+  --   config = function()
+  --     require("plugins.configs.indent-blankline-nvim")
+  --   end,
+  -- },
 
   -- Automatic indentation
   {
@@ -408,16 +408,6 @@ return {
     config = true,
   },
 
-  -- Fancy startup screen
-  {
-    "goolord/alpha-nvim",
-    event = "VimEnter",
-    dependencies = { "nvim-tree/nvim-web-devicons" },
-    config = function()
-      require("plugins.configs.alpha-nvim")
-    end,
-  },
-
   -- Golang
 
   {
@@ -530,6 +520,35 @@ return {
     opts = {
       bigfile = { enabled = true },
       quickfile = { enabled = true },
+      indent = {
+        enabled = true,
+        indent = {
+          char = "┊",
+        },
+        scope = {
+          enabled = false,
+        },
+      },
+      dashboard = {
+        preset = {
+          header = [[
+    ███╗   ██╗███████╗ ██████╗ ██╗   ██╗██╗███╗   ███╗ 
+    ████╗  ██║██╔════╝██╔═══██╗██║   ██║██║████╗ ████║ 
+    ██╔██╗ ██║█████╗  ██║   ██║██║   ██║██║██╔████╔██║ 
+    ██║╚██╗██║██╔══╝  ██║   ██║╚██╗ ██╔╝██║██║╚██╔╝██║ 
+    ██║ ╚████║███████╗╚██████╔╝ ╚████╔╝ ██║██║ ╚═╝ ██║ 
+    ╚═╝  ╚═══╝╚══════╝ ╚═════╝   ╚═══╝  ╚═╝╚═╝     ╚═╝ 
+          ]],
+          keys = {
+            { icon = " ", key = "f", desc = "Find File", action = ":lua Snacks.dashboard.pick('files')" },
+            { icon = " ", key = "o", desc = "Recent Files", action = ":lua Snacks.dashboard.pick('oldfiles')" },
+            { icon = " ", key = "w", desc = "Find Text", action = ":lua Snacks.dashboard.pick('live_grep')" },
+            { icon = " ", key = "c", desc = "Config", action = ":lua Snacks.dashboard.pick('files', {cwd = vim.fn.stdpath('config')})" },
+            { icon = " ", key = "q", desc = "Quit", action = ":qa" },
+          },
+        },
+
+      }
     },
   },
 
