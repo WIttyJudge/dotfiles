@@ -1,4 +1,5 @@
-local map = require("internal.utils").map
+local utils = require("internal.utils")
+local map = utils.map
 
 local navic = require("nvim-navic")
 
@@ -32,15 +33,14 @@ function on_attach(client, bufnr)
 		vim.lsp.buf.rename()
 	end)
 
-	map("n", "<Leader>ee", function()
-		vim.diagnostic.open_float()
-	end)
-	map("n", "<Leader>ej", function()
-		vim.diagnostic.goto_next()
-	end)
-	map("n", "<Leader>ek", function()
-		vim.diagnostic.goto_prev()
-	end)
+
+  map("n", "<leader>cd", vim.diagnostic.open_float, { desc = "Line Diagnostics" })
+  map("n", "]d", utils.diagnostic_goto(true), { desc = "Next Diagnostic" })
+  map("n", "[d", utils.diagnostic_goto(false), { desc = "Prev Diagnostic" })
+  map("n", "]e", utils.diagnostic_goto(true, "ERROR"), { desc = "Next Error" })
+  map("n", "[e", utils.diagnostic_goto(false, "ERROR"), { desc = "Prev Error" })
+  map("n", "]w", utils.diagnostic_goto(true, "WARN"), { desc = "Next Warning" })
+  map("n", "[w", utils.diagnostic_goto(false, "WARN"), { desc = "Prev Warning" })
 end
 
 return on_attach

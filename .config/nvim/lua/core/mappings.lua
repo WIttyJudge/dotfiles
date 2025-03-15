@@ -18,22 +18,24 @@ local map = require("internal.utils").map
 --  +----------------------------------------------------------+
 
 -- Easier split navigation, CTRL + hjlk
-map("n", "<C-j>", "<C-W><C-j>", { desc = "window down" })
-map("n", "<c-k>", "<c-w><C-k>", { desc = "window up" })
-map("n", "<C-l>", "<c-w><C-l>", { desc = "window left" })
-map("n", "<C-h>", "<C-W><C-h>", { desc = "window right" })
+map("n", "<C-h>", "<C-w>h", { desc = "Go to Left Window", remap = true })
+map("n", "<C-j>", "<C-w>j", { desc = "Go to Lower Window", remap = true })
+map("n", "<C-k>", "<C-w>k", { desc = "Go to Upper Window", remap = true })
+map("n", "<C-l>", "<C-w>l", { desc = "Go to Right Window", remap = true })
 
 -- Resize windows
-map("n", "<UP>", "<Cmd>resize +2<CR>")
-map("n", "<Down>", "<Cmd>resize -2<CR>")
-map("n", "<Left>", "<Cmd>vertical resize +2<CR>")
-map("n", "<Right>", "<Cmd>vertical resize -2<CR>")
+map("n", "<Up>", "<cmd>resize +2<cr>", { desc = "Increase Window Height" })
+map("n", "<Down>", "<cmd>resize -2<cr>", { desc = "Decrease Window Height" })
+map("n", "<Left>", "<cmd>vertical resize -2<cr>", { desc = "Decrease Window Width" })
+map("n", "<Right>", "<cmd>vertical resize +2<cr>", { desc = "Increase Window Width" })
 
 -- Remap for dealing with word wrap
-map("n", "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
-map("n", "k", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
+map({ "n", "x" }, "j", "v:count == 0 ? 'gj' : 'j'", { desc = "Down", expr = true, silent = true })
+map({ "n", "x" }, "k", "v:count == 0 ? 'gk' : 'k'", { desc = "Up", expr = true, silent = true })
 
 -- Add space bellow or above without leaving normal mode
+
+-- Easy copy whole text in file
 vim.cmd([[
 nnoremap <silent> [<space> :<c-u>put!=repeat([''],v:count)<bar>']+1<CR>
 nnoremap <silent> ]<space> :<c-u>put =repeat([''],v:count)<bar>'[-1<CR>
@@ -42,30 +44,24 @@ nnoremap <silent> ]<space> :<c-u>put =repeat([''],v:count)<bar>'[-1<CR>
 -- Easy copy whole text in file
 map("n", "vfy", "<Cmd>%y+<CR>", { desc = "copy whole file" })
 
--- Make an easier redo mapping
-map("n", "U", "<C-R>")
-
 -- Search within visual selection
 map("x", "/", "<Esc>/\\%V")
 
 -- Easier file save and exit
-map("n", "<Leader>w", "<Cmd>update<CR>", { desc = "save file" })
-map("n", "<Leader>W", "<Cmd>x<CR>", { desc = "save file and exit" })
-map("n", "<Leader>q", "<Cmd>q<CR>", { desc = "exit" })
+map("n", "<Leader>w", "<Cmd>update<CR>", { desc = "Save file" })
+map("n", "<Leader>W", "<Cmd>x<CR>", { desc = "Save file and exit" })
+map("n", "<Leader>q", "<Cmd>q<CR>", { desc = "Exit" })
 -- map("n", "<Leader>Q", "<Cmd>q!<CR>")
 
--- Clean highliting after search
--- nnoremap <Leader>; <Cmd>nohlsearch<CR>
-
--- Use simple ; instead of shift + :
+-- Simply use ; instead of shift + :
 map({ "n", "v" }, ";", ":", { silent = false })
 
 -- Use this instead of touching Esc key
 --map('i', { 'jk', 'kj' }, '<Esc>')
 
 -- Move selected lines up and down
-map("v", "<A-j>", ":m '>+1<CR>gv=gv")
-map("v", "<A-k>", ":m '<-2<CR>gv=gv")
+map("v", "<A-j>", ":<C-u>execute \"'<,'>move '>+\" . v:count1<cr>gv=gv", { desc = "Move Down" })
+map("v", "<A-k>", ":<C-u>execute \"'<,'>move '<-\" . (v:count1 + 1)<cr>gv=gv", { desc = "Move Up" })
 
 -- Make visual yanks place the cursor back where started
 map("v", "y", "ygv<Esc>")
@@ -81,9 +77,7 @@ map("x", "p", '"_dP')
 map("n", "<C-e>", "3<C-e>")
 map("n", "<C-y>", "3<C-y>")
 
--- Better tabbing
-map("n", ">", ">>")
-map("n", "<", "<<")
+-- Better indenting
 map("v", ">", ">gv")
 map("v", "<", "<gv")
 
@@ -179,6 +173,9 @@ local plugins_mappings = {
 			desc = "Search and Replace",
 		},
 	},
+  aerial = {
+    { "<leader>cs", "<cmd>AerialToggle<cr>", desc = "Aerial (Symbols)" },
+  },
 	kulala = {
 		{
 			"<Leader>hr",
@@ -228,6 +225,9 @@ local plugins_mappings = {
 	hop = {
 		{ "f", "<Cmd>HopChar2<CR>" },
 	},
+  conform = {
+    { "<Leader>cf", "<Cmd>Format<CR>", desc = "Format" },
+  },
 	-- stevearc/oil.nvim
 	oil = {
 		{ "~", "<Cmd>Oil<cr>", desc = "Oil parent directory" },
@@ -236,6 +236,12 @@ local plugins_mappings = {
 	toggler = {
 		{ "<Leader>i", desc = "Toggle text inverter" },
 	},
+  todo_comments = {
+      { "]t", function() require("todo-comments").jump_next() end, desc = "Next Todo Comment" },
+      { "[t", function() require("todo-comments").jump_prev() end, desc = "Previous Todo Comment" },
+      { "<Leader>st", "<cmd>TodoTelescope<cr>", desc = "Todo" },
+      { "<Leader>sT", "<cmd>TodoTelescope keywords=TODO,FIX,FIXME<cr>", desc = "Todo/Fix/Fixme" },
+  },
 	-- folke/which-key.nvim
 	which_key = {
 		"<Leader>", '"', "'", "`",
@@ -250,12 +256,12 @@ local plugins_mappings = {
 		{
 			"<Leader>ff",
 			function () require("telescope").extensions.smart_open.smart_open() end,
-			desc = "Find files"
+			desc = "Files"
 		},
 		{
 			"<Leader>fo",
 			function () require("telescope.builtin").oldfiles() end,
-			desc = "Find oldfiles"
+			desc = "Oldfiles"
 		},
 		{
 			"<Leader>fW",
@@ -265,19 +271,19 @@ local plugins_mappings = {
 		{
 			"<Leader>fc",
 			function () require("telescope.builtin").grep_string() end,
-			desc = "Find for word under cursor"
+			desc = "Word under cursor"
 		},
 		{
 			"<Leader>fm",
 			function () require("telescope.builtin").man_pages() end,
-			desc = "Find man"
+			desc = "Man"
 		},
 		{
 			"<Leader>fh",
 			function ()
 				require("telescope.builtin").help_tags()
 			end,
-			desc = "Find neovim help"
+			desc = "Neovim help"
 		},
 	},
 }
