@@ -78,10 +78,6 @@ return {
     config = function()
       require("plugins.configs.blink-nvim")
     end,
-    opts_extend = {
-      "sources.completion.enabled_providers",
-      "sources.default",
-    },
   },
 
   -- Snippets
@@ -108,7 +104,6 @@ return {
       local config = {
         filetypes_denylist = {
           "dirvish",
-          "alpha",
           "fugitive",
           "NvimTree",
           "TelescopePrompt",
@@ -135,7 +130,17 @@ return {
       "nvim-treesitter/nvim-treesitter",
       "nvim-tree/nvim-web-devicons",
     },
-    config = true,
+    keys = require("core.mappings").aerial,
+    opts = {
+      attach_mode = "global",
+      layout = {
+        win_opts = {
+          winhl = "Normal:NormalFloat,FloatBorder:NormalFloat,SignColumn:SignColumnSB",
+          signcolumn = "yes",
+          statuscolumn = " ",
+        },
+      },
+    }
   },
 
   -- Treesitter
@@ -227,10 +232,10 @@ return {
   -- },
 
   -- Automatic indentation
-  {
-    "nmac427/guess-indent.nvim",
-    config = true,
-  },
+  -- {
+  --   "nmac427/guess-indent.nvim",
+  --   config = true,
+  -- },
 
   -- Git
   {
@@ -245,10 +250,12 @@ return {
     "stevearc/conform.nvim",
     event = { "BufWritePre" },
     cmd = { "ConformInfo" },
+    keys = require("core.mappings").conform,
     opts = {
       formatters_by_ft = {
         ruby = { "rubocop" },
-        go = { "goimports", "gofumpt" },
+        -- go = { "goimports", "gofumpt" },
+        go = { "goimports" },
         -- rust = { "rustfmt" },
         lua = { "stylua" },
         sh = { "shfmt" },
@@ -256,6 +263,7 @@ return {
         jsonc = { "prettier" },
         yaml = { "prettier" },
         markdown = { "prettier" },
+        sql = { "sqlfluff" },
       },
     },
     init = function()
@@ -281,7 +289,7 @@ return {
   {
     "catppuccin/nvim",
     name = "catppuccin",
-    lazy = false,
+    lazy = true,
     priority = 1000,
     opts = {
       flavour = "mocha",
@@ -388,9 +396,9 @@ return {
       "neovim/nvim-lspconfig",
     },
     opts = {
-      separator = " ",
       highlight = true,
       depth_limit = 7,
+      lazy_update_context = true,
     },
   },
 
@@ -512,6 +520,13 @@ return {
     config = true,
   },
 
+--   {
+--   "zeioth/garbage-day.nvim",
+--   event = "VeryLazy",
+--   dependencies = "neovim/nvim-lspconfig",
+--   config = true
+-- },
+
   -- I LOVE YOU FOLKE
   {
     "folke/snacks.nvim",
@@ -520,6 +535,7 @@ return {
     opts = {
       bigfile = { enabled = true },
       quickfile = { enabled = true },
+      scope = { enabled = true },
       indent = {
         enabled = true,
         indent = {
@@ -555,10 +571,8 @@ return {
   {
     "folke/todo-comments.nvim",
     cmd = { "TodoTrouble", "TodoTelescope" },
-    event = { "BufReadPost", "BufNewFile" },
-    opts = {
-      signs = false,
-    },
+    keys = require("core.mappings").todo_comments,
+    config = true
   },
 
   {
@@ -571,6 +585,7 @@ return {
 
   {
     "folke/which-key.nvim",
+    event = "VeryLazy",
     keys = require("core.mappings").which_key,
     config = function()
       require("plugins.configs.whichkey")

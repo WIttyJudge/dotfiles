@@ -4,35 +4,34 @@ local map = utils.map
 local navic = require("nvim-navic")
 
 function on_attach(client, bufnr)
-	-- Plugins
-	if client.server_capabilities.documentSymbolProvider then
-		navic.attach(client, bufnr)
-	end
+  -- Plugins
+  if client.server_capabilities.documentSymbolProvider then
+    navic.attach(client, bufnr)
+  end
 
-	-- Mappings
+  -- Mappings
 
-	map("n", "gd", function()
-		require("telescope.builtin").lsp_definitions()
-	end)
-	map("n", "gr", function()
-		require("telescope.builtin").lsp_references()
-	end)
-	map("n", "gi", function()
-		require("telescope.builtin").lsp_implementations()
-	end)
+  map("n", "gd", function()
+    require("telescope.builtin").lsp_definitions()
+  end, { desc = "Goto Definition" })
 
-	map("n", "ca", function()
-		vim.lsp.buf.code_action()
-	end)
+  map("n", "gr", function()
+    require("telescope.builtin").lsp_references()
+  end, { desc = "References" })
 
-	map("n", "K", function()
-		vim.lsp.buf.hover()
-	end)
+  map("n", "gi", function()
+    require("telescope.builtin").lsp_implementations()
+  end, { desc = "Goto Implementation" })
 
-	map("n", "<Leader>ar", function()
-		vim.lsp.buf.rename()
-	end)
+  map("n", "gy", function()
+    require("telescope.builtin").lsp_type_definitions()
+  end, { desc = "Goto T[y]pe Definition" })
 
+  map({ "n" }, "<leader>cr", vim.lsp.buf.rename, { desc = "Rename" })
+
+  map("n", "K", function()
+    vim.lsp.buf.hover()
+  end)
 
   map("n", "<leader>cd", vim.diagnostic.open_float, { desc = "Line Diagnostics" })
   map("n", "]d", utils.diagnostic_goto(true), { desc = "Next Diagnostic" })
