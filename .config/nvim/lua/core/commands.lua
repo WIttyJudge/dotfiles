@@ -18,8 +18,3 @@ cmd("GitBlameByLineToggle", "Gitsigns toggle_current_line_blame", { desc = "Togg
 
 -- comment-box.nvim
 cmd("CommentBox", "CBlcbox10", { desc = "comment-box plugin" })
-
--- global-note.nvim
-cmd("ProjectNote", function ()
-	require('global-note').toggle_note('project_local')
-end, { desc = "Note taker per project" })

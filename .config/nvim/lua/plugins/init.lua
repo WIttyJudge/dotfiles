@@ -471,15 +471,6 @@ return {
     keys = require("core.mappings").toggler,
   },
 
-  -- Notes taking
-
-  {
-    "backdround/global-note.nvim",
-    config = function()
-      require("plugins.configs.global-note")
-    end,
-  },
-
   {
     "chrisgrieser/nvim-spider",
     lazy = true,
