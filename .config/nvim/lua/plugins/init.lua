@@ -69,22 +69,6 @@ return {
     },
   },
 
-  {
-    "saghen/blink.cmp",
-    event = { "InsertEnter", "CmdlineEnter" },
-    dependencies = {
-      "rafamadriz/friendly-snippets",
-      "moyiz/blink-emoji.nvim",
-      "Kaiser-Yang/blink-cmp-dictionary",
-      "mikavilpas/blink-ripgrep.nvim",
-      { "L3MON4D3/LuaSnip", version = "v2.*" },
-    },
-    version = "*",
-    config = function()
-      require("plugins.configs.blink-nvim")
-    end,
-  },
-
   -- Snippets
   {
     "L3MON4D3/LuaSnip",
