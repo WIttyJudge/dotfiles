@@ -1,5 +1,4 @@
 -- https://github.com/kristijanhusak/vim-dadbod-ui
-
 return {
   "tpope/vim-dadbod",
   cmd = { "DBUIToggle", "DBUIAddConnection", "DBUIFindBuffer" },
