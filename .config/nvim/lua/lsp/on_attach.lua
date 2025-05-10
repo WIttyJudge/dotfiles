@@ -12,7 +12,8 @@ function on_attach(client, bufnr)
   -- Mappings
 
   map("n", "gd", function()
-    require("telescope.builtin").lsp_definitions()
+    -- require("telescope.builtin").lsp_definitions()
+    Snacks.picker.lsp_definitions()
   end, { desc = "Goto Definition" })
 
   map("n", "gr", function()

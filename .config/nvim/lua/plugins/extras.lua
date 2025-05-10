@@ -1,3 +1,4 @@
+-- The file includes some small extra pluging that makes the life a bit easier.
 return {
   {
     "sQVe/sort.nvim",

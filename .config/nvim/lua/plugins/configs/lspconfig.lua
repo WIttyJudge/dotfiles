@@ -50,7 +50,7 @@ local mason_lsp_config = {
       require("lspconfig")[server_name].setup({
         capabilities = capabilities,
         on_attach = on_attach,
-        -- settings = servers[server_name],
+        settings = servers[server_name],
         -- filetypes = (servers[server_name] or {}).filetypes,
       })
     end,
