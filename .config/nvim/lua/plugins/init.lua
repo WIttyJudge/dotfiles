@@ -132,26 +132,6 @@ return {
     },
   },
 
-  -- Treesitter
-  {
-    "nvim-treesitter/nvim-treesitter",
-    dependencies = {
-      "nvim-treesitter/nvim-treesitter-textobjects",
-      {
-        "nvim-treesitter/nvim-treesitter-context",
-        config = true,
-      },
-      "HiPhish/rainbow-delimiters.nvim",
-      "nvim-treesitter/nvim-treesitter-refactor",
-      "windwp/nvim-ts-autotag",
-    },
-    build = ":TSUpdate",
-    event = "BufReadPost",
-    config = function()
-      require("plugins.configs.nvim-treesitter")
-    end,
-  },
-
   {
     "mg979/vim-visual-multi",
     branch = "master",
