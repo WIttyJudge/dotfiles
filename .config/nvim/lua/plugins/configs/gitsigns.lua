@@ -1,6 +1,6 @@
 -- https://github.com/lewis6991/gitsigns.nvim
 local gitsigns = require("gitsigns")
-local map = require("internal.utils").map
+local map = vim.keymap.set
 
 local function on_attach(bufnr)
 	local gs = package.loaded.gitsigns

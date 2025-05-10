@@ -1,5 +1,5 @@
 local utils = require("internal.utils")
-local map = utils.map
+local map = vim.keymap.set
 
 local navic = require("nvim-navic")
 
