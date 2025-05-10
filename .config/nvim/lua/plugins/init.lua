@@ -409,15 +409,6 @@ return {
     end,
   },
 
-  {
-    "folke/which-key.nvim",
-    event = "VeryLazy",
-    keys = require("core.mappings").which_key,
-    config = function()
-      require("plugins.configs.whichkey")
-    end,
-  },
-
   -- {
   --   "Pocco81/auto-save.nvim",
   --   opts = {
