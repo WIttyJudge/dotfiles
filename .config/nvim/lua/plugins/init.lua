@@ -2,28 +2,6 @@ return {
   -- library used by other plugins
   { "nvim-lua/plenary.nvim", lazy = true },
 
-  -- LSP stuff
-  {
-    "neovim/nvim-lspconfig",
-    event = { "BufReadPre", "BufNewFile" },
-    dependencies = {
-      "mason.nvim",
-      { "williamboman/mason-lspconfig.nvim" },
-    },
-    config = function()
-      require("plugins.configs.lspconfig")
-    end,
-  },
-
-  {
-    "williamboman/mason.nvim",
-    version = "1.11.0",
-    dependencies = {
-      { "williamboman/mason-lspconfig.nvim", version = "1.32.0" }
-    },
-    build = ":MasonUpdate",
-  },
-
   -- Autocompletion
   {
     "hrsh7th/nvim-cmp",
