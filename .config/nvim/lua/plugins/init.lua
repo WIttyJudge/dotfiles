@@ -401,14 +401,6 @@ return {
     config = true,
   },
 
-  {
-    "folke/trouble.nvim",
-    cmd = { "Trouble" },
-    config = function()
-      require("plugins.configs.trouble")
-    end,
-  },
-
   -- {
   --   "Pocco81/auto-save.nvim",
   --   opts = {
