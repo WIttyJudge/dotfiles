@@ -4,13 +4,13 @@
 local blink = require("blink.cmp")
 
 local config = {
-  enabled = function()
-    local filetype = vim.bo[0].filetype
-    if filetype == "TelescopePrompt" or filetype == "minifiles" or filetype == "snacks_picker_input" then
-      return false
-    end
-    return true
-  end,
+  -- enabled = function()
+  --   local filetype = vim.bo[0].filetype
+  --   if filetype == "TelescopePrompt" or filetype == "minifiles" or filetype == "snacks_picker_input" then
+  --     return false
+  --   end
+  --   return true
+  -- end,
 
   appearance = {
     use_nvim_cmp_as_default = false,
@@ -18,8 +18,7 @@ local config = {
   },
 
   sources = {
-    -- maybe I'll add copilet later
-    default = { "lsp", "path", "snippets", "buffer", "dadbod", "emoji", "dictionary" },
+    default = { "lsp", "path", "snippets", "buffer", "dadbod", "emoji", "dictionary", "ripgrep" },
     providers = {
       buffer = {
         opts = {
@@ -49,6 +48,10 @@ local config = {
           },
         },
       },
+      ripgrep = {
+        module = "blink-ripgrep",
+        name = "Ripgrep",
+      },
     },
   },
 
@@ -57,16 +60,8 @@ local config = {
   },
 
   cmdline = {
-    sources = function()
-      local type = vim.fn.getcmdtype()
-      if type == "/" or type == "?" then
-        return { "buffer" }
-      end
-      if type == ":" then
-        return { "cmdline" }
-      end
-      return {}
-    end,
+    keymap = { preset = "inherit" },
+    completion = { menu = { auto_show = true } },
   },
 
   completion = {
@@ -77,7 +72,6 @@ local config = {
       },
     },
     menu = {
-      border = "single",
       draw = {
         treesitter = { "lsp" },
       },
@@ -85,37 +79,28 @@ local config = {
     documentation = {
       auto_show = true,
       auto_show_delay_ms = 200,
-      window = {
-        border = "single",
-      },
     },
     ghost_text = {
       enabled = true,
     },
   },
 
+  -- fuzzy = {
+  --   implementation = 'lua',
+  -- },
+
   signature = {
     enabled = true,
-    window = { border = "single" },
   },
 
   keymap = {
     preset = "super-tab",
     ["<C-y>"] = { "select_and_accept" },
 
-    -- ["<Tab>"] = { "snippet_forward", "fallback" },
-    -- ["<S-Tab>"] = { "snippet_backward", "fallback" },
-    --
-    -- ["<Up>"] = { "select_prev", "fallback" },
-    -- ["<Down>"] = { "select_next", "fallback" },
-    -- ["<C-p>"] = { "select_prev", "fallback" },
-    -- ["<C-n>"] = { "select_next", "fallback" },
-    --
     ["<S-k>"] = { "scroll_documentation_up", "fallback" },
     ["<S-j>"] = { "scroll_documentation_down", "fallback" },
 
     ["<C-space>"] = { "show", "show_documentation", "hide_documentation" },
-    -- ["<C-e>"] = { "hide", "fallback" },
   },
 }
 

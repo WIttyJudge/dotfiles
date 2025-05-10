@@ -1,4 +1,7 @@
 return {
+  -- library used by other plugins
+  { "nvim-lua/plenary.nvim", lazy = true },
+
   -- LSP stuff
   {
     "neovim/nvim-lspconfig",
@@ -72,6 +75,7 @@ return {
       "rafamadriz/friendly-snippets",
       "moyiz/blink-emoji.nvim",
       "Kaiser-Yang/blink-cmp-dictionary",
+      "mikavilpas/blink-ripgrep.nvim",
       { "L3MON4D3/LuaSnip", version = "v2.*" },
     },
     version = "*",
@@ -140,7 +144,7 @@ return {
           statuscolumn = " ",
         },
       },
-    }
+    },
   },
 
   -- Treesitter
@@ -174,13 +178,6 @@ return {
     config = true,
   },
 
-  -- {
-  -- 	"zeioth/garbage-day.nvim",
-  -- 	dependencies = "neovim/nvim-lspconfig",
-  -- 	event = "VeryLazy",
-  -- 	opts = { }
-  -- },
-
   -- HTTP REST-Client Interface
   {
     "mistweaverco/kulala.nvim",
@@ -208,34 +205,6 @@ return {
     config = true,
     keys = require("core.mappings").hop,
   },
-
-  {
-    "andymass/vim-matchup",
-    init = function()
-      vim.g.matchup_matchparen_offscreen = { method = "popup" }
-    end,
-  },
-
-  -- Syntax
-  {
-    "NvChad/nvim-colorizer.lua",
-    config = true,
-  },
-
-  -- {
-  --   "lukas-reineke/indent-blankline.nvim",
-  --   main = "ibl",
-  --   event = { "BufReadPost", "BufNewFile" },
-  --   config = function()
-  --     require("plugins.configs.indent-blankline-nvim")
-  --   end,
-  -- },
-
-  -- Automatic indentation
-  -- {
-  --   "nmac427/guess-indent.nvim",
-  --   config = true,
-  -- },
 
   -- Git
   {
@@ -271,55 +240,22 @@ return {
     end,
   },
 
-  -- Colorschema
-
-  -- {
-  --   "sainnhe/gruvbox-material",
-  --   lazy = false,
-  --   priority = 1000,
-  --   config = function()
-  --     vim.g.gruvbox_material_better_performance = 1
-  --     vim.g.gruvbox_material_enable_italic_comments = true
-  --     vim.opt.background = "dark"
-  --
-  --     vim.cmd.colorscheme('gruvbox-material')
-  --   end,
-  -- },
-
-  {
-    "catppuccin/nvim",
-    name = "catppuccin",
-    lazy = true,
-    priority = 1000,
-    opts = {
-      flavour = "mocha",
-      integrations = {
-        aerial = true,
-        diffview = true,
-        blink_cmp = true,
-        dadbod_ui = true,
-      },
-    },
-    init = function()
-      vim.cmd.colorscheme("catppuccin")
-    end,
-  },
 
   -- Looking for files, etc..
-  {
-    "nvim-telescope/telescope.nvim",
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-      "princejoogie/dir-telescope.nvim",
-      { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
-      { "danielfalk/smart-open.nvim", dependencies = { "kkharji/sqlite.lua" } },
-    },
-    keys = require("core.mappings").telescope,
-    cmd = { "Telescope" },
-    config = function()
-      require("plugins.configs.telescope_nvim")
-    end,
-  },
+  -- {
+  --   "nvim-telescope/telescope.nvim",
+  --   dependencies = {
+  --     "nvim-lua/plenary.nvim",
+  --     "princejoogie/dir-telescope.nvim",
+  --     { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
+  --     { "danielfalk/smart-open.nvim", dependencies = { "kkharji/sqlite.lua" } },
+  --   },
+  --   keys = require("core.mappings").telescope,
+  --   cmd = { "Telescope" },
+  --   config = function()
+  --     require("plugins.configs.telescope_nvim")
+  --   end,
+  -- },
 
   -- Explorer
   -- {
@@ -339,18 +275,6 @@ return {
     keys = require("core.mappings").neo_tree,
     config = function()
       require("plugins.configs.neo-tree")
-    end,
-  },
-
-  {
-    "stevearc/oil.nvim",
-    enabled = true,
-    dependencies = {
-      { "nvim-tree/nvim-web-devicons" },
-    },
-    keys = require("core.mappings").oil,
-    config = function()
-      require("plugins.configs.oil-nvim")
     end,
   },
 
@@ -471,17 +395,6 @@ return {
     keys = require("core.mappings").toggler,
   },
 
-  {
-    "chrisgrieser/nvim-spider",
-    lazy = true,
-    keys = require("core.mappings").nvim_spider,
-  },
-
-  -- {
-  -- 	"johmsalas/text-case.nvim",
-  -- 	config = true,
-  -- },
-
   -- {
   --   "LunarVim/bigfile.nvim",
   --   config = function()
@@ -489,81 +402,18 @@ return {
   --   end,
   -- },
 
-  {
-    "sQVe/sort.nvim",
-    cmd = { "Sort" },
-  },
-
-  {
-    "max397574/better-escape.nvim",
-    config = true,
-  },
-
-  {
-    "tzachar/highlight-undo.nvim",
-    event = "BufEnter",
-    config = true,
-  },
-
-  {
-    "nacro90/numb.nvim",
-    event = { "CmdlineEnter" },
-    config = true,
-  },
-
---   {
---   "zeioth/garbage-day.nvim",
---   event = "VeryLazy",
---   dependencies = "neovim/nvim-lspconfig",
---   config = true
--- },
-
-  -- I LOVE YOU FOLKE
-  {
-    "folke/snacks.nvim",
-    priority = 1000,
-    lazy = false,
-    opts = {
-      bigfile = { enabled = true },
-      quickfile = { enabled = true },
-      scope = { enabled = true },
-      indent = {
-        enabled = true,
-        indent = {
-          char = "┊",
-        },
-        scope = {
-          enabled = false,
-        },
-      },
-      dashboard = {
-        preset = {
-          header = [[
-    ███╗   ██╗███████╗ ██████╗ ██╗   ██╗██╗███╗   ███╗ 
-    ████╗  ██║██╔════╝██╔═══██╗██║   ██║██║████╗ ████║ 
-    ██╔██╗ ██║█████╗  ██║   ██║██║   ██║██║██╔████╔██║ 
-    ██║╚██╗██║██╔══╝  ██║   ██║╚██╗ ██╔╝██║██║╚██╔╝██║ 
-    ██║ ╚████║███████╗╚██████╔╝ ╚████╔╝ ██║██║ ╚═╝ ██║ 
-    ╚═╝  ╚═══╝╚══════╝ ╚═════╝   ╚═══╝  ╚═╝╚═╝     ╚═╝ 
-          ]],
-          keys = {
-            { icon = " ", key = "f", desc = "Find File", action = ":lua Snacks.dashboard.pick('files')" },
-            { icon = " ", key = "o", desc = "Recent Files", action = ":lua Snacks.dashboard.pick('oldfiles')" },
-            { icon = " ", key = "w", desc = "Find Text", action = ":lua Snacks.dashboard.pick('live_grep')" },
-            { icon = " ", key = "c", desc = "Config", action = ":lua Snacks.dashboard.pick('files', {cwd = vim.fn.stdpath('config')})" },
-            { icon = " ", key = "q", desc = "Quit", action = ":qa" },
-          },
-        },
-
-      }
-    },
-  },
+  --   {
+  --   "zeioth/garbage-day.nvim",
+  --   event = "VeryLazy",
+  --   dependencies = "neovim/nvim-lspconfig",
+  --   config = true
+  -- },
 
   {
     "folke/todo-comments.nvim",
     cmd = { "TodoTrouble", "TodoTelescope" },
     keys = require("core.mappings").todo_comments,
-    config = true
+    config = true,
   },
 
   {
@@ -599,25 +449,4 @@ return {
   -- 		signcolumn = false,
   -- 	},
   -- },
-
-  -- Database
-
-  {
-    "kristijanhusak/vim-dadbod-ui",
-    cmd = { "DBUI", "DBUIToggle", "DBUIAddConnection", "DBUIFindBuffer" },
-    dependencies = {
-      { "tpope/vim-dadbod", lazy = true },
-      {
-        "kristijanhusak/vim-dadbod-completion",
-        ft = {
-          "sql",
-          "mysql",
-          "plsql",
-        },
-      },
-    },
-    init = function()
-      require("plugins.configs.vim-dadbod-ui")
-    end,
-  },
 }

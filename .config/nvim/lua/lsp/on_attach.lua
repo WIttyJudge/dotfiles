@@ -16,18 +16,22 @@ function on_attach(client, bufnr)
   end, { desc = "Goto Definition" })
 
   map("n", "gr", function()
-    require("telescope.builtin").lsp_references()
+    -- require("telescope.builtin").lsp_references()
+    Snacks.picker.lsp_references()
   end, { desc = "References" })
 
   map("n", "gi", function()
-    require("telescope.builtin").lsp_implementations()
+    -- require("telescope.builtin").lsp_implementations()
+    Snacks.picker.lsp_implementations()
   end, { desc = "Goto Implementation" })
 
   map("n", "gy", function()
-    require("telescope.builtin").lsp_type_definitions()
+    -- require("telescope.builtin").lsp_type_definitions()
+    Snacks.picker.lsp_type_definitions()
   end, { desc = "Goto T[y]pe Definition" })
 
   map({ "n" }, "<leader>cr", vim.lsp.buf.rename, { desc = "Rename" })
+  map({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, { desc = "Code Action" })
 
   map("n", "K", function()
     vim.lsp.buf.hover()

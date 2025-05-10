@@ -1,28 +1,28 @@
 local mason = require("mason")
 local mason_lspconfig = require("mason-lspconfig")
 
-local icons = require("internal.icons")
+-- local icons = require("internal.icons")
 local servers = require("lsp.servers")
 local capabilities = require("lsp.capabilities")
 local on_attach = require("lsp.on_attach")
 
-local signs = {
-  Error = icons.diagnostics.Error,
-  Warn = icons.diagnostics.Warn,
-  Info = icons.diagnostics.Info,
-  Hint = icons.diagnostics.Hint,
-}
-for type, icon in pairs(signs) do
-  local hl = "DiagnosticSign" .. type
-  vim.fn.sign_define(hl, { texthl = hl, text = icon, numhl = "" })
-end
+-- local signs = {
+--   Error = icons.diagnostics.Error,
+--   Warn = icons.diagnostics.Warn,
+--   Info = icons.diagnostics.Info,
+--   Hint = icons.diagnostics.Hint,
+-- }
+-- for type, icon in pairs(signs) do
+--   local hl = "DiagnosticSign" .. type
+--   vim.fn.sign_define(hl, { texthl = hl, text = icon, numhl = "" })
+-- end
 
 local config = {
   diagnostics = {
     -- signs = { active = signs },
     severity_sort = true,
 
-    signs = { active = signs },
+    -- signs = { active = signs },
     float = {
       focused = false,
       style = "minimal",
@@ -50,7 +50,7 @@ local mason_lsp_config = {
       require("lspconfig")[server_name].setup({
         capabilities = capabilities,
         on_attach = on_attach,
-        settings = servers[server_name],
+        -- settings = servers[server_name],
         -- filetypes = (servers[server_name] or {}).filetypes,
       })
     end,

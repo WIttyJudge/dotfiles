@@ -17,7 +17,7 @@ autocmd("BufReadPost", {
 
 autocmd({ "TextYankPost" }, {
   callback = function()
-    vim.highlight.on_yank()
+    (vim.hl or vim.highlight).on_yank()
   end,
   group = general_settings,
   desc = "Highlight yanked text",

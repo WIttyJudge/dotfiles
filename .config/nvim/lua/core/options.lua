@@ -39,6 +39,7 @@ opt.showtabline = 2
 -- Preview substitutions live, as you type 
 opt.inccommand = "split"
 -- opt.colorcolumn = "79"
+opt.winborder = 'single'
 
 opt.signcolumn = "yes"
 opt.splitbelow = true
