@@ -1,0 +1,18 @@
+{
+  "for range statement channel": {
+    "prefix": "forc",
+    "body": "for ${1:v} := range ${2:v} {\n\t$0\n}",
+    "description": "Snippet for a for range loop channel"
+  },
+  "go new struct constructor": {
+    "prefix": "snew",
+    "body": [
+      "type ${1:MyStruct} struct{$0}",
+      "",
+      "func New${1}() *${1} {",
+      "\treturn &${1}{}",
+      "}"
+    ],
+    "description": "Define Go struct with constructor"
+  }
+}
