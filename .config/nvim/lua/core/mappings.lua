@@ -47,6 +47,11 @@ map("n", "vfy", "<Cmd>%y+<CR>", { desc = "copy whole file" })
 -- Search within visual selection
 map("x", "/", "<Esc>/\\%V")
 
+map({ "i", "n", "s" }, "<Esc>", function()
+  vim.cmd("noh")
+  return "<esc>"
+end, { expr = true, desc = "Escape and Clear hlsearch" })
+
 -- Easier file save and exit
 map("n", "<Leader>w", "<Cmd>update<CR>", { desc = "Save file" })
 map("n", "<Leader>W", "<Cmd>x<CR>", { desc = "Save file and exit" })
@@ -169,21 +174,6 @@ local plugins_mappings = {
 			desc = "Run HTTP query"
 		},
 	},
-	-- kevinhwang91/nvim-hlslens
-	nvim_hlslens = {
-		{
-			"n",
-			"<Cmd>execute('normal! ' . v:count1 . 'nzz')<CR><Cmd>lua require('hlslens').start()<CR>",
-		},
-		{
-			"N",
-			"<Cmd>execute('normal! ' . v:count1 . 'Nzz')<CR><Cmd>lua require('hlslens').start()<CR>",
-		},
-		{ "*", "*``<Cmd>lua require('hlslens').start()<CR>" },
-		{ "#", "#<Cmd>lua require('hlslens').start()<CR>", },
-		{ "g*", "g*<Cmd>lua require('hlslens').start()<CR>" },
-		{ "g#", "g#<Cmd>lua require('hlslens').start()<CR>" },
-	},
 	-- nvim-neo-tree/neo-tree.nvim
 	neo_tree = {
 		{ "<C-b>", "<Cmd>Neotree toggle<CR>", desc = "Toggle NvimTree" },
@@ -206,17 +196,9 @@ local plugins_mappings = {
 		{ "gS", "<Cmd>TSJSplit<CR>", desc = "Treesj split line" },
 		{ "gJ", "<Cmd>TSJJoin<CR>", desc = "Treesj join line" },
 	},
-	-- phaazon/hop.nvim
-	hop = {
-		{ "f", "<Cmd>HopChar2<CR>" },
-	},
   conform = {
     { "<Leader>cf", "<Cmd>Format<CR>", desc = "Format" },
   },
-	-- stevearc/oil.nvim
-	oil = {
-		{ "~", "<Cmd>Oil<cr>", desc = "Oil parent directory" },
-	},
 	-- nguyenvukhang/nvim-toggler
 	toggler = {
 		{ "<Leader>i", desc = "Toggle text inverter" },

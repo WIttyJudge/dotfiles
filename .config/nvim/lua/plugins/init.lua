@@ -21,21 +21,21 @@ return {
   },
 
   -- Snippets
-  {
-    "L3MON4D3/LuaSnip",
-    dependencies = {
-      {
-        "rafamadriz/friendly-snippets",
-        config = function()
-          require("luasnip.loaders.from_vscode").lazy_load()
-        end,
-      },
-    },
-    opts = {
-      history = true,
-      updateevents = "TextChanged,TextChangedI",
-    },
-  },
+  -- {
+  --   "L3MON4D3/LuaSnip",
+  --   dependencies = {
+  --     {
+  --       "rafamadriz/friendly-snippets",
+  --       config = function()
+  --         require("luasnip.loaders.from_vscode").lazy_load()
+  --       end,
+  --     },
+  --   },
+  --   opts = {
+  --     history = true,
+  --     updateevents = "TextChanged,TextChangedI",
+  --   },
+  -- },
 
   {
     "RRethy/vim-illuminate",
@@ -102,24 +102,21 @@ return {
   },
 
   {
-    "kevinhwang91/nvim-hlslens",
-    opts = {
-      calm_down = true,
-      nearest_only = true,
-      nearest_float_when = "always",
+    "folke/flash.nvim",
+    event = "VeryLazy",
+    opts = {},
+    keys = {
+      { "s", mode = { "n", "x", "o" }, function() require("flash").jump() end, desc = "Flash" },
+      -- { "S", mode = { "n", "o", "x" }, function() require("flash").treesitter() end, desc = "Flash Treesitter" },
+      -- { "r", mode = "o", function() require("flash").remote() end, desc = "Remote Flash" },
+      -- { "R", mode = { "o", "x" }, function() require("flash").treesitter_search() end, desc = "Treesitter Search" },
+      -- { "<c-s>", mode = { "c" }, function() require("flash").toggle() end, desc = "Toggle Flash Search" },
     },
-    keys = require("core.mappings").nvim_hlslens,
   },
 
   {
     "LudoPinelli/comment-box.nvim",
     cmd = { "CBlcbox" },
-  },
-
-  {
-    "phaazon/hop.nvim",
-    config = true,
-    keys = require("core.mappings").hop,
   },
 
   -- Git
@@ -331,15 +328,6 @@ return {
     keys = require("core.mappings").todo_comments,
     config = true,
   },
-
-  -- {
-  --   "Pocco81/auto-save.nvim",
-  --   opts = {
-  --     execution_message = {
-  --       message = function() return ("") end,
-  --     },
-  --   }
-  -- },
 
   -- {
   --   "nvim-focus/focus.nvim",

@@ -8,10 +8,11 @@ return {
     "moyiz/blink-emoji.nvim",
     "Kaiser-Yang/blink-cmp-dictionary",
     "mikavilpas/blink-ripgrep.nvim",
-    { "L3MON4D3/LuaSnip", version = "v2.*" },
+    "xzbdmw/colorful-menu.nvim",
+    -- { "L3MON4D3/LuaSnip", version = "v2.*" },
   },
   version = "*",
-  config = {
+  opts = {
     -- enabled = function()
     --   local filetype = vim.bo[0].filetype
     --   if filetype == "TelescopePrompt" or filetype == "minifiles" or filetype == "snacks_picker_input" then
@@ -26,7 +27,8 @@ return {
     },
 
     sources = {
-      default = { "lsp", "path", "snippets", "buffer", "dadbod", "emoji", "dictionary", "ripgrep" },
+      -- , "ripgrep"
+      default = { "lsp", "path", "snippets", "buffer", "dadbod", "emoji", "dictionary" },
       providers = {
         buffer = {
           opts = {
@@ -58,19 +60,18 @@ return {
             },
           },
         },
-        ripgrep = {
-          module = "blink-ripgrep",
-          name = "Ripgrep",
-        },
+        -- ripgrep = {
+        --   module = "blink-ripgrep",
+        --   name = "Ripgrep",
+        -- },
       },
     },
 
-    snippets = {
-      preset = "luasnip",
-    },
+    -- snippets = {
+    --   preset = "luasnip",
+    -- },
 
     cmdline = {
-      keymap = { preset = "inherit" },
       completion = { menu = { auto_show = true } },
     },
 
@@ -84,6 +85,17 @@ return {
       menu = {
         draw = {
           treesitter = { "lsp" },
+          columns = { { "kind_icon" }, { "label", gap = 1 } },
+          components = {
+            label = {
+              text = function(ctx)
+                return require("colorful-menu").blink_components_text(ctx)
+              end,
+              highlight = function(ctx)
+                return require("colorful-menu").blink_components_highlight(ctx)
+              end,
+            },
+          },
         },
       },
       documentation = {
@@ -91,13 +103,9 @@ return {
         auto_show_delay_ms = 200,
       },
       ghost_text = {
-        enabled = true,
+        enabled = false,
       },
     },
-
-    -- fuzzy = {
-    --   implementation = 'lua',
-    -- },
 
     signature = {
       enabled = true,
