@@ -47,6 +47,7 @@ map("n", "vfy", "<Cmd>%y+<CR>", { desc = "copy whole file" })
 -- Search within visual selection
 map("x", "/", "<Esc>/\\%V")
 
+-- Clear search
 map({ "i", "n", "s" }, "<Esc>", function()
   vim.cmd("noh")
   return "<esc>"
@@ -56,17 +57,20 @@ end, { expr = true, desc = "Escape and Clear hlsearch" })
 map("n", "<Leader>w", "<Cmd>update<CR>", { desc = "Save file" })
 map("n", "<Leader>W", "<Cmd>x<CR>", { desc = "Save file and exit" })
 map("n", "<Leader>q", "<Cmd>q<CR>", { desc = "Exit" })
--- map("n", "<Leader>Q", "<Cmd>q!<CR>")
 
 -- Simply use ; instead of shift + :
-map({ "n", "v" }, ";", ":", { silent = false })
+map({ "n", "v" }, ";", ":")
 
 -- Use this instead of touching Esc key
 --map('i', { 'jk', 'kj' }, '<Esc>')
 
 -- Move selected lines up and down
-map("v", "<A-j>", ":<C-u>execute \"'<,'>move '>+\" . v:count1<cr>gv=gv", { desc = "Move Down" })
-map("v", "<A-k>", ":<C-u>execute \"'<,'>move '<-\" . (v:count1 + 1)<cr>gv=gv", { desc = "Move Up" })
+map("n", "<A-j>", "<cmd>execute 'move .+' . v:count1<cr>==", { desc = "Move Down", silent = true })
+map("n", "<A-k>", "<cmd>execute 'move .-' . (v:count1 + 1)<cr>==", { desc = "Move Up", silent = true })
+map("i", "<A-k>", "<esc><cmd>m .-2<cr>==gi", { desc = "Move Up", silent = true })
+map("i", "<A-j>", "<esc><cmd>m .+1<cr>==gi", { desc = "Move Down", silent = true })
+map("v", "<A-k>", ":<C-u>execute \"'<,'>move '<-\" . (v:count1 + 1)<cr>gv=gv", { desc = "Move Up", silent = true })
+map("v", "<A-j>", ":<C-u>execute \"'<,'>move '>+\" . v:count1<cr>gv=gv", { desc = "Move Down", silent = true })
 
 -- Make visual yanks place the cursor back where started
 map("v", "y", "ygv<Esc>")
@@ -85,6 +89,10 @@ map("n", "<C-y>", "3<C-y>")
 -- Better indenting
 map("v", ">", ">gv")
 map("v", "<", "<gv")
+
+-- commenting
+map("n", "gco", "o<esc>Vcx<esc><cmd>normal gcc<cr>fxa<bs>", { desc = "Add Comment Below" })
+map("n", "gcO", "O<esc>Vcx<esc><cmd>normal gcc<cr>fxa<bs>", { desc = "Add Comment Above" })
 
 -- Don't jump when highlighting
 -- map('n','*', '*``')
