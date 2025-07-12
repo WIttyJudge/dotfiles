@@ -239,20 +239,6 @@ return {
     },
   },
 
-  -- better diffing
-  {
-    "sindrets/diffview.nvim",
-    cmd = {
-      "DiffviewOpen",
-      "DiffviewClose",
-      "DiffviewToggleFiles",
-      "DiffviewFocusFiles",
-      "DiffviewFileHistory",
-    },
-    keys = require("core.mappings").diffview,
-    config = true,
-  },
-
   -- Golang
 
   {
