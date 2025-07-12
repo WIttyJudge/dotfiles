@@ -196,9 +196,6 @@ local plugins_mappings = {
 		{ "gS", "<Cmd>TSJSplit<CR>", desc = "Treesj split line" },
 		{ "gJ", "<Cmd>TSJJoin<CR>", desc = "Treesj join line" },
 	},
-  conform = {
-    { "<Leader>cf", "<Cmd>Format<CR>", desc = "Format" },
-  },
 	-- nguyenvukhang/nvim-toggler
 	toggler = {
 		{ "<Leader>i", desc = "Toggle text inverter" },

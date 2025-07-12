@@ -114,33 +114,6 @@ return {
     end,
   },
 
-  -- Linter
-  {
-    "stevearc/conform.nvim",
-    event = { "BufWritePre" },
-    cmd = { "ConformInfo" },
-    keys = require("core.mappings").conform,
-    opts = {
-      formatters_by_ft = {
-        ruby = { "rubocop" },
-        -- go = { "goimports", "gofumpt" },
-        go = { "goimports" },
-        -- rust = { "rustfmt" },
-        lua = { "stylua" },
-        sh = { "shfmt" },
-        json = { "prettier" },
-        jsonc = { "prettier" },
-        yaml = { "prettier" },
-        markdown = { "prettier" },
-        sql = { "sqlfluff" },
-      },
-    },
-    init = function()
-      vim.o.formatexpr = "v:lua.require'conform'.formatexpr()"
-    end,
-  },
-
-
   -- Looking for files, etc..
   -- {
   --   "nvim-telescope/telescope.nvim",
