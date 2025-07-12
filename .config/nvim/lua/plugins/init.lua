@@ -268,23 +268,6 @@ return {
     build = ':lua require("go.install").update_all_sync()',
   },
 
-  -- Markdown
-  -- {
-  -- 	"ellisonleao/glow.nvim",
-  -- 	cmd = { "Glow" },
-  -- 	config = true,
-  -- },
-
-  {
-    "OXY2DEV/markview.nvim",
-    dependencies = {
-      "nvim-treesitter/nvim-treesitter",
-      "nvim-tree/nvim-web-devicons",
-    },
-    ft = { "markdown" },
-    config = true,
-  },
-
   {
     "Wansmer/treesj",
     dependencies = { "nvim-treesitter/nvim-treesitter" },
