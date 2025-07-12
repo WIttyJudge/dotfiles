@@ -1,10 +1,12 @@
+-- https://github.com/tpope/vim-dadbod
 -- https://github.com/kristijanhusak/vim-dadbod-ui
+-- https://github.com/kristijanhusak/vim-dadbod-completion
 return {
   "tpope/vim-dadbod",
   cmd = { "DBUIToggle", "DBUIAddConnection", "DBUIFindBuffer" },
   dependencies = {
     "kristijanhusak/vim-dadbod-ui",
-    { "kristijanhusak/vim-dadbod-completion", ft = { "sql", "mysql", "plsql" } },
+    { "kristijanhusak/vim-dadbod-completion", ft = { "sql", "mysql", "plsql" }, lazy = true },
   },
   config = function()
     vim.g.db_ui_show_database_icon = 1
