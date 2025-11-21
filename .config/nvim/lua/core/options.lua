@@ -33,7 +33,7 @@ opt.ruler = false
 
 -- ui
 opt.pumheight = 10
-opt.scrolloff = 999
+opt.scrolloff = 20
 opt.sidescrolloff = 8
 opt.showtabline = 2
 -- Preview substitutions live, as you type 
@@ -61,4 +61,11 @@ opt.writebackup = false
 opt.shortmess:append "sI"
 
 -- enable spelling
-opt.spell = true
+opt.spell = false
+
+-- the providers are for (neo)vim plugins coded in those languages,
+-- by majority of plugins are lua/vimscript so I don't need it.
+g.loaded_python3_provider = 0
+g.loaded_ruby_provider = 0
+g.loaded_perl_provider = 0
+g.loaded_node_provider = 0

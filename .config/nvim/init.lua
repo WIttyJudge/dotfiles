@@ -21,4 +21,8 @@
 
 --]]
 
-require("core").load()
+require("core.options")
+require("core.plugin_manager")
+require("core.commands")
+require("core.autocmds")
+require("core.mappings")
