@@ -1,67 +1,103 @@
 local opt = vim.opt
+local o = vim.opt
 local g = vim.g
 
--- Set leader key
+-- Set <space> as the leader key.
 g.mapleader = " "
 g.maplocalleader = " "
 
--- global statusline
-opt.laststatus = 3
-opt.showmode = false
+-- Global statusline shared across all buffers.
+o.laststatus = 3
+-- Don't show the mode, since it's already in the status line.
+o.showmode = false
 
-opt.clipboard = "unnamedplus"
-opt.cursorline = true
-opt.cursorlineopt = "number"
+-- Sync clipboard between OS and Neovim.
+--  Schedule the setting after `UiEnter` because it can increase startup-time.
+vim.schedule(function()
+  o.clipboard = 'unnamedplus'
+end)
 
--- Indenting
-opt.expandtab = true
-opt.shiftwidth = 2
-opt.smartindent = true
-opt.tabstop = 2
-opt.softtabstop = 2
+-- Show which line your cursor is on.
+o.cursorline = true
+o.cursorlineopt = "number"
 
-opt.fillchars = { eob = " " }
-opt.ignorecase = true
-opt.smartcase = true
-opt.mouse = "a"
+-- Indenting.
+o.expandtab = true
+o.shiftwidth = 2
+o.smartindent = true
+o.tabstop = 2
+o.softtabstop = 2
 
--- Numbers
-opt.number = true
-opt.numberwidth = 2
-opt.relativenumber = true
-opt.ruler = false
+-- Enable break indent.
+o.breakindent = true
 
--- ui
-opt.pumheight = 10
-opt.scrolloff = 20
-opt.sidescrolloff = 8
-opt.showtabline = 2
--- Preview substitutions live, as you type 
-opt.inccommand = "split"
--- opt.colorcolumn = "79"
-opt.winborder = 'single'
+-- Replaces the default '~' characters shown after the end of the buffer.
+o.fillchars = { eob = " " }
 
-opt.signcolumn = "yes"
-opt.splitbelow = true
-opt.splitright = true
--- opt.termguicolors = true
-opt.timeoutlen = 300
-opt.updatetime = 250
+-- Case-insensitive searching UNLESS \C or one or more capital letters in the search term.
+o.ignorecase = true
+o.smartcase = true
 
--- Enable integrated undo.
-opt.undofile = true
-opt.undodir = vim.fn.stdpath("cache") .. "/undo"
+-- Enable mouse mode, can be useful for resizing splits for example.
+o.mouse = "a"
+
+-- Make line numbers default.
+o.number = true
+o.relativenumber = true
+-- Minimal number of columns to use for the line number
+o.numberwidth = 2
+
+-- Maximum number of items to show in the completion popup menu.
+o.pumheight = 10
+
+-- Minimal number of screen lines to keep above and below the cursor.
+o.scrolloff = 20
+-- Minimum number of columns to the left and right of the cursor.
+o.sidescrolloff = 8
+
+-- Always show the tabline, even when only one tab is open.
+o.showtabline = 2
+
+-- Preview substitutions live, as you type.
+o.inccommand = "split"
+
+-- Set border style for floating windows.
+o.winborder = 'single'
+
+-- Keep signcolumn on by default.
+o.signcolumn = "yes"
+
+-- Configure how new splits should be opened.
+o.splitbelow = true
+o.splitright = true
+
+-- Decrease mapped sequence wait time.
+o.timeoutlen = 300
+-- Decrease update time.
+o.updatetime = 250
+
+-- if performing an operation that would fail due to unsaved changes in the buffer (like `:q`),
+-- instead raise a dialog asking if you wish to save the current file(s).
+o.confirm = true
+
+-- Save undo history
+o.undofile = true
+o.undodir = vim.fn.stdpath("cache") .. "/undo"
 
 -- I don't need swap file and backups
-opt.swapfile = false
-opt.backup = false
-opt.writebackup = false
+o.swapfile = false
+o.backup = false
+o.writebackup = false
 
--- disable nvim intro
+-- Disable nvim intro
 opt.shortmess:append "sI"
 
--- enable spelling
-opt.spell = false
+-- Disable spelling
+o.spell = false
+
+-- Sets how neovim will display certain whitespace characters in the editor.
+o.list = true
+opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
 
 -- the providers are for (neo)vim plugins coded in those languages,
 -- by majority of plugins are lua/vimscript so I don't need it.
