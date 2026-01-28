@@ -41,7 +41,6 @@ TRUE,AUR,nerd-fonts-complete-mono-glyphs,Iconic font aggregator 3.600+ icons and
 ,,git-delta,Syntax-highlighting pager for git and diff output.
 ,AUR,jiq-bin,jq but interactive.
 ,,jq,Command-line JSON processor.
-,,screenkey,Tool that displays keys you are pressing.
 ,,neovim,Fork of Vim aiming to improve user experience with plugins.
 ,,nodejs,Evented I/O for V8 javascript.
 ,,npm,A package manager for javascript.

@@ -74,7 +74,6 @@ link ".config/zathura"
 link ".config/zsh"
 link ".config/mimeapps.list"
 link ".config/pavucontrol.ini"
-link ".config/screenkey.json"
 link ".config/user-dirs.dirs"
 
 link ".local/share/bg"
