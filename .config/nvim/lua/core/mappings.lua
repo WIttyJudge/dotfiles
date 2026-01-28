@@ -54,7 +54,7 @@ map({ "i", "n", "s" }, "<Esc>", function()
 end, { expr = true, desc = "Escape and Clear hlsearch" })
 
 -- Easier file save and exit
-map("n", "<Leader>w", "<Cmd>update<CR>", { desc = "Save file" })
+map("n", "<Leader>w", "<Cmd>w<CR>", { desc = "Save file" })
 map("n", "<Leader>W", "<Cmd>x<CR>", { desc = "Save file and exit" })
 map("n", "<Leader>q", "<Cmd>q<CR>", { desc = "Exit" })
 

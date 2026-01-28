@@ -64,6 +64,12 @@ return {
         --   module = "blink-ripgrep",
         --   name = "Ripgrep",
         -- },
+        -- hide snippets after trigger character
+        snippets = {
+          should_show_items = function(ctx)
+            return ctx.trigger.initial_kind ~= "trigger_character"
+          end,
+        },
       },
     },
 

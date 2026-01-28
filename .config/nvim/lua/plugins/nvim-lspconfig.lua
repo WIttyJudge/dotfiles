@@ -55,12 +55,14 @@ return {
       ensure_installed = vim.tbl_keys(servers),
       handlers = {
         function(server_name)
-          require("lspconfig")[server_name].setup({
+          vim.lsp.config(server_name, {
             capabilities = capabilities,
             on_attach = on_attach,
             settings = servers[server_name],
             -- filetypes = (servers[server_name] or {}).filetypes,
           })
+
+          vim.lsp.enable({server_name})
         end,
       },
     }
