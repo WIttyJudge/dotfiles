@@ -35,7 +35,7 @@ map({ "n", "x" }, "k", "v:count == 0 ? 'gk' : 'k'", { desc = "Up", expr = true, 
 
 -- Add space bellow or above without leaving normal mode
 
--- Easy copy whole text in file
+-- Create empty space above/below
 vim.cmd([[
 nnoremap <silent> [<space> :<c-u>put!=repeat([''],v:count)<bar>']+1<CR>
 nnoremap <silent> ]<space> :<c-u>put =repeat([''],v:count)<bar>'[-1<CR>
@@ -75,11 +75,14 @@ map("v", "<A-j>", ":<C-u>execute \"'<,'>move '>+\" . v:count1<cr>gv=gv", { desc 
 -- Make visual yanks place the cursor back where started
 map("v", "y", "ygv<Esc>")
 
--- Disable copy while deleting
-map({ "n", "x" }, "d", '"_d')
-map("n", "dw", 'vb"_d')
-map("n", "D", '"_D')
-map("n", "x", '"_x')
+-- -- Disable copy while deleting
+-- map({ "n", "x" }, "d", '"_d')
+-- map("n", "dw", 'vb"_d')
+-- map("n", "D", '"_D')
+-- map("n", "x", '"_x')
+-- map("x", "p", '"_dP')
+
+map({ "n", "x" }, "<Leader>d", '"_d')
 map("x", "p", '"_dP')
 
 -- Scroll the viewport faster
@@ -89,10 +92,6 @@ map("n", "<C-y>", "3<C-y>")
 -- Better indenting
 map("v", ">", ">gv")
 map("v", "<", "<gv")
-
--- commenting
-map("n", "gco", "o<esc>Vcx<esc><cmd>normal gcc<cr>fxa<bs>", { desc = "Add Comment Below" })
-map("n", "gcO", "O<esc>Vcx<esc><cmd>normal gcc<cr>fxa<bs>", { desc = "Add Comment Above" })
 
 -- Don't jump when highlighting
 -- map('n','*', '*``')

@@ -6,7 +6,6 @@ return {
   dependencies = {
     "rafamadriz/friendly-snippets",
     "moyiz/blink-emoji.nvim",
-    "Kaiser-Yang/blink-cmp-dictionary",
     "mikavilpas/blink-ripgrep.nvim",
     "xzbdmw/colorful-menu.nvim",
     -- { "L3MON4D3/LuaSnip", version = "v2.*" },
@@ -28,7 +27,7 @@ return {
 
     sources = {
       -- , "ripgrep"
-      default = { "lsp", "path", "snippets", "buffer", "dadbod", "emoji", "dictionary" },
+      default = { "lsp", "path", "snippets", "buffer", "dadbod", "emoji" },
       providers = {
         buffer = {
           opts = {
@@ -49,16 +48,6 @@ return {
           should_show_items = function()
             return vim.tbl_contains({ "gitcommit", "markdown" }, vim.o.filetype)
           end,
-        },
-        dictionary = {
-          module = "blink-cmp-dictionary",
-          name = "Dict",
-          min_keyword_length = 3,
-          opts = {
-            dictionary_files = {
-              vim.fn.expand("../../../spell/en.utf-8.add"),
-            },
-          },
         },
         -- ripgrep = {
         --   module = "blink-ripgrep",

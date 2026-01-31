@@ -2,6 +2,9 @@ local opt = vim.opt
 local o = vim.opt
 local g = vim.g
 
+-- custom global var for toggling autoformat using conform.nvim
+vim.g.autoformat = true
+
 -- Set <space> as the leader key.
 g.mapleader = " "
 g.maplocalleader = " "
@@ -14,7 +17,7 @@ o.showmode = false
 -- Sync clipboard between OS and Neovim.
 --  Schedule the setting after `UiEnter` because it can increase startup-time.
 vim.schedule(function()
-  o.clipboard = 'unnamedplus'
+  o.clipboard = "unnamedplus"
 end)
 
 -- Show which line your cursor is on.
@@ -62,7 +65,7 @@ o.showtabline = 2
 o.inccommand = "split"
 
 -- Set border style for floating windows.
-o.winborder = 'single'
+o.winborder = "single"
 
 -- Keep signcolumn on by default.
 o.signcolumn = "yes"
@@ -90,14 +93,14 @@ o.backup = false
 o.writebackup = false
 
 -- Disable nvim intro
-opt.shortmess:append "sI"
+opt.shortmess:append("sI")
 
 -- Disable spelling
 o.spell = false
 
 -- Sets how neovim will display certain whitespace characters in the editor.
 o.list = true
-opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
+opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
 
 -- the providers are for (neo)vim plugins coded in those languages,
 -- by majority of plugins are lua/vimscript so I don't need it.

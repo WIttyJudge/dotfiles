@@ -57,11 +57,11 @@ return {
     end,
   },
 
-  {
-    "j-hui/fidget.nvim",
-    event = "LspAttach",
-    config = true,
-  },
+  -- {
+  --   "j-hui/fidget.nvim",
+  --   event = "LspAttach",
+  --   config = true,
+  -- },
 
   {
     "stevearc/aerial.nvim",
@@ -244,7 +244,7 @@ return {
   --   end,
   -- },
 
-  --   {
+  -- {
   --   "zeioth/garbage-day.nvim",
   --   event = "VeryLazy",
   --   dependencies = "neovim/nvim-lspconfig",
@@ -257,6 +257,11 @@ return {
     keys = require("core.mappings").todo_comments,
     config = true,
   },
+
+  -- {
+  --   "https://github.com/NMAC427/guess-indent.nvim",
+  --   config = true
+  -- },
 
   -- {
   --   "nvim-focus/focus.nvim",

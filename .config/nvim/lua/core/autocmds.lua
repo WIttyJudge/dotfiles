@@ -1,4 +1,5 @@
 local utils = require("internal.utils")
+local api = vim.api
 
 local autocmd = vim.api.nvim_create_autocmd
 
@@ -8,10 +9,14 @@ local autocmd = vim.api.nvim_create_autocmd
 
 local general_settings = vim.api.nvim_create_augroup("_general_settings", { clear = true })
 
-autocmd("BufReadPost", {
-  group = general_settings,
-  pattern = "*",
-  command = 'silent! normal! g`"zv',
+api.nvim_create_autocmd("BufReadPost", {
+  callback = function()
+    local mark = api.nvim_buf_get_mark(0, '"')
+    local lcount = api.nvim_buf_line_count(0)
+    if mark[1] > 0 and mark[1] <= lcount then
+      pcall(api.nvim_win_set_cursor, 0, mark)
+    end
+  end,
   desc = "Restore cursor to where it was when the file was closed",
 })
 
@@ -30,19 +35,19 @@ autocmd({ "FocusGained", "TermClose", "TermLeave" }, {
       vim.cmd("checktime")
     end
   end,
-  desc = "Check if we need to reload the file when it changed"
+  desc = "Check if we need to reload the file when it changed",
 })
 
+-- -- wrap and check for spell in text filetypes
+-- vim.api.nvim_create_autocmd("FileType", {
+--   group = general_settings,
+--   pattern = { "text", "plaintex", "typst", "gitcommit", "markdown" },
+--   callback = function()
+--     vim.opt_local.wrap = true
+--     vim.opt_local.spell = true
+--   end,
+-- })
 
--- wrap and check for spell in text filetypes
-vim.api.nvim_create_autocmd("FileType", {
-  group = general_settings,
-  pattern = { "text", "plaintex", "typst", "gitcommit", "markdown" },
-  callback = function()
-    vim.opt_local.wrap = true
-    vim.opt_local.spell = true
-  end,
-})
 -- autocmd({ "InsertLeave", "TextChanged" }, {
 --     pattern = { "*" },
 --     command = "silent! wall",
@@ -58,31 +63,6 @@ autocmd("BufEnter", {
   end,
   group = general_settings,
   desc = "Don't auto commenting new lines",
-})
-
---  +----------------------------------------------------------+
---  |                         Plugins                          |
---  +----------------------------------------------------------+
-
-local plugins = vim.api.nvim_create_augroup("_plugins", { clear = true })
-
-autocmd({ "BufWritePost" }, {
-  pattern = { "*.sum", "*.mod" },
-  command = ":silent :GoModTidy",
-  group = plugins,
-  desc = "Golang plugins",
-})
-
---  +----------------------------------------------------------+
---  |                          Linter                          |
---  +----------------------------------------------------------+
-
-local linter = vim.api.nvim_create_augroup("_linter", { clear = true })
-
-autocmd({ "BufWritePost" }, {
-  pattern = { "*.go", "*.rs" },
-  command = "Format",
-  group = linter,
 })
 
 --  +----------------------------------------------------------+
