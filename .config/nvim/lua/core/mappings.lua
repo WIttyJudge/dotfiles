@@ -190,10 +190,6 @@ local plugins_mappings = {
     { "<C-b>", "<Cmd>Neotree toggle<CR>", desc = "Toggle NvimTree" },
     { "<Leader>hf", "<Cmd>Neotree reveal<CR>", desc = "Find file inside tree" },
   },
-  go_nvim = {
-    { "<Leader>rf", "<Cmd>GoTestFunc<CR>", desc = "Run function golang test" },
-    { "<Leader>rs", "<Cmd>GoTestSubCase<CR>", desc = "Run sub case golang test" },
-  },
   -- Wansmer/treesj
   treesj = {
     { "gS", "<Cmd>TSJSplit<CR>", desc = "Treesj split line" },
@@ -218,8 +214,6 @@ local plugins_mappings = {
       end,
       desc = "Previous Todo Comment",
     },
-    { "<Leader>st", "<cmd>TodoTelescope<cr>", desc = "Todo" },
-    { "<Leader>sT", "<cmd>TodoTelescope keywords=TODO,FIX,FIXME<cr>", desc = "Todo/Fix/Fixme" },
   },
   -- folke/which-key.nvim
   which_key = {

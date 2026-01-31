@@ -4,10 +4,15 @@ return {
   priority = 1000,
   lazy = false,
   config = {
+    -- Deal with big files.
     bigfile = {},
+    -- When doing nvim somefile.txt, it will render the file as quickly as possible, before loading your plugins.
     quickfile = {},
+    -- Scope detection, text objects and jumping based on treesitter or indent.
     scope = {},
+    -- Picker for selecting items.
     picker = {},
+    -- Indent guides and scopes.
     indent = {
       indent = {
         char = "┊",
@@ -16,6 +21,15 @@ return {
         enabled = false,
       },
     },
+    -- Pretty vim.notify
+    notifier = {},
+    -- Better vim.ui.input.
+    input = {},
+    -- Auto-show LSP references and quickly navigate between them
+    words = {},
+    -- Distraction-free coding.
+    zen = {},
+    -- Beautiful declarative dashboards.
     dashboard = {
       preset = {
         header = [[
@@ -99,6 +113,31 @@ return {
         Snacks.picker.help()
       end,
       desc = "Help Pages",
+    },
+
+    -- todo comments
+    {
+      "<leader>st",
+      function()
+        Snacks.picker.todo_comments()
+      end,
+      desc = "Todo",
+    },
+    {
+      "<leader>sT",
+      function()
+        Snacks.picker.todo_comments({ keywords = { "TODO", "FIX", "FIXME" } })
+      end,
+      desc = "Todo/Fix/Fixme",
+    },
+
+    -- zen mode
+    {
+      "<leader>z",
+      function()
+        Snacks.zen()
+      end,
+      desc = "Toggle Zen Mode",
     },
   },
 }

@@ -18,12 +18,12 @@ return {
     config = true,
   },
 
-  {
-    "andymass/vim-matchup",
-    init = function()
-      vim.g.matchup_matchparen_offscreen = { method = "popup" }
-    end,
-  },
+  -- {
+  --   "andymass/vim-matchup",
+  --   init = function()
+  --     vim.g.matchup_matchparen_offscreen = { method = "popup" }
+  --   end,
+  -- },
 
   {
     "NvChad/nvim-colorizer.lua",
@@ -34,6 +34,13 @@ return {
     "chrisgrieser/nvim-spider",
     lazy = true,
     keys = require("core.mappings").nvim_spider,
+  },
+
+  -- Improved UI and workflow for the quickfix
+  {
+    "stevearc/quicker.nvim",
+    ft = "qf",
+    opts = {},
   },
 
   -- {

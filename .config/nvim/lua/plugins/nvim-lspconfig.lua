@@ -2,15 +2,29 @@ return {
   "neovim/nvim-lspconfig",
   event = { "BufReadPre", "BufNewFile" },
   dependencies = {
-    { "mason-org/mason.nvim", version = "1.11.0" },
-    { "mason-org/mason-lspconfig.nvim", version = "1.32.0" },
+    { "mason-org/mason.nvim" },
   },
-  config = function()
-    local mason = require("mason")
-    local mason_lspconfig = require("mason-lspconfig")
-
+  opts = {
+    -- READ MORE: https://github.com/neovim/nvim-lspconfig/blob/master/CONFIG.md
+    servers = {
+      bashls = {},
+      lua_ls = {},
+      -- if it does not works, install binaries from
+      -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#golangci_lint_ls
+      golangci_lint_ls = {
+        cmd = { "golangci-lint-langserver" },
+        filetypes = { "go", "gomod" },
+        init_options = {
+          command = { "golangci-lint", "run", "--out-format", "json" },
+        },
+      },
+      gopls = {},
+      dockerls = {},
+      copilot = {},
+    },
+  },
+  config = function(_, opts)
     local icons = require("internal.icons")
-    local servers = require("lsp.servers")
     local capabilities = require("lsp.capabilities")
     local on_attach = require("lsp.on_attach")
 
@@ -25,23 +39,6 @@ return {
       vim.fn.sign_define(hl, { texthl = hl, text = icon, numhl = "" })
     end
 
-    local config = {
-      diagnostics = {
-        -- signs = { active = signs },
-        severity_sort = true,
-
-        -- signs = { active = signs },
-        float = {
-          focused = false,
-          style = "minimal",
-          border = "rounded",
-          source = "always",
-          header = "",
-          prefix = "",
-        },
-      },
-    }
-
     vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
       border = "rounded",
     })
@@ -50,25 +47,31 @@ return {
       border = "rounded",
     })
 
-    local mason_lsp_config = {
-      automatic_installation = false,
-      ensure_installed = vim.tbl_keys(servers),
-      handlers = {
-        function(server_name)
-          vim.lsp.config(server_name, {
-            capabilities = capabilities,
-            on_attach = on_attach,
-            settings = servers[server_name],
-            -- filetypes = (servers[server_name] or {}).filetypes,
-          })
+    for name, server_opts in pairs(opts.servers) do
+      server_opts.capabilities = vim.tbl_deep_extend("force", {}, capabilities, server_opts.capabilities or {})
+      server_opts.on_attach = on_attach
 
-          vim.lsp.enable({ server_name })
-        end,
+      vim.lsp.config(name, server_opts)
+      vim.lsp.enable(name)
+    end
+
+    local diagnosticsConfig = {
+      -- signs = { active = signs },
+      severity_sort = true,
+
+      -- signs = { active = signs },
+      float = {
+        focused = false,
+        style = "minimal",
+        border = "rounded",
+        source = "always",
+        header = "",
+        prefix = "",
       },
     }
 
-    vim.diagnostic.config(config.diagnostics)
-    mason.setup()
-    mason_lspconfig.setup(mason_lsp_config)
+    vim.diagnostic.config(diagnosticsConfig)
+
+    require("mason").setup()
   end,
 }

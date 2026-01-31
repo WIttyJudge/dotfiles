@@ -37,26 +37,6 @@ return {
   --   },
   -- },
 
-  {
-    "RRethy/vim-illuminate",
-    event = "BufEnter",
-    config = function()
-      local config = {
-        filetypes_denylist = {
-          "dirvish",
-          "fugitive",
-          "NvimTree",
-          "TelescopePrompt",
-        },
-
-        -- set highest priority for treesitter, and disable regex search
-        providers = { "treesitter", "lsp" },
-      }
-
-      require("illuminate").configure(config)
-    end,
-  },
-
   -- {
   --   "j-hui/fidget.nvim",
   --   event = "LspAttach",
@@ -241,15 +221,10 @@ return {
 
   {
     "folke/todo-comments.nvim",
-    cmd = { "TodoTrouble", "TodoTelescope" },
+    event = "BufReadPre", -- needed to highlight keywords
     keys = require("core.mappings").todo_comments,
     config = true,
   },
-
-  -- {
-  --   "https://github.com/NMAC427/guess-indent.nvim",
-  --   config = true
-  -- },
 
   -- {
   --   "nvim-focus/focus.nvim",
