@@ -140,18 +140,6 @@ return {
   -- },
 
   {
-    "nvim-neo-tree/neo-tree.nvim",
-    -- cmd = "Neotree",
-    dependencies = {
-      "MunifTanjim/nui.nvim",
-    },
-    keys = require("core.mappings").neo_tree,
-    config = function()
-      require("plugins.configs.neo-tree")
-    end,
-  },
-
-  {
     "numToStr/Comment.nvim",
     opts = {
       mappings = false,
