@@ -3,7 +3,7 @@ local nvim_autopairs = require("nvim-autopairs")
 local cmp = require("cmp")
 
 local config = {
-	disable_filetype = { "TelescopePrompt", "vim" },
+  disable_filetype = { "TelescopePrompt", "vim" },
 }
 
 nvim_autopairs.setup(config)

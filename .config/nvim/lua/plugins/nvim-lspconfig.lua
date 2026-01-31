@@ -62,7 +62,7 @@ return {
             -- filetypes = (servers[server_name] or {}).filetypes,
           })
 
-          vim.lsp.enable({server_name})
+          vim.lsp.enable({ server_name })
         end,
       },
     }

@@ -2,7 +2,7 @@ local M = {}
 
 -- Get home dir ($HOME)
 function M.get_homedir()
-	return os.getenv("HOME")
+  return os.getenv("HOME")
 end
 
 function M.diagnostic_goto(next, severity)
@@ -14,4 +14,3 @@ function M.diagnostic_goto(next, severity)
 end
 
 return M
-

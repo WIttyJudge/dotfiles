@@ -120,11 +120,11 @@ map("n", "<Leader>t8", "8gt<CR>", { desc = "tab 8" })
 map("n", "<Leader>t9", "9gt<CR>", { desc = "tab 9" })
 
 map("n", "i", function()
-	if #vim.fn.getline(".") == 0 then
-		return [["_cc]]
-	else
-		return "i"
-	end
+  if #vim.fn.getline(".") == 0 then
+    return [["_cc]]
+  else
+    return "i"
+  end
 end, { expr = true, desc = "properly indent on empty line when insert" })
 
 --  +----------------------------------------------------------+
@@ -132,123 +132,142 @@ end, { expr = true, desc = "properly indent on empty line when insert" })
 --  +----------------------------------------------------------+
 
 local plugins_mappings = {
-	-- chrisgrieser/nvim-spider
-	nvim_spider = {
-		{ "w", "<Cmd>lua require('spider').motion('w')<CR>", mode = { "n", "o", "x" }, desc = "Spider-w" },
-		{ "e", "<Cmd>lua require('spider').motion('e')<CR>", mode = { "n", "o", "x" }, desc = "Spider-e" },
-		{ "b", "<Cmd>lua require('spider').motion('b')<CR>", mode = { "n", "o", "x" }, desc = "Spider-b" },
-	},
-	-- numToStr/Comment.nvim
-	comment_nvim = {
-		{
-			"<Leader>/",
-			function ()require("Comment.api").toggle.linewise.current() end,
-			mode = "n",
-			desc = "Toggle comment"
-		},
-		{
-			"<Leader>/",
-			"<ESC><Cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<CR>",
-			mode = "v",
-			desc = "Toggle comment",
-		}
-	},
-	grub_fat = {
-		{
-			"<Leader>sr",
-			function()
-				local grug = require("grug-far")
-				local ext = vim.bo.buftype == "" and vim.fn.expand("%:e")
-				grug.open({
-					transient = true,
-					prefills = {
-						filesFilter = ext and ext ~= "" and "*." .. ext or nil,
-					},
-				})
-			end,
-			mode = { "n", "v" },
-			desc = "Search and Replace",
-		},
-	},
+  -- chrisgrieser/nvim-spider
+  nvim_spider = {
+    { "w", "<Cmd>lua require('spider').motion('w')<CR>", mode = { "n", "o", "x" }, desc = "Spider-w" },
+    { "e", "<Cmd>lua require('spider').motion('e')<CR>", mode = { "n", "o", "x" }, desc = "Spider-e" },
+    { "b", "<Cmd>lua require('spider').motion('b')<CR>", mode = { "n", "o", "x" }, desc = "Spider-b" },
+  },
+  -- numToStr/Comment.nvim
+  comment_nvim = {
+    {
+      "<Leader>/",
+      function()
+        require("Comment.api").toggle.linewise.current()
+      end,
+      mode = "n",
+      desc = "Toggle comment",
+    },
+    {
+      "<Leader>/",
+      "<ESC><Cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<CR>",
+      mode = "v",
+      desc = "Toggle comment",
+    },
+  },
+  grub_fat = {
+    {
+      "<Leader>sr",
+      function()
+        local grug = require("grug-far")
+        local ext = vim.bo.buftype == "" and vim.fn.expand("%:e")
+        grug.open({
+          transient = true,
+          prefills = {
+            filesFilter = ext and ext ~= "" and "*." .. ext or nil,
+          },
+        })
+      end,
+      mode = { "n", "v" },
+      desc = "Search and Replace",
+    },
+  },
   aerial = {
     { "<leader>cs", "<cmd>AerialToggle<cr>", desc = "Aerial (Symbols)" },
   },
-	kulala = {
-		{
-			"<Leader>hr",
-			function () require("kulala").run() end,
-			mode = "n",
-			desc = "Run HTTP query"
-		},
-	},
-	-- nvim-neo-tree/neo-tree.nvim
-	neo_tree = {
-		{ "<C-b>", "<Cmd>Neotree toggle<CR>", desc = "Toggle NvimTree" },
-		{ "<Leader>hf", "<Cmd>Neotree reveal<CR>", desc = "Find file inside tree" },
-	},
-	go_nvim = {
-		{ "<Leader>rf", "<Cmd>GoTestFunc<CR>", desc = "Run function golang test" },
-		{ "<Leader>rs", "<Cmd>GoTestSubCase<CR>", desc = "Run sub case golang test" },
-	},
-	-- Wansmer/treesj
-	treesj = {
-		{ "gS", "<Cmd>TSJSplit<CR>", desc = "Treesj split line" },
-		{ "gJ", "<Cmd>TSJJoin<CR>", desc = "Treesj join line" },
-	},
-	-- nguyenvukhang/nvim-toggler
-	toggler = {
-		{ "<Leader>i", desc = "Toggle text inverter" },
-	},
-  todo_comments = {
-      { "]t", function() require("todo-comments").jump_next() end, desc = "Next Todo Comment" },
-      { "[t", function() require("todo-comments").jump_prev() end, desc = "Previous Todo Comment" },
-      { "<Leader>st", "<cmd>TodoTelescope<cr>", desc = "Todo" },
-      { "<Leader>sT", "<cmd>TodoTelescope keywords=TODO,FIX,FIXME<cr>", desc = "Todo/Fix/Fixme" },
+  kulala = {
+    {
+      "<Leader>hr",
+      function()
+        require("kulala").run()
+      end,
+      mode = "n",
+      desc = "Run HTTP query",
+    },
   },
-	-- folke/which-key.nvim
-	which_key = {
-		"<Leader>", '"', "'", "`",
-	},
-	-- nvim-telescope/telescope.nvim
-	-- telescope = {
-	-- 	-- {
-	-- 	-- 	"<Leader>ff",
-	-- 	-- 	function () require("telescope.builtin").find_files() end,
-	-- 	-- 	desc = "Find files"
-	-- 	-- },
-	-- 	{
-	-- 		"<Leader>ff",
-	-- 		function () require("telescope").extensions.smart_open.smart_open() end,
-	-- 		desc = "Files"
-	-- 	},
-	-- 	{
-	-- 		"<Leader>fo",
-	-- 		function () require("telescope.builtin").oldfiles() end,
-	-- 		desc = "Oldfiles"
-	-- 	},
-	-- 	{
-	-- 		"<Leader>fW",
-	-- 		function () require("telescope.builtin").live_grep() end,
-	-- 		desc = "Live grep"
-	-- 	},
-	-- 	{
-	-- 		"<Leader>fc",
-	-- 		function () require("telescope.builtin").grep_string() end,
-	-- 		desc = "Word under cursor"
-	-- 	},
-	-- 	{
-	-- 		"<Leader>fm",
-	-- 		function () require("telescope.builtin").man_pages() end,
-	-- 		desc = "Man"
-	-- 	},
-	-- 	{
-	-- 		"<Leader>fh",
-	-- 		function ()
-	-- 			require("telescope.builtin").help_tags()
-	-- 		end,
-	-- 		desc = "Neovim help"
-	-- 	},
-	-- },
+  -- nvim-neo-tree/neo-tree.nvim
+  neo_tree = {
+    { "<C-b>", "<Cmd>Neotree toggle<CR>", desc = "Toggle NvimTree" },
+    { "<Leader>hf", "<Cmd>Neotree reveal<CR>", desc = "Find file inside tree" },
+  },
+  go_nvim = {
+    { "<Leader>rf", "<Cmd>GoTestFunc<CR>", desc = "Run function golang test" },
+    { "<Leader>rs", "<Cmd>GoTestSubCase<CR>", desc = "Run sub case golang test" },
+  },
+  -- Wansmer/treesj
+  treesj = {
+    { "gS", "<Cmd>TSJSplit<CR>", desc = "Treesj split line" },
+    { "gJ", "<Cmd>TSJJoin<CR>", desc = "Treesj join line" },
+  },
+  -- nguyenvukhang/nvim-toggler
+  toggler = {
+    { "<Leader>i", desc = "Toggle text inverter" },
+  },
+  todo_comments = {
+    {
+      "]t",
+      function()
+        require("todo-comments").jump_next()
+      end,
+      desc = "Next Todo Comment",
+    },
+    {
+      "[t",
+      function()
+        require("todo-comments").jump_prev()
+      end,
+      desc = "Previous Todo Comment",
+    },
+    { "<Leader>st", "<cmd>TodoTelescope<cr>", desc = "Todo" },
+    { "<Leader>sT", "<cmd>TodoTelescope keywords=TODO,FIX,FIXME<cr>", desc = "Todo/Fix/Fixme" },
+  },
+  -- folke/which-key.nvim
+  which_key = {
+    "<Leader>",
+    '"',
+    "'",
+    "`",
+  },
+  -- nvim-telescope/telescope.nvim
+  -- telescope = {
+  -- 	-- {
+  -- 	-- 	"<Leader>ff",
+  -- 	-- 	function () require("telescope.builtin").find_files() end,
+  -- 	-- 	desc = "Find files"
+  -- 	-- },
+  -- 	{
+  -- 		"<Leader>ff",
+  -- 		function () require("telescope").extensions.smart_open.smart_open() end,
+  -- 		desc = "Files"
+  -- 	},
+  -- 	{
+  -- 		"<Leader>fo",
+  -- 		function () require("telescope.builtin").oldfiles() end,
+  -- 		desc = "Oldfiles"
+  -- 	},
+  -- 	{
+  -- 		"<Leader>fW",
+  -- 		function () require("telescope.builtin").live_grep() end,
+  -- 		desc = "Live grep"
+  -- 	},
+  -- 	{
+  -- 		"<Leader>fc",
+  -- 		function () require("telescope.builtin").grep_string() end,
+  -- 		desc = "Word under cursor"
+  -- 	},
+  -- 	{
+  -- 		"<Leader>fm",
+  -- 		function () require("telescope.builtin").man_pages() end,
+  -- 		desc = "Man"
+  -- 	},
+  -- 	{
+  -- 		"<Leader>fh",
+  -- 		function ()
+  -- 			require("telescope.builtin").help_tags()
+  -- 		end,
+  -- 		desc = "Neovim help"
+  -- 	},
+  -- },
 }
 
 -- text-case.nvim
