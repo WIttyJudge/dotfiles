@@ -127,16 +127,6 @@ return {
     keys = require("core.mappings").grub_fat,
   },
 
-  -- Statusline and bufferline
-  {
-    "nvim-lualine/lualine.nvim",
-    lazy = false,
-    dependencies = { "nvim-tree/nvim-web-devicons" },
-    config = function()
-      require("plugins.configs.lualine")
-    end,
-  },
-
   {
     "alvarosevilla95/luatab.nvim",
     dependencies = "nvim-tree/nvim-web-devicons",
