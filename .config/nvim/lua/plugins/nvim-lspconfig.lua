@@ -47,12 +47,12 @@ return {
       border = "rounded",
     })
 
-    for name, server_opts in pairs(opts.servers) do
+    for server, server_opts in pairs(opts.servers) do
       server_opts.capabilities = vim.tbl_deep_extend("force", {}, capabilities, server_opts.capabilities or {})
       server_opts.on_attach = on_attach
 
-      vim.lsp.config(name, server_opts)
-      vim.lsp.enable(name)
+      vim.lsp.config(server, server_opts)
+      vim.lsp.enable(server)
     end
 
     local diagnosticsConfig = {
