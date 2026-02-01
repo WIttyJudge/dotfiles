@@ -86,14 +86,6 @@ return {
     cmd = { "CBlcbox" },
   },
 
-  -- Git
-  {
-    "lewis6991/gitsigns.nvim",
-    config = function()
-      require("plugins.configs.gitsigns")
-    end,
-  },
-
   -- Looking for files, etc..
   -- {
   --   "nvim-telescope/telescope.nvim",
@@ -204,13 +196,6 @@ return {
     },
     keys = require("core.mappings").toggler,
   },
-
-  -- {
-  --   "LunarVim/bigfile.nvim",
-  --   config = function()
-  --     require("plugins.configs.bigfile")
-  --   end,
-  -- },
 
   -- {
   --   "zeioth/garbage-day.nvim",
