@@ -9,10 +9,12 @@ return {
     },
     "HiPhish/rainbow-delimiters.nvim",
     "nvim-treesitter/nvim-treesitter-refactor",
-    "windwp/nvim-ts-autotag",
   },
+  lazy = false,
+  -- WARN: migrate to main branch one day
+  branch = "master",
   build = ":TSUpdate",
-  event = "BufReadPost",
+  -- event = { "BufReadPre", "BufNewFile" },
   opts = {
     -- ensure_installed = "all",  -- one of "all", "maintained" (parsers with maintainers), or a list of languages
     ensure_installed = {
@@ -114,29 +116,10 @@ return {
       },
     },
 
-    -- windwp/nvim-ts-autotag
-    autopairs = {
-      enable = true,
-    },
-
     -- nvim-treesitter-refactor
     refactor = {
       highlight_definitions = {
         enable = true,
-      },
-    },
-
-    -- nvim-ts-autotag
-    autotag = {
-      enable = true,
-      filetypes = {
-        "html",
-        "eruby",
-        "javascript",
-        "javascriptreact",
-        "typescriptreact",
-        "svelte",
-        "vue",
       },
     },
   },

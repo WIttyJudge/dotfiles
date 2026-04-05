@@ -1,10 +1,9 @@
 local icons = {
   diagnostics = {
     Error = " ",
-    Hint = "",
-    Info = "",
-    Question = "",
-    Warn = "",
+    Warn = " ",
+    Hint = " ",
+    Info = " ",
   },
   git = {
     Add = "",

@@ -182,6 +182,8 @@ return {
       inverses = {
         ["true"] = "false",
         ["!="] = "==",
+        ["asc"] = "desc",
+        ["ASC"] = "DESC",
       },
     },
     keys = require("core.mappings").toggler,
