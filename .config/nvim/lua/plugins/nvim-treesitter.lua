@@ -2,54 +2,20 @@
 return {
   "nvim-treesitter/nvim-treesitter",
   dependencies = {
-    "nvim-treesitter/nvim-treesitter-textobjects",
+    {
+      "nvim-treesitter/nvim-treesitter-textobjects",
+      branch = "main",
+    },
     {
       "nvim-treesitter/nvim-treesitter-context",
       config = true,
     },
     "HiPhish/rainbow-delimiters.nvim",
-    "nvim-treesitter/nvim-treesitter-refactor",
   },
   lazy = false,
-  -- WARN: migrate to main branch one day
-  branch = "master",
+  branch = "main",
   build = ":TSUpdate",
-  -- event = { "BufReadPre", "BufNewFile" },
   opts = {
-    -- ensure_installed = "all",  -- one of "all", "maintained" (parsers with maintainers), or a list of languages
-    ensure_installed = {
-      "query",
-      "bash",
-      "html",
-      "http",
-      "css",
-      "cpp",
-      "c",
-      "go",
-      "gomod",
-      "gowork",
-      "gosum",
-      "ruby",
-      "graphql",
-      "java",
-      "json",
-      "php",
-      "python",
-      "rust",
-      "typescript",
-      "yaml",
-      "regex",
-      "javascript",
-      "lua",
-      "toml",
-      "dockerfile",
-      "vim",
-      "sql",
-      -- "svelte",
-      -- "scss",
-      -- "vue",
-    },
-
     auto_install = false,
 
     incremental_selection = {
@@ -62,13 +28,9 @@ return {
       },
     },
 
-    highlight = {
-      enable = true,
-      use_languagetree = true,
-      additional_vim_regex_highlighting = false,
-    },
-
-    -- PLUGINS
+    -- +---------------------------------------------------------+
+    -- |                         PLUGINS                         |
+    -- +---------------------------------------------------------+
 
     -- nvim-treesitter/nvim-treesitter-textobjects
     textobjects = {
@@ -115,15 +77,51 @@ return {
         },
       },
     },
-
-    -- nvim-treesitter-refactor
-    refactor = {
-      highlight_definitions = {
-        enable = true,
-      },
-    },
   },
-  config = function(_, opts)
-    require("nvim-treesitter.configs").setup(opts)
+  init = function()
+    vim.api.nvim_create_autocmd("FileType", {
+      callback = function()
+        pcall(vim.treesitter.start)
+
+        -- Enable treesitter-based indentation
+        -- vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+
+        local ensure_installed = {
+          "query",
+          "bash",
+          "html",
+          "http",
+          "css",
+          "go",
+          "gomod",
+          "gowork",
+          "gosum",
+          "ruby",
+          "graphql",
+          "java",
+          "json",
+          "php",
+          "python",
+          "rust",
+          "typescript",
+          "yaml",
+          "regex",
+          "javascript",
+          "lua",
+          "toml",
+          "dockerfile",
+          "vim",
+          "sql",
+        }
+        local already_installed = require("nvim-treesitter.config").get_installed()
+        local parsers_to_install = vim
+          .iter(ensure_installed)
+          :filter(function(parser)
+            return not vim.tbl_contains(already_installed, parser)
+          end)
+          :totable()
+        require("nvim-treesitter").install(parsers_to_install)
+      end,
+    })
   end,
 }

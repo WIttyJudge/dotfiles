@@ -74,13 +74,6 @@ return {
     config = true,
   },
 
-  -- HTTP REST-Client Interface
-  {
-    "mistweaverco/kulala.nvim",
-    config = true,
-    keys = require("core.mappings").kulala,
-  },
-
   {
     "LudoPinelli/comment-box.nvim",
     cmd = { "CBlcbox" },

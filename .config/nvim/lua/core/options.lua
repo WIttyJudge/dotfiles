@@ -102,6 +102,8 @@ o.spell = false
 o.list = true
 opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
 
+opt.termguicolors = true
+
 -- the providers are for (neo)vim plugins coded in those languages,
 -- by majority of plugins are lua/vimscript so I don't need it.
 g.loaded_python3_provider = 0

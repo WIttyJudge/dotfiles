@@ -1,14 +1,14 @@
 -- https://github.com/catppuccin/nvim
 return {
-  "catppuccin/nvim",
-  -- lazy = true,
+  "catppuccin",
   name = "catppuccin",
   priority = 1000,
   opts = {
     flavour = "mocha",
+    default_integrations = true,
     auto_integrations = true,
   },
   init = function()
-    vim.cmd.colorscheme("catppuccin")
+    vim.cmd.colorscheme("catppuccin-nvim")
   end,
 }

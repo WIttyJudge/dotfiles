@@ -5,13 +5,31 @@ return {
   lazy = false,
   config = {
     -- Deal with big files.
-    bigfile = {},
+    bigfile = {
+      notify = false,
+    },
     -- When doing nvim somefile.txt, it will render the file as quickly as possible, before loading your plugins.
     quickfile = {},
     -- Scope detection, text objects and jumping based on treesitter or indent.
     scope = {},
     -- Picker for selecting items.
-    picker = {},
+    picker = {
+      actions = {
+        sidekick_send = function(...)
+          return require("sidekick.cli.picker.snacks").send(...)
+        end,
+      },
+      win = {
+        input = {
+          keys = {
+            ["<a-a>"] = {
+              "sidekick_send",
+              mode = { "n", "i" },
+            },
+          },
+        },
+      },
+    },
     -- Indent guides and scopes.
     indent = {
       indent = {
