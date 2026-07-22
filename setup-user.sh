@@ -4,36 +4,36 @@ set -e
 exec 2> >(while read line; do echo -e "\e[01;31m$line\e[0m"; done)
 
 dotfiles_dir="$(
-	cd "$(dirname "$0")"
-	pwd
+  cd "$(dirname "$0")"
+  pwd
 )"
 cd "$dotfiles_dir"
 
 link() {
-	orig_file="$dotfiles_dir/$1"
-	if [ -n "$2" ]; then
-		dest_file="$HOME/$2"
-	else
-		dest_file="$HOME/$1"
-	fi
+  orig_file="$dotfiles_dir/$1"
+  if [ -n "$2" ]; then
+    dest_file="$HOME/$2"
+  else
+    dest_file="$HOME/$1"
+  fi
 
-	mkdir -pv "$(dirname "$dest_file")"
+  mkdir -pv "$(dirname "$dest_file")"
 
-	rm -rf "$dest_file"
-	ln -sv "$orig_file" "$dest_file"
+  rm -rf "$dest_file"
+  ln -sv "$orig_file" "$dest_file"
 }
 
 link_all_files_in_folder() {
-	orig_dir=$dotfiles_dir/$1
-	if [ -n "$2" ]; then
-		dest_dir="$HOME/$2"
-	else
-		dest_dir="$HOME/$1"
-	fi
+  orig_dir=$dotfiles_dir/$1
+  if [ -n "$2" ]; then
+    dest_dir="$HOME/$2"
+  else
+    dest_dir="$HOME/$1"
+  fi
 
-	mkdir -pv $dest_dir
+  mkdir -pv $dest_dir
 
-	find $orig_dir -type f -exec ln -sfv "{}" $dest_dir \;
+  find $orig_dir -type f -exec ln -sfv "{}" $dest_dir \;
 }
 
 echo "==========================="
@@ -57,7 +57,6 @@ link ".config/gtk-3.0"
 link ".config/htop"
 link ".config/hypr"
 link ".config/lazygit"
-link ".config/mpv"
 link ".config/nsxiv"
 link ".config/nvim"
 link ".config/pcmanfm"

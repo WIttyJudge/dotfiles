@@ -12,7 +12,7 @@
 # the default umask is set in /etc/profile; for setting the umask
 # for ssh logins, install and configure the libpam-umask package.
 
-export SHELL=`which zsh`
+export SHELL=$(which zsh)
 [ -z "$ZSH_VERSION" ] && exec "$SHELL" -l
 
 # set PATH so it includes user's private bin if it exists
@@ -25,7 +25,7 @@ export SHELL=`which zsh`
 # fi
 
 # load custom scripts
-if [ -d "$HOME/.local/bin" ] ; then
+if [ -d "$HOME/.local/bin" ]; then
   PATH=$PATH$(find $HOME/.local/bin -type d -printf ":%p")
 fi
 
@@ -41,5 +41,3 @@ export GOPATH=$HOME/golib
 # my folder
 export GOPATH=$HOME/code
 export PATH=$PATH:$GOPATH/bin
-
-

@@ -1,0 +1,147 @@
+-- +----------------------------------------------------------+
+-- |                        Variables                         |
+-- +----------------------------------------------------------+
+--
+-- See: https://wiki.hypr.land/Configuring/Basics/Variables/
+
+-- gesture = 3, horizontal, workspace
+--
+-- general {
+--     gaps_in = 5
+--     gaps_out = 10
+--
+--     border_size = 1
+--     col.active_border=rgb(cdd6f4)
+--     col.inactive_border = rgba(595959aa)
+--
+--     layout = dwindle
+-- }
+hl.config({
+  general = {
+    gaps_in = 5,
+    gaps_out = 10,
+    border_size = 1,
+    ["col.active_border"] = "rgb(cdd6f4)",
+    ["col.inactive_border"] = "rgba(595959aa)",
+    layout = "dwindle",
+  },
+})
+
+--
+-- decoration {
+--     blur {
+--         enabled = false
+--     }
+--
+--     rounding = 10
+--     active_opacity = 1.0
+--     inactive_opacity = 1.0
+--     fullscreen_opacity = 1.0
+-- }
+hl.config({
+  decoration = {
+    blur = {
+      enabled = false,
+    },
+    rounding = 10,
+    active_opacity = 1.0,
+    inactive_opacity = 1.0,
+    fullscreen_opacity = 1.0,
+  },
+})
+
+--
+-- input {
+--     kb_layout = us,ru
+--     kb_options = grp:alt_shift_toggle,caps:swapescape
+--
+--     numlock_by_default = true
+--
+--     repeat_delay = 250
+--     repeat_rate = 40
+--
+--     touchpad {
+--         natural_scroll = true
+--         disable_while_typing = true
+--         clickfinger_behavior = true
+--         scroll_factor = 0.5
+--     }
+-- }
+hl.config({
+  input = {
+    kb_layout = "us,ru",
+    kb_options = "grp:alt_shift_toggle,caps:swapescape",
+
+    numlock_by_default = true,
+
+    repeat_delay = 250,
+    repeat_rate = 40,
+
+    touchpad = {
+      natural_scroll = true,
+      disable_while_typing = true,
+      clickfinger_behavior = true,
+      scroll_factor = 0.5,
+    },
+  },
+})
+
+--
+-- ecosystem {
+--     no_update_news = true
+-- }
+hl.config({
+  ecosystem = {
+    no_update_news = true,
+    no_donation_nag = true,
+  },
+})
+
+--
+-- misc {
+--     enable_swallow = true
+--     swallow_regex = (foot|Alacritty)
+--
+--     disable_hyprland_logo = true
+--     force_default_wallpaper = 1
+-- }
+hl.config({
+  misc = {
+    enable_swallow = true,
+    swallow_regex = "(foot|Alacritty)",
+    disable_hyprland_logo = true,
+    force_default_wallpaper = 1,
+  },
+})
+
+--
+-- binds {
+--     allow_workspace_cycles = true
+-- }
+hl.config({
+  binds = {
+    allow_workspace_cycles = true,
+  },
+})
+
+--
+-- cursor {
+--     inactive_timeout = 2
+--     no_hardware_cursors = true
+-- }
+hl.config({
+  cursor = {
+    inactive_timeout = 2,
+    no_hardware_cursors = true,
+  },
+})
+
+--
+-- opengl {
+--     nvidia_anti_flicker = false
+-- }
+hl.config({
+  opengl = {
+    nvidia_anti_flicker = false,
+  },
+})

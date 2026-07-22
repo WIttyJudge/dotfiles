@@ -1,10 +1,26 @@
 #!/bin/sh
 
+# READ MORE: https://wiki.archlinux.org/title/System_maintenance#Check_for_errors
+
+set -e
+
 printf "Beginning upgrade.\\n"
 
-sudo pacman -Syu
+# 1. backup files before update: https://wiki.archlinux.org/title/Pacman/Tips_and_tricks#List_of_installed_packages
+
+if pgrep -x "hypridle" >/dev/null; then
+  killall hypridle
+fi
+
+# sudo pacman -Syu
 # polybar-msg action "#pacman-packages.hook.0"
 pkill -SIGRTMIN+8 waybar
+
+# Removing unused packages (orphans).
+# See: https://wiki.archlinux.org/title/Pacman/Tips_and_tricks#Removing_unused_packages_(orphans)
+sudo pacman -Qdtq | ifne sudo pacman -Rns -
+
+hypridle -q &
 
 printf "\\nUpgrade complete.\\nPress <Enter> to exit window.\\n\\n"
 read -r _

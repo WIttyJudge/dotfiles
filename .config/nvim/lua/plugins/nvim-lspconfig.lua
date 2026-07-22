@@ -29,6 +29,7 @@ return {
       dockerls = {},
       copilot = {},
       buf_ls = {},
+      vtsls = {},
     },
   },
   config = function(_, opts)
@@ -47,12 +48,11 @@ return {
       vim.fn.sign_define(hl, { texthl = hl, text = icon, numhl = "" })
     end
 
-    vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
-      border = "rounded",
-    })
-
-    vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {
-      border = "rounded",
+    vim.lsp.config("*", {
+      handlers = {
+        ["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "rounded" }),
+        ["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = "rounded" }),
+      },
     })
 
     for server, server_opts in pairs(opts.servers) do

@@ -4,7 +4,7 @@ local icons = require("internal.icons")
 return {
   "folke/trouble.nvim",
   cmd = { "Trouble" },
-  config = {
+  opts = {
     fold_open = icons.fold.Opened,
     fold_closed = icons.fold.Closed,
 

@@ -1,0 +1,20 @@
+waybar
+hyprland
+rofi-wayland
+xdg-desktop-portal-hyprland
+gt5-wayland
+gt6-wayland
+cb
+foot
+
+bibata-cursor-theme-bin
+
+swww ?
+grim ?
+
+Bars:                waybar
+Wallpaper utilities: wbg (AUR)
+Screen record/capture: OBS, grim and slurp
+Notification manager:
+Editor/Notes management:
+Music clients:

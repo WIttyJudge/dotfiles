@@ -6,26 +6,26 @@ send_notification() {
 }
 
 case $1 in
-  volume-up)
-    pamixer -u
-    pamixer -i 5 --allow-boost
-    send_notification $1
-    ;;
-  volume-down)
-    pamixer -u
-    pamixer -d 5 --allow-boost
-    send_notification $1
-    ;;
-  volume-toggle)
-    pamixer -t
-    if $(pamixer --get-mute); then
-      notify-send -a "change-audio" -t 2000 -r 9993 -i volume-mute -u low "Muted"
-    else
-      send_notification volume-up
-    fi
-    ;;
-  *)
-    echo >&2 "Unknown action '$1'"
-    exit 1
-    ;;
+volume-up)
+  pamixer -u
+  pamixer -i 5 --allow-boost
+  send_notification $1
+  ;;
+volume-down)
+  pamixer -u
+  pamixer -d 5 --allow-boost
+  send_notification $1
+  ;;
+volume-toggle)
+  pamixer -t
+  if $(pamixer --get-mute); then
+    notify-send -a "change-audio" -t 2000 -r 9993 -i volume-mute -u low "Muted"
+  else
+    send_notification volume-up
+  fi
+  ;;
+*)
+  echo >&2 "Unknown action '$1'"
+  exit 1
+  ;;
 esac

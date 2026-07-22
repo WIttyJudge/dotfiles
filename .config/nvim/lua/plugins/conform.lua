@@ -13,6 +13,10 @@ return {
     formatters_by_ft = {
       -- ruby = { "rubocop" },
       -- go = { "goimports", "gofumpt" },
+      typescript = { "prettier" },
+      javascript = { "prettier" },
+      typescriptreact = { "prettier" },
+      javascriptreact = { "prettier" },
       go = { "goimports" },
       lua = { "stylua" },
       sh = { "shfmt" },

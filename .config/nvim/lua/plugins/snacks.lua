@@ -3,7 +3,7 @@ return {
   "folke/snacks.nvim",
   priority = 1000,
   lazy = false,
-  config = {
+  opts = {
     -- Deal with big files.
     bigfile = {
       notify = false,

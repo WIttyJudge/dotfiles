@@ -43,6 +43,11 @@ return {
     opts = {},
   },
 
+  {
+    "eandrju/cellular-automaton.nvim",
+    cmd = "CellularAutomaton",
+  },
+
   -- {
   --   "max397574/better-escape.nvim",
   --   config = true,

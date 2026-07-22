@@ -22,7 +22,7 @@ end)
 
 -- Show which line your cursor is on.
 o.cursorline = true
-o.cursorlineopt = "number"
+o.cursorlineopt = "both"
 
 -- Indenting.
 o.expandtab = true

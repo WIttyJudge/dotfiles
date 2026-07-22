@@ -31,14 +31,14 @@ toggle_input_sources() {
 }
 
 case $1 in
-  toggle)
-    toggle_input_sources
-    ;;
-  get-mute)
-    input_sources_is_muted
-    ;;
-  *)
-    echo >&2 "Unknown action '$1'"
-    exit 1
-    ;;
+toggle)
+  toggle_input_sources
+  ;;
+get-mute)
+  input_sources_is_muted
+  ;;
+*)
+  echo >&2 "Unknown action '$1'"
+  exit 1
+  ;;
 esac

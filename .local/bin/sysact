@@ -14,36 +14,35 @@ option="$cancel\n$poweroff\n$reboot\n$suspend\n$lock\n$logout"
 select="$(echo -e "$option" | rofi -dmenu -theme theme/dmenu)"
 
 before_exit() {
-	bluetoothctl disconnect
+  bluetoothctl disconnect
 }
 
 case "$(readlink -f /sbin/init)" in
-	*systemd*) ctl='systemctl' ;;
-	*) ctl='loginctl' ;;
+*systemd*) ctl='systemctl' ;;
+*) ctl='loginctl' ;;
 esac
 
 case $select in
-	$poweroff)
-		$ctl poweroff -i
-		;;
-	$reboot)
-		$ctl reboot -i
-		;;
-	$suspend)
-		# before_exit
-		$ctl suspend -i
-		slock
-		;;
-	$lock)
-		before_exit
-		slock
-		;;
-	$logout)
-		# kill -TERM dwmpid $(pidof dwm)
-		bspc quit
-    ;;
-  *)
-    exit 1
-    ;;
+$poweroff)
+  $ctl poweroff -i
+  ;;
+$reboot)
+  $ctl reboot -i
+  ;;
+$suspend)
+  # before_exit
+  $ctl suspend -i
+  slock
+  ;;
+$lock)
+  before_exit
+  slock
+  ;;
+$logout)
+  # kill -TERM dwmpid $(pidof dwm)
+  bspc quit
+  ;;
+*)
+  exit 1
+  ;;
 esac
-
