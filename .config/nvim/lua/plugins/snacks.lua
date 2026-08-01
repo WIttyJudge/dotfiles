@@ -151,11 +151,64 @@ return {
 
     -- zen mode
     {
-      "<leader>z",
+      "<leader>uz",
       function()
         Snacks.zen()
       end,
       desc = "Toggle Zen Mode",
+    },
+
+    -- lazygit
+    {
+      "<leader>gg",
+      function()
+        Snacks.lazygit()
+      end,
+      desc = "Lazygit (cwd)",
+    },
+
+    -- git
+    {
+      "<leader>gl",
+      function()
+        Snacks.picker.git_log()
+      end,
+      desc = "Git Log (cwd)",
+    },
+    {
+      "<leader>gb",
+      function()
+        Snacks.picker.git_log_line()
+      end,
+      desc = "Git Blame Line",
+    },
+    {
+      "<leader>gf",
+      function()
+        Snacks.picker.git_log_file()
+      end,
+      desc = "Git Current File History",
+    },
+    {
+      "<leader>gB",
+      function()
+        Snacks.gitbrowse()
+      end,
+      mode = { "n", "x" },
+      desc = "Git Browse (open)",
+    },
+    {
+      "<leader>gY",
+      function()
+        Snacks.gitbrowse({
+          open = function(url)
+            vim.fn.setreg("+", url)
+          end,
+          notify = false,
+        })
+      end,
+      mode = { "n", "x" },
+      desc = "Git Browse (copy)",
     },
   },
 }

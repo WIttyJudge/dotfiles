@@ -24,33 +24,18 @@ require("lazy").setup("plugins", {
   performance = {
     rtp = {
       disabled_plugins = {
-        "2html_plugin",
-        "tohtml",
-        "getscript",
-        "getscriptPlugin",
+        -- Handles reading and writing of compressed files.
         "gzip",
-        "logipat",
-        "netrw",
-        "netrwPlugin",
-        "netrwSettings",
-        "netrwFileHandlers",
-        "matchit",
-        "tar",
+        -- Browsing and handling of tar archives.
         "tarPlugin",
-        "rrhelper",
-        "spellfile_plugin",
-        "vimball",
-        "vimballPlugin",
-        "zip",
+        -- Browsing and handling of zip archives.
         "zipPlugin",
+        -- Converts the current buffer to an HTML file.
+        "tohtml",
+        -- The interactive :Tutor.
         "tutor",
-        "rplugin",
-        "syntax",
-        "synmenu",
-        "optwin",
-        "compiler",
-        "bugreport",
-        "ftplugin",
+        -- The default file explorer.
+        "netrwPlugin",
       },
     },
   },

@@ -48,13 +48,6 @@ return {
       vim.fn.sign_define(hl, { texthl = hl, text = icon, numhl = "" })
     end
 
-    vim.lsp.config("*", {
-      handlers = {
-        ["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "rounded" }),
-        ["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = "rounded" }),
-      },
-    })
-
     for server, server_opts in pairs(opts.servers) do
       server_opts.capabilities = vim.tbl_deep_extend("force", {}, capabilities, server_opts.capabilities or {})
       server_opts.on_attach = on_attach
