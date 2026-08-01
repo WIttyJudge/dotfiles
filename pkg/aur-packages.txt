@@ -4,6 +4,7 @@ blueberry 1.4.8-2
 catppuccin-gtk-theme-mocha 1.0.3-1
 cb-bin 0.1.0-2
 downgrade 11.3.0-1
+gnome-bluetooth 3.34.5+r16+g61cfff1c-2
 goland 2023.3.4-1
 grpcurl-bin 1.9.1-1
 gtk2 2.24.33-5
@@ -23,5 +24,6 @@ rofi-pass 2.0.2-4
 slack-desktop 4.49.81-1
 ttf-joypixels 8.0.0-2
 wbg 1.2.0-1
-yay 12.4.2-1
-yay-debug 12.4.2-1
+yay 13.0.1-1
+yay-debug 13.0.1-1
+zimfw 1.20.0-1
