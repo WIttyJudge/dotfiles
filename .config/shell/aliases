@@ -48,10 +48,10 @@ alias \
 	mkdir="mkdir -pv" \
   wget=wget --hsts-file="$XDG_DATA_HOME/wget-hsts"
 
-alias ls="exa -la --group-directories-first --icons" # doesn't show hidden files
-alias ls.="exa -dl .* --icons" # shows only hidden files
-alias lst="exa -l --sort newest --icons" # sort output by newest file
-alias la="exa -la --group-directories-first --icons"  # all files and dirs
+alias ls="exa -la --group-directories-first --icons=auto" # doesn't show hidden files
+alias ls.="exa -dl .* --icons=auto" # shows only hidden files
+alias lst="exa -l --sort newest --icons=auto" # sort output by newest file
+alias la="exa -la --group-directories-first --icons=auto"  # all files and dirs
 
 # git
 alias \

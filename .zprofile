@@ -34,7 +34,8 @@ export PASSWORD_STORE_DIR="$XDG_DATA_HOME/password-store"
 export LESSHISTFILE="$XDG_DATA_HOME/less_history"
 
 # Go
-export GOROOT=/usr/local/go
+# export GOROOT=/usr/local/go
+export GOROOT=/usr/lib/go
 export PATH=$PATH:$GOROOT/bin
 
 export GOPATH="$DEV_HOME/golang"
