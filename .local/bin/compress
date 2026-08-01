@@ -1,0 +1,112 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+declare -A COMPRESSORS=(
+  [pdf]=compress_pdf
+)
+
+usage() {
+  echo "Usage: $(basename "$0") <file|folder>"
+  echo "Supported formats: ${!COMPRESSORS[*]}"
+  exit 1
+}
+
+human_size() {
+  numfmt --to=iec-i --suffix=B "$1"
+}
+
+compress_pdf() {
+  local input="$1" output="$2"
+
+  # sometime file must be repaired.
+  # Otherwise, gs will create completely blank file.
+  local tmp_repaired=$(mktemp --suffix=.pdf)
+  qpdf --qdf --object-streams=disable "$input" "$tmp_repaired" 2>/dev/null || cp "$input" "$tmp_repaired"
+
+  gs -sDEVICE=pdfwrite \
+    -dCompatibilityLevel=1.4 \
+    -dNOPAUSE -dQUIET -dBATCH \
+    -dPDFSETTINGS=/prepress \
+    -dDownsampleColorImages=true \
+    -dColorImageResolution=300 \
+    -dColorImageDownsampleType=/Bicubic \
+    -dDownsampleGrayImages=true \
+    -dGrayImageResolution=300 \
+    -dGrayImageDownsampleType=/Bicubic \
+    -dDownsampleMonoImages=true \
+    -dMonoImageResolution=1200 \
+    -dJPEGQ=95 \
+    -dDetectDuplicateImages=true \
+    -dCompressPages=true \
+    -sOutputFile="$output" \
+    "$tmp_repaired"
+
+  rm -f "$tmp_repaired"
+}
+
+compress_file() {
+  local input="$1"
+
+  local dir=$(dirname "$input")
+  local base=$(basename "$input")
+  local name="${base%.*}"
+  local ext="${base##*.}"
+  local compressor="${COMPRESSORS[${ext,,}]:-}"
+  local output="$dir/${name}-compressed.${ext}"
+
+  if [ -z "$compressor" ]; then
+    echo "Error: unsupported format '.$ext' (supported: ${!COMPRESSORS[*]})" >&2
+    return 1
+  fi
+
+  # perform compressing
+  "$compressor" "$input" "$output"
+
+  local size_before=$(stat -c%s "$input")
+  local size_after=$(stat -c%s "$output")
+
+  # A blank/corrupted output (the ghostscript image-drop bug compress_pdf
+  # works around) lands around 2-3KB regardless of input size, whereas
+  # legitimate compression of large scans can still hit 20x+ ratios. So
+  # flag only files that are BOTH implausibly tiny in absolute terms AND
+  # much smaller than the input, not just files that compressed hard.
+  local min_plausible_size=$((20 * 1024))
+  if [ "$size_after" -lt "$min_plausible_size" ] && [ "$((size_after * 10))" -lt "$size_before" ]; then
+    echo "Warning: $output looks suspiciously small (possible content loss), keeping original untouched" >&2
+    rm -f "$output"
+    return 1
+  fi
+
+  echo "Compressed: $input -> $output"
+  echo "  Size before: $(human_size "$size_before")"
+  echo "  Size after:  $(human_size "$size_after")"
+}
+
+# Builds a `find` expression matching any supported extension, e.g.
+# -iname "*.pdf" -o -iname "*.jpg" ...
+find_supported_args() {
+  local ext
+  local -a args=()
+  for ext in "${!COMPRESSORS[@]}"; do
+    [ ${#args[@]} -gt 0 ] && args+=(-o)
+    args+=(-iname "*.${ext}")
+  done
+  printf '%s\n' "${args[@]}"
+}
+
+[ $# -eq 1 ] || usage
+
+target="$1"
+
+if [ -f "$target" ]; then
+  compress_file "$target"
+elif [ -d "$target" ]; then
+  mapfile -t find_args < <(find_supported_args)
+  find "$target" -type f \( "${find_args[@]}" \) ! -iname "*-compressed.*" -print0 |
+    while IFS= read -r -d '' file; do
+      compress_file "$file"
+    done
+else
+  echo "Error: $target is not a valid file or folder" >&2
+  exit 1
+fi
