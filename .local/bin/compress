@@ -38,6 +38,8 @@ compress_pdf() {
     -dJPEGQ=95 \
     -dDetectDuplicateImages=true \
     -dCompressPages=true \
+    -dColorConversionStrategy=/RGB \
+    -dOverrideICC=true \
     -sOutputFile="$output" \
     "$tmp_repaired"
 
