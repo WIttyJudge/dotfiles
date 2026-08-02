@@ -8,7 +8,6 @@ gnome-bluetooth 3.34.5+r16+g61cfff1c-2
 goland 2023.3.4-1
 grpcurl-bin 1.9.1-1
 gtk2 2.24.33-5
-hardinfo 0.5.1.816.g877ea2b-2
 htop-vim 3.2.2-1
 jiq-bin 0.7.2-2
 kubelogin 1.33.0-1
