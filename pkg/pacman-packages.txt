@@ -118,6 +118,7 @@ pass 1.7.4-7
 pavucontrol 1:6.2-1
 pcmanfm 1.4.0-2
 pgcli 4.5.0-1
+pgformatter 5.10-1
 pigz 2.8-2
 pipewire-alsa 1:1.6.7-1
 pipewire-jack 1:1.6.7-1
