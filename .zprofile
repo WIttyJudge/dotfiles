@@ -42,14 +42,14 @@ export GOPATH="$DEV_HOME/golang"
 export PATH=$PATH:$GOPATH/bin
 
 # Rust / Cargo
-export CARGO_HOME="$XDG_DATA_HOME/cargo"
+# export CARGO_HOME="$XDG_DATA_HOME/cargo"
 
 # Ruby
 # export GEM_HOME="$XDG_DATA_HOME/gem"
-export GEM_SPEC_CACHE="$XDG_CACHE_HOME/gem"
-export SOLARGRAPH_CACHE="$XDG_CACHE_HOME/solargraph"
-export PATH="$PATH:$HOME/.rvm/bin"
-export BUNDLE_USER_CACHE="$XDG_CACHE_HOME/bundle"
+# export GEM_SPEC_CACHE="$XDG_CACHE_HOME/gem"
+# export SOLARGRAPH_CACHE="$XDG_CACHE_HOME/solargraph"
+# export PATH="$PATH:$HOME/.rvm/bin"
+# export BUNDLE_USER_CACHE="$XDG_CACHE_HOME/bundle"
 
 # Tmux / tpm
 export TMUX_PLUGIN_MANAGER_PATH="$XDG_CONFIG_HOME/tmux/plugins/"
@@ -83,9 +83,3 @@ export FZF_DEFAULT_OPTS="--height 75% --layout=reverse --cycle --border"
 # Fixing misbehaving Java applications
 export AWT_TOOLKIT="MToolkit wmname LG3D" # May have to install wmname
 export _JAVA_AWT_WM_NONREPARENTING=1
-
-# Openssl fix
-export PATH=$HOME/openssl/bin:$PATH
-export LD_LIBRARY_PATH=$HOME/openssl/lib
-export LC_ALL="en_US.UTF-8"
-export LDFLAGS="-L /home/wittyjudge/openssl/lib -Wl,-rpath,/home/wittyjudge/openssl/lib"

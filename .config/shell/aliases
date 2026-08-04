@@ -15,14 +15,7 @@ alias \
   p="sudo pacman " \
   e="$EDITOR" \
   se="sudoedit " \
-  nvim-kick="NVIM_APPNAME=kickstart nvim" \
-  update-grub="sudo grub-mkconfig -o /boot/grub/grub.cfg" \
-  qr-send-file="qrcp " \
-  qr-receive-file="qrcp receive" \
-  send-file="portal send" \
-  sxiv="nsxiv " \
   lg="lazygit " \
-  lf="lfrun " \
   man="fman" \
   open="xdg-open " \
   whoami="whoami && curl -s ident.me" \
@@ -66,3 +59,8 @@ alias \
 alias \
   d="docker " \
   dc="docker-compose " \
+
+if command -v pacman >/dev/null 2>&1 && command -v yay >/dev/null 2>&1 && command -v fzf >/dev/null 2>&1; then
+  alias fyay="yay -Slq --aur | fzf --multi --preview 'yay -Sii {1}' --preview-window=down:75% | xargs -ro yay -S --aur"
+  alias fpac="pacman -Slq | fzf --multi --preview 'pacman -Si {1}' --preview-window=down:75% | xargs -ro sudo pacman -S"
+fi

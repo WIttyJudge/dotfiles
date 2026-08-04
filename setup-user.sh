@@ -1,6 +1,11 @@
 #!/usr/bin/env bash
 
-set -e
+# 1. exit on error.
+# 2. treat unset variables as an error.
+# 3. the same as 1., but for pipes.
+set -euo pipefail
+
+# bold red text in case of error
 exec 2> >(while read line; do echo -e "\e[01;31m$line\e[0m"; done)
 
 dotfiles_dir="$(
@@ -11,7 +16,7 @@ cd "$dotfiles_dir"
 
 link() {
   orig_file="$dotfiles_dir/$1"
-  if [ -n "$2" ]; then
+  if [ -n "${2-}" ]; then
     dest_file="$HOME/$2"
   else
     dest_file="$HOME/$1"
@@ -25,15 +30,15 @@ link() {
 
 link_all_files_in_folder() {
   orig_dir=$dotfiles_dir/$1
-  if [ -n "$2" ]; then
+  if [ -n "${2-}" ]; then
     dest_dir="$HOME/$2"
   else
     dest_dir="$HOME/$1"
   fi
 
-  mkdir -pv $dest_dir
+  mkdir -pv "$dest_dir"
 
-  find $orig_dir -type f -exec ln -sfv "{}" $dest_dir \;
+  find "$orig_dir" -type f -exec ln -sfv "{}" "$dest_dir" \;
 }
 
 is_macos() {
