@@ -1,9 +1,8 @@
 #!/usr/bin/env sh
 
-# sudo not required for some system commands
-for x in mount umount sv pacman su shutdown poweroff reboot downgrade ; do
-  alias $x="sudo $x"
-done; unset x
+is_macos() {
+  [ "$(uname -s)" = "Darwin" ]
+}
 
 command -v curlie    &> /dev/null    && alias curl='curlie'
 # command -v trash-put &> /dev/null    && alias rm='trash-put'
@@ -12,7 +11,6 @@ command -v bat       &> /dev/null    && alias c='bat'         || alias c='cat'
 # useful
 alias \
   s="sudo " \
-  p="sudo pacman " \
   e="$EDITOR" \
   se="sudoedit " \
   lg="lazygit " \
@@ -40,7 +38,17 @@ alias \
   d="docker " \
   dc="docker-compose " \
 
-if command -v pacman >/dev/null 2>&1 && command -v yay >/dev/null 2>&1 && command -v fzf >/dev/null 2>&1; then
-  alias fyay="yay -Slq --aur | fzf --multi --preview 'yay -Sii {1}' --preview-window=down:75% | xargs -ro yay -S --aur"
-  alias fpac="pacman -Slq | fzf --multi --preview 'pacman -Si {1}' --preview-window=down:75% | xargs -ro sudo pacman -S"
+# some commands are not available on macOS
+if ! is_macos; then
+  # sudo not required for some system commands
+  for x in mount umount sv pacman su shutdown poweroff reboot downgrade ; do
+    alias $x="sudo $x"
+  done; unset x
+
+  alias p="sudo pacman "
+
+  if command -v pacman >/dev/null 2>&1 && command -v yay >/dev/null 2>&1 && command -v fzf >/dev/null 2>&1; then
+    alias fyay="yay -Slq --aur | fzf --multi --preview 'yay -Sii {1}' --preview-window=down:75% | xargs -ro yay -S --aur"
+    alias fpac="pacman -Slq | fzf --multi --preview 'pacman -Si {1}' --preview-window=down:75% | xargs -ro sudo pacman -S"
+  fi
 fi
