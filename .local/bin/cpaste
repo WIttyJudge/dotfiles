@@ -1,0 +1,18 @@
+#!/bin/sh
+
+# Portable clipboard paste: macOS pbpaste, Wayland wl-paste, X11 xclip.
+
+if [ "$(uname)" = "Darwin" ] && command -v pbpaste >/dev/null 2>&1; then
+  exec pbpaste
+fi
+
+if [ -n "$WAYLAND_DISPLAY" ] && command -v wl-paste >/dev/null 2>&1; then
+  exec wl-paste
+fi
+
+if command -v xclip >/dev/null 2>&1; then
+  exec xclip -out -selection clipboard
+fi
+
+echo "cpaste: no clipboard tool found (pbpaste/wl-paste/xclip)" >&2
+exit 1

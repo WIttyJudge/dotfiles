@@ -25,14 +25,19 @@ function tkill() {
 
 # Select a docker image or images to remove
 function drmi() {
-  docker images | sed 1d | fzf -q "$1" --no-sort -m --tac | awk '{ print $3 }' | xargs -r docker rmi
+  docker images | sed 1d | fzf -q "$1" --no-sort -m --tac | awk '{ print $3 }' | xargs docker rmi
 }
 
 #  +----------------------------------------------------------+
 #  |                 Simple useful functions                  |
 #  +----------------------------------------------------------+
-# https://github.com/junegunn/fzf/wiki/Examples#man-pages
 
+# Prevent 'zsh: command not found: $'
+function $ () {
+  "$@"
+}
+
+# https://github.com/junegunn/fzf/wiki/Examples#man-pages
 # Search man pages.
 function fman() {
 	MAN="/usr/bin/man"
@@ -41,7 +46,7 @@ function fman() {
 		$MAN "$@"
 		return $?
 	else
-		$MAN -k . | awk '{print $1}' | fzf | xargs -r $MAN
+		$MAN -k . | awk '{print $1}' | fzf | xargs $MAN
 		return $?
 	fi
 }
@@ -90,23 +95,6 @@ function unbak() {
 # Search env variables
 function vars() {
 	env | fzf | cut -d= -f2
-}
-
-# Prevent 'zsh: command not found: $'
-function $ () {
-  "$@"
-}
-
-function nvims() {
-  items=("default" "kickstart")
-  config=$(printf "%s\n" "${items[@]}" | fzf --prompt=" Neovim Config  " --height=~50% --layout=reverse --border --exit-0)
-  if [[ -z $config ]]; then
-    echo "Nothing selected"
-    return 0
-  elif [[ $config == "default" ]]; then
-    config=""
-  fi
-  NVIM_APPNAME=$config nvim $@
 }
 
 function whatsmyip() {

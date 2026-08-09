@@ -16,12 +16,12 @@ bindkey -s jk \\e
 bindkey -s kj \\e
 
 # Yank to the system clipboard
-function vi-yank-xclip {
+function vi-yank-clip {
   zle vi-yank
-  echo "$CUTBUFFER" | xclip -in -selection clipboard 
+  echo "$CUTBUFFER" | ccopy
 }
-zle -N vi-yank-xclip
-bindkey -M vicmd 'y' vi-yank-xclip
+zle -N vi-yank-clip
+bindkey -M vicmd 'y' vi-yank-clip
 
 # Change cursor shape for different vi modes.
 function set_beam_cursor() {

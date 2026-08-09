@@ -7,10 +7,7 @@
 # 2. configuration which execute commands (like SCONSFLAGS="--jobs=$(( $(nproc) - 1 ))") as it may take some time to execute.
 
 # Adds `~/.local/bin` and all subdirs to $PATH
-export PATH="$PATH:${$(find ~/.local/bin -type d -printf %p:)%%:}"
-export PATH="$PATH:${$(find ~/.local/bin -type d -o -printf %p:)%%:}"
-
-# unsetopt PROMPT_SP
+export PATH="$PATH:$(find ~/.local/bin -type d 2>/dev/null | tr '\n' ':' | sed 's/:$//')"
 
 # Default variables
 export EDITOR="nvim"
@@ -22,7 +19,6 @@ export BROWSER="firefox"
 export MANPAGER="nvim +Man!"
 
 export DEV_HOME="$HOME/projects"
-# export SUDO_ASKPASS="$HOME/.local/bin/dmenupass"
 
 # XDG Base Directory locations
 export XDG_CONFIG_HOME="$HOME/.config"
@@ -40,16 +36,6 @@ export PATH=$PATH:$GOROOT/bin
 
 export GOPATH="$DEV_HOME/golang"
 export PATH=$PATH:$GOPATH/bin
-
-# Rust / Cargo
-# export CARGO_HOME="$XDG_DATA_HOME/cargo"
-
-# Ruby
-# export GEM_HOME="$XDG_DATA_HOME/gem"
-# export GEM_SPEC_CACHE="$XDG_CACHE_HOME/gem"
-# export SOLARGRAPH_CACHE="$XDG_CACHE_HOME/solargraph"
-# export PATH="$PATH:$HOME/.rvm/bin"
-# export BUNDLE_USER_CACHE="$XDG_CACHE_HOME/bundle"
 
 # Tmux / tpm
 export TMUX_PLUGIN_MANAGER_PATH="$XDG_CONFIG_HOME/tmux/plugins/"
@@ -76,9 +62,6 @@ export WGETRC="${XDG_CONFIG_HOME:-$HOME/.config}/wget/wgetrc"
 
 # FZF
 export FZF_DEFAULT_OPTS="--height 75% --layout=reverse --cycle --border"
-
-# security
-# export GPG_TTY=$(tty)
 
 # Fixing misbehaving Java applications
 export AWT_TOOLKIT="MToolkit wmname LG3D" # May have to install wmname

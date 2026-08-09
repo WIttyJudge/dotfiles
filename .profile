@@ -26,7 +26,7 @@ export SHELL=$(which zsh)
 
 # load custom scripts
 if [ -d "$HOME/.local/bin" ]; then
-  PATH=$PATH$(find $HOME/.local/bin -type d -printf ":%p")
+  PATH="$PATH:$(find "$HOME/.local/bin" -type d 2>/dev/null | tr '\n' ':' | sed 's/:$//')"
 fi
 
 [ -f ~/.bashrc ] && source ~/.bashrc

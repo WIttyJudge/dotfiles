@@ -119,12 +119,12 @@ function save_geometry() {
         mkdir -p "$SAVEDIR"
         grim -g "${geometry}" "$SAVE_FULLPATH"
         output="$SAVE_FULLPATH"
-        wl-copy --type image/png < "$output"
+        ccopy --type image/png < "$output"
         [ -z "$COMMAND" ] || {
             "$COMMAND" "$output"
         }
     else
-        wl-copy --type image/png < <(grim -g "${geometry}" -)
+        ccopy --type image/png < <(grim -g "${geometry}" -)
     fi
 
     send_notification $output

@@ -11,9 +11,9 @@ sleep 1
 sleep 2
 
 # start xdg-desktop-portal-gtk
-if [ -f /usr/lib/xdg-desktop-portal-gtk ] ;then
-    /usr/lib/xdg-desktop-portal-gtk &
-    sleep 1
+if [ -f /usr/lib/xdg-desktop-portal-gtk ]; then
+  /usr/lib/xdg-desktop-portal-gtk &
+  sleep 1
 fi
 
 /usr/lib/xdg-desktop-portal &

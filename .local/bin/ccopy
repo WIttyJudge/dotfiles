@@ -1,0 +1,24 @@
+#!/bin/sh
+
+# Portable clipboard copy: macOS pbcopy, Wayland wl-copy, X11 xclip.
+# Usage: ccopy [--type <mime>]
+
+mime=""
+[ "$1" = "--type" ] && mime="$2"
+
+if [ "$(uname)" = "Darwin" ] && command -v pbcopy >/dev/null 2>&1; then
+  exec pbcopy
+fi
+
+if [ -n "$WAYLAND_DISPLAY" ] && command -v wl-copy >/dev/null 2>&1; then
+  [ -n "$mime" ] && exec wl-copy --type "$mime"
+  exec wl-copy
+fi
+
+if command -v xclip >/dev/null 2>&1; then
+  [ -n "$mime" ] && exec xclip -in -selection clipboard -t "$mime"
+  exec xclip -in -selection clipboard
+fi
+
+echo "ccopy: no clipboard tool found (pbcopy/wl-copy/xclip)" >&2
+exit 1
