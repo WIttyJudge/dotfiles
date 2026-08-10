@@ -15,39 +15,69 @@ dotfiles_dir="$(
 cd "$dotfiles_dir"
 
 link() {
-  orig_file="$dotfiles_dir/$1"
-  if [ -n "${2-}" ]; then
-    dest_file="$HOME/$2"
+  local orig_path="$dotfiles_dir/$1"
+  local dest_path="$HOME/${2:-$1}"
+
+  mkdir -pv "$(dirname "$dest_path")"
+
+  # check if exists and not a symbolic link
+  if [ -e "$dest_path" ] && [ ! -L "$dest_path" ]; then
+    mv -v "$dest_path" "$dest_path.bak"
   else
-    dest_file="$HOME/$1"
+    rm -f "$dest_path"
   fi
 
-  mkdir -pv "$(dirname "$dest_file")"
-
-  rm -rf "$dest_file"
-  ln -sv "$orig_file" "$dest_file"
+  ln -sv "$orig_path" "$dest_path"
 }
 
 link_all_files_in_folder() {
-  orig_dir=$dotfiles_dir/$1
-  if [ -n "${2-}" ]; then
-    dest_dir="$HOME/$2"
-  else
-    dest_dir="$HOME/$1"
-  fi
+  local orig_dir="$dotfiles_dir/$1"
+  local dest_dir="$HOME/${2:-$1}"
 
   mkdir -pv "$dest_dir"
 
   find "$orig_dir" -type f -exec ln -sfv "{}" "$dest_dir" \;
 }
 
+link_files_in_folder() {
+  local orig_dir="$dotfiles_dir/$1"
+  local dest_dir="$HOME/${2:-$1}"
+
+  mkdir -pv "$dest_dir"
+
+  find "$orig_dir" -maxdepth 1 -type f -exec ln -sfv "{}" "$dest_dir" \;
+}
+
 is_macos() {
   [ "$(uname -s)" = "Darwin" ]
 }
 
-echo "==========================="
-echo "Setting up user dotfiles..."
-echo "==========================="
+# Prints a short OS label, e.g. "macOS" or "Linux (Arch)".
+os_label() {
+  if is_macos; then
+    echo "macOS"
+    return
+  fi
+
+  local distro="Linux"
+  if [ -f /etc/os-release ]; then
+    distro="$(grep -m1 '^ID=' /etc/os-release | cut -d= -f2 | tr -d '"')"
+    distro="${distro^}"
+  fi
+  echo "Linux (${distro:-Linux})"
+}
+
+welcome_message() {
+  local os
+  os="$(os_label)"
+
+  echo -e "\e[1;35m╔══════════════════════════════════════╗\e[0m"
+  echo -e "\e[1;35m║\e[0m  \e[1;36mSetting up user dotfiles...\e[0m"
+  echo -e "\e[1;35m║\e[0m  \e[1;33mDetected OS:\e[0m $os"
+  echo -e "\e[1;35m╚══════════════════════════════════════╝\e[0m"
+}
+
+welcome_message
 
 # Configs shared between Linux and macOS
 link ".bashrc"
@@ -63,10 +93,10 @@ link ".config/shell"
 link ".config/tmux"
 link ".config/zsh"
 
-link_all_files_in_folder ".local/bin"
-
 if is_macos; then
-  echo "Detected macOS, skipping Linux-only (X11/Wayland/XDG) configs."
+  link_files_in_folder ".local/bin"
+  link_files_in_folder ".local/bin/tmux"
+
   exit 0
 fi
 
@@ -95,5 +125,8 @@ link ".config/user-dirs.dirs"
 # link ".config/sxhkd"
 
 link ".local/share/bg"
+link_all_files_in_folder ".local/bin"
 link_all_files_in_folder ".local/share/applications"
 link_all_files_in_folder ".local/share/icons/fontawesome"
+
+link_files_in_folder ".test/folder1"
