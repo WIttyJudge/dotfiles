@@ -94,6 +94,7 @@ link ".config/tmux"
 link ".config/zsh"
 
 if is_macos; then
+  link ".config/aerospace"
   link_files_in_folder ".local/bin"
   link_files_in_folder ".local/bin/tmux"
 

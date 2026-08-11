@@ -12,85 +12,76 @@ local mainMod = "SUPER"
 -- |                       Applications                        |
 -- +-----------------------------------------------------------+
 
--- # terminal
--- bind = $mainMod, RETURN, exec, $TERMINAL
+-- open terminal
 hl.bind(mainMod .. " + RETURN", hl.dsp.exec_cmd(os.getenv("TERMINAL")))
 
--- # Rofi
+-- Rofi
 hl.bind(mainMod .. " + p", hl.dsp.exec_cmd("rofi -show drun"))
 hl.bind(mainMod .. " + SHIFT + p", hl.dsp.exec_cmd("rofi -show run"))
 
--- # waybar
+-- toggle waybar
 hl.bind(mainMod .. " + b", hl.dsp.exec_cmd("killall -SIGUSR1 waybar"))
 
--- # +-----------------------------------------------------------+
--- # |                          Display                          |
--- # +-----------------------------------------------------------+
---  # Increase display zoom
+-- +-----------------------------------------------------------+
+-- |                          Display                          |
+-- +-----------------------------------------------------------+
+
+-- Increase display zoom
 hl.bind(
   mainMod .. " + SHIFT + mouse_down",
   hl.dsp.exec_cmd(
-    [[hyprctl keyword cursor:zoom_factor $(awk "BEGIN {print $(hyprctl getoption cursor:zoom_factor | grep 'float:' | awk '{print $2}') + 0.5}")]]
+    "hyprctl eval \"hl.config({ cursor = { zoom_factor = $(hyprctl getoption cursor:zoom_factor | awk '/float:/ {print $2 + 0.5}') } })\""
   )
 )
 
--- # Decrease display zoom
+-- Decrease display zoom
 hl.bind(
   mainMod .. " + SHIFT + mouse_up",
   hl.dsp.exec_cmd(
-    [[hyprctl keyword cursor:zoom_factor $(awk "BEGIN {print $(hyprctl getoption cursor:zoom_factor | grep 'float:' | awk '{print $2}') - 0.5}")]]
+    "hyprctl eval \"hl.config({ cursor = { zoom_factor = $(hyprctl getoption cursor:zoom_factor | awk '/float:/ {val = $2 - 0.5; print (val < 1.0 ? 1.0 : val)}') } })\""
   )
 )
 
---  # Reset display zoom
+-- Reset display zoom
 hl.bind(mainMod .. " + SHIFT + z", hl.dsp.exec_cmd("hyprctl keyword cursor:zoom_factor 1"))
 
--- # +-----------------------------------------------------------+
--- # |                          Windows                          |
--- # +-----------------------------------------------------------+
+-- +-----------------------------------------------------------+
+-- |                          Windows                          |
+-- +-----------------------------------------------------------+
+
 hl.bind(mainMod .. " + q", hl.dsp.window.close())
 hl.bind(mainMod .. " + M", hl.dsp.exit())
 hl.bind(mainMod .. " + f", hl.dsp.window.fullscreen())
 hl.bind(mainMod .. " + o", hl.dsp.window.float())
 hl.bind(mainMod .. " + TAB", hl.dsp.focus({ workspace = "previous" }))
 
--- # Move focus
+-- Move focus
 hl.bind(mainMod .. " + h", hl.dsp.focus({ direction = "l" }))
 hl.bind(mainMod .. " + l", hl.dsp.focus({ direction = "r" }))
 hl.bind(mainMod .. " + k", hl.dsp.focus({ direction = "u" }))
 hl.bind(mainMod .. " + j", hl.dsp.focus({ direction = "d" }))
 
--- # Swap the active window with another window
+-- Swap the active window with another window
 hl.bind(mainMod .. " + SHIFT + h", hl.dsp.window.move({ direction = "l" }))
 hl.bind(mainMod .. " + SHIFT + l", hl.dsp.window.move({ direction = "r" }))
 hl.bind(mainMod .. " + SHIFT + k", hl.dsp.window.move({ direction = "u" }))
 hl.bind(mainMod .. " + SHIFT + J", hl.dsp.window.move({ direction = "d" }))
 
--- # Resizing the active window
+-- Resizing the active window
 hl.bind(mainMod .. " + SHIFT + right", hl.dsp.window.resize({ x = 100, y = 0, relative = true }))
 hl.bind(mainMod .. " + SHIFT + left", hl.dsp.window.resize({ x = -100, y = 0, relative = true }))
 hl.bind(mainMod .. " + SHIFT + down", hl.dsp.window.resize({ x = 0, y = 100, relative = true }))
 hl.bind(mainMod .. " + SHIFT + up", hl.dsp.window.resize({ x = 0, y = -100, relative = true }))
 
--- # move / resize window with the mouse
+-- move / resize window with the mouse
 hl.bind(mainMod .. " + mouse:272", hl.dsp.window.drag(), { mouse = true })
 hl.bind(mainMod .. " + mouse:273", hl.dsp.window.resize(), { mouse = true })
 
--- # +-----------------------------------------------------------+
--- # |                          Actions                          |
--- # +-----------------------------------------------------------+
--- # custom scripts
--- # bind = $mainMod, Q, sysact
--- # bind = ,HOME, dmenu-script-select
--- # bind = ,NEXT, microphone toggle
--- hl.bind(mainMod .. " + Q", hl.dsp.exec_cmd("sysact"))
--- hl.bind("HOME",             hl.dsp.exec_cmd("dmenu-script-select"))
--- hl.bind("NEXT",             hl.dsp.exec_cmd("microphone toggle"))
+-- +-----------------------------------------------------------+
+-- |                        Workspaces                         |
+-- +-----------------------------------------------------------+
 
--- # +-----------------------------------------------------------+
--- # |                        Workspaces                         |
--- # +-----------------------------------------------------------+
--- # Switch workspaces with mainMod + [0-9]
+-- Switch workspaces with mainMod + [0-9]
 hl.bind(mainMod .. " + 1", hl.dsp.focus({ workspace = 1 }))
 hl.bind(mainMod .. " + 2", hl.dsp.focus({ workspace = 2 }))
 hl.bind(mainMod .. " + 3", hl.dsp.focus({ workspace = 3 }))
@@ -102,7 +93,7 @@ hl.bind(mainMod .. " + 8", hl.dsp.focus({ workspace = 8 }))
 hl.bind(mainMod .. " + 9", hl.dsp.focus({ workspace = 9 }))
 hl.bind(mainMod .. " + 0", hl.dsp.focus({ workspace = 10 }))
 
--- # Move active window to a workspace with mainMod + SHIFT + [0-9]
+-- Move active window to a workspace with mainMod + SHIFT + [0-9]
 hl.bind(mainMod .. " + SHIFT + 1", hl.dsp.window.move({ workspace = 1 }))
 hl.bind(mainMod .. " + SHIFT + 2", hl.dsp.window.move({ workspace = 2 }))
 hl.bind(mainMod .. " + SHIFT + 3", hl.dsp.window.move({ workspace = 3 }))
@@ -114,19 +105,19 @@ hl.bind(mainMod .. " + SHIFT + 8", hl.dsp.window.move({ workspace = 8 }))
 hl.bind(mainMod .. " + SHIFT + 9", hl.dsp.window.move({ workspace = 9 }))
 hl.bind(mainMod .. " + SHIFT + 0", hl.dsp.window.move({ workspace = 10 }))
 
--- # Scroll through existing workspaces with mainMod + scroll
+-- Scroll through existing workspaces with mainMod + scroll
 hl.bind(mainMod .. " + mouse_down", hl.dsp.focus({ workspace = "e+1" }))
 hl.bind(mainMod .. " + mouse_up", hl.dsp.focus({ workspace = "e-1" }))
 
---
--- # +-----------------------------------------------------------+
--- # |                          Fn Keys                          |
--- # +-----------------------------------------------------------+
--- # Audio Control
+-- +-----------------------------------------------------------+
+-- |                          Fn Keys                          |
+-- +-----------------------------------------------------------+
+
+-- Audio Control
 hl.bind("XF86AudioMute", hl.dsp.exec_cmd("audio volume-toggle"))
 hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd("audio volume-up"), { repeating = true })
 hl.bind("XF86AudioLowerVolume", hl.dsp.exec_cmd("audio volume-down"), { repeating = true })
 
--- # Brightness Control
+-- Brightness Control
 hl.bind("XF86MonBrightnessUp", hl.dsp.exec_cmd("brightness up"), { repeating = true })
 hl.bind("XF86MonBrightnessDown", hl.dsp.exec_cmd("brightness down"), { repeating = true })
