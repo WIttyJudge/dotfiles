@@ -1,6 +1,3 @@
-// left - workspace, title
-// right -  microphone memory cpu disk temp pacman-packages brightness volume battery internet date tray
-
 {
   "layer": "top",
   "position": "top",
@@ -10,7 +7,6 @@
   "modules-right": [
     "memory",
     "cpu",
-    // "disk",
     "temperature",
     "custom/pacman_updates",
     "backlight",
@@ -18,29 +14,9 @@
     "battery#bat0",
     "battery#bat1",
     "network",
-    // "hyprland/language",
     "clock",
     "tray",
   ],
-
-  // "pulseaudio#microphone": {
-  //   "format": "{format_source}",
-  //   "format-source": " {volume}%",
-  //   "format-source-muted": " Muted",
-  //   "on-click": "pamixer --default-source -t",
-  //   "on-scroll-up": "pamixer --default-source -i 5",
-  //   "on-scroll-down": "pamixer --default-source -d 5",
-  //   "scroll-step": 5,
-  // },
-
-  // "bluetooth": {
-  //   "format": " {status}",
-  //   "format-disabled": "", // an empty format will hide the module
-  //   "format-connected": " {num_connections}",
-  //   "tooltip-format": "{device_alias}",
-  //   "tooltip-format-connected": " {device_enumerate}",
-  //   "tooltip-format-enumerate-connected": "{device_alias}",
-  // },
 
   "hyprland/workspaces": {
     "format": "{}",
@@ -140,12 +116,6 @@
     "tooltip-format": "{essid} - {ifname} via {gwaddr}",
     "tooltip": false,
   },
-
-  // "hyprland/language": {
-  //   "format": "  {}",
-  //   "format-ru": "RU",
-  //   "format-en": "US",
-  // }, 
 
   "clock": {
     "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
