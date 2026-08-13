@@ -80,7 +80,6 @@ welcome_message() {
 welcome_message
 
 # Configs shared between Linux and macOS
-link ".bashrc"
 link ".profile"
 link ".zprofile"
 
@@ -95,6 +94,7 @@ link ".config/zsh"
 
 if is_macos; then
   link ".config/aerospace"
+  link ".config/borders"
   link_files_in_folder ".local/bin"
   link_files_in_folder ".local/bin/tmux"
 
@@ -129,5 +129,3 @@ link ".local/share/bg"
 link_all_files_in_folder ".local/bin"
 link_all_files_in_folder ".local/share/applications"
 link_all_files_in_folder ".local/share/icons/fontawesome"
-
-link_files_in_folder ".test/folder1"

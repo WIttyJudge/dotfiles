@@ -11,8 +11,6 @@ return {
       return { timeout_ms = 500, lsp_fallback = true }
     end,
     formatters_by_ft = {
-      -- ruby = { "rubocop" },
-      -- go = { "goimports", "gofumpt" },
       typescript = { "prettier" },
       javascript = { "prettier" },
       typescriptreact = { "prettier" },
@@ -22,18 +20,17 @@ return {
       sh = { "shfmt" },
       json = { "prettier" },
       yaml = { "prettier" },
-      toml = { "taplo" },
       markdown = { "prettier" },
-      sql = { "sqlfluff" },
-      dockerfile = { "dockerfmt" },
+    },
+    formatters = {
+      shfmt = {
+        prepend_args = { "-i", "2" },
+      },
     },
   },
   config = function(_, opts)
     local conform = require("conform")
     conform.setup(opts)
-    conform.formatters.shfmt = {
-      prepend_args = { "-i", "2" }, -- 2 spaces instead of tab
-    }
 
     vim.api.nvim_create_user_command("ToggleAutoformat", function()
       vim.notify("Toggling autoformat", vim.log.levels.INFO, { title = "conform.nvim", timeout = 2000 })

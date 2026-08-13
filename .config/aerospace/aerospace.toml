@@ -1,35 +1,35 @@
 # You can use it to add commands that run after AeroSpace startup.
-# Available commands : https://nikitabobko.github.io/AeroSpace/commands
-after-startup-command = []
+after-startup-command = [
+  'exec-and-forget borders'
+]
 
-# after-startup-command = ['exec-and-forget sketchybar']
-
-# Start AeroSpace at login
+# Start AeroSpace at login.
 start-at-login = true
 
-# Automatically reload the config when the config file is saved
+# Automatically reload the config when the config file is saved.
 auto-reload-config = true
 
 # Normalizations. See: https://nikitabobko.github.io/AeroSpace/guide#normalization
 enable-normalization-flatten-containers = true
 enable-normalization-opposite-orientation-for-nested-containers = true
 
+# Specifies the size of accordion padding.
 # See: https://nikitabobko.github.io/AeroSpace/guide#layouts
-# The 'accordion-padding' specifies the size of accordion padding
 accordion-padding = 30
 
-# Possible values: tiles|accordion
+# Possible values: tiles|accordion.
 default-root-container-layout = 'tiles'
 
-# Possible values: horizontal|vertical|auto
+# Possible values: horizontal|vertical|auto.
 default-root-container-orientation = 'auto'
 
-# Mouse follows focus when focused monitor changes
-# Drop it from your config, if you don't like this behavior
-# See https://nikitabobko.github.io/AeroSpace/guide#on-focus-changed-callbacks
-# See https://nikitabobko.github.io/AeroSpace/commands#move-mouse
-# Fallback value (if you omit the key): on-focused-monitor-changed = []
+# Mouse follows focus when focused monitor changes.
 on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
+
+# Hides the JankyBorders border when only one window is on the focused.
+on-focus-changed = [
+    'exec-and-forget [ $(aerospace list-windows --workspace focused | wc -l) -eq 1 ] && borders width=0.0 || borders width=2.0',
+]
 
 # Possible values: (qwerty|dvorak|colemak)
 # See https://nikitabobko.github.io/AeroSpace/guide#key-mapping
@@ -52,10 +52,10 @@ outer.bottom = 10
 outer.top =    10
 outer.right =  10
 
-# 'main' binding mode declaration
-# See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
-# https://nikitabobko.github.io/AeroSpace/commands
-# 'main' binding mode must be always presented
+# +----------------------------------------------------------+
+# |                          Binds                           |
+# +----------------------------------------------------------+
+
 [mode.main.binding]
     # Terminal launcher
     alt-enter = 'exec-and-forget open -na Alacritty'
@@ -132,6 +132,7 @@ outer.right =  10
 # +----------------------------------------------------------+
 # |                       Window Rules                       |
 # +----------------------------------------------------------+
+
 [[on-window-detected]]
 if = 'test %{app-bundle-id} = org.mozilla.firefox'
 run = 'move-node-to-workspace 1'
