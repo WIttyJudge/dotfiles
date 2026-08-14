@@ -1,6 +1,6 @@
 -- https://github.com/catppuccin/nvim
 return {
-  "catppuccin",
+  "catppuccin/nvim",
   name = "catppuccin",
   priority = 1000,
   opts = {

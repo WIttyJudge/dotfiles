@@ -28,10 +28,12 @@ alias \
   bc="bc -ql" \
 	mkdir="mkdir -pv"
 
-alias ls="exa -la --group-directories-first --icons=auto" # doesn't show hidden files
-alias ls.="exa -dl .* --icons=auto" # shows only hidden files
-alias lst="exa -l --sort newest --icons=auto" # sort output by newest file
-alias la="exa -la --group-directories-first --icons=auto"  # all files and dirs
+if command -v eza >/dev/null 2>&1; then
+  alias ls="eza -la --group-directories-first --icons=auto" # doesn't show hidden files
+  alias ls.="eza -dl .* --icons=auto" # shows only hidden files
+  alias lst="eza -l --sort newest --icons=auto" # sort output by newest file
+  alias la="eza -la --group-directories-first --icons=auto"  # all files and dirs
+fi
 
 # docker
 alias \
