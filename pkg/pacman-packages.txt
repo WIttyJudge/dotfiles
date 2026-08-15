@@ -1,188 +1,186 @@
-acpi 1.8-2
-alacritty 0.17.0-1
-alsa-utils 1.2.16-1
-ansible 14.1.0-1
-ansible-lint 26.6.0-1
-anything-sync-daemon 6.0.0-3
-arch-audit 0.2.0-5
-aria2 1.37.0-3
-aws-cli 1.44.81-1
-awww 0.12.1-1
-base 3-3
-base-devel 1-2
-bat 0.26.1-2
-batsignal 1.8.0-2
-bc 1.08.2-1
-bind 9.20.24-1
-bluez 5.87-2
-bluez-utils 5.87-2
-brightnessctl 0.5.1-3
-buf 1.71.0-1
-calcurse 4.8.2-1
-chromium 150.0.7871.114-1
-clang 22.1.8-1
-cmake 4.4.0-1
-cpu-x 5.4.0-3
-cronie 1.7.2-2
-cups 2:2.4.19-1
-cups-pdf 3.0.3-1
-curlie 1.8.2-1
-dateutils 0.4.11-3
-ddcutil 2.2.7-1
-discord 1:1.0.146-1
-dnf5 5.2.17.0-6
-docker 1:29.6.1-1
-docker-buildx 0.35.0-1
-docker-compose 5.3.1-1
-duf 0.9.1-1
-dunst 1.13.2-1
-earlyoom 1.9.0-1
-efibootmgr 18-4
-entr 5.8-1
-ex-vi-compat 2-1
-expect 5.45.4-5
-eza 0.23.5-2
-fastfetch 2.66.0-1
-fd 10.4.2-2
-figlet 2.2.5-6
-firefox 152.0.5-1
-foot 1.27.0-1
-fwupd 2.1.6-1
-fx 39.2.0-1
-fzf 0.74.0-1
-gdu 5.36.1-1
-gflags 2.2.2-6
-ghostty 1.3.1-2
-git 2.55.0-1
-git-delta 0.19.2-2
-gopass 1.16.1-2
-goreleaser 2.14.0-2
-gptfdisk 1.0.10-2
-grim 1.5.0-2
-grub 2:2.14-1
-gvfs 1.60.1-1
-hardinfo2 2.2.16-2
-httpie 3.2.4-2
-hugo 0.164.0-1
-hwinfo 25.4-1
-hyperfine 1.20.0-1
-hypridle 0.1.7-9
-hyprland 0.55.4-1
-hyprpaper 0.8.4-3
-imagemagick 7.1.2.26-2
-imv 5.0.1-2
-intel-ucode 20260512-1
-iwd 3.12-1
-jpegoptim 1.5.6-1
-jq 1.8.2-1
-kernel-modules-hook 0.1.7-3
-kubectl 1.36.2-1
-lazydocker 0.25.2-1
-lazygit 0.63.0-1
-libmicrohttpd 1.0.6-1
-linux 7.1.3.arch1-2
-linux-firmware 20260622-1
-linux-headers 7.1.3.arch1-2
-linux-lts 6.18.38-2
-linux-lts-headers 6.18.38-2
-luarocks 3.13.0-5
-lzip 1.26-1
-man-db 2.13.1-1
-mariadb 12.3.2-3
-mariadb-clients 12.3.2-3
-mediainfo 26.05-1
-moreutils 0.70-1
-mpv 1:0.41.0-3
-neovim 0.12.4-1
-net-tools 2.10-3
-network-manager-applet 1.36.0-2
-networkmanager 1.56.1-1
-networkmanager-openvpn 1.12.5-1
-ninja 1.13.2-3
-noto-fonts 1:2026.07.01-1
-noto-fonts-emoji 1:2.051-1
-npm 12.0.0-1
-nvidia-open-lts 1:610.43.03-2
-nwg-look 1.1.1-3
-obs-studio 32.1.2-7
-obsidian 1.12.7-3
-oha 1.14.0-2
-openbsd-netcat 1.238_1-1
-openssh 10.4p1-2
-openvpn 2.7.5-1
-os-prober 1.84-1
-pacman-contrib 1.13.1-1
-pamixer 1.6-4
-papirus-icon-theme 20250501-1
-pass 1.7.4-7
-pavucontrol 1:6.2-1
-pcmanfm 1.4.0-2
-pgcli 4.5.0-1
-pgformatter 5.10-1
-pigz 2.8-2
-pipewire-alsa 1:1.6.7-1
-pipewire-jack 1:1.6.7-1
-pipewire-pulse 1:1.6.7-1
-postgresql 18.4-1
-postgresql-old-upgrade 17.10-1
-pre-commit 4.6.1-1
-prettier 3.8.1-1
-protobuf-c 1.5.2-12
-pv 1.11.0-1
-python-pipx 1.15.0-1
-qalculate-gtk 5.11.0-1
-qt5-wayland 5.15.19+kde+r55-1
-reflector 2023-5
-ripgrep 15.1.0-4
-rofi 2.0.0-1
-rofimoji 6.7.0-2
-s-tui 1.4.0-1
-sane 1.4.0-4
-shfmt 3.13.1-1
-simple-scan 50.0-1
-slurp 1.5.0-2
-socat 1.8.1.1-1
-speedtest-cli 2.1.3-10
-sqlc 1.31.1-1
-sqlfluff 4.2.2-1
-steam 1.0.0.87-1
-stylua 2.5.2-1
-sudo 1.9.17.p2-6
-swappy 1.8.0-1
-system-config-printer 1.5.18-6
-systembus-notify 1.1-4
-telegram-desktop 6.9.3-8
-tesseract 5.5.2-1
-thin-provisioning-tools 1.3.3-1
-throttled 0.12-1
-tig 2.6.1-1
-tmux 3.7_b-1
-tokei 14.0.0-1
-traceroute 2.1.6-1
-trash-cli 0.24.5.26-3
-tree-sitter-cli 0.26.9-1
-ttf-dejavu 2.37+18+g9b5d1b2f-8
-ttf-fira-code 6.2-4
-ttf-firacode-nerd 3.4.0-2
-ttf-jetbrains-mono-nerd 3.4.0-2
-udiskie 2.6.2-1
-unrar 1:7.2.7-1
-unzip 6.0-23
-vhs 0.11.0-1
-vimiv 0.9.1-10
-waybar 0.15.0-2
-wget 1.25.0-5
-wireguard-tools 1.0.20260223-1
-wireplumber 0.5.15-1
-wl-clipboard 1:2.3.0-1
-wlr-randr 0.5.0-1
-xarchiver 0.5.4.27-1
-xdg-desktop-portal-gtk 1.15.3-1
-xdg-desktop-portal-hyprland 1.3.12-2
-xh 0.26.1-1
-xorg-xwayland 24.1.13-1
-yarn 1.22.22-2
-zathura 2026.07.08-1
-zathura-pdf-mupdf 2026.05.10-5
-zip 3.0-13
-zsh 5.9.1-1
+acpi                           1.8-2           Client for battery, power, and thermal readings
+alacritty                      0.17.0-1        A cross-platform, GPU-accelerated terminal emulator
+alsa-utils                     1.2.16-1        Advanced Linux Sound Architecture - Utilities
+amd-ucode                      20260810-2      Microcode update image for AMD CPUs
+ansible                        14.2.0-1        Official assortment of Ansible collections
+ansible-lint                   26.6.0-1        Checks playbooks for practices and behaviour that could potentially be improved.
+anything-sync-daemon           6.0.0-3         Symlinks and syncs user specified dirs to RAM
+arch-audit                     0.2.0-5         A utility like pkg-audit based on Arch Security Team data
+aria2                          1.37.0-3        Download utility that supports HTTP(S), FTP, BitTorrent, and Metalink
+aws-cli                        1.44.81-1       Universal Command Line Interface for Amazon Web Services
+awww                           0.12.1-1        An Answer to your Wayland Wallpaper Woes
+base                           3-3             Minimal package set to define a basic Arch Linux installation
+base-devel                     1-2             Basic tools to build Arch Linux packages
+bat                            0.26.1-2        Cat clone with syntax highlighting and git integration
+batsignal                      1.8.0-2         A lightweight battery monitor daemon
+bc                             1.08.2-1        An arbitrary precision calculator language
+bind                           9.20.26-1       A complete, highly portable implementation of the DNS protocol
+bluez                          5.87-2          Daemons for the bluetooth protocol stack
+bluez-utils                    5.87-2          Development and debugging utilities for the bluetooth protocol stack
+brightnessctl                  0.5.1-3         Lightweight brightness control tool
+buf                            1.72.0-1        A tool for working with Protocol Buffers
+calcurse                       4.8.2-1         A text-based personal organizer
+chromium                       151.0.7922.137-1 A web browser built for speed, simplicity, and security
+clang                          22.1.8-1        C language family frontend for LLVM
+cmake                          4.4.2-1         A cross-platform open-source make system
+cpu-x                          5.4.0-3         A Free software that gathers information on CPU, motherboard and more
+croc                           1:11.1.0-1      Easily and securely send things from one computer to another.
+cronie                         1.7.2-2         Daemon that runs specified programs at scheduled times and related tools
+cups                           2:2.4.19-1      OpenPrinting CUPS - daemon package
+cups-pdf                       3.0.3-1         PDF printer for cups
+curlie                         1.8.2-1         The power of curl, the ease of use of httpie.
+dateutils                      0.4.11-3        nifty command line date and time utilities; fast date calculations and conversion in the shell
+ddcutil                        2.2.7-1         Query and change Linux monitor settings using DDC/CI and USB.
+discord                        1:1.0.154-1     All-in-one voice and text chat for gamers
+dnf5                           5.4.2.1-1       Next-generation RPM package management system
+docker                         1:29.7.2-1      Pack, ship and run any application as a lightweight container
+docker-buildx                  0.36.1-1        Docker CLI plugin for extended build capabilities with BuildKit
+docker-compose                 5.4.0-1         Fast, isolated development environments using Docker
+duf                            0.9.1-1         Disk Usage/Free Utility
+dunst                          1.13.2-2        Customizable and lightweight notification-daemon
+earlyoom                       1.9.0-1         Early OOM Daemon for Linux
+efibootmgr                     18-4            Linux user-space application to modify the EFI Boot Manager
+entr                           5.8-1           Run arbitrary commands when files change
+ex-vi-compat                   3-1             The ex and vi commands based on vim's compatibility modes
+expac                          10-13           alpm data (pacman database) extraction utility
+expect                         5.45.4-5        A tool for automating interactive applications
+eza                            0.23.5-2        A modern replacement for ls (community fork of exa)
+fastfetch                      2.67.0-1        A feature-rich and performance oriented neofetch like system information tool
+fd                             10.4.2-2        Simple, fast and user-friendly alternative to find
+figlet                         2.2.5-6         A program for making large letters out of ordinary text
+firefox                        153.0.4-1       Fast, Private & Safe Web Browser
+foot                           1.27.0-2        Fast, lightweight, and minimalistic Wayland terminal emulator
+fwupd                          2.1.7-1         Simple daemon to allow session software to update firmware
+fx                             39.2.0-1        Command-line tool and terminal JSON viewer
+fzf                            0.74.2-1        Command-line fuzzy finder
+gdu                            5.36.1-1        Fast disk usage analyzer
+gflags                         2.2.2-6         C++ Library for commandline flag processing
+git                            2.55.0-1        the fast distributed version control system
+git-delta                      0.19.2-2        Syntax-highlighting pager for git and diff output
+gopass                         1.16.1-2        The slightly more awesome standard unix password manager for teams.
+goreleaser                     2.14.0-2        Deliver Go binaries as fast and easily as possible
+gptfdisk                       1.0.10-2        A text-mode partitioning tool that works on GUID Partition Table (GPT) disks
+grim                           1.5.0-2         Screenshot utility for Wayland
+grub                           2:2.14-1        GNU GRand Unified Bootloader (2)
+gvfs                           1.60.2-1        Virtual filesystem implementation for GIO
+hardinfo2                      2.2.16-2        System Information and Benchmark for Linux Systems.
+httpie                         3.2.4-2         human-friendly CLI HTTP client for the API era
+hugo                           0.164.0-1       Fast and Flexible Static Site Generator in Go
+hwinfo                         25.5-1          Hardware detection tool from openSUSE
+hyperfine                      1.20.0-1        A command-line benchmarking tool
+hypridle                       0.1.8-1         hyprland’s idle daemon
+hyprland                       0.56.2-1        a highly customizable dynamic tiling Wayland compositor
+hyprpaper                      0.8.4-6         a blazing fast wayland wallpaper utility with IPC controls
+imagemagick                    7.1.2.29-2      An image viewing/manipulation program
+imv                            5.0.1-2         Image viewer for Wayland and X11
+iwd                            3.12-1          Internet Wireless Daemon
+jpegoptim                      1.5.6-1         Jpeg optimisation utility
+jq                             1.8.2-1         Command-line JSON processor
+kernel-modules-hook            0.1.7-3         Keeps your system fully functional after a kernel upgrade
+kubectl                        1.36.3-1        A command line tool for communicating with a Kubernetes API server
+lazydocker                     0.25.2-1        A simple terminal UI for docker and docker-compose, written in Go with the gocui library.
+lazygit                        0.64.1-1        Simple terminal UI for git commands
+libmicrohttpd                  1.0.10-1        a small C library that is supposed to make it easy to run an HTTP server as part of another application.
+linux                          7.1.8.arch1-3   The Linux kernel and modules
+linux-firmware                 20260810-2      Firmware files for Linux - Default set
+linux-headers                  7.1.8.arch1-3   Headers and scripts for building modules for the Linux kernel
+linux-lts                      6.18.44-1       The LTS Linux kernel and modules
+linux-lts-headers              6.18.44-1       Headers and scripts for building modules for the LTS Linux kernel
+luarocks                       3.13.0-5        Deployment and management system for Lua modules
+lzip                           1.26-1          A lossless file compressor based on the LZMA algorithm
+man-db                         2.13.1-2        A utility for reading man pages
+mariadb                        12.3.2-4        Fast SQL database server, derived from MySQL
+mariadb-clients                12.3.2-4        MariaDB client tools
+mediainfo                      26.05-1         Supplies technical and tag information about media files (CLI interface)
+moreutils                      0.70-1          A growing collection of the unix tools that nobody thought to write thirty years ago
+mpv                            1:0.41.0-4      a free, open source, and cross-platform media player
+neovim                         0.12.4-1        Fork of Vim aiming to improve user experience, plugins, and GUIs
+net-tools                      2.10-3          Configuration tools for Linux networking
+network-manager-applet         1.36.0-2        Applet for managing network connections
+networkmanager                 1.58.0-1        Network connection manager and user applications
+networkmanager-openvpn         1.12.5-1        NetworkManager VPN plugin for OpenVPN (with GUI)
+ninja                          1.13.2-3        Small build system with a focus on speed
+noto-fonts                     1:2026.08.01-1  Google Noto TTF fonts
+noto-fonts-emoji               1:2.051-1       Google Noto Color Emoji font
+npm                            12.0.2-1        JavaScript package manager
+nvidia-open-lts                1:610.57.04-5   NVIDIA open kernel modules
+nwg-look                       1.1.1-3         GTK settings editor adapted to work on wlroots-based compositors
+obs-studio                     32.2.1-7        Free, open source software for live streaming and recording
+obsidian                       1.13.7-1        A powerful knowledge base that works on top of a local folder of plain text Markdown files
+oha                            1.15.0-1        Ohayou(おはよう), HTTP load generator, inspired by rakyll/hey with tui animation
+openbsd-netcat                 1.238_1-1       TCP/IP swiss army knife. OpenBSD variant.
+openssh                        10.5p1-1        SSH protocol implementation for remote login, command execution and file transfer
+openvpn                        2.7.6-1         An easy-to-use, robust and highly configurable VPN (Virtual Private Network)
+os-prober                      1.84-1          Utility to detect other OSes on a set of drives
+pacman-contrib                 1.13.1-1        Contributed scripts and tools for pacman systems
+pamixer                        1.6-4           Pulseaudio command-line mixer like amixer
+papirus-icon-theme             20260801-1      Papirus icon theme
+pass                           1.7.4-7         Stores, retrieves, generates, and synchronizes passwords securely
+pavucontrol                    1:6.2-1         PulseAudio Volume Control
+pcmanfm                        1.4.0-2         Extremely fast and lightweight file manager
+pgcli                          4.5.0-1         A command line interface for PostgreSQL with auto-completion and syntax highlighting
+pgformatter                    5.10-1          A PostgreSQL SQL syntax beautifier
+pigz                           2.8-2           Parallel implementation of the gzip file compressor
+pipewire-alsa                  1:1.6.8-1       Low-latency audio/video router and processor - ALSA configuration
+pipewire-jack                  1:1.6.8-1       Low-latency audio/video router and processor - JACK replacement
+pipewire-pulse                 1:1.6.8-1       Low-latency audio/video router and processor - PulseAudio replacement
+postgresql                     18.6-1          Sophisticated object-relational DBMS
+postgresql-old-upgrade         17.11-1         Older PostgreSQL for migrating major versions with pg_upgrade
+pre-commit                     4.6.1-1         A framework for managing and maintaining multi-language pre-commit hooks
+prettier                       3.8.1-1         An opinionated code formatter
+protobuf-c                     1.5.2-12        Protocol Buffers implementation in C
+pv                             1.11.0-1        A terminal-based tool for monitoring the progress of data through a pipeline
+python-pipx                    1.15.0-1        Install and Run Python Applications in Isolated Environments
+qalculate-gtk                  5.12.0-1        GTK frontend for libqalculate
+qt5-wayland                    5.15.19+kde+r55-1 Provides APIs for Wayland
+reflector                      2023-5          A Python 3 module and script to retrieve and filter the latest Pacman mirror list.
+ripgrep                        15.2.0-1        A search tool that combines the usability of ag with the raw speed of grep
+rofi                           2.0.0-1         A window switcher, application launcher and dmenu replacement
+rofimoji                       6.7.0-2         Emoji, unicode and general character picker for rofi and rofi-likes
+s-tui                          1.4.0-1         Terminal UI stress test and monitoring tool
+sane                           1.4.0-4         Scanner Access Now Easy
+shfmt                          3.13.1-1        Format shell programs
+simple-scan                    50.0-1          Simple scanning utility
+slurp                          1.5.0-2         Select a region in a Wayland compositor
+socat                          1.8.1.3-1       Multipurpose relay
+speedtest-cli                  2.1.3-10        Command line interface for testing internet bandwidth using speedtest.net
+sqlc                           1.31.1-1        Compile SQL to type-safe Go
+stylua                         2.5.2-1         Deterministic code formatter for Lua
+sudo                           1.9.17.p2-6     Give certain users the ability to run some commands as root
+swappy                         1.8.0-1         A Wayland native snapshot editing tool
+system-config-printer          1.5.18-6        A CUPS printer configuration tool and status applet
+systembus-notify               1.1-4           System bus notification daemon
+telegram-desktop               7.0.9-2         Official Telegram Desktop client
+tesseract                      5.5.3-1         An OCR program
+thin-provisioning-tools        1.3.3-1         Suite of tools for manipulating the metadata of the dm-thin device-mapper target
+throttled                      0.12-1          Workaround for Intel throttling issues in Linux.
+tmux                           3.7_b-1         Terminal multiplexer
+tokei                          14.0.0-1        A blazingly fast CLOC (Count Lines Of Code) program
+traceroute                     2.1.6-1         Tracks the route taken by packets over an IP network
+trash-cli                      0.24.5.26-3     Command line trashcan (recycle bin) interface
+tree-sitter-cli                0.26.9-1        CLI tool for developing, testing, and using Tree-sitter parsers
+ttf-dejavu                     2.37+18+g9b5d1b2f-8 Font family based on the Bitstream Vera Fonts with a wider range of characters
+ttf-fira-code                  6.2-4           Monospaced font with programming ligatures
+ttf-firacode-nerd              3.5.0-1         Patched font Fira (Fura) Code from nerd fonts library
+ttf-jetbrains-mono-nerd        3.5.0-1         Patched font JetBrains Mono from nerd fonts library
+udiskie                        2.7.0-2         Removable disk automounter using udisks
+unrar                          1:7.2.7-1       The RAR uncompression program
+unzip                          6.0-23          For extracting and viewing files in .zip archives
+valkey                         9.1.1-1         An in-memory database that persists on disk
+vhs                            0.11.0-1        A tool for recording terminal GIFs
+vimiv                          0.9.1-10        Image viewer with vim-like keybindings
+waybar                         0.15.0-2        Highly customizable Wayland bar for Sway and Wlroots based compositors
+wget                           1.25.0-6        Network utility to retrieve files from the web
+wireguard-tools                1.0.20260223-1  next generation secure network tunnel - tools for configuration
+wireplumber                    0.5.15-1        Session / policy manager implementation for PipeWire
+wl-clipboard                   1:2.3.0-1       Command-line copy/paste utilities for Wayland
+wlr-randr                      0.5.0-1         Utility to manage outputs of a Wayland compositor
+xarchiver                      0.5.4.27-1      GTK frontend to various command line archivers
+xdg-desktop-portal-gtk         1.15.3-1        A backend implementation for xdg-desktop-portal using GTK
+xdg-desktop-portal-hyprland    1.4.1-1         xdg-desktop-portal backend for hyprland
+xh                             0.26.2-1        Friendly and fast tool for sending HTTP requests
+xorg-xwayland                  24.1.13-1       run X clients under wayland
+zathura                        2026.07.18-1    Minimalistic document viewer
+zathura-pdf-mupdf              2026.07.18-1    PDF support for Zathura (MuPDF backend) (Supports PDF, ePub, and OpenXPS)
+zip                            3.0-13          Compressor/archiver for creating and modifying zipfiles
+zsh                            5.9.2-1         A very advanced and programmable command interpreter (shell) for UNIX

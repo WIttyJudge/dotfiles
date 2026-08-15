@@ -17,12 +17,6 @@ hl.window_rule({ match = { title = "^(About Mozilla Firefox)$" }, float = true }
 hl.window_rule({ match = { class = "firefox", title = "^(Picture-in-Picture)$" }, float = true })
 hl.window_rule({ match = { class = "firefox", title = "^(Library)$" }, float = true })
 hl.window_rule({ match = { class = "^(nwg-look)$" }, float = true })
-hl.window_rule({
-  match = { class = "(.*org.pulseaudio.pavucontrol.*)" },
-  float = true,
-  center = true,
-  size = { "monitor_w * 0.45", "monitor_h * 0.45" },
-})
 hl.window_rule({ match = { class = "^(nm-applet)$" }, float = true })
 hl.window_rule({ match = { class = "blueberry.py" }, float = true })
 hl.window_rule({ match = { class = "nm-connection-editor" }, float = true })
@@ -32,6 +26,13 @@ hl.window_rule({ match = { class = "org.gnome.SimpleScan" }, float = true })
 hl.window_rule({ match = { class = "qalculate-gtk" }, float = true })
 hl.window_rule({ match = { class = ".*.exe" }, float = true })
 hl.window_rule({ match = { class = "^([Ss]team)$" }, float = true })
+
+hl.window_rule({
+  match = { class = "(org.pulseaudio.pavucontrol|xarchiver|pcmanfm)" },
+  float = true,
+  center = true,
+  size = { "monitor_w * 0.45", "monitor_h * 0.45" },
+})
 
 -- +---------------------------------------------------------+
 -- |                     Quality of life                     |

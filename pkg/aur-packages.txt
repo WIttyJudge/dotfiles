@@ -1,26 +1,26 @@
-adless-bin 1.0.4-1
-bibata-cursor-theme-bin 2.0.7-1
-blueberry 1.4.8-2
-catppuccin-gtk-theme-mocha 1.0.3-1
-cb-bin 0.1.0-2
-downgrade 11.3.0-1
-gnome-bluetooth 3.34.5+r16+g61cfff1c-2
-goland 2023.3.4-1
-grpcurl-bin 1.9.1-1
-gtk2 2.24.33-5
-htop-vim 3.2.2-1
-jiq-bin 0.7.2-2
-kubelogin 1.33.0-1
-localsend-bin 1.17.0-1
-openssl-1.1 1.1.1.w-2
-pacman-cleanup-hook 1.1-1
-plzip 1.11-1
-protoc-gen-go 1.30.0-1
-redis 7.2.5-1
-rofi-pass 2.0.2-4
-slack-desktop 4.49.81-1
-ttf-joypixels 8.0.0-2
-wbg 1.2.0-1
-yay 13.0.1-1
-yay-debug 13.0.1-1
-zimfw 1.20.0-1
+adless-bin                     1.0.4-1         Local domains blocker written in Go
+bibata-cursor-theme-bin        2.0.7-1         Material Based Cursor Theme
+blueberry                      1.4.8-2         Bluetooth configuration tool
+catppuccin-gtk-theme-mocha     1.0.3-1         Soothing pastel theme for GTK - Mocha
+cb-bin                         0.1.0-2         Command line interface to manage clipboard
+claude-code                    2.1.233-1       An agentic coding tool that lives in your terminal
+downgrade                      12.0.2-1        Bash script for downgrading one or more packages to a version in your cache or the A.L.A.
+gnome-bluetooth                3.34.5+r16+g61cfff1c-3 GNOME Bluetooth Subsystem (legacy)
+goland                         2026.2.1-1      Capable and Ergonomic Go IDE
+grpcurl-bin                    1.9.3-3         Like cURL, but for gRPC
+gtk2                           2.24.33-5       GObject-based multi-platform GUI toolkit (legacy)
+htop-vim                       3.5.2-1         Interactive process viewer with a Vim keybindings patch
+jiq-bin                        0.7.2-2         Interactive JSON query tool using jq expressions
+kubelogin                      1.36.1-1        Kubectl plugin for Kubernetes OpenID Connect authentication (oidc-login)
+localsend-bin                  1.18.0-1        An open source cross-platform alternative to AirDrop
+openssl-1.1                    1.1.1.w-11      The Open Source toolkit for Secure Sockets Layer and Transport Layer Security
+pacman-cleanup-hook            1.1-1           hook to cleanup pacman cache keeping only the installed plus next most recent packages
+plzip                          1.13-1          A massively parallel lossless data compressor based on the lzlib compression library
+protoc-gen-go                  1.36.11-1       Go support for Google's protocol buffers
+rofi-pass                      2.0.2-4         bash script to handle pass storages in a convenient way
+slack-desktop                  4.51.180-1      Slack Desktop (Beta) for Linux
+ttf-joypixels                  11.0.0-1        Emoji as a Service (formerly EmojiOne)
+wbg                            1.3.0-2         Wallpaper application for wlroots based Wayland compositors
+yay                            13.0.1-1        Yet another yogurt. Pacman wrapper and AUR helper written in go.
+yay-debug                      13.0.1-1        Detached debugging symbols for yay
+zimfw                          1.20.0-1        Zsh plugin manager
