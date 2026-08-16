@@ -10,7 +10,6 @@ hl.window_rule({ name = "chromium-browser", match = { class = "Chromium" }, work
 hl.window_rule({ name = "discord", match = { class = "discord" }, workspace = 4 })
 hl.window_rule({ name = "slack", match = { class = "Slack" }, workspace = 4 })
 hl.window_rule({ name = "telegram", match = { class = "org.telegram.desktop" }, workspace = 4 })
-hl.window_rule({ name = "steam", match = { class = "^([Ss]team)$" }, workspace = 5 })
 
 -- Floating
 hl.window_rule({ match = { title = "^(About Mozilla Firefox)$" }, float = true })

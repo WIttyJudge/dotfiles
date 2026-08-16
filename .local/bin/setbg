@@ -14,4 +14,4 @@ trueloc="$(readlink -f "$1")" &&
   esac
 
 # feh --bg-scale "$bgloc"
-wbg "$bgloc"
+wbg --stretch "$bgloc"
