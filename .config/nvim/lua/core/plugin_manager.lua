@@ -36,6 +36,7 @@ require("lazy").setup("plugins", {
         "tutor",
         -- The default file explorer.
         "netrwPlugin",
+        "netrw",
       },
     },
   },

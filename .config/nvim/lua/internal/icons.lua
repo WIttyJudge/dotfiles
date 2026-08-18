@@ -56,7 +56,6 @@ local icons = {
     Comment = "",
     Bug = "",
     Code = "",
-    Telescope = "",
     Gear = "",
     Package = "",
     List = "",

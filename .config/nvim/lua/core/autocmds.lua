@@ -71,28 +71,6 @@ autocmd("BufEnter", {
 
 local auto_compile = vim.api.nvim_create_augroup("_auto_compile", { clear = true })
 
--- Compile suckless-tools on save
-autocmd({ "BufWritePost" }, {
-  pattern = utils.get_homedir() .. "/suckless-tools/dwmblocks/config.h",
-  command = "!cd ~/suckless-tools/dwmblocks; sudo make clean install && { killall -q dwmblocks;setsid -f dwmblocks }",
-  group = auto_compile,
-  desc = "Dwmblocks suckless utils",
-})
-
-autocmd({ "BufWritePost" }, {
-  pattern = utils.get_homedir() .. "/suckless-tools/dwm/config.h",
-  command = "!cd ~/suckless-tools/dwm; sudo make clean install",
-  group = auto_compile,
-  desc = "DWM suckless utils",
-})
-
-autocmd({ "BufWritePost" }, {
-  pattern = utils.get_homedir() .. "/suckless-tools/dmenu/config.h",
-  command = "!cd ~/suckless-tools/dmenu; sudo make clean install",
-  group = auto_compile,
-  desc = "Dmenu suckless utils",
-})
-
 autocmd({ "BufWritePost" }, {
   pattern = { "*tmux.conf" },
   command = "execute 'silent !tmux source <afile> --silent'",

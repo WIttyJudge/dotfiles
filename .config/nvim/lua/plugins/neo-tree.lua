@@ -48,13 +48,6 @@ return {
           state.commands.open(state)
         end
       end,
-      find_in_dir = function(state)
-        local node = state.tree:get_node()
-        local path = node:get_id()
-        require("telescope.builtin").find_files({
-          cwd = node.type == "directory" and path or vim.fn.fnamemodify(path, ":h"),
-        })
-      end,
     },
 
     window = {
@@ -63,7 +56,6 @@ return {
         ["<space>"] = false, -- disable space until we figure out which-key disabling
         ["[b"] = "prev_source",
         ["]b"] = "next_source",
-        F = "find_in_dir",
         -- ["O"] = "system_open",
         -- ["Y"] = "copy_selector",
         ["h"] = "parent_or_close",

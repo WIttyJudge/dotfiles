@@ -230,46 +230,6 @@ local plugins_mappings = {
     "'",
     "`",
   },
-  -- nvim-telescope/telescope.nvim
-  -- telescope = {
-  -- 	-- {
-  -- 	-- 	"<Leader>ff",
-  -- 	-- 	function () require("telescope.builtin").find_files() end,
-  -- 	-- 	desc = "Find files"
-  -- 	-- },
-  -- 	{
-  -- 		"<Leader>ff",
-  -- 		function () require("telescope").extensions.smart_open.smart_open() end,
-  -- 		desc = "Files"
-  -- 	},
-  -- 	{
-  -- 		"<Leader>fo",
-  -- 		function () require("telescope.builtin").oldfiles() end,
-  -- 		desc = "Oldfiles"
-  -- 	},
-  -- 	{
-  -- 		"<Leader>fW",
-  -- 		function () require("telescope.builtin").live_grep() end,
-  -- 		desc = "Live grep"
-  -- 	},
-  -- 	{
-  -- 		"<Leader>fc",
-  -- 		function () require("telescope.builtin").grep_string() end,
-  -- 		desc = "Word under cursor"
-  -- 	},
-  -- 	{
-  -- 		"<Leader>fm",
-  -- 		function () require("telescope.builtin").man_pages() end,
-  -- 		desc = "Man"
-  -- 	},
-  -- 	{
-  -- 		"<Leader>fh",
-  -- 		function ()
-  -- 			require("telescope.builtin").help_tags()
-  -- 		end,
-  -- 		desc = "Neovim help"
-  -- 	},
-  -- },
 }
 
 -- text-case.nvim
