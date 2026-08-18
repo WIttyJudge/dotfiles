@@ -11,5 +11,5 @@ return {
       ["ASC"] = "DESC",
     },
   },
-  keys = require("core.mappings").toggler,
+  keys = require("core.plugin_mappings").toggler,
 }

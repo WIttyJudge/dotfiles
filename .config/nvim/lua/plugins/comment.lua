@@ -4,5 +4,5 @@ return {
   opts = {
     mappings = false,
   },
-  keys = require("core.mappings").comment_nvim,
+  keys = require("core.plugin_mappings").comment_nvim,
 }

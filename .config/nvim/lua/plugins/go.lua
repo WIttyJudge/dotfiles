@@ -8,6 +8,6 @@ return {
   },
   config = true,
   ft = { "go", "gomod" },
-  keys = require("core.mappings").go_nvim,
+  keys = require("core.plugin_mappings").go_nvim,
   build = ':lua require("go.install").update_all_sync()',
 }

@@ -2,7 +2,7 @@
 return {
   "mistweaverco/kulala.nvim",
   ft = { "http", "rest" },
-  keys = require("core.mappings").kulala,
+  keys = require("core.plugin_mappings").kulala,
   opts = {
     ui = {
       -- 800 kb

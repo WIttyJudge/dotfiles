@@ -2,6 +2,6 @@
 return {
   "folke/todo-comments.nvim",
   event = "BufReadPre", -- needed to highlight keywords
-  keys = require("core.mappings").todo_comments,
+  keys = require("core.plugin_mappings").todo_comments,
   config = true,
 }

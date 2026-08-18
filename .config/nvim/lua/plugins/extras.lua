@@ -33,7 +33,7 @@ return {
   {
     "chrisgrieser/nvim-spider",
     lazy = true,
-    keys = require("core.mappings").nvim_spider,
+    keys = require("core.plugin_mappings").nvim_spider,
   },
 
   -- Improved UI and workflow for the quickfix

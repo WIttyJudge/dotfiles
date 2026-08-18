@@ -7,7 +7,7 @@ return {
   dependencies = {
     "MunifTanjim/nui.nvim",
   },
-  keys = require("core.mappings").neo_tree,
+  keys = require("core.plugin_mappings").neo_tree,
   -- config = function()
   --   require("plugins.configs.neo-tree")
   -- end,

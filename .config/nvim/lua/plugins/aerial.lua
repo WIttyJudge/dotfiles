@@ -6,7 +6,7 @@ return {
     "nvim-treesitter/nvim-treesitter",
     "nvim-tree/nvim-web-devicons",
   },
-  keys = require("core.mappings").aerial,
+  keys = require("core.plugin_mappings").aerial,
   opts = {
     attach_mode = "global",
     layout = {

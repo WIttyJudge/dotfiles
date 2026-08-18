@@ -2,7 +2,7 @@
 return {
   "folke/which-key.nvim",
   event = "VeryLazy",
-  keys = require("core.mappings").which_key,
+  keys = require("core.plugin_mappings").which_key,
   opts = {
     preset = "helix",
     spec = {
