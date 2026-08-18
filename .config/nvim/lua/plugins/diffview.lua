@@ -7,8 +7,6 @@ return {
     "DiffviewFocusFiles",
     "DiffviewFileHistory",
   },
-  keys = {
-    { "<Leader>gc", "<Cmd>DiffviewFileHistory<CR>", desc = "Open diff view file history" },
-  },
+  keys = require("core.plugin_mappings").diffview,
   config = true,
 }

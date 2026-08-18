@@ -8,21 +8,14 @@ return {
     "moyiz/blink-emoji.nvim",
     "mikavilpas/blink-ripgrep.nvim",
     "xzbdmw/colorful-menu.nvim",
-    -- { "L3MON4D3/LuaSnip", version = "v2.*" },
   },
   version = "*",
+  build = function()
+    require("blink.cmp").build():pwait()
+  end,
   opts = {
-    -- enabled = function()
-    --   local filetype = vim.bo[0].filetype
-    --   if filetype == "TelescopePrompt" or filetype == "minifiles" or filetype == "snacks_picker_input" then
-    --     return false
-    --   end
-    --   return true
-    -- end,
-
     appearance = {
       use_nvim_cmp_as_default = false,
-      nerd_font_variant = "mono",
     },
 
     sources = {
@@ -61,10 +54,6 @@ return {
         },
       },
     },
-
-    -- snippets = {
-    --   preset = "luasnip",
-    -- },
 
     cmdline = {
       completion = { menu = { auto_show = true } },
