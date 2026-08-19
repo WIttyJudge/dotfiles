@@ -66,9 +66,9 @@ end, { expr = true, desc = "Escape and Clear hlsearch" })
 
 -- Easier file save and exit
 map({ "i", "x", "n", "s" }, "<C-s>", "<cmd>w<cr><esc>", { desc = "Save File" })
-map("n", "<Leader>qq", "<Cmd>q<CR>", { desc = "Exit" })
--- map("n", "<Leader>w", "<Cmd>w<CR>", { desc = "Save file" })
--- map("n", "<Leader>W", "<Cmd>x<CR>", { desc = "Save file and exit" })
+map("n", "<leader>qq", "<Cmd>q<CR>", { desc = "Exit" })
+-- map("n", "<leader>w", "<Cmd>w<CR>", { desc = "Save file" })
+-- map("n", "<leader>W", "<Cmd>x<CR>", { desc = "Save file and exit" })
 
 -- Simply use ; instead of shift + :
 map({ "n", "v" }, ";", ":")
@@ -86,7 +86,7 @@ map("v", "y", "ygv<Esc>")
 -- map("n", "x", '"_x')
 -- map("x", "p", '"_dP')
 
-map({ "n", "x" }, "<Leader>d", '"_d')
+map({ "n", "x" }, "<leader>d", '"_d')
 map("x", "p", '"_dP')
 
 -- Scroll the viewport faster

@@ -4,5 +4,6 @@ return {
   opts = {
     mappings = false,
   },
+  event = "VeryLazy",
   keys = require("core.plugin_mappings").comment_nvim,
 }

@@ -9,7 +9,7 @@ return {
   -- numToStr/Comment.nvim
   comment_nvim = {
     {
-      "<Leader>/",
+      "<leader>/",
       function()
         require("Comment.api").toggle.linewise.current()
       end,
@@ -17,7 +17,7 @@ return {
       desc = "Toggle comment",
     },
     {
-      "<Leader>/",
+      "<leader>/",
       "<ESC><Cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<CR>",
       mode = "v",
       desc = "Toggle comment",
@@ -26,7 +26,7 @@ return {
 
   grub_fat = {
     {
-      "<Leader>sr",
+      "<leader>sr",
       function()
         local grug = require("grug-far")
         local ext = vim.bo.buftype == "" and vim.fn.expand("%:e")
@@ -48,7 +48,7 @@ return {
 
   kulala = {
     {
-      "<Leader>hr",
+      "<leader>hr",
       function()
         require("kulala").run()
       end,
@@ -60,7 +60,7 @@ return {
   -- nvim-neo-tree/neo-tree.nvim
   neo_tree = {
     { "<C-b>", "<Cmd>Neotree toggle<CR>", desc = "Toggle NvimTree" },
-    { "<Leader>hf", "<Cmd>Neotree reveal<CR>", desc = "Find file inside tree" },
+    { "<leader>hf", "<Cmd>Neotree reveal<CR>", desc = "Find file inside tree" },
   },
 
   -- Wansmer/treesj
@@ -71,7 +71,7 @@ return {
 
   -- nguyenvukhang/nvim-toggler
   toggler = {
-    { "<Leader>i", desc = "Toggle text inverter" },
+    { "<leader>i", desc = "Toggle text inverter" },
   },
 
   todo_comments = {
@@ -91,14 +91,6 @@ return {
     },
   },
 
-  -- folke/which-key.nvim
-  which_key = {
-    "<Leader>",
-    '"',
-    "'",
-    "`",
-  },
-
   -- folke/snacks.nvim
   snacks = {
     -- { "gd", function() Snacks.picker.lsp_definitions() end, desc = "Goto Definition" },
@@ -109,6 +101,15 @@ return {
       end,
       desc = "Smart Find Files",
     },
+
+    -- {
+    --   "<leader>:",
+    --   function()
+    --     Snacks.picker.command_history()
+    --   end,
+    --   desc = "Command History",
+    -- },
+
     {
       "<leader>ff",
       function()
@@ -241,7 +242,7 @@ return {
 
   -- sindrets/diffview.nvim
   diffview = {
-    { "<Leader>gc", "<Cmd>DiffviewFileHistory<CR>", desc = "Open diff view file history" },
+    { "<leader>gc", "<Cmd>DiffviewFileHistory<CR>", desc = "Open diff view file history" },
   },
 
   -- folke/sidekick.nvim
