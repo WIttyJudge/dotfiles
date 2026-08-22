@@ -97,7 +97,7 @@ if is_macos; then
   link ".config/borders"
   link ".config/karabiner/karabiner.json"
   link_files_in_folder ".local/bin"
-  link_files_in_folder ".local/bin/tmux"
+  link_files_in_folder ".local/bin/tmux" ".local/bin"
 
   exit 0
 fi
