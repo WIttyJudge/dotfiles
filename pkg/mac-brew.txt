@@ -1,0 +1,41 @@
+tap "felixkratz/formulae", "https://github.com/FelixKratz/homebrew-formulae"
+tap "nikitabobko/tap", trusted: true
+# Securely send things from one computer to another
+brew "croc"
+# Modern, maintained replacement for ls
+brew "eza"
+# Like neofetch, but much faster because written mostly in C
+brew "fastfetch"
+# XML-based font configuration API for X Windows
+brew "fontconfig"
+# Command-line fuzzy finder written in Go
+brew "fzf"
+# Syntax-highlighting pager for git and diff output
+brew "git-delta"
+# Simple terminal UI for git commands
+brew "lazygit"
+# Incremental parsing library
+brew "tree-sitter"
+# Ambitious Vim-fork focused on extensibility and agility
+brew "neovim"
+# Search tool like grep and The Silver Searcher
+brew "ripgrep"
+# Terminal multiplexer
+brew "tmux"
+# Parser generator tool
+brew "tree-sitter-cli"
+# A window border system for macOS
+brew "felixkratz/formulae/borders", trusted: true
+# AeroSpace is an i3-like tiling window manager for macOS
+cask "nikitabobko/tap/aerospace", trusted: true
+# GPU-accelerated terminal emulator
+cask "alacritty"
+# Terminal-based AI coding assistant
+cask "claude-code"
+cask "font-jetbrains-mono-nerd-font"
+# Keyboard customiser
+cask "karabiner-elements"
+# Open-source cross-platform alternative to AirDrop
+cask "localsend"
+# Messaging app with a focus on speed and security
+cask "telegram"

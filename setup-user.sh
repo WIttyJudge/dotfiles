@@ -95,6 +95,7 @@ link ".config/zsh"
 if is_macos; then
   link ".config/aerospace"
   link ".config/borders"
+  link ".config/karabiner/karabiner.json"
   link_files_in_folder ".local/bin"
   link_files_in_folder ".local/bin/tmux"
 

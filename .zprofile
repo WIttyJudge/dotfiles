@@ -13,9 +13,6 @@ export PATH="$PATH:$(find ~/.local/bin -type d 2>/dev/null | tr '\n' ':' | sed '
 export EDITOR="nvim"
 export VISUAL=$EDITOR
 export TERMINAL="foot"
-export WM="dwm"
-export READER="zathura"
-export BROWSER="firefox"
 export MANPAGER="nvim +Man!"
 
 export DEV_HOME="$HOME/projects"
@@ -31,8 +28,10 @@ export LESSHISTFILE="$XDG_DATA_HOME/less_history"
 
 # Go
 # export GOROOT=/usr/local/go
-export GOROOT=/usr/lib/go
-export PATH=$PATH:$GOROOT/bin
+# export GOROOT=/usr/lib/go
+# export PATH=$PATH:$GOROOT/bin
+
+export PATH=$PATH:/usr/lib/go/bin:/usr/local/go/bin
 
 export GOPATH="$DEV_HOME/golang"
 export PATH=$PATH:$GOPATH/bin
@@ -54,7 +53,6 @@ export SQLITE_HISTORY="${XDG_DATA_HOME}/sqlite_history"
 
 # zsh + tools
 export ZDOTDIR="$XDG_CONFIG_HOME/zsh" # Change default folder of zsh config.
-export ZINIT_HOME="$XDG_DATA_HOME/zinit/zinit.git"
 export ZIM_HOME="$XDG_DATA_HOME/zim"
 
 # Wget
