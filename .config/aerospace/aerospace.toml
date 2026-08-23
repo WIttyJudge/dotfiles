@@ -65,10 +65,10 @@ outer.right =  10
     cmd-comma = 'layout accordion horizontal vertical'
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#focus
-    cmd-h = 'focus left'
-    cmd-j = 'focus down'
-    cmd-k = 'focus up'
-    cmd-l = 'focus right'
+    cmd-h = 'focus --wrap-around left'
+    cmd-j = 'focus --wrap-around down'
+    cmd-k = 'focus --wrap-around up'
+    cmd-l = 'focus --wrap-around right'
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#move
     cmd-shift-h = 'move left'
@@ -76,18 +76,11 @@ outer.right =  10
     cmd-shift-k = 'move up'
     cmd-shift-l = 'move right'
 
-    # See: https://nikitabobko.github.io/AeroSpace/commands#resize
-    cmd-minus = 'resize smart -50'
-    cmd-equal = 'resize smart +50'
-
-    # Directional resize - mirrors binds.lua's mainMod+SHIFT+arrows (there it
-    # resizes by 100px per direction; AeroSpace has no per-direction resize,
-    # only width/height/smart, so right/left drive width and down/up drive
-    # height, which is the closest equivalent).
-    # cmd-shift-right = 'resize width +50'
-    # cmd-shift-left = 'resize width -50'
-    # cmd-shift-down = 'resize height +50'
-    # cmd-shift-up = 'resize height -50'
+    # Directional resize
+    cmd-shift-right = 'resize width -50'
+    cmd-shift-left = 'resize width +50'
+    cmd-shift-down = 'resize height -50'
+    cmd-shift-up = 'resize height +50'
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#move-node-to-workspace
     cmd-q = 'close'
@@ -151,3 +144,7 @@ run = 'move-node-to-workspace 4'
 [[on-window-detected]]
 if = 'test %{app-bundle-id} = ru.keepcoder.Telegram'
 run = ['move-node-to-workspace 4', 'layout floating']
+
+[[on-window-detected]]
+if = 'test %{app-bundle-id} = org.pqrs.Karabiner-Elements.Settings'
+run = 'layout floating'
