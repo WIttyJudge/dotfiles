@@ -1,29 +1,107 @@
 tap "felixkratz/formulae", "https://github.com/FelixKratz/homebrew-formulae"
 tap "nikitabobko/tap", trusted: true
+# Automate deployment, configuration, and upgrading
+brew "ansible"
+# Checks ansible playbooks for practices and behaviour
+brew "ansible-lint"
+# Download with resuming and segmented downloading
+brew "aria2"
+# Official Amazon AWS command-line interface
+brew "awscli"
+# Clone of cat(1) with syntax highlighting and Git integration
+brew "bat"
 # Securely send things from one computer to another
 brew "croc"
+# Power of curl, ease of use of httpie
+brew "curlie"
 # Modern, maintained replacement for ls
 brew "eza"
 # Like neofetch, but much faster because written mostly in C
 brew "fastfetch"
+# Simple, fast and user-friendly alternative to find
+brew "fd"
+# Banner-like program prints strings as ASCII art
+brew "figlet"
 # XML-based font configuration API for X Windows
 brew "fontconfig"
+# Terminal JSON viewer
+brew "fx"
 # Command-line fuzzy finder written in Go
 brew "fzf"
+# Disk usage analyzer with console interface written in Go
+brew "gdu"
+# Distributed revision control system
+brew "git"
 # Syntax-highlighting pager for git and diff output
 brew "git-delta"
+# Deliver Go binaries as fast and easily as possible
+brew "goreleaser"
+# User-friendly cURL replacement (command-line HTTP client)
+brew "httpie"
+# Configurable static site generator
+brew "hugo"
+# Command-line benchmarking tool
+brew "hyperfine"
+# Tools and libraries to manipulate images in select formats
+brew "imagemagick"
+# Utility to optimize JPEG files
+brew "jpegoptim"
+# Lightweight and flexible command-line JSON processor
+brew "jq"
+# Kubernetes command-line interface
+brew "kubernetes-cli"
+# Lazier way to manage everything docker
+brew "lazydocker"
 # Simple terminal UI for git commands
 brew "lazygit"
+# LZMA-based compression program similar to gzip or bzip2
+brew "lzip"
 # Incremental parsing library
 brew "tree-sitter"
 # Ambitious Vim-fork focused on extensibility and agility
 brew "neovim"
+# Open-source, cross-platform JavaScript runtime environment
+brew "node"
+# HTTP load generator, inspired by rakyll/hey with tui animation
+brew "oha"
+# SSL/TLS VPN implementing OSI layer 2 or 3 secure network extension
+brew "openvpn"
+# CLI for Postgres with auto-completion and syntax highlighting
+brew "pgcli"
+# Object-relational database system
+brew "postgresql@18", link: true
+# Framework for managing multi-language pre-commit hooks
+brew "pre-commit"
+# Code formatter for JavaScript, CSS, JSON, GraphQL, Markdown, YAML
+brew "prettier"
+# Protocol buffers library
+brew "protobuf-c"
 # Search tool like grep and The Silver Searcher
 brew "ripgrep"
+# Autoformat shell script source code
+brew "shfmt"
+# Command-line interface for https://speedtest.net bandwidth tests
+brew "speedtest-cli"
+# Opinionated Lua code formatter
+brew "stylua"
 # Terminal multiplexer
 brew "tmux"
+# Program that allows you to count code, quickly
+brew "tokei"
 # Parser generator tool
 brew "tree-sitter-cli"
+# Command-line unarchiving tools supporting multiple formats
+brew "unar"
+# High-performance data structure server that primarily serves key/value workloads
+brew "valkey"
+# Your CLI home video recorder
+brew "vhs"
+# Internet file retriever
+brew "wget"
+# Tools for the WireGuard secure network tunnel
+brew "wireguard-tools"
+# Friendly and fast tool for sending HTTP requests
+brew "xh"
 # A window border system for macOS
 brew "felixkratz/formulae/borders", trusted: true
 # AeroSpace is an i3-like tiling window manager for macOS
@@ -32,10 +110,20 @@ cask "nikitabobko/tap/aerospace", trusted: true
 cask "alacritty"
 # Terminal-based AI coding assistant
 cask "claude-code"
+# Voice and text chat software
+cask "discord"
+cask "font-dejavu"
+cask "font-fira-code-nerd-font"
 cask "font-jetbrains-mono-nerd-font"
+cask "font-noto-color-emoji"
+cask "font-noto-sans"
 # Keyboard customiser
 cask "karabiner-elements"
 # Open-source cross-platform alternative to AirDrop
 cask "localsend"
+# Open-source software for live streaming and screen recording
+cask "obs"
+# Knowledge base that works on top of a local folder of plain text Markdown files
+cask "obsidian"
 # Messaging app with a focus on speed and security
 cask "telegram"
