@@ -10,5 +10,9 @@
 .config/tmux/plugins
 .config/tmux/resurrect
 
+/* Karabiner */
+.config/karabiner/assets
+.config/karabiner/automatic_backups
+
 .zcompdump*
 
