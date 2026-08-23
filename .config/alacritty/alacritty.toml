@@ -15,7 +15,7 @@ TERM = "xterm-256color"
 size = 12
 
 [font.normal]
-family = "JetBrainsMono NFM"
+family = "JetBrainsMono Nerd Font Mono"
 style = "Medium"
 
 [[keyboard.bindings]]
