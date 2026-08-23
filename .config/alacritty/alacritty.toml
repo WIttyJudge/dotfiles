@@ -53,6 +53,8 @@ multiplier = 1
 
 [window]
 opacity = 0.9
+# Option is not registered by default in Mac OS.
+option_as_alt = "Both"
 
 [window.padding]
 x = 1
