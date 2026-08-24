@@ -31,6 +31,9 @@ on-focus-changed = [
     'exec-and-forget [ $(aerospace list-windows --workspace focused | wc -l) -eq 1 ] && borders width=0.0 || borders width=2.0',
 ]
 
+[focus-follows-mouse]
+enabled = true
+
 # Possible values: (qwerty|dvorak|colemak)
 # See https://nikitabobko.github.io/AeroSpace/guide#key-mapping
 [key-mapping]
