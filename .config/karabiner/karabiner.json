@@ -4,12 +4,12 @@
             "complex_modifications": {
                 "rules": [
                     {
-                        "description": "Option + Shift to trigger control + spacebar that switches language",
+                        "description": "Command + Shift to trigger control + spacebar that switches language",
                         "manipulators": [
                             {
                                 "from": {
                                     "key_code": "left_shift",
-                                    "modifiers": { "mandatory": ["left_option"] }
+                                    "modifiers": { "mandatory": ["left_command"] }
                                 },
                                 "to": [
                                     {
@@ -21,7 +21,7 @@
                             },
                             {
                                 "from": {
-                                    "key_code": "left_option",
+                                    "key_code": "left_command",
                                     "modifiers": { "mandatory": ["left_shift"] }
                                 },
                                 "to": [
@@ -50,14 +50,6 @@
                 {
                     "from": { "key_code": "escape" },
                     "to": [{ "key_code": "caps_lock" }]
-                },
-                {
-                    "from": { "key_code": "left_command" },
-                    "to": [{ "key_code": "left_option" }]
-                },
-                {
-                    "from": { "key_code": "left_option" },
-                    "to": [{ "key_code": "left_command" }]
                 }
             ],
             "virtual_hid_keyboard": { "keyboard_type_v2": "iso" }
