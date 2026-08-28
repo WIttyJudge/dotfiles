@@ -109,6 +109,10 @@ map("n", "<C-u>", "<C-u>zz")
 -- Cursor stops running away during line concatination
 map("n", "J", "mzJ`z")
 
+-- commenting
+map("n", "<leader>/", "gcc", { desc = "Toggle Comment", remap = true })
+map("v", "<leader>/", "gc", { desc = "Toggle Comment", remap = true })
+
 -- Tabs control
 map("n", "<leader><tab>]", "<Cmd>tabnext<CR>", { desc = "Tab Right" })
 map("n", "<leader><tab>[", "<Cmd>tabprev<CR>", { desc = "Tab Left" })

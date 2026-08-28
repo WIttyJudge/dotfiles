@@ -6,24 +6,6 @@ return {
     { "b", "<Cmd>lua require('spider').motion('b')<CR>", mode = { "n", "o", "x" }, desc = "Spider-b" },
   },
 
-  -- numToStr/Comment.nvim
-  comment_nvim = {
-    {
-      "<leader>/",
-      function()
-        require("Comment.api").toggle.linewise.current()
-      end,
-      mode = "n",
-      desc = "Toggle comment",
-    },
-    {
-      "<leader>/",
-      "<ESC><Cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<CR>",
-      mode = "v",
-      desc = "Toggle comment",
-    },
-  },
-
   grub_fat = {
     {
       "<leader>sr",
