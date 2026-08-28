@@ -1,33 +1,22 @@
 config-version = 2
 
-# You can use it to add commands that run after AeroSpace startup.
 after-startup-command = [
   'exec-and-forget borders'
 ]
 
-# Start AeroSpace at login.
 start-at-login = true
 
-# Automatically reload the config when the config file is saved.
 auto-reload-config = true
 
-# Normalizations. See: https://nikitabobko.github.io/AeroSpace/guide#normalization
 enable-normalization-flatten-containers = true
 enable-normalization-opposite-orientation-for-nested-containers = true
 
-# Specifies the size of accordion padding.
-# See: https://nikitabobko.github.io/AeroSpace/guide#layouts
 accordion-padding = 30
 
-# Possible values: tiles|accordion.
 default-root-container-layout = 'tiles'
-
-# Possible values: horizontal|vertical|auto.
 default-root-container-orientation = 'auto'
 
-# Mouse follows focus when focused monitor changes.
 on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
-
 # Hides the JankyBorders border when only one window is on the focused.
 on-focus-changed = [
     'exec-and-forget [ $(aerospace list-windows --workspace focused | wc -l) -eq 1 ] && borders width=0.0 || borders width=2.0',
@@ -36,19 +25,9 @@ on-focus-changed = [
 [focus-follows-mouse]
 enabled = true
 
-# Possible values: (qwerty|dvorak|colemak)
-# See https://nikitabobko.github.io/AeroSpace/guide#key-mapping
 [key-mapping]
 preset = 'qwerty'
 
-# Gaps between windows (inner-*) and between monitor edges (outer-*).
-# Possible values:
-# - Constant:     gaps.outer.top = 8
-# - Per monitor:  gaps.outer.top = [{ monitor.main = 16 }, { monitor."some-pattern" = 32 }, 24]
-#                 In this example, 24 is a default value when there is no match.
-#                 Monitor pattern is the same as for 'workspace-to-monitor-force-assignment'.
-#                 See:
-#                 https://nikitabobko.github.io/AeroSpace/guide#assign-workspaces-to-monitors
 [gaps]
 inner.horizontal = 5
 inner.vertical =   5
@@ -62,37 +41,41 @@ outer.right =  10
 # +----------------------------------------------------------+
 
 [mode.main.binding]
-    # Terminal launcher
-    alt-enter = 'exec-and-forget open -na Alacritty'
+    # Open terminal
+    # alt-enter = 'exec-and-forget open -na Ghostty'
+    alt-enter = 'exec-and-forget osascript -e "tell application \"Ghostty\" to new window"'
 
-    # See: https://nikitabobko.github.io/AeroSpace/commands#layout
+
     alt-slash = 'layout tiles horizontal vertical'
     alt-comma = 'layout accordion horizontal vertical'
 
-    # See: https://nikitabobko.github.io/AeroSpace/commands#focus
+    # alt-q = 'close'
+    alt-q = 'close --quit-if-last-window'
+
+    alt-f = 'fullscreen'
+    alt-o = 'layout floating tiling'
+    alt-tab = 'workspace-back-and-forth'
+    alt-shift-tab = 'move-workspace-to-monitor --wrap-around next'
+
+    # Move focus
     alt-h = 'focus --wrap-around left'
     alt-j = 'focus --wrap-around down'
     alt-k = 'focus --wrap-around up'
     alt-l = 'focus --wrap-around right'
 
-    # See: https://nikitabobko.github.io/AeroSpace/commands#move
+    # Swap the active window with another window
     alt-shift-h = 'move left'
     alt-shift-j = 'move down'
     alt-shift-k = 'move up'
     alt-shift-l = 'move right'
 
-    # Directional resize
+    # Resizing the active window
     alt-shift-right = 'resize width -50'
     alt-shift-left = 'resize width +50'
     alt-shift-down = 'resize height -50'
     alt-shift-up = 'resize height +50'
 
-    # See: https://nikitabobko.github.io/AeroSpace/commands#move-node-to-workspace
-    alt-q = 'close'
-    alt-f = 'fullscreen'
-    alt-o = 'layout floating tiling'
-
-    # See: https://nikitabobko.github.io/AeroSpace/commands#workspace
+    # Switch workspaces with mainMod + [0-9]
     alt-1 = 'workspace 1'
     alt-2 = 'workspace 2'
     alt-3 = 'workspace 3'
@@ -104,7 +87,7 @@ outer.right =  10
     alt-9 = 'workspace 9'
     alt-0 = 'workspace 0'
 
-    # See: https://nikitabobko.github.io/AeroSpace/commands#move-node-to-workspace
+    # Swap the active window with another window
     alt-shift-1 = 'move-node-to-workspace 1'
     alt-shift-2 = 'move-node-to-workspace 2'
     alt-shift-3 = 'move-node-to-workspace 3'
@@ -116,31 +99,13 @@ outer.right =  10
     alt-shift-9 = 'move-node-to-workspace 9'
     alt-shift-0 = 'move-node-to-workspace 0'
 
-    # See: https://nikitabobko.github.io/AeroSpace/commands#workspace-back-and-forth
-    alt-tab = 'workspace-back-and-forth'
-
-    # See: https://nikitabobko.github.io/AeroSpace/commands#move-workspace-to-monitor
-    alt-shift-tab = 'move-workspace-to-monitor --wrap-around next'
-
-    # Keyboard stand-in for binds.lua's mainMod+scroll workspace cycling -
-    # AeroSpace has no mouse/scroll bindings, so this is bound to keys instead.
-    alt-leftSquareBracket = 'workspace prev'
-    alt-rightSquareBracket = 'workspace next'
-
 # +----------------------------------------------------------+
 # |                       Window Rules                       |
 # +----------------------------------------------------------+
 
 [[on-window-detected]]
-if = 'test %{app-bundle-id} = org.mozilla.firefox'
-run = 'move-node-to-workspace 1'
-[[on-window-detected]]
 if = 'test %{app-bundle-id} = com.google.Chrome'
 run = 'move-node-to-workspace 1'
-
-[[on-window-detected]]
-if = 'test %{app-bundle-id} = com.hnc.Discord'
-run = 'move-node-to-workspace 4'
 
 [[on-window-detected]]
 if = 'test %{app-bundle-id} = com.tinyspeck.slackmacgap'
@@ -148,7 +113,11 @@ run = 'move-node-to-workspace 4'
 
 [[on-window-detected]]
 if = 'test %{app-bundle-id} = ru.keepcoder.Telegram'
-run = ['move-node-to-workspace 4', 'layout floating']
+run = ['move-node-to-workspace 5', 'layout floating']
+
+[[on-window-detected]]
+if = 'test %{app-bundle-id} = com.hnc.Discord'
+run = 'move-node-to-workspace 5'
 
 [[on-window-detected]]
 if = 'test %{app-bundle-id} = org.pqrs.Karabiner-Elements.Settings'

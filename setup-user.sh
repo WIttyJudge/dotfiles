@@ -84,6 +84,7 @@ link ".profile"
 link ".zprofile"
 
 link ".config/alacritty"
+link ".config/ghostty"
 link ".config/git"
 link ".config/htop"
 link ".config/lazygit"

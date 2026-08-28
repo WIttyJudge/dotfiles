@@ -18,42 +18,13 @@ size = 15.0
 family = "JetBrainsMono Nerd Font Mono"
 style = "Medium"
 
-[[keyboard.bindings]]
-action = "Paste"
-key = "P"
-mods = "Control"
-
-[[keyboard.bindings]]
-action = "Paste"
-key = "Insert"
-mods = "Shift"
-
-[[keyboard.bindings]]
-chars = "gc"
-key = "Slash"
-mods = "Control"
-
-[[keyboard.bindings]]
-action = "ScrollToBottom"
-key = "C"
-mode = "Vi"
-mods = "Control"
-
-[[keyboard.bindings]]
-action = "Last"
-key = "Key4"
-mode = "Vi"
-
-[[mouse.bindings]]
-action = "Copy"
-mouse = "Middle"
-
 [scrolling]
 multiplier = 1
 
 [window]
-opacity = 0.9
-# Option is not registered by default in Mac OS.
+decorations = "buttonless"
+dynamic_padding = false
+opacity = 0.8
 option_as_alt = "Both"
 
 [window.padding]

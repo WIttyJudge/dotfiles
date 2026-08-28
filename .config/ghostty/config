@@ -1,0 +1,13 @@
+theme = Catppuccin Mocha
+
+# Font Settings
+font-family = "JetBrainsMono Nerd Font Mono"
+font-size = 15
+background-opacity = 0.8
+
+window-padding-x = 0
+window-padding-y = 0
+
+macos-titlebar-style = hidden
+
+term = xterm-256color
