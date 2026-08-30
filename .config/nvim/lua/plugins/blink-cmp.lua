@@ -5,7 +5,6 @@ return {
   event = { "InsertEnter", "CmdlineEnter" },
   dependencies = {
     "rafamadriz/friendly-snippets",
-    "moyiz/blink-emoji.nvim",
     "mikavilpas/blink-ripgrep.nvim",
     "xzbdmw/colorful-menu.nvim",
   },
@@ -20,7 +19,7 @@ return {
 
     sources = {
       -- , "ripgrep"
-      default = { "lsp", "path", "snippets", "buffer", "dadbod", "emoji" },
+      default = { "lsp", "path", "snippets", "buffer", "dadbod" },
       providers = {
         buffer = {
           opts = {
@@ -34,13 +33,6 @@ return {
         dadbod = {
           name = "Dadbod",
           module = "vim_dadbod_completion.blink",
-        },
-        emoji = {
-          module = "blink-emoji",
-          name = "Emoji",
-          should_show_items = function()
-            return vim.tbl_contains({ "gitcommit", "markdown" }, vim.o.filetype)
-          end,
         },
         -- ripgrep = {
         --   module = "blink-ripgrep",

@@ -1,4 +1,3 @@
-local utils = require("internal.utils")
 local api = vim.api
 
 local autocmd = vim.api.nvim_create_autocmd

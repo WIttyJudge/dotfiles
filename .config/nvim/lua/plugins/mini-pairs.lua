@@ -2,7 +2,7 @@
 return {
   "echasnovski/mini.pairs",
   event = "VeryLazy",
-  enabled = false,
+  enabled = true,
   opts = {
     modes = { insert = true, command = true, terminal = false },
     -- skip autopair when next character is one of these
